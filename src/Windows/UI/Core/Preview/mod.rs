@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `UI_Core_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreAppWindowPreview(::windows::runtime::IInspectable);
 impl CoreAppWindowPreview {
     #[cfg(feature = "UI_WindowManagement")]
+    #[doc = "*Required features: `UI_Core_Preview`, `UI_WindowManagement`*"]
     pub fn GetIdFromWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::WindowManagement::AppWindow>>(window: Param0) -> ::windows::runtime::Result<i32> {
         Self::ICoreAppWindowPreviewStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -168,10 +170,12 @@ pub struct ISystemNavigationManagerPreviewStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Core_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(::windows::runtime::IInspectable);
 impl SystemNavigationCloseRequestedPreviewEventArgs {
+    #[doc = "*Required features: `UI_Core_Preview`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -179,11 +183,13 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Core_Preview`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Core_Preview`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -244,11 +250,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemNavigationCloseRequestedPreviewEventArgs {}
 unsafe impl ::std::marker::Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
+#[doc = "*Required features: `UI_Core_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemNavigationManagerPreview(::windows::runtime::IInspectable);
 impl SystemNavigationManagerPreview {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Core_Preview`, `Foundation`*"]
     pub fn CloseRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -257,10 +265,12 @@ impl SystemNavigationManagerPreview {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Core_Preview`, `Foundation`*"]
     pub fn RemoveCloseRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Core_Preview`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<SystemNavigationManagerPreview> {
         Self::ISystemNavigationManagerPreviewStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

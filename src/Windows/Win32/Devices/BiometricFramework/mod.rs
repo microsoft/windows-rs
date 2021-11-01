@@ -1,7 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const FACILITY_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const FACILITY_WINBIO: u32 = 9u32;
 pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803519034, 39402, 19651, [173, 107, 128, 202, 141, 113, 91, 128]);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN = unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *const u8, typeinfobuffersize: usize) -> ::windows::runtime::HRESULT;
@@ -260,6 +263,7 @@ pub type PWINBIO_QUERY_STORAGE_INTERFACE_FN = unsafe extern "system" fn(storagei
 pub type PWINBIO_VERIFY_CALLBACK = unsafe extern "system" fn(verifycallbackcontext: *const ::std::ffi::c_void, operationstatus: ::windows::runtime::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ACCOUNT_POLICY {
     pub Identity: WINBIO_IDENTITY,
     pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
@@ -282,6 +286,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ACCOUNT_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -309,6 +314,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ADAPTER_INTERFACE_VERSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
     pub Source: WINBIO_POLICY_SOURCE,
@@ -334,6 +340,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ANTI_SPOOF_POLICY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
@@ -349,6 +356,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
@@ -368,6 +376,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_NOTIFICATION_METHOD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_ASYNC_RESULT {
     pub SessionHandle: u32,
     pub Operation: u32,
@@ -402,6 +411,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub union WINBIO_ASYNC_RESULT_0 {
     pub Verify: WINBIO_ASYNC_RESULT_0_20,
     pub Identify: WINBIO_ASYNC_RESULT_0_15,
@@ -448,6 +458,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub Sample: *mut WINBIO_BIR,
     pub SampleSize: usize,
@@ -476,6 +487,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub Component: WINBIO_COMPONENT,
     pub ControlCode: u32,
@@ -518,6 +530,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
@@ -540,6 +553,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
     pub SubFactor: u8,
 }
@@ -566,6 +580,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
     pub RejectDetail: u32,
 }
@@ -593,6 +608,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_4 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub Identity: WINBIO_IDENTITY,
     pub IsNewTemplate: super::super::Foundation::BOOLEAN,
@@ -620,6 +636,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_5 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub SelectorValue: u64,
 }
@@ -646,6 +663,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_6 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_7 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
@@ -673,6 +691,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_7 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_8 {
     pub StorageCount: usize,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
@@ -700,6 +719,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_8 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactorCount: usize,
@@ -723,6 +743,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_9 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
     pub BspCount: usize,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
@@ -750,6 +771,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_10 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Event: WINBIO_EVENT,
 }
@@ -771,6 +793,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_11 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -797,6 +820,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_12 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub Identity: WINBIO_IDENTITY,
     pub Policy: WINBIO_PROTECTION_POLICY,
@@ -819,6 +843,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_13 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
@@ -843,6 +868,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_14 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
@@ -867,6 +893,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_15 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_ASYNC_RESULT_0_16 {
     pub ChangeType: u32,
     pub PresenceCount: usize,
@@ -901,6 +928,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_16 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
     pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
 }
@@ -927,6 +955,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_17 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -954,6 +983,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_18 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_ASYNC_RESULT_0_19 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
@@ -989,6 +1019,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_19 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
@@ -1022,6 +1053,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_20 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub RecordLength: u64,
     pub FormatIdentifier: u32,
@@ -1092,6 +1124,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BDB_ANSI_381_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub BlockLength: u32,
     pub HorizontalLineLength: u16,
@@ -1136,6 +1169,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BDB_ANSI_381_RECORD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BIR {
     pub HeaderBlock: WINBIO_BIR_DATA,
     pub StandardDataBlock: WINBIO_BIR_DATA,
@@ -1163,10 +1197,13 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BIR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BIR_DATA {
     pub Size: u32,
     pub Offset: u32,
@@ -1194,6 +1231,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BIR_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BIR_HEADER {
     pub ValidFields: u16,
     pub HeaderVersion: u8,
@@ -1255,6 +1293,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BIR_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BIR_HEADER_0 {
     pub BeginDate: i64,
     pub EndDate: i64,
@@ -1282,6 +1321,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BIR_HEADER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BLANK_PAYLOAD {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -1309,6 +1349,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BLANK_PAYLOAD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_BSP_SCHEMA {
     pub BiometricFactor: u32,
     pub BspId: ::windows::runtime::GUID,
@@ -1339,6 +1380,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_BSP_SCHEMA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_CALIBRATION_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -1367,6 +1409,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_CALIBRATION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_CAPTURE_DATA {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -1397,6 +1440,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_CAPTURE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_CAPTURE_PARAMETERS {
     pub PayloadSize: u32,
     pub Purpose: u8,
@@ -1425,6 +1469,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_CAPTURE_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_COMPONENT(pub u32);
@@ -1468,6 +1513,7 @@ impl ::std::ops::Not for WINBIO_COMPONENT {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
@@ -1483,6 +1529,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_CREDENTIAL_STATE(pub i32);
@@ -1497,6 +1544,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
@@ -1513,6 +1561,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_DATA {
     pub Size: u32,
     pub Data: [u8; 1],
@@ -1540,6 +1589,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_DIAGNOSTICS {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -1569,6 +1619,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_DIAGNOSTICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub PayloadSize: u32,
     pub Purpose: u8,
@@ -1601,6 +1652,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct WINBIO_ENGINE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1721,6 +1773,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_ENGINE_INTERFACE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EVENT {
     pub Type: u32,
     pub Parameters: WINBIO_EVENT_0,
@@ -1743,6 +1796,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EVENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub union WINBIO_EVENT_0 {
     pub Unclaimed: WINBIO_EVENT_0_2,
     pub UnclaimedIdentify: WINBIO_EVENT_0_1,
@@ -1766,6 +1820,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EVENT_0_0 {
     pub ErrorCode: ::windows::runtime::HRESULT,
 }
@@ -1792,6 +1847,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EVENT_0_1 {
     pub UnitId: u32,
     pub Identity: WINBIO_IDENTITY,
@@ -1816,6 +1872,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EVENT_0_2 {
     pub UnitId: u32,
     pub RejectDetail: u32,
@@ -1843,6 +1900,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO {
     pub GenericEngineCapabilities: u32,
     pub Factor: u32,
@@ -1866,6 +1924,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_ENGINE_INFO_0_0,
@@ -1891,6 +1950,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_0_0,
@@ -1918,6 +1978,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     pub Null: u32,
 }
@@ -1944,6 +2005,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_1_0,
@@ -1971,6 +2033,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -2002,6 +2065,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_2_0,
@@ -2029,6 +2093,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     pub Null: u32,
 }
@@ -2055,6 +2120,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_3_0,
@@ -2082,6 +2148,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     pub Null: u32,
 }
@@ -2108,6 +2175,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     pub Size: usize,
     pub SubFactor: u8,
@@ -2136,6 +2204,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub TemplateStatus: ::windows::runtime::HRESULT,
     pub RejectDetail: u32,
@@ -2168,6 +2237,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0,
@@ -2199,6 +2269,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     pub BoundingBox: super::super::Foundation::RECT,
     pub Distance: i32,
@@ -2233,6 +2304,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     pub AdapterId: ::windows::runtime::GUID,
     pub Data: [u32; 78],
@@ -2260,6 +2332,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -2292,6 +2365,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub EyeBoundingBox_1: super::super::Foundation::RECT,
     pub EyeBoundingBox_2: super::super::Foundation::RECT,
@@ -2342,6 +2416,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     pub X: f64,
     pub Y: f64,
@@ -2370,6 +2445,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     pub Reserved: u32,
 }
@@ -2397,6 +2473,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_EXTENDED_SENSOR_INFO {
     pub GenericSensorCapabilities: u32,
     pub Factor: u32,
@@ -2426,6 +2503,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_SENSOR_INFO_0_0,
@@ -2457,6 +2535,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     pub FrameSize: super::super::Foundation::RECT,
     pub FrameOffset: super::super::Foundation::POINT,
@@ -2492,6 +2571,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     pub ColorSensorId: [u16; 260],
     pub InfraredSensorId: [u16; 260],
@@ -2520,6 +2600,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     pub Reserved: u32,
 }
@@ -2547,6 +2628,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     pub FrameSize: super::super::Foundation::RECT,
     pub FrameOffset: super::super::Foundation::POINT,
@@ -2581,6 +2663,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     pub Reserved: u32,
 }
@@ -2607,6 +2690,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO {
     pub GenericStorageCapabilities: u32,
     pub Factor: u32,
@@ -2630,6 +2714,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
     pub Null: u32,
     pub FacialFeatures: WINBIO_EXTENDED_STORAGE_INFO_0_0,
@@ -2655,6 +2740,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     pub Capabilities: u32,
 }
@@ -2681,6 +2767,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     pub Capabilities: u32,
 }
@@ -2707,6 +2794,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     pub Capabilities: u32,
 }
@@ -2733,6 +2821,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     pub Capabilities: u32,
 }
@@ -2759,6 +2848,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: u32,
     pub ReasonCode: u32,
@@ -2784,93 +2874,178 @@ unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_UNIT_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860995i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_AUTO_LOGON_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860989i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_BAD_CAPTURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861048i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CALIBRATION_BUFFER_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860975i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860976i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860977i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CANCELED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861052i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CAPTURE_ABORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861050i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CONFIGURATION_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861005i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CRED_PROV_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861008i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CRED_PROV_NO_CREDENTIAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861007i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_CRED_PROV_SECURITY_LOCKOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860985i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861034i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_BAD_INDEX_VECTOR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861022i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_CANT_CLOSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861037i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_CANT_CREATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861039i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_CANT_ERASE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861036i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_CANT_FIND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861035i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_CANT_OPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861038i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_CORRUPTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861030i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_EOF: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861023i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_FULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861032i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_LOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861031i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_NO_MORE_RECORDS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861024i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_NO_RESULTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861025i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_NO_SUCH_RECORD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861029i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_READ_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861027i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATABASE_WRITE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861026i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATA_COLLECTION_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861045i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DATA_PROTECTION_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860986i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DEADLOCK_DETECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860992i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DEVICE_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861040i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DEVICE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861002i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861006i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DUPLICATE_ENROLLMENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861028i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_DUPLICATE_TEMPLATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861013i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860965i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_ENROLLMENT_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861049i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_EVENT_MONITOR_ACTIVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860999i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_FAST_USER_SWITCH_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861001i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INCORRECT_BSP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861020i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INCORRECT_SENSOR_POOL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861019i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INCORRECT_SESSION_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860994i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INSECURE_SENSOR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860969i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_BUFFER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860967i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_BUFFER_ID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860968i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860980i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_CONTROL_CODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861047i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_DEVICE_STATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861041i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_KEY_IDENTIFIER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860974i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_OPERATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861012i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_PROPERTY_ID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860997i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_PROPERTY_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860998i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_SENSOR_MODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861017i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_SUBFACTOR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860981i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_TICKET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860988i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_INVALID_UNIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861054i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_KEY_CREATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860973i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860972i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_LOCK_VIOLATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861014i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_MAX_ERROR_COUNT_EXCEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860990i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_NOT_ACTIVE_CONSOLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861000i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_NO_CAPTURE_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861018i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_NO_MATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861051i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_NO_PREBOOT_IDENTITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860991i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860979i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_POLICY_PROTECTION_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860970i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_PRESENCE_MONITOR_ACTIVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860982i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_PROPERTY_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860971i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_SAS_ENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861003i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_SELECTION_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860983i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_SENSOR_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861004i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_SESSION_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861011i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_SESSION_HANDLE_CLOSED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860993i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_TICKET_QUOTA_EXCEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860987i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_TRUSTLET_INTEGRITY_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860966i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNKNOWN_ID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861053i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_DATA_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861044i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_DATA_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861043i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_FACTOR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861055i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_POOL_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860984i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860996i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_PURPOSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146861042i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860978i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_FP_BU_STATE {
     pub SensorAttached: super::super::Foundation::BOOL,
     pub CreationResult: ::windows::runtime::HRESULT,
@@ -2905,6 +3080,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_FP_BU_STATE {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -3031,6 +3207,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_FRAMEWORK_INTERFACE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_GESTURE_METADATA {
     pub Size: usize,
     pub BiometricType: u32,
@@ -3060,6 +3237,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_GESTURE_METADATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_GET_INDICATOR {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -3088,6 +3266,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_GET_INDICATOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_IDENTITY {
     pub Type: u32,
     pub Value: WINBIO_IDENTITY_0,
@@ -3110,6 +3289,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub union WINBIO_IDENTITY_0 {
     pub Null: u32,
     pub Wildcard: u32,
@@ -3135,6 +3315,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_IDENTITY_0_0 {
     pub Size: u32,
     pub Data: [u8; 68],
@@ -3160,11 +3341,15 @@ unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(589826i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_I_MORE_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(589825i32 as _);
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_NOTIFY_WAKE {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -3194,6 +3379,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_NOTIFY_WAKE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct WINBIO_PIPELINE {
     pub SensorHandle: super::super::Foundation::HANDLE,
     pub EngineHandle: super::super::Foundation::HANDLE,
@@ -3244,6 +3430,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PIPELINE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_POLICY_SOURCE(pub i32);
@@ -3260,6 +3447,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_POLICY_SOURCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_POOL(pub u32);
@@ -3305,6 +3493,7 @@ impl ::std::ops::Not for WINBIO_POOL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_PRESENCE {
     pub Factor: u32,
     pub SubFactor: u8,
@@ -3339,6 +3528,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_PRESENCE_0 {
     pub Size: u32,
     pub Data: [u8; 32],
@@ -3367,6 +3557,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub union WINBIO_PRESENCE_PROPERTIES {
     pub FacialFeatures: WINBIO_PRESENCE_PROPERTIES_0,
     pub Iris: WINBIO_PRESENCE_PROPERTIES_1,
@@ -3395,6 +3586,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_PRESENCE_PROPERTIES_0 {
     pub BoundingBox: super::super::Foundation::RECT,
     pub Distance: i32,
@@ -3429,6 +3621,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
     pub AdapterId: ::windows::runtime::GUID,
     pub Data: [u32; 78],
@@ -3457,6 +3650,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub EyeBoundingBox_1: super::super::Foundation::RECT,
     pub EyeBoundingBox_2: super::super::Foundation::RECT,
@@ -3493,6 +3687,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -3521,6 +3716,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_PROTECTION_POLICY {
     pub Version: u32,
     pub Identity: WINBIO_IDENTITY,
@@ -3547,6 +3743,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_PROTECTION_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
@@ -3572,17 +3769,27 @@ unsafe impl ::windows::runtime::Abi for WINBIO_REGISTERED_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
     pub Type: u32,
     pub Size: u32,
@@ -3612,6 +3819,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_BUFFER_HEADER_V1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub Size: u32,
     pub Version: u16,
@@ -3650,6 +3858,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_CONNECTION_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
     pub PayloadSize: u32,
     pub Version: u16,
@@ -3678,6 +3887,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_CONNECTION_PARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -3740,6 +3950,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_SENSOR_ATTRIBUTES {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct WINBIO_SENSOR_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -3838,6 +4049,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_SENSOR_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
@@ -3884,6 +4096,7 @@ impl ::std::ops::Not for WINBIO_SETTING_SOURCE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SET_INDICATOR {
     pub PayloadSize: u32,
     pub IndicatorStatus: u32,
@@ -3912,6 +4125,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_SET_INDICATOR {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct WINBIO_STORAGE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -4010,6 +4224,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_INTERFACE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_STORAGE_RECORD {
     pub Identity: *mut WINBIO_IDENTITY,
     pub SubFactor: u8,
@@ -4052,6 +4267,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_RECORD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_STORAGE_SCHEMA {
     pub BiometricFactor: u32,
     pub DatabaseId: ::windows::runtime::GUID,
@@ -4083,6 +4299,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_SCHEMA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_SUPPORTED_ALGORITHMS {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::runtime::HRESULT,
@@ -4112,6 +4329,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_SUPPORTED_ALGORITHMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_UNIT_SCHEMA {
     pub UnitId: u32,
     pub PoolType: u32,
@@ -4160,6 +4378,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_UNIT_SCHEMA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_UPDATE_FIRMWARE {
     pub PayloadSize: u32,
     pub FirmwareData: WINBIO_DATA,
@@ -4187,6 +4406,7 @@ unsafe impl ::windows::runtime::Abi for WINBIO_UPDATE_FIRMWARE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -4212,8 +4432,11 @@ unsafe impl ::windows::runtime::Abi for WINBIO_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioAcquireFocus() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4227,6 +4450,7 @@ pub unsafe fn WinBioAcquireFocus() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4240,6 +4464,7 @@ pub unsafe fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4253,6 +4478,7 @@ pub unsafe fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4266,6 +4492,7 @@ pub unsafe fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4280,6 +4507,7 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param1, messagecode: u32, callbackroutine: ::std::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: *const ::std::ffi::c_void, asynchronousopen: Param5) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -4295,6 +4523,7 @@ pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param11: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     factor: u32,
@@ -4337,6 +4566,7 @@ pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4350,6 +4580,7 @@ pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::runtime::Result<()>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: *mut u32, sample: *mut *mut WINBIO_BIR, samplesize: *mut usize, rejectdetail: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4363,6 +4594,7 @@ pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, un
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::std::option::Option<PWINBIO_CAPTURE_CALLBACK>, capturecallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4376,6 +4608,7 @@ pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, f
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4389,6 +4622,7 @@ pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4402,6 +4636,7 @@ pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::runtime::Resu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4427,6 +4662,7 @@ pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4452,6 +4688,7 @@ pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, compo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4465,6 +4702,7 @@ pub unsafe fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4478,6 +4716,7 @@ pub unsafe fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -4492,6 +4731,7 @@ pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::std::option::Option<PWINBIO_ENROLL_CAPTURE_CALLBACK>, enrollcallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4505,6 +4745,7 @@ pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENTITY, isnewtemplate: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4518,6 +4759,7 @@ pub unsafe fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4531,6 +4773,7 @@ pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4544,6 +4787,7 @@ pub unsafe fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA, unitcount: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4557,6 +4801,7 @@ pub unsafe fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut W
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA, storagecount: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4570,6 +4815,7 @@ pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WIN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4583,6 +4829,7 @@ pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4596,6 +4843,7 @@ pub unsafe fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioFree(address: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4609,6 +4857,7 @@ pub unsafe fn WinBioFree(address: *const ::std::ffi::c_void) -> ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioGetCredentialState<'a, Param0: ::windows::runtime::IntoParam<'a, WINBIO_IDENTITY>>(identity: Param0, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows::runtime::Result<WINBIO_CREDENTIAL_STATE> {
     #[cfg(windows)]
@@ -4623,6 +4872,7 @@ pub unsafe fn WinBioGetCredentialState<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
@@ -4636,6 +4886,7 @@ pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
@@ -4649,6 +4900,7 @@ pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTIN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -4663,6 +4915,7 @@ pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
@@ -4676,6 +4929,7 @@ pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::std::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4689,6 +4943,7 @@ pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4702,6 +4957,7 @@ pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::std::option::Option<PWINBIO_IDENTIFY_CALLBACK>, identifycallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4715,6 +4971,7 @@ pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4728,6 +4985,7 @@ pub unsafe fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4741,6 +4999,7 @@ pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -4755,6 +5014,7 @@ pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::runtime::Resu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::std::option::Option<PWINBIO_LOCATE_SENSOR_CALLBACK>, locatecallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4768,6 +5028,7 @@ pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4781,6 +5042,7 @@ pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4794,6 +5056,7 @@ pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4807,6 +5070,7 @@ pub unsafe fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -4821,6 +5085,7 @@ pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::std::option::Option<PWINBIO_EVENT_CALLBACK>, eventcallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4834,6 +5099,7 @@ pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eve
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioReleaseFocus() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4847,6 +5113,7 @@ pub unsafe fn WinBioReleaseFocus() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4860,6 +5127,7 @@ pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioRemoveAllDomainCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4873,6 +5141,7 @@ pub unsafe fn WinBioRemoveAllDomainCredentials() -> ::windows::runtime::Result<(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioRemoveCredential<'a, Param0: ::windows::runtime::IntoParam<'a, WINBIO_IDENTITY>>(identity: Param0, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4886,6 +5155,7 @@ pub unsafe fn WinBioRemoveCredential<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *const u8, credentialsize: usize, format: WINBIO_CREDENTIAL_FORMAT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4899,6 +5169,7 @@ pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::std::ffi::c_void, propertybuffersize: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4912,6 +5183,7 @@ pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4925,6 +5197,7 @@ pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4938,6 +5211,7 @@ pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: *mut u32, r#match: *mut u8, rejectdetail: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4952,6 +5226,7 @@ pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::std::option::Option<PWINBIO_VERIFY_CALLBACK>, verifycallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4965,6 +5240,7 @@ pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[inline]
 pub unsafe fn WinBioWait(sessionhandle: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

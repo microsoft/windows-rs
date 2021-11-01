@@ -3,8 +3,10 @@
 pub mod LicenseManagement;
 #[cfg(feature = "ApplicationModel_Store_Preview")]
 pub mod Preview;
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 pub struct CurrentApp {}
 impl CurrentApp {
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn LicenseInformation() -> ::windows::runtime::Result<LicenseInformation> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -12,12 +14,14 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn LinkUri() -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn AppId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
@@ -25,6 +29,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RequestAppPurchaseAsync(includereceipt: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -33,6 +38,7 @@ impl CurrentApp {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RequestProductPurchaseAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(productid: Param0, includereceipt: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -40,6 +46,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn LoadListingInformationAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -47,6 +54,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn GetAppReceiptAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -54,6 +62,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn GetProductReceiptAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(productid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -61,6 +70,7 @@ impl CurrentApp {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn LoadListingInformationByProductIdsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(productids: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -68,16 +78,19 @@ impl CurrentApp {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn LoadListingInformationByKeywordsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(keywords: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), keywords.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ReportProductFulfillment<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(productid: Param0) -> ::windows::runtime::Result<()> {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), productid.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn GetAppPurchaseCampaignIdAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentAppWithCampaignId(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -85,6 +98,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn ReportConsumableFulfillmentAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(productid: Param0, transactionid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -92,6 +106,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RequestProductPurchaseWithResultsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(productid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -99,6 +114,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ProductPurchaseDisplayProperties>>(productid: Param0, offerid: Param1, displayproperties: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -106,6 +122,7 @@ impl CurrentApp {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetUnfulfilledConsumablesAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -113,6 +130,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn GetCustomerPurchaseIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(serviceticket: Param0, publisheruserid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentApp2Statics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -120,6 +138,7 @@ impl CurrentApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn GetCustomerCollectionsIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(serviceticket: Param0, publisheruserid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentApp2Statics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -150,8 +169,10 @@ impl CurrentApp {
 impl ::windows::runtime::RuntimeName for CurrentApp {
     const NAME: &'static str = "Windows.ApplicationModel.Store.CurrentApp";
 }
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 pub struct CurrentAppSimulator {}
 impl CurrentAppSimulator {
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn LicenseInformation() -> ::windows::runtime::Result<LicenseInformation> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -159,12 +180,14 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn LinkUri() -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn AppId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
@@ -172,6 +195,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RequestAppPurchaseAsync(includereceipt: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -180,6 +204,7 @@ impl CurrentAppSimulator {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RequestProductPurchaseAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(productid: Param0, includereceipt: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -187,6 +212,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn LoadListingInformationAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -194,6 +220,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn GetAppReceiptAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -201,6 +228,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn GetProductReceiptAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(productid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -208,6 +236,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`, `Storage`*"]
     pub fn ReloadSimulatorAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StorageFile>>(simulatorsettingsfile: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -215,6 +244,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn LoadListingInformationByProductIdsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(productids: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppSimulatorStaticsWithFiltering(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -222,6 +252,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn LoadListingInformationByKeywordsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(keywords: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppSimulatorStaticsWithFiltering(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -229,6 +260,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn GetAppPurchaseCampaignIdAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICurrentAppSimulatorWithCampaignId(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -236,6 +268,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn ReportConsumableFulfillmentAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(productid: Param0, transactionid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -243,6 +276,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RequestProductPurchaseWithResultsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(productid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -250,6 +284,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ProductPurchaseDisplayProperties>>(productid: Param0, offerid: Param1, displayproperties: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -257,6 +292,7 @@ impl CurrentAppSimulator {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetUnfulfilledConsumablesAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -283,6 +319,7 @@ impl CurrentAppSimulator {
 impl ::windows::runtime::RuntimeName for CurrentAppSimulator {
     const NAME: &'static str = "Windows.ApplicationModel.Store.CurrentAppSimulator";
 }
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FulfillmentResult(pub i32);
@@ -823,6 +860,7 @@ pub struct IUnfulfilledConsumable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LicenseChangedEventHandler(::windows::runtime::IUnknown);
@@ -835,6 +873,7 @@ impl LicenseChangedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this)).ok() }
@@ -894,11 +933,13 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> LicenseChangedEvent
         ((*this).invoke)().into()
     }
 }
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LicenseInformation(::windows::runtime::IInspectable);
 impl LicenseInformation {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation_Collections`*"]
     pub fn ProductLicenses(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ProductLicense>> {
         let this = self;
         unsafe {
@@ -906,6 +947,7 @@ impl LicenseInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ProductLicense>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn IsActive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -913,6 +955,7 @@ impl LicenseInformation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn IsTrial(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -921,6 +964,7 @@ impl LicenseInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn ExpirationDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -929,6 +973,7 @@ impl LicenseInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn LicenseChanged<'a, Param0: ::windows::runtime::IntoParam<'a, LicenseChangedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -937,6 +982,7 @@ impl LicenseInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn RemoveLicenseChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
@@ -994,10 +1040,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LicenseInformation {}
 unsafe impl ::std::marker::Sync for LicenseInformation {}
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ListingInformation(::windows::runtime::IInspectable);
 impl ListingInformation {
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn CurrentMarket(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1005,6 +1053,7 @@ impl ListingInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1013,6 +1062,7 @@ impl ListingInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation_Collections`*"]
     pub fn ProductListings(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ProductListing>> {
         let this = self;
         unsafe {
@@ -1020,6 +1070,7 @@ impl ListingInformation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ProductListing>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn FormattedPrice(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1027,6 +1078,7 @@ impl ListingInformation {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1034,6 +1086,7 @@ impl ListingInformation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn AgeRating(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1041,6 +1094,7 @@ impl ListingInformation {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn FormattedBasePrice(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IListingInformation2>(self)?;
         unsafe {
@@ -1049,6 +1103,7 @@ impl ListingInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn SaleEndDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = &::windows::runtime::Interface::cast::<IListingInformation2>(self)?;
         unsafe {
@@ -1056,6 +1111,7 @@ impl ListingInformation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn IsOnSale(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IListingInformation2>(self)?;
         unsafe {
@@ -1063,6 +1119,7 @@ impl ListingInformation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn CurrencyCode(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IListingInformation2>(self)?;
         unsafe {
@@ -1123,10 +1180,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ListingInformation {}
 unsafe impl ::std::marker::Sync for ListingInformation {}
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProductLicense(::windows::runtime::IInspectable);
 impl ProductLicense {
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1134,6 +1193,7 @@ impl ProductLicense {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn IsActive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1142,6 +1202,7 @@ impl ProductLicense {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn ExpirationDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1149,6 +1210,7 @@ impl ProductLicense {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn IsConsumable(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IProductLicenseWithFulfillment>(self)?;
         unsafe {
@@ -1209,10 +1271,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ProductLicense {}
 unsafe impl ::std::marker::Sync for ProductLicense {}
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProductListing(::windows::runtime::IInspectable);
 impl ProductListing {
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1220,6 +1284,7 @@ impl ProductListing {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn FormattedPrice(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1227,6 +1292,7 @@ impl ProductListing {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1234,6 +1300,7 @@ impl ProductListing {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
@@ -1242,6 +1309,7 @@ impl ProductListing {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation_Collections`*"]
     pub fn Keywords(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
@@ -1249,6 +1317,7 @@ impl ProductListing {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ProductType(&self) -> ::windows::runtime::Result<ProductType> {
         let this = &::windows::runtime::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
@@ -1256,6 +1325,7 @@ impl ProductListing {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProductType>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
@@ -1264,6 +1334,7 @@ impl ProductListing {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn ImageUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
@@ -1271,6 +1342,7 @@ impl ProductListing {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn FormattedBasePrice(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IProductListing2>(self)?;
         unsafe {
@@ -1279,6 +1351,7 @@ impl ProductListing {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn SaleEndDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = &::windows::runtime::Interface::cast::<IProductListing2>(self)?;
         unsafe {
@@ -1286,6 +1359,7 @@ impl ProductListing {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn IsOnSale(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IProductListing2>(self)?;
         unsafe {
@@ -1293,6 +1367,7 @@ impl ProductListing {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn CurrencyCode(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IProductListing2>(self)?;
         unsafe {
@@ -1353,6 +1428,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ProductListing {}
 unsafe impl ::std::marker::Sync for ProductListing {}
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProductPurchaseDisplayProperties(::windows::runtime::IInspectable);
@@ -1364,6 +1440,7 @@ impl ProductPurchaseDisplayProperties {
         static mut SHARED: ::windows::runtime::FactoryCache<ProductPurchaseDisplayProperties, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1371,10 +1448,12 @@ impl ProductPurchaseDisplayProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1382,11 +1461,13 @@ impl ProductPurchaseDisplayProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn Image(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1395,10 +1476,12 @@ impl ProductPurchaseDisplayProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Store`, `Foundation`*"]
     pub fn SetImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn CreateProductPurchaseDisplayProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<ProductPurchaseDisplayProperties> {
         Self::IProductPurchaseDisplayPropertiesFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1462,6 +1545,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::std::marker::Sync for ProductPurchaseDisplayProperties {}
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProductPurchaseStatus(pub i32);
@@ -1483,6 +1567,7 @@ unsafe impl ::windows::runtime::Abi for ProductPurchaseStatus {
 unsafe impl ::windows::runtime::RuntimeType for ProductPurchaseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductPurchaseStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProductType(pub i32);
@@ -1503,10 +1588,12 @@ unsafe impl ::windows::runtime::Abi for ProductType {
 unsafe impl ::windows::runtime::RuntimeType for ProductType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PurchaseResults(::windows::runtime::IInspectable);
 impl PurchaseResults {
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<ProductPurchaseStatus> {
         let this = self;
         unsafe {
@@ -1514,6 +1601,7 @@ impl PurchaseResults {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProductPurchaseStatus>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn TransactionId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -1521,6 +1609,7 @@ impl PurchaseResults {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ReceiptXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1528,6 +1617,7 @@ impl PurchaseResults {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn OfferId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1588,10 +1678,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PurchaseResults {}
 unsafe impl ::std::marker::Sync for PurchaseResults {}
+#[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UnfulfilledConsumable(::windows::runtime::IInspectable);
 impl UnfulfilledConsumable {
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1599,6 +1691,7 @@ impl UnfulfilledConsumable {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn TransactionId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -1606,6 +1699,7 @@ impl UnfulfilledConsumable {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn OfferId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {

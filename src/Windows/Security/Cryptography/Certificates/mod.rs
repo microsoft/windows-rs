@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Certificate(::windows::runtime::IInspectable);
 impl Certificate {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`, `Foundation_Collections`*"]
     pub fn BuildChainAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>>(&self, certificates: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>> {
         let this = self;
         unsafe {
@@ -12,6 +14,7 @@ impl Certificate {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`, `Foundation_Collections`*"]
     pub fn BuildChainWithParametersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Param1: ::windows::runtime::IntoParam<'a, ChainBuildingParameters>>(&self, certificates: Param0, parameters: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>> {
         let this = self;
         unsafe {
@@ -19,6 +22,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), certificates.into_param().abi(), parameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<CertificateChain>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SerialNumber(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -26,6 +30,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn GetHashValue(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -33,6 +38,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn GetHashValueWithAlgorithm<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, hashalgorithmname: Param0) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -41,6 +47,7 @@ impl Certificate {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Storage_Streams`*"]
     pub fn GetCertificateBlob(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -48,6 +55,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -55,6 +63,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Issuer(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -62,6 +71,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn HasPrivateKey(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -69,6 +79,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IsStronglyProtected(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -77,6 +88,7 @@ impl Certificate {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ValidFrom(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -85,6 +97,7 @@ impl Certificate {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ValidTo(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -93,6 +106,7 @@ impl Certificate {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn EnhancedKeyUsages(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -100,10 +114,12 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -111,6 +127,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IsSecurityDeviceBound(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICertificate2>(self)?;
         unsafe {
@@ -118,6 +135,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyUsages(&self) -> ::windows::runtime::Result<CertificateKeyUsages> {
         let this = &::windows::runtime::Interface::cast::<ICertificate2>(self)?;
         unsafe {
@@ -125,6 +143,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CertificateKeyUsages>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyAlgorithmName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificate2>(self)?;
         unsafe {
@@ -132,6 +151,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SignatureAlgorithmName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificate2>(self)?;
         unsafe {
@@ -139,6 +159,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SignatureHashAlgorithmName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificate2>(self)?;
         unsafe {
@@ -146,6 +167,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SubjectAlternativeName(&self) -> ::windows::runtime::Result<SubjectAlternativeNameInfo> {
         let this = &::windows::runtime::Interface::cast::<ICertificate2>(self)?;
         unsafe {
@@ -154,12 +176,14 @@ impl Certificate {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Storage_Streams`*"]
     pub fn CreateCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(certblob: Param0) -> ::windows::runtime::Result<Certificate> {
         Self::ICertificateFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), certblob.into_param().abi(), &mut result__).from_abi::<Certificate>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IsPerUser(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICertificate3>(self)?;
         unsafe {
@@ -167,6 +191,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn StoreName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificate3>(self)?;
         unsafe {
@@ -174,6 +199,7 @@ impl Certificate {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyStorageProviderName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificate3>(self)?;
         unsafe {
@@ -238,10 +264,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for Certificate {}
 unsafe impl ::std::marker::Sync for Certificate {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CertificateChain(::windows::runtime::IInspectable);
 impl CertificateChain {
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Validate(&self) -> ::windows::runtime::Result<ChainValidationResult> {
         let this = self;
         unsafe {
@@ -249,6 +277,7 @@ impl CertificateChain {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ChainValidationResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn ValidateWithParameters<'a, Param0: ::windows::runtime::IntoParam<'a, ChainValidationParameters>>(&self, parameter: Param0) -> ::windows::runtime::Result<ChainValidationResult> {
         let this = self;
         unsafe {
@@ -257,6 +286,7 @@ impl CertificateChain {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn GetCertificates(&self, includeroot: bool) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
         let this = self;
         unsafe {
@@ -317,6 +347,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CertificateChain {}
 unsafe impl ::std::marker::Sync for CertificateChain {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CertificateChainPolicy(pub i32);
@@ -338,9 +369,11 @@ unsafe impl ::windows::runtime::Abi for CertificateChainPolicy {
 unsafe impl ::windows::runtime::RuntimeType for CertificateChainPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct CertificateEnrollmentManager {}
 impl CertificateEnrollmentManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn CreateRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, CertificateRequestProperties>>(request: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -348,6 +381,7 @@ impl CertificateEnrollmentManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn InstallCertificateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(certificate: Param0, installoption: InstallOptions) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -355,12 +389,14 @@ impl CertificateEnrollmentManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ImportPfxDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(pfxdata: Param0, password: Param1, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: Param5) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn UserCertificateEnrollmentManager() -> ::windows::runtime::Result<UserCertificateEnrollmentManager> {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -368,6 +404,7 @@ impl CertificateEnrollmentManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ImportPfxDataToKspAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param6: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         pfxdata: Param0,
         password: Param1,
@@ -383,6 +420,7 @@ impl CertificateEnrollmentManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ImportPfxDataToKspWithParametersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, PfxImportParameters>>(pfxdata: Param0, password: Param1, pfximportparameters: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -405,6 +443,7 @@ impl CertificateEnrollmentManager {
 impl ::windows::runtime::RuntimeName for CertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager";
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CertificateExtension(::windows::runtime::IInspectable);
@@ -416,6 +455,7 @@ impl CertificateExtension {
         static mut SHARED: ::windows::runtime::FactoryCache<CertificateExtension, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn ObjectId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -423,10 +463,12 @@ impl CertificateExtension {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetObjectId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IsCritical(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -434,14 +476,17 @@ impl CertificateExtension {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetIsCritical(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn EncodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -449,6 +494,7 @@ impl CertificateExtension {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetValue(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
@@ -506,6 +552,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CertificateExtension {}
 unsafe impl ::std::marker::Sync for CertificateExtension {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CertificateKeyUsages(::windows::runtime::IInspectable);
@@ -517,6 +564,7 @@ impl CertificateKeyUsages {
         static mut SHARED: ::windows::runtime::FactoryCache<CertificateKeyUsages, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn EncipherOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -524,10 +572,12 @@ impl CertificateKeyUsages {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetEncipherOnly(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn CrlSign(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -535,10 +585,12 @@ impl CertificateKeyUsages {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetCrlSign(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyCertificateSign(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -546,10 +598,12 @@ impl CertificateKeyUsages {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyCertificateSign(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyAgreement(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -557,10 +611,12 @@ impl CertificateKeyUsages {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyAgreement(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn DataEncipherment(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -568,10 +624,12 @@ impl CertificateKeyUsages {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetDataEncipherment(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyEncipherment(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -579,10 +637,12 @@ impl CertificateKeyUsages {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyEncipherment(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn NonRepudiation(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -590,10 +650,12 @@ impl CertificateKeyUsages {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetNonRepudiation(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn DigitalSignature(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -601,6 +663,7 @@ impl CertificateKeyUsages {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetDigitalSignature(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
@@ -658,6 +721,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CertificateKeyUsages {}
 unsafe impl ::std::marker::Sync for CertificateKeyUsages {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CertificateQuery(::windows::runtime::IInspectable);
@@ -670,6 +734,7 @@ impl CertificateQuery {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn EnhancedKeyUsages(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -677,6 +742,7 @@ impl CertificateQuery {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IssuerName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -684,10 +750,12 @@ impl CertificateQuery {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetIssuerName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -695,10 +763,12 @@ impl CertificateQuery {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Thumbprint(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -706,10 +776,12 @@ impl CertificateQuery {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetThumbprint(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn HardwareOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -717,10 +789,12 @@ impl CertificateQuery {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetHardwareOnly(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IncludeDuplicates(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe {
@@ -728,10 +802,12 @@ impl CertificateQuery {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetIncludeDuplicates(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IncludeExpiredCertificates(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe {
@@ -739,10 +815,12 @@ impl CertificateQuery {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetIncludeExpiredCertificates(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn StoreName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe {
@@ -750,6 +828,7 @@ impl CertificateQuery {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetStoreName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -807,6 +886,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CertificateQuery {}
 unsafe impl ::std::marker::Sync for CertificateQuery {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CertificateRequestProperties(::windows::runtime::IInspectable);
@@ -818,6 +898,7 @@ impl CertificateRequestProperties {
         static mut SHARED: ::windows::runtime::FactoryCache<CertificateRequestProperties, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -825,10 +906,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetSubject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyAlgorithmName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -836,10 +919,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyAlgorithmName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeySize(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -847,10 +932,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeySize(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -858,10 +945,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn HashAlgorithmName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -869,10 +958,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetHashAlgorithmName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Exportable(&self) -> ::windows::runtime::Result<ExportOption> {
         let this = self;
         unsafe {
@@ -880,10 +971,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ExportOption>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetExportable(&self, value: ExportOption) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyUsages(&self) -> ::windows::runtime::Result<EnrollKeyUsages> {
         let this = self;
         unsafe {
@@ -891,10 +984,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EnrollKeyUsages>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyUsages(&self, value: EnrollKeyUsages) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyProtectionLevel(&self) -> ::windows::runtime::Result<KeyProtectionLevel> {
         let this = self;
         unsafe {
@@ -902,10 +997,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<KeyProtectionLevel>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyProtectionLevel(&self, value: KeyProtectionLevel) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyStorageProviderName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -913,10 +1010,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyStorageProviderName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SmartcardReaderName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe {
@@ -924,10 +1023,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetSmartcardReaderName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SigningCertificate(&self) -> ::windows::runtime::Result<Certificate> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe {
@@ -935,10 +1036,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Certificate>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetSigningCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, Certificate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn AttestationCredentialCertificate(&self) -> ::windows::runtime::Result<Certificate> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe {
@@ -946,10 +1049,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Certificate>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetAttestationCredentialCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, Certificate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn CurveName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
@@ -957,10 +1062,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetCurveName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn CurveParameters(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
@@ -968,10 +1075,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), ::windows::runtime::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetCurveParameters(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn ContainerNamePrefix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
@@ -979,10 +1088,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetContainerNamePrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn ContainerName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
@@ -990,10 +1101,12 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetContainerName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn UseExistingKey(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
@@ -1001,11 +1114,13 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetUseExistingKey(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn SuppressedDefaults(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
@@ -1013,6 +1128,7 @@ impl CertificateRequestProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SubjectAlternativeName(&self) -> ::windows::runtime::Result<SubjectAlternativeNameInfo> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
@@ -1021,6 +1137,7 @@ impl CertificateRequestProperties {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn Extensions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<CertificateExtension>> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
@@ -1081,18 +1198,22 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CertificateRequestProperties {}
 unsafe impl ::std::marker::Sync for CertificateRequestProperties {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CertificateStore(::windows::runtime::IInspectable);
 impl CertificateStore {
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, Certificate>>(&self, certificate: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), certificate.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, Certificate>>(&self, certificate: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), certificate.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ICertificateStore2>(self)?;
         unsafe {
@@ -1153,9 +1274,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CertificateStore {}
 unsafe impl ::std::marker::Sync for CertificateStore {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct CertificateStores {}
 impl CertificateStores {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsync() -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1163,30 +1286,35 @@ impl CertificateStores {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllWithQueryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, CertificateQuery>>(query: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), query.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn TrustedRootCertificationAuthorities() -> ::windows::runtime::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CertificateStore>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IntermediateCertificationAuthorities() -> ::windows::runtime::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CertificateStore>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn GetStoreByName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(storename: Param0) -> ::windows::runtime::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), storename.into_param().abi(), &mut result__).from_abi::<CertificateStore>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn GetUserStoreByName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(storename: Param0) -> ::windows::runtime::Result<UserCertificateStore> {
         Self::ICertificateStoresStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1205,6 +1333,7 @@ impl CertificateStores {
 impl ::windows::runtime::RuntimeName for CertificateStores {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStores";
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ChainBuildingParameters(::windows::runtime::IInspectable);
@@ -1217,6 +1346,7 @@ impl ChainBuildingParameters {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn EnhancedKeyUsages(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1225,6 +1355,7 @@ impl ChainBuildingParameters {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ValidationTimestamp(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1233,10 +1364,12 @@ impl ChainBuildingParameters {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn SetValidationTimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn RevocationCheckEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1244,10 +1377,12 @@ impl ChainBuildingParameters {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetRevocationCheckEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn NetworkRetrievalEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1255,10 +1390,12 @@ impl ChainBuildingParameters {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetNetworkRetrievalEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn AuthorityInformationAccessEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1266,10 +1403,12 @@ impl ChainBuildingParameters {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetAuthorityInformationAccessEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn CurrentTimeValidationEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1277,11 +1416,13 @@ impl ChainBuildingParameters {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetCurrentTimeValidationEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn ExclusiveTrustRoots(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<Certificate>> {
         let this = self;
         unsafe {
@@ -1342,6 +1483,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ChainBuildingParameters {}
 unsafe impl ::std::marker::Sync for ChainBuildingParameters {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ChainValidationParameters(::windows::runtime::IInspectable);
@@ -1353,6 +1495,7 @@ impl ChainValidationParameters {
         static mut SHARED: ::windows::runtime::FactoryCache<ChainValidationParameters, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn CertificateChainPolicy(&self) -> ::windows::runtime::Result<CertificateChainPolicy> {
         let this = self;
         unsafe {
@@ -1360,11 +1503,13 @@ impl ChainValidationParameters {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CertificateChainPolicy>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetCertificateChainPolicy(&self, value: CertificateChainPolicy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Networking")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Networking`*"]
     pub fn ServerDnsName(&self) -> ::windows::runtime::Result<super::super::super::Networking::HostName> {
         let this = self;
         unsafe {
@@ -1373,6 +1518,7 @@ impl ChainValidationParameters {
         }
     }
     #[cfg(feature = "Networking")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Networking`*"]
     pub fn SetServerDnsName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Networking::HostName>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1430,6 +1576,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ChainValidationParameters {}
 unsafe impl ::std::marker::Sync for ChainValidationParameters {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ChainValidationResult(pub i32);
@@ -1461,11 +1608,13 @@ unsafe impl ::windows::runtime::Abi for ChainValidationResult {
 unsafe impl ::windows::runtime::RuntimeType for ChainValidationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CmsAttachedSignature(::windows::runtime::IInspectable);
 impl CmsAttachedSignature {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn Certificates(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
         let this = self;
         unsafe {
@@ -1473,6 +1622,7 @@ impl CmsAttachedSignature {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -1481,6 +1631,7 @@ impl CmsAttachedSignature {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn Signers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>> {
         let this = self;
         unsafe {
@@ -1488,6 +1639,7 @@ impl CmsAttachedSignature {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn VerifySignature(&self) -> ::windows::runtime::Result<SignatureValidationResult> {
         let this = self;
         unsafe {
@@ -1496,6 +1648,7 @@ impl CmsAttachedSignature {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Storage_Streams`*"]
     pub fn CreateCmsAttachedSignature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(inputblob: Param0) -> ::windows::runtime::Result<CmsAttachedSignature> {
         Self::ICmsAttachedSignatureFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1503,6 +1656,7 @@ impl CmsAttachedSignature {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`, `Foundation_Collections`, `Storage_Streams`*"]
     pub fn GenerateSignatureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>>(
         data: Param0,
         signers: Param1,
@@ -1574,11 +1728,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CmsAttachedSignature {}
 unsafe impl ::std::marker::Sync for CmsAttachedSignature {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CmsDetachedSignature(::windows::runtime::IInspectable);
 impl CmsDetachedSignature {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn Certificates(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
         let this = self;
         unsafe {
@@ -1587,6 +1743,7 @@ impl CmsDetachedSignature {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn Signers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>> {
         let this = self;
         unsafe {
@@ -1595,6 +1752,7 @@ impl CmsDetachedSignature {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`, `Storage_Streams`*"]
     pub fn VerifySignatureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>>(&self, data: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>> {
         let this = self;
         unsafe {
@@ -1603,6 +1761,7 @@ impl CmsDetachedSignature {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Storage_Streams`*"]
     pub fn CreateCmsDetachedSignature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(inputblob: Param0) -> ::windows::runtime::Result<CmsDetachedSignature> {
         Self::ICmsDetachedSignatureFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1610,6 +1769,7 @@ impl CmsDetachedSignature {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`, `Foundation_Collections`, `Storage_Streams`*"]
     pub fn GenerateSignatureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>>(
         data: Param0,
         signers: Param1,
@@ -1681,6 +1841,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CmsDetachedSignature {}
 unsafe impl ::std::marker::Sync for CmsDetachedSignature {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CmsSignerInfo(::windows::runtime::IInspectable);
@@ -1692,6 +1853,7 @@ impl CmsSignerInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<CmsSignerInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Certificate(&self) -> ::windows::runtime::Result<Certificate> {
         let this = self;
         unsafe {
@@ -1699,10 +1861,12 @@ impl CmsSignerInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Certificate>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, Certificate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn HashAlgorithmName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1710,10 +1874,12 @@ impl CmsSignerInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetHashAlgorithmName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn TimestampInfo(&self) -> ::windows::runtime::Result<CmsTimestampInfo> {
         let this = self;
         unsafe {
@@ -1774,10 +1940,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CmsSignerInfo {}
 unsafe impl ::std::marker::Sync for CmsSignerInfo {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CmsTimestampInfo(::windows::runtime::IInspectable);
 impl CmsTimestampInfo {
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SigningCertificate(&self) -> ::windows::runtime::Result<Certificate> {
         let this = self;
         unsafe {
@@ -1786,6 +1954,7 @@ impl CmsTimestampInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn Certificates(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
         let this = self;
         unsafe {
@@ -1794,6 +1963,7 @@ impl CmsTimestampInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1854,6 +2024,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CmsTimestampInfo {}
 unsafe impl ::std::marker::Sync for CmsTimestampInfo {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EnrollKeyUsages(pub u32);
@@ -1904,6 +2075,7 @@ impl ::std::ops::Not for EnrollKeyUsages {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExportOption(pub i32);
@@ -2983,6 +3155,7 @@ pub struct IUserCertificateStore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InstallOptions(pub u32);
@@ -3030,62 +3203,73 @@ impl ::std::ops::Not for InstallOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct KeyAlgorithmNames {}
 impl KeyAlgorithmNames {
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Rsa() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Dsa() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Ecdh256() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Ecdh384() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Ecdh521() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Ecdsa256() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Ecdsa384() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Ecdsa521() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Ecdsa() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Ecdh() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAlgorithmNamesStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -3104,15 +3288,18 @@ impl KeyAlgorithmNames {
 impl ::windows::runtime::RuntimeName for KeyAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.KeyAlgorithmNames";
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct KeyAttestationHelper {}
 impl KeyAttestationHelper {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn DecryptTpmAttestationCredentialAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(credential: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), credential.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn GetTpmAttestationCredentialId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(credential: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -3120,6 +3307,7 @@ impl KeyAttestationHelper {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn DecryptTpmAttestationCredentialWithContainerNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(credential: Param0, containername: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::IKeyAttestationHelperStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3138,6 +3326,7 @@ impl KeyAttestationHelper {
 impl ::windows::runtime::RuntimeName for KeyAttestationHelper {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.KeyAttestationHelper";
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KeyProtectionLevel(pub i32);
@@ -3159,6 +3348,7 @@ unsafe impl ::windows::runtime::Abi for KeyProtectionLevel {
 unsafe impl ::windows::runtime::RuntimeType for KeyProtectionLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KeySize(pub i32);
@@ -3179,26 +3369,31 @@ unsafe impl ::windows::runtime::Abi for KeySize {
 unsafe impl ::windows::runtime::RuntimeType for KeySize {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct KeyStorageProviderNames {}
 impl KeyStorageProviderNames {
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SoftwareKeyStorageProvider() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyStorageProviderNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SmartcardKeyStorageProvider() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyStorageProviderNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn PlatformKeyStorageProvider() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyStorageProviderNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn PassportKeyStorageProvider() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKeyStorageProviderNamesStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -3217,6 +3412,7 @@ impl KeyStorageProviderNames {
 impl ::windows::runtime::RuntimeName for KeyStorageProviderNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.KeyStorageProviderNames";
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PfxImportParameters(::windows::runtime::IInspectable);
@@ -3228,6 +3424,7 @@ impl PfxImportParameters {
         static mut SHARED: ::windows::runtime::FactoryCache<PfxImportParameters, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Exportable(&self) -> ::windows::runtime::Result<ExportOption> {
         let this = self;
         unsafe {
@@ -3235,10 +3432,12 @@ impl PfxImportParameters {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ExportOption>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetExportable(&self, value: ExportOption) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyProtectionLevel(&self) -> ::windows::runtime::Result<KeyProtectionLevel> {
         let this = self;
         unsafe {
@@ -3246,10 +3445,12 @@ impl PfxImportParameters {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<KeyProtectionLevel>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyProtectionLevel(&self, value: KeyProtectionLevel) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn InstallOptions(&self) -> ::windows::runtime::Result<InstallOptions> {
         let this = self;
         unsafe {
@@ -3257,10 +3458,12 @@ impl PfxImportParameters {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InstallOptions>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetInstallOptions(&self, value: InstallOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3268,10 +3471,12 @@ impl PfxImportParameters {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn KeyStorageProviderName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3279,10 +3484,12 @@ impl PfxImportParameters {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetKeyStorageProviderName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn ContainerNamePrefix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3290,10 +3497,12 @@ impl PfxImportParameters {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetContainerNamePrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn ReaderName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3301,6 +3510,7 @@ impl PfxImportParameters {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn SetReaderName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3358,6 +3568,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PfxImportParameters {}
 unsafe impl ::std::marker::Sync for PfxImportParameters {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SignatureValidationResult(pub i32);
@@ -3380,20 +3591,24 @@ unsafe impl ::windows::runtime::Abi for SignatureValidationResult {
 unsafe impl ::windows::runtime::RuntimeType for SignatureValidationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct StandardCertificateStoreNames {}
 impl StandardCertificateStoreNames {
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Personal() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardCertificateStoreNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn TrustedRootCertificationAuthorities() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardCertificateStoreNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn IntermediateCertificationAuthorities() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStandardCertificateStoreNamesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -3408,6 +3623,7 @@ impl StandardCertificateStoreNames {
 impl ::windows::runtime::RuntimeName for StandardCertificateStoreNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames";
 }
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SubjectAlternativeNameInfo(::windows::runtime::IInspectable);
@@ -3420,6 +3636,7 @@ impl SubjectAlternativeNameInfo {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn EmailName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3428,6 +3645,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn IPAddress(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3436,6 +3654,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn Url(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3444,6 +3663,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn DnsName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3452,6 +3672,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn DistinguishedName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3460,6 +3681,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn PrincipalName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3468,6 +3690,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn EmailNames(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
@@ -3476,6 +3699,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn IPAddresses(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
@@ -3484,6 +3708,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn Urls(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
@@ -3492,6 +3717,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn DnsNames(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
@@ -3500,6 +3726,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn DistinguishedNames(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
@@ -3508,6 +3735,7 @@ impl SubjectAlternativeNameInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation_Collections`*"]
     pub fn PrincipalNames(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
@@ -3515,6 +3743,7 @@ impl SubjectAlternativeNameInfo {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Extension(&self) -> ::windows::runtime::Result<CertificateExtension> {
         let this = &::windows::runtime::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
@@ -3575,11 +3804,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SubjectAlternativeNameInfo {}
 unsafe impl ::std::marker::Sync for SubjectAlternativeNameInfo {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserCertificateEnrollmentManager(::windows::runtime::IInspectable);
 impl UserCertificateEnrollmentManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn CreateRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, CertificateRequestProperties>>(&self, request: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3588,6 +3819,7 @@ impl UserCertificateEnrollmentManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn InstallCertificateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, certificate: Param0, installoption: InstallOptions) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3596,6 +3828,7 @@ impl UserCertificateEnrollmentManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ImportPfxDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, pfxdata: Param0, password: Param1, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: Param5) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3604,6 +3837,7 @@ impl UserCertificateEnrollmentManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ImportPfxDataToKspAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param6: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         &self,
         pfxdata: Param0,
@@ -3621,6 +3855,7 @@ impl UserCertificateEnrollmentManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn ImportPfxDataToKspWithParametersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, PfxImportParameters>>(&self, pfxdata: Param0, password: Param1, pfximportparameters: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IUserCertificateEnrollmentManager2>(self)?;
         unsafe {
@@ -3681,11 +3916,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserCertificateEnrollmentManager {}
 unsafe impl ::std::marker::Sync for UserCertificateEnrollmentManager {}
+#[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserCertificateStore(::windows::runtime::IInspectable);
 impl UserCertificateStore {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn RequestAddAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Certificate>>(&self, certificate: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3694,6 +3931,7 @@ impl UserCertificateStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Cryptography_Certificates`, `Foundation`*"]
     pub fn RequestDeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Certificate>>(&self, certificate: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3701,6 +3939,7 @@ impl UserCertificateStore {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), certificate.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {

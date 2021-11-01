@@ -2,6 +2,7 @@
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -39,6 +40,7 @@ unsafe impl ::windows::runtime::Abi for CONNECTDLGSTRUCTA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -73,6 +75,7 @@ unsafe impl ::windows::runtime::Abi for CONNECTDLGSTRUCTW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
@@ -119,19 +122,30 @@ impl ::std::ops::Not for CONNECTDLGSTRUCT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_CRED_RESET: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_CURRENT_MEDIA: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_GLOBAL_MAPPING: u32 = 262144u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_LOCALDRIVE: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_NEED_DRIVE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_REFCOUNT: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_REQUIRE_INTEGRITY: u32 = 16384u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_REQUIRE_PRIVACY: u32 = 32768u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_RESERVED: u32 = 4278190080u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -169,6 +183,7 @@ unsafe impl ::windows::runtime::Abi for DISCDLGSTRUCTA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -203,6 +218,7 @@ unsafe impl ::windows::runtime::Abi for DISCDLGSTRUCTW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISCDLGSTRUCT_FLAGS(pub u32);
@@ -246,6 +262,7 @@ impl ::std::ops::Not for DISCDLGSTRUCT_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MultinetGetConnectionPerformanceA(lpnetresource: *const NETRESOURCEA, lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT) -> u32 {
     #[cfg(windows)]
@@ -260,6 +277,7 @@ pub unsafe fn MultinetGetConnectionPerformanceA(lpnetresource: *const NETRESOURC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MultinetGetConnectionPerformanceW(lpnetresource: *const NETRESOURCEW, lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT) -> u32 {
     #[cfg(windows)]
@@ -275,6 +293,7 @@ pub unsafe fn MultinetGetConnectionPerformanceW(lpnetresource: *const NETRESOURC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -306,6 +325,7 @@ unsafe impl ::windows::runtime::Abi for NETCONNECTINFOSTRUCT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -352,6 +372,7 @@ unsafe impl ::windows::runtime::Abi for NETINFOSTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
@@ -395,10 +416,12 @@ impl ::std::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct NETRESOURCEA {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -448,6 +471,7 @@ unsafe impl ::windows::runtime::Abi for NETRESOURCEA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct NETRESOURCEW {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -494,6 +518,7 @@ unsafe impl ::windows::runtime::Abi for NETRESOURCEW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
@@ -536,6 +561,7 @@ impl ::std::ops::Not for NETWORK_NAME_FORMAT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_RESOURCE_SCOPE(pub u32);
@@ -580,6 +606,7 @@ impl ::std::ops::Not for NET_RESOURCE_SCOPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_RESOURCE_TYPE(pub u32);
@@ -623,6 +650,7 @@ impl ::std::ops::Not for NET_RESOURCE_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_USE_CONNECT_FLAGS(pub u32);
@@ -675,6 +703,7 @@ impl ::std::ops::Not for NET_USE_CONNECT_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct NOTIFYADD {
     pub hwndOwner: super::super::Foundation::HWND,
     pub NetResource: NETRESOURCEA,
@@ -710,6 +739,7 @@ unsafe impl ::windows::runtime::Abi for NOTIFYADD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct NOTIFYCANCEL {
     pub lpName: super::super::Foundation::PWSTR,
     pub lpProvider: super::super::Foundation::PWSTR,
@@ -745,6 +775,7 @@ unsafe impl ::windows::runtime::Abi for NOTIFYCANCEL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub struct NOTIFYINFO {
     pub dwNotifyStatus: u32,
     pub dwOperationStatus: u32,
@@ -771,9 +802,12 @@ unsafe impl ::windows::runtime::Abi for NOTIFYINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const NOTIFY_POST: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const NOTIFY_PRE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPAddConnection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnetresource: *const NETRESOURCEW, lppassword: Param1, lpusername: Param2) -> u32 {
     #[cfg(windows)]
@@ -788,6 +822,7 @@ pub unsafe fn NPAddConnection<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPAddConnection3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEW, lppassword: Param2, lpusername: Param3, dwflags: NET_USE_CONNECT_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -802,6 +837,7 @@ pub unsafe fn NPAddConnection3<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPAddConnection4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEW, lpauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -816,6 +852,7 @@ pub unsafe fn NPAddConnection4<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPCancelConnection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpname: Param0, fforce: Param1) -> u32 {
     #[cfg(windows)]
@@ -830,6 +867,7 @@ pub unsafe fn NPCancelConnection<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPCancelConnection2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpname: Param0, fforce: Param1, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -844,6 +882,7 @@ pub unsafe fn NPCancelConnection2<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPCloseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
     #[cfg(windows)]
@@ -857,6 +896,7 @@ pub unsafe fn NPCloseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
@@ -901,6 +941,7 @@ impl ::std::ops::Not for NPDIRECTORY_NOTIFY_OPERATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPEnumResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, lpccount: *mut u32, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -915,6 +956,7 @@ pub unsafe fn NPEnumResource<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPFormatNetworkName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpremotename: Param0, lpformattedname: super::super::Foundation::PWSTR, lpnlength: *mut u32, dwflags: NETWORK_NAME_FORMAT_FLAGS, dwavecharperline: u32) -> u32 {
     #[cfg(windows)]
@@ -928,6 +970,7 @@ pub unsafe fn NPFormatNetworkName<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[inline]
 pub unsafe fn NPGetCaps(ndex: u32) -> u32 {
     #[cfg(windows)]
@@ -942,6 +985,7 @@ pub unsafe fn NPGetCaps(ndex: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPGetConnection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lplocalname: Param0, lpremotename: super::super::Foundation::PWSTR, lpnbufferlen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -956,6 +1000,7 @@ pub unsafe fn NPGetConnection<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPGetConnection3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lplocalname: Param0, dwlevel: u32, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -970,6 +1015,7 @@ pub unsafe fn NPGetConnection3<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPGetConnectionPerformance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpremotename: Param0, lpnetconnectinfo: *mut NETCONNECTINFOSTRUCT) -> u32 {
     #[cfg(windows)]
@@ -984,6 +1030,7 @@ pub unsafe fn NPGetConnectionPerformance<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPGetPersistentUseOptionsForConnection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpremotepath: Param0, lpreaduseoptions: *const u8, cbreaduseoptions: u32, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -998,6 +1045,7 @@ pub unsafe fn NPGetPersistentUseOptionsForConnection<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPGetResourceInformation(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -1012,6 +1060,7 @@ pub unsafe fn NPGetResourceInformation(lpnetresource: *const NETRESOURCEW, lpbuf
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPGetResourceParent(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1026,6 +1075,7 @@ pub unsafe fn NPGetResourceParent(lpnetresource: *const NETRESOURCEW, lpbuffer: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPGetUniversalName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lplocalpath: Param0, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1040,6 +1090,7 @@ pub unsafe fn NPGetUniversalName<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPGetUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0, lpusername: super::super::Foundation::PWSTR, lpnbufferlen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1054,6 +1105,7 @@ pub unsafe fn NPGetUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource: *const NETRESOURCEW, lphenum: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -1067,6 +1119,7 @@ pub unsafe fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
@@ -1187,6 +1240,7 @@ pub type PF_NPSearchDialog = unsafe extern "system" fn(hwndparent: super::super:
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: super::super::Foundation::PSTR,
     pub lpConnectionName: super::super::Foundation::PSTR,
@@ -1222,6 +1276,7 @@ unsafe impl ::windows::runtime::Abi for REMOTE_NAME_INFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: super::super::Foundation::PWSTR,
     pub lpConnectionName: super::super::Foundation::PWSTR,
@@ -1254,17 +1309,29 @@ unsafe impl ::windows::runtime::Abi for REMOTE_NAME_INFOW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEDISPLAYTYPE_NDSCONTAINER: u32 = 11u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEDISPLAYTYPE_NETWORK: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEDISPLAYTYPE_ROOT: u32 = 7u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEDISPLAYTYPE_SHAREADMIN: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCETYPE_RESERVED: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCETYPE_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEUSAGE_NOLOCALDEVICE: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEUSAGE_RESERVED: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEUSAGE_SIBLING: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCE_RECENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UNC_INFO_LEVEL(pub u32);
@@ -1310,6 +1377,7 @@ impl ::std::ops::Not for UNC_INFO_LEVEL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: super::super::Foundation::PSTR,
 }
@@ -1343,6 +1411,7 @@ unsafe impl ::windows::runtime::Abi for UNIVERSAL_NAME_INFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: super::super::Foundation::PWSTR,
 }
@@ -1373,12 +1442,19 @@ unsafe impl ::windows::runtime::Abi for UNIVERSAL_NAME_INFOW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNCON_DYNAMIC: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNCON_FORNETCARD: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNCON_NOTROUTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNCON_SLOWLINK: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNDT_NETWORK: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNDT_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WNET_OPEN_ENUM_USAGE(pub u32);
@@ -1424,48 +1500,91 @@ impl ::std::ops::Not for WNET_OPEN_ENUM_USAGE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNFMT_CONNECTION: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNFMT_INENUM: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNGETCON_CONNECTED: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNGETCON_DISCONNECTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_ADMIN: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_ADM_DIRECTORYNOTIFY: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_ADM_GETDIRECTORYTYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CONNECTION: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CONNECTION_FLAGS: u32 = 13u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CON_ADDCONNECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CON_ADDCONNECTION3: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CON_ADDCONNECTION4: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CON_CANCELCONNECTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CON_CANCELCONNECTION2: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CON_DEFER: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CON_GETCONNECTIONS: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_CON_GETPERFORMANCE: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DIALOG: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DLG_DEVICEMODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DLG_FORMATNETWORKNAME: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DLG_GETRESOURCEINFORMATION: u32 = 2048u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DLG_GETRESOURCEPARENT: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DLG_PERMISSIONEDITOR: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DLG_PROPERTYDIALOG: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DLG_SEARCHDIALOG: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_DRIVER_VERSION: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_ENUMERATION: u32 = 11u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_ENUM_CONTEXT: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_ENUM_GLOBAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_ENUM_LOCAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_ENUM_SHAREABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_NET_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_NET_TYPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_SPEC_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_SPEC_VERSION51: u32 = 327681u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_START: u32 = 12u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_USER: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_USR_GETUSER: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNNC_WAIT_FOR_START: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNPERMC_AUDIT: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNPERMC_OWNER: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNPERMC_PERM: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WNPERM_DLG(pub u32);
@@ -1509,18 +1628,30 @@ impl ::std::ops::Not for WNPERM_DLG {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNSRCH_REFRESH_FIRST_LEVEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNTYPE_COMM: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNTYPE_DRIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNTYPE_FILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNTYPE_PRINTER: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WN_CREDENTIAL_CLASS: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WN_NETWORK_CLASS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WN_NT_PASSWORD_CHANGED: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WN_PRIMARY_AUTHENT_CLASS: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WN_SERVICE_CLASS: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetAddConnection2A<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpnetresource: *const NETRESOURCEA, lppassword: Param1, lpusername: Param2, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -1535,6 +1666,7 @@ pub unsafe fn WNetAddConnection2A<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetAddConnection2W<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnetresource: *const NETRESOURCEW, lppassword: Param1, lpusername: Param2, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -1549,6 +1681,7 @@ pub unsafe fn WNetAddConnection2W<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetAddConnection3A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEA, lppassword: Param2, lpusername: Param3, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -1563,6 +1696,7 @@ pub unsafe fn WNetAddConnection3A<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetAddConnection3W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEW, lppassword: Param2, lpusername: Param3, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -1577,6 +1711,7 @@ pub unsafe fn WNetAddConnection3W<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetAddConnection4A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEA, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -1591,6 +1726,7 @@ pub unsafe fn WNetAddConnection4A<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetAddConnection4W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEW, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -1605,6 +1741,7 @@ pub unsafe fn WNetAddConnection4W<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetAddConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpremotename: Param0, lppassword: Param1, lplocalname: Param2) -> u32 {
     #[cfg(windows)]
@@ -1619,6 +1756,7 @@ pub unsafe fn WNetAddConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetAddConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpremotename: Param0, lppassword: Param1, lplocalname: Param2) -> u32 {
     #[cfg(windows)]
@@ -1633,6 +1771,7 @@ pub unsafe fn WNetAddConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetCancelConnection2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpname: Param0, dwflags: u32, fforce: Param2) -> u32 {
     #[cfg(windows)]
@@ -1647,6 +1786,7 @@ pub unsafe fn WNetCancelConnection2A<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetCancelConnection2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpname: Param0, dwflags: u32, fforce: Param2) -> u32 {
     #[cfg(windows)]
@@ -1661,6 +1801,7 @@ pub unsafe fn WNetCancelConnection2W<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetCancelConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpname: Param0, fforce: Param1) -> u32 {
     #[cfg(windows)]
@@ -1675,6 +1816,7 @@ pub unsafe fn WNetCancelConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetCancelConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpname: Param0, fforce: Param1) -> u32 {
     #[cfg(windows)]
@@ -1689,6 +1831,7 @@ pub unsafe fn WNetCancelConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetCloseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
     #[cfg(windows)]
@@ -1703,6 +1846,7 @@ pub unsafe fn WNetCloseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetConnectionDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwtype: u32) -> u32 {
     #[cfg(windows)]
@@ -1717,6 +1861,7 @@ pub unsafe fn WNetConnectionDialog<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetConnectionDialog1A(lpconndlgstruct: *mut CONNECTDLGSTRUCTA) -> u32 {
     #[cfg(windows)]
@@ -1731,6 +1876,7 @@ pub unsafe fn WNetConnectionDialog1A(lpconndlgstruct: *mut CONNECTDLGSTRUCTA) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetConnectionDialog1W(lpconndlgstruct: *mut CONNECTDLGSTRUCTW) -> u32 {
     #[cfg(windows)]
@@ -1745,6 +1891,7 @@ pub unsafe fn WNetConnectionDialog1W(lpconndlgstruct: *mut CONNECTDLGSTRUCTW) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetDisconnectDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwtype: u32) -> u32 {
     #[cfg(windows)]
@@ -1759,6 +1906,7 @@ pub unsafe fn WNetDisconnectDialog<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetDisconnectDialog1A(lpconndlgstruct: *const DISCDLGSTRUCTA) -> u32 {
     #[cfg(windows)]
@@ -1773,6 +1921,7 @@ pub unsafe fn WNetDisconnectDialog1A(lpconndlgstruct: *const DISCDLGSTRUCTA) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetDisconnectDialog1W(lpconndlgstruct: *const DISCDLGSTRUCTW) -> u32 {
     #[cfg(windows)]
@@ -1787,6 +1936,7 @@ pub unsafe fn WNetDisconnectDialog1W(lpconndlgstruct: *const DISCDLGSTRUCTW) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetEnumResourceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, lpccount: *mut u32, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1801,6 +1951,7 @@ pub unsafe fn WNetEnumResourceA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetEnumResourceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, lpccount: *mut u32, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1815,6 +1966,7 @@ pub unsafe fn WNetEnumResourceW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lplocalname: Param0, lpremotename: super::super::Foundation::PSTR, lpnlength: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1829,6 +1981,7 @@ pub unsafe fn WNetGetConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lplocalname: Param0, lpremotename: super::super::Foundation::PWSTR, lpnlength: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1843,6 +1996,7 @@ pub unsafe fn WNetGetConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetLastErrorA(lperror: *mut u32, lperrorbuf: super::super::Foundation::PSTR, nerrorbufsize: u32, lpnamebuf: super::super::Foundation::PSTR, nnamebufsize: u32) -> u32 {
     #[cfg(windows)]
@@ -1857,6 +2011,7 @@ pub unsafe fn WNetGetLastErrorA(lperror: *mut u32, lperrorbuf: super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: super::super::Foundation::PWSTR, nerrorbufsize: u32, lpnamebuf: super::super::Foundation::PWSTR, nnamebufsize: u32) -> u32 {
     #[cfg(windows)]
@@ -1871,6 +2026,7 @@ pub unsafe fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetNetworkInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpprovider: Param0, lpnetinfostruct: *mut NETINFOSTRUCT) -> u32 {
     #[cfg(windows)]
@@ -1885,6 +2041,7 @@ pub unsafe fn WNetGetNetworkInformationA<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetNetworkInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpprovider: Param0, lpnetinfostruct: *mut NETINFOSTRUCT) -> u32 {
     #[cfg(windows)]
@@ -1899,6 +2056,7 @@ pub unsafe fn WNetGetNetworkInformationW<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetProviderNameA(dwnettype: u32, lpprovidername: super::super::Foundation::PSTR, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1913,6 +2071,7 @@ pub unsafe fn WNetGetProviderNameA(dwnettype: u32, lpprovidername: super::super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetProviderNameW(dwnettype: u32, lpprovidername: super::super::Foundation::PWSTR, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1927,6 +2086,7 @@ pub unsafe fn WNetGetProviderNameW(dwnettype: u32, lpprovidername: super::super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetResourceInformationA(lpnetresource: *const NETRESOURCEA, lpbuffer: *mut ::std::ffi::c_void, lpcbbuffer: *mut u32, lplpsystem: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -1941,6 +2101,7 @@ pub unsafe fn WNetGetResourceInformationA(lpnetresource: *const NETRESOURCEA, lp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetResourceInformationW(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::std::ffi::c_void, lpcbbuffer: *mut u32, lplpsystem: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -1955,6 +2116,7 @@ pub unsafe fn WNetGetResourceInformationW(lpnetresource: *const NETRESOURCEW, lp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetResourceParentA(lpnetresource: *const NETRESOURCEA, lpbuffer: *mut ::std::ffi::c_void, lpcbbuffer: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1969,6 +2131,7 @@ pub unsafe fn WNetGetResourceParentA(lpnetresource: *const NETRESOURCEA, lpbuffe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetResourceParentW(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::std::ffi::c_void, lpcbbuffer: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1983,6 +2146,7 @@ pub unsafe fn WNetGetResourceParentW(lpnetresource: *const NETRESOURCEW, lpbuffe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetUniversalNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lplocalpath: Param0, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1997,6 +2161,7 @@ pub unsafe fn WNetGetUniversalNameA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetUniversalNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lplocalpath: Param0, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::std::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2011,6 +2176,7 @@ pub unsafe fn WNetGetUniversalNameW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetUserA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0, lpusername: super::super::Foundation::PSTR, lpnlength: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2025,6 +2191,7 @@ pub unsafe fn WNetGetUserA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetGetUserW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0, lpusername: super::super::Foundation::PWSTR, lpnlength: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2039,6 +2206,7 @@ pub unsafe fn WNetGetUserW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetOpenEnumA(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TYPE, dwusage: WNET_OPEN_ENUM_USAGE, lpnetresource: *const NETRESOURCEA, lphenum: *mut NetEnumHandle) -> u32 {
     #[cfg(windows)]
@@ -2053,6 +2221,7 @@ pub unsafe fn WNetOpenEnumA(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TY
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TYPE, dwusage: WNET_OPEN_ENUM_USAGE, lpnetresource: *const NETRESOURCEW, lphenum: *mut NetEnumHandle) -> u32 {
     #[cfg(windows)]
@@ -2067,6 +2236,7 @@ pub unsafe fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TY
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetSetLastErrorA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(err: u32, lperror: Param1, lpproviders: Param2) {
     #[cfg(windows)]
@@ -2081,6 +2251,7 @@ pub unsafe fn WNetSetLastErrorA<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetSetLastErrorW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(err: u32, lperror: Param1, lpproviders: Param2) {
     #[cfg(windows)]
@@ -2095,6 +2266,7 @@ pub unsafe fn WNetSetLastErrorW<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetUseConnection4A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEA, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32, lpaccessname: super::super::Foundation::PSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2120,6 +2292,7 @@ pub unsafe fn WNetUseConnection4A<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetUseConnection4W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEW, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32, lpaccessname: super::super::Foundation::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2145,6 +2318,7 @@ pub unsafe fn WNetUseConnection4W<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetUseConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEA, lppassword: Param2, lpuserid: Param3, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: super::super::Foundation::PSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2159,6 +2333,7 @@ pub unsafe fn WNetUseConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WNet`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WNetUseConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, lpnetresource: *const NETRESOURCEW, lppassword: Param2, lpuserid: Param3, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: super::super::Foundation::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32 {
     #[cfg(windows)]

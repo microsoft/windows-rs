@@ -115,6 +115,7 @@ pub struct IWebUICommandBarConfirmationButton_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 pub struct IWebUICommandBarElement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarElement {
     type Vtable = IWebUICommandBarElement_abi;
@@ -176,6 +177,7 @@ pub struct IWebUICommandBarElement_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 pub struct IWebUICommandBarIcon(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarIcon {
     type Vtable = IWebUICommandBarIcon_abi;
@@ -364,6 +366,7 @@ pub struct IWebUICommandBarSymbolIconFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, symbol: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MenuClosedEventHandler(::windows::runtime::IUnknown);
@@ -376,6 +379,7 @@ impl MenuClosedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this)).ok() }
@@ -435,6 +439,7 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> MenuClosedEventHand
         ((*this).invoke)().into()
     }
 }
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MenuOpenedEventHandler(::windows::runtime::IUnknown);
@@ -447,6 +452,7 @@ impl MenuOpenedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this)).ok() }
@@ -506,6 +512,7 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> MenuOpenedEventHand
         ((*this).invoke)().into()
     }
 }
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SizeChangedEventHandler(::windows::runtime::IUnknown);
@@ -518,6 +525,7 @@ impl SizeChangedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, WebUICommandBarSizeChangedEventArgs>>(&self, eventargs: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), eventargs.into_param().abi()).ok() }
@@ -577,10 +585,12 @@ impl<F: FnMut(&::std::option::Option<WebUICommandBarSizeChangedEventArgs>) -> ::
         ((*this).invoke)(&*(&eventargs as *const <WebUICommandBarSizeChangedEventArgs as ::windows::runtime::Abi>::Abi as *const <WebUICommandBarSizeChangedEventArgs as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBar(::windows::runtime::IInspectable);
 impl WebUICommandBar {
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Visible(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -588,10 +598,12 @@ impl WebUICommandBar {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetVisible(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Opacity(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -599,10 +611,12 @@ impl WebUICommandBar {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetOpacity(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn ForegroundColor(&self) -> ::windows::runtime::Result<super::super::Color> {
         let this = self;
         unsafe {
@@ -610,10 +624,12 @@ impl WebUICommandBar {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Color>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn BackgroundColor(&self) -> ::windows::runtime::Result<super::super::Color> {
         let this = self;
         unsafe {
@@ -621,10 +637,12 @@ impl WebUICommandBar {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Color>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn ClosedDisplayMode(&self) -> ::windows::runtime::Result<WebUICommandBarClosedDisplayMode> {
         let this = self;
         unsafe {
@@ -632,10 +650,12 @@ impl WebUICommandBar {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WebUICommandBarClosedDisplayMode>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetClosedDisplayMode(&self, value: WebUICommandBarClosedDisplayMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn IsOpen(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -643,11 +663,13 @@ impl WebUICommandBar {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetIsOpen(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -656,6 +678,7 @@ impl WebUICommandBar {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation_Collections`*"]
     pub fn PrimaryCommands(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>> {
         let this = self;
         unsafe {
@@ -664,6 +687,7 @@ impl WebUICommandBar {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation_Collections`*"]
     pub fn SecondaryCommands(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>> {
         let this = self;
         unsafe {
@@ -672,6 +696,7 @@ impl WebUICommandBar {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn MenuOpened<'a, Param0: ::windows::runtime::IntoParam<'a, MenuOpenedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -680,11 +705,13 @@ impl WebUICommandBar {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn RemoveMenuOpened<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn MenuClosed<'a, Param0: ::windows::runtime::IntoParam<'a, MenuClosedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -693,11 +720,13 @@ impl WebUICommandBar {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn RemoveMenuClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn SizeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, SizeChangedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -706,10 +735,12 @@ impl WebUICommandBar {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn RemoveSizeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<WebUICommandBar> {
         Self::IWebUICommandBarStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -773,6 +804,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for WebUICommandBar {}
 unsafe impl ::std::marker::Sync for WebUICommandBar {}
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarBitmapIcon(::windows::runtime::IInspectable);
@@ -785,6 +817,7 @@ impl WebUICommandBarBitmapIcon {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -793,11 +826,13 @@ impl WebUICommandBarBitmapIcon {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<WebUICommandBarBitmapIcon> {
         Self::IWebUICommandBarBitmapIconFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -883,6 +918,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebUICommandBarIcon> for &WebUIComma
 }
 unsafe impl ::std::marker::Send for WebUICommandBarBitmapIcon {}
 unsafe impl ::std::marker::Sync for WebUICommandBarBitmapIcon {}
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WebUICommandBarClosedDisplayMode(pub i32);
@@ -903,6 +939,7 @@ unsafe impl ::windows::runtime::Abi for WebUICommandBarClosedDisplayMode {
 unsafe impl ::windows::runtime::RuntimeType for WebUICommandBarClosedDisplayMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.Core.WebUICommandBarClosedDisplayMode;i4)");
 }
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarConfirmationButton(::windows::runtime::IInspectable);
@@ -914,6 +951,7 @@ impl WebUICommandBarConfirmationButton {
         static mut SHARED: ::windows::runtime::FactoryCache<WebUICommandBarConfirmationButton, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -921,11 +959,13 @@ impl WebUICommandBarConfirmationButton {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn ItemInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WebUICommandBarConfirmationButton, WebUICommandBarItemInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -934,6 +974,7 @@ impl WebUICommandBarConfirmationButton {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn RemoveItemInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1016,6 +1057,7 @@ unsafe impl ::std::marker::Sync for WebUICommandBarConfirmationButton {}
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct WebUICommandBarContract(pub u8);
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarIconButton(::windows::runtime::IInspectable);
@@ -1027,6 +1069,7 @@ impl WebUICommandBarIconButton {
         static mut SHARED: ::windows::runtime::FactoryCache<WebUICommandBarIconButton, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Enabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1034,10 +1077,12 @@ impl WebUICommandBarIconButton {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1045,10 +1090,12 @@ impl WebUICommandBarIconButton {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn IsToggleButton(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1056,10 +1103,12 @@ impl WebUICommandBarIconButton {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetIsToggleButton(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn IsChecked(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1067,10 +1116,12 @@ impl WebUICommandBarIconButton {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetIsChecked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Icon(&self) -> ::windows::runtime::Result<IWebUICommandBarIcon> {
         let this = self;
         unsafe {
@@ -1078,11 +1129,13 @@ impl WebUICommandBarIconButton {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IWebUICommandBarIcon>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetIcon<'a, Param0: ::windows::runtime::IntoParam<'a, IWebUICommandBarIcon>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn ItemInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WebUICommandBarIconButton, WebUICommandBarItemInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1091,6 +1144,7 @@ impl WebUICommandBarIconButton {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn RemoveItemInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1170,10 +1224,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWebUICommandBarElement> for &WebUICo
 }
 unsafe impl ::std::marker::Send for WebUICommandBarIconButton {}
 unsafe impl ::std::marker::Sync for WebUICommandBarIconButton {}
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarItemInvokedEventArgs(::windows::runtime::IInspectable);
 impl WebUICommandBarItemInvokedEventArgs {
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn IsPrimaryCommand(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1234,11 +1290,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for WebUICommandBarItemInvokedEventArgs {}
 unsafe impl ::std::marker::Sync for WebUICommandBarItemInvokedEventArgs {}
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarSizeChangedEventArgs(::windows::runtime::IInspectable);
 impl WebUICommandBarSizeChangedEventArgs {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WebUI_Core`, `Foundation`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -1299,6 +1357,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for WebUICommandBarSizeChangedEventArgs {}
 unsafe impl ::std::marker::Sync for WebUICommandBarSizeChangedEventArgs {}
+#[doc = "*Required features: `UI_WebUI_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebUICommandBarSymbolIcon(::windows::runtime::IInspectable);
@@ -1310,6 +1369,7 @@ impl WebUICommandBarSymbolIcon {
         static mut SHARED: ::windows::runtime::FactoryCache<WebUICommandBarSymbolIcon, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Symbol(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1317,10 +1377,12 @@ impl WebUICommandBarSymbolIcon {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn SetSymbol<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_WebUI_Core`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(symbol: Param0) -> ::windows::runtime::Result<WebUICommandBarSymbolIcon> {
         Self::IWebUICommandBarSymbolIconFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

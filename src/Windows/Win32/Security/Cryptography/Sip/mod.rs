@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14,6 +15,7 @@ pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -28,6 +30,7 @@ pub unsafe fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcb
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -42,6 +45,7 @@ pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56,6 +60,7 @@ pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -70,6 +75,7 @@ pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwen
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptSIPLoad(pgsubject: *const ::windows::runtime::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -84,6 +90,7 @@ pub unsafe fn CryptSIPLoad(pgsubject: *const ::windows::runtime::GUID, dwflags: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -98,6 +105,7 @@ pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwenc
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSIPRemoveProvider(pgprov: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -112,6 +120,7 @@ pub unsafe fn CryptSIPRemoveProvider(pgprov: *mut ::windows::runtime::GUID) -> s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -126,6 +135,7 @@ pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dw
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSIPRetrieveSubjectGuid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filename: Param0, hfilein: Param1, pgsubject: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -140,6 +150,7 @@ pub unsafe fn CryptSIPRetrieveSubjectGuid<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filename: Param0, hfilein: Param1, pgsubject: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -154,6 +165,7 @@ pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<'a, Param0: ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -167,11 +179,15 @@ pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const MSSIP_FLAGS_USE_CATALOG: u32 = 131072u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub struct MS_ADDINFO_BLOB {
     pub cbStruct: u32,
     pub cbMemObject: u32,
@@ -203,6 +219,7 @@ unsafe impl ::windows::runtime::Abi for MS_ADDINFO_BLOB {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut super::Catalog::CRYPTCATSTORE,
@@ -238,6 +255,7 @@ unsafe impl ::windows::runtime::Abi for MS_ADDINFO_CATALOGMEMBER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
@@ -272,6 +290,7 @@ unsafe impl ::windows::runtime::Abi for MS_ADDINFO_FLAT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
     pub pgSubject: *mut ::windows::runtime::GUID,
@@ -337,11 +356,14 @@ unsafe impl ::windows::runtime::Abi for SIP_ADD_NEWPROVIDER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SIP_CAP_FLAG_SEALING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SIP_CAP_SET_CUR_VER: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 pub struct SIP_CAP_SET_V2 {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -378,6 +400,7 @@ unsafe impl ::windows::runtime::Abi for SIP_CAP_SET_V2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 pub struct SIP_CAP_SET_V3 {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -407,6 +430,7 @@ unsafe impl ::windows::runtime::Abi for SIP_CAP_SET_V3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub union SIP_CAP_SET_V3_0 {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -427,11 +451,14 @@ unsafe impl ::windows::runtime::Abi for SIP_CAP_SET_V3_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
@@ -471,6 +498,7 @@ unsafe impl ::windows::runtime::Abi for SIP_DISPATCH_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`*"]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
@@ -503,10 +531,12 @@ unsafe impl ::windows::runtime::Abi for SIP_INDIRECT_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 pub struct SIP_SUBJECTINFO {
     pub cbSize: u32,
     pub pgSubjectType: *mut ::windows::runtime::GUID,
@@ -551,6 +581,7 @@ unsafe impl ::windows::runtime::Abi for SIP_SUBJECTINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
     pub psCatMember: *mut MS_ADDINFO_CATALOGMEMBER,
@@ -577,16 +608,27 @@ unsafe impl ::windows::runtime::Abi for SIP_SUBJECTINFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_DIGEST_GENERATE_FLAG: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_DIGEST_SIGN_EX_FLAG: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_DIGEST_SIGN_FLAG: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_EXC_PE_PAGE_HASHES_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_INC_PE_DEBUG_INFO_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_INC_PE_PAGE_HASHES_FLAG: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_INC_PE_RESOURCES_FLAG: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub type pCryptSIPCreateIndirectData = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;

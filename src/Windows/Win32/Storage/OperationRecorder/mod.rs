@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_OperationRecorder`*"]
 pub struct OPERATION_END_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
@@ -27,6 +28,7 @@ unsafe impl ::windows::runtime::Abi for OPERATION_END_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_OperationRecorder`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OPERATION_END_PARAMETERS_FLAGS(pub u32);
@@ -68,6 +70,7 @@ impl ::std::ops::Not for OPERATION_END_PARAMETERS_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Storage_OperationRecorder`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OPERATION_START_FLAGS(pub u32);
@@ -111,6 +114,7 @@ impl ::std::ops::Not for OPERATION_START_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_OperationRecorder`*"]
 pub struct OPERATION_START_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
@@ -138,6 +142,7 @@ unsafe impl ::windows::runtime::Abi for OPERATION_START_PARAMETERS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_OperationRecorder`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -152,6 +157,7 @@ pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_OperationRecorder`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

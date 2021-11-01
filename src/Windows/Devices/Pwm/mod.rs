@@ -113,10 +113,12 @@ pub struct IPwmPin_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Devices_Pwm`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PwmController(::windows::runtime::IInspectable);
 impl PwmController {
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn PinCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -124,6 +126,7 @@ impl PwmController {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn ActualFrequency(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -131,6 +134,7 @@ impl PwmController {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn SetDesiredFrequency(&self, desiredfrequency: f64) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -138,6 +142,7 @@ impl PwmController {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), desiredfrequency, &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn MinFrequency(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -145,6 +150,7 @@ impl PwmController {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn MaxFrequency(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -152,6 +158,7 @@ impl PwmController {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn OpenPin(&self, pinnumber: i32) -> ::windows::runtime::Result<PwmPin> {
         let this = self;
         unsafe {
@@ -160,6 +167,7 @@ impl PwmController {
         }
     }
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Pwm`, `Devices_Pwm_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetControllersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Provider::IPwmProvider>>(provider: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>> {
         Self::IPwmControllerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -167,18 +175,21 @@ impl PwmController {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Pwm`, `Foundation`*"]
     pub fn GetDefaultAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PwmController>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(friendlyname: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -186,6 +197,7 @@ impl PwmController {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Pwm`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -257,10 +269,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PwmController {}
 unsafe impl ::std::marker::Sync for PwmController {}
+#[doc = "*Required features: `Devices_Pwm`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PwmPin(::windows::runtime::IInspectable);
 impl PwmPin {
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn Controller(&self) -> ::windows::runtime::Result<PwmController> {
         let this = self;
         unsafe {
@@ -268,6 +282,7 @@ impl PwmPin {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PwmController>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn GetActiveDutyCyclePercentage(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -275,10 +290,12 @@ impl PwmPin {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn SetActiveDutyCyclePercentage(&self, dutycyclepercentage: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dutycyclepercentage).ok() }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn Polarity(&self) -> ::windows::runtime::Result<PwmPulsePolarity> {
         let this = self;
         unsafe {
@@ -286,18 +303,22 @@ impl PwmPin {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PwmPulsePolarity>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn SetPolarity(&self, value: PwmPulsePolarity) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Pwm`*"]
     pub fn IsStarted(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -306,6 +327,7 @@ impl PwmPin {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Pwm`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -389,6 +411,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for PwmPin {}
 unsafe impl ::std::marker::Sync for PwmPin {}
+#[doc = "*Required features: `Devices_Pwm`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PwmPulsePolarity(pub i32);

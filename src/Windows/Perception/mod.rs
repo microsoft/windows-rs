@@ -87,11 +87,13 @@ pub struct IPerceptionTimestampHelperStatics2_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targettime: super::Foundation::TimeSpan, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `Perception`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PerceptionTimestamp(::windows::runtime::IInspectable);
 impl PerceptionTimestamp {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception`, `Foundation`*"]
     pub fn TargetTime(&self) -> ::windows::runtime::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -100,6 +102,7 @@ impl PerceptionTimestamp {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception`, `Foundation`*"]
     pub fn PredictionAmount(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -108,6 +111,7 @@ impl PerceptionTimestamp {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception`, `Foundation`*"]
     pub fn SystemRelativeTargetTime(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
@@ -168,9 +172,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PerceptionTimestamp {}
 unsafe impl ::std::marker::Sync for PerceptionTimestamp {}
+#[doc = "*Required features: `Perception`*"]
 pub struct PerceptionTimestampHelper {}
 impl PerceptionTimestampHelper {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception`, `Foundation`*"]
     pub fn FromHistoricalTargetTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::DateTime>>(targettime: Param0) -> ::windows::runtime::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -178,6 +184,7 @@ impl PerceptionTimestampHelper {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception`, `Foundation`*"]
     pub fn FromSystemRelativeTargetTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(targettime: Param0) -> ::windows::runtime::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Phone_UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BackPressedEventArgs(::windows::runtime::IInspectable);
 impl BackPressedEventArgs {
+    #[doc = "*Required features: `Phone_UI_Input`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -10,6 +12,7 @@ impl BackPressedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_UI_Input`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -67,6 +70,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BackPressedEventArgs {}
 unsafe impl ::std::marker::Sync for BackPressedEventArgs {}
+#[doc = "*Required features: `Phone_UI_Input`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CameraEventArgs(::windows::runtime::IInspectable);
@@ -123,9 +127,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CameraEventArgs {}
 unsafe impl ::std::marker::Sync for CameraEventArgs {}
+#[doc = "*Required features: `Phone_UI_Input`*"]
 pub struct HardwareButtons {}
 impl HardwareButtons {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_UI_Input`, `Foundation`*"]
     pub fn BackPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<BackPressedEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IHardwareButtonsStatics(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -133,10 +139,12 @@ impl HardwareButtons {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_UI_Input`, `Foundation`*"]
     pub fn RemoveBackPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IHardwareButtonsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_UI_Input`, `Foundation`*"]
     pub fn CameraHalfPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<CameraEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -144,10 +152,12 @@ impl HardwareButtons {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_UI_Input`, `Foundation`*"]
     pub fn RemoveCameraHalfPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_UI_Input`, `Foundation`*"]
     pub fn CameraPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<CameraEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -155,10 +165,12 @@ impl HardwareButtons {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_UI_Input`, `Foundation`*"]
     pub fn RemoveCameraPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_UI_Input`, `Foundation`*"]
     pub fn CameraReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<CameraEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -166,6 +178,7 @@ impl HardwareButtons {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_UI_Input`, `Foundation`*"]
     pub fn RemoveCameraReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }

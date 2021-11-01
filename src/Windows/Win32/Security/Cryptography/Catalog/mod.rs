@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub struct CATALOG_INFO {
     pub cbStruct: u32,
     pub wszCatalogFile: [u16; 260],
@@ -29,6 +30,7 @@ unsafe impl ::windows::runtime::Abi for CATALOG_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: super::super::super::Foundation::PWSTR,
@@ -67,6 +69,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTCATATTRIBUTE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 pub struct CRYPTCATCDF {
     pub cbStruct: u32,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -114,6 +117,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTCATCDF {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
     pub pwszReferenceTag: super::super::super::Foundation::PWSTR,
@@ -179,6 +183,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTCATMEMBER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 pub struct CRYPTCATSTORE {
     pub cbStruct: u32,
     pub dwPublicVersion: u32,
@@ -229,30 +234,55 @@ unsafe impl ::windows::runtime::Abi for CRYPTCATSTORE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ATTR_AUTHENTICATED: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ATTR_DATAASCII: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ATTR_DATABASE64: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ATTR_DATAREPLACE: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ATTR_NAMEASCII: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ATTR_NAMEOBJID: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ATTR_UNAUTHENTICATED: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_AREA_ATTRIBUTE: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_AREA_HEADER: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_AREA_MEMBER: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_ATTR_TOOFEWVALUES: u32 = 131074u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_ATTR_TYPECOMBO: u32 = 131076u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_BAD_GUID_CONV: u32 = 131073u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_DUPLICATE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_MEMBER_FILENOTFOUND: u32 = 65540u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_MEMBER_FILE_PATH: u32 = 65537u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_MEMBER_INDIRECTDATA: u32 = 65538u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
@@ -302,6 +332,7 @@ impl ::std::ops::Not for CRYPTCAT_OPEN_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTCAT_VERSION(pub u32);
@@ -345,6 +376,7 @@ impl ::std::ops::Not for CRYPTCAT_VERSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *const ::windows::runtime::GUID, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -359,6 +391,7 @@ pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminAcquireContext2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(phcatadmin: *mut isize, pgsubsystem: *const ::windows::runtime::GUID, pwszhashalgorithm: Param2, pstronghashpolicy: *const super::CERT_STRONG_SIGN_PARA, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -373,6 +406,7 @@ pub unsafe fn CryptCATAdminAcquireContext2<'a, Param2: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminAddCatalog<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatadmin: isize, pwszcatalogfile: Param1, pwszselectbasename: Param2, dwflags: u32) -> isize {
     #[cfg(windows)]
@@ -387,6 +421,7 @@ pub unsafe fn CryptCATAdminAddCatalog<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminCalcHashFromFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hfile: Param0, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -401,6 +436,7 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminCalcHashFromFileHandle2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatadmin: isize, hfile: Param1, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -414,6 +450,7 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle2<'a, Param1: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 #[inline]
 pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const u8, cbhash: u32, dwflags: u32, phprevcatinfo: *mut isize) -> isize {
     #[cfg(windows)]
@@ -428,6 +465,7 @@ pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminPauseServiceForBackup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(dwflags: u32, fresume: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -442,6 +480,7 @@ pub unsafe fn CryptCATAdminPauseServiceForBackup<'a, Param1: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isize, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -456,6 +495,7 @@ pub unsafe fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -470,6 +510,7 @@ pub unsafe fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminRemoveCatalog<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatadmin: isize, pwszcatalogfile: Param1, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -484,6 +525,7 @@ pub unsafe fn CryptCATAdminRemoveCatalog<'a, Param1: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATAdminResolveCatalogPath<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatadmin: isize, pwszcatalogfile: Param1, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -498,6 +540,7 @@ pub unsafe fn CryptCATAdminResolveCatalogPath<'a, Param1: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATAllocSortedMemberInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszreferencetag: Param1) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
@@ -512,6 +555,7 @@ pub unsafe fn CryptCATAllocSortedMemberInfo<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -526,6 +570,7 @@ pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::std::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
@@ -540,6 +585,7 @@ pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::std::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
@@ -554,6 +600,7 @@ pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: ::std::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
@@ -568,6 +615,7 @@ pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATCDFOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszfilepath: Param0, pfnparseerror: ::std::option::Option<PFN_CDF_PARSE_ERROR_CALLBACK>) -> *mut CRYPTCATCDF {
     #[cfg(windows)]
@@ -582,6 +630,7 @@ pub unsafe fn CryptCATCDFOpen<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -596,6 +645,7 @@ pub unsafe fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -610,6 +660,7 @@ pub unsafe fn CryptCATClose<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATEnumerateAttr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0, pcatmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
@@ -624,6 +675,7 @@ pub unsafe fn CryptCATEnumerateAttr<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATEnumerateCatAttr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
@@ -638,6 +690,7 @@ pub unsafe fn CryptCATEnumerateCatAttr<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATEnumerateMember<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0, pprevmember: *mut CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
@@ -652,6 +705,7 @@ pub unsafe fn CryptCATEnumerateMember<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATFreeSortedMemberInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0, pcatmember: *mut CRYPTCATMEMBER) {
     #[cfg(windows)]
@@ -666,6 +720,7 @@ pub unsafe fn CryptCATFreeSortedMemberInfo<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATGetAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: Param2) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
@@ -680,6 +735,7 @@ pub unsafe fn CryptCATGetAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATGetCatAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszreferencetag: Param1) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
@@ -694,6 +750,7 @@ pub unsafe fn CryptCATGetCatAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATGetMemberInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszreferencetag: Param1) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
@@ -708,6 +765,7 @@ pub unsafe fn CryptCATGetMemberInfo<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -722,6 +780,7 @@ pub unsafe fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszfilename: Param0, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: usize, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: u32) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -736,6 +795,7 @@ pub unsafe fn CryptCATOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATPersistStore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -750,6 +810,7 @@ pub unsafe fn CryptCATPersistStore<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATPutAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: Param2, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
@@ -764,6 +825,7 @@ pub unsafe fn CryptCATPutAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATPutCatAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszreferencetag: Param1, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
@@ -778,6 +840,7 @@ pub unsafe fn CryptCATPutCatAttrInfo<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`, `Win32_Security_Cryptography_Sip`*"]
 #[inline]
 pub unsafe fn CryptCATPutMemberInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszfilename: Param1, pwszreferencetag: Param2, pgsubjecttype: *mut ::windows::runtime::GUID, dwcertversion: u32, cbsipindirectdata: u32, pbsipindirectdata: *mut u8) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
@@ -792,6 +855,7 @@ pub unsafe fn CryptCATPutMemberInfo<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCATStoreFromHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0) -> *mut CRYPTCATSTORE {
     #[cfg(windows)]
@@ -806,6 +870,7 @@ pub unsafe fn CryptCATStoreFromHandle<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography_Catalog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsCatalogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hfile: Param0, pwszfilename: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]

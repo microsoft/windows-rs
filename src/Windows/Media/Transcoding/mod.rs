@@ -84,6 +84,7 @@ pub struct IPrepareTranscodeResult_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `Media_Transcoding`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaTranscoder(::windows::runtime::IInspectable);
@@ -96,11 +97,13 @@ impl MediaTranscoder {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation`*"]
     pub fn SetTrimStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation`*"]
     pub fn TrimStartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -109,11 +112,13 @@ impl MediaTranscoder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation`*"]
     pub fn SetTrimStopTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation`*"]
     pub fn TrimStopTime(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -121,10 +126,12 @@ impl MediaTranscoder {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn SetAlwaysReencode(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn AlwaysReencode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -132,10 +139,12 @@ impl MediaTranscoder {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn SetHardwareAccelerationEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn HardwareAccelerationEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -143,29 +152,35 @@ impl MediaTranscoder {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn AddAudioEffect<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, activatableclassid: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation_Collections`*"]
     pub fn AddAudioEffectWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, effectrequired: bool, configuration: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), effectrequired, configuration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn AddVideoEffect<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, activatableclassid: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation_Collections`*"]
     pub fn AddVideoEffectWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, effectrequired: bool, configuration: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), effectrequired, configuration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn ClearEffects(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation`, `Media_MediaProperties`, `Storage`*"]
     pub fn PrepareFileTranscodeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>, Param2: ::windows::runtime::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
         let this = self;
         unsafe {
@@ -174,6 +189,7 @@ impl MediaTranscoder {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation`, `Media_MediaProperties`, `Storage_Streams`*"]
     pub fn PrepareStreamTranscodeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::runtime::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
         let this = self;
         unsafe {
@@ -182,6 +198,7 @@ impl MediaTranscoder {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation`, `Media_Core`, `Media_MediaProperties`, `Storage_Streams`*"]
     pub fn PrepareMediaStreamSourceTranscodeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Core::IMediaSource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::runtime::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
         let this = &::windows::runtime::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
@@ -189,10 +206,12 @@ impl MediaTranscoder {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn VideoProcessingAlgorithm(&self) -> ::windows::runtime::Result<MediaVideoProcessingAlgorithm> {
         let this = &::windows::runtime::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
@@ -253,6 +272,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaTranscoder {}
 unsafe impl ::std::marker::Sync for MediaTranscoder {}
+#[doc = "*Required features: `Media_Transcoding`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
@@ -272,10 +292,12 @@ unsafe impl ::windows::runtime::Abi for MediaVideoProcessingAlgorithm {
 unsafe impl ::windows::runtime::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
 }
+#[doc = "*Required features: `Media_Transcoding`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrepareTranscodeResult(::windows::runtime::IInspectable);
 impl PrepareTranscodeResult {
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn CanTranscode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -283,6 +305,7 @@ impl PrepareTranscodeResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Transcoding`*"]
     pub fn FailureReason(&self) -> ::windows::runtime::Result<TranscodeFailureReason> {
         let this = self;
         unsafe {
@@ -291,6 +314,7 @@ impl PrepareTranscodeResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Transcoding`, `Foundation`*"]
     pub fn TranscodeAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncActionWithProgress<f64>> {
         let this = self;
         unsafe {
@@ -351,6 +375,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::std::marker::Sync for PrepareTranscodeResult {}
+#[doc = "*Required features: `Media_Transcoding`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TranscodeFailureReason(pub i32);

@@ -2,6 +2,7 @@
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct AppBroadcastingContract(pub u8);
+#[doc = "*Required features: `Media_AppBroadcasting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppBroadcastingMonitor(::windows::runtime::IInspectable);
@@ -13,6 +14,7 @@ impl AppBroadcastingMonitor {
         static mut SHARED: ::windows::runtime::FactoryCache<AppBroadcastingMonitor, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsCurrentAppBroadcasting(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -21,6 +23,7 @@ impl AppBroadcastingMonitor {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_AppBroadcasting`, `Foundation`*"]
     pub fn IsCurrentAppBroadcastingChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -29,6 +32,7 @@ impl AppBroadcastingMonitor {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_AppBroadcasting`, `Foundation`*"]
     pub fn RemoveIsCurrentAppBroadcastingChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -86,10 +90,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppBroadcastingMonitor {}
 unsafe impl ::std::marker::Sync for AppBroadcastingMonitor {}
+#[doc = "*Required features: `Media_AppBroadcasting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppBroadcastingStatus(::windows::runtime::IInspectable);
 impl AppBroadcastingStatus {
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn CanStartBroadcast(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -97,6 +103,7 @@ impl AppBroadcastingStatus {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn Details(&self) -> ::windows::runtime::Result<AppBroadcastingStatusDetails> {
         let this = self;
         unsafe {
@@ -157,10 +164,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppBroadcastingStatus {}
 unsafe impl ::std::marker::Sync for AppBroadcastingStatus {}
+#[doc = "*Required features: `Media_AppBroadcasting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppBroadcastingStatusDetails(::windows::runtime::IInspectable);
 impl AppBroadcastingStatusDetails {
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsAnyAppBroadcasting(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -168,6 +177,7 @@ impl AppBroadcastingStatusDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsCaptureResourceUnavailable(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -175,6 +185,7 @@ impl AppBroadcastingStatusDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsGameStreamInProgress(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -182,6 +193,7 @@ impl AppBroadcastingStatusDetails {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsGpuConstrained(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -189,6 +201,7 @@ impl AppBroadcastingStatusDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsAppInactive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -196,6 +209,7 @@ impl AppBroadcastingStatusDetails {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsBlockedForApp(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -203,6 +217,7 @@ impl AppBroadcastingStatusDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsDisabledByUser(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -210,6 +225,7 @@ impl AppBroadcastingStatusDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn IsDisabledBySystem(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -270,10 +286,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppBroadcastingStatusDetails {}
 unsafe impl ::std::marker::Sync for AppBroadcastingStatusDetails {}
+#[doc = "*Required features: `Media_AppBroadcasting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppBroadcastingUI(::windows::runtime::IInspectable);
 impl AppBroadcastingUI {
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn GetStatus(&self) -> ::windows::runtime::Result<AppBroadcastingStatus> {
         let this = self;
         unsafe {
@@ -281,10 +299,12 @@ impl AppBroadcastingUI {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastingStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn ShowBroadcastUI(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_AppBroadcasting`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<AppBroadcastingUI> {
         Self::IAppBroadcastingUIStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -292,6 +312,7 @@ impl AppBroadcastingUI {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Media_AppBroadcasting`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<AppBroadcastingUI> {
         Self::IAppBroadcastingUIStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

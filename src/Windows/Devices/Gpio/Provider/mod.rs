@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Devices_Gpio_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GpioPinProviderValueChangedEventArgs(::windows::runtime::IInspectable);
 impl GpioPinProviderValueChangedEventArgs {
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn Edge(&self) -> ::windows::runtime::Result<ProviderGpioPinEdge> {
         let this = self;
         unsafe {
@@ -10,6 +12,7 @@ impl GpioPinProviderValueChangedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProviderGpioPinEdge>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn Create(edge: ProviderGpioPinEdge) -> ::windows::runtime::Result<GpioPinProviderValueChangedEventArgs> {
         Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -75,12 +78,14 @@ unsafe impl ::std::marker::Send for GpioPinProviderValueChangedEventArgs {}
 unsafe impl ::std::marker::Sync for GpioPinProviderValueChangedEventArgs {}
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Gpio_Provider`*"]
 pub struct IGpioControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerProvider {
     type Vtable = IGpioControllerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2903625415, 6634, 19233, [135, 79, 185, 26, 237, 74, 37, 219]);
 }
 impl IGpioControllerProvider {
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn PinCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -88,6 +93,7 @@ impl IGpioControllerProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> ::windows::runtime::Result<IGpioPinProvider> {
         let this = self;
         unsafe {
@@ -153,6 +159,7 @@ pub struct IGpioControllerProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Gpio_Provider`*"]
 pub struct IGpioPinProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinProvider {
     type Vtable = IGpioPinProvider_abi;
@@ -160,6 +167,7 @@ unsafe impl ::windows::runtime::Interface for IGpioPinProvider {
 }
 impl IGpioPinProvider {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Gpio_Provider`, `Foundation`*"]
     pub fn ValueChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -168,11 +176,13 @@ impl IGpioPinProvider {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Gpio_Provider`, `Foundation`*"]
     pub fn RemoveValueChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Gpio_Provider`, `Foundation`*"]
     pub fn DebounceTimeout(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -181,10 +191,12 @@ impl IGpioPinProvider {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Gpio_Provider`, `Foundation`*"]
     pub fn SetDebounceTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn PinNumber(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -192,6 +204,7 @@ impl IGpioPinProvider {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn SharingMode(&self) -> ::windows::runtime::Result<ProviderGpioSharingMode> {
         let this = self;
         unsafe {
@@ -199,6 +212,7 @@ impl IGpioPinProvider {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProviderGpioSharingMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn IsDriveModeSupported(&self, drivemode: ProviderGpioPinDriveMode) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -206,6 +220,7 @@ impl IGpioPinProvider {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), drivemode, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn GetDriveMode(&self) -> ::windows::runtime::Result<ProviderGpioPinDriveMode> {
         let this = self;
         unsafe {
@@ -213,14 +228,17 @@ impl IGpioPinProvider {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProviderGpioPinDriveMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn SetDriveMode(&self, value: ProviderGpioPinDriveMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn Write(&self, value: ProviderGpioPinValue) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Gpio_Provider`*"]
     pub fn Read(&self) -> ::windows::runtime::Result<ProviderGpioPinValue> {
         let this = self;
         unsafe {
@@ -337,6 +355,7 @@ pub struct IGpioPinProviderValueChangedEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Gpio_Provider`*"]
 pub struct IGpioProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioProvider {
     type Vtable = IGpioProvider_abi;
@@ -344,6 +363,7 @@ unsafe impl ::windows::runtime::Interface for IGpioProvider {
 }
 impl IGpioProvider {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Gpio_Provider`, `Foundation_Collections`*"]
     pub fn GetControllers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>> {
         let this = self;
         unsafe {
@@ -407,6 +427,7 @@ pub struct IGpioProvider_abi(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: `Devices_Gpio_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderGpioPinDriveMode(pub i32);
@@ -432,6 +453,7 @@ unsafe impl ::windows::runtime::Abi for ProviderGpioPinDriveMode {
 unsafe impl ::windows::runtime::RuntimeType for ProviderGpioPinDriveMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinDriveMode;i4)");
 }
+#[doc = "*Required features: `Devices_Gpio_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderGpioPinEdge(pub i32);
@@ -451,6 +473,7 @@ unsafe impl ::windows::runtime::Abi for ProviderGpioPinEdge {
 unsafe impl ::windows::runtime::RuntimeType for ProviderGpioPinEdge {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinEdge;i4)");
 }
+#[doc = "*Required features: `Devices_Gpio_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderGpioPinValue(pub i32);
@@ -470,6 +493,7 @@ unsafe impl ::windows::runtime::Abi for ProviderGpioPinValue {
 unsafe impl ::windows::runtime::RuntimeType for ProviderGpioPinValue {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinValue;i4)");
 }
+#[doc = "*Required features: `Devices_Gpio_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderGpioSharingMode(pub i32);

@@ -254,6 +254,7 @@ pub struct IInputInjectorStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputButtonChangeKind(pub i32);
@@ -282,6 +283,7 @@ unsafe impl ::windows::runtime::Abi for InjectedInputButtonChangeKind {
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputButtonChangeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputGamepadInfo(::windows::runtime::IInspectable);
@@ -294,6 +296,7 @@ impl InjectedInputGamepadInfo {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Gaming_Input")]
+    #[doc = "*Required features: `UI_Input_Preview_Injection`, `Gaming_Input`*"]
     pub fn Buttons(&self) -> ::windows::runtime::Result<super::super::super::super::Gaming::Input::GamepadButtons> {
         let this = self;
         unsafe {
@@ -302,10 +305,12 @@ impl InjectedInputGamepadInfo {
         }
     }
     #[cfg(feature = "Gaming_Input")]
+    #[doc = "*Required features: `UI_Input_Preview_Injection`, `Gaming_Input`*"]
     pub fn SetButtons(&self, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn LeftThumbstickX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -313,10 +318,12 @@ impl InjectedInputGamepadInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetLeftThumbstickX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn LeftThumbstickY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -324,10 +331,12 @@ impl InjectedInputGamepadInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetLeftThumbstickY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn LeftTrigger(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -335,10 +344,12 @@ impl InjectedInputGamepadInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetLeftTrigger(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn RightThumbstickX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -346,10 +357,12 @@ impl InjectedInputGamepadInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetRightThumbstickX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn RightThumbstickY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -357,10 +370,12 @@ impl InjectedInputGamepadInfo {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetRightThumbstickY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn RightTrigger(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -368,11 +383,13 @@ impl InjectedInputGamepadInfo {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetRightTrigger(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Gaming_Input")]
+    #[doc = "*Required features: `UI_Input_Preview_Injection`, `Gaming_Input`*"]
     pub fn CreateInstanceFromGamepadReading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Gaming::Input::GamepadReading>>(reading: Param0) -> ::windows::runtime::Result<InjectedInputGamepadInfo> {
         Self::IInjectedInputGamepadInfoFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -434,6 +451,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputKeyOptions(pub u32);
@@ -484,6 +502,7 @@ impl ::std::ops::Not for InjectedInputKeyOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputKeyboardInfo(::windows::runtime::IInspectable);
@@ -495,6 +514,7 @@ impl InjectedInputKeyboardInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<InjectedInputKeyboardInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn KeyOptions(&self) -> ::windows::runtime::Result<InjectedInputKeyOptions> {
         let this = self;
         unsafe {
@@ -502,10 +522,12 @@ impl InjectedInputKeyboardInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InjectedInputKeyOptions>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetKeyOptions(&self, value: InjectedInputKeyOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn ScanCode(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -513,10 +535,12 @@ impl InjectedInputKeyboardInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetScanCode(&self, value: u16) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn VirtualKey(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -524,6 +548,7 @@ impl InjectedInputKeyboardInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetVirtualKey(&self, value: u16) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
@@ -579,6 +604,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputMouseInfo(::windows::runtime::IInspectable);
@@ -590,6 +616,7 @@ impl InjectedInputMouseInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<InjectedInputMouseInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn MouseOptions(&self) -> ::windows::runtime::Result<InjectedInputMouseOptions> {
         let this = self;
         unsafe {
@@ -597,10 +624,12 @@ impl InjectedInputMouseInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InjectedInputMouseOptions>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetMouseOptions(&self, value: InjectedInputMouseOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn MouseData(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -608,10 +637,12 @@ impl InjectedInputMouseInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetMouseData(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn DeltaY(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -619,10 +650,12 @@ impl InjectedInputMouseInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetDeltaY(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn DeltaX(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -630,10 +663,12 @@ impl InjectedInputMouseInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetDeltaX(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn TimeOffsetInMilliseconds(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -641,6 +676,7 @@ impl InjectedInputMouseInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetTimeOffsetInMilliseconds(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
@@ -696,6 +732,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputMouseOptions(pub u32);
@@ -756,6 +793,7 @@ impl ::std::ops::Not for InjectedInputMouseOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputPenButtons(pub u32);
@@ -805,6 +843,7 @@ impl ::std::ops::Not for InjectedInputPenButtons {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputPenInfo(::windows::runtime::IInspectable);
@@ -816,6 +855,7 @@ impl InjectedInputPenInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<InjectedInputPenInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn PointerInfo(&self) -> ::windows::runtime::Result<InjectedInputPointerInfo> {
         let this = self;
         unsafe {
@@ -823,10 +863,12 @@ impl InjectedInputPenInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InjectedInputPointerInfo>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetPointerInfo<'a, Param0: ::windows::runtime::IntoParam<'a, InjectedInputPointerInfo>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn PenButtons(&self) -> ::windows::runtime::Result<InjectedInputPenButtons> {
         let this = self;
         unsafe {
@@ -834,10 +876,12 @@ impl InjectedInputPenInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InjectedInputPenButtons>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetPenButtons(&self, value: InjectedInputPenButtons) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn PenParameters(&self) -> ::windows::runtime::Result<InjectedInputPenParameters> {
         let this = self;
         unsafe {
@@ -845,10 +889,12 @@ impl InjectedInputPenInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InjectedInputPenParameters>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetPenParameters(&self, value: InjectedInputPenParameters) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn Pressure(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -856,10 +902,12 @@ impl InjectedInputPenInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetPressure(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn Rotation(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -867,10 +915,12 @@ impl InjectedInputPenInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetRotation(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn TiltX(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -878,10 +928,12 @@ impl InjectedInputPenInfo {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetTiltX(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn TiltY(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -889,6 +941,7 @@ impl InjectedInputPenInfo {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetTiltY(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
@@ -944,6 +997,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputPenParameters(pub u32);
@@ -996,6 +1050,7 @@ impl ::std::ops::Not for InjectedInputPenParameters {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 pub struct InjectedInputPoint {
     pub PositionX: i32,
     pub PositionY: i32,
@@ -1026,6 +1081,7 @@ unsafe impl ::windows::runtime::RuntimeType for InjectedInputPoint {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 pub struct InjectedInputPointerInfo {
     pub PointerId: u32,
     pub PointerOptions: InjectedInputPointerOptions,
@@ -1057,6 +1113,7 @@ unsafe impl ::windows::runtime::Abi for InjectedInputPointerInfo {
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputPointerInfo {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputPointerOptions(pub u32);
@@ -1117,6 +1174,7 @@ impl ::std::ops::Not for InjectedInputPointerOptions {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 pub struct InjectedInputRectangle {
     pub Left: i32,
     pub Top: i32,
@@ -1147,6 +1205,7 @@ unsafe impl ::windows::runtime::Abi for InjectedInputRectangle {
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputRectangle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputShortcut(pub i32);
@@ -1167,6 +1226,7 @@ unsafe impl ::windows::runtime::Abi for InjectedInputShortcut {
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputShortcut {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InjectedInputTouchInfo(::windows::runtime::IInspectable);
@@ -1178,6 +1238,7 @@ impl InjectedInputTouchInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<InjectedInputTouchInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn Contact(&self) -> ::windows::runtime::Result<InjectedInputRectangle> {
         let this = self;
         unsafe {
@@ -1185,10 +1246,12 @@ impl InjectedInputTouchInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InjectedInputRectangle>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetContact<'a, Param0: ::windows::runtime::IntoParam<'a, InjectedInputRectangle>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1196,10 +1259,12 @@ impl InjectedInputTouchInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetOrientation(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn PointerInfo(&self) -> ::windows::runtime::Result<InjectedInputPointerInfo> {
         let this = self;
         unsafe {
@@ -1207,10 +1272,12 @@ impl InjectedInputTouchInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InjectedInputPointerInfo>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetPointerInfo<'a, Param0: ::windows::runtime::IntoParam<'a, InjectedInputPointerInfo>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn Pressure(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1218,10 +1285,12 @@ impl InjectedInputTouchInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetPressure(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn TouchParameters(&self) -> ::windows::runtime::Result<InjectedInputTouchParameters> {
         let this = self;
         unsafe {
@@ -1229,6 +1298,7 @@ impl InjectedInputTouchInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InjectedInputTouchParameters>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn SetTouchParameters(&self, value: InjectedInputTouchParameters) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
@@ -1284,6 +1354,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputTouchParameters(pub u32);
@@ -1333,6 +1404,7 @@ impl ::std::ops::Not for InjectedInputTouchParameters {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InjectedInputVisualizationMode(pub i32);
@@ -1353,67 +1425,82 @@ unsafe impl ::windows::runtime::Abi for InjectedInputVisualizationMode {
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
 }
+#[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InputInjector(::windows::runtime::IInspectable);
 impl InputInjector {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Input_Preview_Injection`, `Foundation_Collections`*"]
     pub fn InjectKeyboardInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>>(&self, input: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), input.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Input_Preview_Injection`, `Foundation_Collections`*"]
     pub fn InjectMouseInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>>(&self, input: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), input.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn InitializeTouchInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), visualmode).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Input_Preview_Injection`, `Foundation_Collections`*"]
     pub fn InjectTouchInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>>>(&self, input: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), input.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn UninitializeTouchInjection(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn InitializePenInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), visualmode).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn InjectPenInput<'a, Param0: ::windows::runtime::IntoParam<'a, InjectedInputPenInfo>>(&self, input: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), input.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn UninitializePenInjection(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn InjectShortcut(&self, shortcut: InjectedInputShortcut) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), shortcut).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn TryCreate() -> ::windows::runtime::Result<InputInjector> {
         Self::IInputInjectorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InputInjector>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn InitializeGamepadInjection(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IInputInjector2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn InjectGamepadInput<'a, Param0: ::windows::runtime::IntoParam<'a, InjectedInputGamepadInfo>>(&self, input: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IInputInjector2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), input.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn UninitializeGamepadInjection(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IInputInjector2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
     pub fn TryCreateForAppBroadcastOnly() -> ::windows::runtime::Result<InputInjector> {
         Self::IInputInjectorStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

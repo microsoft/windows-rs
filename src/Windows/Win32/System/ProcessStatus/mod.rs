@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct ENUM_PAGE_FILE_INFORMATION {
     pub cb: u32,
     pub Reserved: u32,
@@ -29,6 +30,7 @@ unsafe impl ::windows::runtime::Abi for ENUM_PAGE_FILE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
@@ -74,6 +76,7 @@ impl ::std::ops::Not for ENUM_PROCESS_MODULES_EX_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32EmptyWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -88,6 +91,7 @@ pub unsafe fn K32EmptyWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::std::ffi::c_void, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -102,6 +106,7 @@ pub unsafe fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::std::ffi::c_void, cb
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32EnumPageFilesA(pcallbackroutine: ::std::option::Option<PENUM_PAGE_FILE_CALLBACKA>, pcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -116,6 +121,7 @@ pub unsafe fn K32EnumPageFilesA(pcallbackroutine: ::std::option::Option<PENUM_PA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32EnumPageFilesW(pcallbackroutine: ::std::option::Option<PENUM_PAGE_FILE_CALLBACKW>, pcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -130,6 +136,7 @@ pub unsafe fn K32EnumPageFilesW(pcallbackroutine: ::std::option::Option<PENUM_PA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32EnumProcessModules<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -144,6 +151,7 @@ pub unsafe fn K32EnumProcessModules<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32EnumProcessModulesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -158,6 +166,7 @@ pub unsafe fn K32EnumProcessModulesEx<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -172,6 +181,7 @@ pub unsafe fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -186,6 +196,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const ::std::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const ::std::ffi::c_void, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -200,6 +211,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const ::std::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -214,6 +226,7 @@ pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const ::std::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -228,6 +241,7 @@ pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::std::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetMappedFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpv: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -242,6 +256,7 @@ pub unsafe fn K32GetMappedFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetMappedFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpv: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -256,6 +271,7 @@ pub unsafe fn K32GetMappedFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetModuleBaseNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpbasename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -270,6 +286,7 @@ pub unsafe fn K32GetModuleBaseNameA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetModuleBaseNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -284,6 +301,7 @@ pub unsafe fn K32GetModuleBaseNameW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetModuleFileNameExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -298,6 +316,7 @@ pub unsafe fn K32GetModuleFileNameExA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetModuleFileNameExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -312,6 +331,7 @@ pub unsafe fn K32GetModuleFileNameExW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetModuleInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpmodinfo: *mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -326,6 +346,7 @@ pub unsafe fn K32GetModuleInformation<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -340,6 +361,7 @@ pub unsafe fn K32GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_IN
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetProcessImageFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpimagefilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -354,6 +376,7 @@ pub unsafe fn K32GetProcessImageFileNameA<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetProcessImageFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpimagefilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -368,6 +391,7 @@ pub unsafe fn K32GetProcessImageFileNameW<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetProcessMemoryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -382,6 +406,7 @@ pub unsafe fn K32GetProcessMemoryInfo<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetWsChanges<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -396,6 +421,7 @@ pub unsafe fn K32GetWsChanges<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32GetWsChangesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -410,6 +436,7 @@ pub unsafe fn K32GetWsChangesEx<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32InitializeProcessForWsWatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -424,6 +451,7 @@ pub unsafe fn K32InitializeProcessForWsWatch<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32QueryWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pv: *mut ::std::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -438,6 +466,7 @@ pub unsafe fn K32QueryWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn K32QueryWorkingSetEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pv: *mut ::std::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -453,6 +482,7 @@ pub unsafe fn K32QueryWorkingSetEx<'a, Param0: ::windows::runtime::IntoParam<'a,
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct MODULEINFO {
     pub lpBaseOfDll: *mut ::std::ffi::c_void,
     pub SizeOfImage: u32,
@@ -485,6 +515,7 @@ pub type PENUM_PAGE_FILE_CALLBACKA = unsafe extern "system" fn(pcontext: *mut ::
 pub type PENUM_PAGE_FILE_CALLBACKW = unsafe extern "system" fn(pcontext: *mut ::std::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PERFORMANCE_INFORMATION {
     pub cb: u32,
     pub CommitTotal: usize,
@@ -552,6 +583,7 @@ unsafe impl ::windows::runtime::Abi for PERFORMANCE_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PROCESS_MEMORY_COUNTERS {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -607,6 +639,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MEMORY_COUNTERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -663,9 +696,11 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MEMORY_COUNTERS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub const PSAPI_VERSION: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub union PSAPI_WORKING_SET_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_BLOCK_0,
@@ -688,6 +723,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_BLOCK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PSAPI_WORKING_SET_BLOCK_0 {
     pub _bitfield: usize,
 }
@@ -714,6 +750,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_BLOCK_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub union PSAPI_WORKING_SET_EX_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0,
@@ -736,6 +773,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub union PSAPI_WORKING_SET_EX_BLOCK_0 {
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0_0,
     pub Invalid: PSAPI_WORKING_SET_EX_BLOCK_0_1,
@@ -758,6 +796,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     pub _bitfield: usize,
 }
@@ -784,6 +823,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     pub _bitfield: usize,
 }
@@ -810,6 +850,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PSAPI_WORKING_SET_EX_INFORMATION {
     pub VirtualAddress: *mut ::std::ffi::c_void,
     pub VirtualAttributes: PSAPI_WORKING_SET_EX_BLOCK,
@@ -832,6 +873,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PSAPI_WORKING_SET_INFORMATION {
     pub NumberOfEntries: usize,
     pub WorkingSetInfo: [PSAPI_WORKING_SET_BLOCK; 1],
@@ -854,6 +896,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PSAPI_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut ::std::ffi::c_void,
     pub FaultingVa: *mut ::std::ffi::c_void,
@@ -881,6 +924,7 @@ unsafe impl ::windows::runtime::Abi for PSAPI_WS_WATCH_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX {
     pub BasicInfo: PSAPI_WS_WATCH_INFORMATION,
     pub FaultingThreadId: usize,

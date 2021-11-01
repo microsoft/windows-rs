@@ -1,12 +1,14 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Effects`*"]
 pub struct IGraphicsEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsEffect {
     type Vtable = IGraphicsEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411132622, 36838, 17974, [178, 2, 134, 31, 170, 7, 216, 243]);
 }
 impl IGraphicsEffect {
+    #[doc = "*Required features: `Graphics_Effects`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -14,6 +16,7 @@ impl IGraphicsEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Effects`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), name.into_param().abi()).ok() }
@@ -98,6 +101,7 @@ pub struct IGraphicsEffect_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Effects`*"]
 pub struct IGraphicsEffectSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSource_abi;

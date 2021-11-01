@@ -1,28 +1,43 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCCBF_LASTNOTIFICATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_DONTSHOWIFZERO: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_ENABLEBYDEFAULT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_ENABLEBYDEFAULT_AUTO: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_HASSETTINGS: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_OUTOFDISKSPACE: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_REMOVEFROMLIST: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_SETTINGSMODE: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IADesktopP2(::windows::runtime::IUnknown);
 impl IADesktopP2 {
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn ReReadWallpaper(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn GetADObjectFlags(&self, pdwflags: *mut u32, dwmask: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwflags), ::std::mem::transmute(dwmask)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn UpdateAllDesktopSubscriptions(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_System_Ole`*"]
     pub unsafe fn MakeDynamicChanges<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::IOleObject>>(&self, poleobj: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), poleobj.into_param().abi()).ok()
     }
@@ -63,21 +78,26 @@ pub struct IADesktopP2_abi(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poleobj: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IActiveDesktopP(::windows::runtime::IUnknown);
 impl IActiveDesktopP {
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn EnsureUpdateHTML(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`*"]
     pub unsafe fn SetScheme<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszschemename: Param0, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszschemename.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`*"]
     pub unsafe fn GetScheme(&self, pwszschemename: super::super::Foundation::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszschemename), ::std::mem::transmute(pdwcchbuffer), ::std::mem::transmute(dwflags)).ok()
     }
@@ -119,11 +139,13 @@ pub struct IActiveDesktopP_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszschemename: super::super::Foundation::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IBriefcaseInitiator(::windows::runtime::IUnknown);
 impl IBriefcaseInitiator {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_System_Com`*"]
     pub unsafe fn IsMonikerInBriefcase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>>(&self, pmk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pmk.into_param().abi()).ok()
     }
@@ -161,24 +183,30 @@ pub struct IBriefcaseInitiator_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEmptyVolumeCache(::windows::runtime::IUnknown);
 impl IEmptyVolumeCache {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`, `Win32_System_Registry`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hkregkey: Param0, pcwszvolume: Param1, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), ::std::mem::transmute(ppwszdisplayname), ::std::mem::transmute(ppwszdescription), ::std::mem::transmute(pdwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn GetSpaceUsed<'a, Param1: ::windows::runtime::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, pdwlspaceused: *mut u64, picb: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwlspaceused), picb.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn Purge<'a, Param1: ::windows::runtime::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, dwlspacetofree: u64, picb: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlspacetofree), picb.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`*"]
     pub unsafe fn ShowProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -222,29 +250,36 @@ pub struct IEmptyVolumeCache_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEmptyVolumeCache2(::windows::runtime::IUnknown);
 impl IEmptyVolumeCache2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`, `Win32_System_Registry`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hkregkey: Param0, pcwszvolume: Param1, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), ::std::mem::transmute(ppwszdisplayname), ::std::mem::transmute(ppwszdescription), ::std::mem::transmute(pdwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn GetSpaceUsed<'a, Param1: ::windows::runtime::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, pdwlspaceused: *mut u64, picb: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwlspaceused), picb.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn Purge<'a, Param1: ::windows::runtime::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, dwlspacetofree: u64, picb: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlspacetofree), picb.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`*"]
     pub unsafe fn ShowProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`, `Win32_System_Registry`*"]
     pub unsafe fn InitializeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
         &self,
         hkregkey: Param0,
@@ -318,15 +353,18 @@ pub struct IEmptyVolumeCache2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: super::super::Foundation::PWSTR, pcwszkeyname: super::super::Foundation::PWSTR, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, ppwszbtntext: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEmptyVolumeCacheCallBack(::windows::runtime::IUnknown);
 impl IEmptyVolumeCacheCallBack {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`*"]
     pub unsafe fn ScanProgress<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlspaceused), ::std::mem::transmute(dwflags), pcwszstatus.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`*"]
     pub unsafe fn PurgeProgress<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlspacefreed), ::std::mem::transmute(dwlspacetofree), ::std::mem::transmute(dwflags), pcwszstatus.into_param().abi()).ok()
     }
@@ -366,11 +404,13 @@ pub struct IEmptyVolumeCacheCallBack_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IReconcilableObject(::windows::runtime::IUnknown);
 impl IReconcilableObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn Reconcile<'a, Param0: ::windows::runtime::IntoParam<'a, IReconcileInitiator>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param7: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>>(
         &self,
         pinitiator: Param0,
@@ -397,6 +437,7 @@ impl IReconcilableObject {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -437,13 +478,16 @@ pub struct IReconcilableObject_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pulprogressmax: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IReconcileInitiator(::windows::runtime::IUnknown);
 impl IReconcileInitiator {
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn SetAbortCallback<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkforabort: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punkforabort.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
     pub unsafe fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulprogress), ::std::mem::transmute(ulprogressmax)).ok()
     }
@@ -481,15 +525,25 @@ pub struct IReconcileInitiator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkforabort: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulprogress: u32, ulprogressmax: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_E_ABORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147217408i32 as _);
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_E_INEEDTODOTHEUPDATES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147217404i32 as _);
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_E_NOCALLBACK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147217407i32 as _);
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_E_NORESIDUES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147217406i32 as _);
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_E_TOODIFFERENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147217405i32 as _);
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_S_IDIDTHEUPDATES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(266240i32 as _);
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_S_NOTCOMPLETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(266241i32 as _);
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(266242i32 as _);
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 pub const STATEBITS_FLAT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_LegacyWindowsEnvironmentFeatures`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _reconcilef(pub i32);

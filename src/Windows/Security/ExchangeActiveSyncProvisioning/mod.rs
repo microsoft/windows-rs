@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EasClientDeviceInformation(::windows::runtime::IInspectable);
@@ -10,6 +11,7 @@ impl EasClientDeviceInformation {
         static mut SHARED: ::windows::runtime::FactoryCache<EasClientDeviceInformation, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -17,6 +19,7 @@ impl EasClientDeviceInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn OperatingSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -24,6 +27,7 @@ impl EasClientDeviceInformation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -31,6 +35,7 @@ impl EasClientDeviceInformation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SystemManufacturer(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -38,6 +43,7 @@ impl EasClientDeviceInformation {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SystemProductName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -45,6 +51,7 @@ impl EasClientDeviceInformation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SystemSku(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -52,6 +59,7 @@ impl EasClientDeviceInformation {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SystemHardwareVersion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
@@ -59,6 +67,7 @@ impl EasClientDeviceInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SystemFirmwareVersion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
@@ -117,6 +126,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EasClientSecurityPolicy(::windows::runtime::IInspectable);
@@ -128,6 +138,7 @@ impl EasClientSecurityPolicy {
         static mut SHARED: ::windows::runtime::FactoryCache<EasClientSecurityPolicy, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn RequireEncryption(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -135,10 +146,12 @@ impl EasClientSecurityPolicy {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SetRequireEncryption(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn MinPasswordLength(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -146,10 +159,12 @@ impl EasClientSecurityPolicy {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SetMinPasswordLength(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn DisallowConvenienceLogon(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -157,10 +172,12 @@ impl EasClientSecurityPolicy {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SetDisallowConvenienceLogon(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn MinPasswordComplexCharacters(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -168,11 +185,13 @@ impl EasClientSecurityPolicy {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SetMinPasswordComplexCharacters(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`, `Foundation`*"]
     pub fn PasswordExpiration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -181,10 +200,12 @@ impl EasClientSecurityPolicy {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`, `Foundation`*"]
     pub fn SetPasswordExpiration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn PasswordHistory(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -192,10 +213,12 @@ impl EasClientSecurityPolicy {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SetPasswordHistory(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn MaxPasswordFailedAttempts(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -203,11 +226,13 @@ impl EasClientSecurityPolicy {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn SetMaxPasswordFailedAttempts(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`, `Foundation`*"]
     pub fn MaxInactivityTimeLock(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -216,10 +241,12 @@ impl EasClientSecurityPolicy {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`, `Foundation`*"]
     pub fn SetMaxInactivityTimeLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn CheckCompliance(&self) -> ::windows::runtime::Result<EasComplianceResults> {
         let this = self;
         unsafe {
@@ -228,6 +255,7 @@ impl EasClientSecurityPolicy {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`, `Foundation`*"]
     pub fn ApplyAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EasComplianceResults>> {
         let this = self;
         unsafe {
@@ -286,10 +314,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EasComplianceResults(::windows::runtime::IInspectable);
 impl EasComplianceResults {
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn Compliant(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -297,6 +327,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn RequireEncryptionResult(&self) -> ::windows::runtime::Result<EasRequireEncryptionResult> {
         let this = self;
         unsafe {
@@ -304,6 +335,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EasRequireEncryptionResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn MinPasswordLengthResult(&self) -> ::windows::runtime::Result<EasMinPasswordLengthResult> {
         let this = self;
         unsafe {
@@ -311,6 +343,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EasMinPasswordLengthResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn DisallowConvenienceLogonResult(&self) -> ::windows::runtime::Result<EasDisallowConvenienceLogonResult> {
         let this = self;
         unsafe {
@@ -318,6 +351,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EasDisallowConvenienceLogonResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn MinPasswordComplexCharactersResult(&self) -> ::windows::runtime::Result<EasMinPasswordComplexCharactersResult> {
         let this = self;
         unsafe {
@@ -325,6 +359,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EasMinPasswordComplexCharactersResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn PasswordExpirationResult(&self) -> ::windows::runtime::Result<EasPasswordExpirationResult> {
         let this = self;
         unsafe {
@@ -332,6 +367,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EasPasswordExpirationResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn PasswordHistoryResult(&self) -> ::windows::runtime::Result<EasPasswordHistoryResult> {
         let this = self;
         unsafe {
@@ -339,6 +375,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EasPasswordHistoryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn MaxPasswordFailedAttemptsResult(&self) -> ::windows::runtime::Result<EasMaxPasswordFailedAttemptsResult> {
         let this = self;
         unsafe {
@@ -346,6 +383,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EasMaxPasswordFailedAttemptsResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn MaxInactivityTimeLockResult(&self) -> ::windows::runtime::Result<EasMaxInactivityTimeLockResult> {
         let this = self;
         unsafe {
@@ -353,6 +391,7 @@ impl EasComplianceResults {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EasMaxInactivityTimeLockResult>(result__)
         }
     }
+    #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
     pub fn EncryptionProviderType(&self) -> ::windows::runtime::Result<EasEncryptionProviderType> {
         let this = &::windows::runtime::Interface::cast::<IEasComplianceResults2>(self)?;
         unsafe {
@@ -414,6 +453,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct EasContract(pub u8);
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
@@ -435,6 +475,7 @@ unsafe impl ::windows::runtime::Abi for EasDisallowConvenienceLogonResult {
 unsafe impl ::windows::runtime::RuntimeType for EasDisallowConvenienceLogonResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult;i4)");
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasEncryptionProviderType(pub i32);
@@ -455,6 +496,7 @@ unsafe impl ::windows::runtime::Abi for EasEncryptionProviderType {
 unsafe impl ::windows::runtime::RuntimeType for EasEncryptionProviderType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType;i4)");
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasMaxInactivityTimeLockResult(pub i32);
@@ -477,6 +519,7 @@ unsafe impl ::windows::runtime::Abi for EasMaxInactivityTimeLockResult {
 unsafe impl ::windows::runtime::RuntimeType for EasMaxInactivityTimeLockResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult;i4)");
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasMaxPasswordFailedAttemptsResult(pub i32);
@@ -499,6 +542,7 @@ unsafe impl ::windows::runtime::Abi for EasMaxPasswordFailedAttemptsResult {
 unsafe impl ::windows::runtime::RuntimeType for EasMaxPasswordFailedAttemptsResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult;i4)");
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasMinPasswordComplexCharactersResult(pub i32);
@@ -531,6 +575,7 @@ unsafe impl ::windows::runtime::Abi for EasMinPasswordComplexCharactersResult {
 unsafe impl ::windows::runtime::RuntimeType for EasMinPasswordComplexCharactersResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult;i4)");
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasMinPasswordLengthResult(pub i32);
@@ -563,6 +608,7 @@ unsafe impl ::windows::runtime::Abi for EasMinPasswordLengthResult {
 unsafe impl ::windows::runtime::RuntimeType for EasMinPasswordLengthResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult;i4)");
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasPasswordExpirationResult(pub i32);
@@ -589,6 +635,7 @@ unsafe impl ::windows::runtime::Abi for EasPasswordExpirationResult {
 unsafe impl ::windows::runtime::RuntimeType for EasPasswordExpirationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult;i4)");
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasPasswordHistoryResult(pub i32);
@@ -611,6 +658,7 @@ unsafe impl ::windows::runtime::Abi for EasPasswordHistoryResult {
 unsafe impl ::windows::runtime::RuntimeType for EasPasswordHistoryResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult;i4)");
 }
+#[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EasRequireEncryptionResult(pub i32);

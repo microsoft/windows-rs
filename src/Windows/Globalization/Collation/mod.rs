@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Globalization_Collation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CharacterGrouping(::windows::runtime::IInspectable);
 impl CharacterGrouping {
+    #[doc = "*Required features: `Globalization_Collation`*"]
     pub fn First(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -10,6 +12,7 @@ impl CharacterGrouping {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Collation`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -70,6 +73,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CharacterGrouping {}
 unsafe impl ::std::marker::Sync for CharacterGrouping {}
+#[doc = "*Required features: `Globalization_Collation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CharacterGroupings(::windows::runtime::IInspectable);
@@ -81,6 +85,7 @@ impl CharacterGroupings {
         static mut SHARED: ::windows::runtime::FactoryCache<CharacterGroupings, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Globalization_Collation`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -89,6 +94,7 @@ impl CharacterGroupings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_Collation`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<CharacterGrouping>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<CharacterGrouping>>(self)?;
         unsafe {
@@ -97,6 +103,7 @@ impl CharacterGroupings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_Collation`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<CharacterGrouping> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
@@ -105,6 +112,7 @@ impl CharacterGroupings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_Collation`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
@@ -113,6 +121,7 @@ impl CharacterGroupings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_Collation`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, CharacterGrouping>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
@@ -121,6 +130,7 @@ impl CharacterGroupings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_Collation`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<CharacterGrouping as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
@@ -128,6 +138,7 @@ impl CharacterGroupings {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), startindex, items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Collation`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(language: Param0) -> ::windows::runtime::Result<CharacterGroupings> {
         Self::ICharacterGroupingsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

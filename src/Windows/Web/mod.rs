@@ -9,6 +9,7 @@ pub mod Syndication;
 pub mod UI;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Web`*"]
 pub struct IUriToStreamResolver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriToStreamResolver {
     type Vtable = IUriToStreamResolver_abi;
@@ -16,6 +17,7 @@ unsafe impl ::windows::runtime::Interface for IUriToStreamResolver {
 }
 impl IUriToStreamResolver {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web`, `Foundation`, `Storage_Streams`*"]
     pub fn UriToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>> {
         let this = self;
         unsafe {
@@ -98,8 +100,10 @@ pub struct IWebErrorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresult: i32, result__: *mut WebErrorStatus) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Web`*"]
 pub struct WebError {}
 impl WebError {
+    #[doc = "*Required features: `Web`*"]
     pub fn GetStatus(hresult: i32) -> ::windows::runtime::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__: WebErrorStatus = ::std::mem::zeroed();
@@ -114,6 +118,7 @@ impl WebError {
 impl ::windows::runtime::RuntimeName for WebError {
     const NAME: &'static str = "Windows.Web.WebError";
 }
+#[doc = "*Required features: `Web`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WebErrorStatus(pub i32);

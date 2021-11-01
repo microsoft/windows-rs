@@ -1,8 +1,13 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DRendezvousSessionEvents(::windows::runtime::IUnknown);
@@ -70,10 +75,12 @@ pub struct DRendezvousSessionEvents_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRendezvousApplication(::windows::runtime::IUnknown);
 impl IRendezvousApplication {
+    #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
     pub unsafe fn SetRendezvousSession<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, prendezvoussession: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), prendezvoussession.into_param().abi()).ok()
     }
@@ -110,28 +117,34 @@ pub struct IRendezvousApplication_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prendezvoussession: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRendezvousSession(::windows::runtime::IUnknown);
 impl IRendezvousSession {
+    #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RENDEZVOUS_SESSION_STATE> {
         let mut result__: <RENDEZVOUS_SESSION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RENDEZVOUS_SESSION_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteAssistance`, `Win32_Foundation`*"]
     pub unsafe fn RemoteUser(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
     pub unsafe fn Flags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteAssistance`, `Win32_Foundation`*"]
     pub unsafe fn SendContextData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrdata.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteAssistance`, `Win32_Foundation`*"]
     pub unsafe fn Terminate<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hr: ::windows::runtime::HRESULT, bstrappdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr), bstrappdata.into_param().abi()).ok()
     }
@@ -175,6 +188,7 @@ pub struct IRendezvousSession_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT, bstrappdata: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RENDEZVOUS_SESSION_FLAGS(pub i32);
@@ -193,6 +207,7 @@ unsafe impl ::windows::runtime::Abi for RENDEZVOUS_SESSION_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RENDEZVOUS_SESSION_STATE(pub i32);

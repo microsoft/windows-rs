@@ -320,11 +320,13 @@ pub struct IResourceQualifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NamedResource(::windows::runtime::IInspectable);
 impl NamedResource {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -333,6 +335,7 @@ impl NamedResource {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Candidates(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> {
         let this = self;
         unsafe {
@@ -340,6 +343,7 @@ impl NamedResource {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn Resolve(&self) -> ::windows::runtime::Result<ResourceCandidate> {
         let this = self;
         unsafe {
@@ -347,6 +351,7 @@ impl NamedResource {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ResourceCandidate>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn ResolveForContext<'a, Param0: ::windows::runtime::IntoParam<'a, ResourceContext>>(&self, resourcecontext: Param0) -> ::windows::runtime::Result<ResourceCandidate> {
         let this = self;
         unsafe {
@@ -355,6 +360,7 @@ impl NamedResource {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn ResolveAll(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> {
         let this = self;
         unsafe {
@@ -363,6 +369,7 @@ impl NamedResource {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn ResolveAllForContext<'a, Param0: ::windows::runtime::IntoParam<'a, ResourceContext>>(&self, resourcecontext: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> {
         let this = self;
         unsafe {
@@ -423,11 +430,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for NamedResource {}
 unsafe impl ::std::marker::Sync for NamedResource {}
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceCandidate(::windows::runtime::IInspectable);
 impl ResourceCandidate {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Qualifiers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>> {
         let this = self;
         unsafe {
@@ -435,6 +444,7 @@ impl ResourceCandidate {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn IsMatch(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -442,6 +452,7 @@ impl ResourceCandidate {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn IsMatchAsDefault(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -449,6 +460,7 @@ impl ResourceCandidate {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn IsDefault(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -456,6 +468,7 @@ impl ResourceCandidate {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn ValueAsString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -464,6 +477,7 @@ impl ResourceCandidate {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation`, `Storage`*"]
     pub fn GetValueAsFileAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -471,6 +485,7 @@ impl ResourceCandidate {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn GetQualifierValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, qualifiername: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -479,6 +494,7 @@ impl ResourceCandidate {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation`, `Storage_Streams`*"]
     pub fn GetValueAsStreamAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &::windows::runtime::Interface::cast::<IResourceCandidate2>(self)?;
         unsafe {
@@ -486,6 +502,7 @@ impl ResourceCandidate {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<ResourceCandidateKind> {
         let this = &::windows::runtime::Interface::cast::<IResourceCandidate3>(self)?;
         unsafe {
@@ -546,6 +563,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ResourceCandidate {}
 unsafe impl ::std::marker::Sync for ResourceCandidate {}
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ResourceCandidateKind(pub i32);
@@ -567,12 +585,14 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceCandidateKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
 }
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceCandidateVectorView(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceCandidateVectorView {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<ResourceCandidate> {
         let this = self;
         unsafe {
@@ -581,6 +601,7 @@ impl ResourceCandidateVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -589,6 +610,7 @@ impl ResourceCandidateVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, ResourceCandidate>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -597,6 +619,7 @@ impl ResourceCandidateVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<ResourceCandidate as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -605,6 +628,7 @@ impl ResourceCandidateVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<ResourceCandidate>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ResourceCandidate>>(self)?;
         unsafe {
@@ -744,6 +768,7 @@ impl ::std::iter::IntoIterator for &ResourceCandidateVectorView {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceContext(::windows::runtime::IInspectable);
@@ -756,6 +781,7 @@ impl ResourceContext {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn QualifierValues(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -763,20 +789,24 @@ impl ResourceContext {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn ResetQualifierValues<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, qualifiernames: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), qualifiernames.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn OverrideToMatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>>(&self, result: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), result.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn Clone(&self) -> ::windows::runtime::Result<ResourceContext> {
         let this = self;
         unsafe {
@@ -785,6 +815,7 @@ impl ResourceContext {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -793,43 +824,52 @@ impl ResourceContext {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn SetLanguages<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>>(&self, languages: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), languages.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn CreateMatchingContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>>(result: Param0) -> ::windows::runtime::Result<ResourceContext> {
         Self::IResourceContextStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), result.into_param().abi(), &mut result__).from_abi::<ResourceContext>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<ResourceContext> {
         Self::IResourceContextStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ResourceContext>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn SetGlobalQualifierValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(key: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IResourceContextStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn ResetGlobalQualifierValues() -> ::windows::runtime::Result<()> {
         Self::IResourceContextStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn ResetGlobalQualifierValuesForSpecifiedQualifiers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(qualifiernames: Param0) -> ::windows::runtime::Result<()> {
         Self::IResourceContextStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), qualifiernames.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn GetForViewIndependentUse() -> ::windows::runtime::Result<ResourceContext> {
         Self::IResourceContextStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ResourceContext>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn SetGlobalQualifierValueWithPersistence<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(key: Param0, value: Param1, persistence: ResourceQualifierPersistence) -> ::windows::runtime::Result<()> {
         Self::IResourceContextStatics3(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), persistence).ok() })
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `UI`*"]
     pub fn GetForUIContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::UI::UIContext>>(context: Param0) -> ::windows::runtime::Result<ResourceContext> {
         Self::IResourceContextStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -906,12 +946,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for ResourceContext {}
 unsafe impl ::std::marker::Sync for ResourceContext {}
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceContextLanguagesVectorView(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceContextLanguagesVectorView {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -920,6 +962,7 @@ impl ResourceContextLanguagesVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -928,6 +971,7 @@ impl ResourceContextLanguagesVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -936,6 +980,7 @@ impl ResourceContextLanguagesVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -944,6 +989,7 @@ impl ResourceContextLanguagesVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>(self)?;
         unsafe {
@@ -1085,6 +1131,7 @@ impl ::std::iter::IntoIterator for &ResourceContextLanguagesVectorView {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 pub struct ResourceLayoutInfo {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -1116,10 +1163,12 @@ unsafe impl ::windows::runtime::Abi for ResourceLayoutInfo {
 unsafe impl ::windows::runtime::RuntimeType for ResourceLayoutInfo {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo;u4;u4;u4;u4;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceManager(::windows::runtime::IInspectable);
 impl ResourceManager {
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn MainResourceMap(&self) -> ::windows::runtime::Result<ResourceMap> {
         let this = self;
         unsafe {
@@ -1128,6 +1177,7 @@ impl ResourceManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn AllResourceMaps(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>> {
         let this = self;
         unsafe {
@@ -1135,6 +1185,7 @@ impl ResourceManager {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn DefaultContext(&self) -> ::windows::runtime::Result<ResourceContext> {
         let this = self;
         unsafe {
@@ -1143,16 +1194,19 @@ impl ResourceManager {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`, `Storage`*"]
     pub fn LoadPriFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>>(&self, files: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), files.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`, `Storage`*"]
     pub fn UnloadPriFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>>>(&self, files: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), files.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetAllNamedResourcesForPackage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ResourceLayoutInfo>>(&self, packagename: Param0, resourcelayoutinfo: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<NamedResource>> {
         let this = &::windows::runtime::Interface::cast::<IResourceManager2>(self)?;
         unsafe {
@@ -1161,6 +1215,7 @@ impl ResourceManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetAllSubtreesForPackage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ResourceLayoutInfo>>(&self, packagename: Param0, resourcelayoutinfo: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<ResourceMap>> {
         let this = &::windows::runtime::Interface::cast::<IResourceManager2>(self)?;
         unsafe {
@@ -1168,12 +1223,14 @@ impl ResourceManager {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), packagename.into_param().abi(), resourcelayoutinfo.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<ResourceMap>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn Current() -> ::windows::runtime::Result<ResourceManager> {
         Self::IResourceManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ResourceManager>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn IsResourceReference<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(resourcereference: Param0) -> ::windows::runtime::Result<bool> {
         Self::IResourceManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -1237,11 +1294,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ResourceManager {}
 unsafe impl ::std::marker::Sync for ResourceManager {}
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceMap(::windows::runtime::IInspectable);
 impl ResourceMap {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1249,6 +1308,7 @@ impl ResourceMap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, resource: Param0) -> ::windows::runtime::Result<ResourceCandidate> {
         let this = self;
         unsafe {
@@ -1256,6 +1316,7 @@ impl ResourceMap {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), resource.into_param().abi(), &mut result__).from_abi::<ResourceCandidate>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn GetValueForContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ResourceContext>>(&self, resource: Param0, context: Param1) -> ::windows::runtime::Result<ResourceCandidate> {
         let this = self;
         unsafe {
@@ -1263,6 +1324,7 @@ impl ResourceMap {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), resource.into_param().abi(), context.into_param().abi(), &mut result__).from_abi::<ResourceCandidate>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn GetSubtree<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reference: Param0) -> ::windows::runtime::Result<ResourceMap> {
         let this = self;
         unsafe {
@@ -1271,6 +1333,7 @@ impl ResourceMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>>>(self)?;
         unsafe {
@@ -1279,6 +1342,7 @@ impl ResourceMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<NamedResource> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, NamedResource>>(self)?;
         unsafe {
@@ -1287,6 +1351,7 @@ impl ResourceMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, NamedResource>>(self)?;
         unsafe {
@@ -1295,6 +1360,7 @@ impl ResourceMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, NamedResource>>(self)?;
         unsafe {
@@ -1303,6 +1369,7 @@ impl ResourceMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Split(&self, first: &mut ::std::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, NamedResource>>, second: &mut ::std::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, NamedResource>>) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, NamedResource>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
@@ -1429,12 +1496,14 @@ impl ::std::iter::IntoIterator for &ResourceMap {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceMapIterator(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapIterator {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Current(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>> {
         let this = self;
         unsafe {
@@ -1443,6 +1512,7 @@ impl ResourceMapIterator {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn HasCurrent(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1451,6 +1521,7 @@ impl ResourceMapIterator {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn MoveNext(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1459,6 +1530,7 @@ impl ResourceMapIterator {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetMany(&self, items: &mut [<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource> as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1557,12 +1629,14 @@ unsafe impl ::std::marker::Send for ResourceMapIterator {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::std::marker::Sync for ResourceMapIterator {}
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceMapMapView(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapMapView {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<ResourceMap> {
         let this = self;
         unsafe {
@@ -1571,6 +1645,7 @@ impl ResourceMapMapView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1579,6 +1654,7 @@ impl ResourceMapMapView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1587,11 +1663,13 @@ impl ResourceMapMapView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Split(&self, first: &mut ::std::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>>, second: &mut ::std::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>>) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>>>(self)?;
         unsafe {
@@ -1732,12 +1810,14 @@ impl ::std::iter::IntoIterator for &ResourceMapMapView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceMapMapViewIterator(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMapMapViewIterator {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Current(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>> {
         let this = self;
         unsafe {
@@ -1746,6 +1826,7 @@ impl ResourceMapMapViewIterator {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn HasCurrent(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1754,6 +1835,7 @@ impl ResourceMapMapViewIterator {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn MoveNext(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1762,6 +1844,7 @@ impl ResourceMapMapViewIterator {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetMany(&self, items: &mut [<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap> as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1859,10 +1942,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Coll
 unsafe impl ::std::marker::Send for ResourceMapMapViewIterator {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::std::marker::Sync for ResourceMapMapViewIterator {}
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceQualifier(::windows::runtime::IInspectable);
 impl ResourceQualifier {
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn QualifierName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1870,6 +1955,7 @@ impl ResourceQualifier {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn QualifierValue(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1877,6 +1963,7 @@ impl ResourceQualifier {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn IsDefault(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1884,6 +1971,7 @@ impl ResourceQualifier {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn IsMatch(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1891,6 +1979,7 @@ impl ResourceQualifier {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
     pub fn Score(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1952,12 +2041,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for ResourceQualifier {}
 unsafe impl ::std::marker::Sync for ResourceQualifier {}
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceQualifierMapView(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierMapView {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1966,6 +2057,7 @@ impl ResourceQualifierMapView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1974,6 +2066,7 @@ impl ResourceQualifierMapView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1982,11 +2075,13 @@ impl ResourceQualifierMapView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Split(&self, first: &mut ::std::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>, second: &mut ::std::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>(self)?;
         unsafe {
@@ -2127,12 +2222,14 @@ impl ::std::iter::IntoIterator for &ResourceQualifierMapView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceQualifierObservableMap(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierObservableMap {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation`, `Foundation_Collections`*"]
     pub fn MapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::MapChangedEventHandler<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>(&self, vhnd: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2141,11 +2238,13 @@ impl ResourceQualifierObservableMap {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation`, `Foundation_Collections`*"]
     pub fn RemoveMapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>(self)?;
         unsafe {
@@ -2154,6 +2253,7 @@ impl ResourceQualifierObservableMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe {
@@ -2162,6 +2262,7 @@ impl ResourceQualifierObservableMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe {
@@ -2170,6 +2271,7 @@ impl ResourceQualifierObservableMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe {
@@ -2178,6 +2280,7 @@ impl ResourceQualifierObservableMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe {
@@ -2186,6 +2289,7 @@ impl ResourceQualifierObservableMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe {
@@ -2194,11 +2298,13 @@ impl ResourceQualifierObservableMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
@@ -2361,6 +2467,7 @@ impl ::std::iter::IntoIterator for &ResourceQualifierObservableMap {
         self.First().unwrap()
     }
 }
+#[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ResourceQualifierPersistence(pub i32);
@@ -2381,12 +2488,14 @@ unsafe impl ::windows::runtime::RuntimeType for ResourceQualifierPersistence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
 }
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceQualifierVectorView(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierVectorView {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<ResourceQualifier> {
         let this = self;
         unsafe {
@@ -2395,6 +2504,7 @@ impl ResourceQualifierVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2403,6 +2513,7 @@ impl ResourceQualifierVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, ResourceQualifier>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2411,6 +2522,7 @@ impl ResourceQualifierVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<ResourceQualifier as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2419,6 +2531,7 @@ impl ResourceQualifierVectorView {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<ResourceQualifier>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ResourceQualifier>>(self)?;
         unsafe {

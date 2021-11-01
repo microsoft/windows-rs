@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Storage_Compression`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CompressAlgorithm(pub i32);
@@ -22,11 +23,13 @@ unsafe impl ::windows::runtime::Abi for CompressAlgorithm {
 unsafe impl ::windows::runtime::RuntimeType for CompressAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
 }
+#[doc = "*Required features: `Storage_Compression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Compressor(::windows::runtime::IInspectable);
 impl Compressor {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Compression`, `Foundation`*"]
     pub fn FinishAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -35,6 +38,7 @@ impl Compressor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Compression`, `Storage_Streams`*"]
     pub fn DetachStream(&self) -> ::windows::runtime::Result<super::Streams::IOutputStream> {
         let this = self;
         unsafe {
@@ -43,11 +47,13 @@ impl Compressor {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Compression`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Storage_Compression`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
@@ -56,6 +62,7 @@ impl Compressor {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Storage_Compression`, `Foundation`, `Storage_Streams`*"]
     pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
@@ -64,6 +71,7 @@ impl Compressor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Compression`, `Storage_Streams`*"]
     pub fn CreateCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0) -> ::windows::runtime::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -71,6 +79,7 @@ impl Compressor {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Compression`, `Storage_Streams`*"]
     pub fn CreateCompressorEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::runtime::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -186,11 +195,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream> for &C
 }
 unsafe impl ::std::marker::Send for Compressor {}
 unsafe impl ::std::marker::Sync for Compressor {}
+#[doc = "*Required features: `Storage_Compression`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Decompressor(::windows::runtime::IInspectable);
 impl Decompressor {
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Compression`, `Storage_Streams`*"]
     pub fn DetachStream(&self) -> ::windows::runtime::Result<super::Streams::IInputStream> {
         let this = self;
         unsafe {
@@ -199,11 +210,13 @@ impl Decompressor {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Compression`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Storage_Compression`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
@@ -212,6 +225,7 @@ impl Decompressor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Compression`, `Storage_Streams`*"]
     pub fn CreateDecompressor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IInputStream>>(underlyingstream: Param0) -> ::windows::runtime::Result<Decompressor> {
         Self::IDecompressorFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

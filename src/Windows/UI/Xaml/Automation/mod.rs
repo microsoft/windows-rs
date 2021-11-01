@@ -5,34 +5,40 @@ pub mod Peers;
 pub mod Provider;
 #[cfg(feature = "UI_Xaml_Automation_Text")]
 pub mod Text;
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AnnotationPatternIdentifiers(::windows::runtime::IInspectable);
 impl AnnotationPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AnnotationTypeIdProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AnnotationTypeNameProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AuthorProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DateTimeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn TargetProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAnnotationPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -96,6 +102,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AnnotationPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for AnnotationPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AnnotationType(pub i32);
@@ -136,6 +143,7 @@ unsafe impl ::windows::runtime::Abi for AnnotationType {
 unsafe impl ::windows::runtime::RuntimeType for AnnotationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AnnotationType;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationActiveEnd(pub i32);
@@ -156,6 +164,7 @@ unsafe impl ::windows::runtime::Abi for AutomationActiveEnd {
 unsafe impl ::windows::runtime::RuntimeType for AutomationActiveEnd {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationActiveEnd;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationAnimationStyle(pub i32);
@@ -181,6 +190,7 @@ unsafe impl ::windows::runtime::Abi for AutomationAnimationStyle {
 unsafe impl ::windows::runtime::RuntimeType for AutomationAnimationStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationAnimationStyle;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationAnnotation(::windows::runtime::IInspectable);
@@ -192,6 +202,7 @@ impl AutomationAnnotation {
         static mut SHARED: ::windows::runtime::FactoryCache<AutomationAnnotation, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<AnnotationType> {
         let this = self;
         unsafe {
@@ -199,10 +210,12 @@ impl AutomationAnnotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AnnotationType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetType(&self, value: AnnotationType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn Element(&self) -> ::windows::runtime::Result<super::UIElement> {
         let this = self;
         unsafe {
@@ -210,34 +223,40 @@ impl AutomationAnnotation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::UIElement>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::UIElement>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CreateInstance(r#type: AnnotationType) -> ::windows::runtime::Result<AutomationAnnotation> {
         Self::IAutomationAnnotationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), r#type, &mut result__).from_abi::<AutomationAnnotation>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CreateWithElementParameter<'a, Param1: ::windows::runtime::IntoParam<'a, super::UIElement>>(r#type: AnnotationType, element: Param1) -> ::windows::runtime::Result<AutomationAnnotation> {
         Self::IAutomationAnnotationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), r#type, element.into_param().abi(), &mut result__).from_abi::<AutomationAnnotation>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn TypeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationAnnotationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ElementProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationAnnotationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -245,14 +264,17 @@ impl AutomationAnnotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -260,6 +282,7 @@ impl AutomationAnnotation {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -268,6 +291,7 @@ impl AutomationAnnotation {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -275,6 +299,7 @@ impl AutomationAnnotation {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -282,6 +307,7 @@ impl AutomationAnnotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -367,6 +393,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Automat
 }
 unsafe impl ::std::marker::Send for AutomationAnnotation {}
 unsafe impl ::std::marker::Sync for AutomationAnnotation {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationBulletStyle(pub i32);
@@ -391,6 +418,7 @@ unsafe impl ::windows::runtime::Abi for AutomationBulletStyle {
 unsafe impl ::windows::runtime::RuntimeType for AutomationBulletStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationBulletStyle;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationCaretBidiMode(pub i32);
@@ -410,6 +438,7 @@ unsafe impl ::windows::runtime::Abi for AutomationCaretBidiMode {
 unsafe impl ::windows::runtime::RuntimeType for AutomationCaretBidiMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretBidiMode;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationCaretPosition(pub i32);
@@ -430,238 +459,278 @@ unsafe impl ::windows::runtime::Abi for AutomationCaretPosition {
 unsafe impl ::windows::runtime::RuntimeType for AutomationCaretPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretPosition;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationElementIdentifiers(::windows::runtime::IInspectable);
 impl AutomationElementIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AcceleratorKeyProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AccessKeyProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AutomationIdProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn BoundingRectangleProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ClassNameProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ClickablePointProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ControlTypeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HasKeyboardFocusProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HelpTextProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsContentElementProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsControlElementProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsEnabledProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsKeyboardFocusableProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsOffscreenProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsPasswordProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsRequiredForFormProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ItemStatusProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ItemTypeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LabeledByProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LocalizedControlTypeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn NameProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn OrientationProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LiveSettingProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ControlledPeersProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn PositionInSetProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SizeOfSetProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LevelProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AnnotationsProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LandmarkTypeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LocalizedLandmarkTypeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsPeripheralProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsDataValidForFormProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FullDescriptionProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DescribedByProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FlowsToProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FlowsFromProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CultureProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics6(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HeadingLevelProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics7(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsDialogProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IAutomationElementIdentifiersStatics8(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -753,6 +822,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AutomationElementIdentifiers {}
 unsafe impl ::std::marker::Sync for AutomationElementIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationFlowDirections(pub i32);
@@ -774,6 +844,7 @@ unsafe impl ::windows::runtime::Abi for AutomationFlowDirections {
 unsafe impl ::windows::runtime::RuntimeType for AutomationFlowDirections {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationFlowDirections;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationOutlineStyles(pub i32);
@@ -796,145 +867,174 @@ unsafe impl ::windows::runtime::Abi for AutomationOutlineStyles {
 unsafe impl ::windows::runtime::RuntimeType for AutomationOutlineStyles {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationOutlineStyles;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationProperties(::windows::runtime::IInspectable);
 impl AutomationProperties {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AcceleratorKeyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetAcceleratorKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetAcceleratorKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AccessKeyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AutomationIdProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetAutomationId<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetAutomationId<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HelpTextProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetHelpText<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetHelpText<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsRequiredForFormProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetIsRequiredForForm<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetIsRequiredForForm<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ItemStatusProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetItemStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetItemStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ItemTypeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetItemType<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetItemType<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LabeledByProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetLabeledBy<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::UIElement> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::UIElement>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetLabeledBy<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, super::UIElement>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn NameProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LiveSettingProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -942,6 +1042,7 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn GetLiveSetting<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<Peers::AutomationLiveSetting> {
         Self::IAutomationPropertiesStatics(|this| unsafe {
             let mut result__: Peers::AutomationLiveSetting = ::std::mem::zeroed();
@@ -949,9 +1050,11 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn SetLiveSetting<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: Peers::AutomationLiveSetting) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AccessibilityViewProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -959,6 +1062,7 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn GetAccessibilityView<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<Peers::AccessibilityView> {
         Self::IAutomationPropertiesStatics2(|this| unsafe {
             let mut result__: Peers::AccessibilityView = ::std::mem::zeroed();
@@ -966,9 +1070,11 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn SetAccessibilityView<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: Peers::AccessibilityView) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ControlledPeersProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -976,57 +1082,68 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `Foundation_Collections`*"]
     pub fn GetControlledPeers<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<super::UIElement>> {
         Self::IAutomationPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::UIElement>>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn PositionInSetProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetPositionInSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<i32> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetPositionInSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SizeOfSetProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetSizeOfSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<i32> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetSizeOfSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LevelProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<i32> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics3(|this| unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AnnotationsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1034,12 +1151,14 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `Foundation_Collections`*"]
     pub fn GetAnnotations<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>> {
         Self::IAutomationPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<AutomationAnnotation>>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LandmarkTypeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1047,6 +1166,7 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn GetLandmarkType<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<Peers::AutomationLandmarkType> {
         Self::IAutomationPropertiesStatics4(|this| unsafe {
             let mut result__: Peers::AutomationLandmarkType = ::std::mem::zeroed();
@@ -1054,84 +1174,101 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn SetLandmarkType<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: Peers::AutomationLandmarkType) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics4(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LocalizedLandmarkTypeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetLocalizedLandmarkType<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics4(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetLocalizedLandmarkType<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics4(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsPeripheralProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetIsPeripheral<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetIsPeripheral<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsDataValidForFormProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetIsDataValidForForm<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetIsDataValidForForm<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FullDescriptionProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetFullDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetFullDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LocalizedControlTypeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetLocalizedControlType<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetLocalizedControlType<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(element: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics5(|this| unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DescribedByProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1139,12 +1276,14 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `Foundation_Collections`*"]
     pub fn GetDescribedBy<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FlowsToProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1152,12 +1291,14 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `Foundation_Collections`*"]
     pub fn GetFlowsTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FlowsFromProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1165,27 +1306,32 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `Foundation_Collections`*"]
     pub fn GetFlowsFrom<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<super::DependencyObject>> {
         Self::IAutomationPropertiesStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::DependencyObject>>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CultureProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics6(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetCulture<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<i32> {
         Self::IAutomationPropertiesStatics6(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetCulture<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics6(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HeadingLevelProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics7(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1193,6 +1339,7 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn GetHeadingLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<Peers::AutomationHeadingLevel> {
         Self::IAutomationPropertiesStatics7(|this| unsafe {
             let mut result__: Peers::AutomationHeadingLevel = ::std::mem::zeroed();
@@ -1200,24 +1347,29 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn SetHeadingLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: Peers::AutomationHeadingLevel) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics7(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsDialogProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics8(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GetIsDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::IAutomationPropertiesStatics8(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SetIsDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics8(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn AutomationControlTypeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IAutomationPropertiesStatics9(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1225,6 +1377,7 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn GetAutomationControlType<'a, Param0: ::windows::runtime::IntoParam<'a, super::UIElement>>(element: Param0) -> ::windows::runtime::Result<Peers::AutomationControlType> {
         Self::IAutomationPropertiesStatics9(|this| unsafe {
             let mut result__: Peers::AutomationControlType = ::std::mem::zeroed();
@@ -1232,6 +1385,7 @@ impl AutomationProperties {
         })
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Automation`, `UI_Xaml_Automation_Peers`*"]
     pub fn SetAutomationControlType<'a, Param0: ::windows::runtime::IntoParam<'a, super::UIElement>>(element: Param0, value: Peers::AutomationControlType) -> ::windows::runtime::Result<()> {
         Self::IAutomationPropertiesStatics9(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
@@ -1324,6 +1478,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AutomationProperties {}
 unsafe impl ::std::marker::Sync for AutomationProperties {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationProperty(::windows::runtime::IInspectable);
@@ -1380,6 +1535,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AutomationProperty {}
 unsafe impl ::std::marker::Sync for AutomationProperty {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationStyleId(pub i32);
@@ -1412,6 +1568,7 @@ unsafe impl ::windows::runtime::Abi for AutomationStyleId {
 unsafe impl ::windows::runtime::RuntimeType for AutomationStyleId {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationStyleId;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationTextDecorationLineStyle(pub i32);
@@ -1448,6 +1605,7 @@ unsafe impl ::windows::runtime::Abi for AutomationTextDecorationLineStyle {
 unsafe impl ::windows::runtime::RuntimeType for AutomationTextDecorationLineStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextDecorationLineStyle;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AutomationTextEditChangeType(pub i32);
@@ -1469,10 +1627,12 @@ unsafe impl ::windows::runtime::Abi for AutomationTextEditChangeType {
 unsafe impl ::windows::runtime::RuntimeType for AutomationTextEditChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextEditChangeType;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DockPatternIdentifiers(::windows::runtime::IInspectable);
 impl DockPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DockPositionProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IDockPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1536,6 +1696,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DockPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for DockPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DockPosition(pub i32);
@@ -1559,28 +1720,33 @@ unsafe impl ::windows::runtime::Abi for DockPosition {
 unsafe impl ::windows::runtime::RuntimeType for DockPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.DockPosition;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DragPatternIdentifiers(::windows::runtime::IInspectable);
 impl DragPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DropEffectProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IDragPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DropEffectsProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IDragPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn GrabbedItemsProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IDragPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsGrabbedProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IDragPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1644,16 +1810,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DragPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for DragPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DropTargetPatternIdentifiers(::windows::runtime::IInspectable);
 impl DropTargetPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DropTargetEffectProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IDropTargetPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn DropTargetEffectsProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IDropTargetPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1717,10 +1886,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DropTargetPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for DropTargetPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ExpandCollapsePatternIdentifiers(::windows::runtime::IInspectable);
 impl ExpandCollapsePatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ExpandCollapseStateProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IExpandCollapsePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1784,6 +1955,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ExpandCollapsePatternIdentifiers {}
 unsafe impl ::std::marker::Sync for ExpandCollapsePatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExpandCollapseState(pub i32);
@@ -1805,34 +1977,40 @@ unsafe impl ::windows::runtime::Abi for ExpandCollapseState {
 unsafe impl ::windows::runtime::RuntimeType for ExpandCollapseState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ExpandCollapseState;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GridItemPatternIdentifiers(::windows::runtime::IInspectable);
 impl GridItemPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnSpanProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ContainingGridProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn RowProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn RowSpanProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IGridItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1896,16 +2074,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for GridItemPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for GridItemPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GridPatternIdentifiers(::windows::runtime::IInspectable);
 impl GridPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnCountProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IGridPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn RowCountProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IGridPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3352,16 +3533,19 @@ pub struct IWindowPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MultipleViewPatternIdentifiers(::windows::runtime::IInspectable);
 impl MultipleViewPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CurrentViewProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IMultipleViewPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SupportedViewsProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IMultipleViewPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3425,40 +3609,47 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MultipleViewPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for MultipleViewPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RangeValuePatternIdentifiers(::windows::runtime::IInspectable);
 impl RangeValuePatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsReadOnlyProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn LargeChangeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn MaximumProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn MinimumProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SmallChangeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ValueProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IRangeValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3522,6 +3713,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for RangeValuePatternIdentifiers {}
 unsafe impl ::std::marker::Sync for RangeValuePatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RowOrColumnMajor(pub i32);
@@ -3542,6 +3734,7 @@ unsafe impl ::windows::runtime::Abi for RowOrColumnMajor {
 unsafe impl ::windows::runtime::RuntimeType for RowOrColumnMajor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.RowOrColumnMajor;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ScrollAmount(pub i32);
@@ -3564,46 +3757,54 @@ unsafe impl ::windows::runtime::Abi for ScrollAmount {
 unsafe impl ::windows::runtime::RuntimeType for ScrollAmount {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ScrollAmount;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ScrollPatternIdentifiers(::windows::runtime::IInspectable);
 impl ScrollPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HorizontallyScrollableProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HorizontalScrollPercentProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn HorizontalViewSizeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn NoScroll() -> ::windows::runtime::Result<f64> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: f64 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn VerticallyScrollableProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn VerticalScrollPercentProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn VerticalViewSizeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IScrollPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3667,16 +3868,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ScrollPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for ScrollPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SelectionItemPatternIdentifiers(::windows::runtime::IInspectable);
 impl SelectionItemPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsSelectedProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ISelectionItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SelectionContainerProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ISelectionItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3740,22 +3944,26 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SelectionItemPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for SelectionItemPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SelectionPatternIdentifiers(::windows::runtime::IInspectable);
 impl SelectionPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanSelectMultipleProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ISelectionPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsSelectionRequiredProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ISelectionPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn SelectionProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ISelectionPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3819,10 +4027,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SelectionPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for SelectionPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpreadsheetItemPatternIdentifiers(::windows::runtime::IInspectable);
 impl SpreadsheetItemPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FormulaProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ISpreadsheetItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3886,46 +4096,54 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpreadsheetItemPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for SpreadsheetItemPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StylesPatternIdentifiers(::windows::runtime::IInspectable);
 impl StylesPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ExtendedPropertiesProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FillColorProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FillPatternColorProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn FillPatternStyleProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ShapeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn StyleIdProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn StyleNameProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IStylesPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3989,6 +4207,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StylesPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for StylesPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SupportedTextSelection(pub i32);
@@ -4009,6 +4228,7 @@ unsafe impl ::windows::runtime::Abi for SupportedTextSelection {
 unsafe impl ::windows::runtime::RuntimeType for SupportedTextSelection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SupportedTextSelection;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SynchronizedInputType(pub i32);
@@ -4032,16 +4252,19 @@ unsafe impl ::windows::runtime::Abi for SynchronizedInputType {
 unsafe impl ::windows::runtime::RuntimeType for SynchronizedInputType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SynchronizedInputType;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TableItemPatternIdentifiers(::windows::runtime::IInspectable);
 impl TableItemPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnHeaderItemsProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITableItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn RowHeaderItemsProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITableItemPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4105,22 +4328,26 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TableItemPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for TableItemPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TablePatternIdentifiers(::windows::runtime::IInspectable);
 impl TablePatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ColumnHeadersProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITablePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn RowHeadersProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITablePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn RowOrColumnMajorProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITablePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4184,10 +4411,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TablePatternIdentifiers {}
 unsafe impl ::std::marker::Sync for TablePatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TogglePatternIdentifiers(::windows::runtime::IInspectable);
 impl TogglePatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ToggleStateProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITogglePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4251,6 +4480,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TogglePatternIdentifiers {}
 unsafe impl ::std::marker::Sync for TogglePatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ToggleState(pub i32);
@@ -4271,28 +4501,33 @@ unsafe impl ::windows::runtime::Abi for ToggleState {
 unsafe impl ::windows::runtime::RuntimeType for ToggleState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ToggleState;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TransformPattern2Identifiers(::windows::runtime::IInspectable);
 impl TransformPattern2Identifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanZoomProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITransformPattern2IdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ZoomLevelProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITransformPattern2IdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn MaxZoomProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITransformPattern2IdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn MinZoomProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITransformPattern2IdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4356,22 +4591,26 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TransformPattern2Identifiers {}
 unsafe impl ::std::marker::Sync for TransformPattern2Identifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TransformPatternIdentifiers(::windows::runtime::IInspectable);
 impl TransformPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanMoveProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITransformPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanResizeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITransformPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanRotateProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::ITransformPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4435,16 +4674,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TransformPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for TransformPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ValuePatternIdentifiers(::windows::runtime::IInspectable);
 impl ValuePatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsReadOnlyProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn ValueProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IValuePatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4508,6 +4750,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ValuePatternIdentifiers {}
 unsafe impl ::std::marker::Sync for ValuePatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WindowInteractionState(pub i32);
@@ -4530,40 +4773,47 @@ unsafe impl ::windows::runtime::Abi for WindowInteractionState {
 unsafe impl ::windows::runtime::RuntimeType for WindowInteractionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowInteractionState;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WindowPatternIdentifiers(::windows::runtime::IInspectable);
 impl WindowPatternIdentifiers {
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanMaximizeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn CanMinimizeProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsModalProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn IsTopmostProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn WindowInteractionStateProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AutomationProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Automation`*"]
     pub fn WindowVisualStateProperty() -> ::windows::runtime::Result<AutomationProperty> {
         Self::IWindowPatternIdentifiersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4627,6 +4877,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for WindowPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for WindowPatternIdentifiers {}
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WindowVisualState(pub i32);
@@ -4647,6 +4898,7 @@ unsafe impl ::windows::runtime::Abi for WindowVisualState {
 unsafe impl ::windows::runtime::RuntimeType for WindowVisualState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowVisualState;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ZoomUnit(pub i32);

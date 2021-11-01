@@ -2,12 +2,14 @@
 #[cfg(feature = "Storage_Pickers_Provider")]
 pub mod Provider;
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileExtensionVector(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl FileExtensionVector {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -16,6 +18,7 @@ impl FileExtensionVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -24,6 +27,7 @@ impl FileExtensionVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -32,6 +36,7 @@ impl FileExtensionVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -40,36 +45,43 @@ impl FileExtensionVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -78,11 +90,13 @@ impl FileExtensionVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>(self)?;
         unsafe {
@@ -222,6 +236,7 @@ impl ::std::iter::IntoIterator for &FileExtensionVector {
         super::super::Foundation::Collections::VectorIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `Storage_Pickers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileOpenPicker(::windows::runtime::IInspectable);
@@ -233,6 +248,7 @@ impl FileOpenPicker {
         static mut SHARED: ::windows::runtime::FactoryCache<FileOpenPicker, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn ViewMode(&self) -> ::windows::runtime::Result<PickerViewMode> {
         let this = self;
         unsafe {
@@ -240,10 +256,12 @@ impl FileOpenPicker {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PickerViewMode>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetViewMode(&self, value: PickerViewMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SettingsIdentifier(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -251,10 +269,12 @@ impl FileOpenPicker {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetSettingsIdentifier<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SuggestedStartLocation(&self) -> ::windows::runtime::Result<PickerLocationId> {
         let this = self;
         unsafe {
@@ -262,10 +282,12 @@ impl FileOpenPicker {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PickerLocationId>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn CommitButtonText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -273,11 +295,13 @@ impl FileOpenPicker {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetCommitButtonText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn FileTypeFilter(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -286,6 +310,7 @@ impl FileOpenPicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation`*"]
     pub fn PickSingleFileAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
@@ -294,6 +319,7 @@ impl FileOpenPicker {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation`, `Foundation_Collections`*"]
     pub fn PickMultipleFilesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -303,6 +329,7 @@ impl FileOpenPicker {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<IFileOpenPicker2>(self)?;
         unsafe {
@@ -311,16 +338,19 @@ impl FileOpenPicker {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn PickSingleFileAndContinue(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IFileOpenPicker2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn PickMultipleFilesAndContinue(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IFileOpenPicker2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation`*"]
     pub fn PickSingleFileAsync2<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, pickeroperationid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows::runtime::Interface::cast::<IFileOpenPickerWithOperationId>(self)?;
         unsafe {
@@ -330,6 +360,7 @@ impl FileOpenPicker {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation`*"]
     pub fn ResumePickSingleFileAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         Self::IFileOpenPickerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -337,6 +368,7 @@ impl FileOpenPicker {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Storage_Pickers`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<IFileOpenPicker3>(self)?;
         unsafe {
@@ -345,6 +377,7 @@ impl FileOpenPicker {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Storage_Pickers`, `System`*"]
     pub fn CreateForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<FileOpenPicker> {
         Self::IFileOpenPickerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -413,12 +446,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for FileOpenPicker {}
 unsafe impl ::std::marker::Sync for FileOpenPicker {}
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FilePickerFileTypesOrderedMap(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl FilePickerFileTypesOrderedMap {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -427,6 +462,7 @@ impl FilePickerFileTypesOrderedMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -435,6 +471,7 @@ impl FilePickerFileTypesOrderedMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -443,6 +480,7 @@ impl FilePickerFileTypesOrderedMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>> {
         let this = self;
         unsafe {
@@ -451,6 +489,7 @@ impl FilePickerFileTypesOrderedMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -459,16 +498,19 @@ impl FilePickerFileTypesOrderedMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>>>(self)?;
         unsafe {
@@ -611,12 +653,14 @@ impl ::std::iter::IntoIterator for &FilePickerFileTypesOrderedMap {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FilePickerSelectedFilesArray(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl FilePickerSelectedFilesArray {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<super::StorageFile> {
         let this = self;
         unsafe {
@@ -625,6 +669,7 @@ impl FilePickerSelectedFilesArray {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -633,6 +678,7 @@ impl FilePickerSelectedFilesArray {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, super::StorageFile>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -641,6 +687,7 @@ impl FilePickerSelectedFilesArray {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<super::StorageFile as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -649,6 +696,7 @@ impl FilePickerSelectedFilesArray {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<super::StorageFile>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<super::StorageFile>>(self)?;
         unsafe {
@@ -788,6 +836,7 @@ impl ::std::iter::IntoIterator for &FilePickerSelectedFilesArray {
         super::super::Foundation::Collections::VectorViewIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `Storage_Pickers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileSavePicker(::windows::runtime::IInspectable);
@@ -799,6 +848,7 @@ impl FileSavePicker {
         static mut SHARED: ::windows::runtime::FactoryCache<FileSavePicker, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SettingsIdentifier(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -806,10 +856,12 @@ impl FileSavePicker {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetSettingsIdentifier<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SuggestedStartLocation(&self) -> ::windows::runtime::Result<PickerLocationId> {
         let this = self;
         unsafe {
@@ -817,10 +869,12 @@ impl FileSavePicker {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PickerLocationId>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn CommitButtonText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -828,11 +882,13 @@ impl FileSavePicker {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetCommitButtonText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn FileTypeChoices(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>> {
         let this = self;
         unsafe {
@@ -840,6 +896,7 @@ impl FileSavePicker {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn DefaultFileExtension(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -847,10 +904,12 @@ impl FileSavePicker {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetDefaultFileExtension<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SuggestedSaveFile(&self) -> ::windows::runtime::Result<super::StorageFile> {
         let this = self;
         unsafe {
@@ -858,10 +917,12 @@ impl FileSavePicker {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::StorageFile>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetSuggestedSaveFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::StorageFile>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SuggestedFileName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -869,11 +930,13 @@ impl FileSavePicker {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetSuggestedFileName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation`*"]
     pub fn PickSaveFileAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
@@ -882,6 +945,7 @@ impl FileSavePicker {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<IFileSavePicker2>(self)?;
         unsafe {
@@ -890,10 +954,12 @@ impl FileSavePicker {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn PickSaveFileAndContinue(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IFileSavePicker2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn EnterpriseId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IFileSavePicker3>(self)?;
         unsafe {
@@ -901,11 +967,13 @@ impl FileSavePicker {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetEnterpriseId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IFileSavePicker3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Storage_Pickers`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<IFileSavePicker4>(self)?;
         unsafe {
@@ -914,6 +982,7 @@ impl FileSavePicker {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Storage_Pickers`, `System`*"]
     pub fn CreateForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<FileSavePicker> {
         Self::IFileSavePickerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -977,6 +1046,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for FileSavePicker {}
 unsafe impl ::std::marker::Sync for FileSavePicker {}
+#[doc = "*Required features: `Storage_Pickers`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FolderPicker(::windows::runtime::IInspectable);
@@ -988,6 +1058,7 @@ impl FolderPicker {
         static mut SHARED: ::windows::runtime::FactoryCache<FolderPicker, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn ViewMode(&self) -> ::windows::runtime::Result<PickerViewMode> {
         let this = self;
         unsafe {
@@ -995,10 +1066,12 @@ impl FolderPicker {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PickerViewMode>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetViewMode(&self, value: PickerViewMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SettingsIdentifier(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1006,10 +1079,12 @@ impl FolderPicker {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetSettingsIdentifier<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SuggestedStartLocation(&self) -> ::windows::runtime::Result<PickerLocationId> {
         let this = self;
         unsafe {
@@ -1017,10 +1092,12 @@ impl FolderPicker {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PickerLocationId>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn CommitButtonText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1028,11 +1105,13 @@ impl FolderPicker {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn SetCommitButtonText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn FileTypeFilter(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1041,6 +1120,7 @@ impl FolderPicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation`*"]
     pub fn PickSingleFolderAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
@@ -1049,6 +1129,7 @@ impl FolderPicker {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
     pub fn ContinuationData(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<IFolderPicker2>(self)?;
         unsafe {
@@ -1057,11 +1138,13 @@ impl FolderPicker {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Storage_Pickers`*"]
     pub fn PickFolderAndContinue(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IFolderPicker2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Storage_Pickers`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<IFolderPicker3>(self)?;
         unsafe {
@@ -1070,6 +1153,7 @@ impl FolderPicker {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Storage_Pickers`, `System`*"]
     pub fn CreateForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<FolderPicker> {
         Self::IFolderPickerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1473,6 +1557,7 @@ pub struct IFolderPickerStatics_abi(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: `Storage_Pickers`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PickerLocationId(pub i32);
@@ -1500,6 +1585,7 @@ unsafe impl ::windows::runtime::Abi for PickerLocationId {
 unsafe impl ::windows::runtime::RuntimeType for PickerLocationId {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
 }
+#[doc = "*Required features: `Storage_Pickers`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PickerViewMode(pub i32);

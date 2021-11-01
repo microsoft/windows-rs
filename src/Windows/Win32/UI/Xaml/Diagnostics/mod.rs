@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BaseValueSource(pub i32);
@@ -29,6 +30,7 @@ unsafe impl ::windows::runtime::Abi for BaseValueSource {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi`*"]
 pub struct BitmapDescription {
     pub Width: u32,
     pub Height: u32,
@@ -65,6 +67,7 @@ unsafe impl ::windows::runtime::Abi for BitmapDescription {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
 pub struct CollectionElementValue {
     pub Index: u32,
     pub ValueType: super::super::super::Foundation::BSTR,
@@ -98,10 +101,12 @@ unsafe impl ::windows::runtime::Abi for CollectionElementValue {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 pub const E_UNKNOWNTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144665560i32 as _);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct EnumType {
     pub Name: super::super::super::Foundation::BSTR,
     pub ValueInts: *mut super::super::super::System::Com::SAFEARRAY,
@@ -134,23 +139,28 @@ unsafe impl ::windows::runtime::Abi for EnumType {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IBitmapData(::windows::runtime::IUnknown);
 impl IBitmapData {
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn CopyBytesTo(&self, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(sourceoffsetinbytes), ::std::mem::transmute(maxbytestocopy), ::std::mem::transmute(pvbytes), ::std::mem::transmute(numberofbytescopied)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetStride(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetBitmapDescription(&self) -> ::windows::runtime::Result<BitmapDescription> {
         let mut result__: <BitmapDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<BitmapDescription>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetSourceBitmapDescription(&self) -> ::windows::runtime::Result<BitmapDescription> {
         let mut result__: <BitmapDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<BitmapDescription>(result__)
@@ -193,49 +203,62 @@ pub struct IBitmapData_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbitmapdescription: *mut BitmapDescription) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVisualTreeService(::windows::runtime::IUnknown);
 impl IVisualTreeService {
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcount), ::std::mem::transmute(ppenums)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, typename: Param0, value: Param1) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), typename.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(psourcecount), ::std::mem::transmute(pppropertysources), ::std::mem::transmute(ppropertycount), ::std::mem::transmute(pppropertyvalues)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(value), ::std::mem::transmute(propertyindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn ClearProperty(&self, instancehandle: u64, propertyindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(propertyindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(startindex), ::std::mem::transmute(pelementcount), ::std::mem::transmute(ppelementvalues)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent), ::std::mem::transmute(child), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn RemoveChild(&self, parent: u64, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn ClearChildren(&self, parent: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent)).ok()
     }
@@ -287,64 +310,81 @@ pub struct IVisualTreeService_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parent: u64, index: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parent: u64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVisualTreeService2(::windows::runtime::IUnknown);
 impl IVisualTreeService2 {
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcount), ::std::mem::transmute(ppenums)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, typename: Param0, value: Param1) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), typename.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(psourcecount), ::std::mem::transmute(pppropertysources), ::std::mem::transmute(ppropertycount), ::std::mem::transmute(pppropertyvalues)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(value), ::std::mem::transmute(propertyindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn ClearProperty(&self, instancehandle: u64, propertyindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(propertyindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(startindex), ::std::mem::transmute(pelementcount), ::std::mem::transmute(ppelementvalues)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent), ::std::mem::transmute(child), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn RemoveChild(&self, parent: u64, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn ClearChildren(&self, parent: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyIndex<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, object: u64, propertyname: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(object), propertyname.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(object), ::std::mem::transmute(propertyindex), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn ReplaceResource(&self, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(resourcedictionary), ::std::mem::transmute(key), ::std::mem::transmute(newvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::runtime::Result<IBitmapData> {
         let mut result__: <IBitmapData as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle), ::std::mem::transmute(options), ::std::mem::transmute(maxpixelwidth), ::std::mem::transmute(maxpixelheight), &mut result__).from_abi::<IBitmapData>(result__)
@@ -422,80 +462,101 @@ pub struct IVisualTreeService2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVisualTreeService3(::windows::runtime::IUnknown);
 impl IVisualTreeService3 {
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcount), ::std::mem::transmute(ppenums)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, typename: Param0, value: Param1) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), typename.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(psourcecount), ::std::mem::transmute(pppropertysources), ::std::mem::transmute(ppropertycount), ::std::mem::transmute(pppropertyvalues)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(value), ::std::mem::transmute(propertyindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn ClearProperty(&self, instancehandle: u64, propertyindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(propertyindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), ::std::mem::transmute(startindex), ::std::mem::transmute(pelementcount), ::std::mem::transmute(ppelementvalues)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent), ::std::mem::transmute(child), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn RemoveChild(&self, parent: u64, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn ClearChildren(&self, parent: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(parent)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyIndex<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, object: u64, propertyname: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(object), propertyname.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(object), ::std::mem::transmute(propertyindex), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn ReplaceResource(&self, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(resourcedictionary), ::std::mem::transmute(key), ::std::mem::transmute(newvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::runtime::Result<IBitmapData> {
         let mut result__: <IBitmapData as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle), ::std::mem::transmute(options), ::std::mem::transmute(maxpixelwidth), ::std::mem::transmute(maxpixelheight), &mut result__).from_abi::<IBitmapData>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn ResolveResource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, resourcecontext: u64, resourcename: Param1, resourcetype: ResourceType, propertyindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(resourcecontext), resourcename.into_param().abi(), ::std::mem::transmute(resourcetype), ::std::mem::transmute(propertyindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetDictionaryItem<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, dictionaryhandle: u64, resourcename: Param1, resourceisimplicitstyle: Param2) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dictionaryhandle), resourcename.into_param().abi(), resourceisimplicitstyle.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn AddDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(dictionaryhandle), ::std::mem::transmute(resourcekey), ::std::mem::transmute(resourcehandle)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn RemoveDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(dictionaryhandle), ::std::mem::transmute(resourcekey)).ok()
     }
@@ -598,11 +659,13 @@ pub struct IVisualTreeService3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dictionaryhandle: u64, resourcekey: u64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVisualTreeServiceCallback(::windows::runtime::IUnknown);
 impl IVisualTreeServiceCallback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn OnVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, ParentChildRelation>, Param1: ::windows::runtime::IntoParam<'a, VisualElement>>(&self, relation: Param0, element: Param1, mutationtype: VisualMutationType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), relation.into_param().abi(), element.into_param().abi(), ::std::mem::transmute(mutationtype)).ok()
     }
@@ -640,15 +703,18 @@ pub struct IVisualTreeServiceCallback_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, relation: ParentChildRelation, element: ::std::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVisualTreeServiceCallback2(::windows::runtime::IUnknown);
 impl IVisualTreeServiceCallback2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn OnVisualTreeChange<'a, Param0: ::windows::runtime::IntoParam<'a, ParentChildRelation>, Param1: ::windows::runtime::IntoParam<'a, VisualElement>>(&self, relation: Param0, element: Param1, mutationtype: VisualMutationType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), relation.into_param().abi(), element.into_param().abi(), ::std::mem::transmute(mutationtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn OnElementStateChanged<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, element: u64, elementstate: VisualElementState, context: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(element), ::std::mem::transmute(elementstate), context.into_param().abi()).ok()
     }
@@ -708,39 +774,48 @@ pub struct IVisualTreeServiceCallback2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, element: u64, elementstate: VisualElementState, context: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXamlDiagnostics(::windows::runtime::IUnknown);
 impl IXamlDiagnostics {
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetDispatcher(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let mut result__: <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetUiLayer(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let mut result__: <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetApplication(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let mut result__: <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetIInspectableFromHandle(&self, instancehandle: u64) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let mut result__: <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(instancehandle), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn GetHandleFromIInspectable<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, pinstance: Param0) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pinstance.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn HitTest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::RECT>>(&self, rect: Param0, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), rect.into_param().abi(), ::std::mem::transmute(pcount), ::std::mem::transmute(ppinstancehandles)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
     pub unsafe fn RegisterInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, pinstance: Param0) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pinstance.into_param().abi(), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
     pub unsafe fn GetInitializationData(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -788,6 +863,7 @@ pub struct IXamlDiagnostics_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -802,6 +878,7 @@ pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
     endpointname: Param0,
@@ -822,6 +899,7 @@ pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MetadataBit(pub i32);
@@ -846,6 +924,7 @@ unsafe impl ::windows::runtime::Abi for MetadataBit {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 pub struct ParentChildRelation {
     pub Parent: u64,
     pub Child: u64,
@@ -875,6 +954,7 @@ unsafe impl ::windows::runtime::Abi for ParentChildRelation {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
 pub struct PropertyChainSource {
     pub Handle: u64,
     pub TargetType: super::super::super::Foundation::BSTR,
@@ -912,6 +992,7 @@ unsafe impl ::windows::runtime::Abi for PropertyChainSource {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
 pub struct PropertyChainValue {
     pub Index: u32,
     pub Type: super::super::super::Foundation::BSTR,
@@ -962,6 +1043,7 @@ unsafe impl ::windows::runtime::Abi for PropertyChainValue {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RenderTargetBitmapOptions(pub i32);
@@ -976,6 +1058,7 @@ unsafe impl ::windows::runtime::Abi for RenderTargetBitmapOptions {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ResourceType(pub i32);
@@ -993,6 +1076,7 @@ unsafe impl ::windows::runtime::Abi for ResourceType {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
 pub struct SourceInfo {
     pub FileName: super::super::super::Foundation::BSTR,
     pub LineNumber: u32,
@@ -1030,6 +1114,7 @@ unsafe impl ::windows::runtime::Abi for SourceInfo {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`, `Win32_Foundation`*"]
 pub struct VisualElement {
     pub Handle: u64,
     pub SrcInfo: SourceInfo,
@@ -1064,6 +1149,7 @@ unsafe impl ::windows::runtime::Abi for VisualElement {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VisualElementState(pub i32);
@@ -1079,6 +1165,7 @@ unsafe impl ::windows::runtime::Abi for VisualElementState {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VisualMutationType(pub i32);

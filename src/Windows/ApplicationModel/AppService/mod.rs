@@ -1,7 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 pub struct AppServiceCatalog {}
 impl AppServiceCatalog {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAppServiceProvidersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(appservicename: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>> {
         Self::IAppServiceCatalogStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -16,10 +18,12 @@ impl AppServiceCatalog {
 impl ::windows::runtime::RuntimeName for AppServiceCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceCatalog";
 }
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppServiceClosedEventArgs(::windows::runtime::IInspectable);
 impl AppServiceClosedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AppServiceClosedStatus> {
         let this = self;
         unsafe {
@@ -80,6 +84,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppServiceClosedEventArgs {}
 unsafe impl ::std::marker::Sync for AppServiceClosedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppServiceClosedStatus(pub i32);
@@ -101,6 +106,7 @@ unsafe impl ::windows::runtime::Abi for AppServiceClosedStatus {
 unsafe impl ::windows::runtime::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppServiceConnection(::windows::runtime::IInspectable);
@@ -112,6 +118,7 @@ impl AppServiceConnection {
         static mut SHARED: ::windows::runtime::FactoryCache<AppServiceConnection, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn AppServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -119,10 +126,12 @@ impl AppServiceConnection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn SetAppServiceName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn PackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -130,11 +139,13 @@ impl AppServiceConnection {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn SetPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`*"]
     pub fn OpenAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>> {
         let this = self;
         unsafe {
@@ -143,6 +154,7 @@ impl AppServiceConnection {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`, `Foundation_Collections`*"]
     pub fn SendMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, message: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AppServiceResponse>> {
         let this = self;
         unsafe {
@@ -151,6 +163,7 @@ impl AppServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`*"]
     pub fn RequestReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -159,11 +172,13 @@ impl AppServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`*"]
     pub fn RemoveRequestReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`*"]
     pub fn ServiceClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -172,16 +187,19 @@ impl AppServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`*"]
     pub fn RemoveServiceClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`, `System_RemoteSystems`*"]
     pub fn OpenRemoteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::RemoteSystems::RemoteSystemConnectionRequest>>(&self, remotesystemconnectionrequest: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>> {
         let this = &::windows::runtime::Interface::cast::<IAppServiceConnection2>(self)?;
         unsafe {
@@ -190,6 +208,7 @@ impl AppServiceConnection {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<IAppServiceConnection2>(self)?;
         unsafe {
@@ -198,11 +217,13 @@ impl AppServiceConnection {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `System`*"]
     pub fn SetUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAppServiceConnection2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`, `Foundation_Collections`, `System_RemoteSystems`*"]
     pub fn SendStatelessMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, AppServiceConnection>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::RemoteSystems::RemoteSystemConnectionRequest>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(connection: Param0, connectionrequest: Param1, message: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>> {
         Self::IAppServiceConnectionStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -292,6 +313,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for AppServiceConnection {}
 unsafe impl ::std::marker::Sync for AppServiceConnection {}
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppServiceConnectionStatus(pub i32);
@@ -321,10 +343,12 @@ unsafe impl ::windows::runtime::Abi for AppServiceConnectionStatus {
 unsafe impl ::windows::runtime::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppServiceDeferral(::windows::runtime::IInspectable);
 impl AppServiceDeferral {
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -382,11 +406,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppServiceDeferral {}
 unsafe impl ::std::marker::Sync for AppServiceDeferral {}
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppServiceRequest(::windows::runtime::IInspectable);
 impl AppServiceRequest {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation_Collections`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -395,6 +421,7 @@ impl AppServiceRequest {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`, `Foundation_Collections`*"]
     pub fn SendResponseAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, message: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>> {
         let this = self;
         unsafe {
@@ -455,10 +482,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppServiceRequest {}
 unsafe impl ::std::marker::Sync for AppServiceRequest {}
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppServiceRequestReceivedEventArgs(::windows::runtime::IInspectable);
 impl AppServiceRequestReceivedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<AppServiceRequest> {
         let this = self;
         unsafe {
@@ -466,6 +495,7 @@ impl AppServiceRequestReceivedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppServiceRequest>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<AppServiceDeferral> {
         let this = self;
         unsafe {
@@ -526,11 +556,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppServiceRequestReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for AppServiceRequestReceivedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppServiceResponse(::windows::runtime::IInspectable);
 impl AppServiceResponse {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation_Collections`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -538,6 +570,7 @@ impl AppServiceResponse {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AppServiceResponseStatus> {
         let this = self;
         unsafe {
@@ -598,6 +631,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppServiceResponse {}
 unsafe impl ::std::marker::Sync for AppServiceResponse {}
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AppServiceResponseStatus(pub i32);
@@ -626,10 +660,12 @@ unsafe impl ::windows::runtime::Abi for AppServiceResponseStatus {
 unsafe impl ::windows::runtime::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppServiceTriggerDetails(::windows::runtime::IInspectable);
 impl AppServiceTriggerDetails {
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -637,6 +673,7 @@ impl AppServiceTriggerDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn CallerPackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -644,6 +681,7 @@ impl AppServiceTriggerDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn AppServiceConnection(&self) -> ::windows::runtime::Result<AppServiceConnection> {
         let this = self;
         unsafe {
@@ -651,6 +689,7 @@ impl AppServiceTriggerDetails {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppServiceConnection>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn IsRemoteSystemConnection(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAppServiceTriggerDetails2>(self)?;
         unsafe {
@@ -659,6 +698,7 @@ impl AppServiceTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation`*"]
     pub fn CheckCallerForCapabilityAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, capabilityname: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<IAppServiceTriggerDetails3>(self)?;
         unsafe {
@@ -666,6 +706,7 @@ impl AppServiceTriggerDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), capabilityname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn CallerRemoteConnectionToken(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IAppServiceTriggerDetails4>(self)?;
         unsafe {
@@ -1025,11 +1066,13 @@ pub struct IStatelessAppServiceResponse_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut StatelessAppServiceResponseStatus) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StatelessAppServiceResponse(::windows::runtime::IInspectable);
 impl StatelessAppServiceResponse {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_AppService`, `Foundation_Collections`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -1037,6 +1080,7 @@ impl StatelessAppServiceResponse {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_AppService`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StatelessAppServiceResponseStatus> {
         let this = self;
         unsafe {
@@ -1097,6 +1141,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StatelessAppServiceResponse {}
 unsafe impl ::std::marker::Sync for StatelessAppServiceResponse {}
+#[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StatelessAppServiceResponseStatus(pub i32);

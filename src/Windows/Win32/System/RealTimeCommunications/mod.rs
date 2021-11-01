@@ -1,16 +1,22 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const FACILITY_RTC_INTERFACE: u32 = 238u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkTransportSettings(::windows::runtime::IUnknown);
 impl INetworkTransportSettings {
     #[cfg(feature = "Win32_Networking_WinSock")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Networking_WinSock`*"]
     pub unsafe fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(settingid), ::std::mem::transmute(lengthin), ::std::mem::transmute(valuein), ::std::mem::transmute(lengthout), ::std::mem::transmute(valueout)).ok()
     }
     #[cfg(feature = "Win32_Networking_WinSock")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Networking_WinSock`*"]
     pub unsafe fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(settingid), ::std::mem::transmute(lengthin), ::std::mem::transmute(valuein), ::std::mem::transmute(lengthout), ::std::mem::transmute(valueout)).ok()
     }
@@ -50,13 +56,16 @@ pub struct INetworkTransportSettings_abi(
     #[cfg(feature = "Win32_Networking_WinSock")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INotificationTransportSync(::windows::runtime::IUnknown);
 impl INotificationTransportSync {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn CompleteDelivery(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Flush(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -94,49 +103,60 @@ pub struct INotificationTransportSync_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCBuddy(::windows::runtime::IUnknown);
 impl IRTCBuddy {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PresentityURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPresentityURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Data(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Persistent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPersistent(&self, fpersistent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(fpersistent)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<RTC_PRESENCE_STATUS> {
         let mut result__: <RTC_PRESENCE_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PRESENCE_STATUS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Notes(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -210,81 +230,100 @@ pub struct IRTCBuddy_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrnotes: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCBuddy2(::windows::runtime::IUnknown);
 impl IRTCBuddy2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PresentityURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPresentityURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Data(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Persistent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPersistent(&self, fpersistent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(fpersistent)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<RTC_PRESENCE_STATUS> {
         let mut result__: <RTC_PRESENCE_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PRESENCE_STATUS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Notes(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile2> {
         let mut result__: <IRTCProfile2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateGroups(&self) -> ::windows::runtime::Result<IRTCEnumGroups> {
         let mut result__: <IRTCEnumGroups as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumGroups>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Groups(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(enproperty), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumeratePresenceDevices(&self) -> ::windows::runtime::Result<IRTCEnumPresenceDevices> {
         let mut result__: <IRTCEnumPresenceDevices as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumPresenceDevices>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PresenceDevices(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SubscriptionType(&self) -> ::windows::runtime::Result<RTC_BUDDY_SUBSCRIPTION_TYPE> {
         let mut result__: <RTC_BUDDY_SUBSCRIPTION_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_BUDDY_SUBSCRIPTION_TYPE>(result__)
@@ -387,10 +426,12 @@ pub struct IRTCBuddy2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdevicescollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pensubscriptiontype: *mut RTC_BUDDY_SUBSCRIPTION_TYPE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCBuddyEvent(::windows::runtime::IUnknown);
 impl IRTCBuddyEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Buddy(&self) -> ::windows::runtime::Result<IRTCBuddy> {
         let mut result__: <IRTCBuddy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCBuddy>(result__)
@@ -460,40 +501,49 @@ pub struct IRTCBuddyEvent_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppbuddy: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCBuddyEvent2(::windows::runtime::IUnknown);
 impl IRTCBuddyEvent2 {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Buddy(&self) -> ::windows::runtime::Result<IRTCBuddy> {
         let mut result__: <IRTCBuddy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCBuddy>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_BUDDY_EVENT_TYPE> {
         let mut result__: <RTC_BUDDY_EVENT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_BUDDY_EVENT_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -587,42 +637,52 @@ pub struct IRTCBuddyEvent2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrstatustext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCBuddyGroup(::windows::runtime::IUnknown);
 impl IRTCBuddyGroup {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgroupname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrgroupname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn AddBuddy<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCBuddy>>(&self, pbuddy: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pbuddy.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveBuddy<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCBuddy>>(&self, pbuddy: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pbuddy.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::runtime::Result<IRTCEnumBuddies> {
         let mut result__: <IRTCEnumBuddies as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumBuddies>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Buddies(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Data(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile2> {
         let mut result__: <IRTCProfile2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile2>(result__)
@@ -672,22 +732,27 @@ pub struct IRTCBuddyGroup_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppprofile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCBuddyGroupEvent(::windows::runtime::IUnknown);
 impl IRTCBuddyGroupEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_GROUP_EVENT_TYPE> {
         let mut result__: <RTC_GROUP_EVENT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_GROUP_EVENT_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Group(&self) -> ::windows::runtime::Result<IRTCBuddyGroup> {
         let mut result__: <IRTCBuddyGroup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCBuddyGroup>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Buddy(&self) -> ::windows::runtime::Result<IRTCBuddy2> {
         let mut result__: <IRTCBuddy2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCBuddy2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -760,164 +825,207 @@ pub struct IRTCBuddyGroupEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppbuddy: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plstatuscode: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCClient(::windows::runtime::IUnknown);
 impl IRTCClient {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Shutdown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PrepareForShutdown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetEventFilter(&self, lfilter: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lfilter)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventFilter(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatypes), ::std::mem::transmute(fpersistent)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PreferredMediaTypes(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn MediaCapabilities(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn CreateSession<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::runtime::Result<IRTCSession> {
         let mut result__: <IRTCSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(entype), bstrlocalphoneuri.into_param().abi(), pprofile.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IRTCSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(enlisten)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ListenForIncomingSessions(&self) -> ::windows::runtime::Result<RTC_LISTEN_MODE> {
         let mut result__: <RTC_LISTEN_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_LISTEN_MODE>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn NetworkAddresses(&self, ftcp: i16, fexternal: i16) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(ftcp), ::std::mem::transmute(fexternal), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), ::std::mem::transmute(lvolume)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetAudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), ::std::mem::transmute(fmuted)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::runtime::Result<super::super::Graphics::DirectShow::IVideoWindow> {
         let mut result__: <super::super::Graphics::DirectShow::IVideoWindow as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<super::super::Graphics::DirectShow::IVideoWindow>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPreferredAudioDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), bstrdevicename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), ::std::mem::transmute(lvolume)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPreferredAEC(&self, benable: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(benable)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PreferredAEC(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPreferredVideoDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdevicename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), bstrdevicename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PreferredVideoDevice(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ActiveMedia(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetMaxBitrate(&self, lmaxbitrate: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmaxbitrate)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn MaxBitrate(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetTemporalSpatialTradeOff(&self, lvalue: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(lvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn TemporalSpatialTradeOff(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn NetworkQuality(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(enapplet)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StopT120Applets(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(enapplet), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn LocalUserURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetLocalUserURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseruri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), bstruseruri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn LocalUserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetLocalUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(entype), ::std::mem::transmute(bplay)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), ::std::mem::transmute(endtmf)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn InvokeTuningWizard(&self, hwndparent: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(hwndparent)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn IsTuned(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -1007,211 +1115,267 @@ pub struct IRTCClient_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: isize) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pftuned: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCClient2(::windows::runtime::IUnknown);
 impl IRTCClient2 {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Shutdown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PrepareForShutdown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetEventFilter(&self, lfilter: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lfilter)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventFilter(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatypes), ::std::mem::transmute(fpersistent)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PreferredMediaTypes(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn MediaCapabilities(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn CreateSession<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::runtime::Result<IRTCSession> {
         let mut result__: <IRTCSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(entype), bstrlocalphoneuri.into_param().abi(), pprofile.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IRTCSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(enlisten)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ListenForIncomingSessions(&self) -> ::windows::runtime::Result<RTC_LISTEN_MODE> {
         let mut result__: <RTC_LISTEN_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_LISTEN_MODE>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn NetworkAddresses(&self, ftcp: i16, fexternal: i16) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(ftcp), ::std::mem::transmute(fexternal), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), ::std::mem::transmute(lvolume)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetAudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), ::std::mem::transmute(fmuted)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::runtime::Result<super::super::Graphics::DirectShow::IVideoWindow> {
         let mut result__: <super::super::Graphics::DirectShow::IVideoWindow as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<super::super::Graphics::DirectShow::IVideoWindow>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPreferredAudioDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), bstrdevicename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), ::std::mem::transmute(lvolume)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(endevice), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPreferredAEC(&self, benable: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(benable)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PreferredAEC(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPreferredVideoDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdevicename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), bstrdevicename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PreferredVideoDevice(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ActiveMedia(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetMaxBitrate(&self, lmaxbitrate: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmaxbitrate)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn MaxBitrate(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetTemporalSpatialTradeOff(&self, lvalue: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(lvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn TemporalSpatialTradeOff(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn NetworkQuality(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(enapplet)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StopT120Applets(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(enapplet), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn LocalUserURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetLocalUserURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseruri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), bstruseruri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn LocalUserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetLocalUserName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(entype), ::std::mem::transmute(bplay)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), ::std::mem::transmute(endtmf)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn InvokeTuningWizard(&self, hwndparent: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(hwndparent)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn IsTuned(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetAnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(entype), ::std::mem::transmute(enmode)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn AnswerMode(&self, entype: RTC_SESSION_TYPE) -> ::windows::runtime::Result<RTC_ANSWER_MODE> {
         let mut result__: <RTC_ANSWER_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(entype), &mut result__).from_abi::<RTC_ANSWER_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: i16, fallowvideo: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), ::std::mem::transmute(hwndparent), ::std::mem::transmute(fallowaudio), ::std::mem::transmute(fallowvideo)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Version(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetClientName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclientname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), bstrclientname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetClientCurVer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclientcurver: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), bstrclientcurver.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn InitializeEx(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn CreateSessionWithDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, pprofile: Param2, lflags: i32) -> ::windows::runtime::Result<IRTCSession2> {
         let mut result__: <IRTCSession2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi(), pprofile.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IRTCSession2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetSessionDescriptionManager<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCSessionDescriptionManager>>(&self, psessiondescriptionmanager: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), psessiondescriptionmanager.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), ::std::mem::transmute(ensecuritytype), ::std::mem::transmute(ensecuritylevel)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::runtime::Result<RTC_SECURITY_LEVEL> {
         let mut result__: <RTC_SECURITY_LEVEL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), ::std::mem::transmute(ensecuritytype), &mut result__).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetAllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), ::std::mem::transmute(ltransport), ::std::mem::transmute(enlistenmode)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn AllowedPorts(&self, ltransport: i32) -> ::windows::runtime::Result<RTC_LISTEN_MODE> {
         let mut result__: <RTC_LISTEN_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), ::std::mem::transmute(ltransport), &mut result__).from_abi::<RTC_LISTEN_MODE>(result__)
@@ -1337,14 +1501,17 @@ pub struct IRTCClient2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ltransport: i32, penlistenmode: *mut RTC_LISTEN_MODE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCClientEvent(::windows::runtime::IUnknown);
 impl IRTCClientEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_CLIENT_EVENT_TYPE> {
         let mut result__: <RTC_CLIENT_EVENT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_CLIENT_EVENT_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Client(&self) -> ::windows::runtime::Result<IRTCClient> {
         let mut result__: <IRTCClient as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCClient>(result__)
@@ -1415,18 +1582,22 @@ pub struct IRTCClientEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peneventtype: *mut RTC_CLIENT_EVENT_TYPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppclient: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCClientPortManagement(::windows::runtime::IUnknown);
 impl IRTCClientPortManagement {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StartListenAddressAndPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrinternallocaladdress.into_param().abi(), ::std::mem::transmute(linternallocalport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StopListenAddressAndPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrinternallocaladdress.into_param().abi(), ::std::mem::transmute(linternallocalport)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(enporttype), ::std::mem::transmute(plminvalue), ::std::mem::transmute(plmaxvalue)).ok()
     }
@@ -1467,79 +1638,98 @@ pub struct IRTCClientPortManagement_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCClientPresence(::windows::runtime::IUnknown);
 impl IRTCClientPresence {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn EnablePresence<'a, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, fusestorage: i16, varstorage: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(fusestorage), varstorage.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Export<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, varstorage: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), varstorage.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Import<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, varstorage: Param0, freplaceall: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), varstorage.into_param().abi(), ::std::mem::transmute(freplaceall)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::runtime::Result<IRTCEnumBuddies> {
         let mut result__: <IRTCEnumBuddies as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumBuddies>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Buddies(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Buddy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<IRTCBuddy> {
         let mut result__: <IRTCBuddy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi(), &mut result__).from_abi::<IRTCBuddy>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddBuddy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, pprofile: Param4, lflags: i32) -> ::windows::runtime::Result<IRTCBuddy> {
         let mut result__: <IRTCBuddy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::std::mem::transmute(fpersistent), pprofile.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IRTCBuddy>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveBuddy<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCBuddy>>(&self, pbuddy: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pbuddy.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateWatchers(&self) -> ::windows::runtime::Result<IRTCEnumWatchers> {
         let mut result__: <IRTCEnumWatchers as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumWatchers>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Watchers(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Watcher<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<IRTCWatcher> {
         let mut result__: <IRTCWatcher as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi(), &mut result__).from_abi::<IRTCWatcher>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddWatcher<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fblocked: i16, fpersistent: i16) -> ::windows::runtime::Result<IRTCWatcher> {
         let mut result__: <IRTCWatcher as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::std::mem::transmute(fblocked), ::std::mem::transmute(fpersistent), &mut result__).from_abi::<IRTCWatcher>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveWatcher<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCWatcher>>(&self, pwatcher: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pwatcher.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetLocalPresenceInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(enstatus), bstrnotes.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn OfferWatcherMode(&self) -> ::windows::runtime::Result<RTC_OFFER_WATCHER_MODE> {
         let mut result__: <RTC_OFFER_WATCHER_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_OFFER_WATCHER_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(enmode)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PrivacyMode(&self) -> ::windows::runtime::Result<RTC_PRIVACY_MODE> {
         let mut result__: <RTC_PRIVACY_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PRIVACY_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(enmode)).ok()
     }
@@ -1601,111 +1791,138 @@ pub struct IRTCClientPresence_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penmode: *mut RTC_PRIVACY_MODE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enmode: RTC_PRIVACY_MODE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCClientPresence2(::windows::runtime::IUnknown);
 impl IRTCClientPresence2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn EnablePresence<'a, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, fusestorage: i16, varstorage: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(fusestorage), varstorage.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Export<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, varstorage: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), varstorage.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Import<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, varstorage: Param0, freplaceall: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), varstorage.into_param().abi(), ::std::mem::transmute(freplaceall)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::runtime::Result<IRTCEnumBuddies> {
         let mut result__: <IRTCEnumBuddies as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumBuddies>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Buddies(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Buddy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<IRTCBuddy> {
         let mut result__: <IRTCBuddy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi(), &mut result__).from_abi::<IRTCBuddy>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddBuddy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fpersistent: i16, pprofile: Param4, lflags: i32) -> ::windows::runtime::Result<IRTCBuddy> {
         let mut result__: <IRTCBuddy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::std::mem::transmute(fpersistent), pprofile.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IRTCBuddy>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveBuddy<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCBuddy>>(&self, pbuddy: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pbuddy.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateWatchers(&self) -> ::windows::runtime::Result<IRTCEnumWatchers> {
         let mut result__: <IRTCEnumWatchers as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumWatchers>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Watchers(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Watcher<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<IRTCWatcher> {
         let mut result__: <IRTCWatcher as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi(), &mut result__).from_abi::<IRTCWatcher>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddWatcher<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0, bstrusername: Param1, bstrdata: Param2, fblocked: i16, fpersistent: i16) -> ::windows::runtime::Result<IRTCWatcher> {
         let mut result__: <IRTCWatcher as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi(), bstrusername.into_param().abi(), bstrdata.into_param().abi(), ::std::mem::transmute(fblocked), ::std::mem::transmute(fpersistent), &mut result__).from_abi::<IRTCWatcher>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveWatcher<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCWatcher>>(&self, pwatcher: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pwatcher.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetLocalPresenceInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(enstatus), bstrnotes.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn OfferWatcherMode(&self) -> ::windows::runtime::Result<RTC_OFFER_WATCHER_MODE> {
         let mut result__: <RTC_OFFER_WATCHER_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_OFFER_WATCHER_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(enmode)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PrivacyMode(&self) -> ::windows::runtime::Result<RTC_PRIVACY_MODE> {
         let mut result__: <RTC_PRIVACY_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PRIVACY_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(enmode)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn EnablePresenceEx<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCProfile>, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, pprofile: Param0, varstorage: Param1, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), pprofile.into_param().abi(), varstorage.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn DisablePresence(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, bstrgroupname: Param0, bstrdata: Param1, pprofile: Param2, lflags: i32) -> ::windows::runtime::Result<IRTCBuddyGroup> {
         let mut result__: <IRTCBuddyGroup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), bstrgroupname.into_param().abi(), bstrdata.into_param().abi(), pprofile.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IRTCBuddyGroup>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveGroup<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCBuddyGroup>>(&self, pgroup: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), pgroup.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateGroups(&self) -> ::windows::runtime::Result<IRTCEnumGroups> {
         let mut result__: <IRTCEnumGroups as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumGroups>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Groups(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Group<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgroupname: Param0) -> ::windows::runtime::Result<IRTCBuddyGroup> {
         let mut result__: <IRTCBuddyGroup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), bstrgroupname.into_param().abi(), &mut result__).from_abi::<IRTCBuddyGroup>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddWatcherEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, IRTCProfile>>(
         &self,
         bstrpresentityuri: Param0,
@@ -1733,32 +1950,39 @@ impl IRTCClientPresence2 {
         .from_abi::<IRTCWatcher2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn WatcherEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: Param1) -> ::windows::runtime::Result<IRTCWatcher2> {
         let mut result__: <IRTCWatcher2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(enmode), bstrpresentityuri.into_param().abi(), &mut result__).from_abi::<IRTCWatcher2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPresenceProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(enproperty), bstrproperty.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(enproperty), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPresenceData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnamespace: Param0, bstrdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), bstrnamespace.into_param().abi(), bstrdata.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbstrnamespace), ::std::mem::transmute(pbstrdata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(penstatus), ::std::mem::transmute(pbstrnotes)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddBuddyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, IRTCProfile>>(
         &self,
         bstrpresentityuri: Param0,
@@ -1878,33 +2102,41 @@ pub struct IRTCClientPresence2_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrpresentityuri: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdata: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersistent: i16, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: ::windows::runtime::RawPtr, lflags: i32, ppbuddy: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCClientProvisioning(::windows::runtime::IUnknown);
 impl IRTCClientProvisioning {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn CreateProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprofilexml: Param0) -> ::windows::runtime::Result<IRTCProfile> {
         let mut result__: <IRTCProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrprofilexml.into_param().abi(), &mut result__).from_abi::<IRTCProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnableProfile<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0, lregisterflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pprofile.into_param().abi(), ::std::mem::transmute(lregisterflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn DisableProfile<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pprofile.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateProfiles(&self) -> ::windows::runtime::Result<IRTCEnumProfiles> {
         let mut result__: <IRTCEnumProfiles as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumProfiles>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profiles(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseraccount: Param0, bstruserpassword: Param1, bstruseruri: Param2, bstrserver: Param3, ltransport: i32, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstruseraccount.into_param().abi(), bstruserpassword.into_param().abi(), bstruseruri.into_param().abi(), bstrserver.into_param().abi(), ::std::mem::transmute(ltransport), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SessionCapabilities(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -1950,37 +2182,46 @@ pub struct IRTCClientProvisioning_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plsupportedsessions: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCClientProvisioning2(::windows::runtime::IUnknown);
 impl IRTCClientProvisioning2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn CreateProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprofilexml: Param0) -> ::windows::runtime::Result<IRTCProfile> {
         let mut result__: <IRTCProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrprofilexml.into_param().abi(), &mut result__).from_abi::<IRTCProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnableProfile<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0, lregisterflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pprofile.into_param().abi(), ::std::mem::transmute(lregisterflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn DisableProfile<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pprofile.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateProfiles(&self) -> ::windows::runtime::Result<IRTCEnumProfiles> {
         let mut result__: <IRTCEnumProfiles as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumProfiles>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profiles(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseraccount: Param0, bstruserpassword: Param1, bstruseruri: Param2, bstrserver: Param3, ltransport: i32, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstruseraccount.into_param().abi(), bstruserpassword.into_param().abi(), bstruseruri.into_param().abi(), bstrserver.into_param().abi(), ::std::mem::transmute(ltransport), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SessionCapabilities(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnableProfileEx<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, pprofile: Param0, lregisterflags: i32, lroamingflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pprofile.into_param().abi(), ::std::mem::transmute(lregisterflags), ::std::mem::transmute(lroamingflags)).ok()
     }
@@ -2046,19 +2287,23 @@ pub struct IRTCClientProvisioning2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plsupportedsessions: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprofile: ::windows::runtime::RawPtr, lregisterflags: i32, lroamingflags: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCCollection(::windows::runtime::IUnknown);
 impl IRTCCollection {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -2131,6 +2376,7 @@ pub struct IRTCCollection_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppnewenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCDispatchEventNotification(::windows::runtime::IUnknown);
@@ -2198,19 +2444,24 @@ pub struct IRTCDispatchEventNotification_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCEnumBuddies(::windows::runtime::IUnknown);
 impl IRTCEnumBuddies {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCBuddy>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppelements), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IRTCEnumBuddies> {
         let mut result__: <IRTCEnumBuddies as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumBuddies>(result__)
@@ -2251,19 +2502,24 @@ pub struct IRTCEnumBuddies_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCEnumGroups(::windows::runtime::IUnknown);
 impl IRTCEnumGroups {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCBuddyGroup>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppelements), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IRTCEnumGroups> {
         let mut result__: <IRTCEnumGroups as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumGroups>(result__)
@@ -2304,19 +2560,24 @@ pub struct IRTCEnumGroups_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCEnumParticipants(::windows::runtime::IUnknown);
 impl IRTCEnumParticipants {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCParticipant>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppelements), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IRTCEnumParticipants> {
         let mut result__: <IRTCEnumParticipants as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumParticipants>(result__)
@@ -2357,19 +2618,24 @@ pub struct IRTCEnumParticipants_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCEnumPresenceDevices(::windows::runtime::IUnknown);
 impl IRTCEnumPresenceDevices {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCPresenceDevice>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppelements), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IRTCEnumPresenceDevices> {
         let mut result__: <IRTCEnumPresenceDevices as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumPresenceDevices>(result__)
@@ -2410,19 +2676,24 @@ pub struct IRTCEnumPresenceDevices_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCEnumProfiles(::windows::runtime::IUnknown);
 impl IRTCEnumProfiles {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCProfile>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppelements), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IRTCEnumProfiles> {
         let mut result__: <IRTCEnumProfiles as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumProfiles>(result__)
@@ -2463,19 +2734,24 @@ pub struct IRTCEnumProfiles_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCEnumUserSearchResults(::windows::runtime::IUnknown);
 impl IRTCEnumUserSearchResults {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCUserSearchResult>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppelements), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IRTCEnumUserSearchResults> {
         let mut result__: <IRTCEnumUserSearchResults as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumUserSearchResults>(result__)
@@ -2516,19 +2792,24 @@ pub struct IRTCEnumUserSearchResults_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCEnumWatchers(::windows::runtime::IUnknown);
 impl IRTCEnumWatchers {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut ::std::option::Option<IRTCWatcher>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppelements), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IRTCEnumWatchers> {
         let mut result__: <IRTCEnumWatchers as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumWatchers>(result__)
@@ -2569,11 +2850,13 @@ pub struct IRTCEnumWatchers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCEventNotification(::windows::runtime::IUnknown);
 impl IRTCEventNotification {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Event<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, rtcevent: RTC_EVENT, pevent: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rtcevent), pevent.into_param().abi()).ok()
     }
@@ -2611,24 +2894,29 @@ pub struct IRTCEventNotification_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rtcevent: RTC_EVENT, pevent: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCInfoEvent(::windows::runtime::IUnknown);
 impl IRTCInfoEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
         let mut result__: <IRTCSession2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Participant(&self) -> ::windows::runtime::Result<IRTCParticipant> {
         let mut result__: <IRTCParticipant as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCParticipant>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Info(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn InfoHeader(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -2703,22 +2991,27 @@ pub struct IRTCInfoEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrinfoheader: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCIntensityEvent(::windows::runtime::IUnknown);
 impl IRTCIntensityEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Level(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Min(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Max(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Direction(&self) -> ::windows::runtime::Result<RTC_AUDIO_DEVICE> {
         let mut result__: <RTC_AUDIO_DEVICE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_AUDIO_DEVICE>(result__)
@@ -2791,18 +3084,22 @@ pub struct IRTCIntensityEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plmax: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pendirection: *mut RTC_AUDIO_DEVICE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCMediaEvent(::windows::runtime::IUnknown);
 impl IRTCMediaEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn MediaType(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_MEDIA_EVENT_TYPE> {
         let mut result__: <RTC_MEDIA_EVENT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_MEDIA_EVENT_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventReason(&self) -> ::windows::runtime::Result<RTC_MEDIA_EVENT_REASON> {
         let mut result__: <RTC_MEDIA_EVENT_REASON as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_MEDIA_EVENT_REASON>(result__)
@@ -2874,32 +3171,40 @@ pub struct IRTCMediaEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peneventtype: *mut RTC_MEDIA_EVENT_TYPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peneventreason: *mut RTC_MEDIA_EVENT_REASON) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCMediaRequestEvent(::windows::runtime::IUnknown);
 impl IRTCMediaRequestEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
         let mut result__: <IRTCSession2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ProposedMedia(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn CurrentMedia(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Accept(&self, lmediatypes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatypes)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::runtime::Result<RTC_SECURITY_LEVEL> {
         let mut result__: <RTC_SECURITY_LEVEL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ensecuritytype), &mut result__).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reject(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_REINVITE_STATE> {
         let mut result__: <RTC_REINVITE_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_REINVITE_STATE>(result__)
@@ -2975,32 +3280,39 @@ pub struct IRTCMediaRequestEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstate: *mut RTC_REINVITE_STATE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCMessagingEvent(::windows::runtime::IUnknown);
 impl IRTCMessagingEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
         let mut result__: <IRTCSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Participant(&self) -> ::windows::runtime::Result<IRTCParticipant> {
         let mut result__: <IRTCParticipant as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCParticipant>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_MESSAGING_EVENT_TYPE> {
         let mut result__: <RTC_MESSAGING_EVENT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_MESSAGING_EVENT_TYPE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Message(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn MessageHeader(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn UserStatus(&self) -> ::windows::runtime::Result<RTC_MESSAGING_USER_STATUS> {
         let mut result__: <RTC_MESSAGING_USER_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_MESSAGING_USER_STATUS>(result__)
@@ -3077,28 +3389,34 @@ pub struct IRTCMessagingEvent_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penuserstatus: *mut RTC_MESSAGING_USER_STATUS) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCParticipant(::windows::runtime::IUnknown);
 impl IRTCParticipant {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn UserURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Removable(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_PARTICIPANT_STATE> {
         let mut result__: <RTC_PARTICIPANT_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PARTICIPANT_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
         let mut result__: <IRTCSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession>(result__)
@@ -3142,18 +3460,22 @@ pub struct IRTCParticipant_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penstate: *mut RTC_PARTICIPANT_STATE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsession: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCParticipantStateChangeEvent(::windows::runtime::IUnknown);
 impl IRTCParticipantStateChangeEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Participant(&self) -> ::windows::runtime::Result<IRTCParticipant> {
         let mut result__: <IRTCParticipant as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCParticipant>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_PARTICIPANT_STATE> {
         let mut result__: <RTC_PARTICIPANT_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PARTICIPANT_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -3225,19 +3547,23 @@ pub struct IRTCParticipantStateChangeEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penstate: *mut RTC_PARTICIPANT_STATE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plstatuscode: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCPortManager(::windows::runtime::IUnknown);
 impl IRTCPortManager {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetMapping<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrremoteaddress: Param0, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrremoteaddress.into_param().abi(), ::std::mem::transmute(enporttype), ::std::mem::transmute(pbstrinternallocaladdress), ::std::mem::transmute(plinternallocalport), ::std::mem::transmute(pbstrexternallocaladdress), ::std::mem::transmute(plexternallocalport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn UpdateRemoteAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrremoteaddress: Param0, bstrinternallocaladdress: Param1, linternallocalport: i32, bstrexternallocaladdress: Param3, lexternallocalport: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrremoteaddress.into_param().abi(), bstrinternallocaladdress.into_param().abi(), ::std::mem::transmute(linternallocalport), bstrexternallocaladdress.into_param().abi(), ::std::mem::transmute(lexternallocalport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ReleaseMapping<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinternallocaladdress: Param0, linternallocalport: i32, bstrexternallocaladdress: Param2, lexternallocaladdress: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bstrinternallocaladdress.into_param().abi(), ::std::mem::transmute(linternallocalport), bstrexternallocaladdress.into_param().abi(), ::std::mem::transmute(lexternallocaladdress)).ok()
     }
@@ -3279,41 +3605,50 @@ pub struct IRTCPortManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrinternallocaladdress: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternallocalport: i32, bstrexternallocaladdress: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternallocaladdress: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCPresenceContact(::windows::runtime::IUnknown);
 impl IRTCPresenceContact {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PresentityURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPresentityURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Data(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Persistent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPersistent(&self, fpersistent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(fpersistent)).ok()
     }
@@ -3363,20 +3698,24 @@ pub struct IRTCPresenceContact_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfpersistent: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fpersistent: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCPresenceDataEvent(::windows::runtime::IUnknown);
 impl IRTCPresenceDataEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbstrnamespace), ::std::mem::transmute(pbstrdata)).ok()
     }
@@ -3449,25 +3788,30 @@ pub struct IRTCPresenceDataEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrnamespace: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdata: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCPresenceDevice(::windows::runtime::IUnknown);
 impl IRTCPresenceDevice {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<RTC_PRESENCE_STATUS> {
         let mut result__: <RTC_PRESENCE_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PRESENCE_STATUS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Notes(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(enproperty), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbstrnamespace), ::std::mem::transmute(pbstrdata)).ok()
     }
@@ -3510,24 +3854,29 @@ pub struct IRTCPresenceDevice_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrnamespace: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrdata: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCPresencePropertyEvent(::windows::runtime::IUnknown);
 impl IRTCPresencePropertyEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PresenceProperty(&self) -> ::windows::runtime::Result<RTC_PRESENCE_PROPERTY> {
         let mut result__: <RTC_PRESENCE_PROPERTY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PRESENCE_PROPERTY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -3602,20 +3951,24 @@ pub struct IRTCPresencePropertyEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrvalue: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCPresenceStatusEvent(::windows::runtime::IUnknown);
 impl IRTCPresenceStatusEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(penstatus), ::std::mem::transmute(pbstrnotes)).ok()
     }
@@ -3688,92 +4041,111 @@ pub struct IRTCPresenceStatusEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCProfile(::windows::runtime::IUnknown);
 impl IRTCProfile {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Key(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn XML(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ProviderName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(enuri), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ProviderData(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ClientBanner(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientMinVer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientCurVer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientUpdateURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientData(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn UserURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn UserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn UserAccount(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseruri: Param0, bstruseraccount: Param1, bstrpassword: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstruseruri.into_param().abi(), bstruseraccount.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SessionCapabilities(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_REGISTRATION_STATE> {
         let mut result__: <RTC_REGISTRATION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_REGISTRATION_STATE>(result__)
@@ -3843,109 +4215,132 @@ pub struct IRTCProfile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plsupportedsessions: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penstate: *mut RTC_REGISTRATION_STATE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCProfile2(::windows::runtime::IUnknown);
 impl IRTCProfile2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Key(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn XML(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ProviderName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(enuri), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ProviderData(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ClientBanner(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientMinVer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientCurVer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientUpdateURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ClientData(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn UserURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn UserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn UserAccount(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruseruri: Param0, bstruseraccount: Param1, bstrpassword: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstruseruri.into_param().abi(), bstruseraccount.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SessionCapabilities(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_REGISTRATION_STATE> {
         let mut result__: <RTC_REGISTRATION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_REGISTRATION_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Realm(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetRealm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrealm: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn AllowedAuth(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetAllowedAuth(&self, lallowedauth: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(lallowedauth)).ok()
     }
@@ -4040,18 +4435,22 @@ pub struct IRTCProfile2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plallowedauth: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lallowedauth: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCProfileEvent(::windows::runtime::IUnknown);
 impl IRTCProfileEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile> {
         let mut result__: <IRTCProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Cookie(&self) -> ::windows::runtime::Result<isize> {
         let mut result__: <isize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<isize>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -4123,39 +4522,48 @@ pub struct IRTCProfileEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plcookie: *mut isize) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plstatuscode: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCProfileEvent2(::windows::runtime::IUnknown);
 impl IRTCProfileEvent2 {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile> {
         let mut result__: <IRTCProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Cookie(&self) -> ::windows::runtime::Result<isize> {
         let mut result__: <isize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<isize>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_PROFILE_EVENT_TYPE> {
         let mut result__: <RTC_PROFILE_EVENT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_PROFILE_EVENT_TYPE>(result__)
@@ -4248,26 +4656,32 @@ pub struct IRTCProfileEvent2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plstatuscode: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peventtype: *mut RTC_PROFILE_EVENT_TYPE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCReInviteEvent(::windows::runtime::IUnknown);
 impl IRTCReInviteEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
         let mut result__: <IRTCSession2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Accept<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reject(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_REINVITE_STATE> {
         let mut result__: <RTC_REINVITE_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_REINVITE_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbstrcontenttype), ::std::mem::transmute(pbstrsessiondescription)).ok()
     }
@@ -4342,23 +4756,28 @@ pub struct IRTCReInviteEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrcontenttype: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsessiondescription: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCRegistrationStateChangeEvent(::windows::runtime::IUnknown);
 impl IRTCRegistrationStateChangeEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile> {
         let mut result__: <IRTCProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_REGISTRATION_STATE> {
         let mut result__: <RTC_REGISTRATION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_REGISTRATION_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -4432,23 +4851,28 @@ pub struct IRTCRegistrationStateChangeEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrstatustext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCRoamingEvent(::windows::runtime::IUnknown);
 impl IRTCRoamingEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_ROAMING_EVENT_TYPE> {
         let mut result__: <RTC_ROAMING_EVENT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_ROAMING_EVENT_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile2> {
         let mut result__: <IRTCProfile2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -4522,83 +4946,104 @@ pub struct IRTCRoamingEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrstatustext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSession(::windows::runtime::IUnknown);
 impl IRTCSession {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Client(&self) -> ::windows::runtime::Result<IRTCClient> {
         let mut result__: <IRTCClient as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCClient>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_SESSION_STATE> {
         let mut result__: <RTC_SESSION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_SESSION_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<RTC_SESSION_TYPE> {
         let mut result__: <RTC_SESSION_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_SESSION_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile> {
         let mut result__: <IRTCProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Participants(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Answer(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(enreason)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Redirect<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(entype), bstrlocalphoneuri.into_param().abi(), pprofile.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddParticipant<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraddress: Param0, bstrname: Param1) -> ::windows::runtime::Result<IRTCParticipant> {
         let mut result__: <IRTCParticipant as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstraddress.into_param().abi(), bstrname.into_param().abi(), &mut result__).from_abi::<IRTCParticipant>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveParticipant<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCParticipant>>(&self, pparticipant: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pparticipant.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateParticipants(&self) -> ::windows::runtime::Result<IRTCEnumParticipants> {
         let mut result__: <IRTCEnumParticipants as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumParticipants>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn CanAddParticipants(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn RedirectedUserURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn RedirectedUserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn NextRedirectedUser(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessageheader: Param0, bstrmessage: Param1, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstrmessageheader.into_param().abi(), bstrmessage.into_param().abi(), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(enuserstatus), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn AddStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatype), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatype), ::std::mem::transmute(lcookie)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetEncryptionKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lmediatype: i32, encryptionkey: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatype), encryptionkey.into_param().abi()).ok()
     }
@@ -4660,106 +5105,133 @@ pub struct IRTCSession_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lmediatype: i32, encryptionkey: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSession2(::windows::runtime::IUnknown);
 impl IRTCSession2 {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Client(&self) -> ::windows::runtime::Result<IRTCClient> {
         let mut result__: <IRTCClient as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCClient>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_SESSION_STATE> {
         let mut result__: <RTC_SESSION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_SESSION_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<RTC_SESSION_TYPE> {
         let mut result__: <RTC_SESSION_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_SESSION_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile> {
         let mut result__: <IRTCProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Participants(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Answer(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(enreason)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Redirect<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: Param1, pprofile: Param2, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(entype), bstrlocalphoneuri.into_param().abi(), pprofile.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AddParticipant<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraddress: Param0, bstrname: Param1) -> ::windows::runtime::Result<IRTCParticipant> {
         let mut result__: <IRTCParticipant as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstraddress.into_param().abi(), bstrname.into_param().abi(), &mut result__).from_abi::<IRTCParticipant>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveParticipant<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCParticipant>>(&self, pparticipant: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pparticipant.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateParticipants(&self) -> ::windows::runtime::Result<IRTCEnumParticipants> {
         let mut result__: <IRTCEnumParticipants as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumParticipants>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn CanAddParticipants(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn RedirectedUserURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn RedirectedUserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn NextRedirectedUser(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessageheader: Param0, bstrmessage: Param1, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstrmessageheader.into_param().abi(), bstrmessage.into_param().abi(), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(enuserstatus), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn AddStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatype), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemoveStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatype), ::std::mem::transmute(lcookie)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetEncryptionKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lmediatype: i32, encryptionkey: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmediatype), encryptionkey.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SendInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinfoheader: Param0, bstrinfo: Param1, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), bstrinfoheader.into_param().abi(), bstrinfo.into_param().abi(), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(ensecuritytype), ::std::mem::transmute(ensecuritylevel)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::runtime::Result<RTC_SECURITY_LEVEL> {
         let mut result__: <RTC_SECURITY_LEVEL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(ensecuritytype), &mut result__).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(ensecuritytype), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn AnswerWithSessionDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ReInviteWithSessionDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi(), ::std::mem::transmute(lcookie)).ok()
     }
@@ -4850,42 +5322,52 @@ pub struct IRTCSession2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrcontenttype: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcookie: isize) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionCallControl(::windows::runtime::IUnknown);
 impl IRTCSessionCallControl {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Hold(&self, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn UnHold(&self, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcookie)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Forward<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrforwardtouri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bstrforwardtouri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Refer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrefertouri: Param0, bstrrefercookie: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrrefertouri.into_param().abi(), bstrrefercookie.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetReferredByURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrreferredbyuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrreferredbyuri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ReferredByURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetReferCookie<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrefercookie: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrrefercookie.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ReferCookie(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn IsReferred(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -4937,11 +5419,13 @@ pub struct IRTCSessionCallControl_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfisreferred: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionDescriptionManager(::windows::runtime::IUnknown);
 impl IRTCSessionDescriptionManager {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn EvaluateSessionDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcontenttype: Param0, bstrsessiondescription: Param1, pfapplicationsession: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrcontenttype.into_param().abi(), bstrsessiondescription.into_param().abi(), ::std::mem::transmute(pfapplicationsession)).ok()
     }
@@ -4979,23 +5463,28 @@ pub struct IRTCSessionDescriptionManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrcontenttype: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfapplicationsession: *mut i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionOperationCompleteEvent(::windows::runtime::IUnknown);
 impl IRTCSessionOperationCompleteEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
         let mut result__: <IRTCSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Cookie(&self) -> ::windows::runtime::Result<isize> {
         let mut result__: <isize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<isize>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -5069,49 +5558,60 @@ pub struct IRTCSessionOperationCompleteEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrstatustext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionOperationCompleteEvent2(::windows::runtime::IUnknown);
 impl IRTCSessionOperationCompleteEvent2 {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
         let mut result__: <IRTCSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Cookie(&self) -> ::windows::runtime::Result<isize> {
         let mut result__: <isize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<isize>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Participant(&self) -> ::windows::runtime::Result<IRTCParticipant> {
         let mut result__: <IRTCParticipant as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCParticipant>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbstrcontenttype), ::std::mem::transmute(pbstrsessiondescription)).ok()
     }
@@ -5207,10 +5707,12 @@ pub struct IRTCSessionOperationCompleteEvent2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrcontenttype: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsessiondescription: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionPortManagement(::windows::runtime::IUnknown);
 impl IRTCSessionPortManagement {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPortManager<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCPortManager>>(&self, pportmanager: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pportmanager.into_param().abi()).ok()
     }
@@ -5247,23 +5749,28 @@ pub struct IRTCSessionPortManagement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pportmanager: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionReferStatusEvent(::windows::runtime::IUnknown);
 impl IRTCSessionReferStatusEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
         let mut result__: <IRTCSession2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ReferStatus(&self) -> ::windows::runtime::Result<RTC_SESSION_REFER_STATUS> {
         let mut result__: <RTC_SESSION_REFER_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_SESSION_REFER_STATUS>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -5337,35 +5844,43 @@ pub struct IRTCSessionReferStatusEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrstatustext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionReferredEvent(::windows::runtime::IUnknown);
 impl IRTCSessionReferredEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession2> {
         let mut result__: <IRTCSession2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ReferredByURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ReferToURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn ReferCookie(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Accept(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Reject(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(enstate)).ok()
     }
@@ -5443,23 +5958,28 @@ pub struct IRTCSessionReferredEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enstate: RTC_SESSION_STATE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionStateChangeEvent(::windows::runtime::IUnknown);
 impl IRTCSessionStateChangeEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
         let mut result__: <IRTCSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_SESSION_STATE> {
         let mut result__: <RTC_SESSION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_SESSION_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -5533,57 +6053,70 @@ pub struct IRTCSessionStateChangeEvent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrstatustext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCSessionStateChangeEvent2(::windows::runtime::IUnknown);
 impl IRTCSessionStateChangeEvent2 {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IRTCSession> {
         let mut result__: <IRTCSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_SESSION_STATE> {
         let mut result__: <RTC_SESSION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_SESSION_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn StatusText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn MediaTypes(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::runtime::Result<RTC_SECURITY_LEVEL> {
         let mut result__: <RTC_SECURITY_LEVEL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ensecuritytype), &mut result__).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn IsForked(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbstrcontenttype), ::std::mem::transmute(pbstrsessiondescription)).ok()
     }
@@ -5681,14 +6214,17 @@ pub struct IRTCSessionStateChangeEvent2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrcontenttype: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrsessiondescription: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCUserSearch(::windows::runtime::IUnknown);
 impl IRTCUserSearch {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn CreateQuery(&self) -> ::windows::runtime::Result<IRTCUserSearchQuery> {
         let mut result__: <IRTCUserSearchQuery as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCUserSearchQuery>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn ExecuteSearch<'a, Param0: ::windows::runtime::IntoParam<'a, IRTCUserSearchQuery>, Param1: ::windows::runtime::IntoParam<'a, IRTCProfile>>(&self, pquery: Param0, pprofile: Param1, lcookie: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pquery.into_param().abi(), pprofile.into_param().abi(), ::std::mem::transmute(lcookie)).ok()
     }
@@ -5726,36 +6262,44 @@ pub struct IRTCUserSearch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppquery: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pquery: ::windows::runtime::RawPtr, pprofile: ::windows::runtime::RawPtr, lcookie: isize) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCUserSearchQuery(::windows::runtime::IUnknown);
 impl IRTCUserSearchQuery {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetSearchTerm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SearchTerm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SearchTerms(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetSearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(enpreference), ::std::mem::transmute(lvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(enpreference), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetSearchDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdomain: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrdomain.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SearchDomain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -5804,11 +6348,13 @@ pub struct IRTCUserSearchQuery_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdomain: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCUserSearchResult(::windows::runtime::IUnknown);
 impl IRTCUserSearchResult {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(encolumn), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -5847,34 +6393,42 @@ pub struct IRTCUserSearchResult_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCUserSearchResultsEvent(::windows::runtime::IUnknown);
 impl IRTCUserSearchResultsEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EnumerateResults(&self) -> ::windows::runtime::Result<IRTCEnumUserSearchResults> {
         let mut result__: <IRTCEnumUserSearchResults as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCEnumUserSearchResults>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Results(&self) -> ::windows::runtime::Result<IRTCCollection> {
         let mut result__: <IRTCCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile2> {
         let mut result__: <IRTCProfile2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Query(&self) -> ::windows::runtime::Result<IRTCUserSearchQuery> {
         let mut result__: <IRTCUserSearchQuery as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCUserSearchQuery>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Cookie(&self) -> ::windows::runtime::Result<isize> {
         let mut result__: <isize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<isize>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn MoreAvailable(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -5950,48 +6504,59 @@ pub struct IRTCUserSearchResultsEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plstatuscode: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfmoreavailable: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCWatcher(::windows::runtime::IUnknown);
 impl IRTCWatcher {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PresentityURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPresentityURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Data(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Persistent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPersistent(&self, fpersistent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(fpersistent)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_WATCHER_STATE> {
         let mut result__: <RTC_WATCHER_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_WATCHER_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetState(&self, enstate: RTC_WATCHER_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(enstate)).ok()
     }
@@ -6063,55 +6628,68 @@ pub struct IRTCWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penstate: *mut RTC_WATCHER_STATE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enstate: RTC_WATCHER_STATE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCWatcher2(::windows::runtime::IUnknown);
 impl IRTCWatcher2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn PresentityURI(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetPresentityURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpresentityuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrpresentityuri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn Data(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Persistent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetPersistent(&self, fpersistent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(fpersistent)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<RTC_WATCHER_STATE> {
         let mut result__: <RTC_WATCHER_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_WATCHER_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn SetState(&self, enstate: RTC_WATCHER_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(enstate)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Profile(&self) -> ::windows::runtime::Result<IRTCProfile2> {
         let mut result__: <IRTCProfile2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCProfile2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Scope(&self) -> ::windows::runtime::Result<RTC_ACE_SCOPE> {
         let mut result__: <RTC_ACE_SCOPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_ACE_SCOPE>(result__)
@@ -6206,10 +6784,12 @@ pub struct IRTCWatcher2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppprofile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penscope: *mut RTC_ACE_SCOPE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCWatcherEvent(::windows::runtime::IUnknown);
 impl IRTCWatcherEvent {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Watcher(&self) -> ::windows::runtime::Result<IRTCWatcher> {
         let mut result__: <IRTCWatcher as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCWatcher>(result__)
@@ -6279,35 +6859,43 @@ pub struct IRTCWatcherEvent_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwatcher: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRTCWatcherEvent2(::windows::runtime::IUnknown);
 impl IRTCWatcherEvent2 {
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn Watcher(&self) -> ::windows::runtime::Result<IRTCWatcher> {
         let mut result__: <IRTCWatcher as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRTCWatcher>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<RTC_WATCHER_EVENT_TYPE> {
         let mut result__: <RTC_WATCHER_EVENT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RTC_WATCHER_EVENT_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
     pub unsafe fn StatusCode(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -6399,15 +6987,18 @@ pub struct IRTCWatcherEvent2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peventtype: *mut RTC_WATCHER_EVENT_TYPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plstatuscode: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransportSettingsInternal(::windows::runtime::IUnknown);
 impl ITransportSettingsInternal {
     #[cfg(feature = "Win32_Networking_WinSock")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Networking_WinSock`*"]
     pub unsafe fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(setting)).ok()
     }
     #[cfg(feature = "Win32_Networking_WinSock")]
+    #[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Networking_WinSock`*"]
     pub unsafe fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(setting)).ok()
     }
@@ -6447,67 +7038,128 @@ pub struct ITransportSettingsInternal_abi(
     #[cfg(feature = "Win32_Networking_WinSock")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, setting: *mut TRANSPORT_SETTING) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCAU_BASIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCAU_DIGEST: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCAU_KERBEROS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCAU_NTLM: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCAU_USE_LOGON_CRED: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
 pub const RTCClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2051205673, 41655, 16580, [176, 145, 246, 240, 36, 170, 137, 190]);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_ALL: u32 = 33554431u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_BUDDY: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_BUDDY2: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_CLIENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_GROUP: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_INFO: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_INTENSITY: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_MEDIA: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_MEDIA_REQUEST: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_MESSAGING: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_PARTICIPANT_STATE_CHANGE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_PRESENCE_DATA: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_PRESENCE_PROPERTY: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_PRESENCE_STATUS: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_PROFILE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_REGISTRATION_STATE_CHANGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_REINVITE: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_ROAMING: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_SESSION_OPERATION_COMPLETE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_SESSION_REFERRED: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_SESSION_REFER_STATUS: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_SESSION_STATE_CHANGE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_USERSEARCH: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_WATCHER: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCEF_WATCHER2: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCIF_DISABLE_MEDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCIF_DISABLE_STRICT_DNS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCIF_DISABLE_UPNP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCIF_ENABLE_SERVER_CLASS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCMT_AUDIO_RECEIVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCMT_AUDIO_SEND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCMT_T120_SENDRECV: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCMT_VIDEO_RECEIVE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCMT_VIDEO_SEND: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRF_REGISTER_ALL: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRF_REGISTER_INVITE_SESSIONS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRF_REGISTER_MESSAGE_SESSIONS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRF_REGISTER_NOTIFY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRF_REGISTER_PRESENCE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRMF_ALL_ROAMING: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRMF_BUDDY_ROAMING: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRMF_PRESENCE_ROAMING: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRMF_PROFILE_ROAMING: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCRMF_WATCHER_ROAMING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCSI_APPLICATION: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCSI_IM: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCSI_MULTIPARTY_IM: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCSI_PC_TO_PC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCSI_PC_TO_PHONE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCSI_PHONE_TO_PHONE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCTR_TCP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCTR_TLS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTCTR_UDP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_ACE_SCOPE(pub i32);
@@ -6523,6 +7175,7 @@ unsafe impl ::windows::runtime::Abi for RTC_ACE_SCOPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_ANSWER_MODE(pub i32);
@@ -6539,6 +7192,7 @@ unsafe impl ::windows::runtime::Abi for RTC_ANSWER_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_AUDIO_DEVICE(pub i32);
@@ -6553,6 +7207,7 @@ unsafe impl ::windows::runtime::Abi for RTC_AUDIO_DEVICE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_BUDDY_EVENT_TYPE(pub i32);
@@ -6571,6 +7226,7 @@ unsafe impl ::windows::runtime::Abi for RTC_BUDDY_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(pub i32);
@@ -6587,6 +7243,7 @@ unsafe impl ::windows::runtime::Abi for RTC_BUDDY_SUBSCRIPTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_CLIENT_EVENT_TYPE(pub i32);
@@ -6603,6 +7260,7 @@ unsafe impl ::windows::runtime::Abi for RTC_CLIENT_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_DTMF(pub i32);
@@ -6632,6 +7290,7 @@ unsafe impl ::windows::runtime::Abi for RTC_DTMF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_EVENT(pub i32);
@@ -6666,193 +7325,381 @@ unsafe impl ::windows::runtime::Abi for RTC_EVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885961i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_BASIC_AUTH_SET_TLS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886017i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_CLIENT_ALREADY_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886042i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_CLIENT_ALREADY_SHUT_DOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886041i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_CLIENT_NOT_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886043i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_DESTINATION_ADDRESS_LOCAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886061i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_DESTINATION_ADDRESS_MULTICAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886059i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_DUPLICATE_BUDDY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886006i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_DUPLICATE_GROUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885998i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_DUPLICATE_REALM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886013i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_DUPLICATE_WATCHER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886005i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_ACL_LIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886000i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_ADDRESS_LOCAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886060i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_BUDDY_LIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886001i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_LISTEN_SOCKET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885957i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_OBJECT_STATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885983i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_PORTRANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885988i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_PREFERENCE_LIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885991i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_PROFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886034i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_PROXY_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886058i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_REGISTRATION_STATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885971i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_SESSION_STATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886038i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_SESSION_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886039i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_INVALID_SIP_URL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886062i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_LISTENING_SOCKET_NOT_EXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885958i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_LOCAL_PHONE_NEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886036i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MALFORMED_XML: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886004i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MAX_PENDING_OPERATIONS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885990i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MAX_REDIRECTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885960i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_AEC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886044i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_AUDIO_DEVICE_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886047i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_CONTROLLER_STATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886049i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885970i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_ENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885969i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_NEED_TERMINAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886048i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_SESSION_IN_HOLD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885962i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_SESSION_NOT_EXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885963i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_MEDIA_VIDEO_DEVICE_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886046i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885950i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NOT_EXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885992i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NOT_PRESENCE_PROFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885974i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NO_BUDDY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885996i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NO_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886035i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NO_GROUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885999i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NO_PROFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886037i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NO_REALM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885994i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NO_TRANSPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885993i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_NO_WATCHER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885995i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_OPERATION_WITH_TOO_MANY_PARTICIPANTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886018i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PINT_STATUS_REJECTED_ALL_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131755001i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PINT_STATUS_REJECTED_BADNUMBER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131754997i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PINT_STATUS_REJECTED_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131755003i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PINT_STATUS_REJECTED_CANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131754998i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PINT_STATUS_REJECTED_NO_ANSWER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131755002i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PINT_STATUS_REJECTED_PL_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131755000i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PINT_STATUS_REJECTED_SW_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131754999i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PLATFORM_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885952i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_POLICY_NOT_ALLOW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886012i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PORT_MANAGER_ALREADY_SET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885956i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PORT_MAPPING_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886010i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PORT_MAPPING_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886011i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PRESENCE_ENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885982i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PRESENCE_NOT_ENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886040i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_INVALID_SERVER_AUTHMETHOD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886024i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_INVALID_SERVER_PROTOCOL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886025i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_INVALID_SERVER_ROLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886023i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_INVALID_SESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886021i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_INVALID_SESSION_PARTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886020i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_INVALID_SESSION_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886019i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_MULTIPLE_REGISTRARS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886022i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_NO_KEY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886032i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_NO_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886031i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_NO_PROVISION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886033i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_NO_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886028i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_NO_SERVER_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886027i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_NO_SERVER_PROTOCOL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886026i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_NO_USER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886030i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_NO_USER_URI: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886029i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_PROFILE_SERVER_UNAUTHORIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886014i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_REDIRECT_PROCESSING_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885959i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_REFER_NOT_ACCEPTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885968i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_REFER_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885967i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_REFER_NOT_EXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885966i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_REGISTRATION_DEACTIVATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885949i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_REGISTRATION_REJECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885948i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_REGISTRATION_UNREGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885947i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_ROAMING_ENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885981i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_ROAMING_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886002i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_ROAMING_OPERATION_INTERRUPTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886003i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SDP_CONNECTION_ADDR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886070i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SDP_FAILED_TO_BUILD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886067i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SDP_MULTICAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886071i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SDP_NOT_PRESENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886074i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SDP_NO_MEDIA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886069i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SDP_PARSE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886073i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SDP_UPDATE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886072i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SECURITY_LEVEL_ALREADY_SET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885955i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SECURITY_LEVEL_NOT_COMPATIBLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886009i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SECURITY_LEVEL_NOT_DEFINED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886008i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SECURITY_LEVEL_NOT_SUPPORTED_BY_PARTICIPANT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886007i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_ADDITIONAL_PARTY_IN_TWO_PARTY_SESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885986i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_AUTH_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886063i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_AUTH_HEADER_SENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886065i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_AUTH_TIME_SKEW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885972i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_AUTH_TYPE_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886064i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_CALL_CONNECTION_NOT_ESTABLISHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885987i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_CALL_DISCONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886055i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_CODECS_DO_NOT_MATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886080i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_DNS_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885978i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_HEADER_NOT_PRESENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886075i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_HIGH_SECURITY_SET_TLS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886016i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_HOLD_OPERATION_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885965i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_INVALID_CERTIFICATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885979i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_INVITEE_PARTY_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885973i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_INVITE_TRANSACTION_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886066i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_NEED_MORE_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886056i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_NO_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886077i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_OTHER_PARTY_JOIN_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885984i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_PARSE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886076i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_PARTY_ALREADY_IN_SESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885985i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_PEER_PARTICIPANT_IN_MULTIPARTY_SESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885951i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_REFER_OPERATION_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885953i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_REQUEST_DESTINATION_ADDR_NOT_PRESENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886054i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_SSL_NEGOTIATION_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886051i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_SSL_TUNNEL_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886052i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_STACK_SHUTDOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886050i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_STREAM_NOT_PRESENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886078i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_STREAM_PRESENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886079i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_TCP_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885977i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886068i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_TLS_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885975i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_TLS_INCOMPATIBLE_ENCRYPTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885980i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_TRANSPORT_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886057i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_UDP_SIZE_EXCEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886053i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_SIP_UNHOLD_OPERATION_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885964i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_START_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131886045i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_ADDRESS_INCOMPLETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820060i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_AMBIGUOUS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820059i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_BAD_EXTENSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820124i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_BAD_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820144i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_BUSY_HERE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820058i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_CONFLICT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820135i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_FORBIDDEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820141i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_GONE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820134i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_LENGTH_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820133i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_LOOP_DETECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820062i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_METHOD_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820139i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_NOT_ACCEPTABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820138i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820140i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_PAYMENT_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820142i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_PROXY_AUTHENTICATION_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820137i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_REQUEST_ENTITY_TOO_LARGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820131i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_REQUEST_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820136i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_REQUEST_URI_TOO_LARGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820130i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_TEMPORARILY_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820064i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_TOO_MANY_HOPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820061i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_TRANSACTION_DOES_NOT_EXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820063i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_UNAUTHORIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820143i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_CLIENT_UNSUPPORTED_MEDIA_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820129i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_GLOBAL_BUSY_EVERYWHERE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131819944i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_GLOBAL_DECLINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131819941i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_GLOBAL_DOES_NOT_EXIST_ANYWHERE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131819940i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_GLOBAL_NOT_ACCEPTABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131819938i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_INFO_CALL_FORWARDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(15663285i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_INFO_QUEUED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(15663286i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_INFO_RINGING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(15663284i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_INFO_TRYING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(15663204i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_NOT_ACCEPTABLE_HERE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820056i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_REDIRECT_ALTERNATIVE_SERVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820164i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_REDIRECT_MOVED_PERMANENTLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820243i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_REDIRECT_MOVED_TEMPORARILY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820242i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_REDIRECT_MULTIPLE_CHOICES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820244i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_REDIRECT_SEE_OTHER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820241i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_REDIRECT_USE_PROXY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820239i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_REQUEST_TERMINATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820057i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_SERVER_BAD_GATEWAY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820042i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_SERVER_INTERNAL_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820044i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_SERVER_NOT_IMPLEMENTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820043i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_SERVER_SERVER_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820040i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_SERVER_SERVICE_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820041i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_SERVER_VERSION_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131820039i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_SESSION_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(15663287i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_STATUS_SUCCESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(15663304i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_TOO_MANY_GROUPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885997i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_TOO_MANY_RETRIES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885989i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_TOO_SMALL_EXPIRES_VALUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885976i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_UDP_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885954i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_GROUP_EVENT_TYPE(pub i32);
@@ -6871,6 +7718,7 @@ unsafe impl ::windows::runtime::Abi for RTC_GROUP_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_LISTEN_MODE(pub i32);
@@ -6886,6 +7734,7 @@ unsafe impl ::windows::runtime::Abi for RTC_LISTEN_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_MEDIA_EVENT_REASON(pub i32);
@@ -6905,6 +7754,7 @@ unsafe impl ::windows::runtime::Abi for RTC_MEDIA_EVENT_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_MEDIA_EVENT_TYPE(pub i32);
@@ -6920,6 +7770,7 @@ unsafe impl ::windows::runtime::Abi for RTC_MEDIA_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_MESSAGING_EVENT_TYPE(pub i32);
@@ -6934,6 +7785,7 @@ unsafe impl ::windows::runtime::Abi for RTC_MESSAGING_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_MESSAGING_USER_STATUS(pub i32);
@@ -6948,6 +7800,7 @@ unsafe impl ::windows::runtime::Abi for RTC_MESSAGING_USER_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_OFFER_WATCHER_MODE(pub i32);
@@ -6962,6 +7815,7 @@ unsafe impl ::windows::runtime::Abi for RTC_OFFER_WATCHER_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_PARTICIPANT_STATE(pub i32);
@@ -6983,6 +7837,7 @@ unsafe impl ::windows::runtime::Abi for RTC_PARTICIPANT_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_PORT_TYPE(pub i32);
@@ -7000,6 +7855,7 @@ unsafe impl ::windows::runtime::Abi for RTC_PORT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_PRESENCE_PROPERTY(pub i32);
@@ -7017,6 +7873,7 @@ unsafe impl ::windows::runtime::Abi for RTC_PRESENCE_PROPERTY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_PRESENCE_STATUS(pub i32);
@@ -7037,6 +7894,7 @@ unsafe impl ::windows::runtime::Abi for RTC_PRESENCE_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_PRIVACY_MODE(pub i32);
@@ -7051,6 +7909,7 @@ unsafe impl ::windows::runtime::Abi for RTC_PRIVACY_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_PROFILE_EVENT_TYPE(pub i32);
@@ -7065,6 +7924,7 @@ unsafe impl ::windows::runtime::Abi for RTC_PROFILE_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_PROVIDER_URI(pub i32);
@@ -7082,6 +7942,7 @@ unsafe impl ::windows::runtime::Abi for RTC_PROVIDER_URI {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_REGISTRATION_STATE(pub i32);
@@ -7103,6 +7964,7 @@ unsafe impl ::windows::runtime::Abi for RTC_REGISTRATION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_REINVITE_STATE(pub i32);
@@ -7118,6 +7980,7 @@ unsafe impl ::windows::runtime::Abi for RTC_REINVITE_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_RING_TYPE(pub i32);
@@ -7133,6 +7996,7 @@ unsafe impl ::windows::runtime::Abi for RTC_RING_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_ROAMING_EVENT_TYPE(pub i32);
@@ -7150,6 +8014,7 @@ unsafe impl ::windows::runtime::Abi for RTC_ROAMING_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_SECURITY_LEVEL(pub i32);
@@ -7165,6 +8030,7 @@ unsafe impl ::windows::runtime::Abi for RTC_SECURITY_LEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_SECURITY_TYPE(pub i32);
@@ -7179,6 +8045,7 @@ unsafe impl ::windows::runtime::Abi for RTC_SECURITY_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_SESSION_REFER_STATUS(pub i32);
@@ -7197,6 +8064,7 @@ unsafe impl ::windows::runtime::Abi for RTC_SESSION_REFER_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_SESSION_STATE(pub i32);
@@ -7217,6 +8085,7 @@ unsafe impl ::windows::runtime::Abi for RTC_SESSION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_SESSION_TYPE(pub i32);
@@ -7235,7 +8104,9 @@ unsafe impl ::windows::runtime::Abi for RTC_SESSION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(15597633i32 as _);
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_T120_APPLET(pub i32);
@@ -7250,6 +8121,7 @@ unsafe impl ::windows::runtime::Abi for RTC_T120_APPLET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_TERMINATE_REASON(pub i32);
@@ -7270,6 +8142,7 @@ unsafe impl ::windows::runtime::Abi for RTC_TERMINATE_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_USER_SEARCH_COLUMN(pub i32);
@@ -7292,6 +8165,7 @@ unsafe impl ::windows::runtime::Abi for RTC_USER_SEARCH_COLUMN {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_USER_SEARCH_PREFERENCE(pub i32);
@@ -7306,6 +8180,7 @@ unsafe impl ::windows::runtime::Abi for RTC_USER_SEARCH_PREFERENCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_VIDEO_DEVICE(pub i32);
@@ -7320,6 +8195,7 @@ unsafe impl ::windows::runtime::Abi for RTC_VIDEO_DEVICE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_WATCHER_EVENT_TYPE(pub i32);
@@ -7337,6 +8213,7 @@ unsafe impl ::windows::runtime::Abi for RTC_WATCHER_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_WATCHER_MATCH_MODE(pub i32);
@@ -7351,6 +8228,7 @@ unsafe impl ::windows::runtime::Abi for RTC_WATCHER_MATCH_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTC_WATCHER_STATE(pub i32);
@@ -7369,10 +8247,12 @@ unsafe impl ::windows::runtime::Abi for RTC_WATCHER_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_System_RealTimeCommunications`, `Win32_Networking_WinSock`*"]
 pub struct TRANSPORT_SETTING {
     pub SettingId: super::super::Networking::WinSock::TRANSPORT_SETTING_ID,
     pub Length: *mut u32,

@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "UI_Text_Core")]
 pub mod Core;
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CaretType(pub i32);
@@ -20,6 +21,7 @@ unsafe impl ::windows::runtime::Abi for CaretType {
 unsafe impl ::windows::runtime::RuntimeType for CaretType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.CaretType;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContentLinkInfo(::windows::runtime::IInspectable);
@@ -31,6 +33,7 @@ impl ContentLinkInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<ContentLinkInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -38,10 +41,12 @@ impl ContentLinkInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetId(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn DisplayText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -49,10 +54,12 @@ impl ContentLinkInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetDisplayText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SecondaryText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -60,11 +67,13 @@ impl ContentLinkInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetSecondaryText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -73,10 +82,12 @@ impl ContentLinkInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn LinkContentKind(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -84,6 +95,7 @@ impl ContentLinkInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetLinkContentKind<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -141,6 +153,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContentLinkInfo {}
 unsafe impl ::std::marker::Sync for ContentLinkInfo {}
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FindOptions(pub u32);
@@ -189,6 +202,7 @@ impl ::std::ops::Not for FindOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FontStretch(pub i32);
@@ -216,6 +230,7 @@ unsafe impl ::windows::runtime::Abi for FontStretch {
 unsafe impl ::windows::runtime::RuntimeType for FontStretch {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStretch;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FontStyle(pub i32);
@@ -238,6 +253,7 @@ unsafe impl ::windows::runtime::RuntimeType for FontStyle {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `UI_Text`*"]
 pub struct FontWeight {
     pub Weight: u16,
 }
@@ -265,70 +281,82 @@ unsafe impl ::windows::runtime::Abi for FontWeight {
 unsafe impl ::windows::runtime::RuntimeType for FontWeight {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Text.FontWeight;u2)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FontWeights(::windows::runtime::IInspectable);
 impl FontWeights {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Black() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Bold() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ExtraBlack() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ExtraBold() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ExtraLight() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Light() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Medium() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Normal() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SemiBold() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SemiLight() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Thin() -> ::windows::runtime::Result<FontWeight> {
         Self::IFontWeightsStatics(|this| unsafe {
             let mut result__: FontWeight = ::std::mem::zeroed();
@@ -392,6 +420,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for FontWeights {}
 unsafe impl ::std::marker::Sync for FontWeights {}
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FormatEffect(pub i32);
@@ -413,6 +442,7 @@ unsafe impl ::windows::runtime::Abi for FormatEffect {
 unsafe impl ::windows::runtime::RuntimeType for FormatEffect {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FormatEffect;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HorizontalCharacterAlignment(pub i32);
@@ -532,12 +562,14 @@ pub struct IRichEditTextRange_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_Text`*"]
 pub struct ITextCharacterFormat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextCharacterFormat {
     type Vtable = ITextCharacterFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524560859, 1531, 17453, [128, 101, 100, 42, 254, 160, 44, 237]);
 }
 impl ITextCharacterFormat {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn AllCaps(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -545,10 +577,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetAllCaps(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn BackgroundColor(&self) -> ::windows::runtime::Result<super::Color> {
         let this = self;
         unsafe {
@@ -556,10 +590,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Color>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Bold(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -567,10 +603,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetBold(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<FontStretch> {
         let this = self;
         unsafe {
@@ -578,10 +616,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontStretch>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetFontStretch(&self, value: FontStretch) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<FontStyle> {
         let this = self;
         unsafe {
@@ -589,10 +629,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontStyle>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetFontStyle(&self, value: FontStyle) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ForegroundColor(&self) -> ::windows::runtime::Result<super::Color> {
         let this = self;
         unsafe {
@@ -600,10 +642,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Color>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetForegroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Hidden(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -611,10 +655,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetHidden(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Italic(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -622,10 +668,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetItalic(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Kerning(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -633,10 +681,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetKerning(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn LanguageTag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -644,10 +694,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetLanguageTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn LinkType(&self) -> ::windows::runtime::Result<LinkType> {
         let this = self;
         unsafe {
@@ -655,6 +707,7 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LinkType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -662,10 +715,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Outline(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -673,10 +728,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetOutline(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -684,10 +741,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetPosition(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ProtectedText(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -695,10 +754,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetProtectedText(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -706,10 +767,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetSize(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SmallCaps(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -717,10 +780,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetSmallCaps(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Spacing(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -728,10 +793,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetSpacing(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Strikethrough(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -739,10 +806,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetStrikethrough(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Subscript(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -750,10 +819,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetSubscript(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Superscript(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -761,10 +832,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetSuperscript(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn TextScript(&self) -> ::windows::runtime::Result<TextScript> {
         let this = self;
         unsafe {
@@ -772,10 +845,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextScript>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetTextScript(&self, value: TextScript) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Underline(&self) -> ::windows::runtime::Result<UnderlineType> {
         let this = self;
         unsafe {
@@ -783,10 +858,12 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UnderlineType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetUnderline(&self, value: UnderlineType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Weight(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -794,14 +871,17 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetWeight(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetClone<'a, Param0: ::windows::runtime::IntoParam<'a, ITextCharacterFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetClone(&self) -> ::windows::runtime::Result<ITextCharacterFormat> {
         let this = self;
         unsafe {
@@ -809,6 +889,7 @@ impl ITextCharacterFormat {
             (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextCharacterFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, ITextCharacterFormat>>(&self, format: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -948,12 +1029,14 @@ pub struct ITextConstantsStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_Text`*"]
 pub struct ITextDocument(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextDocument {
     type Vtable = ITextDocument_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3203288539, 37042, 16524, [162, 246, 10, 10, 195, 30, 51, 228]);
 }
 impl ITextDocument {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CaretType(&self) -> ::windows::runtime::Result<CaretType> {
         let this = self;
         unsafe {
@@ -961,10 +1044,12 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CaretType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetCaretType(&self, value: CaretType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn DefaultTabStop(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -972,10 +1057,12 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetDefaultTabStop(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Selection(&self) -> ::windows::runtime::Result<ITextSelection> {
         let this = self;
         unsafe {
@@ -983,6 +1070,7 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextSelection>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn UndoLimit(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -990,10 +1078,12 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetUndoLimit(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanCopy(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1001,6 +1091,7 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanPaste(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1008,6 +1099,7 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanRedo(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1015,6 +1107,7 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanUndo(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1022,6 +1115,7 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ApplyDisplayUpdates(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1029,6 +1123,7 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn BatchDisplayUpdates(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1036,14 +1131,17 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn BeginUndoGroup(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndUndoGroup(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetDefaultCharacterFormat(&self) -> ::windows::runtime::Result<ITextCharacterFormat> {
         let this = self;
         unsafe {
@@ -1051,6 +1149,7 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextCharacterFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetDefaultParagraphFormat(&self) -> ::windows::runtime::Result<ITextParagraphFormat> {
         let this = self;
         unsafe {
@@ -1058,6 +1157,7 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextParagraphFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetRange(&self, startposition: i32, endposition: i32) -> ::windows::runtime::Result<ITextRange> {
         let this = self;
         unsafe {
@@ -1066,6 +1166,7 @@ impl ITextDocument {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn GetRangeFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, point: Param0, options: PointOptions) -> ::windows::runtime::Result<ITextRange> {
         let this = self;
         unsafe {
@@ -1073,36 +1174,44 @@ impl ITextDocument {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), point.into_param().abi(), options, &mut result__).from_abi::<ITextRange>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetText(&self, options: TextGetOptions, value: &mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn LoadFromStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Redo(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn SaveToStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextGetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetDefaultCharacterFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextCharacterFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetDefaultParagraphFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextParagraphFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetText<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Undo(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this)).ok() }
@@ -1255,12 +1364,14 @@ pub struct ITextDocument4_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_Text`*"]
 pub struct ITextParagraphFormat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextParagraphFormat {
     type Vtable = ITextParagraphFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(754503590, 18038, 18826, [147, 245, 187, 219, 252, 11, 216, 131]);
 }
 impl ITextParagraphFormat {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Alignment(&self) -> ::windows::runtime::Result<ParagraphAlignment> {
         let this = self;
         unsafe {
@@ -1268,10 +1379,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ParagraphAlignment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetAlignment(&self, value: ParagraphAlignment) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FirstLineIndent(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1279,6 +1392,7 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn KeepTogether(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -1286,10 +1400,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetKeepTogether(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn KeepWithNext(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -1297,10 +1413,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetKeepWithNext(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn LeftIndent(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1308,6 +1426,7 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn LineSpacing(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1315,6 +1434,7 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn LineSpacingRule(&self) -> ::windows::runtime::Result<LineSpacingRule> {
         let this = self;
         unsafe {
@@ -1322,6 +1442,7 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LineSpacingRule>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ListAlignment(&self) -> ::windows::runtime::Result<MarkerAlignment> {
         let this = self;
         unsafe {
@@ -1329,10 +1450,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MarkerAlignment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetListAlignment(&self, value: MarkerAlignment) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ListLevelIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1340,10 +1463,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetListLevelIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ListStart(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1351,10 +1476,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetListStart(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ListStyle(&self) -> ::windows::runtime::Result<MarkerStyle> {
         let this = self;
         unsafe {
@@ -1362,10 +1489,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MarkerStyle>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetListStyle(&self, value: MarkerStyle) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ListTab(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1373,10 +1502,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetListTab(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ListType(&self) -> ::windows::runtime::Result<MarkerType> {
         let this = self;
         unsafe {
@@ -1384,10 +1515,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MarkerType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetListType(&self, value: MarkerType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn NoLineNumber(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -1395,10 +1528,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetNoLineNumber(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn PageBreakBefore(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -1406,10 +1541,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetPageBreakBefore(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn RightIndent(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1417,10 +1554,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetRightIndent(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn RightToLeft(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -1428,10 +1567,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetRightToLeft(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Style(&self) -> ::windows::runtime::Result<ParagraphStyle> {
         let this = self;
         unsafe {
@@ -1439,10 +1580,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ParagraphStyle>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetStyle(&self, value: ParagraphStyle) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SpaceAfter(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1450,10 +1593,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetSpaceAfter(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SpaceBefore(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1461,10 +1606,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetSpaceBefore(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn WidowControl(&self) -> ::windows::runtime::Result<FormatEffect> {
         let this = self;
         unsafe {
@@ -1472,10 +1619,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FormatEffect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetWidowControl(&self, value: FormatEffect) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn TabCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1483,18 +1632,22 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn AddTab(&self, position: f32, align: TabAlignment, leader: TabLeader) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), position, align, leader).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ClearAllTabs(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn DeleteTab(&self, position: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), position).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetClone(&self) -> ::windows::runtime::Result<ITextParagraphFormat> {
         let this = self;
         unsafe {
@@ -1502,10 +1655,12 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextParagraphFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetTab(&self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), index, position, align, leader).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, ITextParagraphFormat>>(&self, format: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1513,14 +1668,17 @@ impl ITextParagraphFormat {
             (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), format.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetClone<'a, Param0: ::windows::runtime::IntoParam<'a, ITextParagraphFormat>>(&self, format: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this), format.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetIndents(&self, start: f32, left: f32, right: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), start, left, right).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetLineSpacing(&self, rule: LineSpacingRule, spacing: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), rule, spacing).ok() }
@@ -1629,12 +1787,14 @@ pub struct ITextParagraphFormat_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_Text`*"]
 pub struct ITextRange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextRange {
     type Vtable = ITextRange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1537101399, 49266, 17056, [137, 69, 175, 80, 62, 229, 71, 104]);
 }
 impl ITextRange {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Character(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1642,10 +1802,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetCharacter(&self, value: u16) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CharacterFormat(&self) -> ::windows::runtime::Result<ITextCharacterFormat> {
         let this = self;
         unsafe {
@@ -1653,10 +1815,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextCharacterFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetCharacterFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextCharacterFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FormattedText(&self) -> ::windows::runtime::Result<ITextRange> {
         let this = self;
         unsafe {
@@ -1664,10 +1828,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextRange>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetFormattedText<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndPosition(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1675,10 +1841,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetEndPosition(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Gravity(&self) -> ::windows::runtime::Result<RangeGravity> {
         let this = self;
         unsafe {
@@ -1686,10 +1854,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<RangeGravity>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetGravity(&self, value: RangeGravity) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1697,6 +1867,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Link(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1704,10 +1875,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetLink<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ParagraphFormat(&self) -> ::windows::runtime::Result<ITextParagraphFormat> {
         let this = self;
         unsafe {
@@ -1715,10 +1888,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextParagraphFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetParagraphFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextParagraphFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StartPosition(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1726,10 +1901,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetStartPosition(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StoryLength(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1737,6 +1914,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1744,10 +1922,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanPaste(&self, format: i32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1755,22 +1935,27 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), format, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ChangeCase(&self, value: LetterCase) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Collapse(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Cut(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Delete(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1778,6 +1963,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1785,6 +1971,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), unit, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Expand(&self, unit: TextRangeUnit) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1792,6 +1979,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), unit, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FindText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, scanlength: i32, options: FindOptions) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1799,10 +1987,12 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value.into_param().abi(), scanlength, options, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetCharacterUtf32(&self, value: &mut u32, offset: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value, offset).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetClone(&self) -> ::windows::runtime::Result<ITextRange> {
         let this = self;
         unsafe {
@@ -1810,6 +2000,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextRange>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetIndex(&self, unit: TextRangeUnit) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1818,24 +2009,29 @@ impl ITextRange {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), horizontalalign, verticalalign, options, point).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), options, rect, hit).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetText(&self, options: TextGetOptions, value: &mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn GetTextViaStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextGetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn InRange<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1844,10 +2040,12 @@ impl ITextRange {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn InsertImage<'a, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: Param4, value: Param5) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), width, height, ascent, verticalalign, alternatetext.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn InStory<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1855,6 +2053,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), range.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1862,6 +2061,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), range.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Move(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1869,6 +2069,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1876,6 +2077,7 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1883,40 +2085,49 @@ impl ITextRange {
             (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Paste(&self, format: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), format).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ScrollIntoView(&self, value: PointOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MatchSelection(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetIndex(&self, unit: TextRangeUnit, index: i32, extend: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), unit, index, extend).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn SetPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, point: Param0, options: PointOptions, extend: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), point.into_param().abi(), options, extend).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetRange(&self, startposition: i32, endposition: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), startposition, endposition).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetText2<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn SetTextViaStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2038,12 +2249,14 @@ pub struct ITextRange_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_Text`*"]
 pub struct ITextSelection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextSelection {
     type Vtable = ITextSelection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2798872356, 62095, 17162, [178, 207, 195, 67, 103, 30, 192, 233]);
 }
 impl ITextSelection {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<SelectionOptions> {
         let this = self;
         unsafe {
@@ -2051,10 +2264,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SelectionOptions>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetOptions(&self, value: SelectionOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<SelectionType> {
         let this = self;
         unsafe {
@@ -2062,6 +2277,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SelectionType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndKey(&self, unit: TextRangeUnit, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2069,6 +2285,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), unit, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn HomeKey(&self, unit: TextRangeUnit, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2076,6 +2293,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), unit, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveDown(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2083,6 +2301,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), unit, count, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveLeft(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2090,6 +2309,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), unit, count, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveRight(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2097,6 +2317,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), unit, count, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveUp(&self, unit: TextRangeUnit, count: i32, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2104,10 +2325,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), unit, count, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn TypeText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Character(&self) -> ::windows::runtime::Result<u16> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2115,10 +2338,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetCharacter(&self, value: u16) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CharacterFormat(&self) -> ::windows::runtime::Result<ITextCharacterFormat> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2126,10 +2351,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextCharacterFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetCharacterFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextCharacterFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FormattedText(&self) -> ::windows::runtime::Result<ITextRange> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2137,10 +2364,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextRange>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetFormattedText<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndPosition(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2148,10 +2377,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetEndPosition(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Gravity(&self) -> ::windows::runtime::Result<RangeGravity> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2159,10 +2390,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<RangeGravity>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetGravity(&self, value: RangeGravity) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2170,6 +2403,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Link(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2177,10 +2411,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetLink<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ParagraphFormat(&self) -> ::windows::runtime::Result<ITextParagraphFormat> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2188,10 +2424,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextParagraphFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetParagraphFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextParagraphFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StartPosition(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2199,10 +2437,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetStartPosition(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StoryLength(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2210,6 +2450,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2217,10 +2458,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanPaste(&self, format: i32) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2228,22 +2471,27 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), format, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ChangeCase(&self, value: LetterCase) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Collapse(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Cut(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Delete(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2251,6 +2499,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2258,6 +2507,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), unit, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Expand(&self, unit: TextRangeUnit) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2265,6 +2515,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), unit, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FindText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, scanlength: i32, options: FindOptions) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2272,10 +2523,12 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value.into_param().abi(), scanlength, options, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetCharacterUtf32(&self, value: &mut u32, offset: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value, offset).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetClone(&self) -> ::windows::runtime::Result<ITextRange> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2283,6 +2536,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextRange>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetIndex(&self, unit: TextRangeUnit) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2291,24 +2545,29 @@ impl ITextSelection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), horizontalalign, verticalalign, options, point).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), options, rect, hit).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetText(&self, options: TextGetOptions, value: &mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn GetTextViaStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextGetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn InRange<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2317,10 +2576,12 @@ impl ITextSelection {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn InsertImage<'a, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: Param4, value: Param5) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), width, height, ascent, verticalalign, alternatetext.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn InStory<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2328,6 +2589,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), range.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2335,6 +2597,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), range.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Move(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2342,6 +2605,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2349,6 +2613,7 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2356,40 +2621,49 @@ impl ITextSelection {
             (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Paste(&self, format: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), format).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ScrollIntoView(&self, value: PointOptions) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MatchSelection(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetIndex(&self, unit: TextRangeUnit, index: i32, extend: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), unit, index, extend).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn SetPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, point: Param0, options: PointOptions, extend: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), point.into_param().abi(), options, extend).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetRange(&self, startposition: i32, endposition: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), startposition, endposition).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetText2<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn SetTextViaStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextRange>(self)?;
         unsafe {
@@ -2483,6 +2757,7 @@ pub struct ITextSelection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, unit: TextRangeUnit, count: i32, extend: bool, result__: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LetterCase(pub i32);
@@ -2502,6 +2777,7 @@ unsafe impl ::windows::runtime::Abi for LetterCase {
 unsafe impl ::windows::runtime::RuntimeType for LetterCase {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LetterCase;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LineSpacingRule(pub i32);
@@ -2527,6 +2803,7 @@ unsafe impl ::windows::runtime::Abi for LineSpacingRule {
 unsafe impl ::windows::runtime::RuntimeType for LineSpacingRule {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LineSpacingRule;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LinkType(pub i32);
@@ -2553,6 +2830,7 @@ unsafe impl ::windows::runtime::Abi for LinkType {
 unsafe impl ::windows::runtime::RuntimeType for LinkType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LinkType;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MarkerAlignment(pub i32);
@@ -2574,6 +2852,7 @@ unsafe impl ::windows::runtime::Abi for MarkerAlignment {
 unsafe impl ::windows::runtime::RuntimeType for MarkerAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerAlignment;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MarkerStyle(pub i32);
@@ -2598,6 +2877,7 @@ unsafe impl ::windows::runtime::Abi for MarkerStyle {
 unsafe impl ::windows::runtime::RuntimeType for MarkerStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerStyle;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MarkerType(pub i32);
@@ -2640,6 +2920,7 @@ unsafe impl ::windows::runtime::Abi for MarkerType {
 unsafe impl ::windows::runtime::RuntimeType for MarkerType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerType;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ParagraphAlignment(pub i32);
@@ -2662,6 +2943,7 @@ unsafe impl ::windows::runtime::Abi for ParagraphAlignment {
 unsafe impl ::windows::runtime::RuntimeType for ParagraphAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphAlignment;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ParagraphStyle(pub i32);
@@ -2691,6 +2973,7 @@ unsafe impl ::windows::runtime::Abi for ParagraphStyle {
 unsafe impl ::windows::runtime::RuntimeType for ParagraphStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphStyle;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PointOptions(pub u32);
@@ -2744,6 +3027,7 @@ impl ::std::ops::Not for PointOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RangeGravity(pub i32);
@@ -2766,6 +3050,7 @@ unsafe impl ::windows::runtime::Abi for RangeGravity {
 unsafe impl ::windows::runtime::RuntimeType for RangeGravity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RangeGravity;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RichEditMathMode(pub i32);
@@ -2785,10 +3070,12 @@ unsafe impl ::windows::runtime::Abi for RichEditMathMode {
 unsafe impl ::windows::runtime::RuntimeType for RichEditMathMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RichEditMathMode;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RichEditTextDocument(::windows::runtime::IInspectable);
 impl RichEditTextDocument {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CaretType(&self) -> ::windows::runtime::Result<CaretType> {
         let this = self;
         unsafe {
@@ -2796,10 +3083,12 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CaretType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetCaretType(&self, value: CaretType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn DefaultTabStop(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -2807,10 +3096,12 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetDefaultTabStop(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Selection(&self) -> ::windows::runtime::Result<ITextSelection> {
         let this = self;
         unsafe {
@@ -2818,6 +3109,7 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextSelection>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn UndoLimit(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2825,10 +3117,12 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetUndoLimit(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanCopy(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2836,6 +3130,7 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanPaste(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2843,6 +3138,7 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanRedo(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2850,6 +3146,7 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanUndo(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2857,6 +3154,7 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ApplyDisplayUpdates(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2864,6 +3162,7 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn BatchDisplayUpdates(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2871,14 +3170,17 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn BeginUndoGroup(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndUndoGroup(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetDefaultCharacterFormat(&self) -> ::windows::runtime::Result<ITextCharacterFormat> {
         let this = self;
         unsafe {
@@ -2886,6 +3188,7 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextCharacterFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetDefaultParagraphFormat(&self) -> ::windows::runtime::Result<ITextParagraphFormat> {
         let this = self;
         unsafe {
@@ -2893,6 +3196,7 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextParagraphFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetRange(&self, startposition: i32, endposition: i32) -> ::windows::runtime::Result<ITextRange> {
         let this = self;
         unsafe {
@@ -2901,6 +3205,7 @@ impl RichEditTextDocument {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn GetRangeFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, point: Param0, options: PointOptions) -> ::windows::runtime::Result<ITextRange> {
         let this = self;
         unsafe {
@@ -2908,40 +3213,49 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), point.into_param().abi(), options, &mut result__).from_abi::<ITextRange>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetText(&self, options: TextGetOptions, value: &mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn LoadFromStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Redo(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn SaveToStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextGetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetDefaultCharacterFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextCharacterFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetDefaultParagraphFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextParagraphFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetText<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Undo(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn AlignmentIncludesTrailingWhitespace(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextDocument2>(self)?;
         unsafe {
@@ -2949,10 +3263,12 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetAlignmentIncludesTrailingWhitespace(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextDocument2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn IgnoreTrailingCharacterSpacing(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextDocument2>(self)?;
         unsafe {
@@ -2960,22 +3276,27 @@ impl RichEditTextDocument {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetIgnoreTrailingCharacterSpacing(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextDocument2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ClearUndoRedoHistory(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextDocument3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetMath<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextDocument4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetMath(&self, value: &mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextDocument4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value as *mut _ as _).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetMathMode(&self, mode: RichEditMathMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextDocument4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), mode).ok() }
@@ -3053,10 +3374,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITextDocument> for &RichEditTextDocum
 }
 unsafe impl ::std::marker::Send for RichEditTextDocument {}
 unsafe impl ::std::marker::Sync for RichEditTextDocument {}
+#[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RichEditTextRange(::windows::runtime::IInspectable);
 impl RichEditTextRange {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Character(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -3064,10 +3387,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetCharacter(&self, value: u16) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CharacterFormat(&self) -> ::windows::runtime::Result<ITextCharacterFormat> {
         let this = self;
         unsafe {
@@ -3075,10 +3400,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextCharacterFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetCharacterFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextCharacterFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FormattedText(&self) -> ::windows::runtime::Result<ITextRange> {
         let this = self;
         unsafe {
@@ -3086,10 +3413,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextRange>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetFormattedText<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndPosition(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3097,10 +3426,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetEndPosition(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Gravity(&self) -> ::windows::runtime::Result<RangeGravity> {
         let this = self;
         unsafe {
@@ -3108,10 +3439,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<RangeGravity>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetGravity(&self, value: RangeGravity) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3119,6 +3452,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Link(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3126,10 +3460,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetLink<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ParagraphFormat(&self) -> ::windows::runtime::Result<ITextParagraphFormat> {
         let this = self;
         unsafe {
@@ -3137,10 +3473,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextParagraphFormat>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetParagraphFormat<'a, Param0: ::windows::runtime::IntoParam<'a, ITextParagraphFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StartPosition(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3148,10 +3486,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetStartPosition(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StoryLength(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3159,6 +3499,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3166,10 +3507,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn CanPaste(&self, format: i32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3177,22 +3520,27 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), format, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ChangeCase(&self, value: LetterCase) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Collapse(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Cut(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Delete(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3200,6 +3548,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn EndOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3207,6 +3556,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), unit, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Expand(&self, unit: TextRangeUnit) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3214,6 +3564,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), unit, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn FindText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, scanlength: i32, options: FindOptions) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3221,10 +3572,12 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value.into_param().abi(), scanlength, options, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetCharacterUtf32(&self, value: &mut u32, offset: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value, offset).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetClone(&self) -> ::windows::runtime::Result<ITextRange> {
         let this = self;
         unsafe {
@@ -3232,6 +3585,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ITextRange>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetIndex(&self, unit: TextRangeUnit) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3240,24 +3594,29 @@ impl RichEditTextRange {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), horizontalalign, verticalalign, options, point).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), options, rect, hit).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn GetText(&self, options: TextGetOptions, value: &mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), options, value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn GetTextViaStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextGetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn InRange<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3266,10 +3625,12 @@ impl RichEditTextRange {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn InsertImage<'a, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: Param4, value: Param5) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), width, height, ascent, verticalalign, alternatetext.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn InStory<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3277,6 +3638,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), range.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, ITextRange>>(&self, range: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3284,6 +3646,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), range.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Move(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3291,6 +3654,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3298,6 +3662,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3305,40 +3670,49 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn Paste(&self, format: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), format).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ScrollIntoView(&self, value: PointOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MatchSelection(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetIndex(&self, unit: TextRangeUnit, index: i32, extend: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), unit, index, extend).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Text`, `Foundation`*"]
     pub fn SetPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, point: Param0, options: PointOptions, extend: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), point.into_param().abi(), options, extend).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetRange(&self, startposition: i32, endposition: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), startposition, endposition).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetText2<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Text`, `Storage_Streams`*"]
     pub fn SetTextViaStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, options: TextSetOptions, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), options, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3346,6 +3720,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).57)(::std::mem::transmute_copy(this), unit, extend, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn ContentLinkInfo(&self) -> ::windows::runtime::Result<ContentLinkInfo> {
         let this = &::windows::runtime::Interface::cast::<IRichEditTextRange>(self)?;
         unsafe {
@@ -3353,6 +3728,7 @@ impl RichEditTextRange {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContentLinkInfo>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn SetContentLinkInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ContentLinkInfo>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IRichEditTextRange>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3430,6 +3806,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ITextRange> for &RichEditTextRange {
 }
 unsafe impl ::std::marker::Send for RichEditTextRange {}
 unsafe impl ::std::marker::Sync for RichEditTextRange {}
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SelectionOptions(pub u32);
@@ -3480,6 +3857,7 @@ impl ::std::ops::Not for SelectionOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SelectionType(pub i32);
@@ -3502,6 +3880,7 @@ unsafe impl ::windows::runtime::Abi for SelectionType {
 unsafe impl ::windows::runtime::RuntimeType for SelectionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionType;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TabAlignment(pub i32);
@@ -3524,6 +3903,7 @@ unsafe impl ::windows::runtime::Abi for TabAlignment {
 unsafe impl ::windows::runtime::RuntimeType for TabAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabAlignment;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TabLeader(pub i32);
@@ -3547,50 +3927,59 @@ unsafe impl ::windows::runtime::Abi for TabLeader {
 unsafe impl ::windows::runtime::RuntimeType for TabLeader {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabLeader;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 pub struct TextConstants {}
 impl TextConstants {
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn AutoColor() -> ::windows::runtime::Result<super::Color> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__: super::Color = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Color>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MinUnitCount() -> ::windows::runtime::Result<i32> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn MaxUnitCount() -> ::windows::runtime::Result<i32> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn UndefinedColor() -> ::windows::runtime::Result<super::Color> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__: super::Color = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Color>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn UndefinedFloatValue() -> ::windows::runtime::Result<f32> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__: f32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn UndefinedInt32Value() -> ::windows::runtime::Result<i32> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn UndefinedFontStretch() -> ::windows::runtime::Result<FontStretch> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__: FontStretch = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FontStretch>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Text`*"]
     pub fn UndefinedFontStyle() -> ::windows::runtime::Result<FontStyle> {
         Self::ITextConstantsStatics(|this| unsafe {
             let mut result__: FontStyle = ::std::mem::zeroed();
@@ -3605,6 +3994,7 @@ impl TextConstants {
 impl ::windows::runtime::RuntimeName for TextConstants {
     const NAME: &'static str = "Windows.UI.Text.TextConstants";
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TextDecorations(pub u32);
@@ -3653,6 +4043,7 @@ impl ::std::ops::Not for TextDecorations {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TextGetOptions(pub u32);
@@ -3707,6 +4098,7 @@ impl ::std::ops::Not for TextGetOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TextRangeUnit(pub i32);
@@ -3757,6 +4149,7 @@ unsafe impl ::windows::runtime::Abi for TextRangeUnit {
 unsafe impl ::windows::runtime::RuntimeType for TextRangeUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextRangeUnit;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TextScript(pub i32);
@@ -3838,6 +4231,7 @@ unsafe impl ::windows::runtime::Abi for TextScript {
 unsafe impl ::windows::runtime::RuntimeType for TextScript {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextScript;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TextSetOptions(pub u32);
@@ -3890,6 +4284,7 @@ impl ::std::ops::Not for TextSetOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UnderlineType(pub i32);
@@ -3927,6 +4322,7 @@ unsafe impl ::windows::runtime::Abi for UnderlineType {
 unsafe impl ::windows::runtime::RuntimeType for UnderlineType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.UnderlineType;i4)");
 }
+#[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VerticalCharacterAlignment(pub i32);

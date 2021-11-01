@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWaaSAssessor(::windows::runtime::IUnknown);
 impl IWaaSAssessor {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_UpdateAssessment`, `Win32_Foundation`*"]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::runtime::Result<OSUpdateAssessment> {
         let mut result__: <OSUpdateAssessment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<OSUpdateAssessment>(result__)
@@ -45,6 +47,7 @@ pub struct IWaaSAssessor_abi(
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_UpdateAssessment`, `Win32_Foundation`*"]
 pub struct OSUpdateAssessment {
     pub isEndOfSupport: super::super::Foundation::BOOL,
     pub assessmentForCurrent: UpdateAssessment,
@@ -106,6 +109,7 @@ unsafe impl ::windows::runtime::Abi for OSUpdateAssessment {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 pub struct UpdateAssessment {
     pub status: UpdateAssessmentStatus,
     pub impact: UpdateImpactLevel,
@@ -132,6 +136,7 @@ unsafe impl ::windows::runtime::Abi for UpdateAssessment {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UpdateAssessmentStatus(pub i32);
@@ -156,6 +161,7 @@ unsafe impl ::windows::runtime::Abi for UpdateAssessmentStatus {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UpdateImpactLevel(pub i32);

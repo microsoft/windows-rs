@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const AdSyncTask: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(719734609, 46888, 19819, [151, 160, 178, 218, 46, 125, 42, 59]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AdrClientDisplayFlags(pub i32);
@@ -14,6 +15,7 @@ unsafe impl ::windows::runtime::Abi for AdrClientDisplayFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AdrClientErrorType(pub i32);
@@ -29,6 +31,7 @@ unsafe impl ::windows::runtime::Abi for AdrClientErrorType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AdrClientFlags(pub i32);
@@ -45,6 +48,7 @@ unsafe impl ::windows::runtime::Abi for AdrClientFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AdrEmailFlags(pub i32);
@@ -62,6 +66,7 @@ unsafe impl ::windows::runtime::Abi for AdrEmailFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DIFsrmClassificationEvents(::windows::runtime::IUnknown);
@@ -129,150 +134,294 @@ pub struct DIFsrmClassificationEvents_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_FILESCREEN: u32 = 50331648u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_GENERAL: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_MASK: u32 = 251658240u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_PIPELINE: u32 = 100663296u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_QUOTA: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_FEATURE_REPORTS: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_INTERFACE_A_MASK: u32 = 15728640u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_INTERFACE_B_MASK: u32 = 983040u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_INTERFACE_C_MASK: u32 = 61440u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_INTERFACE_D_MASK: u32 = 3840u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_IS_PROPERTY: u32 = 128u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_DISPID_METHOD_NUM_MASK: u32 = 127u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_ADR_MAX_EMAILS_SENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200130i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_ADR_NOT_DOMAIN_JOINED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200110i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_ADR_PATH_IS_LOCAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200111i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_ADR_SRV_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200112i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200253i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_AUTO_QUOTA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(283419i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CACHE_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200187i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CACHE_MODULE_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200186i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_AGGREGATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200201i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_ALLOW_REPARSE_POINT_TAG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200170i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_CHANGE_PROPERTY_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200197i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_CREATE_TEMP_COPY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200132i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_DELETE_SYSTEM_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200135i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_REMOVE_READONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200109i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_RENAME_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200198i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_STORE_PROPERTIES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200171i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_USE_DELETED_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200143i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CANNOT_USE_DEPRECATED_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200145i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CLASSIFICATION_ALREADY_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200195i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CLASSIFICATION_CANCELED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200141i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CLASSIFICATION_NOT_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200194i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CLASSIFICATION_PARTIAL_BATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200136i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CLASSIFICATION_SCAN_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200148i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CLASSIFICATION_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200137i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CLUSTER_NOT_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200210i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_CSC_PATH_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200106i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_DIFFERENT_CLUSTER_GROUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200207i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_DRIVER_NOT_READY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200237i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_DUPLICATE_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200240i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_EMAIL_NOT_SENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200228i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_ENUM_PROPERTIES_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200173i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_ERROR_NOT_ENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200133i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_EXPIRATION_PATH_NOT_WRITEABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200105i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_EXPIRATION_PATH_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200104i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_EXPIRATION_VOLUME_NOT_NTFS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200103i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FAIL_BATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200247i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_ENCRYPTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200156i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200134i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_ACTION_GET_EXITCODE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200152i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_ACTION_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200153i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_EXPIRATION_DIR_IN_SCOPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200185i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200184i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_ALREADY_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200193i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_CUSTOM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200191i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_DEPRECATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200102i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_EXPIRATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200192i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_INVALID_CONTINUOUS_CONFIG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200108i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_MAX_FILE_CONDITIONS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200146i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_NOTIFICATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200190i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_NOT_LEGACY_ACCESSIBLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200147i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_RMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200120i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_OPEN_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200189i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_FILE_SYSTEM_CORRUPT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200225i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INCOMPATIBLE_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200157i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INPROC_MODULE_BLOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200174i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INSECURE_PATH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200233i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INSUFFICIENT_DISK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200236i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_AD_CLAIM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200142i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_COMBINATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200241i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_DATASCREEN_DEFINITION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200220i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_EMAIL_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200226i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_FILEGROUP_DEFINITION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200223i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_FILENAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200214i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_FOLDER_PROPERTY_STORE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200140i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_IMPORT_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200245i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_LIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200249i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200248i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_PATH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200250i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_REPORT_DESC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200215i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_REPORT_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200216i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_SCHEDULER_ARGUMENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200254i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_SMTP_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200232i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_TEXT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200246i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_INVALID_USER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200251i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_LAST_ACCESS_UPDATE_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200176i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_LEGACY_SCHEDULE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200107i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_LOADING_DISABLED_MODULE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200202i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_LONG_CMDLINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200224i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_MAX_PROPERTY_DEFINITIONS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200196i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_MESSAGE_LIMIT_EXCEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200200i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_MODULE_INITIALIZATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200150i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_MODULE_INVALID_PARAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200151i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_MODULE_SESSION_INITIALIZATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200149i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_MODULE_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200101i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_NOT_CLUSTER_VOLUME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200208i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200255i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200239i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_NO_EMAIL_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200131i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_NO_PROPERTY_VALUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200175i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_OBJECT_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200199i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_OUT_OF_RANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200243i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PARTIAL_CLASSIFICATION_PROPERTY_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200169i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PATH_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200252i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PATH_NOT_IN_NAMESPACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200129i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PERSIST_PROPERTIES_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200155i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PERSIST_PROPERTIES_FAILED_ENCRYPTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200166i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PROPERTY_DELETED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200183i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PROPERTY_MUST_APPLY_TO_FILES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200138i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PROPERTY_MUST_APPLY_TO_FOLDERS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200124i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PROPERTY_MUST_BE_GLOBAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200122i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_PROPERTY_MUST_BE_SECURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200123i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_REBUILDING_FODLER_TYPE_INDEX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200139i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_REPORT_GENERATION_ERR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200204i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_REPORT_JOB_ALREADY_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200205i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_REPORT_TASK_TRIGGER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200203i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_REPORT_TYPE_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200206i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_REQD_PARAM_MISSING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200242i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_RMS_NO_PROTECTORS_INSTALLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200126i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_RMS_NO_PROTECTOR_INSTALLED_FOR_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200125i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_RMS_TEMPLATE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200128i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_SECURE_PROPERTIES_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200127i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_SET_PROPERTY_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200172i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_SHADOW_COPY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200212i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_STORE_NOT_INSTALLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200209i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_SYNC_TASK_HAD_ERRORS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200119i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_SYNC_TASK_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200144i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_TEXTREADER_FILENAME_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200158i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_TEXTREADER_IFILTER_CLSID_MALFORMED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200160i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_TEXTREADER_IFILTER_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200167i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_TEXTREADER_NOT_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200168i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_TEXTREADER_STREAM_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200159i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_UNEXPECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200234i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_UNSECURE_LINK_TO_HOSTED_MODULE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200188i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_VOLUME_OFFLINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200154i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_VOLUME_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200235i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_WMI_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200121i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_E_XML_CORRUPTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147200211i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(283398i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_S_PARTIAL_BATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(283396i32 as _);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(283397i32 as _);
 pub const FsrmAccessDeniedRemediationClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(269176776, 29889, 18191, [177, 183, 221, 123, 107, 174, 121, 189]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmAccountType(pub i32);
@@ -292,6 +441,7 @@ unsafe impl ::windows::runtime::Abi for FsrmAccountType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmActionType(pub i32);
@@ -309,6 +459,7 @@ unsafe impl ::windows::runtime::Abi for FsrmActionType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmClassificationLoggingFlags(pub i32);
@@ -327,6 +478,7 @@ unsafe impl ::windows::runtime::Abi for FsrmClassificationLoggingFlags {
     type DefaultType = Self;
 }
 pub const FsrmClassificationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975600199, 50065, 17849, [149, 200, 235, 89, 108, 133, 63, 58]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmCollectionState(pub i32);
@@ -343,6 +495,7 @@ unsafe impl ::windows::runtime::Abi for FsrmCollectionState {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmCommitOptions(pub i32);
@@ -357,7 +510,9 @@ unsafe impl ::windows::runtime::Abi for FsrmCommitOptions {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmDaysNotSpecified: i32 = -1i32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmEnumOptions(pub i32);
@@ -375,6 +530,7 @@ unsafe impl ::windows::runtime::Abi for FsrmEnumOptions {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmEventType(pub i32);
@@ -391,6 +547,7 @@ unsafe impl ::windows::runtime::Abi for FsrmEventType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmExecutionOption(pub i32);
@@ -408,6 +565,7 @@ unsafe impl ::windows::runtime::Abi for FsrmExecutionOption {
     type DefaultType = Self;
 }
 pub const FsrmExportImport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344120375, 64233, 18311, [144, 37, 140, 228, 224, 36, 171, 86]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmFileConditionType(pub i32);
@@ -424,6 +582,7 @@ unsafe impl ::windows::runtime::Abi for FsrmFileConditionType {
 }
 pub const FsrmFileGroupManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400412662, 25967, 17558, [146, 38, 19, 174, 203, 215, 113, 143]);
 pub const FsrmFileManagementJobManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3944282546, 19514, 17185, [178, 3, 32, 81, 32, 207, 246, 20]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmFileManagementLoggingFlags(pub i32);
@@ -440,6 +599,7 @@ unsafe impl ::windows::runtime::Abi for FsrmFileManagementLoggingFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmFileManagementType(pub i32);
@@ -456,6 +616,7 @@ unsafe impl ::windows::runtime::Abi for FsrmFileManagementType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmFileScreenFlags(pub i32);
@@ -471,6 +632,7 @@ unsafe impl ::windows::runtime::Abi for FsrmFileScreenFlags {
 }
 pub const FsrmFileScreenManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509508995, 56147, 19551, [179, 123, 125, 9, 33, 207, 157, 199]);
 pub const FsrmFileScreenTemplateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607195615, 58484, 18090, [160, 84, 234, 163, 62, 220, 41, 42]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmFileStreamingInterfaceType(pub i32);
@@ -486,6 +648,7 @@ unsafe impl ::windows::runtime::Abi for FsrmFileStreamingInterfaceType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmFileStreamingMode(pub i32);
@@ -501,6 +664,7 @@ unsafe impl ::windows::runtime::Abi for FsrmFileStreamingMode {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmFileSystemPropertyId(pub i32);
@@ -519,6 +683,7 @@ unsafe impl ::windows::runtime::Abi for FsrmFileSystemPropertyId {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmGetFilePropertyOptions(pub i32);
@@ -536,14 +701,21 @@ unsafe impl ::windows::runtime::Abi for FsrmGetFilePropertyOptions {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMaxExcludeFolders: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMaxNumberPropertyDefinitions: u32 = 100u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMaxNumberThresholds: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMaxThresholdValue: u32 = 250u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMinQuotaLimit: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMinThresholdValue: u32 = 1u32;
 pub const FsrmPathMapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4089332413, 35522, 16542, [187, 216, 250, 249, 182, 180, 31, 235]);
 pub const FsrmPipelineModuleConnector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3345232757, 7861, 17630, [160, 98, 98, 53, 71, 217, 51, 188]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPipelineModuleType(pub i32);
@@ -559,6 +731,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPipelineModuleType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPropertyBagField(pub i32);
@@ -573,6 +746,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPropertyBagField {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPropertyBagFlags(pub i32);
@@ -589,6 +763,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPropertyBagFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPropertyConditionType(pub i32);
@@ -615,6 +790,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPropertyConditionType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPropertyDefinitionAppliesTo(pub i32);
@@ -629,6 +805,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPropertyDefinitionAppliesTo {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPropertyDefinitionFlags(pub i32);
@@ -644,6 +821,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPropertyDefinitionFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPropertyDefinitionType(pub i32);
@@ -665,6 +843,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPropertyDefinitionType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPropertyFlags(pub i32);
@@ -697,6 +876,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPropertyFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmPropertyValueType(pub i32);
@@ -712,6 +892,7 @@ unsafe impl ::windows::runtime::Abi for FsrmPropertyValueType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmQuotaFlags(pub i32);
@@ -730,6 +911,7 @@ unsafe impl ::windows::runtime::Abi for FsrmQuotaFlags {
 }
 pub const FsrmQuotaManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2430380927, 13436, 19452, [181, 67, 84, 3, 38, 48, 95, 190]);
 pub const FsrmQuotaTemplateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547242051, 9500, 17207, [129, 231, 179, 46, 143, 78, 230, 94]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmReportFilter(pub i32);
@@ -750,6 +932,7 @@ unsafe impl ::windows::runtime::Abi for FsrmReportFilter {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmReportFormat(pub i32);
@@ -768,6 +951,7 @@ unsafe impl ::windows::runtime::Abi for FsrmReportFormat {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmReportGenerationContext(pub i32);
@@ -784,6 +968,7 @@ unsafe impl ::windows::runtime::Abi for FsrmReportGenerationContext {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmReportLimit(pub i32);
@@ -809,6 +994,7 @@ unsafe impl ::windows::runtime::Abi for FsrmReportLimit {
     type DefaultType = Self;
 }
 pub const FsrmReportManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5828407, 43622, 19528, [189, 91, 47, 206, 67, 42, 176, 200]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmReportRunningStatus(pub i32);
@@ -826,6 +1012,7 @@ unsafe impl ::windows::runtime::Abi for FsrmReportRunningStatus {
     type DefaultType = Self;
 }
 pub const FsrmReportScheduler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3928355256, 7053, 17040, [142, 232, 225, 124, 18, 194, 254, 32]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmReportType(pub i32);
@@ -852,6 +1039,7 @@ unsafe impl ::windows::runtime::Abi for FsrmReportType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmRuleFlags(pub i32);
@@ -868,6 +1056,7 @@ unsafe impl ::windows::runtime::Abi for FsrmRuleFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmRuleType(pub i32);
@@ -884,6 +1073,7 @@ unsafe impl ::windows::runtime::Abi for FsrmRuleType {
     type DefaultType = Self;
 }
 pub const FsrmSetting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4116109064, 27981, 17812, [156, 97, 125, 187, 13, 174, 42, 70]);
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmStorageModuleCaps(pub i32);
@@ -901,6 +1091,7 @@ unsafe impl ::windows::runtime::Abi for FsrmStorageModuleCaps {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmStorageModuleType(pub i32);
@@ -918,6 +1109,7 @@ unsafe impl ::windows::runtime::Abi for FsrmStorageModuleType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FsrmTemplateApplyOptions(pub i32);
@@ -932,11 +1124,13 @@ unsafe impl ::windows::runtime::Abi for FsrmTemplateApplyOptions {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmAccessDeniedRemediationClient(::windows::runtime::IUnknown);
 impl IFsrmAccessDeniedRemediationClient {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, parentwnd: usize, accesspath: Param1, errortype: AdrClientErrorType, flags: i32, windowtitle: Param4, windowmessage: Param5) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(parentwnd), accesspath.into_param().abi(), ::std::mem::transmute(errortype), ::std::mem::transmute(flags), windowtitle.into_param().abi(), windowmessage.into_param().abi(), &mut result__).from_abi::<i32>(result__)
@@ -1007,25 +1201,31 @@ pub struct IFsrmAccessDeniedRemediationClient_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parentwnd: usize, accesspath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, errortype: AdrClientErrorType, flags: i32, windowtitle: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, windowmessage: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, result: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmAction(::windows::runtime::IUnknown);
 impl IFsrmAction {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ActionType(&self) -> ::windows::runtime::Result<FsrmActionType> {
         let mut result__: <FsrmActionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmActionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RunLimitInterval(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(minutes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1098,97 +1298,121 @@ pub struct IFsrmAction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, minutes: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionCommand(::windows::runtime::IUnknown);
 impl IFsrmActionCommand {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ActionType(&self) -> ::windows::runtime::Result<FsrmActionType> {
         let mut result__: <FsrmActionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmActionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RunLimitInterval(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(minutes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ExecutablePath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetExecutablePath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, executablepath: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), executablepath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Arguments(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetArguments<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, arguments: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), arguments.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Account(&self) -> ::windows::runtime::Result<FsrmAccountType> {
         let mut result__: <FsrmAccountType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmAccountType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetAccount(&self, account: FsrmAccountType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(account)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn WorkingDirectory(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetWorkingDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, workingdirectory: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), workingdirectory.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn MonitorCommand(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetMonitorCommand(&self, monitorcommand: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(monitorcommand)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn KillTimeOut(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetKillTimeOut(&self, minutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(minutes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn LogResult(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetLogResult(&self, logresults: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(logresults)).ok()
     }
@@ -1301,105 +1525,129 @@ pub struct IFsrmActionCommand_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, logresults: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, logresults: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionEmail(::windows::runtime::IUnknown);
 impl IFsrmActionEmail {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ActionType(&self) -> ::windows::runtime::Result<FsrmActionType> {
         let mut result__: <FsrmActionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmActionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RunLimitInterval(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(minutes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailFrom(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailFrom<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailfrom: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), mailfrom.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailReplyTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailReplyTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailreplyto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), mailreplyto.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), mailto.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailCc(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailCc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailcc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), mailcc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailBcc(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailBcc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailbcc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), mailbcc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailSubject(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailSubject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailsubject: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), mailsubject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MessageText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMessageText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, messagetext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), messagetext.into_param().abi()).ok()
     }
@@ -1520,112 +1768,138 @@ pub struct IFsrmActionEmail_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, messagetext: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionEmail2(::windows::runtime::IUnknown);
 impl IFsrmActionEmail2 {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ActionType(&self) -> ::windows::runtime::Result<FsrmActionType> {
         let mut result__: <FsrmActionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmActionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RunLimitInterval(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(minutes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailFrom(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailFrom<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailfrom: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), mailfrom.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailReplyTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailReplyTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailreplyto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), mailreplyto.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), mailto.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailCc(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailCc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailcc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), mailcc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailBcc(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailBcc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailbcc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), mailbcc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailSubject(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailSubject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailsubject: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), mailsubject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MessageText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMessageText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, messagetext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), messagetext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AttachmentFileListSize(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(attachmentfilelistsize)).ok()
     }
@@ -1768,58 +2042,72 @@ pub struct IFsrmActionEmail2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, attachmentfilelistsize: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, attachmentfilelistsize: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionEventLog(::windows::runtime::IUnknown);
 impl IFsrmActionEventLog {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ActionType(&self) -> ::windows::runtime::Result<FsrmActionType> {
         let mut result__: <FsrmActionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmActionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RunLimitInterval(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(minutes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EventType(&self) -> ::windows::runtime::Result<FsrmEventType> {
         let mut result__: <FsrmEventType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmEventType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetEventType(&self, eventtype: FsrmEventType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(eventtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MessageText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMessageText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, messagetext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), messagetext.into_param().abi()).ok()
     }
@@ -1918,60 +2206,74 @@ pub struct IFsrmActionEventLog_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, messagetext: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmActionReport(::windows::runtime::IUnknown);
 impl IFsrmActionReport {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ActionType(&self) -> ::windows::runtime::Result<FsrmActionType> {
         let mut result__: <FsrmActionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmActionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RunLimitInterval(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(minutes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ReportTypes(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(reporttypes)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), mailto.into_param().abi()).ok()
     }
@@ -2072,121 +2374,150 @@ pub struct IFsrmActionReport_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mailto: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmAutoApplyQuota(::windows::runtime::IUnknown);
 impl IFsrmAutoApplyQuota {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn QuotaLimit(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), quotalimit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(quotaflags)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Thresholds(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(newthreshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UserSid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UserAccount(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SourceTemplateName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn MatchesSourceTemplate(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ApplyTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), quotatemplatename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ExcludeFolders(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(folders)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::runtime::Result<IFsrmDerivedObjectsResult> {
         let mut result__: <IFsrmDerivedObjectsResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(commitoptions), ::std::mem::transmute(applyoptions), &mut result__).from_abi::<IFsrmDerivedObjectsResult>(result__)
@@ -2351,121 +2682,149 @@ pub struct IFsrmAutoApplyQuota_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions, derivedobjectsresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassificationManager(::windows::runtime::IUnknown);
 impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ClassificationReportFormats(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(formats)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Logging(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetLogging(&self, logging: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(logging)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ClassificationReportMailTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetClassificationReportMailTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), mailto.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ClassificationReportEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(reportenabled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ClassificationLastError(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ClassificationRunningStatus(&self) -> ::windows::runtime::Result<FsrmReportRunningStatus> {
         let mut result__: <FsrmReportRunningStatus as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmReportRunningStatus>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreatePropertyDefinition(&self) -> ::windows::runtime::Result<IFsrmPropertyDefinition> {
         let mut result__: <IFsrmPropertyDefinition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmPropertyDefinition>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::runtime::Result<IFsrmPropertyDefinition> {
         let mut result__: <IFsrmPropertyDefinition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), propertyname.into_param().abi(), &mut result__).from_abi::<IFsrmPropertyDefinition>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(ruletype), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows::runtime::Result<IFsrmRule> {
         let mut result__: <IFsrmRule as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(ruletype), &mut result__).from_abi::<IFsrmRule>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetRule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, rulename: Param0, ruletype: FsrmRuleType) -> ::windows::runtime::Result<IFsrmRule> {
         let mut result__: <IFsrmRule as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), rulename.into_param().abi(), ::std::mem::transmute(ruletype), &mut result__).from_abi::<IFsrmRule>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(moduletype), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows::runtime::Result<IFsrmPipelineModuleDefinition> {
         let mut result__: <IFsrmPipelineModuleDefinition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(moduletype), &mut result__).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetModuleDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modulename: Param0, moduletype: FsrmPipelineModuleType) -> ::windows::runtime::Result<IFsrmPipelineModuleDefinition> {
         let mut result__: <IFsrmPipelineModuleDefinition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), modulename.into_param().abi(), ::std::mem::transmute(moduletype), &mut result__).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn RunClassification<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, context: FsrmReportGenerationContext, reserved: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(context), reserved.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(waitseconds), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CancelClassification(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumFileProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, options: FsrmGetFilePropertyOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), filepath.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, propertyname: Param1, options: FsrmGetFilePropertyOptions) -> ::windows::runtime::Result<IFsrmProperty> {
         let mut result__: <IFsrmProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), filepath.into_param().abi(), propertyname.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmProperty>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, propertyname: Param1, propertyvalue: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), filepath.into_param().abi(), propertyname.into_param().abi(), propertyvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ClearFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, property: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), filepath.into_param().abi(), property.into_param().abi()).ok()
     }
@@ -2574,142 +2933,175 @@ pub struct IFsrmClassificationManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filepath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, property: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassificationManager2(::windows::runtime::IUnknown);
 impl IFsrmClassificationManager2 {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ClassificationReportFormats(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(formats)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Logging(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetLogging(&self, logging: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(logging)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ClassificationReportMailTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetClassificationReportMailTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), mailto.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ClassificationReportEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(reportenabled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ClassificationLastError(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ClassificationRunningStatus(&self) -> ::windows::runtime::Result<FsrmReportRunningStatus> {
         let mut result__: <FsrmReportRunningStatus as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmReportRunningStatus>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreatePropertyDefinition(&self) -> ::windows::runtime::Result<IFsrmPropertyDefinition> {
         let mut result__: <IFsrmPropertyDefinition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmPropertyDefinition>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::runtime::Result<IFsrmPropertyDefinition> {
         let mut result__: <IFsrmPropertyDefinition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), propertyname.into_param().abi(), &mut result__).from_abi::<IFsrmPropertyDefinition>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(ruletype), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows::runtime::Result<IFsrmRule> {
         let mut result__: <IFsrmRule as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(ruletype), &mut result__).from_abi::<IFsrmRule>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetRule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, rulename: Param0, ruletype: FsrmRuleType) -> ::windows::runtime::Result<IFsrmRule> {
         let mut result__: <IFsrmRule as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), rulename.into_param().abi(), ::std::mem::transmute(ruletype), &mut result__).from_abi::<IFsrmRule>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(moduletype), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows::runtime::Result<IFsrmPipelineModuleDefinition> {
         let mut result__: <IFsrmPipelineModuleDefinition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(moduletype), &mut result__).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetModuleDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modulename: Param0, moduletype: FsrmPipelineModuleType) -> ::windows::runtime::Result<IFsrmPipelineModuleDefinition> {
         let mut result__: <IFsrmPipelineModuleDefinition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), modulename.into_param().abi(), ::std::mem::transmute(moduletype), &mut result__).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn RunClassification<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, context: FsrmReportGenerationContext, reserved: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(context), reserved.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(waitseconds), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CancelClassification(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumFileProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, options: FsrmGetFilePropertyOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), filepath.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, propertyname: Param1, options: FsrmGetFilePropertyOptions) -> ::windows::runtime::Result<IFsrmProperty> {
         let mut result__: <IFsrmProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), filepath.into_param().abi(), propertyname.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmProperty>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, propertyname: Param1, propertyvalue: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), filepath.into_param().abi(), propertyname.into_param().abi(), propertyvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ClearFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, property: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), filepath.into_param().abi(), property.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(filepaths), ::std::mem::transmute(propertynames), ::std::mem::transmute(propertyvalues), ::std::mem::transmute(options)).ok()
     }
@@ -2840,120 +3232,148 @@ pub struct IFsrmClassificationManager2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassificationRule(::windows::runtime::IUnknown);
 impl IFsrmClassificationRule {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RuleType(&self) -> ::windows::runtime::Result<FsrmRuleType> {
         let mut result__: <FsrmRuleType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmRuleType>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ModuleDefinitionName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetModuleDefinitionName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduledefinitionname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), moduledefinitionname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn NamespaceRoots(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceroots)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RuleFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(ruleflags)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Parameters(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameters)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LastModified(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ExecutionOption(&self) -> ::windows::runtime::Result<FsrmExecutionOption> {
         let mut result__: <FsrmExecutionOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmExecutionOption>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(executionoption)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn PropertyAffected(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetPropertyAffected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, property: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), property.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
@@ -3099,147 +3519,182 @@ pub struct IFsrmClassificationRule_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassifierModuleDefinition(::windows::runtime::IUnknown);
 impl IFsrmClassifierModuleDefinition {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ModuleClsid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetModuleClsid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduleclsid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), moduleclsid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Company(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetCompany<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, company: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), company.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Version(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, version: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), version.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModuleType(&self) -> ::windows::runtime::Result<FsrmPipelineModuleType> {
         let mut result__: <FsrmPipelineModuleType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmPipelineModuleType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(enabled)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn NeedsFileContent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(needsfilecontent)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Account(&self) -> ::windows::runtime::Result<FsrmAccountType> {
         let mut result__: <FsrmAccountType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmAccountType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(retrievalaccount)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SupportedExtensions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(supportedextensions)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Parameters(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameters)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn PropertiesAffected(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertiesaffected)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn PropertiesUsed(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetPropertiesUsed(&self, propertiesused: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertiesused)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn NeedsExplicitValue(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetNeedsExplicitValue(&self, needsexplicitvalue: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(needsexplicitvalue)).ok()
     }
@@ -3395,54 +3850,67 @@ pub struct IFsrmClassifierModuleDefinition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, needsexplicitvalue: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, needsexplicitvalue: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmClassifierModuleImplementation(::windows::runtime::IUnknown);
 impl IFsrmClassifierModuleImplementation {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OnLoad<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmPipelineModuleDefinition>>(&self, moduledefinition: Param0) -> ::windows::runtime::Result<IFsrmPipelineModuleConnector> {
         let mut result__: <IFsrmPipelineModuleConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), moduledefinition.into_param().abi(), &mut result__).from_abi::<IFsrmPipelineModuleConnector>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OnUnload(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LastModified(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn UseRulesAndDefinitions<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmCollection>, Param1: ::windows::runtime::IntoParam<'a, IFsrmCollection>>(&self, rules: Param0, propertydefinitions: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), rules.into_param().abi(), propertydefinitions.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn OnBeginFile<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmPropertyBag>>(&self, propertybag: Param0, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), propertybag.into_param().abi(), ::std::mem::transmute(arrayruleids)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn DoesPropertyValueApply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, property: Param0, value: Param1, applyvalue: *mut i16, idrule: Param3, idpropdef: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), property.into_param().abi(), value.into_param().abi(), ::std::mem::transmute(applyvalue), idrule.into_param().abi(), idpropdef.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyValueToApply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, property: Param0, value: *mut super::super::Foundation::BSTR, idrule: Param2, idpropdef: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), property.into_param().abi(), ::std::mem::transmute(value), idrule.into_param().abi(), idpropdef.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OnEndFile(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3542,35 +4010,43 @@ pub struct IFsrmClassifierModuleImplementation_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmCollection(::windows::runtime::IUnknown);
 impl IFsrmCollection {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<FsrmCollectionState> {
         let mut result__: <FsrmCollectionState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmCollectionState>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(waitseconds), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetById<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), id.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3648,70 +4124,87 @@ pub struct IFsrmCollection_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::windows::runtime::GUID, entry: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmCommittableCollection(::windows::runtime::IUnknown);
 impl IFsrmCommittableCollection {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<FsrmCollectionState> {
         let mut result__: <FsrmCollectionState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmCollectionState>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(waitseconds), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetById<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), id.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, item: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), item.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RemoveById<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, id: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), id.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self, options: FsrmCommitOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
@@ -3835,14 +4328,17 @@ pub struct IFsrmCommittableCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, collection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, options: FsrmCommitOptions, results: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmDerivedObjectsResult(::windows::runtime::IUnknown);
 impl IFsrmDerivedObjectsResult {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DerivedObjects(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Results(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
@@ -3913,33 +4409,40 @@ pub struct IFsrmDerivedObjectsResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, derivedobjects: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, results: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmExportImport(::windows::runtime::IUnknown);
 impl IFsrmExportImport {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExportFileGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), filepath.into_param().abi(), ::std::mem::transmute(filegroupnamessafearray), remotehost.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ImportFileGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), filepath.into_param().abi(), ::std::mem::transmute(filegroupnamessafearray), remotehost.into_param().abi(), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExportFileScreenTemplates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), filepath.into_param().abi(), ::std::mem::transmute(templatenamessafearray), remotehost.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ImportFileScreenTemplates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), filepath.into_param().abi(), ::std::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExportQuotaTemplates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), filepath.into_param().abi(), ::std::mem::transmute(templatenamessafearray), remotehost.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ImportQuotaTemplates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), filepath.into_param().abi(), ::std::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
@@ -4020,14 +4523,17 @@ pub struct IFsrmExportImport_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filepath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, templatenamessafearray: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, remotehost: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, templates: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileCondition(::windows::runtime::IUnknown);
 impl IFsrmFileCondition {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<FsrmFileConditionType> {
         let mut result__: <FsrmFileConditionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmFileConditionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4097,70 +4603,87 @@ pub struct IFsrmFileCondition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut FsrmFileConditionType) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileConditionProperty(::windows::runtime::IUnknown);
 impl IFsrmFileConditionProperty {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<FsrmFileConditionType> {
         let mut result__: <FsrmFileConditionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmFileConditionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn PropertyName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetPropertyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::runtime::Result<FsrmFileSystemPropertyId> {
         let mut result__: <FsrmFileSystemPropertyId as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmFileSystemPropertyId>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetPropertyId(&self, newval: FsrmFileSystemPropertyId) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Operator(&self) -> ::windows::runtime::Result<FsrmPropertyConditionType> {
         let mut result__: <FsrmPropertyConditionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmPropertyConditionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetOperator(&self, newval: FsrmPropertyConditionType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ValueType(&self) -> ::windows::runtime::Result<FsrmPropertyValueType> {
         let mut result__: <FsrmPropertyValueType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmPropertyValueType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetValueType(&self, newval: FsrmPropertyValueType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
@@ -4264,66 +4787,82 @@ pub struct IFsrmFileConditionProperty_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newval: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileGroup(::windows::runtime::IUnknown);
 impl IFsrmFileGroup {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Members(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetMembers<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, members: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), members.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn NonMembers(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetNonMembers<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, nonmembers: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), nonmembers.into_param().abi()).ok()
     }
@@ -4426,73 +4965,91 @@ pub struct IFsrmFileGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nonmembers: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nonmembers: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileGroupImported(::windows::runtime::IUnknown);
 impl IFsrmFileGroupImported {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Members(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetMembers<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, members: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), members.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn NonMembers(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetNonMembers<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, nonmembers: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), nonmembers.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(overwrite)).ok()
     }
@@ -4617,29 +5174,35 @@ pub struct IFsrmFileGroupImported_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overwrite: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overwrite: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileGroupManager(::windows::runtime::IUnknown);
 impl IFsrmFileGroupManager {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateFileGroup(&self) -> ::windows::runtime::Result<IFsrmFileGroup> {
         let mut result__: <IFsrmFileGroup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmFileGroup>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetFileGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IFsrmFileGroup> {
         let mut result__: <IFsrmFileGroup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IFsrmFileGroup>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumFileGroups(&self, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExportFileGroups(&self, filegroupnamesarray: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(filegroupnamesarray), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ImportFileGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serializedfilegroups: Param0, filegroupnamesarray: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), serializedfilegroups.into_param().abi(), ::std::mem::transmute(filegroupnamesarray), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
@@ -4716,237 +5279,296 @@ pub struct IFsrmFileGroupManager_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serializedfilegroups: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, filegroupnamesarray: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, filegroups: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileManagementJob(::windows::runtime::IUnknown);
 impl IFsrmFileManagementJob {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn NamespaceRoots(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceroots)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(enabled)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OperationType(&self) -> ::windows::runtime::Result<FsrmFileManagementType> {
         let mut result__: <FsrmFileManagementType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmFileManagementType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(operationtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ExpirationDirectory(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetExpirationDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, expirationdirectory: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), expirationdirectory.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CustomAction(&self) -> ::windows::runtime::Result<IFsrmActionCommand> {
         let mut result__: <IFsrmActionCommand as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmActionCommand>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Notifications(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Logging(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetLogging(&self, loggingflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(loggingflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ReportEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetReportEnabled(&self, reportenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(reportenabled)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Formats(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(formats)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), mailto.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DaysSinceFileCreated(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetDaysSinceFileCreated(&self, dayssincecreation: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(dayssincecreation)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DaysSinceFileLastAccessed(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetDaysSinceFileLastAccessed(&self, dayssinceaccess: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(dayssinceaccess)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DaysSinceFileLastModified(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetDaysSinceFileLastModified(&self, dayssincemodify: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), ::std::mem::transmute(dayssincemodify)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn PropertyConditions(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn FromDate(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetFromDate(&self, fromdate: f64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(fromdate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Task(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetTask<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), taskname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Parameters(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameters)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RunningStatus(&self) -> ::windows::runtime::Result<FsrmReportRunningStatus> {
         let mut result__: <FsrmReportRunningStatus as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmReportRunningStatus>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn LastError(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn LastReportPathWithoutExtension(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn LastRun(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn FileNamePattern(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetFileNamePattern<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filenamepattern: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), filenamepattern.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(context)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), ::std::mem::transmute(waitseconds), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AddNotification(&self, days: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), ::std::mem::transmute(days)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DeleteNotification(&self, days: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), ::std::mem::transmute(days)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModifyNotification(&self, days: i32, newdays: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), ::std::mem::transmute(days), ::std::mem::transmute(newdays)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), ::std::mem::transmute(days), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumNotificationActions(&self, days: i32) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), ::std::mem::transmute(days), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CreatePropertyCondition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IFsrmPropertyCondition> {
         let mut result__: <IFsrmPropertyCondition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IFsrmPropertyCondition>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateCustomAction(&self) -> ::windows::runtime::Result<IFsrmActionCommand> {
         let mut result__: <IFsrmActionCommand as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmActionCommand>(result__)
@@ -5111,29 +5733,35 @@ pub struct IFsrmFileManagementJob_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, customaction: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileManagementJobManager(::windows::runtime::IUnknown);
 impl IFsrmFileManagementJobManager {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ActionVariables(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateFileManagementJob(&self) -> ::windows::runtime::Result<IFsrmFileManagementJob> {
         let mut result__: <IFsrmFileManagementJob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmFileManagementJob>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetFileManagementJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IFsrmFileManagementJob> {
         let mut result__: <IFsrmFileManagementJob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IFsrmFileManagementJob>(result__)
@@ -5210,93 +5838,115 @@ pub struct IFsrmFileManagementJobManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, filemanagementjob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreen(::windows::runtime::IUnknown);
 impl IFsrmFileScreen {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetBlockedFileGroups<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, blocklist: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), blocklist.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn FileScreenFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(filescreenflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumActions(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SourceTemplateName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn MatchesSourceTemplate(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UserSid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UserAccount(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ApplyTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filescreentemplatename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), filescreentemplatename.into_param().abi()).ok()
     }
@@ -5428,64 +6078,80 @@ pub struct IFsrmFileScreen_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filescreentemplatename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenBase(::windows::runtime::IUnknown);
 impl IFsrmFileScreenBase {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetBlockedFileGroups<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, blocklist: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), blocklist.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn FileScreenFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(filescreenflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumActions(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
@@ -5587,55 +6253,68 @@ pub struct IFsrmFileScreenBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, actiontype: FsrmActionType, action: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, actions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenException(::windows::runtime::IUnknown);
 impl IFsrmFileScreenException {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AllowedFileGroups(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetAllowedFileGroups<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, allowlist: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), allowlist.into_param().abi()).ok()
     }
@@ -5734,50 +6413,60 @@ pub struct IFsrmFileScreenException_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, allowlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, allowlist: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenManager(::windows::runtime::IUnknown);
 impl IFsrmFileScreenManager {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ActionVariables(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CreateFileScreen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmFileScreen> {
         let mut result__: <IFsrmFileScreen as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmFileScreen>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetFileScreen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmFileScreen> {
         let mut result__: <IFsrmFileScreen as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmFileScreen>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumFileScreens<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CreateFileScreenException<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmFileScreenException> {
         let mut result__: <IFsrmFileScreenException as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmFileScreenException>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetFileScreenException<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmFileScreenException> {
         let mut result__: <IFsrmFileScreenException as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmFileScreenException>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumFileScreenExceptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateFileScreenCollection(&self) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
@@ -5863,81 +6552,101 @@ pub struct IFsrmFileScreenManager_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, collection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenTemplate(::windows::runtime::IUnknown);
 impl IFsrmFileScreenTemplate {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetBlockedFileGroups<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, blocklist: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), blocklist.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn FileScreenFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(filescreenflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumActions(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CopyTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filescreentemplatename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), filescreentemplatename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::runtime::Result<IFsrmDerivedObjectsResult> {
         let mut result__: <IFsrmDerivedObjectsResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(commitoptions), ::std::mem::transmute(applyoptions), &mut result__).from_abi::<IFsrmDerivedObjectsResult>(result__)
@@ -6066,89 +6775,111 @@ pub struct IFsrmFileScreenTemplate_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions, derivedobjectsresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenTemplateImported(::windows::runtime::IUnknown);
 impl IFsrmFileScreenTemplateImported {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetBlockedFileGroups<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmMutableCollection>>(&self, blocklist: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), blocklist.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn FileScreenFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(filescreenflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumActions(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CopyTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filescreentemplatename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), filescreentemplatename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::runtime::Result<IFsrmDerivedObjectsResult> {
         let mut result__: <IFsrmDerivedObjectsResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(commitoptions), ::std::mem::transmute(applyoptions), &mut result__).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(overwrite)).ok()
     }
@@ -6298,29 +7029,35 @@ pub struct IFsrmFileScreenTemplateImported_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overwrite: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overwrite: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmFileScreenTemplateManager(::windows::runtime::IUnknown);
 impl IFsrmFileScreenTemplateManager {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateTemplate(&self) -> ::windows::runtime::Result<IFsrmFileScreenTemplate> {
         let mut result__: <IFsrmFileScreenTemplate as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmFileScreenTemplate>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IFsrmFileScreenTemplate> {
         let mut result__: <IFsrmFileScreenTemplate as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IFsrmFileScreenTemplate>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExportTemplates(&self, filescreentemplatenamesarray: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(filescreentemplatenamesarray), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ImportTemplates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serializedfilescreentemplates: Param0, filescreentemplatenamesarray: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), serializedfilescreentemplates.into_param().abi(), ::std::mem::transmute(filescreentemplatenamesarray), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
@@ -6397,66 +7134,82 @@ pub struct IFsrmFileScreenTemplateManager_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serializedfilescreentemplates: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, filescreentemplatenamesarray: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, filescreentemplates: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmMutableCollection(::windows::runtime::IUnknown);
 impl IFsrmMutableCollection {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<FsrmCollectionState> {
         let mut result__: <FsrmCollectionState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmCollectionState>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(waitseconds), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetById<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), id.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, item: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), item.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RemoveById<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, id: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), id.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IFsrmMutableCollection> {
         let mut result__: <IFsrmMutableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmMutableCollection>(result__)
@@ -6559,26 +7312,32 @@ pub struct IFsrmMutableCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, collection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmObject(::windows::runtime::IUnknown);
 impl IFsrmObject {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
@@ -6653,11 +7412,13 @@ pub struct IFsrmObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPathMapper(::windows::runtime::IUnknown);
 impl IFsrmPathMapper {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetSharePathsForLocalPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, localpath: Param0) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), localpath.into_param().abi(), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
@@ -6728,28 +7489,34 @@ pub struct IFsrmPathMapper_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localpath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, sharepaths: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPipelineModuleConnector(::windows::runtime::IUnknown);
 impl IFsrmPipelineModuleConnector {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModuleImplementation(&self) -> ::windows::runtime::Result<IFsrmPipelineModuleImplementation> {
         let mut result__: <IFsrmPipelineModuleImplementation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmPipelineModuleImplementation>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ModuleName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn HostingUserAccount(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn HostingProcessPid(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Bind<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmPipelineModuleDefinition>, Param1: ::windows::runtime::IntoParam<'a, IFsrmPipelineModuleImplementation>>(&self, moduledefinition: Param0, moduleimplementation: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), moduledefinition.into_param().abi(), moduleimplementation.into_param().abi()).ok()
     }
@@ -6824,122 +7591,151 @@ pub struct IFsrmPipelineModuleConnector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pid: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, moduledefinition: ::windows::runtime::RawPtr, moduleimplementation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPipelineModuleDefinition(::windows::runtime::IUnknown);
 impl IFsrmPipelineModuleDefinition {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ModuleClsid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetModuleClsid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduleclsid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), moduleclsid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Company(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetCompany<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, company: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), company.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Version(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, version: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), version.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModuleType(&self) -> ::windows::runtime::Result<FsrmPipelineModuleType> {
         let mut result__: <FsrmPipelineModuleType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmPipelineModuleType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(enabled)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn NeedsFileContent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(needsfilecontent)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Account(&self) -> ::windows::runtime::Result<FsrmAccountType> {
         let mut result__: <FsrmAccountType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmAccountType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(retrievalaccount)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SupportedExtensions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(supportedextensions)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Parameters(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameters)).ok()
     }
@@ -7065,14 +7861,17 @@ pub struct IFsrmPipelineModuleDefinition_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPipelineModuleImplementation(::windows::runtime::IUnknown);
 impl IFsrmPipelineModuleImplementation {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OnLoad<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmPipelineModuleDefinition>>(&self, moduledefinition: Param0) -> ::windows::runtime::Result<IFsrmPipelineModuleConnector> {
         let mut result__: <IFsrmPipelineModuleConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), moduledefinition.into_param().abi(), &mut result__).from_abi::<IFsrmPipelineModuleConnector>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OnUnload(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7142,25 +7941,30 @@ pub struct IFsrmPipelineModuleImplementation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, moduledefinition: ::windows::runtime::RawPtr, moduleconnector: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmProperty(::windows::runtime::IUnknown);
 impl IFsrmProperty {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Sources(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn PropertyFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -7236,106 +8040,128 @@ pub struct IFsrmProperty_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyBag(::windows::runtime::IUnknown);
 impl IFsrmPropertyBag {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn RelativePath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn VolumeName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn RelativeNamespaceRoot(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn VolumeIndex(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn FileId(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ParentDirectoryId(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Size(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SizeAllocated(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreationTime(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LastAccessTime(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LastModificationTime(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Attributes(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn OwnerSid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn FilePropertyNames(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Messages(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn PropertyBagFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IFsrmProperty> {
         let mut result__: <IFsrmProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IFsrmProperty>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn AddMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, message: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), message.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(accessmode), ::std::mem::transmute(interfacetype), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -7443,132 +8269,160 @@ pub struct IFsrmPropertyBag_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType, pstreaminterface: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyBag2(::windows::runtime::IUnknown);
 impl IFsrmPropertyBag2 {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn RelativePath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn VolumeName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn RelativeNamespaceRoot(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn VolumeIndex(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn FileId(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ParentDirectoryId(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Size(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SizeAllocated(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreationTime(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LastAccessTime(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LastModificationTime(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Attributes(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn OwnerSid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn FilePropertyNames(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Messages(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn PropertyBagFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IFsrmProperty> {
         let mut result__: <IFsrmProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IFsrmProperty>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetFileProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn AddMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, message: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), message.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(accessmode), ::std::mem::transmute(interfacetype), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(field), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetUntrustedInFileProperties(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
@@ -7699,35 +8553,43 @@ pub struct IFsrmPropertyBag2_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, props: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyCondition(::windows::runtime::IUnknown);
 impl IFsrmPropertyCondition {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<FsrmPropertyConditionType> {
         let mut result__: <FsrmPropertyConditionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmPropertyConditionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetType(&self, r#type: FsrmPropertyConditionType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7806,86 +8668,106 @@ pub struct IFsrmPropertyCondition_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyDefinition(::windows::runtime::IUnknown);
 impl IFsrmPropertyDefinition {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<FsrmPropertyDefinitionType> {
         let mut result__: <FsrmPropertyDefinitionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmPropertyDefinitionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn PossibleValues(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(possiblevalues)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ValueDescriptions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(valuedescriptions)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Parameters(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameters)).ok()
     }
@@ -7998,106 +8880,131 @@ pub struct IFsrmPropertyDefinition_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyDefinition2(::windows::runtime::IUnknown);
 impl IFsrmPropertyDefinition2 {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<FsrmPropertyDefinitionType> {
         let mut result__: <FsrmPropertyDefinitionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmPropertyDefinitionType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn PossibleValues(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(possiblevalues)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ValueDescriptions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(valuedescriptions)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Parameters(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameters)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn PropertyDefinitionFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AppliesTo(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ValueDefinitions(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
@@ -8238,26 +9145,31 @@ pub struct IFsrmPropertyDefinition2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appliesto: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, valuedefinitions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmPropertyDefinitionValue(::windows::runtime::IUnknown);
 impl IFsrmPropertyDefinitionValue {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UniqueID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -8334,129 +9246,160 @@ pub struct IFsrmPropertyDefinitionValue_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uniqueid: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuota(::windows::runtime::IUnknown);
 impl IFsrmQuota {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn QuotaLimit(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), quotalimit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(quotaflags)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Thresholds(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(newthreshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UserSid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UserAccount(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SourceTemplateName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn MatchesSourceTemplate(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ApplyTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), quotatemplatename.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn QuotaUsed(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn QuotaPeakUsage(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn QuotaPeakUsageTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ResetPeakUsage(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RefreshUsageProperties(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self)).ok()
     }
@@ -8622,80 +9565,100 @@ pub struct IFsrmQuota_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaBase(::windows::runtime::IUnknown);
 impl IFsrmQuotaBase {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn QuotaLimit(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), quotalimit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(quotaflags)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Thresholds(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(newthreshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), &mut result__).from_abi::<IFsrmCollection>(result__)
@@ -8804,64 +9767,77 @@ pub struct IFsrmQuotaBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threshold: i32, actiontype: FsrmActionType, action: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threshold: i32, actions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaManager(::windows::runtime::IUnknown);
 impl IFsrmQuotaManager {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ActionVariables(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CreateQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmQuota> {
         let mut result__: <IFsrmQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CreateAutoApplyQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0, path: Param1) -> ::windows::runtime::Result<IFsrmAutoApplyQuota> {
         let mut result__: <IFsrmAutoApplyQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), quotatemplatename.into_param().abi(), path.into_param().abi(), &mut result__).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmQuota> {
         let mut result__: <IFsrmQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetAutoApplyQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmAutoApplyQuota> {
         let mut result__: <IFsrmAutoApplyQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetRestrictiveQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmQuota> {
         let mut result__: <IFsrmQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumQuotas<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumAutoApplyQuotas<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumEffectiveQuotas<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Scan<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strpath: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), strpath.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateQuotaCollection(&self) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
@@ -8953,86 +9929,104 @@ pub struct IFsrmQuotaManager_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, collection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaManagerEx(::windows::runtime::IUnknown);
 impl IFsrmQuotaManagerEx {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ActionVariables(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CreateQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmQuota> {
         let mut result__: <IFsrmQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CreateAutoApplyQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0, path: Param1) -> ::windows::runtime::Result<IFsrmAutoApplyQuota> {
         let mut result__: <IFsrmAutoApplyQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), quotatemplatename.into_param().abi(), path.into_param().abi(), &mut result__).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmQuota> {
         let mut result__: <IFsrmQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetAutoApplyQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmAutoApplyQuota> {
         let mut result__: <IFsrmAutoApplyQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetRestrictiveQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IFsrmQuota> {
         let mut result__: <IFsrmQuota as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IFsrmQuota>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumQuotas<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumAutoApplyQuotas<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EnumEffectiveQuotas<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Scan<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strpath: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), strpath.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateQuotaCollection(&self) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn IsAffectedByQuota<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), path.into_param().abi(), ::std::mem::transmute(options), &mut result__).from_abi::<i16>(result__)
@@ -9146,109 +10140,135 @@ pub struct IFsrmQuotaManagerEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, options: FsrmEnumOptions, affected: *mut i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaObject(::windows::runtime::IUnknown);
 impl IFsrmQuotaObject {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn QuotaLimit(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), quotalimit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(quotaflags)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Thresholds(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(newthreshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UserSid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn UserAccount(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SourceTemplateName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn MatchesSourceTemplate(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ApplyTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), quotatemplatename.into_param().abi()).ok()
     }
@@ -9387,97 +10407,121 @@ pub struct IFsrmQuotaObject_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, quotatemplatename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaTemplate(::windows::runtime::IUnknown);
 impl IFsrmQuotaTemplate {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn QuotaLimit(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), quotalimit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(quotaflags)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Thresholds(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(newthreshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CopyTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), quotatemplatename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::runtime::Result<IFsrmDerivedObjectsResult> {
         let mut result__: <IFsrmDerivedObjectsResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(commitoptions), ::std::mem::transmute(applyoptions), &mut result__).from_abi::<IFsrmDerivedObjectsResult>(result__)
@@ -9613,105 +10657,131 @@ pub struct IFsrmQuotaTemplate_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions, derivedobjectsresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaTemplateImported(::windows::runtime::IUnknown);
 impl IFsrmQuotaTemplateImported {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn QuotaLimit(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), quotalimit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(quotaflags)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Thresholds(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DeleteThreshold(&self, threshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(newthreshold)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::runtime::Result<IFsrmAction> {
         let mut result__: <IFsrmAction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), ::std::mem::transmute(actiontype), &mut result__).from_abi::<IFsrmAction>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(threshold), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn CopyTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), quotatemplatename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::runtime::Result<IFsrmDerivedObjectsResult> {
         let mut result__: <IFsrmDerivedObjectsResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(commitoptions), ::std::mem::transmute(applyoptions), &mut result__).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(overwrite)).ok()
     }
@@ -9868,29 +10938,35 @@ pub struct IFsrmQuotaTemplateImported_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overwrite: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overwrite: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmQuotaTemplateManager(::windows::runtime::IUnknown);
 impl IFsrmQuotaTemplateManager {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateTemplate(&self) -> ::windows::runtime::Result<IFsrmQuotaTemplate> {
         let mut result__: <IFsrmQuotaTemplate as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmQuotaTemplate>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IFsrmQuotaTemplate> {
         let mut result__: <IFsrmQuotaTemplate as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IFsrmQuotaTemplate>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExportTemplates(&self, quotatemplatenamesarray: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(quotatemplatenamesarray), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ImportTemplates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serializedquotatemplates: Param0, quotatemplatenamesarray: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<IFsrmCommittableCollection> {
         let mut result__: <IFsrmCommittableCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), serializedquotatemplates.into_param().abi(), ::std::mem::transmute(quotatemplatenamesarray), &mut result__).from_abi::<IFsrmCommittableCollection>(result__)
@@ -9967,46 +11043,56 @@ pub struct IFsrmQuotaTemplateManager_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serializedquotatemplates: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, quotatemplatenamesarray: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, quotatemplates: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmReport(::windows::runtime::IUnknown);
 impl IFsrmReport {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<FsrmReportType> {
         let mut result__: <FsrmReportType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmReportType>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn LastGeneratedFileNamePrefix(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(filter), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetFilter<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, filter: FsrmReportFilter, filtervalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(filter), filtervalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
@@ -10090,115 +11176,142 @@ pub struct IFsrmReport_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmReportJob(::windows::runtime::IUnknown);
 impl IFsrmReportJob {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Task(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetTask<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), taskname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn NamespaceRoots(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceroots)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Formats(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(formats)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailTo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), mailto.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RunningStatus(&self) -> ::windows::runtime::Result<FsrmReportRunningStatus> {
         let mut result__: <FsrmReportRunningStatus as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmReportRunningStatus>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn LastRun(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn LastError(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn LastGeneratedInDirectory(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumReports(&self) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateReport(&self, reporttype: FsrmReportType) -> ::windows::runtime::Result<IFsrmReport> {
         let mut result__: <IFsrmReport as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(reporttype), &mut result__).from_abi::<IFsrmReport>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(context)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(waitseconds), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self)).ok()
     }
@@ -10320,51 +11433,62 @@ pub struct IFsrmReportJob_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, waitseconds: i32, completed: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmReportManager(::windows::runtime::IUnknown);
 impl IFsrmReportManager {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnumReportJobs(&self, options: FsrmEnumOptions) -> ::windows::runtime::Result<IFsrmCollection> {
         let mut result__: <IFsrmCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), &mut result__).from_abi::<IFsrmCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn CreateReportJob(&self) -> ::windows::runtime::Result<IFsrmReportJob> {
         let mut result__: <IFsrmReportJob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFsrmReportJob>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetReportJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0) -> ::windows::runtime::Result<IFsrmReportJob> {
         let mut result__: <IFsrmReportJob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), taskname.into_param().abi(), &mut result__).from_abi::<IFsrmReportJob>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(context), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputDirectory<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, context: FsrmReportGenerationContext, path: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(context), path.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(reporttype), ::std::mem::transmute(filter), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(reporttype), ::std::mem::transmute(filter), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetDefaultFilter<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(reporttype), ::std::mem::transmute(filter), filtervalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(limit), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetReportSizeLimit<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, limit: FsrmReportLimit, limitvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(limit), limitvalue.into_param().abi()).ok()
     }
@@ -10449,23 +11573,28 @@ pub struct IFsrmReportManager_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, limit: FsrmReportLimit, limitvalue: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmReportScheduler(::windows::runtime::IUnknown);
 impl IFsrmReportScheduler {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn VerifyNamespaces(&self, namespacessafearray: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespacessafearray)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateScheduleTask<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0, namespacessafearray: *const super::super::System::Com::VARIANT, serializedtask: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), taskname.into_param().abi(), ::std::mem::transmute(namespacessafearray), serializedtask.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ModifyScheduleTask<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0, namespacessafearray: *const super::super::System::Com::VARIANT, serializedtask: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), taskname.into_param().abi(), ::std::mem::transmute(namespacessafearray), serializedtask.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn DeleteScheduleTask<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), taskname.into_param().abi()).ok()
     }
@@ -10541,94 +11670,116 @@ pub struct IFsrmReportScheduler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmRule(::windows::runtime::IUnknown);
 impl IFsrmRule {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RuleType(&self) -> ::windows::runtime::Result<FsrmRuleType> {
         let mut result__: <FsrmRuleType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmRuleType>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ModuleDefinitionName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetModuleDefinitionName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduledefinitionname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), moduledefinitionname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn NamespaceRoots(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceroots)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn RuleFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(ruleflags)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Parameters(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameters)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LastModified(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -10745,58 +11896,72 @@ pub struct IFsrmRule_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lastmodified: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmSetting(::windows::runtime::IUnknown);
 impl IFsrmSetting {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SmtpServer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetSmtpServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, smtpserver: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), smtpserver.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn MailFrom(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetMailFrom<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailfrom: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), mailfrom.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn AdminEmail(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetAdminEmail<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, adminemail: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), adminemail.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn DisableCommandLine(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetDisableCommandLine(&self, disablecommandline: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(disablecommandline)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn EnableScreeningAudit(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetEnableScreeningAudit(&self, enablescreeningaudit: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(enablescreeningaudit)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn EmailTest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), mailto.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(actiontype), ::std::mem::transmute(delaytimeminutes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(actiontype), &mut result__).from_abi::<i32>(result__)
@@ -10885,143 +12050,178 @@ pub struct IFsrmSetting_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, actiontype: FsrmActionType, delaytimeminutes: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, actiontype: FsrmActionType, delaytimeminutes: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmStorageModuleDefinition(::windows::runtime::IUnknown);
 impl IFsrmStorageModuleDefinition {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), description.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn ModuleClsid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetModuleClsid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduleclsid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), moduleclsid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Company(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetCompany<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, company: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), company.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn Version(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn SetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, version: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), version.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn ModuleType(&self) -> ::windows::runtime::Result<FsrmPipelineModuleType> {
         let mut result__: <FsrmPipelineModuleType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmPipelineModuleType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(enabled)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn NeedsFileContent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(needsfilecontent)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Account(&self) -> ::windows::runtime::Result<FsrmAccountType> {
         let mut result__: <FsrmAccountType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmAccountType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(retrievalaccount)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SupportedExtensions(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(supportedextensions)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn Parameters(&self) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__: <*mut super::super::System::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Com`*"]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameters)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn Capabilities(&self) -> ::windows::runtime::Result<FsrmStorageModuleCaps> {
         let mut result__: <FsrmStorageModuleCaps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmStorageModuleCaps>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(capabilities)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn StorageType(&self) -> ::windows::runtime::Result<FsrmStorageModuleType> {
         let mut result__: <FsrmStorageModuleType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<FsrmStorageModuleType>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetStorageType(&self, storagetype: FsrmStorageModuleType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(storagetype)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn UpdatesFileContent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SetUpdatesFileContent(&self, updatesfilecontent: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(updatesfilecontent)).ok()
     }
@@ -11173,40 +12373,50 @@ pub struct IFsrmStorageModuleDefinition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, updatesfilecontent: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, updatesfilecontent: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFsrmStorageModuleImplementation(::windows::runtime::IUnknown);
 impl IFsrmStorageModuleImplementation {
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OnLoad<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmPipelineModuleDefinition>>(&self, moduledefinition: Param0) -> ::windows::runtime::Result<IFsrmPipelineModuleConnector> {
         let mut result__: <IFsrmPipelineModuleConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), moduledefinition.into_param().abi(), &mut result__).from_abi::<IFsrmPipelineModuleConnector>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn OnUnload(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn UseDefinitions<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmCollection>>(&self, propertydefinitions: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), propertydefinitions.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn LoadProperties<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmPropertyBag>>(&self, propertybag: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), propertybag.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
     pub unsafe fn SaveProperties<'a, Param0: ::windows::runtime::IntoParam<'a, IFsrmPropertyBag>>(&self, propertybag: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), propertybag.into_param().abi()).ok()
     }
@@ -11299,4 +12509,5 @@ pub struct IFsrmStorageModuleImplementation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertybag: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertybag: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const MessageSizeLimit: u32 = 4096u32;

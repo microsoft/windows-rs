@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPLY_SNAPSHOT_VHDSET_FLAG(pub u32);
@@ -43,6 +44,7 @@ impl ::std::ops::Not for APPLY_SNAPSHOT_VHDSET_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: APPLY_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0,
@@ -65,6 +67,7 @@ unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
@@ -86,6 +89,7 @@ unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: ::windows::runtime::GUID,
     pub LeafSnapshotId: ::windows::runtime::GUID,
@@ -111,6 +115,7 @@ unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPLY_SNAPSHOT_VHDSET_VERSION(pub i32);
@@ -125,6 +130,7 @@ unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTACH_VIRTUAL_DISK_FLAG(pub u32);
@@ -178,6 +184,7 @@ impl ::std::ops::Not for ATTACH_VIRTUAL_DISK_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS {
     pub Version: ATTACH_VIRTUAL_DISK_VERSION,
     pub Anonymous: ATTACH_VIRTUAL_DISK_PARAMETERS_0,
@@ -200,6 +207,7 @@ unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: ATTACH_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: ATTACH_VIRTUAL_DISK_PARAMETERS_0_1,
@@ -222,6 +230,7 @@ unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
 }
@@ -248,6 +257,7 @@ unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub RestrictedOffset: u64,
     pub RestrictedLength: u64,
@@ -273,6 +283,7 @@ unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTACH_VIRTUAL_DISK_VERSION(pub i32);
@@ -289,6 +300,7 @@ unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AddVirtualDiskParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualdiskhandle: Param0, parentpath: Param1) -> u32 {
     #[cfg(windows)]
@@ -303,6 +315,7 @@ pub unsafe fn AddVirtualDiskParent<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
@@ -317,6 +330,7 @@ pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_Security`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -331,6 +345,7 @@ pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BreakMirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -344,6 +359,7 @@ pub unsafe fn BreakMirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPACT_VIRTUAL_DISK_FLAG(pub u32);
@@ -389,6 +405,7 @@ impl ::std::ops::Not for COMPACT_VIRTUAL_DISK_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS {
     pub Version: COMPACT_VIRTUAL_DISK_VERSION,
     pub Anonymous: COMPACT_VIRTUAL_DISK_PARAMETERS_0,
@@ -411,6 +428,7 @@ unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: COMPACT_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -432,6 +450,7 @@ unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
 }
@@ -456,6 +475,7 @@ unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPACT_VIRTUAL_DISK_VERSION(pub i32);
@@ -470,6 +490,7 @@ unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREATE_VIRTUAL_DISK_FLAG(pub u32);
@@ -525,6 +546,7 @@ impl ::std::ops::Not for CREATE_VIRTUAL_DISK_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS {
     pub Version: CREATE_VIRTUAL_DISK_VERSION,
     pub Anonymous: CREATE_VIRTUAL_DISK_PARAMETERS_0,
@@ -553,6 +575,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: CREATE_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: CREATE_VIRTUAL_DISK_PARAMETERS_0_1,
@@ -583,6 +606,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub UniqueId: ::windows::runtime::GUID,
     pub MaximumSize: u64,
@@ -621,6 +645,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub UniqueId: ::windows::runtime::GUID,
     pub MaximumSize: u64,
@@ -686,6 +711,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub UniqueId: ::windows::runtime::GUID,
     pub MaximumSize: u64,
@@ -757,6 +783,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub UniqueId: ::windows::runtime::GUID,
     pub MaximumSize: u64,
@@ -831,8 +858,11 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREATE_VIRTUAL_DISK_VERSION(pub i32);
@@ -851,6 +881,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn CompactVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -865,6 +896,7 @@ pub unsafe fn CompactVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -879,6 +911,7 @@ pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_Security`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     virtualstoragetype: *const VIRTUAL_STORAGE_TYPE,
@@ -912,6 +945,7 @@ pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DELETE_SNAPSHOT_VHDSET_FLAG(pub u32);
@@ -956,6 +990,7 @@ impl ::std::ops::Not for DELETE_SNAPSHOT_VHDSET_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: DELETE_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0,
@@ -978,6 +1013,7 @@ unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
@@ -999,6 +1035,7 @@ unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: ::windows::runtime::GUID,
 }
@@ -1023,6 +1060,7 @@ unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DELETE_SNAPSHOT_VHDSET_VERSION(pub i32);
@@ -1037,6 +1075,7 @@ unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEPENDENT_DISK_FLAG(pub u32);
@@ -1092,6 +1131,7 @@ impl ::std::ops::Not for DEPENDENT_DISK_FLAG {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DETACH_VIRTUAL_DISK_FLAG(pub u32);
@@ -1134,6 +1174,7 @@ impl ::std::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
@@ -1148,6 +1189,7 @@ pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -1162,6 +1204,7 @@ pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DetachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> u32 {
     #[cfg(windows)]
@@ -1175,6 +1218,7 @@ pub unsafe fn DetachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXPAND_VIRTUAL_DISK_FLAG(pub u32);
@@ -1219,6 +1263,7 @@ impl ::std::ops::Not for EXPAND_VIRTUAL_DISK_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS {
     pub Version: EXPAND_VIRTUAL_DISK_VERSION,
     pub Anonymous: EXPAND_VIRTUAL_DISK_PARAMETERS_0,
@@ -1241,6 +1286,7 @@ unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: EXPAND_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -1262,6 +1308,7 @@ unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
 }
@@ -1286,6 +1333,7 @@ unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXPAND_VIRTUAL_DISK_VERSION(pub i32);
@@ -1301,6 +1349,7 @@ unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnumerateVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, numberofitems: *mut u32, items: *mut ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -1315,6 +1364,7 @@ pub unsafe fn EnumerateVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn ExpandVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -1328,6 +1378,7 @@ pub unsafe fn ExpandVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FORK_VIRTUAL_DISK_FLAG(pub u32);
@@ -1373,6 +1424,7 @@ impl ::std::ops::Not for FORK_VIRTUAL_DISK_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS {
     pub Version: FORK_VIRTUAL_DISK_VERSION,
     pub Anonymous: FORK_VIRTUAL_DISK_PARAMETERS_0,
@@ -1401,6 +1453,7 @@ unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union FORK_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: FORK_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -1428,6 +1481,7 @@ unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ForkedVirtualDiskPath: super::super::Foundation::PWSTR,
 }
@@ -1458,6 +1512,7 @@ unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FORK_VIRTUAL_DISK_VERSION(pub i32);
@@ -1473,6 +1528,7 @@ unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn ForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -1486,6 +1542,7 @@ pub unsafe fn ForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_STORAGE_DEPENDENCY_FLAG(pub u32);
@@ -1532,6 +1589,7 @@ impl ::std::ops::Not for GET_STORAGE_DEPENDENCY_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct GET_VIRTUAL_DISK_INFO {
     pub Version: GET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: GET_VIRTUAL_DISK_INFO_0,
@@ -1560,6 +1618,7 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union GET_VIRTUAL_DISK_INFO_0 {
     pub Size: GET_VIRTUAL_DISK_INFO_0_3,
     pub Identifier: ::windows::runtime::GUID,
@@ -1601,6 +1660,7 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub Enabled: super::super::Foundation::BOOL,
     pub NewerChanges: super::super::Foundation::BOOL,
@@ -1636,6 +1696,7 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
     pub ParentResolved: super::super::Foundation::BOOL,
     pub ParentLocationBuffer: [u16; 1],
@@ -1670,6 +1731,7 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
@@ -1704,6 +1766,7 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
@@ -1731,6 +1794,7 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_3 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_VIRTUAL_DISK_INFO_VERSION(pub i32);
@@ -1760,6 +1824,7 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -1774,6 +1839,7 @@ pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetStorageDependencyInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(objecthandle: Param0, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1788,6 +1854,7 @@ pub unsafe fn GetStorageDependencyInformation<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1802,6 +1869,7 @@ pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID, metadatasize: *mut u32, metadata: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -1816,6 +1884,7 @@ pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn GetVirtualDiskOperationProgress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> u32 {
     #[cfg(windows)]
@@ -1830,6 +1899,7 @@ pub unsafe fn GetVirtualDiskOperationProgress<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetVirtualDiskPhysicalPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, diskpathsizeinbytes: *mut u32, diskpath: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -1843,7 +1913,9 @@ pub unsafe fn GetVirtualDiskPhysicalPath<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MERGE_VIRTUAL_DISK_FLAG(pub u32);
@@ -1887,6 +1959,7 @@ impl ::std::ops::Not for MERGE_VIRTUAL_DISK_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS {
     pub Version: MERGE_VIRTUAL_DISK_VERSION,
     pub Anonymous: MERGE_VIRTUAL_DISK_PARAMETERS_0,
@@ -1909,6 +1982,7 @@ unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MERGE_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: MERGE_VIRTUAL_DISK_PARAMETERS_0_1,
@@ -1931,6 +2005,7 @@ unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MergeDepth: u32,
 }
@@ -1957,6 +2032,7 @@ unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub MergeSourceDepth: u32,
     pub MergeTargetDepth: u32,
@@ -1982,6 +2058,7 @@ unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MERGE_VIRTUAL_DISK_VERSION(pub i32);
@@ -1997,6 +2074,7 @@ unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIRROR_VIRTUAL_DISK_FLAG(pub u32);
@@ -2045,6 +2123,7 @@ impl ::std::ops::Not for MIRROR_VIRTUAL_DISK_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS {
     pub Version: MIRROR_VIRTUAL_DISK_VERSION,
     pub Anonymous: MIRROR_VIRTUAL_DISK_PARAMETERS_0,
@@ -2073,6 +2152,7 @@ unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MIRROR_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -2100,6 +2180,7 @@ unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MirrorVirtualDiskPath: super::super::Foundation::PWSTR,
 }
@@ -2130,6 +2211,7 @@ unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIRROR_VIRTUAL_DISK_VERSION(pub i32);
@@ -2144,6 +2226,7 @@ unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODIFY_VHDSET_FLAG(pub u32);
@@ -2189,6 +2272,7 @@ impl ::std::ops::Not for MODIFY_VHDSET_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct MODIFY_VHDSET_PARAMETERS {
     pub Version: MODIFY_VHDSET_VERSION,
     pub Anonymous: MODIFY_VHDSET_PARAMETERS_0,
@@ -2217,6 +2301,7 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union MODIFY_VHDSET_PARAMETERS_0 {
     pub SnapshotPath: MODIFY_VHDSET_PARAMETERS_0_0,
     pub SnapshotId: ::windows::runtime::GUID,
@@ -2246,6 +2331,7 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: ::windows::runtime::GUID,
     pub SnapshotFilePath: super::super::Foundation::PWSTR,
@@ -2277,6 +2363,7 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODIFY_VHDSET_VERSION(pub i32);
@@ -2294,6 +2381,7 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_VERSION {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn MergeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -2308,6 +2396,7 @@ pub unsafe fn MergeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn MirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -2322,6 +2411,7 @@ pub unsafe fn MirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ModifyVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
@@ -2335,6 +2425,7 @@ pub unsafe fn ModifyVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OPEN_VIRTUAL_DISK_FLAG(pub u32);
@@ -2391,6 +2482,7 @@ impl ::std::ops::Not for OPEN_VIRTUAL_DISK_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS {
     pub Version: OPEN_VIRTUAL_DISK_VERSION,
     pub Anonymous: OPEN_VIRTUAL_DISK_PARAMETERS_0,
@@ -2419,6 +2511,7 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: OPEN_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: OPEN_VIRTUAL_DISK_PARAMETERS_0_1,
@@ -2447,6 +2540,7 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
 }
@@ -2474,6 +2568,7 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
@@ -2509,6 +2604,7 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
@@ -2542,7 +2638,9 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OPEN_VIRTUAL_DISK_VERSION(pub i32);
@@ -2560,6 +2658,7 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenVirtualDisk<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -2573,6 +2672,7 @@ pub unsafe fn OpenVirtualDisk<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_FLAG(pub u32);
@@ -2616,6 +2716,7 @@ impl ::std::ops::Not for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     pub ByteOffset: u64,
     pub ByteLength: u64,
@@ -2643,6 +2744,7 @@ unsafe impl ::windows::runtime::Abi for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualdiskhandle: Param0, changetrackingid: Param1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -2665,6 +2767,7 @@ pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(pub u32);
@@ -2709,6 +2812,7 @@ impl ::std::ops::Not for RAW_SCSI_VIRTUAL_DISK_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0,
@@ -2737,6 +2841,7 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -2764,6 +2869,7 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: super::super::Foundation::BOOL,
     pub DataIn: u8,
@@ -2814,6 +2920,7 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
     pub Anonymous: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0,
@@ -2836,6 +2943,7 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0,
 }
@@ -2857,6 +2965,7 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     pub ScsiStatus: u8,
     pub SenseInfoLength: u8,
@@ -2883,6 +2992,7 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAW_SCSI_VIRTUAL_DISK_VERSION(pub i32);
@@ -2897,6 +3007,7 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESIZE_VIRTUAL_DISK_FLAG(pub u32);
@@ -2942,6 +3053,7 @@ impl ::std::ops::Not for RESIZE_VIRTUAL_DISK_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS {
     pub Version: RESIZE_VIRTUAL_DISK_VERSION,
     pub Anonymous: RESIZE_VIRTUAL_DISK_PARAMETERS_0,
@@ -2964,6 +3076,7 @@ unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RESIZE_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -2985,6 +3098,7 @@ unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
 }
@@ -3009,6 +3123,7 @@ unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESIZE_VIRTUAL_DISK_VERSION(pub i32);
@@ -3024,6 +3139,7 @@ unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RawSCSIVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> u32 {
     #[cfg(windows)]
@@ -3038,6 +3154,7 @@ pub unsafe fn RawSCSIVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn ResizeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -3054,6 +3171,7 @@ pub unsafe fn ResizeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct SET_VIRTUAL_DISK_INFO {
     pub Version: SET_VIRTUAL_DISK_INFO_VERSION,
     pub Anonymous: SET_VIRTUAL_DISK_INFO_0,
@@ -3082,6 +3200,7 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: super::super::Foundation::PWSTR,
     pub UniqueIdentifier: ::windows::runtime::GUID,
@@ -3115,6 +3234,7 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub LinkageId: ::windows::runtime::GUID,
     pub ParentFilePath: super::super::Foundation::PWSTR,
@@ -3149,6 +3269,7 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub ChildDepth: u32,
     pub ParentFilePath: super::super::Foundation::PWSTR,
@@ -3180,6 +3301,7 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SET_VIRTUAL_DISK_INFO_VERSION(pub i32);
@@ -3203,6 +3325,7 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_VERSION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct STORAGE_DEPENDENCY_INFO {
     pub Version: STORAGE_DEPENDENCY_INFO_VERSION,
     pub NumberEntries: u32,
@@ -3232,6 +3355,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union STORAGE_DEPENDENCY_INFO_0 {
     pub Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 1],
     pub Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 1],
@@ -3259,6 +3383,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
@@ -3288,6 +3413,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_TYPE_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
@@ -3334,6 +3460,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_TYPE_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DEPENDENCY_INFO_VERSION(pub i32);
@@ -3350,6 +3477,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> u32 {
     #[cfg(windows)]
@@ -3364,6 +3492,7 @@ pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID, metadatasize: u32, metadata: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -3377,6 +3506,7 @@ pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAKE_SNAPSHOT_VHDSET_FLAG(pub u32);
@@ -3421,6 +3551,7 @@ impl ::std::ops::Not for TAKE_SNAPSHOT_VHDSET_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     pub Version: TAKE_SNAPSHOT_VHDSET_VERSION,
     pub Anonymous: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0,
@@ -3443,6 +3574,7 @@ unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub union TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     pub Version1: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
 }
@@ -3464,6 +3596,7 @@ unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: ::windows::runtime::GUID,
 }
@@ -3488,6 +3621,7 @@ unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAKE_SNAPSHOT_VHDSET_VERSION(pub i32);
@@ -3503,6 +3637,7 @@ unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TakeSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
@@ -3516,6 +3651,7 @@ pub unsafe fn TakeSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_DISK_ACCESS_MASK(pub u32);
@@ -3566,9 +3702,11 @@ impl ::std::ops::Not for VIRTUAL_DISK_ACCESS_MASK {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct VIRTUAL_DISK_PROGRESS {
     pub OperationStatus: u32,
     pub CurrentValue: u64,
@@ -3597,6 +3735,7 @@ unsafe impl ::windows::runtime::Abi for VIRTUAL_DISK_PROGRESS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub struct VIRTUAL_STORAGE_TYPE {
     pub DeviceId: u32,
     pub VendorId: ::windows::runtime::GUID,
@@ -3622,10 +3761,15 @@ unsafe impl ::windows::runtime::Abi for VIRTUAL_STORAGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
 pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3969403628, 41209, 18409, [144, 31, 113, 65, 90, 102, 52, 91]);
 pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);

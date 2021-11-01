@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CachedFileOptions(pub u32);
@@ -48,6 +49,7 @@ impl ::std::ops::Not for CachedFileOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CachedFileTarget(pub i32);
@@ -67,8 +69,10 @@ unsafe impl ::windows::runtime::Abi for CachedFileTarget {
 unsafe impl ::windows::runtime::RuntimeType for CachedFileTarget {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 pub struct CachedFileUpdater {}
 impl CachedFileUpdater {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetUpdateInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(file: Param0, contentid: Param1, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::runtime::Result<()> {
         Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), file.into_param().abi(), contentid.into_param().abi(), readmode, writemode, options).ok() })
     }
@@ -80,10 +84,12 @@ impl CachedFileUpdater {
 impl ::windows::runtime::RuntimeName for CachedFileUpdater {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdater";
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CachedFileUpdaterUI(::windows::runtime::IInspectable);
 impl CachedFileUpdaterUI {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -91,10 +97,12 @@ impl CachedFileUpdaterUI {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn UpdateTarget(&self) -> ::windows::runtime::Result<CachedFileTarget> {
         let this = self;
         unsafe {
@@ -103,6 +111,7 @@ impl CachedFileUpdaterUI {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn FileUpdateRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -111,11 +120,13 @@ impl CachedFileUpdaterUI {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn RemoveFileUpdateRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn UIRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -124,10 +135,12 @@ impl CachedFileUpdaterUI {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn RemoveUIRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn UIStatus(&self) -> ::windows::runtime::Result<UIStatus> {
         let this = self;
         unsafe {
@@ -135,6 +148,7 @@ impl CachedFileUpdaterUI {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UIStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn UpdateRequest(&self) -> ::windows::runtime::Result<FileUpdateRequest> {
         let this = &::windows::runtime::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
         unsafe {
@@ -142,6 +156,7 @@ impl CachedFileUpdaterUI {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FileUpdateRequest>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<FileUpdateRequestDeferral> {
         let this = &::windows::runtime::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
         unsafe {
@@ -203,10 +218,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct CloudFilesContract(pub u8);
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileUpdateRequest(::windows::runtime::IInspectable);
 impl FileUpdateRequest {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn ContentId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -214,6 +231,7 @@ impl FileUpdateRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn File(&self) -> ::windows::runtime::Result<super::StorageFile> {
         let this = self;
         unsafe {
@@ -221,6 +239,7 @@ impl FileUpdateRequest {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::StorageFile>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<FileUpdateStatus> {
         let this = self;
         unsafe {
@@ -228,10 +247,12 @@ impl FileUpdateRequest {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FileUpdateStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetStatus(&self, value: FileUpdateStatus) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<FileUpdateRequestDeferral> {
         let this = self;
         unsafe {
@@ -239,10 +260,12 @@ impl FileUpdateRequest {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FileUpdateRequestDeferral>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn UpdateLocalFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStorageFile>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn UserInputNeededMessage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IFileUpdateRequest2>(self)?;
         unsafe {
@@ -250,6 +273,7 @@ impl FileUpdateRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetUserInputNeededMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IFileUpdateRequest2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -305,10 +329,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileUpdateRequestDeferral(::windows::runtime::IInspectable);
 impl FileUpdateRequestDeferral {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -364,10 +390,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FileUpdateRequestedEventArgs(::windows::runtime::IInspectable);
 impl FileUpdateRequestedEventArgs {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<FileUpdateRequest> {
         let this = self;
         unsafe {
@@ -426,6 +454,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FileUpdateStatus(pub i32);
@@ -776,12 +805,14 @@ pub struct IStorageProviderGetPathForContentUriResult_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_Provider`*"]
 pub struct IStorageProviderHandlerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderHandlerFactory {
     type Vtable = IStorageProviderHandlerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1632951354, 64541, 23214, [158, 35, 232, 101, 154, 34, 197, 246]);
 }
 impl IStorageProviderHandlerFactory {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn GetStatusSource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, syncrootid: Param0) -> ::windows::runtime::Result<IStorageProviderStatusSource> {
         let this = self;
         unsafe {
@@ -912,6 +943,7 @@ pub struct IStorageProviderItemPropertyDefinition_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_Provider`*"]
 pub struct IStorageProviderItemPropertySource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderItemPropertySource {
     type Vtable = IStorageProviderItemPropertySource_abi;
@@ -919,6 +951,7 @@ unsafe impl ::windows::runtime::Interface for IStorageProviderItemPropertySource
 }
 impl IStorageProviderItemPropertySource {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation_Collections`*"]
     pub fn GetItemProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, itempath: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
         let this = self;
         unsafe {
@@ -984,12 +1017,14 @@ pub struct IStorageProviderItemPropertySource_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_Provider`*"]
 pub struct IStorageProviderPropertyCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderPropertyCapabilities {
     type Vtable = IStorageProviderPropertyCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1703751438, 25527, 17767, [172, 249, 81, 171, 227, 1, 221, 165]);
 }
 impl IStorageProviderPropertyCapabilities {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn IsPropertySupported<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, propertycanonicalname: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1097,12 +1132,14 @@ pub struct IStorageProviderStatusFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_Provider`*"]
 pub struct IStorageProviderStatusSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderStatusSource {
     type Vtable = IStorageProviderStatusSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(774990770, 64835, 21301, [179, 196, 169, 98, 238, 49, 209, 126]);
 }
 impl IStorageProviderStatusSource {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn GetStatus(&self) -> ::windows::runtime::Result<StorageProviderStatus> {
         let this = self;
         unsafe {
@@ -1111,6 +1148,7 @@ impl IStorageProviderStatusSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn Changed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1119,6 +1157,7 @@ impl IStorageProviderStatusSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn RemoveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1321,16 +1360,19 @@ pub struct IStorageProviderSyncRootManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_Provider`*"]
 pub struct IStorageProviderUriSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderUriSource {
     type Vtable = IStorageProviderUriSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2996307665, 35808, 18786, [139, 182, 13, 76, 46, 20, 212, 122]);
 }
 impl IStorageProviderUriSource {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn GetPathForContentUri<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, StorageProviderGetPathForContentUriResult>>(&self, contenturi: Param0, result: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contenturi.into_param().abi(), result.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn GetContentInfoForPath<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, StorageProviderGetContentInfoForPathResult>>(&self, path: Param0, result: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), path.into_param().abi(), result.into_param().abi()).ok() }
@@ -1391,6 +1433,7 @@ pub struct IStorageProviderUriSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contenturi: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ReadActivationMode(pub i32);
@@ -1410,10 +1453,12 @@ unsafe impl ::windows::runtime::Abi for ReadActivationMode {
 unsafe impl ::windows::runtime::RuntimeType for ReadActivationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderError(::windows::runtime::IInspectable);
 impl StorageProviderError {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1421,6 +1466,7 @@ impl StorageProviderError {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1428,6 +1474,7 @@ impl StorageProviderError {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1435,6 +1482,7 @@ impl StorageProviderError {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn FilePath(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1442,10 +1490,12 @@ impl StorageProviderError {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetFilePath<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn PrimaryAction(&self) -> ::windows::runtime::Result<StorageProviderErrorCommand> {
         let this = self;
         unsafe {
@@ -1453,10 +1503,12 @@ impl StorageProviderError {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetPrimaryAction<'a, Param0: ::windows::runtime::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SecondaryAction(&self) -> ::windows::runtime::Result<StorageProviderErrorCommand> {
         let this = self;
         unsafe {
@@ -1464,10 +1516,12 @@ impl StorageProviderError {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetSecondaryAction<'a, Param0: ::windows::runtime::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn InformationalLink(&self) -> ::windows::runtime::Result<StorageProviderErrorCommand> {
         let this = self;
         unsafe {
@@ -1475,10 +1529,12 @@ impl StorageProviderError {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetInformationalLink<'a, Param0: ::windows::runtime::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0, title: Param1, message: Param2) -> ::windows::runtime::Result<StorageProviderError> {
         Self::IStorageProviderErrorFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1542,10 +1598,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderError {}
 unsafe impl ::std::marker::Sync for StorageProviderError {}
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderErrorCommand(::windows::runtime::IInspectable);
 impl StorageProviderErrorCommand {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1554,6 +1612,7 @@ impl StorageProviderErrorCommand {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn ActionUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1562,6 +1621,7 @@ impl StorageProviderErrorCommand {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(label: Param0, actionuri: Param1) -> ::windows::runtime::Result<StorageProviderErrorCommand> {
         Self::IStorageProviderErrorCommandFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1625,10 +1685,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderErrorCommand {}
 unsafe impl ::std::marker::Sync for StorageProviderErrorCommand {}
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderFileTypeInfo(::windows::runtime::IInspectable);
 impl StorageProviderFileTypeInfo {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn FileExtension(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1636,6 +1698,7 @@ impl StorageProviderFileTypeInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn IconResource(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1643,6 +1706,7 @@ impl StorageProviderFileTypeInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(fileextension: Param0, iconresource: Param1) -> ::windows::runtime::Result<StorageProviderFileTypeInfo> {
         Self::IStorageProviderFileTypeInfoFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1706,6 +1770,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderFileTypeInfo {}
 unsafe impl ::std::marker::Sync for StorageProviderFileTypeInfo {}
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderGetContentInfoForPathResult(::windows::runtime::IInspectable);
@@ -1717,6 +1782,7 @@ impl StorageProviderGetContentInfoForPathResult {
         static mut SHARED: ::windows::runtime::FactoryCache<StorageProviderGetContentInfoForPathResult, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StorageProviderUriSourceStatus> {
         let this = self;
         unsafe {
@@ -1724,10 +1790,12 @@ impl StorageProviderGetContentInfoForPathResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderUriSourceStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn ContentUri(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1735,10 +1803,12 @@ impl StorageProviderGetContentInfoForPathResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetContentUri<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn ContentId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1746,6 +1816,7 @@ impl StorageProviderGetContentInfoForPathResult {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetContentId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1803,6 +1874,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderGetContentInfoForPathResult {}
 unsafe impl ::std::marker::Sync for StorageProviderGetContentInfoForPathResult {}
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderGetPathForContentUriResult(::windows::runtime::IInspectable);
@@ -1814,6 +1886,7 @@ impl StorageProviderGetPathForContentUriResult {
         static mut SHARED: ::windows::runtime::FactoryCache<StorageProviderGetPathForContentUriResult, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StorageProviderUriSourceStatus> {
         let this = self;
         unsafe {
@@ -1821,10 +1894,12 @@ impl StorageProviderGetPathForContentUriResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderUriSourceStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Path(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1832,6 +1907,7 @@ impl StorageProviderGetPathForContentUriResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetPath<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1889,6 +1965,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderGetPathForContentUriResult {}
 unsafe impl ::std::marker::Sync for StorageProviderGetPathForContentUriResult {}
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
@@ -1936,6 +2013,7 @@ impl ::std::ops::Not for StorageProviderHardlinkPolicy {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorageProviderHydrationPolicy(pub i32);
@@ -1957,6 +2035,7 @@ unsafe impl ::windows::runtime::Abi for StorageProviderHydrationPolicy {
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderHydrationPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
@@ -2007,6 +2086,7 @@ impl ::std::ops::Not for StorageProviderHydrationPolicyModifier {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorageProviderInSyncPolicy(pub u32);
@@ -2064,9 +2144,11 @@ impl ::std::ops::Not for StorageProviderInSyncPolicy {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 pub struct StorageProviderItemProperties {}
 impl StorageProviderItemProperties {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStorageItem>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>>(item: Param0, itemproperties: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IStorageProviderItemPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2081,6 +2163,7 @@ impl StorageProviderItemProperties {
 impl ::windows::runtime::RuntimeName for StorageProviderItemProperties {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperties";
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderItemProperty(::windows::runtime::IInspectable);
@@ -2092,10 +2175,12 @@ impl StorageProviderItemProperty {
         static mut SHARED: ::windows::runtime::FactoryCache<StorageProviderItemProperty, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetId(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2103,10 +2188,12 @@ impl StorageProviderItemProperty {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2114,10 +2201,12 @@ impl StorageProviderItemProperty {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetIconResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn IconResource(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2178,6 +2267,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderItemProperty {}
 unsafe impl ::std::marker::Sync for StorageProviderItemProperty {}
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderItemPropertyDefinition(::windows::runtime::IInspectable);
@@ -2189,6 +2279,7 @@ impl StorageProviderItemPropertyDefinition {
         static mut SHARED: ::windows::runtime::FactoryCache<StorageProviderItemPropertyDefinition, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2196,10 +2287,12 @@ impl StorageProviderItemPropertyDefinition {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetId(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn DisplayNameResource(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2207,6 +2300,7 @@ impl StorageProviderItemPropertyDefinition {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetDisplayNameResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2264,6 +2358,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::std::marker::Sync for StorageProviderItemPropertyDefinition {}
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorageProviderPopulationPolicy(pub i32);
@@ -2283,6 +2378,7 @@ unsafe impl ::windows::runtime::Abi for StorageProviderPopulationPolicy {
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderPopulationPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorageProviderProtectionMode(pub i32);
@@ -2302,6 +2398,7 @@ unsafe impl ::windows::runtime::Abi for StorageProviderProtectionMode {
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorageProviderState(pub i32);
@@ -2325,10 +2422,12 @@ unsafe impl ::windows::runtime::Abi for StorageProviderState {
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderStatus(::windows::runtime::IInspectable);
 impl StorageProviderStatus {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2336,6 +2435,7 @@ impl StorageProviderStatus {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn State(&self) -> ::windows::runtime::Result<StorageProviderState> {
         let this = self;
         unsafe {
@@ -2344,6 +2444,7 @@ impl StorageProviderStatus {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation_Collections`*"]
     pub fn ErrorMessages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StorageProviderError>> {
         let this = self;
         unsafe {
@@ -2351,6 +2452,7 @@ impl StorageProviderStatus {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StorageProviderError>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn CreateInstance<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(state: StorageProviderState, message: Param1) -> ::windows::runtime::Result<StorageProviderStatus> {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2358,6 +2460,7 @@ impl StorageProviderStatus {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation_Collections`*"]
     pub fn CreateInstance2<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderError>>>(state: StorageProviderState, message: Param1, errormessages: Param2) -> ::windows::runtime::Result<StorageProviderStatus> {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2421,6 +2524,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderStatus {}
 unsafe impl ::std::marker::Sync for StorageProviderStatus {}
+#[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageProviderSyncRootInfo(::windows::runtime::IInspectable);
@@ -2432,6 +2536,7 @@ impl StorageProviderSyncRootInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<StorageProviderSyncRootInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2439,11 +2544,13 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Provider`, `Storage_Streams`*"]
     pub fn Context(&self) -> ::windows::runtime::Result<super::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -2452,10 +2559,12 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Provider`, `Storage_Streams`*"]
     pub fn SetContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Path(&self) -> ::windows::runtime::Result<super::IStorageFolder> {
         let this = self;
         unsafe {
@@ -2463,10 +2572,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::IStorageFolder>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStorageFolder>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn DisplayNameResource(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2474,10 +2585,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetDisplayNameResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn IconResource(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2485,10 +2598,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetIconResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn HydrationPolicy(&self) -> ::windows::runtime::Result<StorageProviderHydrationPolicy> {
         let this = self;
         unsafe {
@@ -2496,10 +2611,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderHydrationPolicy>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetHydrationPolicy(&self, value: StorageProviderHydrationPolicy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn HydrationPolicyModifier(&self) -> ::windows::runtime::Result<StorageProviderHydrationPolicyModifier> {
         let this = self;
         unsafe {
@@ -2507,10 +2624,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderHydrationPolicyModifier>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetHydrationPolicyModifier(&self, value: StorageProviderHydrationPolicyModifier) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn PopulationPolicy(&self) -> ::windows::runtime::Result<StorageProviderPopulationPolicy> {
         let this = self;
         unsafe {
@@ -2518,10 +2637,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderPopulationPolicy>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetPopulationPolicy(&self, value: StorageProviderPopulationPolicy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn InSyncPolicy(&self) -> ::windows::runtime::Result<StorageProviderInSyncPolicy> {
         let this = self;
         unsafe {
@@ -2529,10 +2650,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderInSyncPolicy>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetInSyncPolicy(&self, value: StorageProviderInSyncPolicy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn HardlinkPolicy(&self) -> ::windows::runtime::Result<StorageProviderHardlinkPolicy> {
         let this = self;
         unsafe {
@@ -2540,10 +2663,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderHardlinkPolicy>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetHardlinkPolicy(&self, value: StorageProviderHardlinkPolicy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn ShowSiblingsAsGroup(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2551,10 +2676,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetShowSiblingsAsGroup(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Version(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2562,10 +2689,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn ProtectionMode(&self) -> ::windows::runtime::Result<StorageProviderProtectionMode> {
         let this = self;
         unsafe {
@@ -2573,10 +2702,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderProtectionMode>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetProtectionMode(&self, value: StorageProviderProtectionMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn AllowPinning(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2584,11 +2715,13 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetAllowPinning(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation_Collections`*"]
     pub fn StorageProviderItemPropertyDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>> {
         let this = self;
         unsafe {
@@ -2597,6 +2730,7 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn RecycleBinUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -2605,10 +2739,12 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation`*"]
     pub fn SetRecycleBinUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn ProviderId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = &::windows::runtime::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe {
@@ -2616,11 +2752,13 @@ impl StorageProviderSyncRootInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn SetProviderId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation_Collections`*"]
     pub fn FallbackFileTypeInfo(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>> {
         let this = &::windows::runtime::Interface::cast::<IStorageProviderSyncRootInfo3>(self)?;
         unsafe {
@@ -2681,20 +2819,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorageProviderSyncRootInfo {}
 unsafe impl ::std::marker::Sync for StorageProviderSyncRootInfo {}
+#[doc = "*Required features: `Storage_Provider`*"]
 pub struct StorageProviderSyncRootManager {}
 impl StorageProviderSyncRootManager {
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Register<'a, Param0: ::windows::runtime::IntoParam<'a, StorageProviderSyncRootInfo>>(syncrootinformation: Param0) -> ::windows::runtime::Result<()> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), syncrootinformation.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn Unregister<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0) -> ::windows::runtime::Result<()> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), id.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn GetSyncRootInformationForFolder<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStorageFolder>>(folder: Param0) -> ::windows::runtime::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), folder.into_param().abi(), &mut result__).from_abi::<StorageProviderSyncRootInfo>(result__)
         })
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn GetSyncRootInformationForId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0) -> ::windows::runtime::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2702,12 +2845,14 @@ impl StorageProviderSyncRootManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Provider`, `Foundation_Collections`*"]
     pub fn GetCurrentSyncRoots() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>>(result__)
         })
     }
+    #[doc = "*Required features: `Storage_Provider`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IStorageProviderSyncRootManagerStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -2726,6 +2871,7 @@ impl StorageProviderSyncRootManager {
 impl ::windows::runtime::RuntimeName for StorageProviderSyncRootManager {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootManager";
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorageProviderUriSourceStatus(pub i32);
@@ -2746,6 +2892,7 @@ unsafe impl ::windows::runtime::Abi for StorageProviderUriSourceStatus {
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderUriSourceStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UIStatus(pub i32);
@@ -2767,6 +2914,7 @@ unsafe impl ::windows::runtime::Abi for UIStatus {
 unsafe impl ::windows::runtime::RuntimeType for UIStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
 }
+#[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WriteActivationMode(pub i32);

@@ -243,12 +243,14 @@ pub struct ILampArrayCustomEffectFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 pub struct ILampArrayEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayEffect {
     type Vtable = ILampArrayEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299128208, 22523, 17734, [177, 206, 134, 49, 7, 247, 64, 223]);
 }
 impl ILampArrayEffect {
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -256,6 +258,7 @@ impl ILampArrayEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -448,11 +451,13 @@ pub struct ILampArrayUpdateRequestedEventArgs_abi(
     #[cfg(feature = "UI")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desiredColors_array_size: u32, desiredcolors: *const super::super::super::UI::Color, lampIndexes_array_size: u32, lampindexes: *const i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "UI"))] usize,
 );
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArrayBitmapEffect(::windows::runtime::IInspectable);
 impl LampArrayBitmapEffect {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -461,11 +466,13 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn StartDelay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -474,11 +481,13 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetStartDelay<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn UpdateInterval(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -487,11 +496,13 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetUpdateInterval<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SuggestedBitmapSize(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
         let this = self;
         unsafe {
@@ -500,6 +511,7 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn BitmapRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -508,10 +520,12 @@ impl LampArrayBitmapEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn RemoveBitmapRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -519,10 +533,12 @@ impl LampArrayBitmapEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<LampArrayBitmapEffect> {
         Self::ILampArrayBitmapEffectFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -608,11 +624,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILampArrayEffect> for &LampArrayBitma
 }
 unsafe impl ::std::marker::Send for LampArrayBitmapEffect {}
 unsafe impl ::std::marker::Sync for LampArrayBitmapEffect {}
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArrayBitmapRequestedEventArgs(::windows::runtime::IInspectable);
 impl LampArrayBitmapRequestedEventArgs {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SinceStarted(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -621,6 +639,7 @@ impl LampArrayBitmapRequestedEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Graphics_Imaging`*"]
     pub fn UpdateBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), bitmap.into_param().abi()).ok() }
@@ -678,11 +697,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for LampArrayBitmapRequestedEventArgs {}
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArrayBlinkEffect(::windows::runtime::IInspectable);
 impl LampArrayBlinkEffect {
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn Color(&self) -> ::windows::runtime::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -691,11 +712,13 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn AttackDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -704,11 +727,13 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetAttackDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SustainDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -717,11 +742,13 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetSustainDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn DecayDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -730,11 +757,13 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetDecayDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn RepetitionDelay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -743,11 +772,13 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetRepetitionDelay<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn StartDelay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -756,10 +787,12 @@ impl LampArrayBlinkEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetStartDelay<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Occurrences(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -767,10 +800,12 @@ impl LampArrayBlinkEffect {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetOccurrences(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn RepetitionMode(&self) -> ::windows::runtime::Result<LampArrayRepetitionMode> {
         let this = self;
         unsafe {
@@ -778,10 +813,12 @@ impl LampArrayBlinkEffect {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayRepetitionMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -789,10 +826,12 @@ impl LampArrayBlinkEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<LampArrayBlinkEffect> {
         Self::ILampArrayBlinkEffectFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -878,11 +917,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILampArrayEffect> for &LampArrayBlink
 }
 unsafe impl ::std::marker::Send for LampArrayBlinkEffect {}
 unsafe impl ::std::marker::Sync for LampArrayBlinkEffect {}
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArrayColorRampEffect(::windows::runtime::IInspectable);
 impl LampArrayColorRampEffect {
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn Color(&self) -> ::windows::runtime::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -891,11 +932,13 @@ impl LampArrayColorRampEffect {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn RampDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -904,11 +947,13 @@ impl LampArrayColorRampEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetRampDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn StartDelay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -917,10 +962,12 @@ impl LampArrayColorRampEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetStartDelay<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CompletionBehavior(&self) -> ::windows::runtime::Result<LampArrayEffectCompletionBehavior> {
         let this = self;
         unsafe {
@@ -928,10 +975,12 @@ impl LampArrayColorRampEffect {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayEffectCompletionBehavior>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -939,10 +988,12 @@ impl LampArrayColorRampEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<LampArrayColorRampEffect> {
         Self::ILampArrayColorRampEffectFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1028,11 +1079,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILampArrayEffect> for &LampArrayColor
 }
 unsafe impl ::std::marker::Send for LampArrayColorRampEffect {}
 unsafe impl ::std::marker::Sync for LampArrayColorRampEffect {}
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArrayCustomEffect(::windows::runtime::IInspectable);
 impl LampArrayCustomEffect {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1041,11 +1094,13 @@ impl LampArrayCustomEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn UpdateInterval(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1054,11 +1109,13 @@ impl LampArrayCustomEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetUpdateInterval<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn UpdateRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1067,10 +1124,12 @@ impl LampArrayCustomEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn RemoveUpdateRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -1078,10 +1137,12 @@ impl LampArrayCustomEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<LampArrayCustomEffect> {
         Self::ILampArrayCustomEffectFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1167,6 +1228,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILampArrayEffect> for &LampArrayCusto
 }
 unsafe impl ::std::marker::Send for LampArrayCustomEffect {}
 unsafe impl ::std::marker::Sync for LampArrayCustomEffect {}
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
@@ -1186,6 +1248,7 @@ unsafe impl ::windows::runtime::Abi for LampArrayEffectCompletionBehavior {
 unsafe impl ::windows::runtime::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
 }
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArrayEffectPlaylist(::windows::runtime::IInspectable);
@@ -1198,6 +1261,7 @@ impl LampArrayEffectPlaylist {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1206,6 +1270,7 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<ILampArrayEffect> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1214,6 +1279,7 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1222,6 +1288,7 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, ILampArrayEffect>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1230,6 +1297,7 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<ILampArrayEffect as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
@@ -1237,26 +1305,32 @@ impl LampArrayEffectPlaylist {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), startindex, items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, ILampArrayEffect>>(&self, effect: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), effect.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn OverrideZIndex(&self, zindex: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), zindex).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Pause(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn EffectStartMode(&self) -> ::windows::runtime::Result<LampArrayEffectStartMode> {
         let this = self;
         unsafe {
@@ -1264,10 +1338,12 @@ impl LampArrayEffectPlaylist {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayEffectStartMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetEffectStartMode(&self, value: LampArrayEffectStartMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn Occurrences(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1275,10 +1351,12 @@ impl LampArrayEffectPlaylist {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetOccurrences(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn RepetitionMode(&self) -> ::windows::runtime::Result<LampArrayRepetitionMode> {
         let this = self;
         unsafe {
@@ -1286,19 +1364,23 @@ impl LampArrayEffectPlaylist {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayRepetitionMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn StartAll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>>(value: Param0) -> ::windows::runtime::Result<()> {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn StopAll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>>(value: Param0) -> ::windows::runtime::Result<()> {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation_Collections`*"]
     pub fn PauseAll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>>(value: Param0) -> ::windows::runtime::Result<()> {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
@@ -1427,6 +1509,7 @@ impl ::std::iter::IntoIterator for &LampArrayEffectPlaylist {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LampArrayEffectStartMode(pub i32);
@@ -1446,6 +1529,7 @@ unsafe impl ::windows::runtime::Abi for LampArrayEffectStartMode {
 unsafe impl ::windows::runtime::RuntimeType for LampArrayEffectStartMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
 }
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LampArrayRepetitionMode(pub i32);
@@ -1465,11 +1549,13 @@ unsafe impl ::windows::runtime::Abi for LampArrayRepetitionMode {
 unsafe impl ::windows::runtime::RuntimeType for LampArrayRepetitionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
 }
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArraySolidEffect(::windows::runtime::IInspectable);
 impl LampArraySolidEffect {
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn Color(&self) -> ::windows::runtime::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -1478,11 +1564,13 @@ impl LampArraySolidEffect {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1491,11 +1579,13 @@ impl LampArraySolidEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn StartDelay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1504,10 +1594,12 @@ impl LampArraySolidEffect {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SetStartDelay<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CompletionBehavior(&self) -> ::windows::runtime::Result<LampArrayEffectCompletionBehavior> {
         let this = self;
         unsafe {
@@ -1515,10 +1607,12 @@ impl LampArraySolidEffect {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayEffectCompletionBehavior>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn ZIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
@@ -1526,10 +1620,12 @@ impl LampArraySolidEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights_Effects`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::LampArray>>(lamparray: Param0, lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<LampArraySolidEffect> {
         Self::ILampArraySolidEffectFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1615,11 +1711,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILampArrayEffect> for &LampArraySolid
 }
 unsafe impl ::std::marker::Send for LampArraySolidEffect {}
 unsafe impl ::std::marker::Sync for LampArraySolidEffect {}
+#[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArrayUpdateRequestedEventArgs(::windows::runtime::IInspectable);
 impl LampArrayUpdateRequestedEventArgs {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `Foundation`*"]
     pub fn SinceStarted(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1628,21 +1726,25 @@ impl LampArrayUpdateRequestedEventArgs {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::UI::Color>>(&self, desiredcolor: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), desiredcolor.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColorForIndex<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::UI::Color>>(&self, lampindex: i32, desiredcolor: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), lampindex, desiredcolor.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetSingleColorForIndices<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::UI::Color>>(&self, desiredcolor: Param0, lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), desiredcolor.into_param().abi(), lampindexes.len() as u32, ::std::mem::transmute(lampindexes.as_ptr())).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights_Effects`, `UI`*"]
     pub fn SetColorsForIndices(&self, desiredcolors: &[<super::super::super::UI::Color as ::windows::runtime::Abi>::DefaultType], lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), desiredcolors.len() as u32, ::std::mem::transmute(desiredcolors.as_ptr()), lampindexes.len() as u32, ::std::mem::transmute(lampindexes.as_ptr())).ok() }

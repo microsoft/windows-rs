@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AR_STATE(pub i32);
@@ -22,6 +23,7 @@ unsafe impl ::windows::runtime::Abi for AR_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct Adapter {
     pub AdapterName: [u16; 128],
     pub numSources: i32,
@@ -50,6 +52,7 @@ unsafe impl ::windows::runtime::Abi for Adapter {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct Adapters {
     pub numAdapters: i32,
     pub adapter: [Adapter; 1],
@@ -75,6 +78,7 @@ unsafe impl ::windows::runtime::Abi for Adapters {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
@@ -94,6 +98,7 @@ unsafe impl ::windows::runtime::Abi for BACKLIGHT_OPTIMIZATION_LEVEL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct BACKLIGHT_REDUCTION_GAMMA_RAMP {
     pub R: [u16; 256],
     pub G: [u16; 256],
@@ -122,6 +127,7 @@ unsafe impl ::windows::runtime::Abi for BACKLIGHT_REDUCTION_GAMMA_RAMP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct BANK_POSITION {
     pub ReadBankPosition: u32,
     pub WriteBankPosition: u32,
@@ -147,11 +153,17 @@ unsafe impl ::windows::runtime::Abi for BANK_POSITION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BITMAP_BITS_PIXEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BITMAP_BITS_WORD_ALIGN: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BITMAP_PLANES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BRIGHTNESS_INTERFACE_VERSION(pub i32);
@@ -169,6 +181,7 @@ unsafe impl ::windows::runtime::Abi for BRIGHTNESS_INTERFACE_VERSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct BRIGHTNESS_LEVEL {
     pub Count: u8,
     pub Level: [u8; 103],
@@ -194,10 +207,13 @@ unsafe impl ::windows::runtime::Abi for BRIGHTNESS_LEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BRIGHTNESS_MAX_NIT_RANGE_COUNT: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct BRIGHTNESS_NIT_RANGE {
     pub MinLevelInMillinit: u32,
     pub MaxLevelInMillinit: u32,
@@ -226,6 +242,7 @@ unsafe impl ::windows::runtime::Abi for BRIGHTNESS_NIT_RANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct BRIGHTNESS_NIT_RANGES {
     pub NormalRangeCount: u32,
     pub RangeCount: u32,
@@ -253,6 +270,7 @@ unsafe impl ::windows::runtime::Abi for BRIGHTNESS_NIT_RANGES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BlackScreenDiagnosticsCalloutParam(pub i32);
@@ -270,6 +288,7 @@ unsafe impl ::windows::runtime::Abi for BlackScreenDiagnosticsCalloutParam {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_System_Console`*"]
 pub struct CHAR_IMAGE_INFO {
     pub CharInfo: super::super::System::Console::CHAR_INFO,
     pub FontImageInfo: FONT_IMAGE_INFO,
@@ -295,11 +314,15 @@ unsafe impl ::windows::runtime::Abi for CHAR_IMAGE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const CHAR_TYPE_LEADING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const CHAR_TYPE_SBCS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const CHAR_TYPE_TRAILING: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct CHROMATICITY_COORDINATE {
     pub x: f32,
     pub y: f32,
@@ -327,6 +350,7 @@ unsafe impl ::windows::runtime::Abi for CHROMATICITY_COORDINATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM {
     pub Type: COLORSPACE_TRANSFORM_TYPE,
     pub Data: COLORSPACE_TRANSFORM_0,
@@ -349,6 +373,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union COLORSPACE_TRANSFORM_0 {
     pub Rgb256x3x16: GAMMA_RAMP_RGB256x3x16,
     pub Dxgi1: GAMMA_RAMP_DXGI_1,
@@ -373,6 +398,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_1DLUT_CAP {
     pub NumberOfLUTEntries: u32,
     pub DataCap: COLORSPACE_TRANSFORM_DATA_CAP,
@@ -395,6 +421,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_1DLUT_CAP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_3x4 {
     pub ColorMatrix3x4: [f32; 12],
     pub ScalarMultiplier: f32,
@@ -423,6 +450,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_3x4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_DATA_CAP {
     pub DataType: COLORSPACE_TRANSFORM_DATA_TYPE,
     pub Anonymous: COLORSPACE_TRANSFORM_DATA_CAP_0,
@@ -447,6 +475,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union COLORSPACE_TRANSFORM_DATA_CAP_0 {
     pub Anonymous1: COLORSPACE_TRANSFORM_DATA_CAP_0_0,
     pub Anonymous2: COLORSPACE_TRANSFORM_DATA_CAP_0_1,
@@ -470,6 +499,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     pub _bitfield: u32,
 }
@@ -496,6 +526,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     pub _bitfield: u32,
 }
@@ -520,6 +551,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_DATA_TYPE(pub i32);
@@ -536,6 +568,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_MATRIX_CAP {
     pub Anonymous: COLORSPACE_TRANSFORM_MATRIX_CAP_0,
     pub DataCap: COLORSPACE_TRANSFORM_DATA_CAP,
@@ -558,6 +591,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     pub Anonymous: COLORSPACE_TRANSFORM_MATRIX_CAP_0_0,
     pub Value: u32,
@@ -580,6 +614,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     pub _bitfield: u32,
 }
@@ -606,6 +641,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_MATRIX_V2 {
     pub StageControlLookupTable1DDegamma: COLORSPACE_TRANSFORM_STAGE_CONTROL,
     pub LookupTable1DDegamma: [GAMMA_RAMP_RGB; 4096],
@@ -644,6 +680,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_V2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_SET_INPUT {
     pub OutputWireColorSpaceExpected: OUTPUT_WIRE_COLOR_SPACE_TYPE,
     pub OutputWireFormatExpected: OUTPUT_WIRE_FORMAT,
@@ -665,6 +702,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_SET_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
@@ -682,6 +720,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_STAGE_CONTROL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS {
     pub Version: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION,
     pub LookupTable1DDegammaCap: COLORSPACE_TRANSFORM_1DLUT_CAP,
@@ -704,6 +743,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(pub i32);
@@ -719,6 +759,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_TYPE(pub i32);
@@ -738,6 +779,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32 {
     #[cfg(windows)]
@@ -754,6 +796,7 @@ pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<'a, Param0: ::windows::run
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETHEAPALIGNMENTDATA {
     pub dwInstance: usize,
     pub dwHeap: u32,
@@ -783,29 +826,36 @@ unsafe impl ::windows::runtime::Abi for DD_GETHEAPALIGNMENTDATA {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ActivityId: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_AdapterLuid: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_TerminalLuid: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_IndirectDisplay: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
     pid: 1u32,
 };
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DISPLAYPOLICY_DC: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct DISPLAY_BRIGHTNESS {
     pub ucDisplayPolicy: u8,
     pub ucACBrightness: u8,
@@ -832,9 +882,13 @@ unsafe impl ::windows::runtime::Abi for DISPLAY_BRIGHTNESS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_CHECKSUM_ERROR_NOT_CORRECTED: u32 = 512u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_CONTENTION_DETECTED: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DSI_CONTROL_TRANSMISSION_MODE(pub i32);
@@ -850,25 +904,40 @@ unsafe impl ::windows::runtime::Abi for DSI_CONTROL_TRANSMISSION_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_DSI_DATA_TYPE_NOT_RECOGNIZED: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_DSI_PROTOCOL_VIOLATION: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_DSI_VC_ID_INVALID: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_EOT_SYNC_ERROR: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_ESCAPE_MODE_ENTRY_COMMAND_ERROR: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_FALSE_CONTROL_ERROR: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_INVALID_PACKET_INDEX: u32 = 255u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_INVALID_TRANSMISSION_LENGTH: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_LONG_PACKET_PAYLOAD_CHECKSUM_ERROR: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_LOW_POWER_TRANSMIT_SYNC_ERROR: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_PACKET_EMBEDDED_PAYLOAD_SIZE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_PERIPHERAL_TIMEOUT_ERROR: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_SOT_ERROR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_SOT_SYNC_ERROR: u32 = 2u32;
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353497707, 30083, 17677, [240, 240, 107, 173, 168, 149, 175, 75]);
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(613296128, 42899, 18212, [171, 170, 35, 166, 222, 27, 224, 144]);
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211734093, 12142, 20225, [140, 150, 232, 158, 51, 27, 71, 177]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct DXGK_WIN32K_PARAM_DATA {
     pub PathsArray: *mut ::std::ffi::c_void,
     pub ModesArray: *mut ::std::ffi::c_void,
@@ -897,10 +966,14 @@ unsafe impl ::windows::runtime::Abi for DXGK_WIN32K_PARAM_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DXGK_WIN32K_PARAM_FLAG_MODESWITCH: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DegaussMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
@@ -915,6 +988,7 @@ pub unsafe fn DegaussMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyPhysicalMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
@@ -929,6 +1003,7 @@ pub unsafe fn DestroyPhysicalMonitor<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> i32 {
     #[cfg(windows)]
@@ -945,6 +1020,7 @@ pub unsafe fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysical
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct DisplayMode {
     pub DeviceName: [u16; 32],
     pub devMode: super::super::Graphics::Gdi::DEVMODEW,
@@ -973,6 +1049,7 @@ unsafe impl ::windows::runtime::Abi for DisplayMode {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct DisplayModes {
     pub numDisplayModes: i32,
     pub displayMode: [DisplayMode; 1],
@@ -1000,6 +1077,7 @@ unsafe impl ::windows::runtime::Abi for DisplayModes {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct ENG_EVENT {
     pub pKEvent: *mut ::std::ffi::c_void,
     pub fFlags: u32,
@@ -1028,6 +1106,7 @@ unsafe impl ::windows::runtime::Abi for ENG_EVENT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_Console`*"]
 pub struct FONT_IMAGE_INFO {
     pub FontSize: super::super::System::Console::COORD,
     pub ImageBits: *mut u8,
@@ -1062,6 +1141,7 @@ unsafe impl ::windows::runtime::Abi for FONT_IMAGE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_Console`*"]
 pub struct FSCNTL_SCREEN_INFO {
     pub Position: super::super::System::Console::COORD,
     pub ScreenSize: super::super::System::Console::COORD,
@@ -1097,6 +1177,7 @@ unsafe impl ::windows::runtime::Abi for FSCNTL_SCREEN_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_Console`*"]
 pub struct FSVIDEO_COPY_FRAME_BUFFER {
     pub SrcScreen: FSCNTL_SCREEN_INFO,
     pub DestScreen: FSCNTL_SCREEN_INFO,
@@ -1130,6 +1211,7 @@ unsafe impl ::windows::runtime::Abi for FSVIDEO_COPY_FRAME_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct FSVIDEO_CURSOR_POSITION {
     pub Coord: VIDEO_CURSOR_POSITION,
     pub dwType: u32,
@@ -1157,6 +1239,7 @@ unsafe impl ::windows::runtime::Abi for FSVIDEO_CURSOR_POSITION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct FSVIDEO_MODE_INFORMATION {
     pub VideoMode: VIDEO_MODE_INFORMATION,
     pub VideoMemory: VIDEO_MEMORY_INFORMATION,
@@ -1185,6 +1268,7 @@ unsafe impl ::windows::runtime::Abi for FSVIDEO_MODE_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_Console`*"]
 pub struct FSVIDEO_REVERSE_MOUSE_POINTER {
     pub Screen: FSCNTL_SCREEN_INFO,
     pub dwType: u32,
@@ -1219,6 +1303,7 @@ unsafe impl ::windows::runtime::Abi for FSVIDEO_REVERSE_MOUSE_POINTER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_Console`*"]
 pub struct FSVIDEO_SCREEN_INFORMATION {
     pub ScreenSize: super::super::System::Console::COORD,
     pub FontSize: super::super::System::Console::COORD,
@@ -1253,6 +1338,7 @@ unsafe impl ::windows::runtime::Abi for FSVIDEO_SCREEN_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_System_Console`*"]
 pub struct FSVIDEO_WRITE_TO_FRAME_BUFFER {
     pub SrcBuffer: *mut CHAR_IMAGE_INFO,
     pub DestScreen: FSCNTL_SCREEN_INFO,
@@ -1286,6 +1372,7 @@ unsafe impl ::windows::runtime::Abi for FSVIDEO_WRITE_TO_FRAME_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct GAMMA_RAMP_DXGI_1 {
     pub Scale: GAMMA_RAMP_RGB,
     pub Offset: GAMMA_RAMP_RGB,
@@ -1314,6 +1401,7 @@ unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_DXGI_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct GAMMA_RAMP_RGB {
     pub Red: f32,
     pub Green: f32,
@@ -1342,6 +1430,7 @@ unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_RGB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct GAMMA_RAMP_RGB256x3x16 {
     pub Red: [u16; 256],
     pub Green: [u16; 256],
@@ -1368,7 +1457,9 @@ unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_RGB256x3x16 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const GETCONNECTEDIDS_SOURCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const GETCONNECTEDIDS_TARGET: u32 = 0u32;
 pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531256861, 62194, 20283, [133, 187, 48, 255, 31, 149, 53, 153]);
 pub const GUID_DEVINTERFACE_MONITOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3874519903, 61079, 19088, [176, 118, 51, 245, 123, 244, 234, 167]);
@@ -1376,6 +1467,7 @@ pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows::runtime::GUID = ::w
 pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(480268672, 42649, 17674, [154, 12, 222, 79, 190, 61, 221, 137]);
 pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4053188655, 63599, 20378, [170, 21, 233, 206, 189, 254, 59, 150]);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1390,6 +1482,7 @@ pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Found
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetCapabilitiesStringLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1404,6 +1497,7 @@ pub unsafe fn GetCapabilitiesStringLength<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1418,6 +1512,7 @@ pub unsafe fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_P
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1432,6 +1527,7 @@ pub unsafe fn GetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorCapabilities<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1446,6 +1542,7 @@ pub unsafe fn GetMonitorCapabilities<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32 {
     #[cfg(windows)]
@@ -1460,6 +1557,7 @@ pub unsafe fn GetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1474,6 +1572,7 @@ pub unsafe fn GetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1488,6 +1587,7 @@ pub unsafe fn GetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1502,6 +1602,7 @@ pub unsafe fn GetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1516,6 +1617,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1530,6 +1632,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMonitorTechnologyType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32 {
     #[cfg(windows)]
@@ -1544,6 +1647,7 @@ pub unsafe fn GetMonitorTechnologyType<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, pdwnumberofphysicalmonitors: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1558,6 +1662,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Graphics_Direct3D9`*"]
 #[inline]
 pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -1573,6 +1678,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::wind
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32 {
     #[cfg(windows)]
@@ -1587,6 +1693,7 @@ pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[inline]
 pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1601,6 +1708,7 @@ pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetTimingReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32 {
     #[cfg(windows)]
@@ -1615,6 +1723,7 @@ pub unsafe fn GetTimingReport<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1631,6 +1740,7 @@ pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::runtime::In
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Graphics_DirectDraw`*"]
 pub struct HEAPALIGNMENT {
     pub dwSize: u32,
     pub ddsCaps: super::super::Graphics::DirectDraw::DDSCAPS,
@@ -1664,33 +1774,48 @@ unsafe impl ::windows::runtime::Abi for HEAPALIGNMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_BAD_TRANSMISSION_MODE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_DEVICE_NOT_READY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_DEVICE_RESET: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_DRIVER_REJECTED_PACKET: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_INTERFACE_RESET: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_INVALID_TRANSMISSION: u32 = 256u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_OS_REJECTED_PACKET: u32 = 512u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICloneViewHelper(::windows::runtime::IUnknown);
 impl ICloneViewHelper {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
     pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(pulcount), ::std::mem::transmute(pulid), ::std::mem::transmute(ulflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
     pub unsafe fn GetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(ulsourceid), ::std::mem::transmute(pulcount), ::std::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
     pub unsafe fn SetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(ulsourceid), ::std::mem::transmute(ulcount), ::std::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
     pub unsafe fn Commit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffinalcall: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ffinalcall.into_param().abi()).ok()
     }
@@ -1737,6 +1862,7 @@ pub struct ICloneViewHelper_abi(
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct INDIRECT_DISPLAY_INFO {
     pub DisplayAdapterLuid: super::super::Foundation::LUID,
     pub Flags: u32,
@@ -1770,104 +1896,185 @@ unsafe impl ::windows::runtime::Abi for INDIRECT_DISPLAY_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS: u32 = 2297856u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_COLORSPACE_TRANSFORM_SET: u32 = 2297860u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_FSVIDEO_COPY_FRAME_BUFFER: u32 = 3409920u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_FSVIDEO_REVERSE_MOUSE_POINTER: u32 = 3409928u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_FSVIDEO_SET_CURRENT_MODE: u32 = 3409932u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_FSVIDEO_SET_CURSOR_POSITION: u32 = 3409940u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_FSVIDEO_SET_SCREEN_INFORMATION: u32 = 3409936u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_FSVIDEO_WRITE_TO_FRAME_BUFFER: u32 = 3409924u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_MIPI_DSI_QUERY_CAPS: u32 = 2298880u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_MIPI_DSI_RESET: u32 = 2298888u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_MIPI_DSI_TRANSMISSION: u32 = 2298884u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_PANEL_GET_BACKLIGHT_REDUCTION: u32 = 2296856u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_PANEL_GET_BRIGHTNESS: u32 = 2296840u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_PANEL_QUERY_BRIGHTNESS_CAPS: u32 = 2296832u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_PANEL_QUERY_BRIGHTNESS_RANGES: u32 = 2296836u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_PANEL_SET_BACKLIGHT_OPTIMIZATION: u32 = 2296852u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_PANEL_SET_BRIGHTNESS: u32 = 2296844u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_PANEL_SET_BRIGHTNESS_STATE: u32 = 2296848u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_SET_ACTIVE_COLOR_PROFILE_NAME: u32 = 2297864u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_DISABLE_CURSOR: u32 = 2294820u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_DISABLE_POINTER: u32 = 2294844u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_DISABLE_VDM: u32 = 2293764u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_ENABLE_CURSOR: u32 = 2294816u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_ENABLE_POINTER: u32 = 2294840u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_ENABLE_VDM: u32 = 2293760u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_ENUM_MONITOR_PDO: u32 = 2293784u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_FREE_PUBLIC_ACCESS_RANGES: u32 = 2294884u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_GET_BANK_SELECT_CODE: u32 = 2294868u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_GET_CHILD_STATE: u32 = 2294912u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_GET_OUTPUT_DEVICE_POWER_STATE: u32 = 2293776u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_GET_POWER_MANAGEMENT: u32 = 2294896u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_HANDLE_VIDEOPARAMETERS: u32 = 2293792u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_INIT_WIN32K_CALLBACKS: u32 = 2293788u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_IS_VGA_DEVICE: u32 = 2293796u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_LOAD_AND_SET_FONT: u32 = 2294804u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_MAP_VIDEO_MEMORY: u32 = 2294872u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_MONITOR_DEVICE: u32 = 2293780u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_PREPARE_FOR_EARECOVERY: u32 = 2293804u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_AVAIL_MODES: u32 = 2294784u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_COLOR_CAPABILITIES: u32 = 2294888u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_CURRENT_MODE: u32 = 2294792u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_CURSOR_ATTR: u32 = 2294828u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_CURSOR_POSITION: u32 = 2294836u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_DISPLAY_BRIGHTNESS: u32 = 2294936u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_NUM_AVAIL_MODES: u32 = 2294788u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_POINTER_ATTR: u32 = 2294852u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_POINTER_CAPABILITIES: u32 = 2294864u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_POINTER_POSITION: u32 = 2294860u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_PUBLIC_ACCESS_RANGES: u32 = 2294880u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_QUERY_SUPPORTED_BRIGHTNESS: u32 = 2294932u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_REGISTER_VDM: u32 = 2293768u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_RESET_DEVICE: u32 = 2294800u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_RESTORE_HARDWARE_STATE: u32 = 2294276u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SAVE_HARDWARE_STATE: u32 = 2294272u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_BANK_POSITION: u32 = 2294928u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_CHILD_STATE_CONFIGURATION: u32 = 2294920u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_COLOR_LUT_DATA: u32 = 2294908u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_COLOR_REGISTERS: u32 = 2294812u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_CURRENT_MODE: u32 = 2294796u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_CURSOR_ATTR: u32 = 2294824u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_CURSOR_POSITION: u32 = 2294832u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_DISPLAY_BRIGHTNESS: u32 = 2294940u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_OUTPUT_DEVICE_POWER_STATE: u32 = 2293772u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_PALETTE_REGISTERS: u32 = 2294808u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_POINTER_ATTR: u32 = 2294848u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_POINTER_POSITION: u32 = 2294856u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SET_POWER_MANAGEMENT: u32 = 2294892u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SHARE_VIDEO_MEMORY: u32 = 2294900u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_SWITCH_DUALVIEW: u32 = 2294924u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_UNMAP_VIDEO_MEMORY: u32 = 2294876u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_UNSHARE_VIDEO_MEMORY: u32 = 2294904u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IViewHelper(::windows::runtime::IUnknown);
 impl IViewHelper {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
     pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(pulcount), ::std::mem::transmute(pulid), ::std::mem::transmute(ulflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
     pub unsafe fn GetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(ulsourceid), ::std::mem::transmute(pulcount), ::std::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
     pub unsafe fn SetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(ulsourceid), ::std::mem::transmute(ulcount), ::std::mem::transmute(pultargetid)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_Display`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_Com`*"]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pistream.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Display`*"]
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1913,19 +2120,33 @@ pub struct IViewHelper_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MAX_PACKET_COUNT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_BRIGHTNESS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_COLOR_TEMPERATURE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_CONTRAST: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_DEGAUSS: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_DISPLAY_AREA_POSITION: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_DISPLAY_AREA_SIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_MONITOR_TECHNOLOGY_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_RED_GREEN_BLUE_DRIVE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_RED_GREEN_BLUE_GAIN: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_CAPS_RESTORE_FACTORY_DEFAULTS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_COLOR_TEMPERATURE(pub i32);
@@ -1947,6 +2168,7 @@ unsafe impl ::windows::runtime::Abi for MC_COLOR_TEMPERATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_DISPLAY_TECHNOLOGY_TYPE(pub i32);
@@ -1968,6 +2190,7 @@ unsafe impl ::windows::runtime::Abi for MC_DISPLAY_TECHNOLOGY_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_DRIVE_TYPE(pub i32);
@@ -1983,6 +2206,7 @@ unsafe impl ::windows::runtime::Abi for MC_DRIVE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_GAIN_TYPE(pub i32);
@@ -1998,6 +2222,7 @@ unsafe impl ::windows::runtime::Abi for MC_GAIN_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_POSITION_TYPE(pub i32);
@@ -2012,7 +2237,9 @@ unsafe impl ::windows::runtime::Abi for MC_POSITION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_SIZE_TYPE(pub i32);
@@ -2027,17 +2254,27 @@ unsafe impl ::windows::runtime::Abi for MC_SIZE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_10000K: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_11500K: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_4000K: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_5000K: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_6500K: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_7500K: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_8200K: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MC_TIMING_REPORT {
     pub dwHorizontalFrequencyInHZ: u32,
     pub dwVerticalFrequencyInHZ: u32,
@@ -2059,6 +2296,7 @@ unsafe impl ::windows::runtime::Abi for MC_TIMING_REPORT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_VCP_CODE_TYPE(pub i32);
@@ -2075,6 +2313,7 @@ unsafe impl ::windows::runtime::Abi for MC_VCP_CODE_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MIPI_DSI_CAPS {
     pub DSITypeMajor: u8,
     pub DSITypeMinor: u8,
@@ -2154,6 +2393,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_CAPS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MIPI_DSI_PACKET {
     pub Anonymous1: MIPI_DSI_PACKET_0,
     pub Anonymous2: MIPI_DSI_PACKET_1,
@@ -2178,6 +2418,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union MIPI_DSI_PACKET_0 {
     pub DataId: u8,
     pub Anonymous: MIPI_DSI_PACKET_0_0,
@@ -2200,6 +2441,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MIPI_DSI_PACKET_0_0 {
     pub _bitfield: u8,
 }
@@ -2226,6 +2468,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union MIPI_DSI_PACKET_1 {
     pub Anonymous: MIPI_DSI_PACKET_1_0,
     pub LongWriteWordCount: u16,
@@ -2248,6 +2491,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MIPI_DSI_PACKET_1_0 {
     pub Data0: u8,
     pub Data1: u8,
@@ -2275,6 +2519,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_1_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MIPI_DSI_RESET {
     pub Flags: u32,
     pub Anonymous: MIPI_DSI_RESET_0,
@@ -2297,6 +2542,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union MIPI_DSI_RESET_0 {
     pub Anonymous: MIPI_DSI_RESET_0_0,
     pub Results: u32,
@@ -2319,6 +2565,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MIPI_DSI_RESET_0_0 {
     pub _bitfield: u32,
 }
@@ -2345,6 +2592,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MIPI_DSI_TRANSMISSION {
     pub TotalBufferSize: u32,
     pub PacketCount: u8,
@@ -2374,6 +2622,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_TRANSMISSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct MIPI_DSI_TRANSMISSION_0 {
     pub _bitfield: u16,
 }
@@ -2398,6 +2647,7 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_TRANSMISSION_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ORIENTATION_PREFERENCE(pub i32);
@@ -2415,6 +2665,7 @@ unsafe impl ::windows::runtime::Abi for ORIENTATION_PREFERENCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OUTPUT_COLOR_ENCODING(pub i32);
@@ -2433,6 +2684,7 @@ unsafe impl ::windows::runtime::Abi for OUTPUT_COLOR_ENCODING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
@@ -2454,6 +2706,7 @@ unsafe impl ::windows::runtime::Abi for OUTPUT_WIRE_COLOR_SPACE_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct OUTPUT_WIRE_FORMAT {
     pub ColorEncoding: OUTPUT_COLOR_ENCODING,
     pub BitsPerPixel: u32,
@@ -2481,6 +2734,7 @@ unsafe impl ::windows::runtime::Abi for OUTPUT_WIRE_FORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_BRIGHTNESS_SENSOR_DATA {
     pub Anonymous: PANEL_BRIGHTNESS_SENSOR_DATA_0,
     pub AlsReading: f32,
@@ -2505,6 +2759,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     pub Anonymous: PANEL_BRIGHTNESS_SENSOR_DATA_0_0,
     pub Value: u32,
@@ -2527,6 +2782,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
@@ -2553,6 +2809,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_GET_BACKLIGHT_REDUCTION {
     pub BacklightUsersetting: u16,
     pub BacklightEffective: u16,
@@ -2581,6 +2838,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_GET_BACKLIGHT_REDUCTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_GET_BRIGHTNESS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_GET_BRIGHTNESS_0,
@@ -2603,6 +2861,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union PANEL_GET_BRIGHTNESS_0 {
     pub Level: u8,
     pub Anonymous: PANEL_GET_BRIGHTNESS_0_0,
@@ -2625,6 +2884,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_GET_BRIGHTNESS_0_0 {
     pub CurrentInMillinits: u32,
     pub TargetInMillinits: u32,
@@ -2652,6 +2912,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_QUERY_BRIGHTNESS_CAPS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_QUERY_BRIGHTNESS_CAPS_0,
@@ -2674,6 +2935,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     pub Anonymous: PANEL_QUERY_BRIGHTNESS_CAPS_0_0,
     pub Value: u32,
@@ -2696,6 +2958,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
@@ -2722,6 +2985,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_QUERY_BRIGHTNESS_RANGES {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_QUERY_BRIGHTNESS_RANGES_0,
@@ -2744,6 +3008,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_RANGES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     pub BrightnessLevel: BRIGHTNESS_LEVEL,
     pub NitRanges: BRIGHTNESS_NIT_RANGES,
@@ -2766,6 +3031,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_SET_BACKLIGHT_OPTIMIZATION {
     pub Level: BACKLIGHT_OPTIMIZATION_LEVEL,
 }
@@ -2792,6 +3058,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_SET_BACKLIGHT_OPTIMIZATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_SET_BRIGHTNESS {
     pub Version: BRIGHTNESS_INTERFACE_VERSION,
     pub Anonymous: PANEL_SET_BRIGHTNESS_0,
@@ -2814,6 +3081,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union PANEL_SET_BRIGHTNESS_0 {
     pub Level: u8,
     pub Anonymous: PANEL_SET_BRIGHTNESS_0_0,
@@ -2836,6 +3104,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_SET_BRIGHTNESS_0_0 {
     pub Millinits: u32,
     pub TransitionTimeInMs: u32,
@@ -2859,6 +3128,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_SET_BRIGHTNESS_STATE {
     pub Anonymous: PANEL_SET_BRIGHTNESS_STATE_0,
 }
@@ -2880,6 +3150,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union PANEL_SET_BRIGHTNESS_STATE_0 {
     pub Anonymous: PANEL_SET_BRIGHTNESS_STATE_0_0,
     pub Value: u32,
@@ -2902,6 +3173,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct PANEL_SET_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
 }
@@ -2929,6 +3201,7 @@ unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct PHYSICAL_MONITOR {
     pub hPhysicalMonitor: super::super::Foundation::HANDLE,
     pub szPhysicalMonitorDescription: [u16; 128],
@@ -2954,10 +3227,13 @@ unsafe impl ::windows::runtime::Abi for PHYSICAL_MONITOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const PLANAR_HC: u32 = 1u32;
 pub type PVIDEO_WIN32K_CALLOUT = unsafe extern "system" fn(params: *mut ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RestoreMonitorFactoryColorDefaults<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
@@ -2972,6 +3248,7 @@ pub unsafe fn RestoreMonitorFactoryColorDefaults<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RestoreMonitorFactoryDefaults<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
@@ -2985,11 +3262,15 @@ pub unsafe fn RestoreMonitorFactoryDefaults<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const SETCONFIGURATION_STATUS_ADDITIONAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const SETCONFIGURATION_STATUS_APPLIED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const SETCONFIGURATION_STATUS_OVERRIDDEN: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct SET_ACTIVE_COLOR_PROFILE_NAME {
     pub ColorProfileName: [u16; 1],
 }
@@ -3016,6 +3297,7 @@ unsafe impl ::windows::runtime::Abi for SET_ACTIVE_COLOR_PROFILE_NAME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct SURFACEALIGNMENT {
     pub Anonymous: SURFACEALIGNMENT_0,
 }
@@ -3037,6 +3319,7 @@ unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union SURFACEALIGNMENT_0 {
     pub Linear: SURFACEALIGNMENT_0_0,
     pub Rectangular: SURFACEALIGNMENT_0_1,
@@ -3059,6 +3342,7 @@ unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct SURFACEALIGNMENT_0_0 {
     pub dwStartAlignment: u32,
     pub dwPitchAlignment: u32,
@@ -3088,6 +3372,7 @@ unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct SURFACEALIGNMENT_0_1 {
     pub dwXAlignment: u32,
     pub dwYAlignment: u32,
@@ -3115,9 +3400,12 @@ unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const SURFACEALIGN_DISCARDABLE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const S_INIT: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SaveCurrentMonitorSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
@@ -3132,6 +3420,7 @@ pub unsafe fn SaveCurrentMonitorSettings<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SaveCurrentSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
@@ -3146,6 +3435,7 @@ pub unsafe fn SaveCurrentSettings<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3160,6 +3450,7 @@ pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewbrightness: u32) -> i32 {
     #[cfg(windows)]
@@ -3174,6 +3465,7 @@ pub unsafe fn SetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32 {
     #[cfg(windows)]
@@ -3188,6 +3480,7 @@ pub unsafe fn SetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewcontrast: u32) -> i32 {
     #[cfg(windows)]
@@ -3202,6 +3495,7 @@ pub unsafe fn SetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32 {
     #[cfg(windows)]
@@ -3216,6 +3510,7 @@ pub unsafe fn SetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32 {
     #[cfg(windows)]
@@ -3230,6 +3525,7 @@ pub unsafe fn SetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32 {
     #[cfg(windows)]
@@ -3244,6 +3540,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32 {
     #[cfg(windows)]
@@ -3258,6 +3555,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetVCPFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, dwnewvalue: u32) -> i32 {
     #[cfg(windows)]
@@ -3273,6 +3571,7 @@ pub unsafe fn SetVCPFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct Sources {
     pub sourceId: u32,
     pub numTargets: i32,
@@ -3302,6 +3601,7 @@ unsafe impl ::windows::runtime::Abi for Sources {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct VGA_CHAR {
     pub Char: super::super::Foundation::CHAR,
     pub Attributes: super::super::Foundation::CHAR,
@@ -3335,6 +3635,7 @@ unsafe impl ::windows::runtime::Abi for VGA_CHAR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_BANK_SELECT {
     pub Length: u32,
     pub Size: u32,
@@ -3397,6 +3698,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_BANK_SELECT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIDEO_BANK_TYPE(pub i32);
@@ -3417,6 +3719,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_BANK_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct VIDEO_BRIGHTNESS_POLICY {
     pub DefaultToBiosPolicy: super::super::Foundation::BOOLEAN,
     pub LevelCount: u8,
@@ -3451,6 +3754,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_BRIGHTNESS_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_BRIGHTNESS_POLICY_0 {
     pub BatteryLevel: u8,
     pub Brightness: u8,
@@ -3478,6 +3782,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_BRIGHTNESS_POLICY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_CLUT {
     pub NumEntries: u16,
     pub FirstEntry: u16,
@@ -3501,6 +3806,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_CLUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub union VIDEO_CLUT_0 {
     pub RgbArray: VIDEO_CLUTDATA,
     pub RgbLong: u32,
@@ -3523,6 +3829,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_CLUT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_CLUTDATA {
     pub Red: u8,
     pub Green: u8,
@@ -3552,6 +3859,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_CLUTDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_COLOR_CAPABILITIES {
     pub Length: u32,
     pub AttributeFlags: u32,
@@ -3631,6 +3939,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_COLOR_CAPABILITIES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_COLOR_LUT_DATA {
     pub Length: u32,
     pub LutDataFormat: u32,
@@ -3657,10 +3966,13 @@ unsafe impl ::windows::runtime::Abi for VIDEO_COLOR_LUT_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_CURSOR_ATTRIBUTES {
     pub Width: u16,
     pub Height: u16,
@@ -3692,6 +4004,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_CURSOR_ATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_CURSOR_POSITION {
     pub Column: i16,
     pub Row: i16,
@@ -3717,9 +4030,11 @@ unsafe impl ::windows::runtime::Abi for VIDEO_CURSOR_POSITION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_DEVICE_SESSION_STATUS {
     pub bEnable: u32,
     pub bSuccess: u32,
@@ -3745,12 +4060,17 @@ unsafe impl ::windows::runtime::Abi for VIDEO_DEVICE_SESSION_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_DUALVIEW_REMOVABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_DUALVIEW_SECONDARY: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_DUALVIEW_WDDM_VGA: u32 = 536870912u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_HARDWARE_STATE {
     pub StateHeader: *mut VIDEO_HARDWARE_STATE_HEADER,
     pub StateLength: u32,
@@ -3778,6 +4098,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_HARDWARE_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_HARDWARE_STATE_HEADER {
     pub Length: u32,
     pub PortValue: [u8; 48],
@@ -3893,6 +4214,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_HARDWARE_STATE_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_LOAD_FONT_INFORMATION {
     pub WidthInPixels: u16,
     pub HeightInPixels: u16,
@@ -3922,6 +4244,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_LOAD_FONT_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_LUT_RGB256WORDS {
     pub Red: [u16; 256],
     pub Green: [u16; 256],
@@ -3948,9 +4271,11 @@ unsafe impl ::windows::runtime::Abi for VIDEO_LUT_RGB256WORDS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MAX_REASON: u32 = 9u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_MEMORY {
     pub RequestedVirtualAddress: *mut ::std::ffi::c_void,
 }
@@ -3977,6 +4302,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_MEMORY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_MEMORY_INFORMATION {
     pub VideoRamBase: *mut ::std::ffi::c_void,
     pub VideoRamLength: u32,
@@ -4006,6 +4332,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_MEMORY_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_MODE {
     pub RequestedMode: u32,
 }
@@ -4030,15 +4357,23 @@ unsafe impl ::windows::runtime::Abi for VIDEO_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_ANIMATE_START: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_ANIMATE_UPDATE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_ASYNC_POINTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_BANKED: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_COLOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_COLOR_POINTER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_GRAPHICS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_MODE_INFORMATION {
     pub Length: u32,
     pub ModeIndex: u32,
@@ -4122,17 +4457,27 @@ unsafe impl ::windows::runtime::Abi for VIDEO_MODE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_INTERLACED: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_LINEAR: u32 = 256u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_MANAGED_PALETTE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_MAP_MEM_LINEAR: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_MONO_POINTER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_NO_64_BIT_ACCESS: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_NO_OFF_SCREEN: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_NO_ZERO_MEMORY: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_PALETTE_DRIVEN: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_MONITOR_DESCRIPTOR {
     pub DescriptorSize: u32,
     pub Descriptor: [u8; 1],
@@ -4160,6 +4505,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_MONITOR_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_NUM_MODES {
     pub NumModes: u32,
     pub ModeInformationLength: u32,
@@ -4185,9 +4531,11 @@ unsafe impl ::windows::runtime::Abi for VIDEO_NUM_MODES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_OPTIONAL_GAMMET_TABLE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_PALETTE_DATA {
     pub NumEntries: u16,
     pub FirstEntry: u16,
@@ -4216,6 +4564,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_PALETTE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_PERFORMANCE_COUNTER {
     pub NbOfAllocationEvicted: [u64; 10],
     pub NbOfAllocationMarked: [u64; 10],
@@ -4304,6 +4653,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_PERFORMANCE_COUNTER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_POINTER_ATTRIBUTES {
     pub Flags: u32,
     pub Width: u32,
@@ -4337,6 +4687,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_ATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_POINTER_CAPABILITIES {
     pub Flags: u32,
     pub MaxWidth: u32,
@@ -4367,6 +4718,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_CAPABILITIES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_POINTER_POSITION {
     pub Column: i16,
     pub Row: i16,
@@ -4394,6 +4746,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_POSITION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_POWER_MANAGEMENT {
     pub Length: u32,
     pub DPMSVersion: u32,
@@ -4420,6 +4773,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_POWER_MANAGEMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIDEO_POWER_STATE(pub i32);
@@ -4442,6 +4796,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_POWER_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_PUBLIC_ACCESS_RANGES {
     pub InIoSpace: u32,
     pub MappedInIoSpace: u32,
@@ -4470,6 +4825,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_PUBLIC_ACCESS_RANGES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_QUERY_PERFORMANCE_COUNTER {
     pub BufferSize: u32,
     pub Buffer: *mut VIDEO_PERFORMANCE_COUNTER,
@@ -4495,18 +4851,29 @@ unsafe impl ::windows::runtime::Abi for VIDEO_QUERY_PERFORMANCE_COUNTER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_ALLOCATION: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_CONFIGURATION: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_FAILED_ROTATION: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_LOCK: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_POLICY1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_POLICY2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_POLICY3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_POLICY4: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_SCRATCH: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_REGISTER_VDM {
     pub MinimumStateSize: u32,
 }
@@ -4534,6 +4901,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_REGISTER_VDM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct VIDEO_SHARE_MEMORY {
     pub ProcessHandle: super::super::Foundation::HANDLE,
     pub ViewOffset: u32,
@@ -4569,6 +4937,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_SHARE_MEMORY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub struct VIDEO_SHARE_MEMORY_INFORMATION {
     pub SharedViewOffset: u32,
     pub SharedViewSize: u32,
@@ -4595,12 +4964,16 @@ unsafe impl ::windows::runtime::Abi for VIDEO_SHARE_MEMORY_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_STATE_NON_STANDARD_VGA: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_STATE_PACKED_CHAIN4_MODE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_STATE_UNEMULATED_VGA_STATE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct VIDEO_VDM {
     pub ProcessHandle: super::super::Foundation::HANDLE,
 }
@@ -4634,6 +5007,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_VDM {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct VIDEO_WIN32K_CALLBACKS {
     pub PhysDisp: *mut ::std::ffi::c_void,
     pub Callout: ::std::option::Option<PVIDEO_WIN32K_CALLOUT>,
@@ -4671,6 +5045,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS {
     pub CalloutType: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE,
     pub PhysDisp: *mut ::std::ffi::c_void,
@@ -4717,6 +5092,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(pub i32);
@@ -4744,6 +5120,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct VMEMHEAP {
     pub dwFlags: u32,
     pub stride: u32,
@@ -4784,12 +5161,16 @@ unsafe impl ::windows::runtime::Abi for VMEMHEAP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VMEMHEAP_ALIGNMENT: i32 = 4i32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VMEMHEAP_LINEAR: i32 = 1i32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VMEMHEAP_RECTANGULAR: i32 = 2i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct VMEML {
     pub next: *mut VMEML,
     pub ptr: usize,
@@ -4826,6 +5207,7 @@ unsafe impl ::windows::runtime::Abi for VMEML {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub struct VMEMR {
     pub next: *mut VMEMR,
     pub prev: *mut VMEMR,
@@ -4886,4 +5268,5 @@ unsafe impl ::windows::runtime::Abi for VMEMR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const _FACDXCORE: u32 = 2176u32;

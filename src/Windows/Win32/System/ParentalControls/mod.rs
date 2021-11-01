@@ -1,24 +1,31 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const ARRAY_SEP_CHAR: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const FACILITY_WPC: u32 = 2457u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCGamesSettings(::windows::runtime::IUnknown);
 impl IWPCGamesSettings {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetRestrictions(&self) -> ::windows::runtime::Result<WPCFLAG_RESTRICTION> {
         let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn IsBlocked<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidappid: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), guidappid.into_param().abi(), &mut result__).from_abi::<u32>(result__)
@@ -81,20 +88,24 @@ pub struct IWPCGamesSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidappid: ::windows::runtime::GUID, pdwreasons: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCProviderConfig(::windows::runtime::IUnknown);
 impl IWPCProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetUserSummary<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsid: Param0) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrsid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn Configure<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwnd: Param0, bstrsid: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), bstrsid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn RequestOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwnd: Param0, bstrpath: Param1, dwflags: WPCFLAG_RESTRICTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), bstrpath.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
@@ -136,13 +147,16 @@ pub struct IWPCProviderConfig_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, bstrpath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCProviderState(::windows::runtime::IUnknown);
 impl IWPCProviderState {
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn Enable(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn Disable(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -180,10 +194,12 @@ pub struct IWPCProviderState_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCProviderSupport(::windows::runtime::IUnknown);
 impl IWPCProviderSupport {
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
@@ -221,20 +237,24 @@ pub struct IWPCProviderSupport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidprovider: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCSettings(::windows::runtime::IUnknown);
 impl IWPCSettings {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetRestrictions(&self) -> ::windows::runtime::Result<WPCFLAG_RESTRICTION> {
         let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_RESTRICTION>(result__)
@@ -276,29 +296,35 @@ pub struct IWPCSettings_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCWebSettings(::windows::runtime::IUnknown);
 impl IWPCWebSettings {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn IsLoggingRequired(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetRestrictions(&self) -> ::windows::runtime::Result<WPCFLAG_RESTRICTION> {
         let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetSettings(&self) -> ::windows::runtime::Result<WPCFLAG_WEB_SETTING> {
         let mut result__: <WPCFLAG_WEB_SETTING as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_WEB_SETTING>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn RequestURLOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hwnd: Param0, pcszurl: Param1, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), pcszurl.into_param().abi(), ::std::mem::transmute(curls), ::std::mem::transmute(ppcszsuburls), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -363,29 +389,35 @@ pub struct IWPCWebSettings_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pcszurl: super::super::Foundation::PWSTR, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowsParentalControls(::windows::runtime::IUnknown);
 impl IWindowsParentalControls {
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetVisibility(&self) -> ::windows::runtime::Result<WPCFLAG_VISIBILITY> {
         let mut result__: <WPCFLAG_VISIBILITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_VISIBILITY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetUserSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCSettings> {
         let mut result__: <IWPCSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCSettings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetWebSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCWebSettings> {
         let mut result__: <IWPCWebSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCWebSettings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::runtime::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidid), ::std::mem::transmute(ppszname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetGamesSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCGamesSettings> {
         let mut result__: <IWPCGamesSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCGamesSettings>(result__)
@@ -451,25 +483,30 @@ pub struct IWindowsParentalControls_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowsParentalControlsCore(::windows::runtime::IUnknown);
 impl IWindowsParentalControlsCore {
+    #[doc = "*Required features: `Win32_System_ParentalControls`*"]
     pub unsafe fn GetVisibility(&self) -> ::windows::runtime::Result<WPCFLAG_VISIBILITY> {
         let mut result__: <WPCFLAG_VISIBILITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_VISIBILITY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetUserSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCSettings> {
         let mut result__: <IWPCSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCSettings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetWebSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCWebSettings> {
         let mut result__: <IWPCWebSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCWebSettings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_ParentalControls`, `Win32_Foundation`*"]
     pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::runtime::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidid), ::std::mem::transmute(ppszname)).ok()
     }
@@ -512,78 +549,151 @@ pub struct IWindowsParentalControlsCore_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidid: *mut ::windows::runtime::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_AppBlocked: i32 = -1342177264i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_AppOverride: i32 = -1342177263i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_Application: i32 = -1342177260i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_ComputerUsage: i32 = -1342177259i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_ContentUsage: i32 = -1342177258i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_Custom: i32 = -1342177267i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_EmailContact: i32 = -1342177266i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_EmailReceived: i32 = -1342177276i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_EmailSent: i32 = -1342177275i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_FileDownload: i32 = -1342177270i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_GameStart: i32 = -1342177278i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_IMContact: i32 = -1342177265i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_IMFeature: i32 = -1342177269i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_IMInvitation: i32 = -1342177273i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_IMJoin: i32 = -1342177272i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_IMLeave: i32 = -1342177271i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_MediaPlayback: i32 = -1342177274i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_SettingChange: i32 = -1342177279i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_UrlVisit: i32 = -1342177277i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_WebOverride: i32 = -1342177262i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Event_WebsiteVisit: i32 = -1342177261i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Keyword_ThirdParty: i32 = 268435462i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Keyword_WPC: i32 = 268435461i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Opcode_Launch: i32 = 805306390i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Opcode_Locate: i32 = 805306388i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Opcode_Modify: i32 = 805306389i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Opcode_System: i32 = 805306391i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Opcode_Web: i32 = 805306392i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Publisher_Name: i32 = -1879048191i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_AppBlocked: i32 = 1879048208i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_AppOverride: i32 = 1879048209i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_Application: i32 = 1879048212i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_ComputerUsage: i32 = 1879048213i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_ContentUsage: i32 = 1879048214i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_Custom: i32 = 1879048205i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_EmailContact: i32 = 1879048206i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_EmailReceived: i32 = 1879048196i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_EmailSent: i32 = 1879048197i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_FileDownload: i32 = 1879048202i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_GameStart: i32 = 1879048194i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_IMContact: i32 = 1879048207i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_IMFeature: i32 = 1879048203i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_IMInvitation: i32 = 1879048199i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_IMJoin: i32 = 1879048200i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_IMLeave: i32 = 1879048201i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_MediaPlayback: i32 = 1879048198i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_SettingChange: i32 = 1879048193i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_UrlVisit: i32 = 1879048195i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_WebOverride: i32 = 1879048210i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const MSG_Task_WebsiteVisit: i32 = 1879048211i32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCCHANNEL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_APPLICATION_value: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_APPOVERRIDE_value: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_COMPUTERUSAGE_value: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_CONTENTUSAGE_value: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_CUSTOM_value: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_EMAIL_CONTACT_value: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_EMAIL_RECEIVED_value: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_EMAIL_SENT_value: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_GAME_START_value: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_IM_CONTACT_value: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_IM_FEATURE_value: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_IM_INVITATION_value: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_IM_JOIN_value: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_IM_LEAVE_value: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_MEDIA_PLAYBACK_value: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_SYSTEM_APPBLOCKED_value: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_SYS_SETTINGCHANGE_value: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_WEBOVERRIDE_value: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_WEB_FILEDOWNLOAD_value: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_WEB_URLVISIT_value: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCEVENT_WEB_WEBSITEVISIT_value: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_IM_FEATURE(pub i32);
@@ -605,6 +715,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_IM_FEATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_IM_LEAVE(pub i32);
@@ -620,6 +731,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_IM_LEAVE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_ISBLOCKED(pub i32);
@@ -659,6 +771,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_ISBLOCKED {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_LOGOFF_TYPE(pub i32);
@@ -676,6 +789,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_LOGOFF_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_OVERRIDE(pub i32);
@@ -689,6 +803,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_OVERRIDE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_RESTRICTION(pub i32);
@@ -709,6 +824,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_RESTRICTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_VISIBILITY(pub i32);
@@ -723,6 +839,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_VISIBILITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_WEB_SETTING(pub i32);
@@ -738,30 +855,55 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_WEB_SETTING {
     type DefaultType = Self;
 }
 pub const WPCPROV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17367141, 46183, 17667, [155, 40, 83, 55, 102, 118, 16, 135]);
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_KEYWORD_ThirdParty: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_KEYWORD_WPC: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_AppBlocked: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_AppOverride: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_Application: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_ComputerUsage: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_ContentUsage: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_Custom: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_EmailContact: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_EmailReceived: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_EmailSent: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_FileDownload: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_GameStart: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_IMContact: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_IMFeature: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_IMInvitation: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_IMJoin: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_IMLeave: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_MediaPlayback: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_SettingChange: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_UrlVisit: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_WebOverride: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPCPROV_TASK_WebsiteVisit: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_APP_LAUNCH: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_APPLICATIONEVENT(pub i32);
@@ -780,6 +922,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_APPLICATIONEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_APPOVERRIDEEVENT(pub i32);
@@ -796,6 +939,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_APPOVERRIDEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_COMPUTERUSAGEEVENT(pub i32);
@@ -811,6 +955,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_COMPUTERUSAGEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CONTENTUSAGEEVENT(pub i32);
@@ -831,6 +976,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONTENTUSAGEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CONVERSATIONINITEVENT(pub i32);
@@ -853,6 +999,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONINITEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CONVERSATIONJOINEVENT(pub i32);
@@ -876,6 +1023,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONJOINEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CONVERSATIONLEAVEEVENT(pub i32);
@@ -899,6 +1047,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CUSTOMEVENT(pub i32);
@@ -921,6 +1070,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CUSTOMEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_EMAILCONTACTEVENT(pub i32);
@@ -942,6 +1092,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILCONTACTEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_EMAILRECEIEVEDEVENT(pub i32);
@@ -966,6 +1117,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILRECEIEVEDEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_EMAILSENTEVENT(pub i32);
@@ -989,6 +1141,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILSENTEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_FILEDOWNLOADEVENT(pub i32);
@@ -1007,6 +1160,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_FILEDOWNLOADEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_GAMESTARTEVENT(pub i32);
@@ -1030,6 +1184,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_GAMESTARTEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_IMCONTACTEVENT(pub i32);
@@ -1051,6 +1206,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_IMCONTACTEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_IMFEATUREEVENT(pub i32);
@@ -1075,6 +1231,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_IMFEATUREEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_MEDIADOWNLOADEVENT(pub i32);
@@ -1097,6 +1254,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_MEDIADOWNLOADEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_MEDIAPLAYBACKEVENT(pub i32);
@@ -1119,6 +1277,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_MEDIAPLAYBACKEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_SAFERAPPBLOCKED(pub i32);
@@ -1136,6 +1295,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_SAFERAPPBLOCKED {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_SETTINGSCHANGEEVENT(pub i32);
@@ -1156,6 +1316,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_SETTINGSCHANGEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_URLVISITEVENT(pub i32);
@@ -1176,6 +1337,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_URLVISITEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_WEBOVERRIDEEVENT(pub i32);
@@ -1192,6 +1354,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_WEBOVERRIDEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_WEBSITEVISITEVENT(pub i32);
@@ -1214,6 +1377,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_WEBSITEVISITEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_MEDIA_EXPLICIT(pub i32);
@@ -1229,6 +1393,7 @@ unsafe impl ::windows::runtime::Abi for WPC_MEDIA_EXPLICIT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_MEDIA_TYPE(pub i32);
@@ -1249,6 +1414,7 @@ unsafe impl ::windows::runtime::Abi for WPC_MEDIA_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_SETTINGS(pub i32);
@@ -1299,9 +1465,13 @@ unsafe impl ::windows::runtime::Abi for WPC_SETTINGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_SETTINGS_LOCATE: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_SETTINGS_MODIFY: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_SYSTEM: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_WEB: u32 = 24u32;
 pub const WindowsParentalControls: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3883714715, 29697, 19460, [140, 237, 20, 157, 179, 90, 221, 4]);
 pub const WpcProviderSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138963360, 8582, 19424, [151, 216, 4, 132, 123, 98, 142, 2]);

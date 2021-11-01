@@ -55,11 +55,14 @@ pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = unsafe extern "system" fn(hwlx: super
 pub type PWLX_USE_CTRL_ALT_DEL = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_WIN31_MIGRATE = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE);
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const STATUSMSG_OPTION_NOANIMATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
     pub pszUserName: super::super::Foundation::PWSTR,
@@ -97,6 +100,7 @@ unsafe impl ::windows::runtime::Abi for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub dwType: u32,
     pub pszUserName: super::super::Foundation::PWSTR,
@@ -139,10 +143,12 @@ unsafe impl ::windows::runtime::Abi for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
     pub UserToken: super::super::Foundation::HANDLE,
@@ -253,14 +259,20 @@ unsafe impl ::windows::runtime::Abi for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CREATE_INSTANCE_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CREATE_USER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CREDENTIAL_TYPE_V1_0: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CURRENT_VERSION: u32 = 65540u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
 pub struct WLX_DESKTOP {
     pub Size: u32,
     pub Flags: u32,
@@ -294,12 +306,16 @@ unsafe impl ::windows::runtime::Abi for WLX_DESKTOP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DESKTOP_HANDLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DESKTOP_NAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DIRECTORY_LENGTH: u32 = 256u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_0 {
     pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
     pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
@@ -357,6 +373,7 @@ unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_0 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_1 {
     pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
     pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
@@ -422,6 +439,7 @@ unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_1 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_2 {
     pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
     pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
@@ -489,6 +507,7 @@ unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_2 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_3 {
     pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
     pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
@@ -570,6 +589,7 @@ unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_3 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxUseCtrlAltDel: ::std::option::Option<PWLX_USE_CTRL_ALT_DEL>,
     pub WlxSetContextPointer: ::std::option::Option<PWLX_SET_CONTEXT_POINTER>,
@@ -652,14 +672,20 @@ unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_4 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DLG_SAS: u32 = 101u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DLG_USER_LOGOFF: u32 = 104u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_LOGON_OPT_NO_PROFILE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 pub struct WLX_MPR_NOTIFY_INFO {
     pub pszUserName: super::super::Foundation::PWSTR,
     pub pszDomain: super::super::Foundation::PWSTR,
@@ -696,6 +722,7 @@ unsafe impl ::windows::runtime::Abi for WLX_MPR_NOTIFY_INFO {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
 pub struct WLX_NOTIFICATION_INFO {
     pub Size: u32,
     pub Flags: u32,
@@ -733,20 +760,32 @@ unsafe impl ::windows::runtime::Abi for WLX_NOTIFICATION_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_DISPATCH_TABLE_SIZE: u32 = 65539u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_FORCE_LOGOFF_TIME: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_IGNORE_AUTO_LOGON: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_NO_SWITCH_ON_SAS: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_SMART_CARD_INFO: u32 = 65538u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_SMART_CARD_PRESENT: u32 = 65537u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_USE_CTRL_ALT_DEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_USE_SMART_CARD: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_PROFILE_TYPE_V1_0: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_PROFILE_TYPE_V2_0: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 pub struct WLX_PROFILE_V1_0 {
     pub dwType: u32,
     pub pszProfile: super::super::Foundation::PWSTR,
@@ -781,6 +820,7 @@ unsafe impl ::windows::runtime::Abi for WLX_PROFILE_V1_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 pub struct WLX_PROFILE_V2_0 {
     pub dwType: u32,
     pub pszProfile: super::super::Foundation::PWSTR,
@@ -823,35 +863,62 @@ unsafe impl ::windows::runtime::Abi for WLX_PROFILE_V2_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_FORCE_LOGOFF: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_LOCK_WKSTA: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_LOGOFF: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_LOGON: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_NONE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_PWD_CHANGED: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_RECONNECTED: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_SHUTDOWN_HIBERNATE: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_SHUTDOWN_SLEEP: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_SHUTDOWN_SLEEP2: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_SWITCH_CONSOLE: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_TASKLIST: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_UNLOCK_WKSTA: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_AUTHENTICATED: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_CTRL_ALT_DEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_MAX_MSFT_VALUE: u32 = 127u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_SCRNSVR_ACTIVITY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_SCRNSVR_TIMEOUT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_SC_FIRST_READER_ARRIVED: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_SC_INSERT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_SC_LAST_READER_REMOVED: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_SC_REMOVE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_SWITCHUSER: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_TIMEOUT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 pub struct WLX_SC_NOTIFICATION_INFO {
     pub pszCard: super::super::Foundation::PWSTR,
     pub pszReader: super::super::Foundation::PWSTR,
@@ -885,6 +952,7 @@ unsafe impl ::windows::runtime::Abi for WLX_SC_NOTIFICATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WLX_SHUTDOWN_TYPE(pub u32);
@@ -930,6 +998,7 @@ impl ::std::ops::Not for WLX_SHUTDOWN_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub struct WLX_TERMINAL_SERVICES_DATA {
     pub ProfilePath: [u16; 257],
     pub HomeDir: [u16; 257],
@@ -956,9 +1025,15 @@ unsafe impl ::windows::runtime::Abi for WLX_TERMINAL_SERVICES_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_VERSION_1_0: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_VERSION_1_1: u32 = 65537u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_VERSION_1_2: u32 = 65538u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_VERSION_1_3: u32 = 65539u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_VERSION_1_4: u32 = 65540u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_WM_SAS: u32 = 1625u32;

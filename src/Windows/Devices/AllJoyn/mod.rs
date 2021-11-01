@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynAboutData(::windows::runtime::IInspectable);
 impl AllJoynAboutData {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -12,11 +14,13 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn DefaultAppName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -25,12 +29,14 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SetDefaultAppName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation_Collections`*"]
     pub fn AppNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -40,6 +46,7 @@ impl AllJoynAboutData {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn DateOfManufacture(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -49,11 +56,13 @@ impl AllJoynAboutData {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn SetDateOfManufacture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn DefaultDescription(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -62,12 +71,14 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SetDefaultDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation_Collections`*"]
     pub fn Descriptions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -76,6 +87,7 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn DefaultManufacturer(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -84,12 +96,14 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SetDefaultManufacturer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation_Collections`*"]
     pub fn Manufacturers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -98,6 +112,7 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn ModelNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -106,11 +121,13 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SetModelNumber<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SoftwareVersion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -119,12 +136,14 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SetSoftwareVersion<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn SupportUrl(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -134,11 +153,13 @@ impl AllJoynAboutData {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn SetSupportUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AppId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -147,6 +168,7 @@ impl AllJoynAboutData {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SetAppId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -204,11 +226,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynAboutData {}
 unsafe impl ::std::marker::Sync for AllJoynAboutData {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynAboutDataView(::windows::runtime::IInspectable);
 impl AllJoynAboutDataView {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -218,6 +242,7 @@ impl AllJoynAboutDataView {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -226,6 +251,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AJSoftwareVersion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -234,6 +260,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AppId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -243,6 +270,7 @@ impl AllJoynAboutDataView {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn DateOfManufacture(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -252,6 +280,7 @@ impl AllJoynAboutDataView {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Globalization`*"]
     pub fn DefaultLanguage(&self) -> ::windows::runtime::Result<super::super::Globalization::Language> {
         let this = self;
         unsafe {
@@ -260,6 +289,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -268,6 +298,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn HardwareVersion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -276,6 +307,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn ModelNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -284,6 +316,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SoftwareVersion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -293,6 +326,7 @@ impl AllJoynAboutDataView {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation_Collections`, `Globalization`*"]
     pub fn SupportedLanguages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         let this = self;
         unsafe {
@@ -302,6 +336,7 @@ impl AllJoynAboutDataView {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn SupportUrl(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -310,6 +345,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AppName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -318,6 +354,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -326,6 +363,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn DeviceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -334,6 +372,7 @@ impl AllJoynAboutDataView {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Manufacturer(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -343,6 +382,7 @@ impl AllJoynAboutDataView {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn GetDataBySessionPortAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, AllJoynBusAttachment>>(uniquename: Param0, busattachment: Param1, sessionport: u16) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         Self::IAllJoynAboutDataViewStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -351,6 +391,7 @@ impl AllJoynAboutDataView {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Globalization"))]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`, `Globalization`*"]
     pub fn GetDataBySessionPortWithLanguageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, AllJoynBusAttachment>, Param3: ::windows::runtime::IntoParam<'a, super::super::Globalization::Language>>(uniquename: Param0, busattachment: Param1, sessionport: u16, language: Param3) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         Self::IAllJoynAboutDataViewStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -414,11 +455,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynAboutDataView {}
 unsafe impl ::std::marker::Sync for AllJoynAboutDataView {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynAcceptSessionJoinerEventArgs(::windows::runtime::IInspectable);
 impl AllJoynAcceptSessionJoinerEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn UniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -427,6 +470,7 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SessionPort(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -435,6 +479,7 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn TrafficType(&self) -> ::windows::runtime::Result<AllJoynTrafficType> {
         let this = self;
         unsafe {
@@ -443,6 +488,7 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SamePhysicalNode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -451,6 +497,7 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SameNetwork(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -459,11 +506,13 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Accept(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, IAllJoynAcceptSessionJoiner>>(uniquename: Param0, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: Param4) -> ::windows::runtime::Result<AllJoynAcceptSessionJoinerEventArgs> {
         Self::IAllJoynAcceptSessionJoinerEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -527,11 +576,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynAcceptSessionJoinerEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynAcceptSessionJoinerEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynAuthenticationCompleteEventArgs(::windows::runtime::IInspectable);
 impl AllJoynAuthenticationCompleteEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AuthenticationMechanism(&self) -> ::windows::runtime::Result<AllJoynAuthenticationMechanism> {
         let this = self;
         unsafe {
@@ -540,6 +591,7 @@ impl AllJoynAuthenticationCompleteEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn PeerUniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -548,6 +600,7 @@ impl AllJoynAuthenticationCompleteEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -608,6 +661,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynAuthenticationCompleteEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynAuthenticationCompleteEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AllJoynAuthenticationMechanism(pub i32);
@@ -632,6 +686,7 @@ unsafe impl ::windows::runtime::Abi for AllJoynAuthenticationMechanism {
 unsafe impl ::windows::runtime::RuntimeType for AllJoynAuthenticationMechanism {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynAuthenticationMechanism;i4)");
 }
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynBusAttachment(::windows::runtime::IInspectable);
@@ -644,6 +699,7 @@ impl AllJoynBusAttachment {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AboutData(&self) -> ::windows::runtime::Result<AllJoynAboutData> {
         let this = self;
         unsafe {
@@ -652,6 +708,7 @@ impl AllJoynBusAttachment {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn ConnectionSpecification(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -660,6 +717,7 @@ impl AllJoynBusAttachment {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn State(&self) -> ::windows::runtime::Result<AllJoynBusAttachmentState> {
         let this = self;
         unsafe {
@@ -668,6 +726,7 @@ impl AllJoynBusAttachment {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn UniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -677,6 +736,7 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn PingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, uniquename: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<i32>> {
         let this = self;
         unsafe {
@@ -685,17 +745,20 @@ impl AllJoynBusAttachment {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Connect(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Disconnect(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynBusAttachmentStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -705,12 +768,14 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation_Collections`*"]
     pub fn AuthenticationMechanisms(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<AllJoynAuthenticationMechanism>> {
         let this = self;
         unsafe {
@@ -720,6 +785,7 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn CredentialsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -729,12 +795,14 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveCredentialsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn CredentialsVerificationRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsVerificationRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -744,12 +812,14 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveCredentialsVerificationRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn AuthenticationComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAuthenticationCompleteEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -759,11 +829,13 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveAuthenticationComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(connectionspecification: Param0) -> ::windows::runtime::Result<AllJoynBusAttachment> {
         Self::IAllJoynBusAttachmentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -772,6 +844,7 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn GetAboutDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, AllJoynServiceInfo>>(&self, serviceinfo: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         let this = &::windows::runtime::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
@@ -781,6 +854,7 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Globalization"))]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`, `Globalization`*"]
     pub fn GetAboutDataWithLanguageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, AllJoynServiceInfo>, Param1: ::windows::runtime::IntoParam<'a, super::super::Globalization::Language>>(&self, serviceinfo: Param0, language: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         let this = &::windows::runtime::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
@@ -790,6 +864,7 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn AcceptSessionJoinerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAcceptSessionJoinerEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
@@ -799,12 +874,14 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveAcceptSessionJoinerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn SessionJoined<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynSessionJoinedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
@@ -814,11 +891,13 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveSessionJoined<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<AllJoynBusAttachment> {
         Self::IAllJoynBusAttachmentStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -827,6 +906,7 @@ impl AllJoynBusAttachment {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Devices_Enumeration`, `Foundation_Collections`*"]
     pub fn GetWatcher<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(requiredinterfaces: Param0) -> ::windows::runtime::Result<super::Enumeration::DeviceWatcher> {
         Self::IAllJoynBusAttachmentStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -894,6 +974,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynBusAttachment {}
 unsafe impl ::std::marker::Sync for AllJoynBusAttachment {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentState(pub i32);
@@ -915,11 +996,13 @@ unsafe impl ::windows::runtime::Abi for AllJoynBusAttachmentState {
 unsafe impl ::windows::runtime::RuntimeType for AllJoynBusAttachmentState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynBusAttachmentState;i4)");
 }
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynBusAttachmentStateChangedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynBusAttachmentStateChangedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn State(&self) -> ::windows::runtime::Result<AllJoynBusAttachmentState> {
         let this = self;
         unsafe {
@@ -928,6 +1011,7 @@ impl AllJoynBusAttachmentStateChangedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -988,6 +1072,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynBusAttachmentStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynBusAttachmentStateChangedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynBusObject(::windows::runtime::IInspectable);
@@ -1000,21 +1085,25 @@ impl AllJoynBusObject {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AddProducer<'a, Param0: ::windows::runtime::IntoParam<'a, IAllJoynProducer>>(&self, producer: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), producer.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn BusAttachment(&self) -> ::windows::runtime::Result<AllJoynBusAttachment> {
         let this = self;
         unsafe {
@@ -1023,6 +1112,7 @@ impl AllJoynBusObject {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Session(&self) -> ::windows::runtime::Result<AllJoynSession> {
         let this = self;
         unsafe {
@@ -1032,6 +1122,7 @@ impl AllJoynBusObject {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusObject, AllJoynBusObjectStoppedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1041,11 +1132,13 @@ impl AllJoynBusObject {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(objectpath: Param0) -> ::windows::runtime::Result<AllJoynBusObject> {
         Self::IAllJoynBusObjectFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1053,6 +1146,7 @@ impl AllJoynBusObject {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn CreateWithBusAttachment<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, AllJoynBusAttachment>>(objectpath: Param0, busattachment: Param1) -> ::windows::runtime::Result<AllJoynBusObject> {
         Self::IAllJoynBusObjectFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1116,11 +1210,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynBusObject {}
 unsafe impl ::std::marker::Sync for AllJoynBusObject {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynBusObjectStoppedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynBusObjectStoppedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1129,6 +1225,7 @@ impl AllJoynBusObjectStoppedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create(status: i32) -> ::windows::runtime::Result<AllJoynBusObjectStoppedEventArgs> {
         Self::IAllJoynBusObjectStoppedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1192,11 +1289,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynBusObjectStoppedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynBusObjectStoppedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynCredentials(::windows::runtime::IInspectable);
 impl AllJoynCredentials {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AuthenticationMechanism(&self) -> ::windows::runtime::Result<AllJoynAuthenticationMechanism> {
         let this = self;
         unsafe {
@@ -1206,6 +1305,7 @@ impl AllJoynCredentials {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Security_Cryptography_Certificates")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Security_Cryptography_Certificates`*"]
     pub fn Certificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
@@ -1215,12 +1315,14 @@ impl AllJoynCredentials {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Security_Cryptography_Certificates")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Security_Cryptography_Certificates`*"]
     pub fn SetCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Security_Credentials")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Security_Credentials`*"]
     pub fn PasswordCredential(&self) -> ::windows::runtime::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
@@ -1230,12 +1332,14 @@ impl AllJoynCredentials {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Security_Credentials")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Security_Credentials`*"]
     pub fn SetPasswordCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn Timeout(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1245,6 +1349,7 @@ impl AllJoynCredentials {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn SetTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1302,11 +1407,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynCredentials {}
 unsafe impl ::std::marker::Sync for AllJoynCredentials {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynCredentialsRequestedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynCredentialsRequestedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AttemptCount(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1315,6 +1422,7 @@ impl AllJoynCredentialsRequestedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Credentials(&self) -> ::windows::runtime::Result<AllJoynCredentials> {
         let this = self;
         unsafe {
@@ -1323,6 +1431,7 @@ impl AllJoynCredentialsRequestedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn PeerUniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1331,6 +1440,7 @@ impl AllJoynCredentialsRequestedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn RequestedUserName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1340,6 +1450,7 @@ impl AllJoynCredentialsRequestedEventArgs {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1400,11 +1511,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynCredentialsRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynCredentialsRequestedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynCredentialsVerificationRequestedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynCredentialsVerificationRequestedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AuthenticationMechanism(&self) -> ::windows::runtime::Result<AllJoynAuthenticationMechanism> {
         let this = self;
         unsafe {
@@ -1413,6 +1526,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn PeerUniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1422,6 +1536,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Security_Cryptography_Certificates")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Security_Cryptography_Certificates`*"]
     pub fn PeerCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
@@ -1431,6 +1546,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Networking_Sockets")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Networking_Sockets`*"]
     pub fn PeerCertificateErrorSeverity(&self) -> ::windows::runtime::Result<super::super::Networking::Sockets::SocketSslErrorSeverity> {
         let this = self;
         unsafe {
@@ -1440,6 +1556,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn PeerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
@@ -1449,6 +1566,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn PeerIntermediateCertificates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
@@ -1457,12 +1575,14 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Accept(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1523,11 +1643,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynCredentialsVerificationRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynCredentialsVerificationRequestedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynMessageInfo(::windows::runtime::IInspectable);
 impl AllJoynMessageInfo {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SenderUniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1536,6 +1658,7 @@ impl AllJoynMessageInfo {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(senderuniquename: Param0) -> ::windows::runtime::Result<AllJoynMessageInfo> {
         Self::IAllJoynMessageInfoFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1599,11 +1722,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynMessageInfo {}
 unsafe impl ::std::marker::Sync for AllJoynMessageInfo {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynProducerStoppedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynProducerStoppedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1612,6 +1737,7 @@ impl AllJoynProducerStoppedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create(status: i32) -> ::windows::runtime::Result<AllJoynProducerStoppedEventArgs> {
         Self::IAllJoynProducerStoppedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1675,11 +1801,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynProducerStoppedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynProducerStoppedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynServiceInfo(::windows::runtime::IInspectable);
 impl AllJoynServiceInfo {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn UniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1688,6 +1816,7 @@ impl AllJoynServiceInfo {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn ObjectPath(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1696,6 +1825,7 @@ impl AllJoynServiceInfo {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SessionPort(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1704,6 +1834,7 @@ impl AllJoynServiceInfo {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(uniquename: Param0, objectpath: Param1, sessionport: u16) -> ::windows::runtime::Result<AllJoynServiceInfo> {
         Self::IAllJoynServiceInfoFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1712,6 +1843,7 @@ impl AllJoynServiceInfo {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AllJoynServiceInfo>> {
         Self::IAllJoynServiceInfoStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1779,11 +1911,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynServiceInfo {}
 unsafe impl ::std::marker::Sync for AllJoynServiceInfo {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynServiceInfoRemovedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynServiceInfoRemovedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn UniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1792,6 +1926,7 @@ impl AllJoynServiceInfoRemovedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(uniquename: Param0) -> ::windows::runtime::Result<AllJoynServiceInfoRemovedEventArgs> {
         Self::IAllJoynServiceInfoRemovedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1855,11 +1990,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynServiceInfoRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynServiceInfoRemovedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynSession(::windows::runtime::IInspectable);
 impl AllJoynSession {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1868,6 +2005,7 @@ impl AllJoynSession {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1877,6 +2015,7 @@ impl AllJoynSession {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveMemberAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, uniquename: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<i32>> {
         let this = self;
         unsafe {
@@ -1886,6 +2025,7 @@ impl AllJoynSession {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn MemberAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberAddedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1895,12 +2035,14 @@ impl AllJoynSession {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveMemberAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn MemberRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1910,12 +2052,14 @@ impl AllJoynSession {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveMemberRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn Lost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionLostEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1925,12 +2069,14 @@ impl AllJoynSession {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn RemoveLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn GetFromServiceInfoAsync<'a, Param0: ::windows::runtime::IntoParam<'a, AllJoynServiceInfo>>(serviceinfo: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>> {
         Self::IAllJoynSessionStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1939,6 +2085,7 @@ impl AllJoynSession {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_AllJoyn`, `Foundation`*"]
     pub fn GetFromServiceInfoAndBusAttachmentAsync<'a, Param0: ::windows::runtime::IntoParam<'a, AllJoynServiceInfo>, Param1: ::windows::runtime::IntoParam<'a, AllJoynBusAttachment>>(serviceinfo: Param0, busattachment: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>> {
         Self::IAllJoynSessionStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2002,11 +2149,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynSession {}
 unsafe impl ::std::marker::Sync for AllJoynSession {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynSessionJoinedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynSessionJoinedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Session(&self) -> ::windows::runtime::Result<AllJoynSession> {
         let this = self;
         unsafe {
@@ -2015,6 +2164,7 @@ impl AllJoynSessionJoinedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, AllJoynSession>>(session: Param0) -> ::windows::runtime::Result<AllJoynSessionJoinedEventArgs> {
         Self::IAllJoynSessionJoinedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2078,11 +2228,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynSessionJoinedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynSessionJoinedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynSessionLostEventArgs(::windows::runtime::IInspectable);
 impl AllJoynSessionLostEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<AllJoynSessionLostReason> {
         let this = self;
         unsafe {
@@ -2091,6 +2243,7 @@ impl AllJoynSessionLostEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create(reason: AllJoynSessionLostReason) -> ::windows::runtime::Result<AllJoynSessionLostEventArgs> {
         Self::IAllJoynSessionLostEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2154,6 +2307,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynSessionLostEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynSessionLostEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AllJoynSessionLostReason(pub i32);
@@ -2177,11 +2331,13 @@ unsafe impl ::windows::runtime::Abi for AllJoynSessionLostReason {
 unsafe impl ::windows::runtime::RuntimeType for AllJoynSessionLostReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynSessionLostReason;i4)");
 }
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynSessionMemberAddedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynSessionMemberAddedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn UniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2190,6 +2346,7 @@ impl AllJoynSessionMemberAddedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(uniquename: Param0) -> ::windows::runtime::Result<AllJoynSessionMemberAddedEventArgs> {
         Self::IAllJoynSessionMemberAddedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2253,11 +2410,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynSessionMemberAddedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynSessionMemberAddedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynSessionMemberRemovedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynSessionMemberRemovedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn UniqueName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2266,6 +2425,7 @@ impl AllJoynSessionMemberRemovedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(uniquename: Param0) -> ::windows::runtime::Result<AllJoynSessionMemberRemovedEventArgs> {
         Self::IAllJoynSessionMemberRemovedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2329,9 +2489,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AllJoynSessionMemberRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynSessionMemberRemovedEventArgs {}
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 pub struct AllJoynStatus {}
 impl AllJoynStatus {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Ok() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2339,6 +2501,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Fail() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2346,6 +2509,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn OperationTimedOut() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2353,6 +2517,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn OtherEndClosed() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2360,6 +2525,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn ConnectionRefused() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2367,6 +2533,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AuthenticationFailed() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2374,6 +2541,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn AuthenticationRejectedByUser() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2381,6 +2549,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SslConnectFailed() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2388,6 +2557,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SslIdentityVerificationFailed() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2395,6 +2565,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InsufficientSecurity() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2402,6 +2573,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InvalidArgument1() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2409,6 +2581,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InvalidArgument2() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2416,6 +2589,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InvalidArgument3() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2423,6 +2597,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InvalidArgument4() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2430,6 +2605,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InvalidArgument5() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2437,6 +2613,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InvalidArgument6() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2444,6 +2621,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InvalidArgument7() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2451,6 +2629,7 @@ impl AllJoynStatus {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn InvalidArgument8() -> ::windows::runtime::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2465,6 +2644,7 @@ impl AllJoynStatus {
 impl ::windows::runtime::RuntimeName for AllJoynStatus {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynStatus";
 }
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AllJoynTrafficType(pub i32);
@@ -2486,11 +2666,13 @@ unsafe impl ::windows::runtime::Abi for AllJoynTrafficType {
 unsafe impl ::windows::runtime::RuntimeType for AllJoynTrafficType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynTrafficType;i4)");
 }
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AllJoynWatcherStoppedEventArgs(::windows::runtime::IInspectable);
 impl AllJoynWatcherStoppedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2499,6 +2681,7 @@ impl AllJoynWatcherStoppedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Create(status: i32) -> ::windows::runtime::Result<AllJoynWatcherStoppedEventArgs> {
         Self::IAllJoynWatcherStoppedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2671,6 +2854,7 @@ pub struct IAllJoynAboutDataViewStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 pub struct IAllJoynAcceptSessionJoiner(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoiner {
     type Vtable = IAllJoynAcceptSessionJoiner_abi;
@@ -2678,6 +2862,7 @@ unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoiner {
 }
 impl IAllJoynAcceptSessionJoiner {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn Accept(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -3146,6 +3331,7 @@ pub struct IAllJoynMessageInfoFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_AllJoyn`*"]
 pub struct IAllJoynProducer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducer {
     type Vtable = IAllJoynProducer_abi;
@@ -3153,6 +3339,7 @@ unsafe impl ::windows::runtime::Interface for IAllJoynProducer {
 }
 impl IAllJoynProducer {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_AllJoyn`*"]
     pub fn SetBusObject<'a, Param0: ::windows::runtime::IntoParam<'a, AllJoynBusObject>>(&self, busobject: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), busobject.into_param().abi()).ok() }

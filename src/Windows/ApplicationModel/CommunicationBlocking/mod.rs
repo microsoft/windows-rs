@@ -1,6 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `ApplicationModel_CommunicationBlocking`*"]
 pub struct CommunicationBlockingAccessManager {}
 impl CommunicationBlockingAccessManager {
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`*"]
     pub fn IsBlockingActive() -> ::windows::runtime::Result<bool> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -8,6 +10,7 @@ impl CommunicationBlockingAccessManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`, `Foundation`*"]
     pub fn IsBlockedNumberAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(number: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -15,6 +18,7 @@ impl CommunicationBlockingAccessManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`, `Foundation_Collections`*"]
     pub fn ShowBlockNumbersUI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(phonenumbers: Param0) -> ::windows::runtime::Result<bool> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -22,15 +26,18 @@ impl CommunicationBlockingAccessManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`, `Foundation_Collections`*"]
     pub fn ShowUnblockNumbersUI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(phonenumbers: Param0) -> ::windows::runtime::Result<bool> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), phonenumbers.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`*"]
     pub fn ShowBlockedCallsUI() -> ::windows::runtime::Result<()> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() })
     }
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`*"]
     pub fn ShowBlockedMessagesUI() -> ::windows::runtime::Result<()> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() })
     }
@@ -42,18 +49,22 @@ impl CommunicationBlockingAccessManager {
 impl ::windows::runtime::RuntimeName for CommunicationBlockingAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager";
 }
+#[doc = "*Required features: `ApplicationModel_CommunicationBlocking`*"]
 pub struct CommunicationBlockingAppManager {}
 impl CommunicationBlockingAppManager {
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`*"]
     pub fn IsCurrentAppActiveBlockingApp() -> ::windows::runtime::Result<bool> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`*"]
     pub fn ShowCommunicationBlockingSettingsUI() -> ::windows::runtime::Result<()> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_CommunicationBlocking`, `Foundation`*"]
     pub fn RequestSetAsActiveBlockingAppAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

@@ -111,6 +111,7 @@ pub struct IUserDataStorageItemProtectionInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserDataAvailability) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Security_DataProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataAvailability(pub i32);
@@ -131,11 +132,13 @@ unsafe impl ::windows::runtime::Abi for UserDataAvailability {
 unsafe impl ::windows::runtime::RuntimeType for UserDataAvailability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
 }
+#[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserDataAvailabilityStateChangedEventArgs(::windows::runtime::IInspectable);
 impl UserDataAvailabilityStateChangedEventArgs {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_DataProtection`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -196,10 +199,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
+#[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserDataBufferUnprotectResult(::windows::runtime::IInspectable);
 impl UserDataBufferUnprotectResult {
+    #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<UserDataBufferUnprotectStatus> {
         let this = self;
         unsafe {
@@ -208,6 +213,7 @@ impl UserDataBufferUnprotectResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Security_DataProtection`, `Storage_Streams`*"]
     pub fn UnprotectedBuffer(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -268,6 +274,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserDataBufferUnprotectResult {}
 unsafe impl ::std::marker::Sync for UserDataBufferUnprotectResult {}
+#[doc = "*Required features: `Security_DataProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
@@ -287,11 +294,13 @@ unsafe impl ::windows::runtime::Abi for UserDataBufferUnprotectStatus {
 unsafe impl ::windows::runtime::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
 }
+#[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserDataProtectionManager(::windows::runtime::IInspectable);
 impl UserDataProtectionManager {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Security_DataProtection`, `Foundation`, `Storage`*"]
     pub fn ProtectStorageItemAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageItem>>(&self, storageitem: Param0, availability: UserDataAvailability) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>> {
         let this = self;
         unsafe {
@@ -300,6 +309,7 @@ impl UserDataProtectionManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Security_DataProtection`, `Foundation`, `Storage`*"]
     pub fn GetStorageItemProtectionInfoAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageItem>>(&self, storageitem: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>> {
         let this = self;
         unsafe {
@@ -308,6 +318,7 @@ impl UserDataProtectionManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Security_DataProtection`, `Foundation`, `Storage_Streams`*"]
     pub fn ProtectBufferAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, unprotectedbuffer: Param0, availability: UserDataAvailability) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
@@ -316,6 +327,7 @@ impl UserDataProtectionManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Security_DataProtection`, `Foundation`, `Storage_Streams`*"]
     pub fn UnprotectBufferAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, protectedbuffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>> {
         let this = self;
         unsafe {
@@ -323,6 +335,7 @@ impl UserDataProtectionManager {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), protectedbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -331,6 +344,7 @@ impl UserDataProtectionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_DataProtection`, `Foundation`*"]
     pub fn DataAvailabilityStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -339,10 +353,12 @@ impl UserDataProtectionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_DataProtection`, `Foundation`*"]
     pub fn RemoveDataAvailabilityStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn TryGetDefault() -> ::windows::runtime::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -350,6 +366,7 @@ impl UserDataProtectionManager {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Security_DataProtection`, `System`*"]
     pub fn TryGetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -413,10 +430,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserDataProtectionManager {}
 unsafe impl ::std::marker::Sync for UserDataProtectionManager {}
+#[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserDataStorageItemProtectionInfo(::windows::runtime::IInspectable);
 impl UserDataStorageItemProtectionInfo {
+    #[doc = "*Required features: `Security_DataProtection`*"]
     pub fn Availability(&self) -> ::windows::runtime::Result<UserDataAvailability> {
         let this = self;
         unsafe {
@@ -477,6 +496,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::std::marker::Sync for UserDataStorageItemProtectionInfo {}
+#[doc = "*Required features: `Security_DataProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);

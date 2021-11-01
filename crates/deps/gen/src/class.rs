@@ -79,6 +79,7 @@ impl Class {
         let interfaces = self.interfaces();
         let features = gen.class_features(&self.0);
         let cfg = gen.gen_cfg(&features);
+        let doc = gen.gen_cfg_doc(&features);
 
         if include == TypeInclude::Full {
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
@@ -148,6 +149,7 @@ impl Class {
 
                 quote! {
                     #cfg
+                    #doc
                     #[repr(transparent)]
                     #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                     pub struct #name(::windows::runtime::IInspectable);
@@ -180,6 +182,7 @@ impl Class {
                 }
             } else {
                 quote! {
+                    #doc
                     pub struct #name {}
                     impl #name {
                         #methods

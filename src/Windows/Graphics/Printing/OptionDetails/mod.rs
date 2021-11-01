@@ -193,16 +193,19 @@ pub struct IPrintCustomItemListOptionDetails3_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 pub struct IPrintCustomOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCustomOptionDetails {
     type Vtable = IPrintCustomOptionDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3811302940, 10415, 19344, [149, 218, 163, 172, 243, 32, 185, 41]);
 }
 impl IPrintCustomOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -210,6 +213,7 @@ impl IPrintCustomOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -217,6 +221,7 @@ impl IPrintCustomOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -224,10 +229,12 @@ impl IPrintCustomOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -235,10 +242,12 @@ impl IPrintCustomOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -246,6 +255,7 @@ impl IPrintCustomOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -253,6 +263,7 @@ impl IPrintCustomOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -448,6 +459,7 @@ pub struct IPrintHolePunchOptionDetails_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 pub struct IPrintItemListOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintItemListOptionDetails {
     type Vtable = IPrintItemListOptionDetails_abi;
@@ -455,6 +467,7 @@ unsafe impl ::windows::runtime::Interface for IPrintItemListOptionDetails {
 }
 impl IPrintItemListOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -462,6 +475,7 @@ impl IPrintItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -469,6 +483,7 @@ impl IPrintItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -476,10 +491,12 @@ impl IPrintItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -487,10 +504,12 @@ impl IPrintItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -498,6 +517,7 @@ impl IPrintItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -505,6 +525,7 @@ impl IPrintItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -636,12 +657,14 @@ pub struct IPrintMediaTypeOptionDetails_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 pub struct IPrintNumberOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintNumberOptionDetails {
     type Vtable = IPrintNumberOptionDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1291959215, 25692, 19945, [150, 95, 111, 198, 187, 196, 124, 171]);
 }
 impl IPrintNumberOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn MinValue(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -649,6 +672,7 @@ impl IPrintNumberOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn MaxValue(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -656,6 +680,7 @@ impl IPrintNumberOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -663,6 +688,7 @@ impl IPrintNumberOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -670,10 +696,12 @@ impl IPrintNumberOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -681,10 +709,12 @@ impl IPrintNumberOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -692,6 +722,7 @@ impl IPrintNumberOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -699,6 +730,7 @@ impl IPrintNumberOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -786,12 +818,14 @@ pub struct IPrintNumberOptionDetails_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 pub struct IPrintOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintOptionDetails {
     type Vtable = IPrintOptionDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(956729039, 54914, 18783, [173, 254, 215, 51, 63, 92, 24, 8]);
 }
 impl IPrintOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -799,6 +833,7 @@ impl IPrintOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -806,10 +841,12 @@ impl IPrintOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -817,10 +854,12 @@ impl IPrintOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -828,6 +867,7 @@ impl IPrintOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -835,6 +875,7 @@ impl IPrintOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1081,12 +1122,14 @@ pub struct IPrintTaskOptionDetailsStatic_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 pub struct IPrintTextOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTextOptionDetails {
     type Vtable = IPrintTextOptionDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910184803, 23780, 18108, [153, 24, 171, 159, 173, 20, 76, 91]);
 }
 impl IPrintTextOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn MaxCharacters(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1094,6 +1137,7 @@ impl IPrintTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -1101,6 +1145,7 @@ impl IPrintTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -1108,10 +1153,12 @@ impl IPrintTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -1119,10 +1166,12 @@ impl IPrintTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -1130,6 +1179,7 @@ impl IPrintTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -1137,6 +1187,7 @@ impl IPrintTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
@@ -1221,10 +1272,12 @@ pub struct IPrintTextOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintBindingOptionDetails(::windows::runtime::IInspectable);
 impl PrintBindingOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1232,6 +1285,7 @@ impl PrintBindingOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -1239,10 +1293,12 @@ impl PrintBindingOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1250,10 +1306,12 @@ impl PrintBindingOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -1261,6 +1319,7 @@ impl PrintBindingOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1268,6 +1327,7 @@ impl PrintBindingOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1276,6 +1336,7 @@ impl PrintBindingOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -1283,10 +1344,12 @@ impl PrintBindingOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintBindingOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintBindingOptionDetails>(self)?;
         unsafe {
@@ -1294,10 +1357,12 @@ impl PrintBindingOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintBindingOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintBindingOptionDetails>(self)?;
         unsafe {
@@ -1400,10 +1465,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintBindingOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintBindingOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintBorderingOptionDetails(::windows::runtime::IInspectable);
 impl PrintBorderingOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1411,6 +1478,7 @@ impl PrintBorderingOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -1418,10 +1486,12 @@ impl PrintBorderingOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1429,10 +1499,12 @@ impl PrintBorderingOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -1440,6 +1512,7 @@ impl PrintBorderingOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1447,6 +1520,7 @@ impl PrintBorderingOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1455,6 +1529,7 @@ impl PrintBorderingOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -1462,10 +1537,12 @@ impl PrintBorderingOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintBorderingOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintBorderingOptionDetails>(self)?;
         unsafe {
@@ -1473,10 +1550,12 @@ impl PrintBorderingOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintBorderingOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintBorderingOptionDetails>(self)?;
         unsafe {
@@ -1579,10 +1658,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintBorderingOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintBorderingOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintCollationOptionDetails(::windows::runtime::IInspectable);
 impl PrintCollationOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1590,6 +1671,7 @@ impl PrintCollationOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -1597,10 +1679,12 @@ impl PrintCollationOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1608,10 +1692,12 @@ impl PrintCollationOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -1619,6 +1705,7 @@ impl PrintCollationOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1626,6 +1713,7 @@ impl PrintCollationOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1634,6 +1722,7 @@ impl PrintCollationOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -1641,10 +1730,12 @@ impl PrintCollationOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCollationOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCollationOptionDetails>(self)?;
         unsafe {
@@ -1652,10 +1743,12 @@ impl PrintCollationOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCollationOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCollationOptionDetails>(self)?;
         unsafe {
@@ -1758,10 +1851,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintCollationOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintCollationOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintColorModeOptionDetails(::windows::runtime::IInspectable);
 impl PrintColorModeOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1769,6 +1864,7 @@ impl PrintColorModeOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -1776,10 +1872,12 @@ impl PrintColorModeOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1787,10 +1885,12 @@ impl PrintColorModeOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -1798,6 +1898,7 @@ impl PrintColorModeOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1805,6 +1906,7 @@ impl PrintColorModeOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1813,6 +1915,7 @@ impl PrintColorModeOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -1820,10 +1923,12 @@ impl PrintColorModeOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintColorModeOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintColorModeOptionDetails>(self)?;
         unsafe {
@@ -1831,10 +1936,12 @@ impl PrintColorModeOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintColorModeOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintColorModeOptionDetails>(self)?;
         unsafe {
@@ -1937,10 +2044,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintColorModeOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintColorModeOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintCopiesOptionDetails(::windows::runtime::IInspectable);
 impl PrintCopiesOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1948,6 +2057,7 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -1955,10 +2065,12 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1966,10 +2078,12 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -1977,6 +2091,7 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1984,6 +2099,7 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1991,6 +2107,7 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn MinValue(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IPrintNumberOptionDetails>(self)?;
         unsafe {
@@ -1998,6 +2115,7 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn MaxValue(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IPrintNumberOptionDetails>(self)?;
         unsafe {
@@ -2005,10 +2123,12 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCopiesOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCopiesOptionDetails>(self)?;
         unsafe {
@@ -2016,10 +2136,12 @@ impl PrintCopiesOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCopiesOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCopiesOptionDetails>(self)?;
         unsafe {
@@ -2122,10 +2244,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintNumberOptionDetails> for &Print
 }
 unsafe impl ::std::marker::Send for PrintCopiesOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintCopiesOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintCustomItemDetails(::windows::runtime::IInspectable);
 impl PrintCustomItemDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ItemId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2133,10 +2257,12 @@ impl PrintCustomItemDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetItemDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ItemDisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2197,10 +2323,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrintCustomItemDetails {}
 unsafe impl ::std::marker::Sync for PrintCustomItemDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintCustomItemListOptionDetails(::windows::runtime::IInspectable);
 impl PrintCustomItemListOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2208,6 +2336,7 @@ impl PrintCustomItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -2215,10 +2344,12 @@ impl PrintCustomItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2226,10 +2357,12 @@ impl PrintCustomItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -2237,6 +2370,7 @@ impl PrintCustomItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -2244,6 +2378,7 @@ impl PrintCustomItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2251,14 +2386,17 @@ impl PrintCustomItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn AddItem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, itemid: Param0, displayname: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomItemListOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), itemid.into_param().abi(), displayname.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe {
@@ -2267,6 +2405,7 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -2275,14 +2414,17 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Storage_Streams`*"]
     pub fn AddItem2<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(&self, itemid: Param0, displayname: Param1, description: Param2, icon: Param3) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomItemListOptionDetails2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), itemid.into_param().abi(), displayname.into_param().abi(), description.into_param().abi(), icon.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomItemListOptionDetails3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomItemListOptionDetails3>(self)?;
         unsafe {
@@ -2290,10 +2432,12 @@ impl PrintCustomItemListOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomItemListOptionDetails3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomItemListOptionDetails3>(self)?;
         unsafe {
@@ -2418,10 +2562,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintCustomItemListOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintCustomItemListOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintCustomTextOptionDetails(::windows::runtime::IInspectable);
 impl PrintCustomTextOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2429,6 +2575,7 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -2436,10 +2583,12 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2447,10 +2596,12 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -2458,6 +2609,7 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -2465,6 +2617,7 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2472,10 +2625,12 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe {
@@ -2483,10 +2638,12 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetMaxCharacters(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomTextOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn MaxCharacters(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomTextOptionDetails>(self)?;
         unsafe {
@@ -2494,10 +2651,12 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomTextOptionDetails2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomTextOptionDetails2>(self)?;
         unsafe {
@@ -2505,10 +2664,12 @@ impl PrintCustomTextOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomTextOptionDetails2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomTextOptionDetails2>(self)?;
         unsafe {
@@ -2611,10 +2772,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintCustomOptionDetails> for &Print
 }
 unsafe impl ::std::marker::Send for PrintCustomTextOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintCustomTextOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintCustomToggleOptionDetails(::windows::runtime::IInspectable);
 impl PrintCustomToggleOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2622,6 +2785,7 @@ impl PrintCustomToggleOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -2629,10 +2793,12 @@ impl PrintCustomToggleOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2640,10 +2806,12 @@ impl PrintCustomToggleOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -2651,6 +2819,7 @@ impl PrintCustomToggleOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -2658,6 +2827,7 @@ impl PrintCustomToggleOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2665,10 +2835,12 @@ impl PrintCustomToggleOptionDetails {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe {
@@ -2676,10 +2848,12 @@ impl PrintCustomToggleOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomToggleOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomToggleOptionDetails>(self)?;
         unsafe {
@@ -2687,10 +2861,12 @@ impl PrintCustomToggleOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomToggleOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintCustomToggleOptionDetails>(self)?;
         unsafe {
@@ -2793,10 +2969,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintCustomOptionDetails> for &Print
 }
 unsafe impl ::std::marker::Send for PrintCustomToggleOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintCustomToggleOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintDuplexOptionDetails(::windows::runtime::IInspectable);
 impl PrintDuplexOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2804,6 +2982,7 @@ impl PrintDuplexOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -2811,10 +2990,12 @@ impl PrintDuplexOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2822,10 +3003,12 @@ impl PrintDuplexOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -2833,6 +3016,7 @@ impl PrintDuplexOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -2840,6 +3024,7 @@ impl PrintDuplexOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2848,6 +3033,7 @@ impl PrintDuplexOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -2855,10 +3041,12 @@ impl PrintDuplexOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintDuplexOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintDuplexOptionDetails>(self)?;
         unsafe {
@@ -2866,10 +3054,12 @@ impl PrintDuplexOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintDuplexOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintDuplexOptionDetails>(self)?;
         unsafe {
@@ -2972,10 +3162,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintDuplexOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintDuplexOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintHolePunchOptionDetails(::windows::runtime::IInspectable);
 impl PrintHolePunchOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2983,6 +3175,7 @@ impl PrintHolePunchOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -2990,10 +3183,12 @@ impl PrintHolePunchOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3001,10 +3196,12 @@ impl PrintHolePunchOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -3012,6 +3209,7 @@ impl PrintHolePunchOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -3019,6 +3217,7 @@ impl PrintHolePunchOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3027,6 +3226,7 @@ impl PrintHolePunchOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -3034,10 +3234,12 @@ impl PrintHolePunchOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintHolePunchOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintHolePunchOptionDetails>(self)?;
         unsafe {
@@ -3045,10 +3247,12 @@ impl PrintHolePunchOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintHolePunchOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintHolePunchOptionDetails>(self)?;
         unsafe {
@@ -3151,10 +3355,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintHolePunchOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintHolePunchOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintMediaSizeOptionDetails(::windows::runtime::IInspectable);
 impl PrintMediaSizeOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3162,6 +3368,7 @@ impl PrintMediaSizeOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -3169,10 +3376,12 @@ impl PrintMediaSizeOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3180,10 +3389,12 @@ impl PrintMediaSizeOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -3191,6 +3402,7 @@ impl PrintMediaSizeOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -3198,6 +3410,7 @@ impl PrintMediaSizeOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3206,6 +3419,7 @@ impl PrintMediaSizeOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -3213,10 +3427,12 @@ impl PrintMediaSizeOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintMediaSizeOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintMediaSizeOptionDetails>(self)?;
         unsafe {
@@ -3224,10 +3440,12 @@ impl PrintMediaSizeOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintMediaSizeOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintMediaSizeOptionDetails>(self)?;
         unsafe {
@@ -3330,10 +3548,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintMediaSizeOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintMediaSizeOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintMediaTypeOptionDetails(::windows::runtime::IInspectable);
 impl PrintMediaTypeOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3341,6 +3561,7 @@ impl PrintMediaTypeOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -3348,10 +3569,12 @@ impl PrintMediaTypeOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3359,10 +3582,12 @@ impl PrintMediaTypeOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -3370,6 +3595,7 @@ impl PrintMediaTypeOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -3377,6 +3603,7 @@ impl PrintMediaTypeOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3385,6 +3612,7 @@ impl PrintMediaTypeOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -3392,10 +3620,12 @@ impl PrintMediaTypeOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintMediaTypeOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintMediaTypeOptionDetails>(self)?;
         unsafe {
@@ -3403,10 +3633,12 @@ impl PrintMediaTypeOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintMediaTypeOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintMediaTypeOptionDetails>(self)?;
         unsafe {
@@ -3509,6 +3741,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintMediaTypeOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintMediaTypeOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintOptionStates(pub u32);
@@ -3557,6 +3790,7 @@ impl ::std::ops::Not for PrintOptionStates {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintOptionType(pub i32);
@@ -3579,10 +3813,12 @@ unsafe impl ::windows::runtime::Abi for PrintOptionType {
 unsafe impl ::windows::runtime::RuntimeType for PrintOptionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionType;i4)");
 }
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintOrientationOptionDetails(::windows::runtime::IInspectable);
 impl PrintOrientationOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3590,6 +3826,7 @@ impl PrintOrientationOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -3597,10 +3834,12 @@ impl PrintOrientationOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3608,10 +3847,12 @@ impl PrintOrientationOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -3619,6 +3860,7 @@ impl PrintOrientationOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -3626,6 +3868,7 @@ impl PrintOrientationOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3634,6 +3877,7 @@ impl PrintOrientationOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -3641,10 +3885,12 @@ impl PrintOrientationOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOrientationOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOrientationOptionDetails>(self)?;
         unsafe {
@@ -3652,10 +3898,12 @@ impl PrintOrientationOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintOrientationOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintOrientationOptionDetails>(self)?;
         unsafe {
@@ -3758,10 +4006,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintOrientationOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintOrientationOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintPageRangeOptionDetails(::windows::runtime::IInspectable);
 impl PrintPageRangeOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3769,6 +4019,7 @@ impl PrintPageRangeOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -3776,10 +4027,12 @@ impl PrintPageRangeOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3787,10 +4040,12 @@ impl PrintPageRangeOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -3798,6 +4053,7 @@ impl PrintPageRangeOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -3805,6 +4061,7 @@ impl PrintPageRangeOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3812,10 +4069,12 @@ impl PrintPageRangeOptionDetails {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintPageRangeOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintPageRangeOptionDetails>(self)?;
         unsafe {
@@ -3823,10 +4082,12 @@ impl PrintPageRangeOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintPageRangeOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintPageRangeOptionDetails>(self)?;
         unsafe {
@@ -3907,10 +4168,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintPageRa
 }
 unsafe impl ::std::marker::Send for PrintPageRangeOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintPageRangeOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintQualityOptionDetails(::windows::runtime::IInspectable);
 impl PrintQualityOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3918,6 +4181,7 @@ impl PrintQualityOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -3925,10 +4189,12 @@ impl PrintQualityOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3936,10 +4202,12 @@ impl PrintQualityOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -3947,6 +4215,7 @@ impl PrintQualityOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -3954,6 +4223,7 @@ impl PrintQualityOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3962,6 +4232,7 @@ impl PrintQualityOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -3969,10 +4240,12 @@ impl PrintQualityOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintQualityOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintQualityOptionDetails>(self)?;
         unsafe {
@@ -3980,10 +4253,12 @@ impl PrintQualityOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintQualityOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintQualityOptionDetails>(self)?;
         unsafe {
@@ -4086,10 +4361,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintQualityOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintQualityOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintStapleOptionDetails(::windows::runtime::IInspectable);
 impl PrintStapleOptionDetails {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4097,6 +4374,7 @@ impl PrintStapleOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionType(&self) -> ::windows::runtime::Result<PrintOptionType> {
         let this = self;
         unsafe {
@@ -4104,10 +4382,12 @@ impl PrintStapleOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetErrorText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4115,10 +4395,12 @@ impl PrintStapleOptionDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetState(&self, value: PrintOptionStates) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn State(&self) -> ::windows::runtime::Result<PrintOptionStates> {
         let this = self;
         unsafe {
@@ -4126,6 +4408,7 @@ impl PrintStapleOptionDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintOptionStates>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -4133,6 +4416,7 @@ impl PrintStapleOptionDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn TrySetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4141,6 +4425,7 @@ impl PrintStapleOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Items(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IPrintItemListOptionDetails>(self)?;
         unsafe {
@@ -4148,10 +4433,12 @@ impl PrintStapleOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetWarningText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintStapleOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn WarningText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintStapleOptionDetails>(self)?;
         unsafe {
@@ -4159,10 +4446,12 @@ impl PrintStapleOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPrintStapleOptionDetails>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPrintStapleOptionDetails>(self)?;
         unsafe {
@@ -4265,10 +4554,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPrintItemListOptionDetails> for &Pri
 }
 unsafe impl ::std::marker::Send for PrintStapleOptionDetails {}
 unsafe impl ::std::marker::Sync for PrintStapleOptionDetails {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintTaskOptionChangedEventArgs(::windows::runtime::IInspectable);
 impl PrintTaskOptionChangedEventArgs {
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn OptionId(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -4329,11 +4620,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrintTaskOptionChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintTaskOptionChangedEventArgs {}
+#[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintTaskOptionDetails(::windows::runtime::IInspectable);
 impl PrintTaskOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, IPrintOptionDetails>> {
         let this = self;
         unsafe {
@@ -4341,6 +4634,7 @@ impl PrintTaskOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, IPrintOptionDetails>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn CreateItemListOption<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, optionid: Param0, displayname: Param1) -> ::windows::runtime::Result<PrintCustomItemListOptionDetails> {
         let this = self;
         unsafe {
@@ -4348,6 +4642,7 @@ impl PrintTaskOptionDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), optionid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<PrintCustomItemListOptionDetails>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn CreateTextOption<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, optionid: Param0, displayname: Param1) -> ::windows::runtime::Result<PrintCustomTextOptionDetails> {
         let this = self;
         unsafe {
@@ -4356,6 +4651,7 @@ impl PrintTaskOptionDetails {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation`*"]
     pub fn OptionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4364,11 +4660,13 @@ impl PrintTaskOptionDetails {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation`*"]
     pub fn RemoveOptionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation`*"]
     pub fn BeginValidation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows::runtime::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4377,11 +4675,13 @@ impl PrintTaskOptionDetails {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation`*"]
     pub fn RemoveBeginValidation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation`*"]
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows::runtime::Result<super::PrintPageDescription> {
         let this = &::windows::runtime::Interface::cast::<super::IPrintTaskOptionsCore>(self)?;
         unsafe {
@@ -4390,6 +4690,7 @@ impl PrintTaskOptionDetails {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`, `Foundation_Collections`*"]
     pub fn DisplayedOptions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<super::IPrintTaskOptionsCoreUIConfiguration>(self)?;
         unsafe {
@@ -4397,12 +4698,14 @@ impl PrintTaskOptionDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn GetFromPrintTaskOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::PrintTaskOptions>>(printtaskoptions: Param0) -> ::windows::runtime::Result<PrintTaskOptionDetails> {
         Self::IPrintTaskOptionDetailsStatic(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), printtaskoptions.into_param().abi(), &mut result__).from_abi::<PrintTaskOptionDetails>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
     pub fn CreateToggleOption<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, optionid: Param0, displayname: Param1) -> ::windows::runtime::Result<PrintCustomToggleOptionDetails> {
         let this = &::windows::runtime::Interface::cast::<IPrintTaskOptionDetails2>(self)?;
         unsafe {

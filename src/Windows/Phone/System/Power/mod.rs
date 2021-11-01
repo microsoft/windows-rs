@@ -41,8 +41,10 @@ pub struct IPowerManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Phone_System_Power`*"]
 pub struct PowerManager {}
 impl PowerManager {
+    #[doc = "*Required features: `Phone_System_Power`*"]
     pub fn PowerSavingMode() -> ::windows::runtime::Result<PowerSavingMode> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: PowerSavingMode = ::std::mem::zeroed();
@@ -50,6 +52,7 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_System_Power`, `Foundation`*"]
     pub fn PowerSavingModeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(changehandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -57,9 +60,11 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_System_Power`, `Foundation`*"]
     pub fn RemovePowerSavingModeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `Phone_System_Power`*"]
     pub fn PowerSavingModeEnabled() -> ::windows::runtime::Result<bool> {
         Self::IPowerManagerStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -78,6 +83,7 @@ impl PowerManager {
 impl ::windows::runtime::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.Phone.System.Power.PowerManager";
 }
+#[doc = "*Required features: `Phone_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PowerSavingMode(pub i32);

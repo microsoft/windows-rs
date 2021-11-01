@@ -1,47 +1,86 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_ATTACH: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_BREAK: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_DIVOVERFLOW: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_DLLSTART: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_DLLSTOP: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_GPFAULT: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_GPFAULT2: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_INIT: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_INSTRFAULT: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_MODFREE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_MODLOAD: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_MODMOVE: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_SEGFREE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_SEGLOAD: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_SEGMOVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_SINGLESTEP: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_STACKFAULT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_TASKSTART: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_TASKSTOP: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_TEMPBP: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_TOOLHELP: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const DBG_WOWINIT: u32 = 17u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 pub type DEBUGEVENTPROC = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>, param1: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_ACCELERATORS: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_BITMAP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_CURSOR: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_CURSORCOMPONENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_DIALOG: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_ERRTABLE: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_FONT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_FONTDIR: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_ICON: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_ICONCOMPONENT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_MAX_RESOURCE: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_MENU: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_NAMETABLE: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_RCDATA: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_STRING: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GD_USERDEFINED: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 pub struct GLOBALENTRY {
     pub dwSize: u32,
     pub dwAddress: u32,
@@ -78,23 +117,38 @@ unsafe impl ::windows::runtime::Abi for GLOBALENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GLOBAL_ALL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GLOBAL_FREE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GLOBAL_LRU: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_BURGERMASTER: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_CODE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_DATA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_DGROUP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_FREE: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_INTERNAL: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_MODULE: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_RESOURCE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_SENTINEL: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_TASK: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GT_UNKNOWN: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 pub struct IMAGE_NOTE {
     pub Module: [super::super::Foundation::CHAR; 10],
     pub FileName: [super::super::Foundation::CHAR; 256],
@@ -128,11 +182,14 @@ unsafe impl ::windows::runtime::Abi for IMAGE_NOTE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const MAX_MODULE_NAME: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const MAX_PATH16: u32 = 255u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 pub struct MODULEENTRY {
     pub dwSize: u32,
     pub szModule: [super::super::Foundation::CHAR; 10],
@@ -167,6 +224,7 @@ pub type PROCESSENUMPROC = unsafe extern "system" fn(dwprocessid: u32, dwattribu
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 pub struct SEGMENT_NOTE {
     pub Selector1: u16,
     pub Selector2: u16,
@@ -203,9 +261,13 @@ unsafe impl ::windows::runtime::Abi for SEGMENT_NOTE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const SN_CODE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const SN_DATA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const SN_V86: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const STATUS_VDM_EVENT: i32 = 1073741829i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type TASKENUMPROC = unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
@@ -214,6 +276,7 @@ pub type TASKENUMPROCEX = unsafe extern "system" fn(dwthreadid: u32, hmod16: u16
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 pub struct TEMP_BP_NOTE {
     pub Seg: u16,
     pub Offset: u32,
@@ -246,28 +309,46 @@ unsafe impl ::windows::runtime::Abi for TEMP_BP_NOTE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_ALIGNMENT: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_AUXCARRY: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_CARRY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_DIRECTION: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_INTERRUPT: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_IOPL: u32 = 12288u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_IOPL_BITS: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_OVERFLOW: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_PARITY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_RESUME: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_SIGN: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_TRACE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_V86: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_ZERO: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMADDR_PM16: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMADDR_PM32: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMADDR_V86: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMBREAKTHREADPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_System_Kernel`*"]
 pub struct VDMCONTEXT {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -375,6 +456,7 @@ unsafe impl ::windows::runtime::Abi for VDMCONTEXT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_System_Kernel`*"]
 pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -476,16 +558,27 @@ unsafe impl ::windows::runtime::Abi for VDMCONTEXT_WITHOUT_XSAVE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMCONTEXT_i386: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMCONTEXT_i486: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_BREAK_DEBUGGER: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_BREAK_DIVIDEBYZERO: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_BREAK_DOSTASK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_BREAK_EXCEPTIONS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_BREAK_LOADDLL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_BREAK_WOWTASK: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_INITIAL_FLAGS: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_MAX_SYMBOL_BUFFER: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMDBG_TRACE_HISTORY: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMDETECTWOWPROC = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
@@ -495,11 +588,17 @@ pub type VDMENUMPROCESSWOWPROC = unsafe extern "system" fn(param0: ::windows::ru
 pub type VDMENUMTASKWOWEXPROC = unsafe extern "system" fn(param0: u32, param1: ::windows::runtime::RawPtr, param2: super::super::Foundation::LPARAM) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMENUMTASKWOWPROC = unsafe extern "system" fn(param0: u32, param1: ::windows::runtime::RawPtr, param2: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_ALLFLAGS: u32 = 57344u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_NEEDS_INTERACTIVE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_PE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_PM16: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_V86: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMEVENT_VERBOSE: u32 = 16384u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMGETADDREXPRESSIONPROC = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL;
@@ -529,6 +628,7 @@ pub type VDMISMODULELOADEDPROC = unsafe extern "system" fn(param0: super::super:
 pub type VDMKILLWOWPROC = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub struct VDMLDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
@@ -552,6 +652,7 @@ unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub union VDMLDT_ENTRY_0 {
     pub Bytes: VDMLDT_ENTRY_0_1,
     pub Bits: VDMLDT_ENTRY_0_0,
@@ -574,6 +675,7 @@ unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub struct VDMLDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -600,6 +702,7 @@ unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub struct VDMLDT_ENTRY_0_1 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -641,11 +744,14 @@ pub type VDMSETDBGFLAGSPROC = unsafe extern "system" fn(param0: super::super::Fo
 pub type VDMSTARTTASKINWOWPROC = unsafe extern "system" fn(param0: u32, param1: super::super::Foundation::PSTR, param2: u16) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMTERMINATETASKINWOWPROC = unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDM_KGDT_R3_CODE: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_Foundation`*"]
 pub struct VDM_SEGINFO {
     pub Selector: u16,
     pub SegNumber: u16,

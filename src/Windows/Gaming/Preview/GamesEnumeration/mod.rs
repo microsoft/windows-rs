@@ -1,7 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 pub struct GameList {}
 impl GameList {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsync() -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -9,6 +11,7 @@ impl GameList {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsyncPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(packagefamilyname: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -16,6 +19,7 @@ impl GameList {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn GameAdded<'a, Param0: ::windows::runtime::IntoParam<'a, GameListChangedEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -23,10 +27,12 @@ impl GameList {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn RemoveGameAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IGameListStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn GameRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, GameListRemovedEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -34,10 +40,12 @@ impl GameList {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn RemoveGameRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IGameListStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn GameUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, GameListChangedEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IGameListStatics(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -45,10 +53,12 @@ impl GameList {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn RemoveGameUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IGameListStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn MergeEntriesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, GameListEntry>, Param1: ::windows::runtime::IntoParam<'a, GameListEntry>>(left: Param0, right: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>> {
         Self::IGameListStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -56,6 +66,7 @@ impl GameList {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`, `Foundation_Collections`*"]
     pub fn UnmergeEntryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, GameListEntry>>(mergedentry: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -74,6 +85,7 @@ impl GameList {
 impl ::windows::runtime::RuntimeName for GameList {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameList";
 }
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GameListCategory(pub i32);
@@ -94,6 +106,7 @@ unsafe impl ::windows::runtime::Abi for GameListCategory {
 unsafe impl ::windows::runtime::RuntimeType for GameListCategory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
 }
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GameListChangedEventHandler(::windows::runtime::IUnknown);
@@ -106,6 +119,7 @@ impl GameListChangedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, GameListEntry>>(&self, game: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), game.into_param().abi()).ok() }
@@ -165,11 +179,13 @@ impl<F: FnMut(&::std::option::Option<GameListEntry>) -> ::windows::runtime::Resu
         ((*this).invoke)(&*(&game as *const <GameListEntry as ::windows::runtime::Abi>::Abi as *const <GameListEntry as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GameListEntry(::windows::runtime::IInspectable);
 impl GameListEntry {
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `ApplicationModel`*"]
     pub fn DisplayInfo(&self) -> ::windows::runtime::Result<super::super::super::ApplicationModel::AppDisplayInfo> {
         let this = self;
         unsafe {
@@ -178,6 +194,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn LaunchAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -185,6 +202,7 @@ impl GameListEntry {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<GameListCategory> {
         let this = self;
         unsafe {
@@ -193,6 +211,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -201,6 +220,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetCategoryAsync(&self, value: GameListCategory) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -208,6 +228,7 @@ impl GameListEntry {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn LaunchableState(&self) -> ::windows::runtime::Result<GameListEntryLaunchableState> {
         let this = &::windows::runtime::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -216,6 +237,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Storage`*"]
     pub fn LauncherExecutable(&self) -> ::windows::runtime::Result<super::super::super::Storage::IStorageFile> {
         let this = &::windows::runtime::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -223,6 +245,7 @@ impl GameListEntry {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::IStorageFile>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn LaunchParameters(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -231,6 +254,7 @@ impl GameListEntry {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`, `Storage`*"]
     pub fn SetLauncherExecutableFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, executablefile: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -239,6 +263,7 @@ impl GameListEntry {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`, `Storage`*"]
     pub fn SetLauncherExecutableFileWithParamsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, executablefile: Param0, launchparams: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -246,6 +271,7 @@ impl GameListEntry {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), executablefile.into_param().abi(), launchparams.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn TitleId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -254,6 +280,7 @@ impl GameListEntry {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetTitleIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -261,6 +288,7 @@ impl GameListEntry {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn GameModeConfiguration(&self) -> ::windows::runtime::Result<GameModeConfiguration> {
         let this = &::windows::runtime::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -341,6 +369,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGameListEntry> for &GameListEntry {
 }
 unsafe impl ::std::marker::Send for GameListEntry {}
 unsafe impl ::std::marker::Sync for GameListEntry {}
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GameListEntryLaunchableState(pub i32);
@@ -362,6 +391,7 @@ unsafe impl ::windows::runtime::Abi for GameListEntryLaunchableState {
 unsafe impl ::windows::runtime::RuntimeType for GameListEntryLaunchableState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
 }
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GameListRemovedEventHandler(::windows::runtime::IUnknown);
@@ -374,6 +404,7 @@ impl GameListRemovedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, identifier: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), identifier.into_param().abi()).ok() }
@@ -433,10 +464,12 @@ impl<F: FnMut(&::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> + 
         ((*this).invoke)(&*(&identifier as *const <::windows::runtime::HSTRING as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GameModeConfiguration(::windows::runtime::IInspectable);
 impl GameModeConfiguration {
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -444,11 +477,13 @@ impl GameModeConfiguration {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation_Collections`*"]
     pub fn RelatedProcessNames(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -457,6 +492,7 @@ impl GameModeConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn PercentGpuTimeAllocatedToGame(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -465,11 +501,13 @@ impl GameModeConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetPercentGpuTimeAllocatedToGame<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn PercentGpuMemoryAllocatedToGame(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -478,11 +516,13 @@ impl GameModeConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetPercentGpuMemoryAllocatedToGame<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn PercentGpuMemoryAllocatedToSystemCompositor(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -491,11 +531,13 @@ impl GameModeConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetPercentGpuMemoryAllocatedToSystemCompositor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn MaxCpuCount(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -504,11 +546,13 @@ impl GameModeConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetMaxCpuCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn CpuExclusivityMaskLow(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -517,11 +561,13 @@ impl GameModeConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetCpuExclusivityMaskLow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn CpuExclusivityMaskHigh(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -530,10 +576,12 @@ impl GameModeConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetCpuExclusivityMaskHigh<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn AffinitizeToExclusiveCpus(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -541,11 +589,13 @@ impl GameModeConfiguration {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn SetAffinitizeToExclusiveCpus(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SaveAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -606,11 +656,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for GameModeConfiguration {}
 unsafe impl ::std::marker::Sync for GameModeConfiguration {}
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GameModeUserConfiguration(::windows::runtime::IInspectable);
 impl GameModeUserConfiguration {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation_Collections`*"]
     pub fn GamingRelatedProcessNames(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -619,6 +671,7 @@ impl GameModeUserConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SaveAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -626,6 +679,7 @@ impl GameModeUserConfiguration {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<GameModeUserConfiguration> {
         Self::IGameModeUserConfigurationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -691,6 +745,7 @@ unsafe impl ::std::marker::Send for GameModeUserConfiguration {}
 unsafe impl ::std::marker::Sync for GameModeUserConfiguration {}
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 pub struct IGameListEntry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListEntry {
     type Vtable = IGameListEntry_abi;
@@ -698,6 +753,7 @@ unsafe impl ::windows::runtime::Interface for IGameListEntry {
 }
 impl IGameListEntry {
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `ApplicationModel`*"]
     pub fn DisplayInfo(&self) -> ::windows::runtime::Result<super::super::super::ApplicationModel::AppDisplayInfo> {
         let this = self;
         unsafe {
@@ -706,6 +762,7 @@ impl IGameListEntry {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn LaunchAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -713,6 +770,7 @@ impl IGameListEntry {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<GameListCategory> {
         let this = self;
         unsafe {
@@ -721,6 +779,7 @@ impl IGameListEntry {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -729,6 +788,7 @@ impl IGameListEntry {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`, `Foundation`*"]
     pub fn SetCategoryAsync(&self, value: GameListCategory) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {

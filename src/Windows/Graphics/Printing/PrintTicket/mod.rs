@@ -234,10 +234,12 @@ pub struct IWorkflowPrintTicketValidationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintTicketCapabilities(::windows::runtime::IInspectable);
 impl PrintTicketCapabilities {
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -245,6 +247,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn XmlNamespace(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -253,6 +256,7 @@ impl PrintTicketCapabilities {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Data_Xml_Dom`*"]
     pub fn XmlNode(&self) -> ::windows::runtime::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
@@ -260,6 +264,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentBindingFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -267,6 +272,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentCollateFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -274,6 +280,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentDuplexFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -281,6 +288,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentHolePunchFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -288,6 +296,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentInputBinFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -295,6 +304,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentNUpFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -302,6 +312,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentStapleFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -309,6 +320,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn JobPasscodeFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -316,6 +328,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageBorderlessFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -323,6 +336,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageMediaSizeFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -330,6 +344,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageMediaTypeFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -337,6 +352,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageOrientationFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -344,6 +360,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageOutputColorFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -351,6 +368,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageOutputQualityFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -358,6 +376,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageResolutionFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -365,6 +384,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -372,6 +392,7 @@ impl PrintTicketCapabilities {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), name.into_param().abi(), xmlnamespace.into_param().abi(), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetParameterDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<PrintTicketParameterDefinition> {
         let this = self;
         unsafe {
@@ -432,10 +453,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrintTicketCapabilities {}
 unsafe impl ::std::marker::Sync for PrintTicketCapabilities {}
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintTicketFeature(::windows::runtime::IInspectable);
 impl PrintTicketFeature {
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -443,6 +466,7 @@ impl PrintTicketFeature {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn XmlNamespace(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -451,6 +475,7 @@ impl PrintTicketFeature {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Data_Xml_Dom`*"]
     pub fn XmlNode(&self) -> ::windows::runtime::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
@@ -458,6 +483,7 @@ impl PrintTicketFeature {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -465,6 +491,7 @@ impl PrintTicketFeature {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetOption<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<PrintTicketOption> {
         let this = self;
         unsafe {
@@ -473,6 +500,7 @@ impl PrintTicketFeature {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Foundation_Collections`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>> {
         let this = self;
         unsafe {
@@ -480,6 +508,7 @@ impl PrintTicketFeature {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetSelectedOption(&self) -> ::windows::runtime::Result<PrintTicketOption> {
         let this = self;
         unsafe {
@@ -487,10 +516,12 @@ impl PrintTicketFeature {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketOption>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn SetSelectedOption<'a, Param0: ::windows::runtime::IntoParam<'a, PrintTicketOption>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn SelectionType(&self) -> ::windows::runtime::Result<PrintTicketFeatureSelectionType> {
         let this = self;
         unsafe {
@@ -551,6 +582,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrintTicketFeature {}
 unsafe impl ::std::marker::Sync for PrintTicketFeature {}
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
@@ -570,10 +602,12 @@ unsafe impl ::windows::runtime::Abi for PrintTicketFeatureSelectionType {
 unsafe impl ::windows::runtime::RuntimeType for PrintTicketFeatureSelectionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
 }
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintTicketOption(::windows::runtime::IInspectable);
 impl PrintTicketOption {
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -581,6 +615,7 @@ impl PrintTicketOption {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn XmlNamespace(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -589,6 +624,7 @@ impl PrintTicketOption {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Data_Xml_Dom`*"]
     pub fn XmlNode(&self) -> ::windows::runtime::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
@@ -596,6 +632,7 @@ impl PrintTicketOption {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -604,6 +641,7 @@ impl PrintTicketOption {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Data_Xml_Dom`*"]
     pub fn GetPropertyNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
@@ -612,6 +650,7 @@ impl PrintTicketOption {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Data_Xml_Dom`*"]
     pub fn GetScoredPropertyNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
@@ -619,6 +658,7 @@ impl PrintTicketOption {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), name.into_param().abi(), xmlnamespace.into_param().abi(), &mut result__).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<PrintTicketValue> {
         let this = self;
         unsafe {
@@ -626,6 +666,7 @@ impl PrintTicketOption {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), name.into_param().abi(), xmlnamespace.into_param().abi(), &mut result__).from_abi::<PrintTicketValue>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetScoredPropertyValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<PrintTicketValue> {
         let this = self;
         unsafe {
@@ -686,6 +727,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrintTicketOption {}
 unsafe impl ::std::marker::Sync for PrintTicketOption {}
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintTicketParameterDataType(pub i32);
@@ -706,10 +748,12 @@ unsafe impl ::windows::runtime::Abi for PrintTicketParameterDataType {
 unsafe impl ::windows::runtime::RuntimeType for PrintTicketParameterDataType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
 }
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintTicketParameterDefinition(::windows::runtime::IInspectable);
 impl PrintTicketParameterDefinition {
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -717,6 +761,7 @@ impl PrintTicketParameterDefinition {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn XmlNamespace(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -725,6 +770,7 @@ impl PrintTicketParameterDefinition {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Data_Xml_Dom`*"]
     pub fn XmlNode(&self) -> ::windows::runtime::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
@@ -732,6 +778,7 @@ impl PrintTicketParameterDefinition {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DataType(&self) -> ::windows::runtime::Result<PrintTicketParameterDataType> {
         let this = self;
         unsafe {
@@ -739,6 +786,7 @@ impl PrintTicketParameterDefinition {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketParameterDataType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn UnitType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -746,6 +794,7 @@ impl PrintTicketParameterDefinition {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn RangeMin(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -753,6 +802,7 @@ impl PrintTicketParameterDefinition {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn RangeMax(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -813,10 +863,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrintTicketParameterDefinition {}
 unsafe impl ::std::marker::Sync for PrintTicketParameterDefinition {}
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintTicketParameterInitializer(::windows::runtime::IInspectable);
 impl PrintTicketParameterInitializer {
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -824,6 +876,7 @@ impl PrintTicketParameterInitializer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn XmlNamespace(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -832,6 +885,7 @@ impl PrintTicketParameterInitializer {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Data_Xml_Dom`*"]
     pub fn XmlNode(&self) -> ::windows::runtime::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
@@ -839,10 +893,12 @@ impl PrintTicketParameterInitializer {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, PrintTicketValue>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<PrintTicketValue> {
         let this = self;
         unsafe {
@@ -903,10 +959,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrintTicketParameterInitializer {}
 unsafe impl ::std::marker::Sync for PrintTicketParameterInitializer {}
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PrintTicketValue(::windows::runtime::IInspectable);
 impl PrintTicketValue {
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PrintTicketValueType> {
         let this = self;
         unsafe {
@@ -914,6 +972,7 @@ impl PrintTicketValue {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketValueType>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetValueAsInteger(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -921,6 +980,7 @@ impl PrintTicketValue {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetValueAsString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -981,6 +1041,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PrintTicketValue {}
 unsafe impl ::std::marker::Sync for PrintTicketValue {}
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintTicketValueType(pub i32);
@@ -1001,10 +1062,12 @@ unsafe impl ::windows::runtime::Abi for PrintTicketValueType {
 unsafe impl ::windows::runtime::RuntimeType for PrintTicketValueType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
 }
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WorkflowPrintTicket(::windows::runtime::IInspectable);
 impl WorkflowPrintTicket {
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1012,6 +1075,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn XmlNamespace(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1020,6 +1084,7 @@ impl WorkflowPrintTicket {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Data_Xml_Dom`*"]
     pub fn XmlNode(&self) -> ::windows::runtime::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
@@ -1027,6 +1092,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetCapabilities(&self) -> ::windows::runtime::Result<PrintTicketCapabilities> {
         let this = self;
         unsafe {
@@ -1034,6 +1100,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentBindingFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1041,6 +1108,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentCollateFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1048,6 +1116,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentDuplexFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1055,6 +1124,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentHolePunchFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1062,6 +1132,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentInputBinFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1069,6 +1140,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentNUpFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1076,6 +1148,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn DocumentStapleFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1083,6 +1156,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn JobPasscodeFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1090,6 +1164,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageBorderlessFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1097,6 +1172,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageMediaSizeFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1104,6 +1180,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageMediaTypeFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1111,6 +1188,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageOrientationFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1118,6 +1196,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageOutputColorFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1125,6 +1204,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageOutputQualityFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1132,6 +1212,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn PageResolutionFeature(&self) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1139,6 +1220,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PrintTicketFeature>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1147,6 +1229,7 @@ impl WorkflowPrintTicket {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Foundation`*"]
     pub fn NotifyXmlChangedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1155,6 +1238,7 @@ impl WorkflowPrintTicket {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`, `Foundation`*"]
     pub fn ValidateAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>> {
         let this = self;
         unsafe {
@@ -1162,6 +1246,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn GetParameterInitializer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::runtime::Result<PrintTicketParameterInitializer> {
         let this = self;
         unsafe {
@@ -1169,6 +1254,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), name.into_param().abi(), xmlnamespace.into_param().abi(), &mut result__).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn SetParameterInitializerAsInteger<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1, integervalue: i32) -> ::windows::runtime::Result<PrintTicketParameterInitializer> {
         let this = self;
         unsafe {
@@ -1176,6 +1262,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), name.into_param().abi(), xmlnamespace.into_param().abi(), integervalue, &mut result__).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn SetParameterInitializerAsString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, xmlnamespace: Param1, stringvalue: Param2) -> ::windows::runtime::Result<PrintTicketParameterInitializer> {
         let this = self;
         unsafe {
@@ -1183,6 +1270,7 @@ impl WorkflowPrintTicket {
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), name.into_param().abi(), xmlnamespace.into_param().abi(), stringvalue.into_param().abi(), &mut result__).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn MergeAndValidateTicket<'a, Param0: ::windows::runtime::IntoParam<'a, WorkflowPrintTicket>>(&self, deltashematicket: Param0) -> ::windows::runtime::Result<WorkflowPrintTicket> {
         let this = self;
         unsafe {
@@ -1243,10 +1331,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for WorkflowPrintTicket {}
 unsafe impl ::std::marker::Sync for WorkflowPrintTicket {}
+#[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WorkflowPrintTicketValidationResult(::windows::runtime::IInspectable);
 impl WorkflowPrintTicketValidationResult {
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn Validated(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1254,6 +1344,7 @@ impl WorkflowPrintTicketValidationResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {

@@ -14,7 +14,9 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let vtable_phantoms = gen_phantoms(def);
     let constraints = gen_constraints(def);
 
-    let features = method_features(&signature, gen);
+    let features = signature.method_features();
+    let cfg = gen.gen_cfg(&features);
+    let doc = gen.gen_cfg_doc(&features);
 
     let method = MethodInfo { name: "Invoke".to_string(), vtable_offset: 3, overload: 0, is_deprecated: false };
 
@@ -40,11 +42,12 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
 
     quote! {
-        #features
+        #cfg
+        #doc
         #[repr(transparent)]
         #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
         pub struct #name(::windows::runtime::IUnknown, #(#struct_phantoms,)*) where #constraints;
-        #features
+        #cfg
         impl<#constraints> #name {
             pub fn new<#fn_constraint>(invoke: F) -> Self {
                 let com = #box_name {
@@ -58,16 +61,16 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
             #invoke
         }
-        #features
+        #cfg
         unsafe impl<#constraints> ::windows::runtime::RuntimeType for #name {
             const SIGNATURE: ::windows::runtime::ConstBuffer = #type_signature;
         }
-        #features
+        #cfg
         unsafe impl<#constraints> ::windows::runtime::Interface for #name {
             type Vtable = #abi_name;
             const IID: ::windows::runtime::GUID = #guid;
         }
-        #features
+        #cfg
         #[repr(C)]
         #[doc(hidden)]
         pub struct #abi_name(
@@ -77,14 +80,14 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
             pub unsafe extern "system" fn #abi_signature,
             #(pub #abi_phantoms,)*
         ) where #constraints;
-        #features
+        #cfg
         #[repr(C)]
         struct #box_definition where #constraints {
             vtable: *const #abi_name,
             invoke: F,
             count: ::windows::runtime::RefCount,
         }
-        #features
+        #cfg
         impl<#constraints #fn_constraint> #box_name {
             const VTABLE: #abi_name = #turbo_abi_name(
                 Self::QueryInterface,

@@ -59,11 +59,13 @@ pub struct IXsltProcessorFactory_abi(
     #[cfg(feature = "Data_Xml_Dom")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, document: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
+#[doc = "*Required features: `Data_Xml_Xsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XsltProcessor(::windows::runtime::IInspectable);
 impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Data_Xml_Xsl`, `Data_Xml_Dom`*"]
     pub fn TransformToString<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dom::IXmlNode>>(&self, inputnode: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -72,6 +74,7 @@ impl XsltProcessor {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Data_Xml_Xsl`, `Data_Xml_Dom`*"]
     pub fn TransformToDocument<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dom::IXmlNode>>(&self, inputnode: Param0) -> ::windows::runtime::Result<super::Dom::XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
@@ -80,6 +83,7 @@ impl XsltProcessor {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `Data_Xml_Xsl`, `Data_Xml_Dom`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dom::XmlDocument>>(document: Param0) -> ::windows::runtime::Result<XsltProcessor> {
         Self::IXsltProcessorFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

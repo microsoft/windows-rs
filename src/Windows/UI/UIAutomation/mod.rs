@@ -1,10 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "UI_UIAutomation_Core")]
 pub mod Core;
+#[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationConnection(::windows::runtime::IInspectable);
 impl AutomationConnection {
+    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn IsRemoteSystem(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -12,6 +14,7 @@ impl AutomationConnection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn AppUserModelId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -19,6 +22,7 @@ impl AutomationConnection {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn ExecutableFileName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -79,10 +83,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AutomationConnection {}
 unsafe impl ::std::marker::Sync for AutomationConnection {}
+#[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationConnectionBoundObject(::windows::runtime::IInspectable);
 impl AutomationConnectionBoundObject {
+    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<AutomationConnection> {
         let this = self;
         unsafe {
@@ -143,10 +149,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::std::marker::Sync for AutomationConnectionBoundObject {}
+#[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationElement(::windows::runtime::IInspectable);
 impl AutomationElement {
+    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn IsRemoteSystem(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -154,6 +162,7 @@ impl AutomationElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn AppUserModelId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -161,6 +170,7 @@ impl AutomationElement {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_UIAutomation`*"]
     pub fn ExecutableFileName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -221,6 +231,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AutomationElement {}
 unsafe impl ::std::marker::Sync for AutomationElement {}
+#[doc = "*Required features: `UI_UIAutomation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutomationTextRange(::windows::runtime::IInspectable);

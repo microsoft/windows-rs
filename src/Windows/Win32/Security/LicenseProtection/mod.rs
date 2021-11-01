@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Security_LicenseProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LicenseProtectionStatus(pub i32);
@@ -17,6 +18,7 @@ unsafe impl ::windows::runtime::Abi for LicenseProtectionStatus {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_LicenseProtection`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, validityindays: u32) -> ::windows::runtime::Result<LicenseProtectionStatus> {
     #[cfg(windows)]
@@ -32,6 +34,7 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_LicenseProtection`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ValidateLicenseKeyProtection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

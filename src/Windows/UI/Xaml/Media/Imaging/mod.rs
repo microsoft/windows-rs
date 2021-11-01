@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BitmapCreateOptions(pub u32);
@@ -46,6 +47,7 @@ impl ::std::ops::Not for BitmapCreateOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapImage(::windows::runtime::IInspectable);
@@ -57,6 +59,7 @@ impl BitmapImage {
         static mut SHARED: ::windows::runtime::FactoryCache<BitmapImage, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateOptions(&self) -> ::windows::runtime::Result<BitmapCreateOptions> {
         let this = self;
         unsafe {
@@ -64,11 +67,13 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapCreateOptions>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetCreateOptions(&self, value: BitmapCreateOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn UriSource(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -77,10 +82,12 @@ impl BitmapImage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn SetUriSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn DecodePixelWidth(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -88,10 +95,12 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetDecodePixelWidth(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn DecodePixelHeight(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -99,11 +108,13 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetDecodePixelHeight(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn DownloadProgress<'a, Param0: ::windows::runtime::IntoParam<'a, DownloadProgressEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -112,11 +123,13 @@ impl BitmapImage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn RemoveDownloadProgress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn ImageOpened<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -125,11 +138,13 @@ impl BitmapImage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn RemoveImageOpened<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn ImageFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ExceptionRoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -138,10 +153,12 @@ impl BitmapImage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn RemoveImageFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn DecodePixelType(&self) -> ::windows::runtime::Result<DecodePixelType> {
         let this = &::windows::runtime::Interface::cast::<IBitmapImage2>(self)?;
         unsafe {
@@ -149,47 +166,55 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DecodePixelType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetDecodePixelType(&self, value: DecodePixelType) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBitmapImage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn CreateInstanceWithUriSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Uri>>(urisource: Param0) -> ::windows::runtime::Result<BitmapImage> {
         Self::IBitmapImageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), urisource.into_param().abi(), &mut result__).from_abi::<BitmapImage>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateOptionsProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UriSourceProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn DecodePixelWidthProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn DecodePixelHeightProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn DecodePixelTypeProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn IsAnimatedBitmap(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IBitmapImage3>(self)?;
         unsafe {
@@ -197,6 +222,7 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn IsPlaying(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IBitmapImage3>(self)?;
         unsafe {
@@ -204,6 +230,7 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn AutoPlay(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IBitmapImage3>(self)?;
         unsafe {
@@ -211,36 +238,43 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetAutoPlay(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBitmapImage3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn Play(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBitmapImage3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBitmapImage3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn IsAnimatedBitmapProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn IsPlayingProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn AutoPlayProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -248,14 +282,17 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -263,6 +300,7 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -271,6 +309,7 @@ impl BitmapImage {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -278,6 +317,7 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -285,10 +325,12 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapSource>(self)?;
         unsafe {
@@ -296,6 +338,7 @@ impl BitmapImage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapSource>(self)?;
         unsafe {
@@ -304,11 +347,13 @@ impl BitmapImage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Storage_Streams`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBitmapSource>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), streamsource.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn SetSourceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBitmapSource>(self)?;
         unsafe {
@@ -445,10 +490,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for BitmapImage {}
 unsafe impl ::std::marker::Sync for BitmapImage {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapSource(::windows::runtime::IInspectable);
 impl BitmapSource {
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -456,6 +503,7 @@ impl BitmapSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -464,11 +512,13 @@ impl BitmapSource {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Storage_Streams`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), streamsource.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn SetSourceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -476,18 +526,21 @@ impl BitmapSource {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), streamsource.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelWidthProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapSourceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelHeightProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IBitmapSourceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -495,14 +548,17 @@ impl BitmapSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -510,6 +566,7 @@ impl BitmapSource {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -518,6 +575,7 @@ impl BitmapSource {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -525,6 +583,7 @@ impl BitmapSource {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -532,6 +591,7 @@ impl BitmapSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -633,6 +693,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for BitmapSource {}
 unsafe impl ::std::marker::Sync for BitmapSource {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DecodePixelType(pub i32);
@@ -652,10 +713,12 @@ unsafe impl ::windows::runtime::Abi for DecodePixelType {
 unsafe impl ::windows::runtime::RuntimeType for DecodePixelType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Imaging.DecodePixelType;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DownloadProgressEventArgs(::windows::runtime::IInspectable);
 impl DownloadProgressEventArgs {
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn Progress(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -663,6 +726,7 @@ impl DownloadProgressEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetProgress(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -720,6 +784,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DownloadProgressEventArgs {}
 unsafe impl ::std::marker::Sync for DownloadProgressEventArgs {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DownloadProgressEventHandler(::windows::runtime::IUnknown);
@@ -732,6 +797,7 @@ impl DownloadProgressEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, DownloadProgressEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -1398,6 +1464,7 @@ pub struct IXamlRenderingBackgroundTaskOverrides_abi(
     #[cfg(feature = "ApplicationModel_Background")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskinstance: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Background"))] usize,
 );
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RenderTargetBitmap(::windows::runtime::IInspectable);
@@ -1409,6 +1476,7 @@ impl RenderTargetBitmap {
         static mut SHARED: ::windows::runtime::FactoryCache<RenderTargetBitmap, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1416,6 +1484,7 @@ impl RenderTargetBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1424,6 +1493,7 @@ impl RenderTargetBitmap {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn RenderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UIElement>>(&self, element: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1432,6 +1502,7 @@ impl RenderTargetBitmap {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn RenderToSizeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UIElement>>(&self, element: Param0, scaledwidth: i32, scaledheight: i32) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1440,6 +1511,7 @@ impl RenderTargetBitmap {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn GetPixelsAsync(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
@@ -1447,18 +1519,21 @@ impl RenderTargetBitmap {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelWidthProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IRenderTargetBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelHeightProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IRenderTargetBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1466,14 +1541,17 @@ impl RenderTargetBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1481,6 +1559,7 @@ impl RenderTargetBitmap {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1489,6 +1568,7 @@ impl RenderTargetBitmap {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1496,6 +1576,7 @@ impl RenderTargetBitmap {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -1503,6 +1584,7 @@ impl RenderTargetBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -1604,6 +1686,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for RenderTargetBitmap {}
 unsafe impl ::std::marker::Sync for RenderTargetBitmap {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SoftwareBitmapSource(::windows::runtime::IInspectable);
@@ -1616,6 +1699,7 @@ impl SoftwareBitmapSource {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`, `Graphics_Imaging`*"]
     pub fn SetBitmapAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, softwarebitmap: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1624,10 +1708,12 @@ impl SoftwareBitmapSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1635,14 +1721,17 @@ impl SoftwareBitmapSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1650,6 +1739,7 @@ impl SoftwareBitmapSource {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1658,6 +1748,7 @@ impl SoftwareBitmapSource {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1665,6 +1756,7 @@ impl SoftwareBitmapSource {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -1672,6 +1764,7 @@ impl SoftwareBitmapSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -1795,22 +1888,26 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for SoftwareBitmapSource {}
 unsafe impl ::std::marker::Sync for SoftwareBitmapSource {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SurfaceImageSource(::windows::runtime::IInspectable);
 impl SurfaceImageSource {
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::runtime::Result<SurfaceImageSource> {
         Self::ISurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pixelwidth, pixelheight, ::std::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateInstanceWithDimensionsAndOpacity(pixelwidth: i32, pixelheight: i32, isopaque: bool) -> ::windows::runtime::Result<SurfaceImageSource> {
         Self::ISurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, ::std::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1818,14 +1915,17 @@ impl SurfaceImageSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1833,6 +1933,7 @@ impl SurfaceImageSource {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1841,6 +1942,7 @@ impl SurfaceImageSource {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -1848,6 +1950,7 @@ impl SurfaceImageSource {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -1855,6 +1958,7 @@ impl SurfaceImageSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -1956,11 +2060,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for SurfaceImageSource {}
 unsafe impl ::std::marker::Sync for SurfaceImageSource {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SvgImageSource(::windows::runtime::IInspectable);
 impl SvgImageSource {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn UriSource(&self) -> ::windows::runtime::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -1969,10 +2075,12 @@ impl SvgImageSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn SetUriSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RasterizePixelWidth(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1980,10 +2088,12 @@ impl SvgImageSource {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetRasterizePixelWidth(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RasterizePixelHeight(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1991,11 +2101,13 @@ impl SvgImageSource {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetRasterizePixelHeight(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn Opened<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2004,11 +2116,13 @@ impl SvgImageSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn RemoveOpened<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn OpenFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2017,11 +2131,13 @@ impl SvgImageSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn RemoveOpenFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn SetSourceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncOperation<SvgImageSourceLoadStatus>> {
         let this = self;
         unsafe {
@@ -2029,24 +2145,28 @@ impl SvgImageSource {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), streamsource.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SvgImageSourceLoadStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UriSourceProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ISvgImageSourceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RasterizePixelWidthProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ISvgImageSourceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RasterizePixelHeightProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ISvgImageSourceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn new() -> ::windows::runtime::Result<SvgImageSource> {
         Self::ISvgImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2054,12 +2174,14 @@ impl SvgImageSource {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
     pub fn CreateInstanceWithUriSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Uri>>(urisource: Param0) -> ::windows::runtime::Result<SvgImageSource> {
         Self::ISvgImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), urisource.into_param().abi(), ::std::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2067,14 +2189,17 @@ impl SvgImageSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2082,6 +2207,7 @@ impl SvgImageSource {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2090,6 +2216,7 @@ impl SvgImageSource {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2097,6 +2224,7 @@ impl SvgImageSource {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -2104,6 +2232,7 @@ impl SvgImageSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -2209,10 +2338,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for SvgImageSource {}
 unsafe impl ::std::marker::Sync for SvgImageSource {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SvgImageSourceFailedEventArgs(::windows::runtime::IInspectable);
 impl SvgImageSourceFailedEventArgs {
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SvgImageSourceLoadStatus> {
         let this = self;
         unsafe {
@@ -2273,6 +2404,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SvgImageSourceFailedEventArgs {}
 unsafe impl ::std::marker::Sync for SvgImageSourceFailedEventArgs {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SvgImageSourceLoadStatus(pub i32);
@@ -2294,6 +2426,7 @@ unsafe impl ::windows::runtime::Abi for SvgImageSourceLoadStatus {
 unsafe impl ::windows::runtime::RuntimeType for SvgImageSourceLoadStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Imaging.SvgImageSourceLoadStatus;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SvgImageSourceOpenedEventArgs(::windows::runtime::IInspectable);
@@ -2350,22 +2483,26 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SvgImageSourceOpenedEventArgs {}
 unsafe impl ::std::marker::Sync for SvgImageSourceOpenedEventArgs {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VirtualSurfaceImageSource(::windows::runtime::IInspectable);
 impl VirtualSurfaceImageSource {
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::runtime::Result<VirtualSurfaceImageSource> {
         Self::IVirtualSurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pixelwidth, pixelheight, &mut result__).from_abi::<VirtualSurfaceImageSource>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateInstanceWithDimensionsAndOpacity(pixelwidth: i32, pixelheight: i32, isopaque: bool) -> ::windows::runtime::Result<VirtualSurfaceImageSource> {
         Self::IVirtualSurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, &mut result__).from_abi::<VirtualSurfaceImageSource>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2373,14 +2510,17 @@ impl VirtualSurfaceImageSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2388,6 +2528,7 @@ impl VirtualSurfaceImageSource {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2396,6 +2537,7 @@ impl VirtualSurfaceImageSource {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2403,6 +2545,7 @@ impl VirtualSurfaceImageSource {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -2410,6 +2553,7 @@ impl VirtualSurfaceImageSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -2531,11 +2675,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for VirtualSurfaceImageSource {}
 unsafe impl ::std::marker::Sync for VirtualSurfaceImageSource {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WriteableBitmap(::windows::runtime::IInspectable);
 impl WriteableBitmap {
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Storage_Streams`*"]
     pub fn PixelBuffer(&self) -> ::windows::runtime::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -2543,16 +2689,19 @@ impl WriteableBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn Invalidate(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::runtime::Result<WriteableBitmap> {
         Self::IWriteableBitmapFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pixelwidth, pixelheight, &mut result__).from_abi::<WriteableBitmap>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2560,14 +2709,17 @@ impl WriteableBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2575,6 +2727,7 @@ impl WriteableBitmap {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2583,6 +2736,7 @@ impl WriteableBitmap {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -2590,6 +2744,7 @@ impl WriteableBitmap {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -2597,10 +2752,12 @@ impl WriteableBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapSource>(self)?;
         unsafe {
@@ -2608,6 +2765,7 @@ impl WriteableBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapSource>(self)?;
         unsafe {
@@ -2616,11 +2774,13 @@ impl WriteableBitmap {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Storage_Streams`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBitmapSource>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), streamsource.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn SetSourceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::runtime::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IBitmapSource>(self)?;
         unsafe {
@@ -2745,11 +2905,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for WriteableBitmap {}
 unsafe impl ::std::marker::Sync for WriteableBitmap {}
+#[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XamlRenderingBackgroundTask(::windows::runtime::IInspectable);
 impl XamlRenderingBackgroundTask {
     #[cfg(feature = "ApplicationModel_Background")]
+    #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `ApplicationModel_Background`*"]
     pub fn OnRun<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance>>(&self, taskinstance: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXamlRenderingBackgroundTaskOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), taskinstance.into_param().abi()).ok() }

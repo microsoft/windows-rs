@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DtdEntity(::windows::runtime::IInspectable);
 impl DtdEntity {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PublicId(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -10,6 +12,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SystemId(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -17,6 +20,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NotationName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -24,6 +28,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -31,10 +36,12 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -42,6 +49,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -49,6 +57,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -56,6 +65,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -63,6 +73,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -70,6 +81,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -77,6 +89,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -84,6 +97,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -91,6 +105,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -98,6 +113,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -105,6 +121,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -112,6 +129,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -119,6 +137,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -126,6 +145,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -133,6 +153,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -140,6 +161,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -147,6 +169,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -154,6 +177,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -161,6 +185,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -168,14 +193,17 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -183,6 +211,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -190,6 +219,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -197,6 +227,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -204,6 +235,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -211,6 +243,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -218,6 +251,7 @@ impl DtdEntity {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -341,10 +375,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &DtdEntity {
 }
 unsafe impl ::std::marker::Send for DtdEntity {}
 unsafe impl ::std::marker::Sync for DtdEntity {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DtdNotation(::windows::runtime::IInspectable);
 impl DtdNotation {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PublicId(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -352,6 +388,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SystemId(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -359,6 +396,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -366,10 +404,12 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -377,6 +417,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -384,6 +425,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -391,6 +433,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -398,6 +441,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -405,6 +449,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -412,6 +457,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -419,6 +465,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -426,6 +473,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -433,6 +481,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -440,6 +489,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -447,6 +497,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -454,6 +505,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -461,6 +513,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -468,6 +521,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -475,6 +529,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -482,6 +537,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -489,6 +545,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -496,6 +553,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -503,14 +561,17 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -518,6 +579,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -525,6 +587,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -532,6 +595,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -539,6 +603,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -546,6 +611,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -553,6 +619,7 @@ impl DtdNotation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -759,12 +826,14 @@ pub struct IXmlCDataSection_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlCharacterData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlCharacterData {
     type Vtable = IXmlCharacterData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(321798827, 20022, 19958, [177, 200, 12, 230, 47, 216, 139, 38]);
 }
 impl IXmlCharacterData {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -772,10 +841,12 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -783,6 +854,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -790,22 +862,27 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), offset, count).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -813,10 +890,12 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -824,6 +903,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -831,6 +911,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -838,6 +919,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -845,6 +927,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -852,6 +935,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -859,6 +943,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -866,6 +951,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -873,6 +959,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -880,6 +967,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -887,6 +975,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -894,6 +983,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -901,6 +991,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -908,6 +999,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -915,6 +1007,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -922,6 +1015,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -929,6 +1023,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -936,6 +1031,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -943,6 +1039,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -950,14 +1047,17 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -965,6 +1065,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -972,6 +1073,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -979,6 +1081,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -986,6 +1089,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -993,6 +1097,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -1000,6 +1105,7 @@ impl IXmlCharacterData {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1418,12 +1524,14 @@ pub struct IXmlNamedNodeMap_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNode {
     type Vtable = IXmlNode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(477371737, 8482, 18389, [168, 86, 131, 243, 212, 33, 72, 117]);
 }
 impl IXmlNode {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1431,10 +1539,12 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = self;
         unsafe {
@@ -1442,6 +1552,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1449,6 +1560,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1456,6 +1568,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -1463,6 +1576,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1470,6 +1584,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1477,6 +1592,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1484,6 +1600,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1491,6 +1608,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
@@ -1498,6 +1616,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1505,6 +1624,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = self;
         unsafe {
@@ -1512,6 +1632,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1519,6 +1640,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1526,6 +1648,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1533,6 +1656,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1540,6 +1664,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1547,6 +1672,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1554,6 +1680,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1561,6 +1688,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1568,14 +1696,17 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1583,6 +1714,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1590,6 +1722,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1597,6 +1730,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -1604,6 +1738,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -1611,6 +1746,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -1618,6 +1754,7 @@ impl IXmlNode {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1765,12 +1902,14 @@ pub struct IXmlNodeList_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNodeSelector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNodeSelector {
     type Vtable = IXmlNodeSelector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675344523, 53467, 20449, [183, 69, 249, 67, 58, 253, 194, 91]);
 }
 impl IXmlNodeSelector {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1778,6 +1917,7 @@ impl IXmlNodeSelector {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -1785,6 +1925,7 @@ impl IXmlNodeSelector {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -1792,6 +1933,7 @@ impl IXmlNodeSelector {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -1859,12 +2001,14 @@ pub struct IXmlNodeSelector_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNodeSerializer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNodeSerializer {
     type Vtable = IXmlNodeSerializer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1556460418, 59101, 18833, [171, 239, 6, 216, 210, 231, 189, 12]);
 }
 impl IXmlNodeSerializer {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1872,6 +2016,7 @@ impl IXmlNodeSerializer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1879,6 +2024,7 @@ impl IXmlNodeSerializer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1963,12 +2109,14 @@ pub struct IXmlProcessingInstruction_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlText(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlText {
     type Vtable = IXmlText_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4180780235, 12429, 18272, [161, 213, 67, 182, 116, 80, 172, 126]);
 }
 impl IXmlText {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SplitText(&self, offset: u32) -> ::windows::runtime::Result<IXmlText> {
         let this = self;
         unsafe {
@@ -1976,6 +2124,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), offset, &mut result__).from_abi::<IXmlText>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -1983,10 +2132,12 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -1994,6 +2145,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2001,22 +2153,27 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), offset, count).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2024,10 +2181,12 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2035,6 +2194,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2042,6 +2202,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2049,6 +2210,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2056,6 +2218,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2063,6 +2226,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2070,6 +2234,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2077,6 +2242,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2084,6 +2250,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2091,6 +2258,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2098,6 +2266,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2105,6 +2274,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2112,6 +2282,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2119,6 +2290,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2126,6 +2298,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2133,6 +2306,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2140,6 +2314,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2147,6 +2322,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2154,6 +2330,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2161,14 +2338,17 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2176,6 +2356,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2183,6 +2364,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2190,6 +2372,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2197,6 +2380,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2204,6 +2388,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2211,6 +2396,7 @@ impl IXmlText {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2358,6 +2544,7 @@ pub struct IXmlText_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NodeType(pub i32);
@@ -2388,10 +2575,12 @@ unsafe impl ::windows::runtime::Abi for NodeType {
 unsafe impl ::windows::runtime::RuntimeType for NodeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Data.Xml.Dom.NodeType;i4)");
 }
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlAttribute(::windows::runtime::IInspectable);
 impl XmlAttribute {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2399,6 +2588,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Specified(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2406,6 +2596,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2413,10 +2604,12 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2424,10 +2617,12 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2435,6 +2630,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2442,6 +2638,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2449,6 +2646,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2456,6 +2654,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2463,6 +2662,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2470,6 +2670,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2477,6 +2678,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2484,6 +2686,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2491,6 +2694,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2498,6 +2702,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2505,6 +2710,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2512,6 +2718,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2519,6 +2726,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2526,6 +2734,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2533,6 +2742,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2540,6 +2750,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2547,6 +2758,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2554,6 +2766,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2561,14 +2774,17 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2576,6 +2792,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2583,6 +2800,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2590,6 +2808,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2597,6 +2816,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2604,6 +2824,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2611,6 +2832,7 @@ impl XmlAttribute {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2734,10 +2956,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &XmlAttribute
 }
 unsafe impl ::std::marker::Send for XmlAttribute {}
 unsafe impl ::std::marker::Sync for XmlAttribute {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlCDataSection(::windows::runtime::IInspectable);
 impl XmlCDataSection {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2745,10 +2969,12 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2756,6 +2982,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -2763,22 +2990,27 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), offset, count).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2786,10 +3018,12 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2797,6 +3031,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2804,6 +3039,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2811,6 +3047,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2818,6 +3055,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2825,6 +3063,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2832,6 +3071,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2839,6 +3079,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2846,6 +3087,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2853,6 +3095,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2860,6 +3103,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2867,6 +3111,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2874,6 +3119,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2881,6 +3127,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2888,6 +3135,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2895,6 +3143,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2902,6 +3151,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2909,6 +3159,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2916,6 +3167,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -2923,14 +3175,17 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2938,6 +3193,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2945,6 +3201,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2952,6 +3209,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -2959,6 +3217,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2966,6 +3225,7 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -2973,10 +3233,12 @@ impl XmlCDataSection {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SplitText(&self, offset: u32) -> ::windows::runtime::Result<IXmlText> {
         let this = &::windows::runtime::Interface::cast::<IXmlText>(self)?;
         unsafe {
@@ -3147,10 +3409,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlText> for &XmlCDataSection {
 }
 unsafe impl ::std::marker::Send for XmlCDataSection {}
 unsafe impl ::std::marker::Sync for XmlCDataSection {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlComment(::windows::runtime::IInspectable);
 impl XmlComment {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -3158,10 +3422,12 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -3169,6 +3435,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -3176,22 +3443,27 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), offset, count).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3199,10 +3471,12 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3210,6 +3484,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3217,6 +3492,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3224,6 +3500,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3231,6 +3508,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3238,6 +3516,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3245,6 +3524,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3252,6 +3532,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3259,6 +3540,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3266,6 +3548,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3273,6 +3556,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3280,6 +3564,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3287,6 +3572,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3294,6 +3580,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3301,6 +3588,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3308,6 +3596,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3315,6 +3604,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3322,6 +3612,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3329,6 +3620,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3336,14 +3628,17 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3351,6 +3646,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3358,6 +3654,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3365,6 +3662,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3372,6 +3670,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -3379,6 +3678,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -3386,6 +3686,7 @@ impl XmlComment {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3531,6 +3832,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &XmlComment {
 }
 unsafe impl ::std::marker::Send for XmlComment {}
 unsafe impl ::std::marker::Sync for XmlComment {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlDocument(::windows::runtime::IInspectable);
@@ -3542,6 +3844,7 @@ impl XmlDocument {
         static mut SHARED: ::windows::runtime::FactoryCache<XmlDocument, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Doctype(&self) -> ::windows::runtime::Result<XmlDocumentType> {
         let this = self;
         unsafe {
@@ -3549,6 +3852,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocumentType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Implementation(&self) -> ::windows::runtime::Result<XmlDomImplementation> {
         let this = self;
         unsafe {
@@ -3556,6 +3860,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDomImplementation>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DocumentElement(&self) -> ::windows::runtime::Result<XmlElement> {
         let this = self;
         unsafe {
@@ -3563,6 +3868,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlElement>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateElement<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tagname: Param0) -> ::windows::runtime::Result<XmlElement> {
         let this = self;
         unsafe {
@@ -3570,6 +3876,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), tagname.into_param().abi(), &mut result__).from_abi::<XmlElement>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateDocumentFragment(&self) -> ::windows::runtime::Result<XmlDocumentFragment> {
         let this = self;
         unsafe {
@@ -3577,6 +3884,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocumentFragment>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateTextNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<XmlText> {
         let this = self;
         unsafe {
@@ -3584,6 +3892,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<XmlText>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateComment<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<XmlComment> {
         let this = self;
         unsafe {
@@ -3591,6 +3900,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<XmlComment>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateProcessingInstruction<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, target: Param0, data: Param1) -> ::windows::runtime::Result<XmlProcessingInstruction> {
         let this = self;
         unsafe {
@@ -3598,6 +3908,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), target.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<XmlProcessingInstruction>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -3605,6 +3916,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateEntityReference<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<XmlEntityReference> {
         let this = self;
         unsafe {
@@ -3612,6 +3924,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<XmlEntityReference>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetElementsByTagName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tagname: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -3619,6 +3932,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), tagname.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateCDataSection<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<XmlCDataSection> {
         let this = self;
         unsafe {
@@ -3626,6 +3940,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<XmlCDataSection>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DocumentUri(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3633,6 +3948,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateAttributeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1) -> ::windows::runtime::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -3640,6 +3956,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CreateElementNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1) -> ::windows::runtime::Result<XmlElement> {
         let this = self;
         unsafe {
@@ -3647,6 +3964,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), &mut result__).from_abi::<XmlElement>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetElementById<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, elementid: Param0) -> ::windows::runtime::Result<XmlElement> {
         let this = self;
         unsafe {
@@ -3654,6 +3972,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), elementid.into_param().abi(), &mut result__).from_abi::<XmlElement>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ImportNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, node: Param0, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -3661,15 +3980,18 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), node.into_param().abi(), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LoadXml<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xml: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xml.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LoadXmlWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, XmlLoadSettings>>(&self, xml: Param0, loadsettings: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xml.into_param().abi(), loadsettings.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`, `Storage`*"]
     pub fn SaveToFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe {
@@ -3678,15 +4000,18 @@ impl XmlDocument {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Storage_Streams`*"]
     pub fn LoadXmlFromBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Storage_Streams`*"]
     pub fn LoadXmlFromBufferWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::runtime::IntoParam<'a, XmlLoadSettings>>(&self, buffer: Param0, loadsettings: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlDocumentIO2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), buffer.into_param().abi(), loadsettings.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3694,10 +4019,12 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3705,6 +4032,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3712,6 +4040,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3719,6 +4048,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3726,6 +4056,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3733,6 +4064,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3740,6 +4072,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3747,6 +4080,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3754,6 +4088,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3761,6 +4096,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3768,6 +4104,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3775,6 +4112,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3782,6 +4120,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3789,6 +4128,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3796,6 +4136,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3803,6 +4144,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3810,6 +4152,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3817,6 +4160,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3824,6 +4168,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -3831,14 +4176,17 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3846,6 +4194,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3853,6 +4202,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3860,6 +4210,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -3867,6 +4218,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -3874,6 +4226,7 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -3881,11 +4234,13 @@ impl XmlDocument {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`*"]
     pub fn LoadFromUriAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3893,6 +4248,7 @@ impl XmlDocument {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`*"]
     pub fn LoadFromUriWithSettingsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, XmlLoadSettings>>(uri: Param0, loadsettings: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3900,6 +4256,7 @@ impl XmlDocument {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`, `Storage`*"]
     pub fn LoadFromFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3907,6 +4264,7 @@ impl XmlDocument {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation`, `Storage`*"]
     pub fn LoadFromFileWithSettingsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, XmlLoadSettings>>(file: Param0, loadsettings: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4036,10 +4394,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &XmlDocument 
 }
 unsafe impl ::std::marker::Send for XmlDocument {}
 unsafe impl ::std::marker::Sync for XmlDocument {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlDocumentFragment(::windows::runtime::IInspectable);
 impl XmlDocumentFragment {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4047,10 +4407,12 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4058,6 +4420,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4065,6 +4428,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4072,6 +4436,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4079,6 +4444,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4086,6 +4452,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4093,6 +4460,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4100,6 +4468,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4107,6 +4476,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4114,6 +4484,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4121,6 +4492,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4128,6 +4500,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4135,6 +4508,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4142,6 +4516,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4149,6 +4524,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4156,6 +4532,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4163,6 +4540,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4170,6 +4548,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4177,6 +4556,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4184,14 +4564,17 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4199,6 +4582,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4206,6 +4590,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4213,6 +4598,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4220,6 +4606,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4227,6 +4614,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4234,6 +4622,7 @@ impl XmlDocumentFragment {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4357,10 +4746,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentF
 }
 unsafe impl ::std::marker::Send for XmlDocumentFragment {}
 unsafe impl ::std::marker::Sync for XmlDocumentFragment {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlDocumentType(::windows::runtime::IInspectable);
 impl XmlDocumentType {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4368,6 +4759,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Entities(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
@@ -4375,6 +4767,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Notations(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
@@ -4382,6 +4775,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4389,10 +4783,12 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4400,6 +4796,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4407,6 +4804,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4414,6 +4812,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4421,6 +4820,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4428,6 +4828,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4435,6 +4836,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4442,6 +4844,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4449,6 +4852,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4456,6 +4860,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4463,6 +4868,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4470,6 +4876,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4477,6 +4884,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4484,6 +4892,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4491,6 +4900,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4498,6 +4908,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4505,6 +4916,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4512,6 +4924,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4519,6 +4932,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4526,14 +4940,17 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4541,6 +4958,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4548,6 +4966,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4555,6 +4974,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -4562,6 +4982,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4569,6 +4990,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -4576,6 +4998,7 @@ impl XmlDocumentType {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4699,10 +5122,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentT
 }
 unsafe impl ::std::marker::Send for XmlDocumentType {}
 unsafe impl ::std::marker::Sync for XmlDocumentType {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlDomImplementation(::windows::runtime::IInspectable);
 impl XmlDomImplementation {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasFeature<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, feature: Param0, version: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4763,10 +5188,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for XmlDomImplementation {}
 unsafe impl ::std::marker::Sync for XmlDomImplementation {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlElement(::windows::runtime::IInspectable);
 impl XmlElement {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn TagName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4774,6 +5201,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, attributename: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4781,14 +5209,17 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), attributename.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, attributename: Param0, attributevalue: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), attributename.into_param().abi(), attributevalue.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, attributename: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), attributename.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetAttributeNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, attributename: Param0) -> ::windows::runtime::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -4796,6 +5227,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), attributename.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetAttributeNode<'a, Param0: ::windows::runtime::IntoParam<'a, XmlAttribute>>(&self, newattribute: Param0) -> ::windows::runtime::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -4803,6 +5235,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), newattribute.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveAttributeNode<'a, Param0: ::windows::runtime::IntoParam<'a, XmlAttribute>>(&self, attributenode: Param0) -> ::windows::runtime::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -4810,6 +5243,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), attributenode.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetElementsByTagName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tagname: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = self;
         unsafe {
@@ -4817,10 +5251,12 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), tagname.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetAttributeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, namespaceuri: Param0, qualifiedname: Param1, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), namespaceuri.into_param().abi(), qualifiedname.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetAttributeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4828,10 +5264,12 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), namespaceuri.into_param().abi(), localname.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveAttributeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), namespaceuri.into_param().abi(), localname.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetAttributeNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, XmlAttribute>>(&self, newattribute: Param0) -> ::windows::runtime::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -4839,6 +5277,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), newattribute.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetAttributeNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, namespaceuri: Param0, localname: Param1) -> ::windows::runtime::Result<XmlAttribute> {
         let this = self;
         unsafe {
@@ -4846,6 +5285,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), namespaceuri.into_param().abi(), localname.into_param().abi(), &mut result__).from_abi::<XmlAttribute>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4853,10 +5293,12 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4864,6 +5306,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4871,6 +5314,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4878,6 +5322,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4885,6 +5330,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4892,6 +5338,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4899,6 +5346,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4906,6 +5354,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4913,6 +5362,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4920,6 +5370,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4927,6 +5378,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4934,6 +5386,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4941,6 +5394,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4948,6 +5402,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4955,6 +5410,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4962,6 +5418,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4969,6 +5426,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4976,6 +5434,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4983,6 +5442,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -4990,14 +5450,17 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5005,6 +5468,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5012,6 +5476,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5019,6 +5484,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5026,6 +5492,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -5033,6 +5500,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -5040,6 +5508,7 @@ impl XmlElement {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -5163,10 +5632,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &XmlElement {
 }
 unsafe impl ::std::marker::Send for XmlElement {}
 unsafe impl ::std::marker::Sync for XmlElement {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlEntityReference(::windows::runtime::IInspectable);
 impl XmlEntityReference {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5174,10 +5645,12 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5185,6 +5658,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5192,6 +5666,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5199,6 +5674,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5206,6 +5682,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5213,6 +5690,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5220,6 +5698,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5227,6 +5706,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5234,6 +5714,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5241,6 +5722,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5248,6 +5730,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5255,6 +5738,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5262,6 +5746,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5269,6 +5754,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5276,6 +5762,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5283,6 +5770,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5290,6 +5778,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5297,6 +5786,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5304,6 +5794,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -5311,14 +5802,17 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5326,6 +5820,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5333,6 +5828,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5340,6 +5836,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -5347,6 +5844,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -5354,6 +5852,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -5361,6 +5860,7 @@ impl XmlEntityReference {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -5484,6 +5984,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &XmlEntityRef
 }
 unsafe impl ::std::marker::Send for XmlEntityReference {}
 unsafe impl ::std::marker::Sync for XmlEntityReference {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlLoadSettings(::windows::runtime::IInspectable);
@@ -5495,6 +5996,7 @@ impl XmlLoadSettings {
         static mut SHARED: ::windows::runtime::FactoryCache<XmlLoadSettings, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn MaxElementDepth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -5502,10 +6004,12 @@ impl XmlLoadSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetMaxElementDepth(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ProhibitDtd(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -5513,10 +6017,12 @@ impl XmlLoadSettings {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetProhibitDtd(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ResolveExternals(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -5524,10 +6030,12 @@ impl XmlLoadSettings {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetResolveExternals(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ValidateOnParse(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -5535,10 +6043,12 @@ impl XmlLoadSettings {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetValidateOnParse(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ElementContentWhiteSpace(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -5546,6 +6056,7 @@ impl XmlLoadSettings {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetElementContentWhiteSpace(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
@@ -5603,10 +6114,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for XmlLoadSettings {}
 unsafe impl ::std::marker::Sync for XmlLoadSettings {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlNamedNodeMap(::windows::runtime::IInspectable);
 impl XmlNamedNodeMap {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -5614,6 +6127,7 @@ impl XmlNamedNodeMap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Item(&self, index: u32) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -5621,6 +6135,7 @@ impl XmlNamedNodeMap {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), index, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetNamedItem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -5628,6 +6143,7 @@ impl XmlNamedNodeMap {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNamedItem<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, node: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -5635,6 +6151,7 @@ impl XmlNamedNodeMap {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), node.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveNamedItem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -5642,6 +6159,7 @@ impl XmlNamedNodeMap {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetNamedItemNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, namespaceuri: Param0, name: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -5649,6 +6167,7 @@ impl XmlNamedNodeMap {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), namespaceuri.into_param().abi(), name.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveNamedItemNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, namespaceuri: Param0, name: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -5656,6 +6175,7 @@ impl XmlNamedNodeMap {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), namespaceuri.into_param().abi(), name.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNamedItemNS<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, node: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -5664,6 +6184,7 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
         unsafe {
@@ -5672,6 +6193,7 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -5680,6 +6202,7 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -5688,6 +6211,7 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -5696,6 +6220,7 @@ impl XmlNamedNodeMap {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<IXmlNode as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -5824,10 +6349,12 @@ impl ::std::iter::IntoIterator for &XmlNamedNodeMap {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlNodeList(::windows::runtime::IInspectable);
 impl XmlNodeList {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -5835,6 +6362,7 @@ impl XmlNodeList {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Item(&self, index: u32) -> ::windows::runtime::Result<IXmlNode> {
         let this = self;
         unsafe {
@@ -5843,6 +6371,7 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
         unsafe {
@@ -5851,6 +6380,7 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -5859,6 +6389,7 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -5867,6 +6398,7 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -5875,6 +6407,7 @@ impl XmlNodeList {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Data_Xml_Dom`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<IXmlNode as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
@@ -6003,10 +6536,12 @@ impl ::std::iter::IntoIterator for &XmlNodeList {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlProcessingInstruction(::windows::runtime::IInspectable);
 impl XmlProcessingInstruction {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Target(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -6014,6 +6549,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -6021,10 +6557,12 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6032,10 +6570,12 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6043,6 +6583,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6050,6 +6591,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6057,6 +6599,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6064,6 +6607,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6071,6 +6615,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6078,6 +6623,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6085,6 +6631,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6092,6 +6639,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6099,6 +6647,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6106,6 +6655,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6113,6 +6663,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6120,6 +6671,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6127,6 +6679,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6134,6 +6687,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6141,6 +6695,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6148,6 +6703,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6155,6 +6711,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6162,6 +6719,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6169,14 +6727,17 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6184,6 +6745,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6191,6 +6753,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6198,6 +6761,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6205,6 +6769,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -6212,6 +6777,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -6219,6 +6785,7 @@ impl XmlProcessingInstruction {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -6342,10 +6909,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &XmlProcessin
 }
 unsafe impl ::std::marker::Send for XmlProcessingInstruction {}
 unsafe impl ::std::marker::Sync for XmlProcessingInstruction {}
+#[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XmlText(::windows::runtime::IInspectable);
 impl XmlText {
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SplitText(&self, offset: u32) -> ::windows::runtime::Result<IXmlText> {
         let this = self;
         unsafe {
@@ -6353,6 +6922,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), offset, &mut result__).from_abi::<IXmlText>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -6360,10 +6930,12 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -6371,6 +6943,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
@@ -6378,22 +6951,27 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), offset, count, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertData<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, data: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), offset, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn DeleteData(&self, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), offset, count).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceData<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, offset: u32, count: u32, data: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), offset, count, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeValue(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6401,10 +6979,12 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetNodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeType(&self) -> ::windows::runtime::Result<NodeType> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6412,6 +6992,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NodeType>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NodeName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6419,6 +7000,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ParentNode(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6426,6 +7008,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ChildNodes(&self) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6433,6 +7016,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn FirstChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6440,6 +7024,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LastChild(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6447,6 +7032,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn PreviousSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6454,6 +7040,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NextSibling(&self) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6461,6 +7048,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Attributes(&self) -> ::windows::runtime::Result<XmlNamedNodeMap> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6468,6 +7056,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn HasChildNodes(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6475,6 +7064,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn OwnerDocument(&self) -> ::windows::runtime::Result<XmlDocument> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6482,6 +7072,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InsertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6489,6 +7080,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn ReplaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>, Param1: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0, referencechild: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6496,6 +7088,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), newchild.into_param().abi(), referencechild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn RemoveChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6503,6 +7096,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), childnode.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn AppendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXmlNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6510,6 +7104,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), newchild.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn CloneNode(&self, deep: bool) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6517,6 +7112,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), deep, &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn NamespaceUri(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6524,6 +7120,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn LocalName(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6531,6 +7128,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Prefix(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe {
@@ -6538,14 +7136,17 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn Normalize(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6553,6 +7154,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xpath: Param0) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6560,6 +7162,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), xpath.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectSingleNodeNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<IXmlNode> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6567,6 +7170,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<IXmlNode>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SelectNodesNS<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xpath: Param0, namespaces: Param1) -> ::windows::runtime::Result<XmlNodeList> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
@@ -6574,6 +7178,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi::<XmlNodeList>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn GetXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -6581,6 +7186,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn InnerText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
@@ -6588,6 +7194,7 @@ impl XmlText {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Data_Xml_Dom`*"]
     pub fn SetInnerText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }

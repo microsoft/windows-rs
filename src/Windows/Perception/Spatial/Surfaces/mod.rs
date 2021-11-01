@@ -197,10 +197,12 @@ pub struct ISpatialSurfaceObserverStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialSurfaceInfo(::windows::runtime::IInspectable);
 impl SpatialSurfaceInfo {
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -209,6 +211,7 @@ impl SpatialSurfaceInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation`*"]
     pub fn UpdateTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -217,6 +220,7 @@ impl SpatialSurfaceInfo {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation`, `Foundation_Numerics`*"]
     pub fn TryGetBounds<'a, Param0: ::windows::runtime::IntoParam<'a, super::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>> {
         let this = self;
         unsafe {
@@ -225,6 +229,7 @@ impl SpatialSurfaceInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation`*"]
     pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
         let this = self;
         unsafe {
@@ -233,6 +238,7 @@ impl SpatialSurfaceInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation`*"]
     pub fn TryComputeLatestMeshWithOptionsAsync<'a, Param1: ::windows::runtime::IntoParam<'a, SpatialSurfaceMeshOptions>>(&self, maxtrianglespercubicmeter: f64, options: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
         let this = self;
         unsafe {
@@ -293,10 +299,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialSurfaceInfo {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceInfo {}
+#[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialSurfaceMesh(::windows::runtime::IInspectable);
 impl SpatialSurfaceMesh {
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn SurfaceInfo(&self) -> ::windows::runtime::Result<SpatialSurfaceInfo> {
         let this = self;
         unsafe {
@@ -304,6 +312,7 @@ impl SpatialSurfaceMesh {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialSurfaceInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn CoordinateSystem(&self) -> ::windows::runtime::Result<super::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
@@ -311,6 +320,7 @@ impl SpatialSurfaceMesh {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
         }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn TriangleIndices(&self) -> ::windows::runtime::Result<SpatialSurfaceMeshBuffer> {
         let this = self;
         unsafe {
@@ -318,6 +328,7 @@ impl SpatialSurfaceMesh {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialSurfaceMeshBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn VertexPositions(&self) -> ::windows::runtime::Result<SpatialSurfaceMeshBuffer> {
         let this = self;
         unsafe {
@@ -326,6 +337,7 @@ impl SpatialSurfaceMesh {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation_Numerics`*"]
     pub fn VertexPositionScale(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -333,6 +345,7 @@ impl SpatialSurfaceMesh {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn VertexNormals(&self) -> ::windows::runtime::Result<SpatialSurfaceMeshBuffer> {
         let this = self;
         unsafe {
@@ -393,11 +406,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialSurfaceMesh {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceMesh {}
+#[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialSurfaceMeshBuffer(::windows::runtime::IInspectable);
 impl SpatialSurfaceMeshBuffer {
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Graphics_DirectX`*"]
     pub fn Format(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -405,6 +420,7 @@ impl SpatialSurfaceMeshBuffer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn Stride(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -412,6 +428,7 @@ impl SpatialSurfaceMeshBuffer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn ElementCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -420,6 +437,7 @@ impl SpatialSurfaceMeshBuffer {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Storage_Streams`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -480,6 +498,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialSurfaceMeshBuffer {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceMeshBuffer {}
+#[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialSurfaceMeshOptions(::windows::runtime::IInspectable);
@@ -492,6 +511,7 @@ impl SpatialSurfaceMeshOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Graphics_DirectX`*"]
     pub fn VertexPositionFormat(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -500,11 +520,13 @@ impl SpatialSurfaceMeshOptions {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Graphics_DirectX`*"]
     pub fn SetVertexPositionFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Graphics_DirectX`*"]
     pub fn TriangleIndexFormat(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -513,11 +535,13 @@ impl SpatialSurfaceMeshOptions {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Graphics_DirectX`*"]
     pub fn SetTriangleIndexFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Graphics_DirectX`*"]
     pub fn VertexNormalFormat(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -526,10 +550,12 @@ impl SpatialSurfaceMeshOptions {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Graphics_DirectX`*"]
     pub fn SetVertexNormalFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn IncludeVertexNormals(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -537,11 +563,13 @@ impl SpatialSurfaceMeshOptions {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn SetIncludeVertexNormals(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation_Collections`, `Graphics_DirectX`*"]
     pub fn SupportedVertexPositionFormats() -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -549,6 +577,7 @@ impl SpatialSurfaceMeshOptions {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation_Collections`, `Graphics_DirectX`*"]
     pub fn SupportedTriangleIndexFormats() -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -556,6 +585,7 @@ impl SpatialSurfaceMeshOptions {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation_Collections`, `Graphics_DirectX`*"]
     pub fn SupportedVertexNormalFormats() -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -619,6 +649,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialSurfaceMeshOptions {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceMeshOptions {}
+#[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialSurfaceObserver(::windows::runtime::IInspectable);
@@ -631,6 +662,7 @@ impl SpatialSurfaceObserver {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation_Collections`*"]
     pub fn GetObservedSurfaces(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, SpatialSurfaceInfo>> {
         let this = self;
         unsafe {
@@ -638,16 +670,19 @@ impl SpatialSurfaceObserver {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, SpatialSurfaceInfo>>(result__)
         }
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn SetBoundingVolume<'a, Param0: ::windows::runtime::IntoParam<'a, super::SpatialBoundingVolume>>(&self, bounds: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), bounds.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation_Collections`*"]
     pub fn SetBoundingVolumes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>>(&self, bounds: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), bounds.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation`*"]
     pub fn ObservedSurfacesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -656,17 +691,20 @@ impl SpatialSurfaceObserver {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation`*"]
     pub fn RemoveObservedSurfacesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`, `Foundation`*"]
     pub fn RequestAccessAsync() -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>> {
         Self::ISpatialSurfaceObserverStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>>(result__)
         })
     }
+    #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::ISpatialSurfaceObserverStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();

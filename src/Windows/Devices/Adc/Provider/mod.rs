@@ -1,12 +1,14 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Adc_Provider`*"]
 pub struct IAdcControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcControllerProvider {
     type Vtable = IAdcControllerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193198632, 33133, 19941, [160, 72, 171, 160, 105, 88, 170, 168]);
 }
 impl IAdcControllerProvider {
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn ChannelCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -14,6 +16,7 @@ impl IAdcControllerProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn ResolutionInBits(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -21,6 +24,7 @@ impl IAdcControllerProvider {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn MinValue(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -28,6 +32,7 @@ impl IAdcControllerProvider {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn MaxValue(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -35,6 +40,7 @@ impl IAdcControllerProvider {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn ChannelMode(&self) -> ::windows::runtime::Result<ProviderAdcChannelMode> {
         let this = self;
         unsafe {
@@ -42,10 +48,12 @@ impl IAdcControllerProvider {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProviderAdcChannelMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -53,14 +61,17 @@ impl IAdcControllerProvider {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), channelmode, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn AcquireChannel(&self, channel: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), channel).ok() }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn ReleaseChannel(&self, channel: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), channel).ok() }
     }
+    #[doc = "*Required features: `Devices_Adc_Provider`*"]
     pub fn ReadValue(&self, channelnumber: i32) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -134,6 +145,7 @@ pub struct IAdcControllerProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Adc_Provider`*"]
 pub struct IAdcProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcProvider {
     type Vtable = IAdcProvider_abi;
@@ -141,6 +153,7 @@ unsafe impl ::windows::runtime::Interface for IAdcProvider {
 }
 impl IAdcProvider {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Adc_Provider`, `Foundation_Collections`*"]
     pub fn GetControllers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>> {
         let this = self;
         unsafe {
@@ -204,6 +217,7 @@ pub struct IAdcProvider_abi(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: `Devices_Adc_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderAdcChannelMode(pub i32);

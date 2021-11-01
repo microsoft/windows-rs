@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub struct AVRF_BACKTRACE_INFORMATION {
     pub Depth: u32,
     pub Index: u32,
@@ -30,6 +31,7 @@ unsafe impl ::windows::runtime::Abi for AVRF_BACKTRACE_INFORMATION {
 pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub struct AVRF_HANDLE_OPERATION {
     pub Handle: u64,
     pub ProcessId: u32,
@@ -62,6 +64,7 @@ unsafe impl ::windows::runtime::Abi for AVRF_HANDLE_OPERATION {
 pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub struct AVRF_HEAP_ALLOCATION {
     pub HeapHandle: u64,
     pub UserAllocation: u64,
@@ -104,8 +107,10 @@ unsafe impl ::windows::runtime::Abi for AVRF_HEAP_ALLOCATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub const AVRF_MAX_TRACES: u32 = 32u32;
 pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = unsafe extern "system" fn(resourcedescription: *mut ::std::ffi::c_void, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
@@ -149,6 +154,7 @@ impl ::std::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::std::option::Option<AVRF_RESOURCE_ENUMERATE_CALLBACK>, enumerationcontext: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -162,6 +168,7 @@ pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eAvrfResourceTypes(pub i32);
@@ -177,6 +184,7 @@ unsafe impl ::windows::runtime::Abi for eAvrfResourceTypes {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eHANDLE_TRACE_OPERATIONS(pub i32);
@@ -193,6 +201,7 @@ unsafe impl ::windows::runtime::Abi for eHANDLE_TRACE_OPERATIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eHeapAllocationState(pub i32);
@@ -208,6 +217,7 @@ unsafe impl ::windows::runtime::Abi for eHeapAllocationState {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eHeapEnumerationLevel(pub i32);
@@ -222,6 +232,7 @@ unsafe impl ::windows::runtime::Abi for eHeapEnumerationLevel {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eUserAllocationState(pub i32);

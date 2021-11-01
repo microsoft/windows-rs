@@ -99,12 +99,14 @@ pub struct ISpeechRecognitionCompilationResult_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 pub struct ISpeechRecognitionConstraint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionConstraint {
     type Vtable = ISpeechRecognitionConstraint_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2041321000, 19816, 17348, [137, 17, 64, 220, 65, 1, 181, 91]);
 }
 impl ISpeechRecognitionConstraint {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -112,10 +114,12 @@ impl ISpeechRecognitionConstraint {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -123,10 +127,12 @@ impl ISpeechRecognitionConstraint {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintType> {
         let this = self;
         unsafe {
@@ -134,6 +140,7 @@ impl ISpeechRecognitionConstraint {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintType>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Probability(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintProbability> {
         let this = self;
         unsafe {
@@ -141,6 +148,7 @@ impl ISpeechRecognitionConstraint {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintProbability>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
@@ -722,10 +730,12 @@ pub struct IVoiceCommandSet_abi(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phraselistname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, phraselist: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechContinuousRecognitionCompletedEventArgs(::windows::runtime::IInspectable);
 impl SpeechContinuousRecognitionCompletedEventArgs {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SpeechRecognitionResultStatus> {
         let this = self;
         unsafe {
@@ -786,6 +796,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechContinuousRecognitionCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for SpeechContinuousRecognitionCompletedEventArgs {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionMode(pub i32);
@@ -805,10 +816,12 @@ unsafe impl ::windows::runtime::Abi for SpeechContinuousRecognitionMode {
 unsafe impl ::windows::runtime::RuntimeType for SpeechContinuousRecognitionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechContinuousRecognitionResultGeneratedEventArgs(::windows::runtime::IInspectable);
 impl SpeechContinuousRecognitionResultGeneratedEventArgs {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Result(&self) -> ::windows::runtime::Result<SpeechRecognitionResult> {
         let this = self;
         unsafe {
@@ -869,11 +882,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 unsafe impl ::std::marker::Sync for SpeechContinuousRecognitionResultGeneratedEventArgs {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechContinuousRecognitionSession(::windows::runtime::IInspectable);
 impl SpeechContinuousRecognitionSession {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn AutoStopSilenceTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -882,11 +897,13 @@ impl SpeechContinuousRecognitionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn SetAutoStopSilenceTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn StartAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -895,6 +912,7 @@ impl SpeechContinuousRecognitionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn StartWithModeAsync(&self, mode: SpeechContinuousRecognitionMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -903,6 +921,7 @@ impl SpeechContinuousRecognitionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn StopAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -911,6 +930,7 @@ impl SpeechContinuousRecognitionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn CancelAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -919,6 +939,7 @@ impl SpeechContinuousRecognitionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn PauseAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -926,11 +947,13 @@ impl SpeechContinuousRecognitionSession {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Resume(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionCompletedEventArgs>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -939,11 +962,13 @@ impl SpeechContinuousRecognitionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn ResultGenerated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionResultGeneratedEventArgs>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -952,6 +977,7 @@ impl SpeechContinuousRecognitionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn RemoveResultGenerated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1009,6 +1035,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechContinuousRecognitionSession {}
 unsafe impl ::std::marker::Sync for SpeechContinuousRecognitionSession {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechRecognitionAudioProblem(pub i32);
@@ -1033,10 +1060,12 @@ unsafe impl ::windows::runtime::Abi for SpeechRecognitionAudioProblem {
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionAudioProblem {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionCompilationResult(::windows::runtime::IInspectable);
 impl SpeechRecognitionCompilationResult {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SpeechRecognitionResultStatus> {
         let this = self;
         unsafe {
@@ -1097,6 +1126,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionCompilationResult {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionCompilationResult {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechRecognitionConfidence(pub i32);
@@ -1118,6 +1148,7 @@ unsafe impl ::windows::runtime::Abi for SpeechRecognitionConfidence {
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionConfidence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechRecognitionConstraintProbability(pub i32);
@@ -1138,6 +1169,7 @@ unsafe impl ::windows::runtime::Abi for SpeechRecognitionConstraintProbability {
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionConstraintProbability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechRecognitionConstraintType(pub i32);
@@ -1159,11 +1191,13 @@ unsafe impl ::windows::runtime::Abi for SpeechRecognitionConstraintType {
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionConstraintType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionGrammarFileConstraint(::windows::runtime::IInspectable);
 impl SpeechRecognitionGrammarFileConstraint {
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Storage`*"]
     pub fn GrammarFile(&self) -> ::windows::runtime::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -1171,6 +1205,7 @@ impl SpeechRecognitionGrammarFileConstraint {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1178,10 +1213,12 @@ impl SpeechRecognitionGrammarFileConstraint {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1189,10 +1226,12 @@ impl SpeechRecognitionGrammarFileConstraint {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintType> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1200,6 +1239,7 @@ impl SpeechRecognitionGrammarFileConstraint {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintType>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Probability(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintProbability> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1207,11 +1247,13 @@ impl SpeechRecognitionGrammarFileConstraint {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintProbability>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Storage`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StorageFile>>(file: Param0) -> ::windows::runtime::Result<SpeechRecognitionGrammarFileConstraint> {
         Self::ISpeechRecognitionGrammarFileConstraintFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1219,6 +1261,7 @@ impl SpeechRecognitionGrammarFileConstraint {
         })
     }
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Storage`*"]
     pub fn CreateWithTag<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StorageFile>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(file: Param0, tag: Param1) -> ::windows::runtime::Result<SpeechRecognitionGrammarFileConstraint> {
         Self::ISpeechRecognitionGrammarFileConstraintFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1304,10 +1347,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISpeechRecognitionConstraint> for &Sp
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionGrammarFileConstraint {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionGrammarFileConstraint {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionHypothesis(::windows::runtime::IInspectable);
 impl SpeechRecognitionHypothesis {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1368,10 +1413,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionHypothesis {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionHypothesis {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionHypothesisGeneratedEventArgs(::windows::runtime::IInspectable);
 impl SpeechRecognitionHypothesisGeneratedEventArgs {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Hypothesis(&self) -> ::windows::runtime::Result<SpeechRecognitionHypothesis> {
         let this = self;
         unsafe {
@@ -1432,11 +1479,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionHypothesisGeneratedEventArgs {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionHypothesisGeneratedEventArgs {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionListConstraint(::windows::runtime::IInspectable);
 impl SpeechRecognitionListConstraint {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`*"]
     pub fn Commands(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1444,6 +1493,7 @@ impl SpeechRecognitionListConstraint {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1451,10 +1501,12 @@ impl SpeechRecognitionListConstraint {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1462,10 +1514,12 @@ impl SpeechRecognitionListConstraint {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintType> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1473,6 +1527,7 @@ impl SpeechRecognitionListConstraint {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintType>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Probability(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintProbability> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1480,11 +1535,13 @@ impl SpeechRecognitionListConstraint {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintProbability>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(commands: Param0) -> ::windows::runtime::Result<SpeechRecognitionListConstraint> {
         Self::ISpeechRecognitionListConstraintFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1492,6 +1549,7 @@ impl SpeechRecognitionListConstraint {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`*"]
     pub fn CreateWithTag<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(commands: Param0, tag: Param1) -> ::windows::runtime::Result<SpeechRecognitionListConstraint> {
         Self::ISpeechRecognitionListConstraintFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1577,10 +1635,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISpeechRecognitionConstraint> for &Sp
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionListConstraint {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionListConstraint {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionQualityDegradingEventArgs(::windows::runtime::IInspectable);
 impl SpeechRecognitionQualityDegradingEventArgs {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Problem(&self) -> ::windows::runtime::Result<SpeechRecognitionAudioProblem> {
         let this = self;
         unsafe {
@@ -1641,10 +1701,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionQualityDegradingEventArgs {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionQualityDegradingEventArgs {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionResult(::windows::runtime::IInspectable);
 impl SpeechRecognitionResult {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SpeechRecognitionResultStatus> {
         let this = self;
         unsafe {
@@ -1652,6 +1714,7 @@ impl SpeechRecognitionResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionResultStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1659,6 +1722,7 @@ impl SpeechRecognitionResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Confidence(&self) -> ::windows::runtime::Result<SpeechRecognitionConfidence> {
         let this = self;
         unsafe {
@@ -1666,6 +1730,7 @@ impl SpeechRecognitionResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConfidence>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SemanticInterpretation(&self) -> ::windows::runtime::Result<SpeechRecognitionSemanticInterpretation> {
         let this = self;
         unsafe {
@@ -1674,6 +1739,7 @@ impl SpeechRecognitionResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`*"]
     pub fn GetAlternates(&self, maxalternates: u32) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<SpeechRecognitionResult>> {
         let this = self;
         unsafe {
@@ -1681,6 +1747,7 @@ impl SpeechRecognitionResult {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), maxalternates, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SpeechRecognitionResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Constraint(&self) -> ::windows::runtime::Result<ISpeechRecognitionConstraint> {
         let this = self;
         unsafe {
@@ -1689,6 +1756,7 @@ impl SpeechRecognitionResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`*"]
     pub fn RulePath(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1696,6 +1764,7 @@ impl SpeechRecognitionResult {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn RawConfidence(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1704,6 +1773,7 @@ impl SpeechRecognitionResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn PhraseStartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionResult2>(self)?;
         unsafe {
@@ -1712,6 +1782,7 @@ impl SpeechRecognitionResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn PhraseDuration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionResult2>(self)?;
         unsafe {
@@ -1772,6 +1843,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionResult {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionResult {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechRecognitionResultStatus(pub i32);
@@ -1800,6 +1872,7 @@ unsafe impl ::windows::runtime::Abi for SpeechRecognitionResultStatus {
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionResultStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechRecognitionScenario(pub i32);
@@ -1820,11 +1893,13 @@ unsafe impl ::windows::runtime::Abi for SpeechRecognitionScenario {
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionScenario {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionSemanticInterpretation(::windows::runtime::IInspectable);
 impl SpeechRecognitionSemanticInterpretation {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>> {
         let this = self;
         unsafe {
@@ -1885,10 +1960,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionSemanticInterpretation {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionSemanticInterpretation {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionTopicConstraint(::windows::runtime::IInspectable);
 impl SpeechRecognitionTopicConstraint {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Scenario(&self) -> ::windows::runtime::Result<SpeechRecognitionScenario> {
         let this = self;
         unsafe {
@@ -1896,6 +1973,7 @@ impl SpeechRecognitionTopicConstraint {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionScenario>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn TopicHint(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1903,6 +1981,7 @@ impl SpeechRecognitionTopicConstraint {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1910,10 +1989,12 @@ impl SpeechRecognitionTopicConstraint {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1921,10 +2002,12 @@ impl SpeechRecognitionTopicConstraint {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintType> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1932,6 +2015,7 @@ impl SpeechRecognitionTopicConstraint {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintType>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Probability(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintProbability> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -1939,16 +2023,19 @@ impl SpeechRecognitionTopicConstraint {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintProbability>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Create<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(scenario: SpeechRecognitionScenario, topichint: Param1) -> ::windows::runtime::Result<SpeechRecognitionTopicConstraint> {
         Self::ISpeechRecognitionTopicConstraintFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), scenario, topichint.into_param().abi(), &mut result__).from_abi::<SpeechRecognitionTopicConstraint>(result__)
         })
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn CreateWithTag<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(scenario: SpeechRecognitionScenario, topichint: Param1, tag: Param2) -> ::windows::runtime::Result<SpeechRecognitionTopicConstraint> {
         Self::ISpeechRecognitionTopicConstraintFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2034,10 +2121,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISpeechRecognitionConstraint> for &Sp
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionTopicConstraint {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionTopicConstraint {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognitionVoiceCommandDefinitionConstraint(::windows::runtime::IInspectable);
 impl SpeechRecognitionVoiceCommandDefinitionConstraint {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -2045,10 +2134,12 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -2056,10 +2147,12 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintType> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -2067,6 +2160,7 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintType>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Probability(&self) -> ::windows::runtime::Result<SpeechRecognitionConstraintProbability> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe {
@@ -2074,6 +2168,7 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognitionConstraintProbability>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
@@ -2153,6 +2248,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISpeechRecognitionConstraint> for &Sp
 }
 unsafe impl ::std::marker::Send for SpeechRecognitionVoiceCommandDefinitionConstraint {}
 unsafe impl ::std::marker::Sync for SpeechRecognitionVoiceCommandDefinitionConstraint {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognizer(::windows::runtime::IInspectable);
@@ -2165,6 +2261,7 @@ impl SpeechRecognizer {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Globalization`*"]
     pub fn CurrentLanguage(&self) -> ::windows::runtime::Result<super::super::Globalization::Language> {
         let this = self;
         unsafe {
@@ -2173,6 +2270,7 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`*"]
     pub fn Constraints(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ISpeechRecognitionConstraint>> {
         let this = self;
         unsafe {
@@ -2180,6 +2278,7 @@ impl SpeechRecognizer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<ISpeechRecognitionConstraint>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Timeouts(&self) -> ::windows::runtime::Result<SpeechRecognizerTimeouts> {
         let this = self;
         unsafe {
@@ -2187,6 +2286,7 @@ impl SpeechRecognizer {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechRecognizerTimeouts>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn UIOptions(&self) -> ::windows::runtime::Result<SpeechRecognizerUIOptions> {
         let this = self;
         unsafe {
@@ -2195,6 +2295,7 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn CompileConstraintsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionCompilationResult>> {
         let this = self;
         unsafe {
@@ -2203,6 +2304,7 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn RecognizeAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>> {
         let this = self;
         unsafe {
@@ -2211,6 +2313,7 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn RecognizeWithUIAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpeechRecognitionResult>> {
         let this = self;
         unsafe {
@@ -2219,6 +2322,7 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn RecognitionQualityDegrading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionQualityDegradingEventArgs>>>(&self, speechrecognitionqualitydegradinghandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2227,11 +2331,13 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn RemoveRecognitionQualityDegrading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognizerStateChangedEventArgs>>>(&self, statechangedhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2240,15 +2346,18 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn ContinuousRecognitionSession(&self) -> ::windows::runtime::Result<SpeechContinuousRecognitionSession> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe {
@@ -2256,6 +2365,7 @@ impl SpeechRecognizer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechContinuousRecognitionSession>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn State(&self) -> ::windows::runtime::Result<SpeechRecognizerState> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe {
@@ -2264,6 +2374,7 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn StopRecognitionAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe {
@@ -2272,6 +2383,7 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn HypothesisGenerated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe {
@@ -2280,11 +2392,13 @@ impl SpeechRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn RemoveHypothesisGenerated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Globalization`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Globalization::Language>>(language: Param0) -> ::windows::runtime::Result<SpeechRecognizer> {
         Self::ISpeechRecognizerFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2292,6 +2406,7 @@ impl SpeechRecognizer {
         })
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Globalization`*"]
     pub fn SystemSpeechLanguage() -> ::windows::runtime::Result<super::super::Globalization::Language> {
         Self::ISpeechRecognizerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2299,6 +2414,7 @@ impl SpeechRecognizer {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`, `Globalization`*"]
     pub fn SupportedTopicLanguages() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         Self::ISpeechRecognizerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2306,6 +2422,7 @@ impl SpeechRecognizer {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`, `Globalization`*"]
     pub fn SupportedGrammarLanguages() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         Self::ISpeechRecognizerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2313,6 +2430,7 @@ impl SpeechRecognizer {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Globalization"))]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`, `Globalization`*"]
     pub fn TrySetSystemSpeechLanguageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Globalization::Language>>(speechlanguage: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISpeechRecognizerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2410,6 +2528,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for SpeechRecognizer {}
 unsafe impl ::std::marker::Sync for SpeechRecognizer {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechRecognizerState(pub i32);
@@ -2434,10 +2553,12 @@ unsafe impl ::windows::runtime::Abi for SpeechRecognizerState {
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognizerState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognizerStateChangedEventArgs(::windows::runtime::IInspectable);
 impl SpeechRecognizerStateChangedEventArgs {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn State(&self) -> ::windows::runtime::Result<SpeechRecognizerState> {
         let this = self;
         unsafe {
@@ -2498,11 +2619,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognizerStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for SpeechRecognizerStateChangedEventArgs {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognizerTimeouts(::windows::runtime::IInspectable);
 impl SpeechRecognizerTimeouts {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn InitialSilenceTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2511,11 +2634,13 @@ impl SpeechRecognizerTimeouts {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn SetInitialSilenceTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn EndSilenceTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2524,11 +2649,13 @@ impl SpeechRecognizerTimeouts {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn SetEndSilenceTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn BabbleTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2537,6 +2664,7 @@ impl SpeechRecognizerTimeouts {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`*"]
     pub fn SetBabbleTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2594,10 +2722,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognizerTimeouts {}
 unsafe impl ::std::marker::Sync for SpeechRecognizerTimeouts {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechRecognizerUIOptions(::windows::runtime::IInspectable);
 impl SpeechRecognizerUIOptions {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn ExampleText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2605,10 +2735,12 @@ impl SpeechRecognizerUIOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetExampleText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn AudiblePrompt(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2616,10 +2748,12 @@ impl SpeechRecognizerUIOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetAudiblePrompt<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn IsReadBackEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2627,10 +2761,12 @@ impl SpeechRecognizerUIOptions {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetIsReadBackEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn ShowConfirmation(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2638,6 +2774,7 @@ impl SpeechRecognizerUIOptions {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn SetShowConfirmation(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
@@ -2695,9 +2832,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechRecognizerUIOptions {}
 unsafe impl ::std::marker::Sync for SpeechRecognizerUIOptions {}
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 pub struct VoiceCommandManager {}
 impl VoiceCommandManager {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`, `Storage`*"]
     pub fn InstallCommandSetsFromStorageFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StorageFile>>(file: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IVoiceCommandManager(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2705,6 +2844,7 @@ impl VoiceCommandManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation_Collections`*"]
     pub fn InstalledCommandSets() -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, VoiceCommandSet>> {
         Self::IVoiceCommandManager(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2719,10 +2859,12 @@ impl VoiceCommandManager {
 impl ::windows::runtime::RuntimeName for VoiceCommandManager {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandManager";
 }
+#[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandSet(::windows::runtime::IInspectable);
 impl VoiceCommandSet {
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2730,6 +2872,7 @@ impl VoiceCommandSet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechRecognition`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2738,6 +2881,7 @@ impl VoiceCommandSet {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Media_SpeechRecognition`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetPhraseListAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, phraselistname: Param0, phraselist: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {

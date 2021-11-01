@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Management_Deployment_Preview")]
 pub mod Preview;
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AddPackageByAppInstallerOptions(pub u32);
@@ -51,6 +52,7 @@ impl ::std::ops::Not for AddPackageByAppInstallerOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AddPackageOptions(::windows::runtime::IInspectable);
@@ -63,6 +65,7 @@ impl AddPackageOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn DependencyPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -70,6 +73,7 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn TargetVolume(&self) -> ::windows::runtime::Result<PackageVolume> {
         let this = self;
         unsafe {
@@ -77,11 +81,13 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PackageVolume>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetTargetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn OptionalPackageFamilyNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -90,6 +96,7 @@ impl AddPackageOptions {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn OptionalPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -98,6 +105,7 @@ impl AddPackageOptions {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RelatedPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -106,6 +114,7 @@ impl AddPackageOptions {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn ExternalLocationUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -114,10 +123,12 @@ impl AddPackageOptions {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn SetExternalLocationUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn StubPackageOption(&self) -> ::windows::runtime::Result<StubPackageOption> {
         let this = self;
         unsafe {
@@ -125,10 +136,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StubPackageOption>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetStubPackageOption(&self, value: StubPackageOption) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn DeveloperMode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -136,10 +149,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetDeveloperMode(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceAppShutdown(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -147,10 +162,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceTargetAppShutdown(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -158,10 +175,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceTargetAppShutdown(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -169,10 +188,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn InstallAllResources(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -180,10 +201,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetInstallAllResources(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn RequiredContentGroupOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -191,10 +214,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetRequiredContentGroupOnly(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn RetainFilesOnFailure(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -202,10 +227,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetRetainFilesOnFailure(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn StageInPlace(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -213,10 +240,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetStageInPlace(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn AllowUnsigned(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -224,10 +253,12 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -235,6 +266,7 @@ impl AddPackageOptions {
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value).ok() }
@@ -292,29 +324,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AddPackageOptions {}
 unsafe impl ::std::marker::Sync for AddPackageOptions {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AppInstallerManager(::windows::runtime::IInspectable);
 impl AppInstallerManager {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetAutoUpdateSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, AutoUpdateSettingsOptions>>(&self, packagefamilyname: Param0, appinstallerinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi(), appinstallerinfo.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ClearAutoUpdateSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn PauseAutoUpdatesUntil<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, packagefamilyname: Param0, datetime: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi(), datetime.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<AppInstallerManager> {
         Self::IAppInstallerManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallerManager>(result__)
         })
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn GetForSystem() -> ::windows::runtime::Result<AppInstallerManager> {
         Self::IAppInstallerManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -378,6 +416,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AppInstallerManager {}
 unsafe impl ::std::marker::Sync for AppInstallerManager {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutoUpdateSettingsOptions(::windows::runtime::IInspectable);
@@ -390,6 +429,7 @@ impl AutoUpdateSettingsOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`*"]
     pub fn Version(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::PackageVersion> {
         let this = self;
         unsafe {
@@ -398,11 +438,13 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`*"]
     pub fn SetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::PackageVersion>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn AppInstallerUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -411,10 +453,12 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn SetAppInstallerUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn OnLaunch(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -422,10 +466,12 @@ impl AutoUpdateSettingsOptions {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetOnLaunch(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn HoursBetweenUpdateChecks(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -433,10 +479,12 @@ impl AutoUpdateSettingsOptions {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetHoursBetweenUpdateChecks(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ShowPrompt(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -444,10 +492,12 @@ impl AutoUpdateSettingsOptions {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetShowPrompt(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn UpdateBlocksActivation(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -455,10 +505,12 @@ impl AutoUpdateSettingsOptions {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetUpdateBlocksActivation(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn AutomaticBackgroundTask(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -466,10 +518,12 @@ impl AutoUpdateSettingsOptions {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetAutomaticBackgroundTask(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -477,10 +531,12 @@ impl AutoUpdateSettingsOptions {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn IsAutoRepairEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -488,11 +544,13 @@ impl AutoUpdateSettingsOptions {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetIsAutoRepairEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn UpdateUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -501,6 +559,7 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RepairUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -509,6 +568,7 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn DependencyPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -517,6 +577,7 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn OptionalPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -525,6 +586,7 @@ impl AutoUpdateSettingsOptions {
         }
     }
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`*"]
     pub fn CreateFromAppInstallerInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::AppInstallerInfo>>(appinstallerinfo: Param0) -> ::windows::runtime::Result<AutoUpdateSettingsOptions> {
         Self::IAutoUpdateSettingsOptionsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -588,6 +650,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AutoUpdateSettingsOptions {}
 unsafe impl ::std::marker::Sync for AutoUpdateSettingsOptions {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CreateSharedPackageContainerOptions(::windows::runtime::IInspectable);
@@ -600,6 +663,7 @@ impl CreateSharedPackageContainerOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn Members(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>> {
         let this = self;
         unsafe {
@@ -607,6 +671,7 @@ impl CreateSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceAppShutdown(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -614,10 +679,12 @@ impl CreateSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn CreateCollisionOption(&self) -> ::windows::runtime::Result<SharedPackageContainerCreationCollisionOptions> {
         let this = self;
         unsafe {
@@ -625,6 +692,7 @@ impl CreateSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerCreationCollisionOptions>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetCreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
@@ -682,10 +750,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CreateSharedPackageContainerOptions {}
 unsafe impl ::std::marker::Sync for CreateSharedPackageContainerOptions {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CreateSharedPackageContainerResult(::windows::runtime::IInspectable);
 impl CreateSharedPackageContainerResult {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Container(&self) -> ::windows::runtime::Result<SharedPackageContainer> {
         let this = self;
         unsafe {
@@ -693,6 +763,7 @@ impl CreateSharedPackageContainerResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainer>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SharedPackageContainerOperationStatus> {
         let this = self;
         unsafe {
@@ -700,6 +771,7 @@ impl CreateSharedPackageContainerResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -760,6 +832,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CreateSharedPackageContainerResult {}
 unsafe impl ::std::marker::Sync for CreateSharedPackageContainerResult {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeleteSharedPackageContainerOptions(::windows::runtime::IInspectable);
@@ -771,6 +844,7 @@ impl DeleteSharedPackageContainerOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<DeleteSharedPackageContainerOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceAppShutdown(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -778,10 +852,12 @@ impl DeleteSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn AllUsers(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -789,6 +865,7 @@ impl DeleteSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetAllUsers(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
@@ -846,10 +923,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DeleteSharedPackageContainerOptions {}
 unsafe impl ::std::marker::Sync for DeleteSharedPackageContainerOptions {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeleteSharedPackageContainerResult(::windows::runtime::IInspectable);
 impl DeleteSharedPackageContainerResult {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SharedPackageContainerOperationStatus> {
         let this = self;
         unsafe {
@@ -857,6 +936,7 @@ impl DeleteSharedPackageContainerResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -917,6 +997,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DeleteSharedPackageContainerResult {}
 unsafe impl ::std::marker::Sync for DeleteSharedPackageContainerResult {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeploymentOptions(pub u32);
@@ -973,6 +1054,7 @@ impl ::std::ops::Not for DeploymentOptions {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Management_Deployment`*"]
 pub struct DeploymentProgress {
     pub state: DeploymentProgressState,
     pub percentage: u32,
@@ -1001,6 +1083,7 @@ unsafe impl ::windows::runtime::Abi for DeploymentProgress {
 unsafe impl ::windows::runtime::RuntimeType for DeploymentProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Management.Deployment.DeploymentProgress;enum(Windows.Management.Deployment.DeploymentProgressState;i4);u4)");
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeploymentProgressState(pub i32);
@@ -1020,10 +1103,12 @@ unsafe impl ::windows::runtime::Abi for DeploymentProgressState {
 unsafe impl ::windows::runtime::RuntimeType for DeploymentProgressState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentProgressState;i4)");
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeploymentResult(::windows::runtime::IInspectable);
 impl DeploymentResult {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ErrorText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1031,6 +1116,7 @@ impl DeploymentResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -1038,6 +1124,7 @@ impl DeploymentResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ExtendedErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -1045,6 +1132,7 @@ impl DeploymentResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn IsRegistered(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IDeploymentResult2>(self)?;
         unsafe {
@@ -1105,6 +1193,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DeploymentResult {}
 unsafe impl ::std::marker::Sync for DeploymentResult {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FindSharedPackageContainerOptions(::windows::runtime::IInspectable);
@@ -1116,6 +1205,7 @@ impl FindSharedPackageContainerOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<FindSharedPackageContainerOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1123,10 +1213,12 @@ impl FindSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn PackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1134,6 +1226,7 @@ impl FindSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2180,6 +2273,7 @@ pub struct IUpdateSharedPackageContainerResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SharedPackageContainerOperationStatus) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PackageAllUserProvisioningOptions(::windows::runtime::IInspectable);
@@ -2192,6 +2286,7 @@ impl PackageAllUserProvisioningOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn OptionalPackageFamilyNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2200,6 +2295,7 @@ impl PackageAllUserProvisioningOptions {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn ProjectionOrderPackageFamilyNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2260,6 +2356,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PackageAllUserProvisioningOptions {}
 unsafe impl ::std::marker::Sync for PackageAllUserProvisioningOptions {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PackageInstallState(pub i32);
@@ -2281,6 +2378,7 @@ unsafe impl ::windows::runtime::Abi for PackageInstallState {
 unsafe impl ::windows::runtime::RuntimeType for PackageInstallState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageInstallState;i4)");
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PackageManager(::windows::runtime::IInspectable);
@@ -2293,6 +2391,7 @@ impl PackageManager {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn AddPackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
@@ -2301,6 +2400,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn UpdatePackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
@@ -2309,6 +2409,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn RemovePackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
@@ -2317,6 +2418,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn StagePackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, packageuri: Param0, dependencypackageuris: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
@@ -2325,6 +2427,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RegisterPackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, manifesturi: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
@@ -2333,6 +2436,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -2341,6 +2445,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -2349,6 +2454,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByNamePublisher<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagename: Param0, packagepublisher: Param1) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -2357,6 +2463,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdNamePublisher<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagename: Param1, packagepublisher: Param2) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -2365,6 +2472,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn FindUsers<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<PackageUserInformation>> {
         let this = self;
         unsafe {
@@ -2372,11 +2480,13 @@ impl PackageManager {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<PackageUserInformation>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetPackageState<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0, packagestate: PackageState) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), packagefullname.into_param().abi(), packagestate).ok() }
     }
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`*"]
     pub fn FindPackageByPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0) -> ::windows::runtime::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
@@ -2385,6 +2495,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn CleanupPackageForUserAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagename: Param0, usersecurityid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = self;
         unsafe {
@@ -2393,6 +2504,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -2401,6 +2513,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagefamilyname: Param1) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -2409,6 +2522,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`*"]
     pub fn FindPackageByUserSecurityIdPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagefullname: Param1) -> ::windows::runtime::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
@@ -2417,6 +2531,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn RemovePackageWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0, removaloptions: RemovalOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2425,6 +2540,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn StagePackageWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, packageuri: Param0, dependencypackageuris: Param1, deploymentoptions: DeploymentOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2433,6 +2549,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RegisterPackageByFullNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, mainpackagefullname: Param0, dependencypackagefullnames: Param1, deploymentoptions: DeploymentOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2441,6 +2558,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2449,6 +2567,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdWithPackageTypes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagetypes: PackageTypes) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2457,6 +2576,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByNamePublisherWithPackageTypes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagename: Param0, packagepublisher: Param1, packagetypes: PackageTypes) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2465,6 +2585,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         &self,
         usersecurityid: Param0,
@@ -2479,6 +2600,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByPackageFamilyNameWithPackageTypes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefamilyname: Param0, packagetypes: PackageTypes) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2487,6 +2609,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagefamilyname: Param1, packagetypes: PackageTypes) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2495,6 +2618,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn StageUserDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2503,6 +2627,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn AddPackageVolumeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagestorepath: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PackageVolume>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2511,6 +2636,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn AddPackageToVolumeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::runtime::IntoParam<'a, PackageVolume>>(
         &self,
         packageuri: Param0,
@@ -2524,11 +2650,13 @@ impl PackageManager {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ClearPackageStatus<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0, status: PackageStatus) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), packagefullname.into_param().abi(), status).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RegisterPackageWithAppDataVolumeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::runtime::IntoParam<'a, PackageVolume>>(
         &self,
         manifesturi: Param0,
@@ -2542,6 +2670,7 @@ impl PackageManager {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, appdatavolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn FindPackageVolumeByName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, volumename: Param0) -> ::windows::runtime::Result<PackageVolume> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2550,6 +2679,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn FindPackageVolumes(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterable<PackageVolume>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2557,6 +2687,7 @@ impl PackageManager {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<PackageVolume>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn GetDefaultPackageVolume(&self) -> ::windows::runtime::Result<PackageVolume> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2565,6 +2696,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn MovePackageToVolumeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, packagefullname: Param0, deploymentoptions: DeploymentOptions, targetvolume: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2573,6 +2705,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn RemovePackageVolumeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, volume: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2580,15 +2713,18 @@ impl PackageManager {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), volume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetDefaultPackageVolume<'a, Param0: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, volume: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), volume.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetPackageStatus<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0, status: PackageStatus) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), packagefullname.into_param().abi(), status).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn SetPackageVolumeOfflineAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, packagevolume: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2597,6 +2733,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn SetPackageVolumeOnlineAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, packagevolume: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2605,6 +2742,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn StagePackageToVolumeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param3: ::windows::runtime::IntoParam<'a, PackageVolume>>(
         &self,
         packageuri: Param0,
@@ -2619,6 +2757,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn StageUserDataWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0, deploymentoptions: DeploymentOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
@@ -2627,6 +2766,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPackageVolumesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PackageVolume>>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager4>(self)?;
         unsafe {
@@ -2635,6 +2775,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn AddPackageToVolumeAndOptionalPackagesAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>,
@@ -2658,6 +2799,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn StagePackageToVolumeAndOptionalPackagesAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>,
@@ -2681,6 +2823,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RegisterPackageByFamilyNameAndOptionalPackagesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param3: ::windows::runtime::IntoParam<'a, PackageVolume>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(
         &self,
         mainpackagefamilyname: Param0,
@@ -2695,6 +2838,7 @@ impl PackageManager {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), mainpackagefamilyname.into_param().abi(), dependencypackagefamilynames.into_param().abi(), deploymentoptions, appdatavolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn DebugSettings(&self) -> ::windows::runtime::Result<PackageManagerDebugSettings> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
@@ -2703,6 +2847,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn ProvisionPackageForAllUsersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
@@ -2711,6 +2856,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn AddPackageByAppInstallerFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, appinstallerfileuri: Param0, options: AddPackageByAppInstallerOptions, targetvolume: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
@@ -2719,6 +2865,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn RequestAddPackageByAppInstallerFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param2: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, appinstallerfileuri: Param0, options: AddPackageByAppInstallerOptions, targetvolume: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
@@ -2727,6 +2874,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn AddPackageToVolumeAndRelatedSetAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>,
@@ -2752,6 +2900,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn StagePackageToVolumeAndRelatedSetAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>,
@@ -2777,6 +2926,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestAddPackageAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>,
@@ -2800,6 +2950,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestAddPackageAndRelatedSetAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>,
@@ -2825,6 +2976,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn DeprovisionPackageForAllUsersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager8>(self)?;
         unsafe {
@@ -2833,6 +2985,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindProvisionedPackages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
@@ -2841,6 +2994,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn AddPackageByUriAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, AddPackageOptions>>(&self, packageuri: Param0, options: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
@@ -2849,6 +3003,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn StagePackageByUriAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, StagePackageOptions>>(&self, packageuri: Param0, options: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
@@ -2857,6 +3012,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn RegisterPackageByUriAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, RegisterPackageOptions>>(&self, manifesturi: Param0, options: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
@@ -2865,6 +3021,7 @@ impl PackageManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RegisterPackagesByFullNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, RegisterPackageOptions>>(&self, packagefullnames: Param0, options: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
@@ -2872,10 +3029,12 @@ impl PackageManager {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), packagefullnames.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetPackageStubPreference<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefamilyname: Param0, usestub: PackageStubPreference) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi(), usestub).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn GetPackageStubPreference<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::runtime::Result<PackageStubPreference> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
@@ -2884,6 +3043,7 @@ impl PackageManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn ProvisionPackageForAllUsersWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, PackageAllUserProvisioningOptions>>(&self, mainpackagefamilyname: Param0, options: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &::windows::runtime::Interface::cast::<IPackageManager10>(self)?;
         unsafe {
@@ -2944,11 +3104,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PackageManager {}
 unsafe impl ::std::marker::Sync for PackageManager {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PackageManagerDebugSettings(::windows::runtime::IInspectable);
 impl PackageManagerDebugSettings {
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation`*"]
     pub fn SetContentGroupStateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Package>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, package: Param0, contentgroupname: Param1, state: super::super::ApplicationModel::PackageContentGroupState) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2957,6 +3119,7 @@ impl PackageManagerDebugSettings {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation`*"]
     pub fn SetContentGroupStateWithPercentageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Package>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, package: Param0, contentgroupname: Param1, state: super::super::ApplicationModel::PackageContentGroupState, completionpercentage: f64) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3017,6 +3180,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PackageManagerDebugSettings {}
 unsafe impl ::std::marker::Sync for PackageManagerDebugSettings {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PackageState(pub i32);
@@ -3038,6 +3202,7 @@ unsafe impl ::windows::runtime::Abi for PackageState {
 unsafe impl ::windows::runtime::RuntimeType for PackageState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageState;i4)");
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PackageStatus(pub u32);
@@ -3088,6 +3253,7 @@ impl ::std::ops::Not for PackageStatus {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PackageStubPreference(pub i32);
@@ -3107,6 +3273,7 @@ unsafe impl ::windows::runtime::Abi for PackageStubPreference {
 unsafe impl ::windows::runtime::RuntimeType for PackageStubPreference {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStubPreference;i4)");
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PackageTypes(pub u32);
@@ -3160,10 +3327,12 @@ impl ::std::ops::Not for PackageTypes {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PackageUserInformation(::windows::runtime::IInspectable);
 impl PackageUserInformation {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn UserSecurityId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3171,6 +3340,7 @@ impl PackageUserInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn InstallState(&self) -> ::windows::runtime::Result<PackageInstallState> {
         let this = self;
         unsafe {
@@ -3231,10 +3401,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PackageUserInformation {}
 unsafe impl ::std::marker::Sync for PackageUserInformation {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PackageVolume(::windows::runtime::IInspectable);
 impl PackageVolume {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn IsOffline(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3242,6 +3414,7 @@ impl PackageVolume {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn IsSystemVolume(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3249,6 +3422,7 @@ impl PackageVolume {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn MountPoint(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3256,6 +3430,7 @@ impl PackageVolume {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3263,6 +3438,7 @@ impl PackageVolume {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn PackageStorePath(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3270,6 +3446,7 @@ impl PackageVolume {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SupportsHardLinks(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3278,6 +3455,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3286,6 +3464,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByNamePublisher<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagename: Param0, packagepublisher: Param1) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3294,6 +3473,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3302,6 +3482,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesWithPackageTypes(&self, packagetypes: PackageTypes) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3310,6 +3491,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByNamePublisherWithPackagesTypes<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagetypes: PackageTypes, packagename: Param1, packagepublisher: Param2) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3318,6 +3500,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByPackageFamilyNameWithPackageTypes<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagetypes: PackageTypes, packagefamilyname: Param1) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3326,6 +3509,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackageByPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, packagefullname: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3334,6 +3518,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3342,6 +3527,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdNamePublisher<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagename: Param1, packagepublisher: Param2) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3350,6 +3536,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagefamilyname: Param1) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3358,6 +3545,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdWithPackageTypes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagetypes: PackageTypes) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3366,6 +3554,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdNamePublisherWithPackageTypes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         &self,
         usersecurityid: Param0,
@@ -3380,6 +3569,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagetypes: PackageTypes, packagefamilyname: Param2) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3388,6 +3578,7 @@ impl PackageVolume {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `ApplicationModel`, `Foundation_Collections`*"]
     pub fn FindPackageByUserSecurityIdPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, usersecurityid: Param0, packagefullname: Param1) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>> {
         let this = self;
         unsafe {
@@ -3395,6 +3586,7 @@ impl PackageVolume {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn IsFullTrustPackageSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
@@ -3402,6 +3594,7 @@ impl PackageVolume {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn IsAppxInstallSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
@@ -3410,6 +3603,7 @@ impl PackageVolume {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn GetAvailableSpaceAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u64>> {
         let this = &::windows::runtime::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
@@ -3470,6 +3664,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PackageVolume {}
 unsafe impl ::std::marker::Sync for PackageVolume {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RegisterPackageOptions(::windows::runtime::IInspectable);
@@ -3482,6 +3677,7 @@ impl RegisterPackageOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn DependencyPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -3489,6 +3685,7 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn AppDataVolume(&self) -> ::windows::runtime::Result<PackageVolume> {
         let this = self;
         unsafe {
@@ -3496,11 +3693,13 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PackageVolume>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetAppDataVolume<'a, Param0: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn OptionalPackageFamilyNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3509,6 +3708,7 @@ impl RegisterPackageOptions {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn ExternalLocationUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -3517,10 +3717,12 @@ impl RegisterPackageOptions {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn SetExternalLocationUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn DeveloperMode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3528,10 +3730,12 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetDeveloperMode(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceAppShutdown(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3539,10 +3743,12 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceTargetAppShutdown(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3550,10 +3756,12 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceTargetAppShutdown(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3561,10 +3769,12 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn InstallAllResources(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3572,10 +3782,12 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetInstallAllResources(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn StageInPlace(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3583,10 +3795,12 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetStageInPlace(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn AllowUnsigned(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3594,10 +3808,12 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3605,6 +3821,7 @@ impl RegisterPackageOptions {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
@@ -3662,6 +3879,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for RegisterPackageOptions {}
 unsafe impl ::std::marker::Sync for RegisterPackageOptions {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RemovalOptions(pub u32);
@@ -3711,10 +3929,12 @@ impl ::std::ops::Not for RemovalOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SharedPackageContainer(::windows::runtime::IInspectable);
 impl SharedPackageContainer {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3722,6 +3942,7 @@ impl SharedPackageContainer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3730,6 +3951,7 @@ impl SharedPackageContainer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn GetMembers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>> {
         let this = self;
         unsafe {
@@ -3737,6 +3959,7 @@ impl SharedPackageContainer {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn RemovePackageFamily<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, UpdateSharedPackageContainerOptions>>(&self, packagefamilyname: Param0, options: Param1) -> ::windows::runtime::Result<UpdateSharedPackageContainerResult> {
         let this = self;
         unsafe {
@@ -3744,6 +3967,7 @@ impl SharedPackageContainer {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), packagefamilyname.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<UpdateSharedPackageContainerResult>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ResetData(&self) -> ::windows::runtime::Result<UpdateSharedPackageContainerResult> {
         let this = self;
         unsafe {
@@ -3807,6 +4031,7 @@ unsafe impl ::std::marker::Sync for SharedPackageContainer {}
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct SharedPackageContainerContract(pub u8);
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
@@ -3827,10 +4052,12 @@ unsafe impl ::windows::runtime::Abi for SharedPackageContainerCreationCollisionO
 unsafe impl ::windows::runtime::RuntimeType for SharedPackageContainerCreationCollisionOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions;i4)");
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SharedPackageContainerManager(::windows::runtime::IInspectable);
 impl SharedPackageContainerManager {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn CreateContainer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, CreateSharedPackageContainerOptions>>(&self, name: Param0, options: Param1) -> ::windows::runtime::Result<CreateSharedPackageContainerResult> {
         let this = self;
         unsafe {
@@ -3838,6 +4065,7 @@ impl SharedPackageContainerManager {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), name.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<CreateSharedPackageContainerResult>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn DeleteContainer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, DeleteSharedPackageContainerOptions>>(&self, id: Param0, options: Param1) -> ::windows::runtime::Result<DeleteSharedPackageContainerResult> {
         let this = self;
         unsafe {
@@ -3845,6 +4073,7 @@ impl SharedPackageContainerManager {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), id.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<DeleteSharedPackageContainerResult>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn GetContainer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<SharedPackageContainer> {
         let this = self;
         unsafe {
@@ -3853,6 +4082,7 @@ impl SharedPackageContainerManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn FindContainers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SharedPackageContainer>> {
         let this = self;
         unsafe {
@@ -3861,6 +4091,7 @@ impl SharedPackageContainerManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn FindContainersWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, FindSharedPackageContainerOptions>>(&self, options: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SharedPackageContainer>> {
         let this = self;
         unsafe {
@@ -3868,18 +4099,21 @@ impl SharedPackageContainerManager {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainer>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<SharedPackageContainerManager> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerManager>(result__)
         })
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(usersid: Param0) -> ::windows::runtime::Result<SharedPackageContainerManager> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), usersid.into_param().abi(), &mut result__).from_abi::<SharedPackageContainerManager>(result__)
         })
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn GetForProvisioning() -> ::windows::runtime::Result<SharedPackageContainerManager> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3943,10 +4177,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SharedPackageContainerManager {}
 unsafe impl ::std::marker::Sync for SharedPackageContainerManager {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SharedPackageContainerMember(::windows::runtime::IInspectable);
 impl SharedPackageContainerMember {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn PackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3954,6 +4190,7 @@ impl SharedPackageContainerMember {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(packagefamilyname: Param0) -> ::windows::runtime::Result<SharedPackageContainerMember> {
         Self::ISharedPackageContainerMemberFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4017,6 +4254,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SharedPackageContainerMember {}
 unsafe impl ::std::marker::Sync for SharedPackageContainerMember {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SharedPackageContainerOperationStatus(pub i32);
@@ -4040,6 +4278,7 @@ unsafe impl ::windows::runtime::Abi for SharedPackageContainerOperationStatus {
 unsafe impl ::windows::runtime::RuntimeType for SharedPackageContainerOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerOperationStatus;i4)");
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StagePackageOptions(::windows::runtime::IInspectable);
@@ -4052,6 +4291,7 @@ impl StagePackageOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn DependencyPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -4059,6 +4299,7 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn TargetVolume(&self) -> ::windows::runtime::Result<PackageVolume> {
         let this = self;
         unsafe {
@@ -4066,11 +4307,13 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PackageVolume>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetTargetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation_Collections`*"]
     pub fn OptionalPackageFamilyNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -4079,6 +4322,7 @@ impl StagePackageOptions {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn OptionalPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -4087,6 +4331,7 @@ impl StagePackageOptions {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`, `Foundation_Collections`*"]
     pub fn RelatedPackageUris(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
@@ -4095,6 +4340,7 @@ impl StagePackageOptions {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn ExternalLocationUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -4103,10 +4349,12 @@ impl StagePackageOptions {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Deployment`, `Foundation`*"]
     pub fn SetExternalLocationUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn StubPackageOption(&self) -> ::windows::runtime::Result<StubPackageOption> {
         let this = self;
         unsafe {
@@ -4114,10 +4362,12 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StubPackageOption>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetStubPackageOption(&self, value: StubPackageOption) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn DeveloperMode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4125,10 +4375,12 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetDeveloperMode(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4136,10 +4388,12 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn InstallAllResources(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4147,10 +4401,12 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetInstallAllResources(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn RequiredContentGroupOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4158,10 +4414,12 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetRequiredContentGroupOnly(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn StageInPlace(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4169,10 +4427,12 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetStageInPlace(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn AllowUnsigned(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4180,6 +4440,7 @@ impl StagePackageOptions {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
@@ -4237,6 +4498,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StagePackageOptions {}
 unsafe impl ::std::marker::Sync for StagePackageOptions {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StubPackageOption(pub i32);
@@ -4258,6 +4520,7 @@ unsafe impl ::windows::runtime::Abi for StubPackageOption {
 unsafe impl ::windows::runtime::RuntimeType for StubPackageOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
 }
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UpdateSharedPackageContainerOptions(::windows::runtime::IInspectable);
@@ -4269,6 +4532,7 @@ impl UpdateSharedPackageContainerOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<UpdateSharedPackageContainerOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ForceAppShutdown(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4276,10 +4540,12 @@ impl UpdateSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn RequirePackagesPresent(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4287,6 +4553,7 @@ impl UpdateSharedPackageContainerOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn SetRequirePackagesPresent(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
@@ -4344,10 +4611,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UpdateSharedPackageContainerOptions {}
 unsafe impl ::std::marker::Sync for UpdateSharedPackageContainerOptions {}
+#[doc = "*Required features: `Management_Deployment`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UpdateSharedPackageContainerResult(::windows::runtime::IInspectable);
 impl UpdateSharedPackageContainerResult {
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SharedPackageContainerOperationStatus> {
         let this = self;
         unsafe {
@@ -4355,6 +4624,7 @@ impl UpdateSharedPackageContainerResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Deployment`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {

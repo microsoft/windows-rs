@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AddAppointmentOperation(::windows::runtime::IInspectable);
 impl AddAppointmentOperation {
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn AppointmentInformation(&self) -> ::windows::runtime::Result<super::Appointment> {
         let this = self;
         unsafe {
@@ -10,6 +12,7 @@ impl AddAppointmentOperation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointment>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn SourcePackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -17,18 +20,22 @@ impl AddAppointmentOperation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, itemid: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), itemid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportCanceled(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportError<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn DismissUI(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
@@ -86,32 +93,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AddAppointmentOperation {}
 unsafe impl ::std::marker::Sync for AddAppointmentOperation {}
+#[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
 pub struct AppointmentsProviderLaunchActionVerbs {}
 impl AppointmentsProviderLaunchActionVerbs {
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn AddAppointment() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReplaceAppointment() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn RemoveAppointment() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ShowTimeFrame() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ShowAppointmentDetails() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -248,10 +261,12 @@ pub struct IReplaceAppointmentOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoveAppointmentOperation(::windows::runtime::IInspectable);
 impl RemoveAppointmentOperation {
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn AppointmentId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -260,6 +275,7 @@ impl RemoveAppointmentOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`, `Foundation`*"]
     pub fn InstanceStartDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -267,6 +283,7 @@ impl RemoveAppointmentOperation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn SourcePackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -274,18 +291,22 @@ impl RemoveAppointmentOperation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportCompleted(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportCanceled(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportError<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn DismissUI(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
@@ -343,10 +364,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for RemoveAppointmentOperation {}
 unsafe impl ::std::marker::Sync for RemoveAppointmentOperation {}
+#[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ReplaceAppointmentOperation(::windows::runtime::IInspectable);
 impl ReplaceAppointmentOperation {
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn AppointmentId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -354,6 +377,7 @@ impl ReplaceAppointmentOperation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn AppointmentInformation(&self) -> ::windows::runtime::Result<super::Appointment> {
         let this = self;
         unsafe {
@@ -362,6 +386,7 @@ impl ReplaceAppointmentOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`, `Foundation`*"]
     pub fn InstanceStartDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -369,6 +394,7 @@ impl ReplaceAppointmentOperation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn SourcePackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -376,18 +402,22 @@ impl ReplaceAppointmentOperation {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, itemid: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), itemid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportCanceled(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn ReportError<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
     pub fn DismissUI(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }

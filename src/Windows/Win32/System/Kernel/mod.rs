@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPARTMENT_ID(pub i32);
@@ -16,6 +17,7 @@ unsafe impl ::windows::runtime::Abi for COMPARTMENT_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`*"]
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -48,6 +50,7 @@ unsafe impl ::windows::runtime::Abi for CSTRING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVENT_TYPE(pub i32);
@@ -62,6 +65,7 @@ unsafe impl ::windows::runtime::Abi for EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
@@ -82,6 +86,7 @@ unsafe impl ::windows::runtime::Abi for EXCEPTION_DISPOSITION {
 pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::std::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::std::ffi::c_void) -> EXCEPTION_DISPOSITION;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -126,6 +131,7 @@ unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct LIST_ENTRY {
     pub Flink: *mut LIST_ENTRY,
     pub Blink: *mut LIST_ENTRY,
@@ -153,6 +159,7 @@ unsafe impl ::windows::runtime::Abi for LIST_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct LIST_ENTRY32 {
     pub Flink: u32,
     pub Blink: u32,
@@ -180,6 +187,7 @@ unsafe impl ::windows::runtime::Abi for LIST_ENTRY32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct LIST_ENTRY64 {
     pub Flink: u64,
     pub Blink: u64,
@@ -205,9 +213,13 @@ unsafe impl ::windows::runtime::Abi for LIST_ENTRY64 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const MAXUCHAR: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const MAXULONG: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const MAXUSHORT: u32 = 65535u32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NT_PRODUCT_TYPE(pub i32);
@@ -223,9 +235,11 @@ unsafe impl ::windows::runtime::Abi for NT_PRODUCT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const NULL64: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct OBJECTID {
     pub Lineage: ::windows::runtime::GUID,
     pub Uniquifier: u32,
@@ -253,6 +267,7 @@ unsafe impl ::windows::runtime::Abi for OBJECTID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct OBJECT_ATTRIBUTES32 {
     pub Length: u32,
     pub RootDirectory: u32,
@@ -291,6 +306,7 @@ unsafe impl ::windows::runtime::Abi for OBJECT_ATTRIBUTES32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct OBJECT_ATTRIBUTES64 {
     pub Length: u32,
     pub RootDirectory: u64,
@@ -327,20 +343,33 @@ unsafe impl ::windows::runtime::Abi for OBJECT_ATTRIBUTES64 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_CASE_INSENSITIVE: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_DONT_REPARSE: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_EXCLUSIVE: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_FORCE_ACCESS_CHECK: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_HANDLE_TAGBITS: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_IGNORE_IMPERSONATED_DEVICEMAP: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_INHERIT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_KERNEL_HANDLE: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_OPENIF: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_OPENLINK: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_PERMANENT: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_VALID_ATTRIBUTES: i32 = 8178i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct PROCESSOR_NUMBER {
     pub Group: u16,
     pub Number: u8,
@@ -369,6 +398,7 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_NUMBER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct QUAD {
     pub Anonymous: QUAD_0,
 }
@@ -390,6 +420,7 @@ unsafe impl ::windows::runtime::Abi for QUAD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub union QUAD_0 {
     pub UseThisFieldToCopy: i64,
     pub DoNotUseThisField: f64,
@@ -412,6 +443,7 @@ unsafe impl ::windows::runtime::Abi for QUAD_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct RTL_BALANCED_NODE {
     pub Anonymous1: RTL_BALANCED_NODE_0,
     pub Anonymous2: RTL_BALANCED_NODE_1,
@@ -434,6 +466,7 @@ unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub union RTL_BALANCED_NODE_0 {
     pub Children: [*mut RTL_BALANCED_NODE; 2],
     pub Anonymous: RTL_BALANCED_NODE_0_0,
@@ -456,6 +489,7 @@ unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct RTL_BALANCED_NODE_0_0 {
     pub Left: *mut RTL_BALANCED_NODE,
     pub Right: *mut RTL_BALANCED_NODE,
@@ -483,6 +517,7 @@ unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub union RTL_BALANCED_NODE_1 {
     pub _bitfield: u8,
     pub ParentValue: usize,
@@ -503,9 +538,11 @@ unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct SINGLE_LIST_ENTRY {
     pub Next: *mut SINGLE_LIST_ENTRY,
 }
@@ -532,6 +569,7 @@ unsafe impl ::windows::runtime::Abi for SINGLE_LIST_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct SINGLE_LIST_ENTRY32 {
     pub Next: u32,
 }
@@ -558,6 +596,7 @@ unsafe impl ::windows::runtime::Abi for SINGLE_LIST_ENTRY32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct SLIST_ENTRY {
     pub Next: *mut SLIST_ENTRY,
 }
@@ -584,6 +623,7 @@ unsafe impl ::windows::runtime::Abi for SLIST_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderArm64: SLIST_HEADER_1,
@@ -606,6 +646,7 @@ unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
@@ -633,6 +674,7 @@ unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
@@ -661,6 +703,7 @@ unsafe impl ::windows::runtime::Abi for SLIST_HEADER_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`*"]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -695,6 +738,7 @@ unsafe impl ::windows::runtime::Abi for STRING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct STRING32 {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -723,6 +767,7 @@ unsafe impl ::windows::runtime::Abi for STRING32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct STRING64 {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -749,6 +794,7 @@ unsafe impl ::windows::runtime::Abi for STRING64 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SUITE_TYPE(pub i32);
@@ -780,6 +826,7 @@ unsafe impl ::windows::runtime::Abi for SUITE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TIMER_TYPE(pub i32);
@@ -794,6 +841,7 @@ unsafe impl ::windows::runtime::Abi for TIMER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WAIT_TYPE(pub i32);
@@ -813,6 +861,7 @@ unsafe impl ::windows::runtime::Abi for WAIT_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct WNF_STATE_NAME {
     pub Data: [u32; 2],
 }

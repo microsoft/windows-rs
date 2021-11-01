@@ -49,6 +49,7 @@ pub struct ISceneLightingEffect2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SceneLightingEffectReflectanceModel) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SceneLightingEffectReflectanceModel) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Composition_Effects`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SceneLightingEffect(::windows::runtime::IInspectable);
@@ -61,6 +62,7 @@ impl SceneLightingEffect {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Graphics_Effects")]
+    #[doc = "*Required features: `UI_Composition_Effects`, `Graphics_Effects`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe {
@@ -69,10 +71,12 @@ impl SceneLightingEffect {
         }
     }
     #[cfg(feature = "Graphics_Effects")]
+    #[doc = "*Required features: `UI_Composition_Effects`, `Graphics_Effects`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), name.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn AmbientAmount(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -80,10 +84,12 @@ impl SceneLightingEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn SetAmbientAmount(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn DiffuseAmount(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -91,11 +97,13 @@ impl SceneLightingEffect {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn SetDiffuseAmount(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Graphics_Effects")]
+    #[doc = "*Required features: `UI_Composition_Effects`, `Graphics_Effects`*"]
     pub fn NormalMapSource(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let this = self;
         unsafe {
@@ -104,10 +112,12 @@ impl SceneLightingEffect {
         }
     }
     #[cfg(feature = "Graphics_Effects")]
+    #[doc = "*Required features: `UI_Composition_Effects`, `Graphics_Effects`*"]
     pub fn SetNormalMapSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn SpecularAmount(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -115,10 +125,12 @@ impl SceneLightingEffect {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn SetSpecularAmount(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn SpecularShine(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -126,10 +138,12 @@ impl SceneLightingEffect {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn SetSpecularShine(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn ReflectanceModel(&self) -> ::windows::runtime::Result<SceneLightingEffectReflectanceModel> {
         let this = &::windows::runtime::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe {
@@ -137,6 +151,7 @@ impl SceneLightingEffect {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SceneLightingEffectReflectanceModel>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Composition_Effects`*"]
     pub fn SetReflectanceModel(&self, value: SceneLightingEffectReflectanceModel) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -246,6 +261,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Effect
 }
 unsafe impl ::std::marker::Send for SceneLightingEffect {}
 unsafe impl ::std::marker::Sync for SceneLightingEffect {}
+#[doc = "*Required features: `UI_Composition_Effects`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);

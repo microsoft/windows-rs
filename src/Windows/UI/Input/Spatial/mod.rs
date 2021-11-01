@@ -1042,11 +1042,13 @@ pub struct ISpatialTappedEventArgs_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialGestureRecognizer(::windows::runtime::IInspectable);
 impl SpatialGestureRecognizer {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RecognitionStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1055,11 +1057,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveRecognitionStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RecognitionEnded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1068,11 +1072,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveRecognitionEnded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn Tapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1081,11 +1087,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn HoldStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1094,11 +1102,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveHoldStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn HoldCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1107,11 +1117,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveHoldCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn HoldCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1120,11 +1132,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveHoldCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn ManipulationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1133,11 +1147,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveManipulationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn ManipulationUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1146,11 +1162,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveManipulationUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn ManipulationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1159,11 +1177,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveManipulationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn ManipulationCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1172,11 +1192,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveManipulationCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn NavigationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1185,11 +1207,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveNavigationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn NavigationUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1198,11 +1222,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveNavigationUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn NavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1211,11 +1237,13 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveNavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn NavigationCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1224,18 +1252,22 @@ impl SpatialGestureRecognizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveNavigationCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn CaptureInteraction<'a, Param0: ::windows::runtime::IntoParam<'a, SpatialInteraction>>(&self, interaction: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), interaction.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn CancelPendingGestures(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn TrySetGestureSettings(&self, settings: SpatialGestureSettings) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1243,6 +1275,7 @@ impl SpatialGestureRecognizer {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), settings, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn GestureSettings(&self) -> ::windows::runtime::Result<SpatialGestureSettings> {
         let this = self;
         unsafe {
@@ -1250,6 +1283,7 @@ impl SpatialGestureRecognizer {
             (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialGestureSettings>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Create(settings: SpatialGestureSettings) -> ::windows::runtime::Result<SpatialGestureRecognizer> {
         Self::ISpatialGestureRecognizerFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1313,6 +1347,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialGestureRecognizer {}
 unsafe impl ::std::marker::Sync for SpatialGestureRecognizer {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpatialGestureSettings(pub u32);
@@ -1369,10 +1404,12 @@ impl ::std::ops::Not for SpatialGestureSettings {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialHoldCanceledEventArgs(::windows::runtime::IInspectable);
 impl SpatialHoldCanceledEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -1433,10 +1470,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialHoldCanceledEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialHoldCanceledEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialHoldCompletedEventArgs(::windows::runtime::IInspectable);
 impl SpatialHoldCompletedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -1497,10 +1536,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialHoldCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialHoldCompletedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialHoldStartedEventArgs(::windows::runtime::IInspectable);
 impl SpatialHoldStartedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -1509,6 +1550,7 @@ impl SpatialHoldStartedEventArgs {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetPointerPose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
@@ -1569,10 +1611,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialHoldStartedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialHoldStartedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteraction(::windows::runtime::IInspectable);
 impl SpatialInteraction {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn SourceState(&self) -> ::windows::runtime::Result<SpatialInteractionSourceState> {
         let this = self;
         unsafe {
@@ -1633,10 +1677,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteraction {}
 unsafe impl ::std::marker::Sync for SpatialInteraction {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionController(::windows::runtime::IInspectable);
 impl SpatialInteractionController {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn HasTouchpad(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1644,6 +1690,7 @@ impl SpatialInteractionController {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn HasThumbstick(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1652,6 +1699,7 @@ impl SpatialInteractionController {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Devices_Haptics`*"]
     pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<super::super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
         unsafe {
@@ -1659,6 +1707,7 @@ impl SpatialInteractionController {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn VendorId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1666,6 +1715,7 @@ impl SpatialInteractionController {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1673,6 +1723,7 @@ impl SpatialInteractionController {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Version(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1681,6 +1732,7 @@ impl SpatialInteractionController {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Storage_Streams`*"]
     pub fn TryGetRenderableModelAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionController2>(self)?;
         unsafe {
@@ -1689,6 +1741,7 @@ impl SpatialInteractionController {
         }
     }
     #[cfg(feature = "Devices_Power")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Devices_Power`*"]
     pub fn TryGetBatteryReport(&self) -> ::windows::runtime::Result<super::super::super::Devices::Power::BatteryReport> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionController3>(self)?;
         unsafe {
@@ -1749,10 +1802,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionController {}
 unsafe impl ::std::marker::Sync for SpatialInteractionController {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionControllerProperties(::windows::runtime::IInspectable);
 impl SpatialInteractionControllerProperties {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsTouchpadTouched(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1760,6 +1815,7 @@ impl SpatialInteractionControllerProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsTouchpadPressed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1767,6 +1823,7 @@ impl SpatialInteractionControllerProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsThumbstickPressed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1774,6 +1831,7 @@ impl SpatialInteractionControllerProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn ThumbstickX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1781,6 +1839,7 @@ impl SpatialInteractionControllerProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn ThumbstickY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1788,6 +1847,7 @@ impl SpatialInteractionControllerProperties {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn TouchpadX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1795,6 +1855,7 @@ impl SpatialInteractionControllerProperties {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn TouchpadY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1855,10 +1916,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionControllerProperties {}
 unsafe impl ::std::marker::Sync for SpatialInteractionControllerProperties {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionDetectedEventArgs(::windows::runtime::IInspectable);
 impl SpatialInteractionDetectedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -1867,6 +1930,7 @@ impl SpatialInteractionDetectedEventArgs {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetPointerPose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
@@ -1874,6 +1938,7 @@ impl SpatialInteractionDetectedEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Interaction(&self) -> ::windows::runtime::Result<SpatialInteraction> {
         let this = self;
         unsafe {
@@ -1881,6 +1946,7 @@ impl SpatialInteractionDetectedEventArgs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteraction>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSource(&self) -> ::windows::runtime::Result<SpatialInteractionSource> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionDetectedEventArgs2>(self)?;
         unsafe {
@@ -1941,11 +2007,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionDetectedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialInteractionDetectedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionManager(::windows::runtime::IInspectable);
 impl SpatialInteractionManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn SourceDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1954,11 +2022,13 @@ impl SpatialInteractionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveSourceDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn SourceLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1967,11 +2037,13 @@ impl SpatialInteractionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveSourceLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn SourceUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1980,11 +2052,13 @@ impl SpatialInteractionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveSourceUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn SourcePressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1993,11 +2067,13 @@ impl SpatialInteractionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveSourcePressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn SourceReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2006,11 +2082,13 @@ impl SpatialInteractionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveSourceReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn InteractionDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2019,11 +2097,13 @@ impl SpatialInteractionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`*"]
     pub fn RemoveInteractionDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Collections`, `Perception`*"]
     pub fn GetDetectedSourcesAtTimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::PerceptionTimestamp>>(&self, timestamp: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>> {
         let this = self;
         unsafe {
@@ -2031,12 +2111,14 @@ impl SpatialInteractionManager {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), timestamp.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<SpatialInteractionManager> {
         Self::ISpatialInteractionManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionManager>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsSourceKindSupported(kind: SpatialInteractionSourceKind) -> ::windows::runtime::Result<bool> {
         Self::ISpatialInteractionManagerStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -2104,6 +2186,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionManager {}
 unsafe impl ::std::marker::Sync for SpatialInteractionManager {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpatialInteractionPressKind(pub i32);
@@ -2127,10 +2210,12 @@ unsafe impl ::windows::runtime::Abi for SpatialInteractionPressKind {
 unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionPressKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
 }
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionSource(::windows::runtime::IInspectable);
 impl SpatialInteractionSource {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2138,6 +2223,7 @@ impl SpatialInteractionSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -2145,6 +2231,7 @@ impl SpatialInteractionSource {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsPointingSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
@@ -2152,6 +2239,7 @@ impl SpatialInteractionSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsMenuSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
@@ -2159,6 +2247,7 @@ impl SpatialInteractionSource {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsGraspSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
@@ -2166,6 +2255,7 @@ impl SpatialInteractionSource {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Controller(&self) -> ::windows::runtime::Result<SpatialInteractionController> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
@@ -2174,6 +2264,7 @@ impl SpatialInteractionSource {
         }
     }
     #[cfg(feature = "Perception")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception`*"]
     pub fn TryGetStateAtTimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::PerceptionTimestamp>>(&self, timestamp: Param0) -> ::windows::runtime::Result<SpatialInteractionSourceState> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
@@ -2181,6 +2272,7 @@ impl SpatialInteractionSource {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), timestamp.into_param().abi(), &mut result__).from_abi::<SpatialInteractionSourceState>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Handedness(&self) -> ::windows::runtime::Result<SpatialInteractionSourceHandedness> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSource3>(self)?;
         unsafe {
@@ -2189,6 +2281,7 @@ impl SpatialInteractionSource {
         }
     }
     #[cfg(feature = "Perception_People")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_People`*"]
     pub fn TryCreateHandMeshObserver(&self) -> ::windows::runtime::Result<super::super::super::Perception::People::HandMeshObserver> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSource4>(self)?;
         unsafe {
@@ -2197,6 +2290,7 @@ impl SpatialInteractionSource {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Perception_People"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Perception_People`*"]
     pub fn TryCreateHandMeshObserverAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSource4>(self)?;
         unsafe {
@@ -2257,10 +2351,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionSource {}
 unsafe impl ::std::marker::Sync for SpatialInteractionSource {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionSourceEventArgs(::windows::runtime::IInspectable);
 impl SpatialInteractionSourceEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn State(&self) -> ::windows::runtime::Result<SpatialInteractionSourceState> {
         let this = self;
         unsafe {
@@ -2268,6 +2364,7 @@ impl SpatialInteractionSourceEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceState>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn PressKind(&self) -> ::windows::runtime::Result<SpatialInteractionPressKind> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceEventArgs2>(self)?;
         unsafe {
@@ -2328,6 +2425,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionSourceEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialInteractionSourceEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
@@ -2348,6 +2446,7 @@ unsafe impl ::windows::runtime::Abi for SpatialInteractionSourceHandedness {
 unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourceHandedness {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
 }
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceKind(pub i32);
@@ -2369,11 +2468,13 @@ unsafe impl ::windows::runtime::Abi for SpatialInteractionSourceKind {
 unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourceKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
 }
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionSourceLocation(::windows::runtime::IInspectable);
 impl SpatialInteractionSourceLocation {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Foundation_Numerics`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
@@ -2382,6 +2483,7 @@ impl SpatialInteractionSourceLocation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Foundation_Numerics`*"]
     pub fn Velocity(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
@@ -2390,6 +2492,7 @@ impl SpatialInteractionSourceLocation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Foundation_Numerics`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceLocation2>(self)?;
         unsafe {
@@ -2397,6 +2500,7 @@ impl SpatialInteractionSourceLocation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn PositionAccuracy(&self) -> ::windows::runtime::Result<SpatialInteractionSourcePositionAccuracy> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
@@ -2405,6 +2509,7 @@ impl SpatialInteractionSourceLocation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Foundation_Numerics`*"]
     pub fn AngularVelocity(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
@@ -2412,6 +2517,7 @@ impl SpatialInteractionSourceLocation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn SourcePointerPose(&self) -> ::windows::runtime::Result<SpatialPointerInteractionSourcePose> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
@@ -2472,6 +2578,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionSourceLocation {}
 unsafe impl ::std::marker::Sync for SpatialInteractionSourceLocation {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
@@ -2491,11 +2598,13 @@ unsafe impl ::windows::runtime::Abi for SpatialInteractionSourcePositionAccuracy
 unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourcePositionAccuracy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");
 }
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionSourceProperties(::windows::runtime::IInspectable);
 impl SpatialInteractionSourceProperties {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn TryGetSourceLossMitigationDirection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
@@ -2503,6 +2612,7 @@ impl SpatialInteractionSourceProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn SourceLossRisk(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2511,6 +2621,7 @@ impl SpatialInteractionSourceProperties {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetLocation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialInteractionSourceLocation> {
         let this = self;
         unsafe {
@@ -2571,10 +2682,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionSourceProperties {}
 unsafe impl ::std::marker::Sync for SpatialInteractionSourceProperties {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialInteractionSourceState(::windows::runtime::IInspectable);
 impl SpatialInteractionSourceState {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<SpatialInteractionSource> {
         let this = self;
         unsafe {
@@ -2582,6 +2695,7 @@ impl SpatialInteractionSourceState {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSource>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<SpatialInteractionSourceProperties> {
         let this = self;
         unsafe {
@@ -2589,6 +2703,7 @@ impl SpatialInteractionSourceState {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceProperties>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsPressed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2597,6 +2712,7 @@ impl SpatialInteractionSourceState {
         }
     }
     #[cfg(feature = "Perception")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::super::Perception::PerceptionTimestamp> {
         let this = self;
         unsafe {
@@ -2605,6 +2721,7 @@ impl SpatialInteractionSourceState {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetPointerPose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
@@ -2612,6 +2729,7 @@ impl SpatialInteractionSourceState {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsSelectPressed(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
@@ -2619,6 +2737,7 @@ impl SpatialInteractionSourceState {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsMenuPressed(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
@@ -2626,6 +2745,7 @@ impl SpatialInteractionSourceState {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsGrasped(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
@@ -2633,6 +2753,7 @@ impl SpatialInteractionSourceState {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn SelectPressedValue(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
@@ -2640,6 +2761,7 @@ impl SpatialInteractionSourceState {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn ControllerProperties(&self) -> ::windows::runtime::Result<SpatialInteractionControllerProperties> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
@@ -2648,6 +2770,7 @@ impl SpatialInteractionSourceState {
         }
     }
     #[cfg(feature = "Perception_People")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_People`*"]
     pub fn TryGetHandPose(&self) -> ::windows::runtime::Result<super::super::super::Perception::People::HandPose> {
         let this = &::windows::runtime::Interface::cast::<ISpatialInteractionSourceState3>(self)?;
         unsafe {
@@ -2708,10 +2831,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialInteractionSourceState {}
 unsafe impl ::std::marker::Sync for SpatialInteractionSourceState {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialManipulationCanceledEventArgs(::windows::runtime::IInspectable);
 impl SpatialManipulationCanceledEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -2772,10 +2897,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialManipulationCanceledEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialManipulationCanceledEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialManipulationCompletedEventArgs(::windows::runtime::IInspectable);
 impl SpatialManipulationCompletedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -2784,6 +2911,7 @@ impl SpatialManipulationCompletedEventArgs {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetCumulativeDelta<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialManipulationDelta> {
         let this = self;
         unsafe {
@@ -2844,11 +2972,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialManipulationCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialManipulationCompletedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialManipulationDelta(::windows::runtime::IInspectable);
 impl SpatialManipulationDelta {
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
     pub fn Translation(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -2909,10 +3039,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialManipulationDelta {}
 unsafe impl ::std::marker::Sync for SpatialManipulationDelta {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialManipulationStartedEventArgs(::windows::runtime::IInspectable);
 impl SpatialManipulationStartedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -2921,6 +3053,7 @@ impl SpatialManipulationStartedEventArgs {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetPointerPose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
@@ -2981,10 +3114,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialManipulationStartedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialManipulationStartedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialManipulationUpdatedEventArgs(::windows::runtime::IInspectable);
 impl SpatialManipulationUpdatedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -2993,6 +3128,7 @@ impl SpatialManipulationUpdatedEventArgs {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetCumulativeDelta<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialManipulationDelta> {
         let this = self;
         unsafe {
@@ -3053,10 +3189,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialManipulationUpdatedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialManipulationUpdatedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialNavigationCanceledEventArgs(::windows::runtime::IInspectable);
 impl SpatialNavigationCanceledEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -3117,10 +3255,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialNavigationCanceledEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialNavigationCanceledEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialNavigationCompletedEventArgs(::windows::runtime::IInspectable);
 impl SpatialNavigationCompletedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -3129,6 +3269,7 @@ impl SpatialNavigationCompletedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
     pub fn NormalizedOffset(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -3189,10 +3330,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialNavigationCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialNavigationCompletedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialNavigationStartedEventArgs(::windows::runtime::IInspectable);
 impl SpatialNavigationStartedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -3201,6 +3344,7 @@ impl SpatialNavigationStartedEventArgs {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetPointerPose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
@@ -3208,6 +3352,7 @@ impl SpatialNavigationStartedEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsNavigatingX(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3215,6 +3360,7 @@ impl SpatialNavigationStartedEventArgs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsNavigatingY(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3222,6 +3368,7 @@ impl SpatialNavigationStartedEventArgs {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsNavigatingZ(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3282,10 +3429,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialNavigationStartedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialNavigationStartedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialNavigationUpdatedEventArgs(::windows::runtime::IInspectable);
 impl SpatialNavigationUpdatedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -3294,6 +3443,7 @@ impl SpatialNavigationUpdatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
     pub fn NormalizedOffset(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -3354,11 +3504,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialNavigationUpdatedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialNavigationUpdatedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialPointerInteractionSourcePose(::windows::runtime::IInspectable);
 impl SpatialPointerInteractionSourcePose {
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -3367,6 +3519,7 @@ impl SpatialPointerInteractionSourcePose {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
     pub fn ForwardDirection(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -3375,6 +3528,7 @@ impl SpatialPointerInteractionSourcePose {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
     pub fn UpDirection(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -3383,6 +3537,7 @@ impl SpatialPointerInteractionSourcePose {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Foundation_Numerics`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows::runtime::Interface::cast::<ISpatialPointerInteractionSourcePose2>(self)?;
         unsafe {
@@ -3390,6 +3545,7 @@ impl SpatialPointerInteractionSourcePose {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn PositionAccuracy(&self) -> ::windows::runtime::Result<SpatialInteractionSourcePositionAccuracy> {
         let this = &::windows::runtime::Interface::cast::<ISpatialPointerInteractionSourcePose2>(self)?;
         unsafe {
@@ -3450,11 +3606,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialPointerInteractionSourcePose {}
 unsafe impl ::std::marker::Sync for SpatialPointerInteractionSourcePose {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialPointerPose(::windows::runtime::IInspectable);
 impl SpatialPointerPose {
     #[cfg(feature = "Perception")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::super::Perception::PerceptionTimestamp> {
         let this = self;
         unsafe {
@@ -3463,6 +3621,7 @@ impl SpatialPointerPose {
         }
     }
     #[cfg(feature = "Perception_People")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_People`*"]
     pub fn Head(&self) -> ::windows::runtime::Result<super::super::super::Perception::People::HeadPose> {
         let this = self;
         unsafe {
@@ -3471,12 +3630,14 @@ impl SpatialPointerPose {
         }
     }
     #[cfg(all(feature = "Perception", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception`, `Perception_Spatial`*"]
     pub fn TryGetAtTimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::PerceptionTimestamp>>(coordinatesystem: Param0, timestamp: Param1) -> ::windows::runtime::Result<SpatialPointerPose> {
         Self::ISpatialPointerPoseStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), timestamp.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn TryGetInteractionSourcePose<'a, Param0: ::windows::runtime::IntoParam<'a, SpatialInteractionSource>>(&self, source: Param0) -> ::windows::runtime::Result<SpatialPointerInteractionSourcePose> {
         let this = &::windows::runtime::Interface::cast::<ISpatialPointerPose2>(self)?;
         unsafe {
@@ -3485,6 +3646,7 @@ impl SpatialPointerPose {
         }
     }
     #[cfg(feature = "Perception_People")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_People`*"]
     pub fn Eyes(&self) -> ::windows::runtime::Result<super::super::super::Perception::People::EyesPose> {
         let this = &::windows::runtime::Interface::cast::<ISpatialPointerPose3>(self)?;
         unsafe {
@@ -3492,6 +3654,7 @@ impl SpatialPointerPose {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::People::EyesPose>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsHeadCapturedBySystem(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISpatialPointerPose3>(self)?;
         unsafe {
@@ -3556,10 +3719,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialPointerPose {}
 unsafe impl ::std::marker::Sync for SpatialPointerPose {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialRecognitionEndedEventArgs(::windows::runtime::IInspectable);
 impl SpatialRecognitionEndedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -3620,10 +3785,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialRecognitionEndedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialRecognitionEndedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialRecognitionStartedEventArgs(::windows::runtime::IInspectable);
 impl SpatialRecognitionStartedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -3632,6 +3799,7 @@ impl SpatialRecognitionStartedEventArgs {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetPointerPose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
@@ -3639,6 +3807,7 @@ impl SpatialRecognitionStartedEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn IsGesturePossible(&self, gesture: SpatialGestureSettings) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3699,10 +3868,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialRecognitionStartedEventArgs {}
 unsafe impl ::std::marker::Sync for SpatialRecognitionStartedEventArgs {}
+#[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialTappedEventArgs(::windows::runtime::IInspectable);
 impl SpatialTappedEventArgs {
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn InteractionSourceKind(&self) -> ::windows::runtime::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
@@ -3711,6 +3882,7 @@ impl SpatialTappedEventArgs {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `UI_Input_Spatial`, `Perception_Spatial`*"]
     pub fn TryGetPointerPose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::runtime::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
@@ -3718,6 +3890,7 @@ impl SpatialTappedEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Input_Spatial`*"]
     pub fn TapCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {

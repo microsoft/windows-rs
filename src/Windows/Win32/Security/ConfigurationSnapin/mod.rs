@@ -1,17 +1,22 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISceSvcAttachmentData(::windows::runtime::IUnknown);
 impl ISceSvcAttachmentData {
+    #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
     pub unsafe fn GetData(&self, scesvchandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::std::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(scesvchandle), ::std::mem::transmute(scetype), ::std::mem::transmute(ppvdata), ::std::mem::transmute(psceenumhandle)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
     pub unsafe fn Initialize<'a, Param2: ::windows::runtime::IntoParam<'a, ISceSvcAttachmentPersistInfo>>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Param2, pscesvchandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpservicename), ::std::mem::transmute(lptemplatename), lpscesvcpersistinfo.into_param().abi(), ::std::mem::transmute(pscesvchandle)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
     pub unsafe fn FreeBuffer(&self, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
     pub unsafe fn CloseHandle(&self, scesvchandle: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(scesvchandle)).ok()
     }
@@ -51,17 +56,21 @@ pub struct ISceSvcAttachmentData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scesvchandle: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISceSvcAttachmentPersistInfo(::windows::runtime::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
     pub unsafe fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::std::ffi::c_void, ppvdata: *mut *mut ::std::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lptemplatename), ::std::mem::transmute(scesvchandle), ::std::mem::transmute(ppvdata), ::std::mem::transmute(pboverwriteall)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
     pub unsafe fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lptemplatename)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
     pub unsafe fn FreeBuffer(&self, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvdata)).ok()
     }
@@ -111,28 +120,49 @@ pub type PFSCE_SET_INFO = unsafe extern "system" fn(scehandle: *mut ::std::ffi::
 pub type PF_ConfigAnalyzeService = unsafe extern "system" fn(pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_UpdateService = unsafe extern "system" fn(pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_ALREADY_RUNNING: i32 = 13i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_BAD_FORMAT: i32 = 7i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_BUFFER_TOO_SMALL: i32 = 5i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_CANT_DELETE: i32 = 10i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_EXCEPTION_IN_SERVER: i32 = 16i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_INVALID_DATA: i32 = 3i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_INVALID_PARAMETER: i32 = 1i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_MOD_NOT_FOUND: i32 = 15i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_NOT_ENOUGH_RESOURCE: i32 = 8i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_NO_MAPPING: i32 = 18i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_NO_TEMPLATE_GIVEN: i32 = 17i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_OBJECT_EXIST: i32 = 4i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_OTHER_ERROR: i32 = 12i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_PREFIX_OVERFLOW: i32 = 11i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_PROFILE_NOT_FOUND: i32 = 6i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_RECORD_NOT_FOUND: i32 = 2i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_SUCCESS: i32 = 0i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub struct SCESVC_ANALYSIS_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_ANALYSIS_LINE,
@@ -160,6 +190,7 @@ unsafe impl ::windows::runtime::Abi for SCESVC_ANALYSIS_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub struct SCESVC_ANALYSIS_LINE {
     pub Key: *mut i8,
     pub Value: *mut u8,
@@ -189,6 +220,7 @@ unsafe impl ::windows::runtime::Abi for SCESVC_ANALYSIS_LINE {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut ::std::ffi::c_void,
     pub pfQueryInfo: ::std::option::Option<PFSCE_QUERY_INFO>,
@@ -225,6 +257,7 @@ unsafe impl ::windows::runtime::Abi for SCESVC_CALLBACK_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub struct SCESVC_CONFIGURATION_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_CONFIGURATION_LINE,
@@ -252,6 +285,7 @@ unsafe impl ::windows::runtime::Abi for SCESVC_CONFIGURATION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub struct SCESVC_CONFIGURATION_LINE {
     pub Key: *mut i8,
     pub Value: *mut i8,
@@ -278,7 +312,9 @@ unsafe impl ::windows::runtime::Abi for SCESVC_CONFIGURATION_LINE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCESVC_INFO_TYPE(pub i32);
@@ -295,6 +331,7 @@ unsafe impl ::windows::runtime::Abi for SCESVC_INFO_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCE_LOG_ERR_LEVEL(pub u32);

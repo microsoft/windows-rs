@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BackupEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14,6 +15,7 @@ pub unsafe fn BackupEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BackupEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -28,6 +30,7 @@ pub unsafe fn BackupEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ClearEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -42,6 +45,7 @@ pub unsafe fn ClearEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ClearEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56,6 +60,7 @@ pub unsafe fn ClearEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CloseEventLog<'a, Param0: ::windows::runtime::IntoParam<'a, EventLogHandle>>(heventlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -70,6 +75,7 @@ pub unsafe fn CloseEventLog<'a, Param0: ::windows::runtime::IntoParam<'a, EventL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeregisterEventSource<'a, Param0: ::windows::runtime::IntoParam<'a, EventSourceHandle>>(heventlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -85,6 +91,7 @@ pub unsafe fn DeregisterEventSource<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
 }
@@ -109,7 +116,9 @@ unsafe impl ::windows::runtime::Abi for EVENTLOG_FULL_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_ALL_ACCESS: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(pub i32);
@@ -124,6 +133,7 @@ unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_CLOCK_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(pub i32);
@@ -158,6 +168,7 @@ unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_CONFIG_PROPERTY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_CHANNEL_ISOLATION_TYPE(pub i32);
@@ -173,6 +184,7 @@ unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_ISOLATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_CHANNEL_REFERENCE_FLAGS(pub i32);
@@ -186,6 +198,7 @@ unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_REFERENCE_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_CHANNEL_SID_TYPE(pub i32);
@@ -200,6 +213,7 @@ unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_SID_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_CHANNEL_TYPE(pub i32);
@@ -216,7 +230,9 @@ unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_CLEAR_ACCESS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_EVENT_METADATA_PROPERTY_ID(pub i32);
@@ -239,6 +255,7 @@ unsafe impl ::windows::runtime::Abi for EVT_EVENT_METADATA_PROPERTY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_EVENT_PROPERTY_ID(pub i32);
@@ -254,6 +271,7 @@ unsafe impl ::windows::runtime::Abi for EVT_EVENT_PROPERTY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_EXPORTLOG_FLAGS(pub i32);
@@ -270,6 +288,7 @@ unsafe impl ::windows::runtime::Abi for EVT_EXPORTLOG_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_FORMAT_MESSAGE_FLAGS(pub i32);
@@ -291,6 +310,7 @@ unsafe impl ::windows::runtime::Abi for EVT_FORMAT_MESSAGE_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_LOGIN_CLASS(pub i32);
@@ -304,6 +324,7 @@ unsafe impl ::windows::runtime::Abi for EVT_LOGIN_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_LOG_PROPERTY_ID(pub i32);
@@ -324,6 +345,7 @@ unsafe impl ::windows::runtime::Abi for EVT_LOG_PROPERTY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_OPEN_LOG_FLAGS(pub i32);
@@ -338,6 +360,7 @@ unsafe impl ::windows::runtime::Abi for EVT_OPEN_LOG_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(pub i32);
@@ -380,6 +403,7 @@ unsafe impl ::windows::runtime::Abi for EVT_PUBLISHER_METADATA_PROPERTY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_QUERY_FLAGS(pub i32);
@@ -397,6 +421,7 @@ unsafe impl ::windows::runtime::Abi for EVT_QUERY_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_QUERY_PROPERTY_ID(pub i32);
@@ -412,7 +437,9 @@ unsafe impl ::windows::runtime::Abi for EVT_QUERY_PROPERTY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_READ_ACCESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_RENDER_CONTEXT_FLAGS(pub i32);
@@ -428,6 +455,7 @@ unsafe impl ::windows::runtime::Abi for EVT_RENDER_CONTEXT_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_RENDER_FLAGS(pub i32);
@@ -446,6 +474,7 @@ unsafe impl ::windows::runtime::Abi for EVT_RENDER_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 pub struct EVT_RPC_LOGIN {
     pub Server: super::super::Foundation::PWSTR,
     pub User: super::super::Foundation::PWSTR,
@@ -480,6 +509,7 @@ unsafe impl ::windows::runtime::Abi for EVT_RPC_LOGIN {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub i32);
@@ -496,6 +526,7 @@ unsafe impl ::windows::runtime::Abi for EVT_RPC_LOGIN_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_SEEK_FLAGS(pub i32);
@@ -515,6 +546,7 @@ unsafe impl ::windows::runtime::Abi for EVT_SEEK_FLAGS {
     type DefaultType = Self;
 }
 pub type EVT_SUBSCRIBE_CALLBACK = unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::std::ffi::c_void, event: isize) -> u32;
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub i32);
@@ -533,6 +565,7 @@ unsafe impl ::windows::runtime::Abi for EVT_SUBSCRIBE_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(pub i32);
@@ -547,6 +580,7 @@ unsafe impl ::windows::runtime::Abi for EVT_SUBSCRIBE_NOTIFY_ACTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_SYSTEM_PROPERTY_ID(pub i32);
@@ -581,6 +615,7 @@ unsafe impl ::windows::runtime::Abi for EVT_SYSTEM_PROPERTY_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 pub struct EVT_VARIANT {
     pub Anonymous: EVT_VARIANT_0,
     pub Count: u32,
@@ -610,6 +645,7 @@ unsafe impl ::windows::runtime::Abi for EVT_VARIANT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 pub union EVT_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub SByteVal: i8,
@@ -673,6 +709,7 @@ unsafe impl ::windows::runtime::Abi for EVT_VARIANT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVT_VARIANT_TYPE(pub i32);
@@ -709,8 +746,11 @@ unsafe impl ::windows::runtime::Abi for EVT_VARIANT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -739,6 +779,7 @@ unsafe impl ::windows::runtime::Abi for EventSourceHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtArchiveExportedLog<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, logfilepath: Param1, locale: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -753,6 +794,7 @@ pub unsafe fn EvtArchiveExportedLog<'a, Param1: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -767,6 +809,7 @@ pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtClearLog<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, channelpath: Param1, targetfilepath: Param2, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -781,6 +824,7 @@ pub unsafe fn EvtClearLog<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -795,6 +839,7 @@ pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtCreateBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(bookmarkxml: Param0) -> isize {
     #[cfg(windows)]
@@ -809,6 +854,7 @@ pub unsafe fn EvtCreateBookmark<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const super::super::Foundation::PWSTR, flags: u32) -> isize {
     #[cfg(windows)]
@@ -823,6 +869,7 @@ pub unsafe fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtExportLog<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, path: Param1, query: Param2, targetfilepath: Param3, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -837,6 +884,7 @@ pub unsafe fn EvtExportLog<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid: u32, valuecount: u32, values: *const EVT_VARIANT, flags: u32, buffersize: u32, buffer: super::super::Foundation::PWSTR, bufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -861,6 +909,7 @@ pub unsafe fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -875,6 +924,7 @@ pub unsafe fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -889,6 +939,7 @@ pub unsafe fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, p
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: *mut EVT_VARIANT, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -903,6 +954,7 @@ pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetExtendedStatus(buffersize: u32, buffer: super::super::Foundation::PWSTR, bufferused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -917,6 +969,7 @@ pub unsafe fn EvtGetExtendedStatus(buffersize: u32, buffer: super::super::Founda
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -931,6 +984,7 @@ pub unsafe fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propert
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -953,6 +1007,7 @@ pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -967,6 +1022,7 @@ pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u3
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: isize, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -988,6 +1044,7 @@ pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: isize, property
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1002,6 +1059,7 @@ pub unsafe fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtNext(resultset: isize, eventssize: u32, events: *mut isize, timeout: u32, flags: u32, returned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1016,6 +1074,7 @@ pub unsafe fn EvtNext(resultset: isize, eventssize: u32, events: *mut isize, tim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtNextChannelPath(channelenum: isize, channelpathbuffersize: u32, channelpathbuffer: super::super::Foundation::PWSTR, channelpathbufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1029,6 +1088,7 @@ pub unsafe fn EvtNextChannelPath(channelenum: isize, channelpathbuffersize: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[inline]
 pub unsafe fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1043,6 +1103,7 @@ pub unsafe fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isiz
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtNextPublisherId(publisherenum: isize, publisheridbuffersize: u32, publisheridbuffer: super::super::Foundation::PWSTR, publisheridbufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1057,6 +1118,7 @@ pub unsafe fn EvtNextPublisherId(publisherenum: isize, publisheridbuffersize: u3
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtOpenChannelConfig<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, channelpath: Param1, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1070,6 +1132,7 @@ pub unsafe fn EvtOpenChannelConfig<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[inline]
 pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1083,6 +1146,7 @@ pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[inline]
 pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1097,6 +1161,7 @@ pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtOpenLog<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, path: Param1, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1110,6 +1175,7 @@ pub unsafe fn EvtOpenLog<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[inline]
 pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1124,6 +1190,7 @@ pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtOpenPublisherMetadata<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, publisherid: Param1, logfilepath: Param2, locale: u32, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1137,6 +1204,7 @@ pub unsafe fn EvtOpenPublisherMetadata<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[inline]
 pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::std::ffi::c_void, timeout: u32, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1151,6 +1219,7 @@ pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::std::f
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtQuery<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, path: Param1, query: Param2, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1165,6 +1234,7 @@ pub unsafe fn EvtQuery<'a, Param1: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtRender(context: isize, fragment: isize, flags: u32, buffersize: u32, buffer: *mut ::std::ffi::c_void, bufferused: *mut u32, propertycount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1179,6 +1249,7 @@ pub unsafe fn EvtRender(context: isize, fragment: isize, flags: u32, buffersize:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtSaveChannelConfig(channelconfig: isize, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1193,6 +1264,7 @@ pub unsafe fn EvtSaveChannelConfig(channelconfig: isize, flags: u32) -> super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtSeek(resultset: isize, position: i64, bookmark: isize, timeout: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1207,6 +1279,7 @@ pub unsafe fn EvtSeek(resultset: isize, position: i64, bookmark: isize, timeout:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1221,6 +1294,7 @@ pub unsafe fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtSubscribe<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, signalevent: Param1, channelpath: Param2, query: Param3, bookmark: isize, context: *const ::std::ffi::c_void, callback: ::std::option::Option<EVT_SUBSCRIBE_CALLBACK>, flags: u32) -> isize {
     #[cfg(windows)]
@@ -1235,6 +1309,7 @@ pub unsafe fn EvtSubscribe<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1249,6 +1324,7 @@ pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetEventLogInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(heventlog: Param0, dwinfolevel: u32, lpbuffer: *mut ::std::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1263,6 +1339,7 @@ pub unsafe fn GetEventLogInformation<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetNumberOfEventLogRecords<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(heventlog: Param0, numberofrecords: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1277,6 +1354,7 @@ pub unsafe fn GetNumberOfEventLogRecords<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetOldestEventLogRecord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(heventlog: Param0, oldestrecord: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1291,6 +1369,7 @@ pub unsafe fn GetOldestEventLogRecord<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NotifyChangeEventLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(heventlog: Param0, hevent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1305,6 +1384,7 @@ pub unsafe fn NotifyChangeEventLog<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenBackupEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpuncservername: Param0, lpfilename: Param1) -> EventLogHandle {
     #[cfg(windows)]
@@ -1319,6 +1399,7 @@ pub unsafe fn OpenBackupEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenBackupEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpuncservername: Param0, lpfilename: Param1) -> EventLogHandle {
     #[cfg(windows)]
@@ -1333,6 +1414,7 @@ pub unsafe fn OpenBackupEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventLogHandle {
     #[cfg(windows)]
@@ -1347,6 +1429,7 @@ pub unsafe fn OpenEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventLogHandle {
     #[cfg(windows)]
@@ -1360,6 +1443,7 @@ pub unsafe fn OpenEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
@@ -1402,6 +1486,7 @@ impl ::std::ops::Not for READ_EVENT_LOG_READ_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REPORT_EVENT_TYPE(pub u16);
@@ -1421,6 +1506,7 @@ unsafe impl ::windows::runtime::Abi for REPORT_EVENT_TYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ReadEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(heventlog: Param0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::std::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1435,6 +1521,7 @@ pub unsafe fn ReadEventLogA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ReadEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(heventlog: Param0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::std::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1449,6 +1536,7 @@ pub unsafe fn ReadEventLogW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterEventSourceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventSourceHandle {
     #[cfg(windows)]
@@ -1463,6 +1551,7 @@ pub unsafe fn RegisterEventSourceA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterEventSourceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventSourceHandle {
     #[cfg(windows)]
@@ -1477,6 +1566,7 @@ pub unsafe fn RegisterEventSourceW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ReportEventA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(heventlog: Param0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: Param4, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PSTR, lprawdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1501,6 +1591,7 @@ pub unsafe fn ReportEventA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ReportEventW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(heventlog: Param0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: Param4, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PWSTR, lprawdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

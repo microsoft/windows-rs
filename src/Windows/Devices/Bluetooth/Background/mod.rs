@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothEventTriggeringMode(pub i32);
@@ -19,11 +20,13 @@ unsafe impl ::windows::runtime::Abi for BluetoothEventTriggeringMode {
 unsafe impl ::windows::runtime::RuntimeType for BluetoothEventTriggeringMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode;i4)");
 }
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEAdvertisementPublisherTriggerDetails(::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementPublisherTriggerDetails {
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_Advertisement`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::Advertisement::BluetoothLEAdvertisementPublisherStatus> {
         let this = self;
         unsafe {
@@ -31,6 +34,7 @@ impl BluetoothLEAdvertisementPublisherTriggerDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Advertisement::BluetoothLEAdvertisementPublisherStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<super::BluetoothError> {
         let this = self;
         unsafe {
@@ -39,6 +43,7 @@ impl BluetoothLEAdvertisementPublisherTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Foundation`*"]
     pub fn SelectedTransmitPowerLevelInDBm(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<i16>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEAdvertisementPublisherTriggerDetails2>(self)?;
         unsafe {
@@ -99,10 +104,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEAdvertisementWatcherTriggerDetails(::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementWatcherTriggerDetails {
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<super::BluetoothError> {
         let this = self;
         unsafe {
@@ -111,6 +118,7 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_Advertisement`, `Foundation_Collections`*"]
     pub fn Advertisements(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>> {
         let this = self;
         unsafe {
@@ -118,6 +126,7 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn SignalStrengthFilter(&self) -> ::windows::runtime::Result<super::BluetoothSignalStrengthFilter> {
         let this = self;
         unsafe {
@@ -178,11 +187,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattCharacteristicNotificationTriggerDetails(::windows::runtime::IInspectable);
 impl GattCharacteristicNotificationTriggerDetails {
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_GenericAttributeProfile`*"]
     pub fn Characteristic(&self) -> ::windows::runtime::Result<super::GenericAttributeProfile::GattCharacteristic> {
         let this = self;
         unsafe {
@@ -191,6 +202,7 @@ impl GattCharacteristicNotificationTriggerDetails {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Storage_Streams`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -198,6 +210,7 @@ impl GattCharacteristicNotificationTriggerDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<super::BluetoothError> {
         let this = &::windows::runtime::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
@@ -205,6 +218,7 @@ impl GattCharacteristicNotificationTriggerDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn EventTriggeringMode(&self) -> ::windows::runtime::Result<BluetoothEventTriggeringMode> {
         let this = &::windows::runtime::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
@@ -213,6 +227,7 @@ impl GattCharacteristicNotificationTriggerDetails {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_GenericAttributeProfile`, `Foundation_Collections`*"]
     pub fn ValueChangedEvents(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>> {
         let this = &::windows::runtime::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
@@ -273,10 +288,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for GattCharacteristicNotificationTriggerDetails {}
 unsafe impl ::std::marker::Sync for GattCharacteristicNotificationTriggerDetails {}
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattServiceProviderConnection(::windows::runtime::IInspectable);
 impl GattServiceProviderConnection {
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn TriggerId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -285,6 +302,7 @@ impl GattServiceProviderConnection {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_GenericAttributeProfile`*"]
     pub fn Service(&self) -> ::windows::runtime::Result<super::GenericAttributeProfile::GattLocalService> {
         let this = self;
         unsafe {
@@ -292,11 +310,13 @@ impl GattServiceProviderConnection {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::GenericAttributeProfile::GattLocalService>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Foundation_Collections`*"]
     pub fn AllServices() -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, GattServiceProviderConnection>> {
         Self::IGattServiceProviderConnectionStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -360,10 +380,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for GattServiceProviderConnection {}
 unsafe impl ::std::marker::Sync for GattServiceProviderConnection {}
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GattServiceProviderTriggerDetails(::windows::runtime::IInspectable);
 impl GattServiceProviderTriggerDetails {
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<GattServiceProviderConnection> {
         let this = self;
         unsafe {
@@ -664,11 +686,13 @@ pub struct IRfcommOutboundConnectionInformation_abi(
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Rfcomm"))] usize,
 );
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RfcommConnectionTriggerDetails(::windows::runtime::IInspectable);
 impl RfcommConnectionTriggerDetails {
     #[cfg(feature = "Networking_Sockets")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Networking_Sockets`*"]
     pub fn Socket(&self) -> ::windows::runtime::Result<super::super::super::Networking::Sockets::StreamSocket> {
         let this = self;
         unsafe {
@@ -676,6 +700,7 @@ impl RfcommConnectionTriggerDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::StreamSocket>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn Incoming(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -683,6 +708,7 @@ impl RfcommConnectionTriggerDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn RemoteDevice(&self) -> ::windows::runtime::Result<super::BluetoothDevice> {
         let this = self;
         unsafe {
@@ -743,11 +769,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for RfcommConnectionTriggerDetails {}
 unsafe impl ::std::marker::Sync for RfcommConnectionTriggerDetails {}
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RfcommInboundConnectionInformation(::windows::runtime::IInspectable);
 impl RfcommInboundConnectionInformation {
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Storage_Streams`*"]
     pub fn SdpRecord(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -756,11 +784,13 @@ impl RfcommInboundConnectionInformation {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Storage_Streams`*"]
     pub fn SetSdpRecord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_Rfcomm`*"]
     pub fn LocalServiceId(&self) -> ::windows::runtime::Result<super::Rfcomm::RfcommServiceId> {
         let this = self;
         unsafe {
@@ -769,10 +799,12 @@ impl RfcommInboundConnectionInformation {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_Rfcomm`*"]
     pub fn SetLocalServiceId<'a, Param0: ::windows::runtime::IntoParam<'a, super::Rfcomm::RfcommServiceId>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn ServiceCapabilities(&self) -> ::windows::runtime::Result<super::BluetoothServiceCapabilities> {
         let this = self;
         unsafe {
@@ -780,6 +812,7 @@ impl RfcommInboundConnectionInformation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothServiceCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
     pub fn SetServiceCapabilities(&self, value: super::BluetoothServiceCapabilities) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
@@ -837,11 +870,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for RfcommInboundConnectionInformation {}
 unsafe impl ::std::marker::Sync for RfcommInboundConnectionInformation {}
+#[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RfcommOutboundConnectionInformation(::windows::runtime::IInspectable);
 impl RfcommOutboundConnectionInformation {
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_Rfcomm`*"]
     pub fn RemoteServiceId(&self) -> ::windows::runtime::Result<super::Rfcomm::RfcommServiceId> {
         let this = self;
         unsafe {
@@ -850,6 +885,7 @@ impl RfcommOutboundConnectionInformation {
         }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
+    #[doc = "*Required features: `Devices_Bluetooth_Background`, `Devices_Bluetooth_Rfcomm`*"]
     pub fn SetRemoteServiceId<'a, Param0: ::windows::runtime::IntoParam<'a, super::Rfcomm::RfcommServiceId>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }

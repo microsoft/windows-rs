@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRadialControllerConfigurationInterop(::windows::runtime::IUnknown);
 impl IRadialControllerConfigurationInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Input_Radial`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, hwnd: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -45,11 +47,13 @@ pub struct IRadialControllerConfigurationInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRadialControllerIndependentInputSourceInterop(::windows::runtime::IUnknown);
 impl IRadialControllerIndependentInputSourceInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Input_Radial`, `Win32_Foundation`*"]
     pub unsafe fn CreateForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, hwnd: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -91,11 +95,13 @@ pub struct IRadialControllerIndependentInputSourceInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_Input_Radial`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRadialControllerInterop(::windows::runtime::IUnknown);
 impl IRadialControllerInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Input_Radial`, `Win32_Foundation`*"]
     pub unsafe fn CreateForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, hwnd: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)

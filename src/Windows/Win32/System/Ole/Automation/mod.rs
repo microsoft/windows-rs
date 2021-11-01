@@ -1,9 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const ACTIVEOBJECT_STRONG: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const ACTIVEOBJECT_WEAK: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 pub struct ARRAYDESC {
     pub tdescElem: TYPEDESC,
     pub cDims: u16,
@@ -38,6 +41,7 @@ impl ::std::clone::Clone for BINDPTR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
@@ -65,6 +69,7 @@ unsafe impl ::windows::runtime::Abi for BINDPTR {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn BstrFromVector(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -79,6 +84,7 @@ pub unsafe fn BstrFromVector(psa: *const super::super::Com::SAFEARRAY) -> ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CALLCONV(pub i32);
@@ -102,6 +108,7 @@ unsafe impl ::windows::runtime::Abi for CALLCONV {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGEKIND(pub i32);
@@ -124,6 +131,7 @@ unsafe impl ::windows::runtime::Abi for CHANGEKIND {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct CLEANLOCALSTORAGE {
     pub pInterface: ::std::option::Option<::windows::runtime::IUnknown>,
     pub pStorage: *mut ::std::ffi::c_void,
@@ -153,6 +161,7 @@ unsafe impl ::windows::runtime::Abi for CLEANLOCALSTORAGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
@@ -192,6 +201,7 @@ impl ::std::clone::Clone for CUSTDATAITEM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct CUSTDATAITEM {
     pub guid: ::windows::runtime::GUID,
     pub varValue: super::super::Com::VARIANT,
@@ -218,6 +228,7 @@ unsafe impl ::windows::runtime::Abi for CUSTDATAITEM {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn ClearCustData(pcustdata: *mut CUSTDATA) {
     #[cfg(windows)]
@@ -232,6 +243,7 @@ pub unsafe fn ClearCustData(pcustdata: *mut CUSTDATA) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo: *mut ::std::option::Option<ITypeInfo>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -245,6 +257,7 @@ pub unsafe fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn CreateErrorInfo() -> ::windows::runtime::Result<ICreateErrorInfo> {
     #[cfg(windows)]
@@ -259,6 +272,7 @@ pub unsafe fn CreateErrorInfo() -> ::windows::runtime::Result<ICreateErrorInfo> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn CreateStdDispatch<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, ITypeInfo>>(punkouter: Param0, pvthis: *mut ::std::ffi::c_void, ptinfo: Param2, ppunkstddisp: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -273,6 +287,7 @@ pub unsafe fn CreateStdDispatch<'a, Param0: ::windows::runtime::IntoParam<'a, ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateTypeLib<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(syskind: SYSKIND, szfile: Param1) -> ::windows::runtime::Result<ICreateTypeLib> {
     #[cfg(windows)]
@@ -288,6 +303,7 @@ pub unsafe fn CreateTypeLib<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateTypeLib2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(syskind: SYSKIND, szfile: Param1) -> ::windows::runtime::Result<ICreateTypeLib2> {
     #[cfg(windows)]
@@ -302,6 +318,7 @@ pub unsafe fn CreateTypeLib2<'a, Param1: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DESCKIND(pub i32);
@@ -320,24 +337,40 @@ unsafe impl ::windows::runtime::Abi for DESCKIND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPATCH_CONSTRUCT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPATCH_METHOD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPATCH_PROPERTYGET: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPATCH_PROPERTYPUT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPATCH_PROPERTYPUTREF: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_COLLECT: i32 = -8i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_CONSTRUCTOR: i32 = -6i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_DESTRUCTOR: i32 = -7i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_EVALUATE: i32 = -5i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_NEWENUM: i32 = -4i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_PROPERTYPUT: i32 = -3i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_STARTENUM: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_THIS: i32 = -613i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_UNKNOWN: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const DISPID_VALUE: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct DISPPARAMS {
     pub rgvarg: *mut super::super::Com::VARIANT,
     pub rgdispidNamedArgs: *mut i32,
@@ -372,6 +405,7 @@ unsafe impl ::windows::runtime::Abi for DISPPARAMS {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn DispCallFunc(pvinstance: *const ::std::ffi::c_void, ovft: usize, cc: CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -387,6 +421,7 @@ pub unsafe fn DispCallFunc(pvinstance: *const ::std::ffi::c_void, ovft: usize, c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(ptinfo: Param0, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -401,6 +436,7 @@ pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::runtime::IntoParam<'a, IT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn DispGetParam(pdispparams: *const DISPPARAMS, position: u32, vttarg: u16, pvarresult: *mut super::super::Com::VARIANT, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -415,6 +451,7 @@ pub unsafe fn DispGetParam(pdispparams: *const DISPPARAMS, position: u32, vttarg
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn DispInvoke<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo>>(_this: *mut ::std::ffi::c_void, ptinfo: Param1, dispidmember: i32, wflags: u16, pparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -428,6 +465,7 @@ pub unsafe fn DispInvoke<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32 {
     #[cfg(windows)]
@@ -444,6 +482,7 @@ pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mu
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
@@ -472,6 +511,7 @@ unsafe impl ::windows::runtime::Abi for ELEMDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: PARAMDESC,
@@ -500,6 +540,7 @@ unsafe impl ::windows::runtime::Abi for ELEMDESC_0 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
@@ -547,21 +588,34 @@ unsafe impl ::windows::runtime::Abi for EXCEPINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_AUTO: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_BSTR: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_DISPATCH: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_EMBEDDED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_FIXEDSIZE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_HAVEIID: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_HAVEVARTYPE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_RECORD: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_RESERVED: u32 = 61448u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_STATIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_UNKNOWN: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const FADF_VARIANT: u32 = 2048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct FUNCDESC {
     pub memid: i32,
     pub lprgscode: *mut i32,
@@ -597,6 +651,7 @@ unsafe impl ::windows::runtime::Abi for FUNCDESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FUNCFLAGS(pub i32);
@@ -622,6 +677,7 @@ unsafe impl ::windows::runtime::Abi for FUNCFLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FUNCKIND(pub i32);
@@ -639,6 +695,7 @@ unsafe impl ::windows::runtime::Abi for FUNCKIND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn GetActiveObject(rclsid: *const ::windows::runtime::GUID, pvreserved: *mut ::std::ffi::c_void, ppunk: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -653,6 +710,7 @@ pub unsafe fn GetActiveObject(rclsid: *const ::windows::runtime::GUID, pvreserve
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAltMonthNames(lcid: u32) -> ::windows::runtime::Result<*mut super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -667,6 +725,7 @@ pub unsafe fn GetAltMonthNames(lcid: u32) -> ::windows::runtime::Result<*mut sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::runtime::Result<IErrorInfo> {
     #[cfg(windows)]
@@ -681,6 +740,7 @@ pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::runtime::Result<IError
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::runtime::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IRecordInfo> {
     #[cfg(windows)]
@@ -695,6 +755,7 @@ pub unsafe fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::runtime::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn GetRecordInfoFromTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(ptypeinfo: Param0) -> ::windows::runtime::Result<IRecordInfo> {
     #[cfg(windows)]
@@ -709,11 +770,13 @@ pub unsafe fn GetRecordInfoFromTypeInfo<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICanHandleException(::windows::runtime::IUnknown);
 impl ICanHandleException {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn CanHandleException(&self, pexcepinfo: *const EXCEPINFO, pvar: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(pvar)).ok()
     }
@@ -751,25 +814,31 @@ pub struct ICanHandleException_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pexcepinfo: *const ::std::mem::ManuallyDrop<EXCEPINFO>, pvar: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICreateErrorInfo(::windows::runtime::IUnknown);
 impl ICreateErrorInfo {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGUID(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szsource: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szsource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), szdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetHelpFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szhelpfile: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), szhelpfile.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
     }
@@ -813,87 +882,111 @@ pub struct ICreateErrorInfo_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwhelpcontext: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICreateTypeInfo(::windows::runtime::IUnknown);
 impl ICreateTypeInfo {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTypeFlags(&self, utypeflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(utypeflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDocString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrdoc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddRefTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(&self, ptinfo: Param0, phreftype: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ptinfo.into_param().abi(), ::std::mem::transmute(phreftype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const FUNCDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pfuncdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddImplType(&self, index: u32, hreftype: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(hreftype)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetImplTypeFlags(&self, index: u32, impltypeflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(impltypeflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetAlignment(&self, cbalignment: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbalignment)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetSchema<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrschema: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const VARDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pvardesc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetVarName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const TYPEDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptdescalias)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn DefineFuncAsDllEntry<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdllname: Param1, szprocname: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetFuncDocString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetVarDocString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetFuncHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetMops<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, index: u32, bstrmops: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), bstrmops.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTypeIdldesc(&self, pidldesc: *const IDLDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(pidldesc)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn LayOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
@@ -963,138 +1056,177 @@ pub struct ICreateTypeInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pidldesc: *const IDLDESC) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICreateTypeInfo2(::windows::runtime::IUnknown);
 impl ICreateTypeInfo2 {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTypeFlags(&self, utypeflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(utypeflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDocString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrdoc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pstrdoc.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddRefTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(&self, ptinfo: Param0, phreftype: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ptinfo.into_param().abi(), ::std::mem::transmute(phreftype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const FUNCDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pfuncdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddImplType(&self, index: u32, hreftype: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(hreftype)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetImplTypeFlags(&self, index: u32, impltypeflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(impltypeflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetAlignment(&self, cbalignment: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbalignment)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetSchema<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pstrschema: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pstrschema.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const VARDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pvardesc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetVarName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const TYPEDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptdescalias)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn DefineFuncAsDllEntry<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdllname: Param1, szprocname: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdllname.into_param().abi(), szprocname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetFuncDocString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetVarDocString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, index: u32, szdocstring: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), szdocstring.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetFuncHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetMops<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, index: u32, bstrmops: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), bstrmops.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTypeIdldesc(&self, pidldesc: *const IDLDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(pidldesc)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn LayOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteFuncDesc(&self, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteFuncDescByMemId(&self, memid: i32, invkind: INVOKEKIND) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteVarDesc(&self, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteVarDescByMemId(&self, memid: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteImplType(&self, index: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetCustData(&self, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetFuncCustData(&self, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexfunc), ::std::mem::transmute(indexparam), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetVarCustData(&self, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpstringcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetFuncHelpStringContext(&self, index: u32, dwhelpstringcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpstringcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVarHelpStringContext(&self, index: u32, dwhelpstringcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(dwhelpstringcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invalidate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
@@ -1205,42 +1337,53 @@ pub struct ICreateTypeInfo2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szname: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICreateTypeLib(::windows::runtime::IUnknown);
 impl ICreateTypeLib {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn CreateTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, tkind: TYPEKIND) -> ::windows::runtime::Result<ICreateTypeInfo> {
         let mut result__: <ICreateTypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), szname.into_param().abi(), ::std::mem::transmute(tkind), &mut result__).from_abi::<ICreateTypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDocString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szdoc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetHelpFileName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szhelpfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetLcid(&self, lcid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetLibFlags(&self, ulibflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulibflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SaveAllChanges(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1290,57 +1433,72 @@ pub struct ICreateTypeLib_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulibflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICreateTypeLib2(::windows::runtime::IUnknown);
 impl ICreateTypeLib2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn CreateTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, tkind: TYPEKIND) -> ::windows::runtime::Result<ICreateTypeInfo> {
         let mut result__: <ICreateTypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), szname.into_param().abi(), ::std::mem::transmute(tkind), &mut result__).from_abi::<ICreateTypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmajorvernum), ::std::mem::transmute(wminorvernum)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetDocString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szdoc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), szdoc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetHelpFileName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szhelpfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), szhelpfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpContext(&self, dwhelpcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetLcid(&self, lcid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetLibFlags(&self, ulibflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulibflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SaveAllChanges(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn DeleteTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), szname.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SetCustData(&self, guid: *const ::windows::runtime::GUID, pvarval: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pvarval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhelpstringcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn SetHelpStringDll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), szfilename.into_param().abi()).ok()
     }
@@ -1419,6 +1577,7 @@ pub struct ICreateTypeLib2_abi(
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: u16,
@@ -1444,38 +1603,51 @@ unsafe impl ::windows::runtime::Abi for IDLDESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IDLFLAG_FIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IDLFLAG_FLCID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IDLFLAG_FOUT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IDLFLAG_FRETVAL: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IDLFLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const ID_DEFAULTINST: i32 = -2i32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDispError(::windows::runtime::IUnknown);
 impl IDispError {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn QueryErrorInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guiderrortype: Param0) -> ::windows::runtime::Result<IDispError> {
         let mut result__: <IDispError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), guiderrortype.into_param().abi(), &mut result__).from_abi::<IDispError>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNext(&self) -> ::windows::runtime::Result<IDispError> {
         let mut result__: <IDispError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDispError>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetHresult(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetSource(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetHelpInfo(&self, pbstrfilename: *mut super::super::super::Foundation::BSTR, pdwcontext: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbstrfilename), ::std::mem::transmute(pdwcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -1521,23 +1693,28 @@ pub struct IDispError_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrdescription: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDispatch(::windows::runtime::IUnknown);
 impl IDispatch {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<ITypeInfo> {
         let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
@@ -1579,39 +1756,48 @@ pub struct IDispatch_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDispatchEx(::windows::runtime::IUnknown);
 impl IDispatchEx {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDispID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrname: Param0, grfdex: u32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), ::std::mem::transmute(grfdex), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn InvokeEx<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Com::IServiceProvider>>(&self, id: i32, lcid: u32, wflags: u16, pdp: *const DISPPARAMS, pvarres: *mut super::super::Com::VARIANT, pei: *mut EXCEPINFO, pspcaller: Param6) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdp), ::std::mem::transmute(pvarres), ::std::mem::transmute(pei), pspcaller.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn DeleteMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrname: Param0, grfdex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), ::std::mem::transmute(grfdex)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteMemberByDispID(&self, id: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(id)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetMemberProperties(&self, id: i32, grfdexfetch: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(grfdexfetch), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberName(&self, id: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNextDispID(&self, grfdex: u32, id: i32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfdex), ::std::mem::transmute(id), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNameSpaceParent(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -1686,20 +1872,25 @@ pub struct IDispatchEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfdex: u32, id: i32, pid: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumVARIANT(::windows::runtime::IUnknown);
 impl IEnumVARIANT {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Next(&self, celt: u32, rgvar: *mut super::super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgvar), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumVARIANT> {
         let mut result__: <IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumVARIANT>(result__)
@@ -1741,29 +1932,35 @@ pub struct IEnumVARIANT_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IErrorInfo(::windows::runtime::IUnknown);
 impl IErrorInfo {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetSource(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetHelpFile(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetHelpContext(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -1808,11 +2005,13 @@ pub struct IErrorInfo_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwhelpcontext: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IErrorLog(::windows::runtime::IUnknown);
 impl IErrorLog {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn AddError<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pexcepinfo: *const EXCEPINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pexcepinfo)).ok()
     }
@@ -1850,13 +2049,18 @@ pub struct IErrorLog_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::super::Foundation::PWSTR, pexcepinfo: *const ::std::mem::ManuallyDrop<EXCEPINFO>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IMPLTYPEFLAG_FDEFAULT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IMPLTYPEFLAG_FDEFAULTVTABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IMPLTYPEFLAG_FRESTRICTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const IMPLTYPEFLAG_FSOURCE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 pub struct INTERFACEDATA {
     pub pmethdata: *mut METHODDATA,
     pub cMembers: u32,
@@ -1888,6 +2092,7 @@ unsafe impl ::windows::runtime::Abi for INTERFACEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INVOKEKIND(pub i32);
@@ -1904,10 +2109,12 @@ unsafe impl ::windows::runtime::Abi for INVOKEKIND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IObjectIdentity(::windows::runtime::IUnknown);
 impl IObjectIdentity {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn IsEqualObject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
@@ -1944,15 +2151,18 @@ pub struct IObjectIdentity_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyBag(::windows::runtime::IUnknown);
 impl IPropertyBag {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IErrorLog>>(&self, pszpropname: Param0, pvar: *mut super::super::Com::VARIANT, perrorlog: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar), perrorlog.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Write<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pvar: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar)).ok()
     }
@@ -1992,10 +2202,12 @@ pub struct IPropertyBag_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::super::Foundation::PWSTR, pvar: *const ::std::mem::ManuallyDrop<super::super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProvideRuntimeContext(::windows::runtime::IUnknown);
 impl IProvideRuntimeContext {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcontext), ::std::mem::transmute(pfexecutingglobalcode)).ok()
     }
@@ -2032,67 +2244,84 @@ pub struct IProvideRuntimeContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRecordInfo(::windows::runtime::IUnknown);
 impl IRecordInfo {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn RecordInit(&self, pvnew: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvnew)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn RecordClear(&self, pvexisting: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvexisting)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn RecordCopy(&self, pvexisting: *const ::std::ffi::c_void, pvnew: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvexisting), ::std::mem::transmute(pvnew)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self) -> ::windows::runtime::Result<ITypeInfo> {
         let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeInfo>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetField<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pvdata: *const ::std::ffi::c_void, szfieldname: Param1) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
         let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvdata), szfieldname.into_param().abi(), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetFieldNoCopy<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pvdata: *const ::std::ffi::c_void, szfieldname: Param1, pvarfield: *mut super::super::Com::VARIANT, ppvdatacarray: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvdata), szfieldname.into_param().abi(), ::std::mem::transmute(pvarfield), ::std::mem::transmute(ppvdatacarray)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn PutField<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wflags: u32, pvdata: *mut ::std::ffi::c_void, szfieldname: Param2, pvarfield: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wflags), ::std::mem::transmute(pvdata), szfieldname.into_param().abi(), ::std::mem::transmute(pvarfield)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn PutFieldNoCopy<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wflags: u32, pvdata: *mut ::std::ffi::c_void, szfieldname: Param2, pvarfield: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wflags), ::std::mem::transmute(pvdata), szfieldname.into_param().abi(), ::std::mem::transmute(pvarfield)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetFieldNames(&self, pcnames: *mut u32, rgbstrnames: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcnames), ::std::mem::transmute(rgbstrnames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn IsMatchingType<'a, Param0: ::windows::runtime::IntoParam<'a, IRecordInfo>>(&self, precordinfo: Param0) -> super::super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), precordinfo.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn RecordCreate(&self) -> *mut ::std::ffi::c_void {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn RecordCreateCopy(&self, pvsource: *const ::std::ffi::c_void, ppvdest: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvsource), ::std::mem::transmute(ppvdest)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn RecordDestroy(&self, pvrecord: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvrecord)).ok()
     }
@@ -2151,10 +2380,12 @@ pub struct IRecordInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvsource: *const ::std::ffi::c_void, ppvdest: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvrecord: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISupportErrorInfo(::windows::runtime::IUnknown);
 impl ISupportErrorInfo {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn InterfaceSupportsErrorInfo(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid)).ok()
     }
@@ -2191,16 +2422,19 @@ pub struct ISupportErrorInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeChangeEvents(::windows::runtime::IUnknown);
 impl ITypeChangeEvents {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn RequestTypeChange<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, changekind: CHANGEKIND, ptinfobefore: Param1, pstrname: Param2) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(changekind), ptinfobefore.into_param().abi(), pstrname.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn AfterTypeChange<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, changekind: CHANGEKIND, ptinfoafter: Param1, pstrname: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(changekind), ptinfoafter.into_param().abi(), pstrname.into_param().abi()).ok()
     }
@@ -2240,15 +2474,18 @@ pub struct ITypeChangeEvents_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, changekind: CHANGEKIND, ptinfoafter: ::windows::runtime::RawPtr, pstrname: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeComp(::windows::runtime::IUnknown);
 impl ITypeComp {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Bind<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, lhashval: u32, wflags: u16, pptinfo: *mut ::std::option::Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), szname.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(wflags), ::std::mem::transmute(pptinfo), ::std::mem::transmute(pdesckind), ::std::mem::transmute(pbindptr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn BindType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szname: Param0, lhashval: u32, pptinfo: *mut ::std::option::Option<ITypeInfo>, pptcomp: *mut ::std::option::Option<ITypeComp>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szname.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pptinfo), ::std::mem::transmute(pptcomp)).ok()
     }
@@ -2288,10 +2525,12 @@ pub struct ITypeComp_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szname: super::super::super::Foundation::PWSTR, lhashval: u32, pptinfo: *mut ::windows::runtime::RawPtr, pptcomp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeFactory(::windows::runtime::IUnknown);
 impl ITypeFactory {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateFromTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeInfo>>(&self, ptypeinfo: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptypeinfo.into_param().abi(), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -2329,85 +2568,105 @@ pub struct ITypeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptypeinfo: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeInfo(::windows::runtime::IUnknown);
 impl ITypeInfo {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeAttr(&self) -> ::windows::runtime::Result<*mut TYPEATTR> {
         let mut result__: <*mut TYPEATTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TYPEATTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeComp(&self) -> ::windows::runtime::Result<ITypeComp> {
         let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetFuncDesc(&self, index: u32) -> ::windows::runtime::Result<*mut FUNCDESC> {
         let mut result__: <*mut FUNCDESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut FUNCDESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetVarDesc(&self, index: u32) -> ::windows::runtime::Result<*mut VARDESC> {
         let mut result__: <*mut VARDESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut VARDESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetNames(&self, memid: i32, rgbstrnames: *mut super::super::super::Foundation::BSTR, cmaxnames: u32, pcnames: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(rgbstrnames), ::std::mem::transmute(cmaxnames), ::std::mem::transmute(pcnames)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRefTypeOfImplType(&self, index: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetImplTypeFlags(&self, index: u32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(pmemid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Invoke(&self, pvinstance: *const ::std::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvinstance), ::std::mem::transmute(memid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation(&self, memid: i32, pbstrname: *mut super::super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrdocstring), ::std::mem::transmute(pdwhelpcontext), ::std::mem::transmute(pbstrhelpfile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut super::super::super::Foundation::BSTR, pbstrname: *mut super::super::super::Foundation::BSTR, pwordinal: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), ::std::mem::transmute(pbstrdllname), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pwordinal)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRefTypeInfo(&self, hreftype: u32) -> ::windows::runtime::Result<ITypeInfo> {
         let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(hreftype), &mut result__).from_abi::<ITypeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddressOfMember(&self, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), ::std::mem::transmute(ppv)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, punkouter: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetMops(&self, memid: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut ::std::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pptlib), ::std::mem::transmute(pindex)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptypeattr)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfuncdesc)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvardesc)))
     }
@@ -2474,154 +2733,189 @@ pub struct ITypeInfo_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvardesc: *const VARDESC),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeInfo2(::windows::runtime::IUnknown);
 impl ITypeInfo2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetTypeAttr(&self) -> ::windows::runtime::Result<*mut TYPEATTR> {
         let mut result__: <*mut TYPEATTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TYPEATTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeComp(&self) -> ::windows::runtime::Result<ITypeComp> {
         let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetFuncDesc(&self, index: u32) -> ::windows::runtime::Result<*mut FUNCDESC> {
         let mut result__: <*mut FUNCDESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut FUNCDESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetVarDesc(&self, index: u32) -> ::windows::runtime::Result<*mut VARDESC> {
         let mut result__: <*mut VARDESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut VARDESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetNames(&self, memid: i32, rgbstrnames: *mut super::super::super::Foundation::BSTR, cmaxnames: u32, pcnames: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(rgbstrnames), ::std::mem::transmute(cmaxnames), ::std::mem::transmute(pcnames)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRefTypeOfImplType(&self, index: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetImplTypeFlags(&self, index: u32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(pmemid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Invoke(&self, pvinstance: *const ::std::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvinstance), ::std::mem::transmute(memid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation(&self, memid: i32, pbstrname: *mut super::super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrdocstring), ::std::mem::transmute(pdwhelpcontext), ::std::mem::transmute(pbstrhelpfile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut super::super::super::Foundation::BSTR, pbstrname: *mut super::super::super::Foundation::BSTR, pwordinal: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), ::std::mem::transmute(pbstrdllname), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pwordinal)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRefTypeInfo(&self, hreftype: u32) -> ::windows::runtime::Result<ITypeInfo> {
         let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(hreftype), &mut result__).from_abi::<ITypeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddressOfMember(&self, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), ::std::mem::transmute(ppv)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, punkouter: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetMops(&self, memid: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut ::std::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pptlib), ::std::mem::transmute(pindex)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptypeattr)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfuncdesc)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvardesc)))
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeKind(&self) -> ::windows::runtime::Result<TYPEKIND> {
         let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TYPEKIND>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFuncIndexOfMemId(&self, memid: i32, invkind: INVOKEKIND) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(invkind), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetVarIndexOfMemId(&self, memid: i32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetCustData(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
         let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetFuncCustData(&self, index: u32, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
         let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
         let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexfunc), ::std::mem::transmute(indexparam), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetVarCustData(&self, index: u32, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
         let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetImplTypeCustData(&self, index: u32, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
         let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation2(&self, memid: i32, lcid: u32, pbstrhelpstring: *mut super::super::super::Foundation::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(memid), ::std::mem::transmute(lcid), ::std::mem::transmute(pbstrhelpstring), ::std::mem::transmute(pdwhelpstringcontext), ::std::mem::transmute(pbstrhelpstringdll)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllCustData(&self) -> ::windows::runtime::Result<CUSTDATA> {
         let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<CUSTDATA>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllFuncCustData(&self, index: u32) -> ::windows::runtime::Result<CUSTDATA> {
         let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllParamCustData(&self, indexfunc: u32, indexparam: u32) -> ::windows::runtime::Result<CUSTDATA> {
         let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexfunc), ::std::mem::transmute(indexparam), &mut result__).from_abi::<CUSTDATA>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllVarCustData(&self, index: u32) -> ::windows::runtime::Result<CUSTDATA> {
         let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllImplTypeCustData(&self, index: u32) -> ::windows::runtime::Result<CUSTDATA> {
         let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<CUSTDATA>(result__)
@@ -2735,45 +3029,56 @@ pub struct ITypeInfo2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, pcustdata: *mut CUSTDATA) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeLib(::windows::runtime::IUnknown);
 impl ITypeLib {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, index: u32) -> ::windows::runtime::Result<ITypeInfo> {
         let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ITypeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoType(&self, index: u32) -> ::windows::runtime::Result<TYPEKIND> {
         let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<TYPEKIND>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoOfGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITypeInfo> {
         let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<ITypeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetLibAttr(&self) -> ::windows::runtime::Result<*mut TLIBATTR> {
         let mut result__: <*mut TLIBATTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TLIBATTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeComp(&self) -> ::windows::runtime::Result<ITypeComp> {
         let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: *mut super::super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrdocstring), ::std::mem::transmute(pdwhelpcontext), ::std::mem::transmute(pbstrhelpfile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn IsName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pfname: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pfname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pptinfo: *mut ::std::option::Option<ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pptinfo), ::std::mem::transmute(rgmemid), ::std::mem::transmute(pcfound)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptlibattr)))
     }
@@ -2822,61 +3127,76 @@ pub struct ITypeLib_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptlibattr: *const TLIBATTR),
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeLib2(::windows::runtime::IUnknown);
 impl ITypeLib2 {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, index: u32) -> ::windows::runtime::Result<ITypeInfo> {
         let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ITypeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoType(&self, index: u32) -> ::windows::runtime::Result<TYPEKIND> {
         let mut result__: <TYPEKIND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<TYPEKIND>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfoOfGuid(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITypeInfo> {
         let mut result__: <ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<ITypeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetLibAttr(&self) -> ::windows::runtime::Result<*mut TLIBATTR> {
         let mut result__: <*mut TLIBATTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TLIBATTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeComp(&self) -> ::windows::runtime::Result<ITypeComp> {
         let mut result__: <ITypeComp as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITypeComp>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: *mut super::super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrdocstring), ::std::mem::transmute(pdwhelpcontext), ::std::mem::transmute(pbstrhelpfile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn IsName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pfname: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pfname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, sznamebuf: Param0, lhashval: u32, pptinfo: *mut ::std::option::Option<ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), sznamebuf.into_param().abi(), ::std::mem::transmute(lhashval), ::std::mem::transmute(pptinfo), ::std::mem::transmute(rgmemid), ::std::mem::transmute(pcfound)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptlibattr)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetCustData(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
         let mut result__: <super::super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<super::super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetLibStatistics(&self, pcuniquenames: *mut u32, pcchuniquenames: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcuniquenames), ::std::mem::transmute(pcchuniquenames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDocumentation2(&self, index: i32, lcid: u32, pbstrhelpstring: *mut super::super::super::Foundation::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(lcid), ::std::mem::transmute(pbstrhelpstring), ::std::mem::transmute(pdwhelpstringcontext), ::std::mem::transmute(pbstrhelpstringdll)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetAllCustData(&self) -> ::windows::runtime::Result<CUSTDATA> {
         let mut result__: <CUSTDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<CUSTDATA>(result__)
@@ -2953,43 +3273,52 @@ pub struct ITypeLib2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcustdata: *mut CUSTDATA) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeLibRegistration(::windows::runtime::IUnknown);
 impl ITypeLibRegistration {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetLcid(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetWin32Path(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetWin64Path(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
     pub unsafe fn GetHelpDir(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -3039,11 +3368,13 @@ pub struct ITypeLibRegistration_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phelpdir: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeLibRegistrationReader(::windows::runtime::IUnknown);
 impl ITypeLibRegistrationReader {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
     pub unsafe fn EnumTypeLibRegistrations(&self) -> ::windows::runtime::Result<super::super::Com::IEnumUnknown> {
         let mut result__: <super::super::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Com::IEnumUnknown>(result__)
@@ -3082,20 +3413,25 @@ pub struct ITypeLibRegistrationReader_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumunknown: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITypeMarshal(::windows::runtime::IUnknown);
 impl ITypeMarshal {
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Size(&self, pvtype: *const ::std::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvtype), ::std::mem::transmute(dwdestcontext), ::std::mem::transmute(pvdestcontext), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Marshal(&self, pvtype: *const ::std::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::std::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvtype), ::std::mem::transmute(dwdestcontext), ::std::mem::transmute(pvdestcontext), ::std::mem::transmute(cbbufferlength), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pcbwritten)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Unmarshal(&self, pvtype: *mut ::std::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvtype), ::std::mem::transmute(dwflags), ::std::mem::transmute(cbbufferlength), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pcbread)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
     pub unsafe fn Free(&self, pvtype: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvtype)).ok()
     }
@@ -3135,11 +3471,13 @@ pub struct ITypeMarshal_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *mut ::std::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvtype: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVariantChangeType(::windows::runtime::IUnknown);
 impl IVariantChangeType {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ChangeType(&self, pvardst: *mut super::super::Com::VARIANT, pvarsrc: *const super::super::Com::VARIANT, lcid: u32, vtnew: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvardst), ::std::mem::transmute(pvarsrc), ::std::mem::transmute(lcid), ::std::mem::transmute(vtnew)).ok()
     }
@@ -3178,6 +3516,7 @@ pub struct IVariantChangeType_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LHashValOfNameSys<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(syskind: SYSKIND, lcid: u32, szname: Param2) -> u32 {
     #[cfg(windows)]
@@ -3192,6 +3531,7 @@ pub unsafe fn LHashValOfNameSys<'a, Param2: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LHashValOfNameSysA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(syskind: SYSKIND, lcid: u32, szname: Param2) -> u32 {
     #[cfg(windows)]
@@ -3205,6 +3545,7 @@ pub unsafe fn LHashValOfNameSysA<'a, Param2: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LIBFLAGS(pub i32);
@@ -3221,11 +3562,15 @@ unsafe impl ::windows::runtime::Abi for LIBFLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn LoadRegTypeLib(rguid: *const ::windows::runtime::GUID, wvermajor: u16, wverminor: u16, lcid: u32) -> ::windows::runtime::Result<ITypeLib> {
     #[cfg(windows)]
@@ -3241,6 +3586,7 @@ pub unsafe fn LoadRegTypeLib(rguid: *const ::windows::runtime::GUID, wvermajor: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadTypeLib<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szfile: Param0) -> ::windows::runtime::Result<ITypeLib> {
     #[cfg(windows)]
@@ -3256,6 +3602,7 @@ pub unsafe fn LoadTypeLib<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadTypeLibEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szfile: Param0, regkind: REGKIND) -> ::windows::runtime::Result<ITypeLib> {
     #[cfg(windows)]
@@ -3270,10 +3617,12 @@ pub unsafe fn LoadTypeLibEx<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const MEMBERID_NIL: i32 = -1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 pub struct METHODDATA {
     pub szName: super::super::super::Foundation::PWSTR,
     pub ppdata: *mut PARAMDATA,
@@ -3313,6 +3662,7 @@ unsafe impl ::windows::runtime::Abi for METHODDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct NUMPARSE {
     pub cDig: i32,
     pub dwInFlags: u32,
@@ -3342,22 +3692,39 @@ unsafe impl ::windows::runtime::Abi for NUMPARSE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_CURRENCY: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_DECIMAL: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_EXPONENT: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_HEX_OCT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_INEXACT: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_LEADING_MINUS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_LEADING_PLUS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_LEADING_WHITE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_NEG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_PARENS: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_STD: u32 = 8191u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_THOUSANDS: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_TRAILING_MINUS: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_TRAILING_PLUS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_TRAILING_WHITE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const NUMPRS_USE_ALL: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn OaBuildVersion() -> u32 {
     #[cfg(windows)]
@@ -3371,6 +3738,7 @@ pub unsafe fn OaBuildVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn OaEnablePerUserTLibRegistration() {
     #[cfg(windows)]
@@ -3387,6 +3755,7 @@ pub unsafe fn OaEnablePerUserTLibRegistration() {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 pub struct PARAMDATA {
     pub szName: super::super::super::Foundation::PWSTR,
     pub vt: u16,
@@ -3421,6 +3790,7 @@ unsafe impl ::windows::runtime::Abi for PARAMDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
     pub wParamFlags: u16,
@@ -3460,6 +3830,7 @@ impl ::std::clone::Clone for PARAMDESCEX {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: super::super::Com::VARIANT,
@@ -3485,14 +3856,23 @@ unsafe impl ::windows::runtime::Abi for PARAMDESCEX {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_FHASCUSTDATA: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_FHASDEFAULT: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_FIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_FLCID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_FOPT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_FOUT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_FRETVAL: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const PARAMFLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::runtime::GUID, wmaj: u16, wmin: u16, lcid: u32) -> ::windows::runtime::Result<*mut u16> {
     #[cfg(windows)]
@@ -3507,6 +3887,7 @@ pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::runtime::GUID, wmaj:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REGKIND(pub i32);
@@ -3522,6 +3903,7 @@ unsafe impl ::windows::runtime::Abi for REGKIND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn RegisterActiveObject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punk: Param0, rclsid: *const ::windows::runtime::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3536,6 +3918,7 @@ pub unsafe fn RegisterActiveObject<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterTypeLib<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeLib>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(ptlib: Param0, szfullpath: Param1, szhelpdir: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3550,6 +3933,7 @@ pub unsafe fn RegisterTypeLib<'a, Param0: ::windows::runtime::IntoParam<'a, ITyp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterTypeLibForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ITypeLib>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(ptlib: Param0, szfullpath: Param1, szhelpdir: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3563,6 +3947,7 @@ pub unsafe fn RegisterTypeLibForUser<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3576,6 +3961,7 @@ pub unsafe fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SF_TYPE(pub i32);
@@ -3602,12 +3988,19 @@ unsafe impl ::windows::runtime::Abi for SF_TYPE {
 pub const SID_GetCaller: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1192741952, 48313, 4560, [147, 54, 0, 160, 201, 13, 202, 169]);
 pub const SID_ProvideRuntimeContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1956971532, 56588, 18672, [172, 133, 25, 76, 50, 89, 24, 10]);
 pub const SID_VariantConversion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(521147521, 48333, 4560, [147, 54, 0, 160, 201, 13, 202, 169]);
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const STDOLE2_LCID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const STDOLE2_MAJORVERNUM: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const STDOLE2_MINORVERNUM: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const STDOLE_LCID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const STDOLE_MAJORVERNUM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const STDOLE_MINORVERNUM: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSKIND(pub i32);
@@ -3625,6 +4018,7 @@ unsafe impl ::windows::runtime::Abi for SYSKIND {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayAccessData(psa: *const super::super::Com::SAFEARRAY, ppvdata: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3639,6 +4033,7 @@ pub unsafe fn SafeArrayAccessData(psa: *const super::super::Com::SAFEARRAY, ppvd
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayAddRef(psa: *const super::super::Com::SAFEARRAY, ppdatatorelease: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3653,6 +4048,7 @@ pub unsafe fn SafeArrayAddRef(psa: *const super::super::Com::SAFEARRAY, ppdatato
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayAllocData(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3667,6 +4063,7 @@ pub unsafe fn SafeArrayAllocData(psa: *const super::super::Com::SAFEARRAY) -> ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayAllocDescriptor(cdims: u32) -> ::windows::runtime::Result<*mut super::super::Com::SAFEARRAY> {
     #[cfg(windows)]
@@ -3682,6 +4079,7 @@ pub unsafe fn SafeArrayAllocDescriptor(cdims: u32) -> ::windows::runtime::Result
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayAllocDescriptorEx(vt: u16, cdims: u32) -> ::windows::runtime::Result<*mut super::super::Com::SAFEARRAY> {
     #[cfg(windows)]
@@ -3697,6 +4095,7 @@ pub unsafe fn SafeArrayAllocDescriptorEx(vt: u16, cdims: u32) -> ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayCopy(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<*mut super::super::Com::SAFEARRAY> {
     #[cfg(windows)]
@@ -3712,6 +4111,7 @@ pub unsafe fn SafeArrayCopy(psa: *const super::super::Com::SAFEARRAY) -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayCopyData(psasource: *const super::super::Com::SAFEARRAY, psatarget: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3726,6 +4126,7 @@ pub unsafe fn SafeArrayCopyData(psasource: *const super::super::Com::SAFEARRAY, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayCreate(vt: u16, cdims: u32, rgsabound: *const super::super::Com::SAFEARRAYBOUND) -> *mut super::super::Com::SAFEARRAY {
     #[cfg(windows)]
@@ -3740,6 +4141,7 @@ pub unsafe fn SafeArrayCreate(vt: u16, cdims: u32, rgsabound: *const super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::super::Com::SAFEARRAYBOUND, pvextra: *const ::std::ffi::c_void) -> *mut super::super::Com::SAFEARRAY {
     #[cfg(windows)]
@@ -3754,6 +4156,7 @@ pub unsafe fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *mut super::super::Com::SAFEARRAY {
     #[cfg(windows)]
@@ -3768,6 +4171,7 @@ pub unsafe fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pvextra: *const ::std::ffi::c_void) -> *mut super::super::Com::SAFEARRAY {
     #[cfg(windows)]
@@ -3782,6 +4186,7 @@ pub unsafe fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pve
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayDestroy(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3796,6 +4201,7 @@ pub unsafe fn SafeArrayDestroy(psa: *const super::super::Com::SAFEARRAY) -> ::wi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayDestroyData(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3810,6 +4216,7 @@ pub unsafe fn SafeArrayDestroyData(psa: *const super::super::Com::SAFEARRAY) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayDestroyDescriptor(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3824,6 +4231,7 @@ pub unsafe fn SafeArrayDestroyDescriptor(psa: *const super::super::Com::SAFEARRA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayGetDim(psa: *const super::super::Com::SAFEARRAY) -> u32 {
     #[cfg(windows)]
@@ -3838,6 +4246,7 @@ pub unsafe fn SafeArrayGetDim(psa: *const super::super::Com::SAFEARRAY) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayGetElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3852,6 +4261,7 @@ pub unsafe fn SafeArrayGetElement(psa: *const super::super::Com::SAFEARRAY, rgin
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayGetElemsize(psa: *const super::super::Com::SAFEARRAY) -> u32 {
     #[cfg(windows)]
@@ -3866,6 +4276,7 @@ pub unsafe fn SafeArrayGetElemsize(psa: *const super::super::Com::SAFEARRAY) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayGetIID(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -3881,6 +4292,7 @@ pub unsafe fn SafeArrayGetIID(psa: *const super::super::Com::SAFEARRAY) -> ::win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayGetLBound(psa: *const super::super::Com::SAFEARRAY, ndim: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -3896,6 +4308,7 @@ pub unsafe fn SafeArrayGetLBound(psa: *const super::super::Com::SAFEARRAY, ndim:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayGetRecordInfo(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<IRecordInfo> {
     #[cfg(windows)]
@@ -3911,6 +4324,7 @@ pub unsafe fn SafeArrayGetRecordInfo(psa: *const super::super::Com::SAFEARRAY) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayGetUBound(psa: *const super::super::Com::SAFEARRAY, ndim: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -3926,6 +4340,7 @@ pub unsafe fn SafeArrayGetUBound(psa: *const super::super::Com::SAFEARRAY, ndim:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayGetVartype(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -3941,6 +4356,7 @@ pub unsafe fn SafeArrayGetVartype(psa: *const super::super::Com::SAFEARRAY) -> :
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayLock(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3955,6 +4371,7 @@ pub unsafe fn SafeArrayLock(psa: *const super::super::Com::SAFEARRAY) -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayPtrOfIndex(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, ppvdata: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3969,6 +4386,7 @@ pub unsafe fn SafeArrayPtrOfIndex(psa: *const super::super::Com::SAFEARRAY, rgin
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayPutElement(psa: *const super::super::Com::SAFEARRAY, rgindices: *const i32, pv: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3983,6 +4401,7 @@ pub unsafe fn SafeArrayPutElement(psa: *const super::super::Com::SAFEARRAY, rgin
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayRedim(psa: *mut super::super::Com::SAFEARRAY, psaboundnew: *const super::super::Com::SAFEARRAYBOUND) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3996,6 +4415,7 @@ pub unsafe fn SafeArrayRedim(psa: *mut super::super::Com::SAFEARRAY, psaboundnew
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -4010,6 +4430,7 @@ pub unsafe fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayReleaseDescriptor(psa: *const super::super::Com::SAFEARRAY) {
     #[cfg(windows)]
@@ -4024,6 +4445,7 @@ pub unsafe fn SafeArrayReleaseDescriptor(psa: *const super::super::Com::SAFEARRA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArraySetIID(psa: *const super::super::Com::SAFEARRAY, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4038,6 +4460,7 @@ pub unsafe fn SafeArraySetIID(psa: *const super::super::Com::SAFEARRAY, guid: *c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArraySetRecordInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IRecordInfo>>(psa: *const super::super::Com::SAFEARRAY, prinfo: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4052,6 +4475,7 @@ pub unsafe fn SafeArraySetRecordInfo<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayUnaccessData(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4066,6 +4490,7 @@ pub unsafe fn SafeArrayUnaccessData(psa: *const super::super::Com::SAFEARRAY) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn SafeArrayUnlock(psa: *const super::super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4079,6 +4504,7 @@ pub unsafe fn SafeArrayUnlock(psa: *const super::super::Com::SAFEARRAY) -> ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn SetErrorInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IErrorInfo>>(dwreserved: u32, perrinfo: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4093,6 +4519,7 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IErrorI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SystemTimeToVariantTime(lpsystemtime: *const super::super::super::Foundation::SYSTEMTIME, pvtime: *mut f64) -> i32 {
     #[cfg(windows)]
@@ -4108,6 +4535,7 @@ pub unsafe fn SystemTimeToVariantTime(lpsystemtime: *const super::super::super::
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct TLIBATTR {
     pub guid: ::windows::runtime::GUID,
     pub lcid: u32,
@@ -4140,6 +4568,7 @@ unsafe impl ::windows::runtime::Abi for TLIBATTR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct TYPEATTR {
     pub guid: ::windows::runtime::GUID,
     pub lcid: u32,
@@ -4184,6 +4613,7 @@ unsafe impl ::windows::runtime::Abi for TYPEATTR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
     pub vt: u16,
@@ -4212,6 +4642,7 @@ unsafe impl ::windows::runtime::Abi for TYPEDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
     pub lpadesc: *mut ARRAYDESC,
@@ -4238,6 +4669,7 @@ unsafe impl ::windows::runtime::Abi for TYPEDESC_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TYPEFLAGS(pub i32);
@@ -4265,6 +4697,7 @@ unsafe impl ::windows::runtime::Abi for TYPEFLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TYPEKIND(pub i32);
@@ -4289,6 +4722,7 @@ unsafe impl ::windows::runtime::Abi for TYPEKIND {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 pub struct UDATE {
     pub st: super::super::super::Foundation::SYSTEMTIME,
     pub wDayOfYear: u16,
@@ -4320,6 +4754,7 @@ unsafe impl ::windows::runtime::Abi for UDATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn UnRegisterTypeLib(libid: *const ::windows::runtime::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: SYSKIND) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4333,6 +4768,7 @@ pub unsafe fn UnRegisterTypeLib(libid: *const ::windows::runtime::GUID, wvermajo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::runtime::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: SYSKIND) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4346,13 +4782,18 @@ pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::runtime::GUID, w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARCMP_EQ: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARCMP_GT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARCMP_LT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARCMP_NULL: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct VARDESC {
     pub memid: i32,
     pub lpstrSchema: super::super::super::Foundation::PWSTR,
@@ -4385,6 +4826,7 @@ unsafe impl ::windows::runtime::Abi for VARDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>,
@@ -4410,6 +4852,7 @@ unsafe impl ::windows::runtime::Abi for VARDESC_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VARENUM(pub i32);
@@ -4474,6 +4917,7 @@ unsafe impl ::windows::runtime::Abi for VARENUM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VARFLAGS(pub i32);
@@ -4499,14 +4943,23 @@ unsafe impl ::windows::runtime::Abi for VARFLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_ALPHABOOL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_CALENDAR_GREGORIAN: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_CALENDAR_HIJRI: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_CALENDAR_THAI: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_LOCALBOOL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_NOUSEROVERRIDE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_NOVALUEPROP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VARIANT_USE_NLS: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VARKIND(pub i32);
@@ -4523,9 +4976,12 @@ unsafe impl ::windows::runtime::Abi for VARKIND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VTDATEGRE_MAX: u32 = 2958465u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const VTDATEGRE_MIN: i32 = -657434i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarAbs(pvarin: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -4541,6 +4997,7 @@ pub unsafe fn VarAbs(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarAdd(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -4556,6 +5013,7 @@ pub unsafe fn VarAdd(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarAnd(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -4571,6 +5029,7 @@ pub unsafe fn VarAnd(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarBoolFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4585,6 +5044,7 @@ pub unsafe fn VarBoolFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4600,6 +5060,7 @@ pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBoolFromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4614,6 +5075,7 @@ pub unsafe fn VarBoolFromDec(pdecin: *const super::super::super::Foundation::DEC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4629,6 +5091,7 @@ pub unsafe fn VarBoolFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBoolFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4643,6 +5106,7 @@ pub unsafe fn VarBoolFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4657,6 +5121,7 @@ pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4671,6 +5136,7 @@ pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4685,6 +5151,7 @@ pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4699,6 +5166,7 @@ pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4714,6 +5182,7 @@ pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBoolFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4728,6 +5197,7 @@ pub unsafe fn VarBoolFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4742,6 +5212,7 @@ pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4756,6 +5227,7 @@ pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4770,6 +5242,7 @@ pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -4785,6 +5258,7 @@ pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrCat<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(bstrleft: Param0, bstrright: Param1) -> ::windows::runtime::Result<*mut u16> {
     #[cfg(windows)]
@@ -4800,6 +5274,7 @@ pub unsafe fn VarBstrCat<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrCmp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(bstrleft: Param0, bstrright: Param1, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4814,6 +5289,7 @@ pub unsafe fn VarBstrCmp<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4829,6 +5305,7 @@ pub unsafe fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32) -> ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarBstrFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4844,6 +5321,7 @@ pub unsafe fn VarBstrFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4859,6 +5337,7 @@ pub unsafe fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32) -> ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromDec(pdecin: *const super::super::super::Foundation::DECIMAL, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4874,6 +5353,7 @@ pub unsafe fn VarBstrFromDec(pdecin: *const super::super::super::Foundation::DEC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4889,6 +5369,7 @@ pub unsafe fn VarBstrFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4904,6 +5385,7 @@ pub unsafe fn VarBstrFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4919,6 +5401,7 @@ pub unsafe fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4934,6 +5417,7 @@ pub unsafe fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32) -> ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4949,6 +5433,7 @@ pub unsafe fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4964,6 +5449,7 @@ pub unsafe fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4979,6 +5465,7 @@ pub unsafe fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -4994,6 +5481,7 @@ pub unsafe fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -5009,6 +5497,7 @@ pub unsafe fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -5024,6 +5513,7 @@ pub unsafe fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -5039,6 +5529,7 @@ pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCat(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -5054,6 +5545,7 @@ pub unsafe fn VarCat(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCmp(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5068,6 +5560,7 @@ pub unsafe fn VarCmp(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyAbs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5083,6 +5576,7 @@ pub unsafe fn VarCyAbs<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyleft: Param0, cyright: Param1) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5098,6 +5592,7 @@ pub unsafe fn VarCyAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyCmp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyleft: Param0, cyright: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5112,6 +5607,7 @@ pub unsafe fn VarCyCmp<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyCmpR8<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyleft: Param0, dblright: f64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5126,6 +5622,7 @@ pub unsafe fn VarCyCmpR8<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5141,6 +5638,7 @@ pub unsafe fn VarCyFix<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5156,6 +5654,7 @@ pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::runtime::Result<super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5171,6 +5670,7 @@ pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::runtime::Result<super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5186,6 +5686,7 @@ pub unsafe fn VarCyFromDec(pdecin: *const super::super::super::Foundation::DECIM
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5201,6 +5702,7 @@ pub unsafe fn VarCyFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5216,6 +5718,7 @@ pub unsafe fn VarCyFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5231,6 +5734,7 @@ pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::runtime::Result<super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5246,6 +5750,7 @@ pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::runtime::Result<super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5261,6 +5766,7 @@ pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5276,6 +5782,7 @@ pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromR8(dblin: f64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5291,6 +5798,7 @@ pub unsafe fn VarCyFromR8(dblin: f64) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5306,6 +5814,7 @@ pub unsafe fn VarCyFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5321,6 +5830,7 @@ pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::runtime::Result<super::super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5336,6 +5846,7 @@ pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5351,6 +5862,7 @@ pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5366,6 +5878,7 @@ pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyInt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5381,6 +5894,7 @@ pub unsafe fn VarCyInt<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyMul<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyleft: Param0, cyright: Param1) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5396,6 +5910,7 @@ pub unsafe fn VarCyMul<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyMulI4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyleft: Param0, lright: i32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5411,6 +5926,7 @@ pub unsafe fn VarCyMulI4<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyMulI8<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyleft: Param0, lright: i64) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5426,6 +5942,7 @@ pub unsafe fn VarCyMulI8<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyNeg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5441,6 +5958,7 @@ pub unsafe fn VarCyNeg<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCyRound<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0, cdecimals: i32) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5456,6 +5974,7 @@ pub unsafe fn VarCyRound<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarCySub<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyleft: Param0, cyright: Param1) -> ::windows::runtime::Result<super::super::Com::CY> {
     #[cfg(windows)]
@@ -5470,6 +5989,7 @@ pub unsafe fn VarCySub<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5485,6 +6005,7 @@ pub unsafe fn VarDateFromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarDateFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5500,6 +6021,7 @@ pub unsafe fn VarDateFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDateFromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5514,6 +6036,7 @@ pub unsafe fn VarDateFromDec(pdecin: *const super::super::super::Foundation::DEC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5529,6 +6052,7 @@ pub unsafe fn VarDateFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDis
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDateFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5543,6 +6067,7 @@ pub unsafe fn VarDateFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5557,6 +6082,7 @@ pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5571,6 +6097,7 @@ pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5585,6 +6112,7 @@ pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5599,6 +6127,7 @@ pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromR8(dblin: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5614,6 +6143,7 @@ pub unsafe fn VarDateFromR8(dblin: f64) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDateFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5628,6 +6158,7 @@ pub unsafe fn VarDateFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5642,6 +6173,7 @@ pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5656,6 +6188,7 @@ pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5670,6 +6203,7 @@ pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5685,6 +6219,7 @@ pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5700,6 +6235,7 @@ pub unsafe fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32) -> ::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -5715,6 +6251,7 @@ pub unsafe fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecAbs(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5730,6 +6267,7 @@ pub unsafe fn VarDecAbs(pdecin: *const super::super::super::Foundation::DECIMAL)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecAdd(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5745,6 +6283,7 @@ pub unsafe fn VarDecAdd(pdecleft: *const super::super::super::Foundation::DECIMA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecCmp(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5759,6 +6298,7 @@ pub unsafe fn VarDecCmp(pdecleft: *const super::super::super::Foundation::DECIMA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecCmpR8(pdecleft: *const super::super::super::Foundation::DECIMAL, dblright: f64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5773,6 +6313,7 @@ pub unsafe fn VarDecCmpR8(pdecleft: *const super::super::super::Foundation::DECI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecDiv(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5788,6 +6329,7 @@ pub unsafe fn VarDecDiv(pdecleft: *const super::super::super::Foundation::DECIMA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFix(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5803,6 +6345,7 @@ pub unsafe fn VarDecFix(pdecin: *const super::super::super::Foundation::DECIMAL)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromBool(boolin: i16) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5818,6 +6361,7 @@ pub unsafe fn VarDecFromBool(boolin: i16) -> ::windows::runtime::Result<super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarDecFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5833,6 +6377,7 @@ pub unsafe fn VarDecFromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromDate(datein: f64) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5848,6 +6393,7 @@ pub unsafe fn VarDecFromDate(datein: f64) -> ::windows::runtime::Result<super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5863,6 +6409,7 @@ pub unsafe fn VarDecFromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5878,6 +6425,7 @@ pub unsafe fn VarDecFromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromI2(uiin: i16) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5893,6 +6441,7 @@ pub unsafe fn VarDecFromI2(uiin: i16) -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromI4(lin: i32) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5908,6 +6457,7 @@ pub unsafe fn VarDecFromI4(lin: i32) -> ::windows::runtime::Result<super::super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromI8(i64in: i64) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5923,6 +6473,7 @@ pub unsafe fn VarDecFromI8(i64in: i64) -> ::windows::runtime::Result<super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromR4(fltin: f32) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5938,6 +6489,7 @@ pub unsafe fn VarDecFromR4(fltin: f32) -> ::windows::runtime::Result<super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromR8(dblin: f64) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5953,6 +6505,7 @@ pub unsafe fn VarDecFromR8(dblin: f64) -> ::windows::runtime::Result<super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5968,6 +6521,7 @@ pub unsafe fn VarDecFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromUI1(bin: u8) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5983,6 +6537,7 @@ pub unsafe fn VarDecFromUI1(bin: u8) -> ::windows::runtime::Result<super::super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromUI2(uiin: u16) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -5998,6 +6553,7 @@ pub unsafe fn VarDecFromUI2(uiin: u16) -> ::windows::runtime::Result<super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromUI4(ulin: u32) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -6013,6 +6569,7 @@ pub unsafe fn VarDecFromUI4(ulin: u32) -> ::windows::runtime::Result<super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -6028,6 +6585,7 @@ pub unsafe fn VarDecFromUI8(ui64in: u64) -> ::windows::runtime::Result<super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecInt(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -6043,6 +6601,7 @@ pub unsafe fn VarDecInt(pdecin: *const super::super::super::Foundation::DECIMAL)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecMul(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -6058,6 +6617,7 @@ pub unsafe fn VarDecMul(pdecleft: *const super::super::super::Foundation::DECIMA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecNeg(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -6073,6 +6633,7 @@ pub unsafe fn VarDecNeg(pdecin: *const super::super::super::Foundation::DECIMAL)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecRound(pdecin: *const super::super::super::Foundation::DECIMAL, cdecimals: i32) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -6088,6 +6649,7 @@ pub unsafe fn VarDecRound(pdecin: *const super::super::super::Foundation::DECIMA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarDecSub(pdecleft: *const super::super::super::Foundation::DECIMAL, pdecright: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<super::super::super::Foundation::DECIMAL> {
     #[cfg(windows)]
@@ -6103,6 +6665,7 @@ pub unsafe fn VarDecSub(pdecleft: *const super::super::super::Foundation::DECIMA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarDiv(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -6118,6 +6681,7 @@ pub unsafe fn VarDiv(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarEqv(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -6133,6 +6697,7 @@ pub unsafe fn VarEqv(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarFix(pvarin: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -6148,6 +6713,7 @@ pub unsafe fn VarFix(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarFormat<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pvarin: *const super::super::Com::VARIANT, pstrformat: Param1, ifirstday: i32, ifirstweek: i32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -6163,6 +6729,7 @@ pub unsafe fn VarFormat<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarFormatCurrency(pvarin: *const super::super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -6178,6 +6745,7 @@ pub unsafe fn VarFormatCurrency(pvarin: *const super::super::Com::VARIANT, inumd
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarFormatDateTime(pvarin: *const super::super::Com::VARIANT, inamedformat: i32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -6193,6 +6761,7 @@ pub unsafe fn VarFormatDateTime(pvarin: *const super::super::Com::VARIANT, iname
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarFormatFromTokens<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pvarin: *const super::super::Com::VARIANT, pstrformat: Param1, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut super::super::super::Foundation::BSTR, lcid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6207,6 +6776,7 @@ pub unsafe fn VarFormatFromTokens<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarFormatNumber(pvarin: *const super::super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -6222,6 +6792,7 @@ pub unsafe fn VarFormatNumber(pvarin: *const super::super::Com::VARIANT, inumdig
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarFormatPercent(pvarin: *const super::super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -6237,6 +6808,7 @@ pub unsafe fn VarFormatPercent(pvarin: *const super::super::Com::VARIANT, inumdi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromBool(boolin: i16, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6251,6 +6823,7 @@ pub unsafe fn VarI1FromBool(boolin: i16, pcout: super::super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6265,6 +6838,7 @@ pub unsafe fn VarI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromDate(datein: f64, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6279,6 +6853,7 @@ pub unsafe fn VarI1FromDate(datein: f64, pcout: super::super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromDec(pdecin: *const super::super::super::Foundation::DECIMAL, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6293,6 +6868,7 @@ pub unsafe fn VarI1FromDec(pdecin: *const super::super::super::Foundation::DECIM
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6307,6 +6883,7 @@ pub unsafe fn VarI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromI2(uiin: i16, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6321,6 +6898,7 @@ pub unsafe fn VarI1FromI2(uiin: i16, pcout: super::super::super::Foundation::PST
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromI4(lin: i32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6335,6 +6913,7 @@ pub unsafe fn VarI1FromI4(lin: i32, pcout: super::super::super::Foundation::PSTR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromI8(i64in: i64, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6349,6 +6928,7 @@ pub unsafe fn VarI1FromI8(i64in: i64, pcout: super::super::super::Foundation::PS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromR4(fltin: f32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6363,6 +6943,7 @@ pub unsafe fn VarI1FromR4(fltin: f32, pcout: super::super::super::Foundation::PS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromR8(dblin: f64, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6377,6 +6958,7 @@ pub unsafe fn VarI1FromR8(dblin: f64, pcout: super::super::super::Foundation::PS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6391,6 +6973,7 @@ pub unsafe fn VarI1FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromUI1(bin: u8, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6405,6 +6988,7 @@ pub unsafe fn VarI1FromUI1(bin: u8, pcout: super::super::super::Foundation::PSTR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromUI2(uiin: u16, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6419,6 +7003,7 @@ pub unsafe fn VarI1FromUI2(uiin: u16, pcout: super::super::super::Foundation::PS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromUI4(ulin: u32, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6433,6 +7018,7 @@ pub unsafe fn VarI1FromUI4(ulin: u32, pcout: super::super::super::Foundation::PS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI1FromUI8(i64in: u64, pcout: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6446,6 +7032,7 @@ pub unsafe fn VarI1FromUI8(i64in: u64, pcout: super::super::super::Foundation::P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromBool(boolin: i16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6461,6 +7048,7 @@ pub unsafe fn VarI2FromBool(boolin: i16) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0, psout: *mut i16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6474,6 +7062,7 @@ pub unsafe fn VarI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6489,6 +7078,7 @@ pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI2FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6503,6 +7093,7 @@ pub unsafe fn VarI2FromDec(pdecin: *const super::super::super::Foundation::DECIM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6518,6 +7109,7 @@ pub unsafe fn VarI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI2FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6532,6 +7124,7 @@ pub unsafe fn VarI2FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6546,6 +7139,7 @@ pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6560,6 +7154,7 @@ pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6574,6 +7169,7 @@ pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6589,6 +7185,7 @@ pub unsafe fn VarI2FromR8(dblin: f64) -> ::windows::runtime::Result<i16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI2FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6603,6 +7200,7 @@ pub unsafe fn VarI2FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6617,6 +7215,7 @@ pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6631,6 +7230,7 @@ pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6645,6 +7245,7 @@ pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::runtime::Result<i16> {
     #[cfg(windows)]
@@ -6659,6 +7260,7 @@ pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::runtime::Result<i16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromBool(boolin: i16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6674,6 +7276,7 @@ pub unsafe fn VarI4FromBool(boolin: i16) -> ::windows::runtime::Result<i32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6688,6 +7291,7 @@ pub unsafe fn VarI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6703,6 +7307,7 @@ pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::runtime::Result<i32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI4FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6717,6 +7322,7 @@ pub unsafe fn VarI4FromDec(pdecin: *const super::super::super::Foundation::DECIM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6732,6 +7338,7 @@ pub unsafe fn VarI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6746,6 +7353,7 @@ pub unsafe fn VarI4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6760,6 +7368,7 @@ pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6774,6 +7383,7 @@ pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6788,6 +7398,7 @@ pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromR8(dblin: f64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6803,6 +7414,7 @@ pub unsafe fn VarI4FromR8(dblin: f64) -> ::windows::runtime::Result<i32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6817,6 +7429,7 @@ pub unsafe fn VarI4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6831,6 +7444,7 @@ pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6845,6 +7459,7 @@ pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6859,6 +7474,7 @@ pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6873,6 +7489,7 @@ pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<i32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromBool(boolin: i16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -6888,6 +7505,7 @@ pub unsafe fn VarI8FromBool(boolin: i16) -> ::windows::runtime::Result<i64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -6902,6 +7520,7 @@ pub unsafe fn VarI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -6917,6 +7536,7 @@ pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::runtime::Result<i64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI8FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -6931,6 +7551,7 @@ pub unsafe fn VarI8FromDec(pdecin: *const super::super::super::Foundation::DECIM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -6946,6 +7567,7 @@ pub unsafe fn VarI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -6960,6 +7582,7 @@ pub unsafe fn VarI8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -6974,6 +7597,7 @@ pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -6988,6 +7612,7 @@ pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromR8(dblin: f64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -7003,6 +7628,7 @@ pub unsafe fn VarI8FromR8(dblin: f64) -> ::windows::runtime::Result<i64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarI8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -7017,6 +7643,7 @@ pub unsafe fn VarI8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -7031,6 +7658,7 @@ pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -7045,6 +7673,7 @@ pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -7059,6 +7688,7 @@ pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::runtime::Result<i64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
@@ -7074,6 +7704,7 @@ pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::runtime::Result<i64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarIdiv(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7089,6 +7720,7 @@ pub unsafe fn VarIdiv(pvarleft: *const super::super::Com::VARIANT, pvarright: *c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarImp(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7104,6 +7736,7 @@ pub unsafe fn VarImp(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarInt(pvarin: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7119,6 +7752,7 @@ pub unsafe fn VarInt(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarMod(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7134,6 +7768,7 @@ pub unsafe fn VarMod(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -7149,6 +7784,7 @@ pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarMul(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7164,6 +7800,7 @@ pub unsafe fn VarMul(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarNeg(pvarin: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7179,6 +7816,7 @@ pub unsafe fn VarNeg(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarNot(pvarin: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7194,6 +7832,7 @@ pub unsafe fn VarNot(pvarin: *const super::super::Com::VARIANT) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7209,6 +7848,7 @@ pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dw
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarOr(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7224,6 +7864,7 @@ pub unsafe fn VarOr(pvarleft: *const super::super::Com::VARIANT, pvarright: *con
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarParseNumFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32, pnumprs: *mut NUMPARSE, rgbdig: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7238,6 +7879,7 @@ pub unsafe fn VarParseNumFromStr<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarPow(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7252,6 +7894,7 @@ pub unsafe fn VarPow(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7265,6 +7908,7 @@ pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromBool(boolin: i16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7280,6 +7924,7 @@ pub unsafe fn VarR4FromBool(boolin: i16) -> ::windows::runtime::Result<f32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarR4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0, pfltout: *mut f32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7293,6 +7938,7 @@ pub unsafe fn VarR4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7308,6 +7954,7 @@ pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::runtime::Result<f32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarR4FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7322,6 +7969,7 @@ pub unsafe fn VarR4FromDec(pdecin: *const super::super::super::Foundation::DECIM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7337,6 +7985,7 @@ pub unsafe fn VarR4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarR4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7351,6 +8000,7 @@ pub unsafe fn VarR4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7365,6 +8015,7 @@ pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7379,6 +8030,7 @@ pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7393,6 +8045,7 @@ pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromR8(dblin: f64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7408,6 +8061,7 @@ pub unsafe fn VarR4FromR8(dblin: f64) -> ::windows::runtime::Result<f32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarR4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7422,6 +8076,7 @@ pub unsafe fn VarR4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7436,6 +8091,7 @@ pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7450,6 +8106,7 @@ pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7464,6 +8121,7 @@ pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -7478,6 +8136,7 @@ pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::runtime::Result<f32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7493,6 +8152,7 @@ pub unsafe fn VarR8FromBool(boolin: i16) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarR8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0, pdblout: *mut f64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7506,6 +8166,7 @@ pub unsafe fn VarR8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7521,6 +8182,7 @@ pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarR8FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7535,6 +8197,7 @@ pub unsafe fn VarR8FromDec(pdecin: *const super::super::super::Foundation::DECIM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7550,6 +8213,7 @@ pub unsafe fn VarR8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarR8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0, pdblout: *mut f64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7563,6 +8227,7 @@ pub unsafe fn VarR8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7577,6 +8242,7 @@ pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7591,6 +8257,7 @@ pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7605,6 +8272,7 @@ pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7620,6 +8288,7 @@ pub unsafe fn VarR8FromR4(fltin: f32) -> ::windows::runtime::Result<f64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarR8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7634,6 +8303,7 @@ pub unsafe fn VarR8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7648,6 +8318,7 @@ pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7662,6 +8333,7 @@ pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7676,6 +8348,7 @@ pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7690,6 +8363,7 @@ pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7704,6 +8378,7 @@ pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::runtime::Resul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::runtime::Result<f64> {
     #[cfg(windows)]
@@ -7719,6 +8394,7 @@ pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::runtime::Resu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarRound(pvarin: *const super::super::Com::VARIANT, cdecimals: i32) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7734,6 +8410,7 @@ pub unsafe fn VarRound(pvarin: *const super::super::Com::VARIANT, cdecimals: i32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarSub(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -7749,6 +8426,7 @@ pub unsafe fn VarSub(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarTokenizeFormatString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pstrformat: Param0, rgbtok: *mut u8, cbtok: i32, ifirstday: i32, ifirstweek: i32, lcid: u32, pcbactual: *const i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7762,6 +8440,7 @@ pub unsafe fn VarTokenizeFormatString<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromBool(boolin: i16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7777,6 +8456,7 @@ pub unsafe fn VarUI1FromBool(boolin: i16) -> ::windows::runtime::Result<u8> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarUI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7791,6 +8471,7 @@ pub unsafe fn VarUI1FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7806,6 +8487,7 @@ pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::runtime::Result<u8> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI1FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7820,6 +8502,7 @@ pub unsafe fn VarUI1FromDec(pdecin: *const super::super::super::Foundation::DECI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7835,6 +8518,7 @@ pub unsafe fn VarUI1FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI1FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7849,6 +8533,7 @@ pub unsafe fn VarUI1FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7863,6 +8548,7 @@ pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7877,6 +8563,7 @@ pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7891,6 +8578,7 @@ pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7905,6 +8593,7 @@ pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromR8(dblin: f64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7920,6 +8609,7 @@ pub unsafe fn VarUI1FromR8(dblin: f64) -> ::windows::runtime::Result<u8> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI1FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7934,6 +8624,7 @@ pub unsafe fn VarUI1FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7948,6 +8639,7 @@ pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7962,6 +8654,7 @@ pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::runtime::Result<u8> {
     #[cfg(windows)]
@@ -7976,6 +8669,7 @@ pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::runtime::Result<u8> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromBool(boolin: i16) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -7991,6 +8685,7 @@ pub unsafe fn VarUI2FromBool(boolin: i16) -> ::windows::runtime::Result<u16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarUI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8005,6 +8700,7 @@ pub unsafe fn VarUI2FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8020,6 +8716,7 @@ pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::runtime::Result<u16> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI2FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8034,6 +8731,7 @@ pub unsafe fn VarUI2FromDec(pdecin: *const super::super::super::Foundation::DECI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8049,6 +8747,7 @@ pub unsafe fn VarUI2FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI2FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8063,6 +8762,7 @@ pub unsafe fn VarUI2FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8077,6 +8777,7 @@ pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8091,6 +8792,7 @@ pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8105,6 +8807,7 @@ pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8119,6 +8822,7 @@ pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8133,6 +8837,7 @@ pub unsafe fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI2FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8147,6 +8852,7 @@ pub unsafe fn VarUI2FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8161,6 +8867,7 @@ pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8175,6 +8882,7 @@ pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -8189,6 +8897,7 @@ pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::runtime::Result<u16> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromBool(boolin: i16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8204,6 +8913,7 @@ pub unsafe fn VarUI4FromBool(boolin: i16) -> ::windows::runtime::Result<u32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarUI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8218,6 +8928,7 @@ pub unsafe fn VarUI4FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8233,6 +8944,7 @@ pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::runtime::Result<u32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI4FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8247,6 +8959,7 @@ pub unsafe fn VarUI4FromDec(pdecin: *const super::super::super::Foundation::DECI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8262,6 +8975,7 @@ pub unsafe fn VarUI4FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8276,6 +8990,7 @@ pub unsafe fn VarUI4FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8290,6 +9005,7 @@ pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8304,6 +9020,7 @@ pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8318,6 +9035,7 @@ pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8332,6 +9050,7 @@ pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromR8(dblin: f64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8347,6 +9066,7 @@ pub unsafe fn VarUI4FromR8(dblin: f64) -> ::windows::runtime::Result<u32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8361,6 +9081,7 @@ pub unsafe fn VarUI4FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8375,6 +9096,7 @@ pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8389,6 +9111,7 @@ pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8403,6 +9126,7 @@ pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromBool(boolin: i16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8418,6 +9142,7 @@ pub unsafe fn VarUI8FromBool(boolin: i16) -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarUI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Com::CY>>(cyin: Param0) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8432,6 +9157,7 @@ pub unsafe fn VarUI8FromCy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8447,6 +9173,7 @@ pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI8FromDec(pdecin: *const super::super::super::Foundation::DECIMAL) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8461,6 +9188,7 @@ pub unsafe fn VarUI8FromDec(pdecin: *const super::super::super::Foundation::DECI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8476,6 +9204,7 @@ pub unsafe fn VarUI8FromDisp<'a, Param0: ::windows::runtime::IntoParam<'a, IDisp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8490,6 +9219,7 @@ pub unsafe fn VarUI8FromI1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8504,6 +9234,7 @@ pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8518,6 +9249,7 @@ pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8532,6 +9264,7 @@ pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromR8(dblin: f64) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8547,6 +9280,7 @@ pub unsafe fn VarUI8FromR8(dblin: f64) -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUI8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8561,6 +9295,7 @@ pub unsafe fn VarUI8FromStr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8575,6 +9310,7 @@ pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8589,6 +9325,7 @@ pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::runtime::Result<u64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -8604,6 +9341,7 @@ pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarUdateFromDate(datein: f64, dwflags: u32) -> ::windows::runtime::Result<UDATE> {
     #[cfg(windows)]
@@ -8619,6 +9357,7 @@ pub unsafe fn VarUdateFromDate(datein: f64, dwflags: u32) -> ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflags: u32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
@@ -8634,6 +9373,7 @@ pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflag
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VarXor(pvarleft: *const super::super::Com::VARIANT, pvarright: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<super::super::Com::VARIANT> {
     #[cfg(windows)]
@@ -8649,6 +9389,7 @@ pub unsafe fn VarXor(pvarleft: *const super::super::Com::VARIANT, pvarright: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VariantChangeType(pvargdest: *mut super::super::Com::VARIANT, pvarsrc: *const super::super::Com::VARIANT, wflags: u16, vt: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8663,6 +9404,7 @@ pub unsafe fn VariantChangeType(pvargdest: *mut super::super::Com::VARIANT, pvar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VariantChangeTypeEx(pvargdest: *mut super::super::Com::VARIANT, pvarsrc: *const super::super::Com::VARIANT, lcid: u32, wflags: u16, vt: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8677,6 +9419,7 @@ pub unsafe fn VariantChangeTypeEx(pvargdest: *mut super::super::Com::VARIANT, pv
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VariantClear(pvarg: *mut super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8691,6 +9434,7 @@ pub unsafe fn VariantClear(pvarg: *mut super::super::Com::VARIANT) -> ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VariantCopy(pvargdest: *mut super::super::Com::VARIANT, pvargsrc: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8705,6 +9449,7 @@ pub unsafe fn VariantCopy(pvargdest: *mut super::super::Com::VARIANT, pvargsrc: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VariantCopyInd(pvardest: *mut super::super::Com::VARIANT, pvargsrc: *const super::super::Com::VARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8719,6 +9464,7 @@ pub unsafe fn VariantCopyInd(pvardest: *mut super::super::Com::VARIANT, pvargsrc
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VariantInit(pvarg: *mut super::super::Com::VARIANT) {
     #[cfg(windows)]
@@ -8732,6 +9478,7 @@ pub unsafe fn VariantInit(pvarg: *mut super::super::Com::VARIANT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostime: *mut u16) -> i32 {
     #[cfg(windows)]
@@ -8746,6 +9493,7 @@ pub unsafe fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::super::super::Foundation::SYSTEMTIME) -> i32 {
     #[cfg(windows)]
@@ -8760,6 +9508,7 @@ pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn VectorFromBstr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(bstr: Param0) -> ::windows::runtime::Result<*mut super::super::Com::SAFEARRAY> {
     #[cfg(windows)]
@@ -8776,6 +9525,7 @@ pub unsafe fn VectorFromBstr<'a, Param0: ::windows::runtime::IntoParam<'a, super
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
@@ -8806,6 +9556,7 @@ unsafe impl ::windows::runtime::Abi for _wireBRECORD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct _wireSAFEARRAY {
     pub cDims: u16,
     pub fFeatures: u16,
@@ -8838,6 +9589,7 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARRAY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct _wireSAFEARRAY_UNION {
     pub sfType: u32,
     pub u: _wireSAFEARRAY_UNION_0,
@@ -8866,6 +9618,7 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARRAY_UNION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union _wireSAFEARRAY_UNION_0 {
     pub BstrStr: _wireSAFEARR_BSTR,
     pub UnknownStr: _wireSAFEARR_UNKNOWN,
@@ -8901,6 +9654,7 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARRAY_UNION_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireSAFEARR_BRECORD {
     pub Size: u32,
     pub aRecord: *mut *mut _wireBRECORD,
@@ -8929,6 +9683,7 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARR_BRECORD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 pub struct _wireSAFEARR_BSTR {
     pub Size: u32,
     pub aBstr: *mut *mut super::super::Com::FLAGGED_WORD_BLOB,
@@ -8962,6 +9717,7 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARR_BSTR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireSAFEARR_DISPATCH {
     pub Size: u32,
     pub apDispatch: *mut ::std::option::Option<IDispatch>,
@@ -8989,6 +9745,7 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARR_DISPATCH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireSAFEARR_HAVEIID {
     pub Size: u32,
     pub apUnknown: *mut ::std::option::Option<::windows::runtime::IUnknown>,
@@ -9017,6 +9774,7 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARR_HAVEIID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub struct _wireSAFEARR_UNKNOWN {
     pub Size: u32,
     pub apUnknown: *mut ::std::option::Option<::windows::runtime::IUnknown>,
@@ -9045,6 +9803,7 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARR_UNKNOWN {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct _wireSAFEARR_VARIANT {
     pub Size: u32,
     pub aVariant: *mut *mut _wireVARIANT,
@@ -9084,6 +9843,7 @@ impl ::std::clone::Clone for _wireVARIANT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct _wireVARIANT {
     pub clSize: u32,
     pub rpcReserved: u32,
@@ -9122,6 +9882,7 @@ impl ::std::clone::Clone for _wireVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
     pub lVal: i32,

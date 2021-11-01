@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CompositeTransform3D(::windows::runtime::IInspectable);
@@ -10,6 +11,7 @@ impl CompositeTransform3D {
         static mut SHARED: ::windows::runtime::FactoryCache<CompositeTransform3D, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn CenterX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -17,10 +19,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetCenterX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn CenterY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -28,10 +32,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetCenterY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn CenterZ(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -39,10 +45,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetCenterZ(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RotationX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -50,10 +58,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetRotationX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RotationY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -61,10 +71,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetRotationY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RotationZ(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -72,10 +84,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetRotationZ(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ScaleX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -83,10 +97,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetScaleX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ScaleY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -94,10 +110,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetScaleY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ScaleZ(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -105,10 +123,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetScaleZ(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn TranslateX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -116,10 +136,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetTranslateX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn TranslateY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -127,10 +149,12 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetTranslateY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn TranslateZ(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -138,82 +162,96 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetTranslateZ(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn CenterXProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn CenterYProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn CenterZProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RotationXProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RotationYProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RotationZProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ScaleXProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ScaleYProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ScaleZProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn TranslateXProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn TranslateYProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn TranslateZProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::ICompositeTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -221,14 +259,17 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -236,6 +277,7 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -244,6 +286,7 @@ impl CompositeTransform3D {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -251,6 +294,7 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -258,6 +302,7 @@ impl CompositeTransform3D {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -557,6 +602,7 @@ pub struct ITransform3DFactory_abi(
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 pub struct Matrix3D {
     pub M11: f64,
     pub M12: f64,
@@ -616,40 +662,47 @@ unsafe impl ::windows::runtime::Abi for Matrix3D {
 unsafe impl ::windows::runtime::RuntimeType for Matrix3D {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Media.Media3D.Matrix3D;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8;f8)");
 }
+#[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Matrix3DHelper(::windows::runtime::IInspectable);
 impl Matrix3DHelper {
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn Identity() -> ::windows::runtime::Result<Matrix3D> {
         Self::IMatrix3DHelperStatics(|this| unsafe {
             let mut result__: Matrix3D = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Matrix3D>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn Multiply<'a, Param0: ::windows::runtime::IntoParam<'a, Matrix3D>, Param1: ::windows::runtime::IntoParam<'a, Matrix3D>>(matrix1: Param0, matrix2: Param1) -> ::windows::runtime::Result<Matrix3D> {
         Self::IMatrix3DHelperStatics(|this| unsafe {
             let mut result__: Matrix3D = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), matrix1.into_param().abi(), matrix2.into_param().abi(), &mut result__).from_abi::<Matrix3D>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn FromElements(m11: f64, m12: f64, m13: f64, m14: f64, m21: f64, m22: f64, m23: f64, m24: f64, m31: f64, m32: f64, m33: f64, m34: f64, offsetx: f64, offsety: f64, offsetz: f64, m44: f64) -> ::windows::runtime::Result<Matrix3D> {
         Self::IMatrix3DHelperStatics(|this| unsafe {
             let mut result__: Matrix3D = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, offsetx, offsety, offsetz, m44, &mut result__).from_abi::<Matrix3D>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetHasInverse<'a, Param0: ::windows::runtime::IntoParam<'a, Matrix3D>>(target: Param0) -> ::windows::runtime::Result<bool> {
         Self::IMatrix3DHelperStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetIsIdentity<'a, Param0: ::windows::runtime::IntoParam<'a, Matrix3D>>(target: Param0) -> ::windows::runtime::Result<bool> {
         Self::IMatrix3DHelperStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn Invert<'a, Param0: ::windows::runtime::IntoParam<'a, Matrix3D>>(target: Param0) -> ::windows::runtime::Result<Matrix3D> {
         Self::IMatrix3DHelperStatics(|this| unsafe {
             let mut result__: Matrix3D = ::std::mem::zeroed();
@@ -713,6 +766,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for Matrix3DHelper {}
 unsafe impl ::std::marker::Sync for Matrix3DHelper {}
+#[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PerspectiveTransform3D(::windows::runtime::IInspectable);
@@ -724,6 +778,7 @@ impl PerspectiveTransform3D {
         static mut SHARED: ::windows::runtime::FactoryCache<PerspectiveTransform3D, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn Depth(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -731,10 +786,12 @@ impl PerspectiveTransform3D {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetDepth(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn OffsetX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -742,10 +799,12 @@ impl PerspectiveTransform3D {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetOffsetX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn OffsetY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -753,28 +812,33 @@ impl PerspectiveTransform3D {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetOffsetY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn DepthProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IPerspectiveTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn OffsetXProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IPerspectiveTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn OffsetYProperty() -> ::windows::runtime::Result<super::super::DependencyProperty> {
         Self::IPerspectiveTransform3DStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -782,14 +846,17 @@ impl PerspectiveTransform3D {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -797,6 +864,7 @@ impl PerspectiveTransform3D {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -805,6 +873,7 @@ impl PerspectiveTransform3D {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -812,6 +881,7 @@ impl PerspectiveTransform3D {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -819,6 +889,7 @@ impl PerspectiveTransform3D {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -920,10 +991,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 }
 unsafe impl ::std::marker::Send for PerspectiveTransform3D {}
 unsafe impl ::std::marker::Sync for PerspectiveTransform3D {}
+#[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Transform3D(::windows::runtime::IInspectable);
 impl Transform3D {
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -931,14 +1004,17 @@ impl Transform3D {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -946,6 +1022,7 @@ impl Transform3D {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -954,6 +1031,7 @@ impl Transform3D {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject>(self)?;
         unsafe {
@@ -961,6 +1039,7 @@ impl Transform3D {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe {
@@ -968,6 +1047,7 @@ impl Transform3D {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }

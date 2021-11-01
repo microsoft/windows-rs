@@ -5,11 +5,13 @@ pub mod Diagnostics;
 pub mod Filters;
 #[cfg(feature = "Web_Http_Headers")]
 pub mod Headers;
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpBufferContent(::windows::runtime::IInspectable);
 impl HttpBufferContent {
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -18,6 +20,7 @@ impl HttpBufferContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn BufferAllAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -26,6 +29,7 @@ impl HttpBufferContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsBufferAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
@@ -34,6 +38,7 @@ impl HttpBufferContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsInputStreamAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
@@ -42,6 +47,7 @@ impl HttpBufferContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ReadAsStringAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>> {
         let this = self;
         unsafe {
@@ -49,6 +55,7 @@ impl HttpBufferContent {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -57,6 +64,7 @@ impl HttpBufferContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(&self, outputstream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -65,11 +73,13 @@ impl HttpBufferContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -78,6 +88,7 @@ impl HttpBufferContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Web_Http`, `Storage_Streams`*"]
     pub fn CreateFromBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(content: Param0) -> ::windows::runtime::Result<HttpBufferContent> {
         Self::IHttpBufferContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -85,6 +96,7 @@ impl HttpBufferContent {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Web_Http`, `Storage_Streams`*"]
     pub fn CreateFromBufferWithOffset<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(content: Param0, offset: u32, count: u32) -> ::windows::runtime::Result<HttpBufferContent> {
         Self::IHttpBufferContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -220,6 +232,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpBufferContent {}
 unsafe impl ::std::marker::Sync for HttpBufferContent {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpClient(::windows::runtime::IInspectable);
@@ -232,6 +245,7 @@ impl HttpClient {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn DeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>> {
         let this = self;
         unsafe {
@@ -240,6 +254,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn GetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>> {
         let this = self;
         unsafe {
@@ -248,6 +263,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn GetWithOptionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0, completionoption: HttpCompletionOption) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>> {
         let this = self;
         unsafe {
@@ -256,6 +272,7 @@ impl HttpClient {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn GetBufferAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, HttpProgress>> {
         let this = self;
         unsafe {
@@ -264,6 +281,7 @@ impl HttpClient {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn GetInputStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, HttpProgress>> {
         let this = self;
         unsafe {
@@ -272,6 +290,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn GetStringAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, HttpProgress>> {
         let this = self;
         unsafe {
@@ -280,6 +299,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn PostAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, IHttpContent>>(&self, uri: Param0, content: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>> {
         let this = self;
         unsafe {
@@ -288,6 +308,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn PutAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, IHttpContent>>(&self, uri: Param0, content: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>> {
         let this = self;
         unsafe {
@@ -296,6 +317,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn SendRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, HttpRequestMessage>>(&self, request: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>> {
         let this = self;
         unsafe {
@@ -304,6 +326,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn SendRequestWithOptionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, HttpRequestMessage>>(&self, request: Param0, completionoption: HttpCompletionOption) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>> {
         let this = self;
         unsafe {
@@ -312,6 +335,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn DefaultRequestHeaders(&self) -> ::windows::runtime::Result<Headers::HttpRequestHeaderCollection> {
         let this = self;
         unsafe {
@@ -320,11 +344,13 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -333,6 +359,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Web_Http_Filters")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Filters`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, Filters::IHttpFilter>>(filter: Param0) -> ::windows::runtime::Result<HttpClient> {
         Self::IHttpClientFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -340,6 +367,7 @@ impl HttpClient {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TryDeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -348,6 +376,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TryGetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -356,6 +385,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TryGetAsync2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0, completionoption: HttpCompletionOption) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -364,6 +394,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TryGetBufferAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetBufferResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -372,6 +403,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TryGetInputStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetInputStreamResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -380,6 +412,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TryGetStringAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetStringResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -388,6 +421,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TryPostAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, IHttpContent>>(&self, uri: Param0, content: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -396,6 +430,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TryPutAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, IHttpContent>>(&self, uri: Param0, content: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -404,6 +439,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TrySendRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, HttpRequestMessage>>(&self, request: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -412,6 +448,7 @@ impl HttpClient {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn TrySendRequestAsync2<'a, Param0: ::windows::runtime::IntoParam<'a, HttpRequestMessage>>(&self, request: Param0, completionoption: HttpCompletionOption) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>> {
         let this = &::windows::runtime::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
@@ -528,6 +565,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpClient {}
 unsafe impl ::std::marker::Sync for HttpClient {}
+#[doc = "*Required features: `Web_Http`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpCompletionOption(pub i32);
@@ -547,10 +585,12 @@ unsafe impl ::windows::runtime::Abi for HttpCompletionOption {
 unsafe impl ::windows::runtime::RuntimeType for HttpCompletionOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
 }
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpCookie(::windows::runtime::IInspectable);
 impl HttpCookie {
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -558,6 +598,7 @@ impl HttpCookie {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Domain(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -565,6 +606,7 @@ impl HttpCookie {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Path(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -573,6 +615,7 @@ impl HttpCookie {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Expires(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -581,10 +624,12 @@ impl HttpCookie {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn SetExpires<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn HttpOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -592,10 +637,12 @@ impl HttpCookie {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetHttpOnly(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Secure(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -603,10 +650,12 @@ impl HttpCookie {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetSecure(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -614,11 +663,13 @@ impl HttpCookie {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -626,6 +677,7 @@ impl HttpCookie {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0, domain: Param1, path: Param2) -> ::windows::runtime::Result<HttpCookie> {
         Self::IHttpCookieFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -716,12 +768,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 unsafe impl ::std::marker::Send for HttpCookie {}
 unsafe impl ::std::marker::Sync for HttpCookie {}
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpCookieCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl HttpCookieCollection {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<HttpCookie> {
         let this = self;
         unsafe {
@@ -730,6 +784,7 @@ impl HttpCookieCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -738,6 +793,7 @@ impl HttpCookieCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, HttpCookie>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -746,6 +802,7 @@ impl HttpCookieCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<HttpCookie as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -754,6 +811,7 @@ impl HttpCookieCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<HttpCookie>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<HttpCookie>>(self)?;
         unsafe {
@@ -893,10 +951,12 @@ impl ::std::iter::IntoIterator for &HttpCookieCollection {
         super::super::Foundation::Collections::VectorViewIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpCookieManager(::windows::runtime::IInspectable);
 impl HttpCookieManager {
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetCookie<'a, Param0: ::windows::runtime::IntoParam<'a, HttpCookie>>(&self, cookie: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -904,6 +964,7 @@ impl HttpCookieManager {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), cookie.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetCookieWithThirdParty<'a, Param0: ::windows::runtime::IntoParam<'a, HttpCookie>>(&self, cookie: Param0, thirdparty: bool) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -911,11 +972,13 @@ impl HttpCookieManager {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), cookie.into_param().abi(), thirdparty, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn DeleteCookie<'a, Param0: ::windows::runtime::IntoParam<'a, HttpCookie>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetCookies<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<HttpCookieCollection> {
         let this = self;
         unsafe {
@@ -976,11 +1039,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for HttpCookieManager {}
 unsafe impl ::std::marker::Sync for HttpCookieManager {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpFormUrlEncodedContent(::windows::runtime::IInspectable);
 impl HttpFormUrlEncodedContent {
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -989,6 +1054,7 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn BufferAllAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -997,6 +1063,7 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsBufferAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
@@ -1005,6 +1072,7 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsInputStreamAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
@@ -1013,6 +1081,7 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ReadAsStringAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>> {
         let this = self;
         unsafe {
@@ -1020,6 +1089,7 @@ impl HttpFormUrlEncodedContent {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1028,6 +1098,7 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(&self, outputstream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -1036,11 +1107,13 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1049,6 +1122,7 @@ impl HttpFormUrlEncodedContent {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>>(content: Param0) -> ::windows::runtime::Result<HttpFormUrlEncodedContent> {
         Self::IHttpFormUrlEncodedContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1184,16 +1258,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpFormUrlEncodedContent {}
 unsafe impl ::std::marker::Sync for HttpFormUrlEncodedContent {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpGetBufferResult(::windows::runtime::IInspectable);
 impl HttpGetBufferResult {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1201,6 +1278,7 @@ impl HttpGetBufferResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -1208,6 +1286,7 @@ impl HttpGetBufferResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn RequestMessage(&self) -> ::windows::runtime::Result<HttpRequestMessage> {
         let this = self;
         unsafe {
@@ -1215,6 +1294,7 @@ impl HttpGetBufferResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ResponseMessage(&self) -> ::windows::runtime::Result<HttpResponseMessage> {
         let this = self;
         unsafe {
@@ -1222,6 +1302,7 @@ impl HttpGetBufferResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1230,6 +1311,7 @@ impl HttpGetBufferResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Web_Http`, `Storage_Streams`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -1342,16 +1424,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpGetBufferResult {}
 unsafe impl ::std::marker::Sync for HttpGetBufferResult {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpGetInputStreamResult(::windows::runtime::IInspectable);
 impl HttpGetInputStreamResult {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1359,6 +1444,7 @@ impl HttpGetInputStreamResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -1366,6 +1452,7 @@ impl HttpGetInputStreamResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn RequestMessage(&self) -> ::windows::runtime::Result<HttpRequestMessage> {
         let this = self;
         unsafe {
@@ -1373,6 +1460,7 @@ impl HttpGetInputStreamResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ResponseMessage(&self) -> ::windows::runtime::Result<HttpResponseMessage> {
         let this = self;
         unsafe {
@@ -1380,6 +1468,7 @@ impl HttpGetInputStreamResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1388,6 +1477,7 @@ impl HttpGetInputStreamResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Web_Http`, `Storage_Streams`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
@@ -1500,16 +1590,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpGetInputStreamResult {}
 unsafe impl ::std::marker::Sync for HttpGetInputStreamResult {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpGetStringResult(::windows::runtime::IInspectable);
 impl HttpGetStringResult {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1517,6 +1610,7 @@ impl HttpGetStringResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -1524,6 +1618,7 @@ impl HttpGetStringResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn RequestMessage(&self) -> ::windows::runtime::Result<HttpRequestMessage> {
         let this = self;
         unsafe {
@@ -1531,6 +1626,7 @@ impl HttpGetStringResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ResponseMessage(&self) -> ::windows::runtime::Result<HttpResponseMessage> {
         let this = self;
         unsafe {
@@ -1538,6 +1634,7 @@ impl HttpGetStringResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1545,6 +1642,7 @@ impl HttpGetStringResult {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1657,10 +1755,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpGetStringResult {}
 unsafe impl ::std::marker::Sync for HttpGetStringResult {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpMethod(::windows::runtime::IInspectable);
 impl HttpMethod {
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Method(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1669,6 +1769,7 @@ impl HttpMethod {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1676,48 +1777,56 @@ impl HttpMethod {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(method: Param0) -> ::windows::runtime::Result<HttpMethod> {
         Self::IHttpMethodFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), method.into_param().abi(), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Delete() -> ::windows::runtime::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Get() -> ::windows::runtime::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Head() -> ::windows::runtime::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Options() -> ::windows::runtime::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Patch() -> ::windows::runtime::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Post() -> ::windows::runtime::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Put() -> ::windows::runtime::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1811,6 +1920,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpMethod {}
 unsafe impl ::std::marker::Sync for HttpMethod {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpMultipartContent(::windows::runtime::IInspectable);
@@ -1823,6 +1933,7 @@ impl HttpMultipartContent {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -1831,6 +1942,7 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn BufferAllAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -1839,6 +1951,7 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsBufferAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
@@ -1847,6 +1960,7 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsInputStreamAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
@@ -1855,6 +1969,7 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ReadAsStringAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>> {
         let this = self;
         unsafe {
@@ -1862,6 +1977,7 @@ impl HttpMultipartContent {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1870,6 +1986,7 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(&self, outputstream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -1878,11 +1995,13 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -1891,6 +2010,7 @@ impl HttpMultipartContent {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<IHttpContent>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<IHttpContent>>(self)?;
         unsafe {
@@ -1898,16 +2018,19 @@ impl HttpMultipartContent {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<IHttpContent>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IHttpContent>>(&self, content: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHttpMultipartContent>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), content.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn CreateWithSubtype<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(subtype: Param0) -> ::windows::runtime::Result<HttpMultipartContent> {
         Self::IHttpMultipartContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), subtype.into_param().abi(), &mut result__).from_abi::<HttpMultipartContent>(result__)
         })
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn CreateWithSubtypeAndBoundary<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(subtype: Param0, boundary: Param1) -> ::windows::runtime::Result<HttpMultipartContent> {
         Self::IHttpMultipartContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2085,6 +2208,7 @@ impl ::std::iter::IntoIterator for &HttpMultipartContent {
         self.First().unwrap()
     }
 }
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpMultipartFormDataContent(::windows::runtime::IInspectable);
@@ -2097,6 +2221,7 @@ impl HttpMultipartFormDataContent {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -2105,6 +2230,7 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn BufferAllAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -2113,6 +2239,7 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsBufferAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
@@ -2121,6 +2248,7 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsInputStreamAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
@@ -2129,6 +2257,7 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ReadAsStringAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>> {
         let this = self;
         unsafe {
@@ -2136,6 +2265,7 @@ impl HttpMultipartFormDataContent {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2144,6 +2274,7 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(&self, outputstream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -2152,11 +2283,13 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2165,6 +2298,7 @@ impl HttpMultipartFormDataContent {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<IHttpContent>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<IHttpContent>>(self)?;
         unsafe {
@@ -2172,18 +2306,22 @@ impl HttpMultipartFormDataContent {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<IHttpContent>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IHttpContent>>(&self, content: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), content.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn AddWithName<'a, Param0: ::windows::runtime::IntoParam<'a, IHttpContent>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, content: Param0, name: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), content.into_param().abi(), name.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn AddWithNameAndFileName<'a, Param0: ::windows::runtime::IntoParam<'a, IHttpContent>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, content: Param0, name: Param1, filename: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), content.into_param().abi(), name.into_param().abi(), filename.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn CreateWithBoundary<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(boundary: Param0) -> ::windows::runtime::Result<HttpMultipartFormDataContent> {
         Self::IHttpMultipartFormDataContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2364,6 +2502,7 @@ impl ::std::iter::IntoIterator for &HttpMultipartFormDataContent {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Web_Http`, `Foundation`*"]
 pub struct HttpProgress {
     pub Stage: HttpProgressStage,
     pub BytesSent: u64,
@@ -2403,6 +2542,7 @@ unsafe impl ::windows::runtime::Abi for HttpProgress {
 unsafe impl ::windows::runtime::RuntimeType for HttpProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
 }
+#[doc = "*Required features: `Web_Http`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpProgressStage(pub i32);
@@ -2430,6 +2570,7 @@ unsafe impl ::windows::runtime::Abi for HttpProgressStage {
 unsafe impl ::windows::runtime::RuntimeType for HttpProgressStage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
 }
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpRequestMessage(::windows::runtime::IInspectable);
@@ -2441,6 +2582,7 @@ impl HttpRequestMessage {
         static mut SHARED: ::windows::runtime::FactoryCache<HttpRequestMessage, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<IHttpContent> {
         let this = self;
         unsafe {
@@ -2448,11 +2590,13 @@ impl HttpRequestMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IHttpContent>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetContent<'a, Param0: ::windows::runtime::IntoParam<'a, IHttpContent>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpRequestHeaderCollection> {
         let this = self;
         unsafe {
@@ -2460,6 +2604,7 @@ impl HttpRequestMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpRequestHeaderCollection>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Method(&self) -> ::windows::runtime::Result<HttpMethod> {
         let this = self;
         unsafe {
@@ -2467,11 +2612,13 @@ impl HttpRequestMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetMethod<'a, Param0: ::windows::runtime::IntoParam<'a, HttpMethod>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -2480,6 +2627,7 @@ impl HttpRequestMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn RequestUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -2488,10 +2636,12 @@ impl HttpRequestMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn SetRequestUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn TransportInformation(&self) -> ::windows::runtime::Result<HttpTransportInformation> {
         let this = self;
         unsafe {
@@ -2500,11 +2650,13 @@ impl HttpRequestMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2513,6 +2665,7 @@ impl HttpRequestMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, HttpMethod>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(method: Param0, uri: Param1) -> ::windows::runtime::Result<HttpRequestMessage> {
         Self::IHttpRequestMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2628,16 +2781,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpRequestMessage {}
 unsafe impl ::std::marker::Sync for HttpRequestMessage {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpRequestResult(::windows::runtime::IInspectable);
 impl HttpRequestResult {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2645,6 +2801,7 @@ impl HttpRequestResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -2652,6 +2809,7 @@ impl HttpRequestResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn RequestMessage(&self) -> ::windows::runtime::Result<HttpRequestMessage> {
         let this = self;
         unsafe {
@@ -2659,6 +2817,7 @@ impl HttpRequestResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ResponseMessage(&self) -> ::windows::runtime::Result<HttpResponseMessage> {
         let this = self;
         unsafe {
@@ -2666,6 +2825,7 @@ impl HttpRequestResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Succeeded(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2778,6 +2938,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpRequestResult {}
 unsafe impl ::std::marker::Sync for HttpRequestResult {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpResponseMessage(::windows::runtime::IInspectable);
@@ -2789,6 +2950,7 @@ impl HttpResponseMessage {
         static mut SHARED: ::windows::runtime::FactoryCache<HttpResponseMessage, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<IHttpContent> {
         let this = self;
         unsafe {
@@ -2796,11 +2958,13 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IHttpContent>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetContent<'a, Param0: ::windows::runtime::IntoParam<'a, IHttpContent>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpResponseHeaderCollection> {
         let this = self;
         unsafe {
@@ -2808,6 +2972,7 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpResponseHeaderCollection>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn IsSuccessStatusCode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2815,6 +2980,7 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn ReasonPhrase(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2822,10 +2988,12 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetReasonPhrase<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn RequestMessage(&self) -> ::windows::runtime::Result<HttpRequestMessage> {
         let this = self;
         unsafe {
@@ -2833,10 +3001,12 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetRequestMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HttpRequestMessage>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<HttpResponseMessageSource> {
         let this = self;
         unsafe {
@@ -2844,10 +3014,12 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessageSource>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetSource(&self, value: HttpResponseMessageSource) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn StatusCode(&self) -> ::windows::runtime::Result<HttpStatusCode> {
         let this = self;
         unsafe {
@@ -2855,10 +3027,12 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpStatusCode>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetStatusCode(&self, value: HttpStatusCode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Version(&self) -> ::windows::runtime::Result<HttpVersion> {
         let this = self;
         unsafe {
@@ -2866,10 +3040,12 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HttpVersion>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn SetVersion(&self, value: HttpVersion) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn EnsureSuccessStatusCode(&self) -> ::windows::runtime::Result<HttpResponseMessage> {
         let this = self;
         unsafe {
@@ -2878,11 +3054,13 @@ impl HttpResponseMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -2890,6 +3068,7 @@ impl HttpResponseMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn Create(statuscode: HttpStatusCode) -> ::windows::runtime::Result<HttpResponseMessage> {
         Self::IHttpResponseMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3005,6 +3184,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpResponseMessage {}
 unsafe impl ::std::marker::Sync for HttpResponseMessage {}
+#[doc = "*Required features: `Web_Http`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpResponseMessageSource(pub i32);
@@ -3025,6 +3205,7 @@ unsafe impl ::windows::runtime::Abi for HttpResponseMessageSource {
 unsafe impl ::windows::runtime::RuntimeType for HttpResponseMessageSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
 }
+#[doc = "*Required features: `Web_Http`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpStatusCode(pub i32);
@@ -3100,11 +3281,13 @@ unsafe impl ::windows::runtime::Abi for HttpStatusCode {
 unsafe impl ::windows::runtime::RuntimeType for HttpStatusCode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
 }
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpStreamContent(::windows::runtime::IInspectable);
 impl HttpStreamContent {
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -3113,6 +3296,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn BufferAllAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -3121,6 +3305,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsBufferAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
@@ -3129,6 +3314,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsInputStreamAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
@@ -3137,6 +3323,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ReadAsStringAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>> {
         let this = self;
         unsafe {
@@ -3144,6 +3331,7 @@ impl HttpStreamContent {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3152,6 +3340,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(&self, outputstream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -3160,11 +3349,13 @@ impl HttpStreamContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3173,6 +3364,7 @@ impl HttpStreamContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Web_Http`, `Storage_Streams`*"]
     pub fn CreateFromInputStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(content: Param0) -> ::windows::runtime::Result<HttpStreamContent> {
         Self::IHttpStreamContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3308,11 +3500,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpStreamContent {}
 unsafe impl ::std::marker::Sync for HttpStreamContent {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpStringContent(::windows::runtime::IInspectable);
 impl HttpStringContent {
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -3321,6 +3515,7 @@ impl HttpStringContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn BufferAllAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -3329,6 +3524,7 @@ impl HttpStringContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsBufferAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
@@ -3337,6 +3533,7 @@ impl HttpStringContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsInputStreamAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
@@ -3345,6 +3542,7 @@ impl HttpStringContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ReadAsStringAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>> {
         let this = self;
         unsafe {
@@ -3352,6 +3550,7 @@ impl HttpStringContent {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3360,6 +3559,7 @@ impl HttpStringContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(&self, outputstream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -3368,11 +3568,13 @@ impl HttpStringContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3380,6 +3582,7 @@ impl HttpStringContent {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn CreateFromString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(content: Param0) -> ::windows::runtime::Result<HttpStringContent> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3387,6 +3590,7 @@ impl HttpStringContent {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Web_Http`, `Storage_Streams`*"]
     pub fn CreateFromStringWithEncoding<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(content: Param0, encoding: super::super::Storage::Streams::UnicodeEncoding) -> ::windows::runtime::Result<HttpStringContent> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3394,6 +3598,7 @@ impl HttpStringContent {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Web_Http`, `Storage_Streams`*"]
     pub fn CreateFromStringWithEncodingAndMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(content: Param0, encoding: super::super::Storage::Streams::UnicodeEncoding, mediatype: Param2) -> ::windows::runtime::Result<HttpStringContent> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3529,11 +3734,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpStringContent {}
 unsafe impl ::std::marker::Sync for HttpStringContent {}
+#[doc = "*Required features: `Web_Http`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HttpTransportInformation(::windows::runtime::IInspectable);
 impl HttpTransportInformation {
     #[cfg(feature = "Security_Cryptography_Certificates")]
+    #[doc = "*Required features: `Web_Http`, `Security_Cryptography_Certificates`*"]
     pub fn ServerCertificate(&self) -> ::windows::runtime::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
         unsafe {
@@ -3542,6 +3749,7 @@ impl HttpTransportInformation {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
+    #[doc = "*Required features: `Web_Http`, `Networking_Sockets`*"]
     pub fn ServerCertificateErrorSeverity(&self) -> ::windows::runtime::Result<super::super::Networking::Sockets::SocketSslErrorSeverity> {
         let this = self;
         unsafe {
@@ -3550,6 +3758,7 @@ impl HttpTransportInformation {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn ServerCertificateErrors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
         unsafe {
@@ -3558,6 +3767,7 @@ impl HttpTransportInformation {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn ServerIntermediateCertificates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
@@ -3566,6 +3776,7 @@ impl HttpTransportInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
@@ -3652,6 +3863,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IStringable
 }
 unsafe impl ::std::marker::Send for HttpTransportInformation {}
 unsafe impl ::std::marker::Sync for HttpTransportInformation {}
+#[doc = "*Required features: `Web_Http`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HttpVersion(pub i32);
@@ -3795,6 +4007,7 @@ pub struct IHttpClientFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Web_Http`*"]
 pub struct IHttpContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpContent {
     type Vtable = IHttpContent_abi;
@@ -3802,6 +4015,7 @@ unsafe impl ::windows::runtime::Interface for IHttpContent {
 }
 impl IHttpContent {
     #[cfg(feature = "Web_Http_Headers")]
+    #[doc = "*Required features: `Web_Http`, `Web_Http_Headers`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<Headers::HttpContentHeaderCollection> {
         let this = self;
         unsafe {
@@ -3810,6 +4024,7 @@ impl IHttpContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn BufferAllAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -3818,6 +4033,7 @@ impl IHttpContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsBufferAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>> {
         let this = self;
         unsafe {
@@ -3826,6 +4042,7 @@ impl IHttpContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsInputStreamAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>> {
         let this = self;
         unsafe {
@@ -3834,6 +4051,7 @@ impl IHttpContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn ReadAsStringAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>> {
         let this = self;
         unsafe {
@@ -3841,6 +4059,7 @@ impl IHttpContent {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::runtime::HSTRING, u64>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_Http`*"]
     pub fn TryComputeLength(&self, length: &mut u64) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3849,6 +4068,7 @@ impl IHttpContent {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_Http`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(&self, outputstream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         let this = self;
         unsafe {
@@ -3857,6 +4077,7 @@ impl IHttpContent {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_Http`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }

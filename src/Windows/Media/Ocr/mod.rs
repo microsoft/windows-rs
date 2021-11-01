@@ -112,11 +112,13 @@ pub struct IOcrWord_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Media_Ocr`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OcrEngine(::windows::runtime::IInspectable);
 impl OcrEngine {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: `Media_Ocr`, `Foundation`, `Graphics_Imaging`*"]
     pub fn RecognizeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<OcrResult>> {
         let this = self;
         unsafe {
@@ -125,6 +127,7 @@ impl OcrEngine {
         }
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `Media_Ocr`, `Globalization`*"]
     pub fn RecognizerLanguage(&self) -> ::windows::runtime::Result<super::super::Globalization::Language> {
         let this = self;
         unsafe {
@@ -132,6 +135,7 @@ impl OcrEngine {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Globalization::Language>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Ocr`*"]
     pub fn MaxImageDimension() -> ::windows::runtime::Result<u32> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -139,6 +143,7 @@ impl OcrEngine {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+    #[doc = "*Required features: `Media_Ocr`, `Foundation_Collections`, `Globalization`*"]
     pub fn AvailableRecognizerLanguages() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -146,6 +151,7 @@ impl OcrEngine {
         })
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `Media_Ocr`, `Globalization`*"]
     pub fn IsLanguageSupported<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Globalization::Language>>(language: Param0) -> ::windows::runtime::Result<bool> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -153,12 +159,14 @@ impl OcrEngine {
         })
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `Media_Ocr`, `Globalization`*"]
     pub fn TryCreateFromLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Globalization::Language>>(language: Param0) -> ::windows::runtime::Result<OcrEngine> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), language.into_param().abi(), &mut result__).from_abi::<OcrEngine>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Ocr`*"]
     pub fn TryCreateFromUserProfileLanguages() -> ::windows::runtime::Result<OcrEngine> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -222,11 +230,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for OcrEngine {}
 unsafe impl ::std::marker::Sync for OcrEngine {}
+#[doc = "*Required features: `Media_Ocr`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OcrLine(::windows::runtime::IInspectable);
 impl OcrLine {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Ocr`, `Foundation_Collections`*"]
     pub fn Words(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<OcrWord>> {
         let this = self;
         unsafe {
@@ -234,6 +244,7 @@ impl OcrLine {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<OcrWord>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Ocr`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -294,11 +305,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for OcrLine {}
 unsafe impl ::std::marker::Sync for OcrLine {}
+#[doc = "*Required features: `Media_Ocr`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OcrResult(::windows::runtime::IInspectable);
 impl OcrResult {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Ocr`, `Foundation_Collections`*"]
     pub fn Lines(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<OcrLine>> {
         let this = self;
         unsafe {
@@ -307,6 +320,7 @@ impl OcrResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Ocr`, `Foundation`*"]
     pub fn TextAngle(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -314,6 +328,7 @@ impl OcrResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Ocr`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -374,11 +389,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for OcrResult {}
 unsafe impl ::std::marker::Sync for OcrResult {}
+#[doc = "*Required features: `Media_Ocr`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OcrWord(::windows::runtime::IInspectable);
 impl OcrWord {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Ocr`, `Foundation`*"]
     pub fn BoundingRect(&self) -> ::windows::runtime::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -386,6 +403,7 @@ impl OcrWord {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Ocr`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {

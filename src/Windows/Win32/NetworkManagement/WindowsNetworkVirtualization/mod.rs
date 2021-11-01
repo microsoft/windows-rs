@@ -1,6 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WNV_CA_NOTIFICATION_TYPE(pub i32);
@@ -20,6 +23,7 @@ unsafe impl ::windows::runtime::Abi for WNV_CA_NOTIFICATION_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub MACAddress: super::WindowsFilteringPlatform::DL_EUI48,
     pub CAFamily: u16,
@@ -53,6 +57,7 @@ unsafe impl ::windows::runtime::Abi for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Networking_WinSock`*"]
 pub struct WNV_IP_ADDRESS {
     pub IP: WNV_IP_ADDRESS_0,
 }
@@ -80,6 +85,7 @@ unsafe impl ::windows::runtime::Abi for WNV_IP_ADDRESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Networking_WinSock`*"]
 pub union WNV_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,
@@ -108,6 +114,7 @@ unsafe impl ::windows::runtime::Abi for WNV_IP_ADDRESS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 pub struct WNV_NOTIFICATION_PARAM {
     pub Header: WNV_OBJECT_HEADER,
     pub NotificationType: WNV_NOTIFICATION_TYPE,
@@ -135,6 +142,7 @@ unsafe impl ::windows::runtime::Abi for WNV_NOTIFICATION_PARAM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WNV_NOTIFICATION_TYPE(pub i32);
@@ -154,6 +162,7 @@ unsafe impl ::windows::runtime::Abi for WNV_NOTIFICATION_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct WNV_OBJECT_CHANGE_PARAM {
     pub ObjectType: WNV_OBJECT_TYPE,
     pub ObjectParam: WNV_OBJECT_CHANGE_PARAM_0,
@@ -182,6 +191,7 @@ unsafe impl ::windows::runtime::Abi for WNV_OBJECT_CHANGE_PARAM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub union WNV_OBJECT_CHANGE_PARAM_0 {
     pub ProviderAddressChange: WNV_PROVIDER_ADDRESS_CHANGE_PARAM,
     pub CustomerAddressChange: WNV_CUSTOMER_ADDRESS_CHANGE_PARAM,
@@ -209,6 +219,7 @@ unsafe impl ::windows::runtime::Abi for WNV_OBJECT_CHANGE_PARAM_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 pub struct WNV_OBJECT_HEADER {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -235,6 +246,7 @@ unsafe impl ::windows::runtime::Abi for WNV_OBJECT_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WNV_OBJECT_TYPE(pub i32);
@@ -253,6 +265,7 @@ unsafe impl ::windows::runtime::Abi for WNV_OBJECT_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Networking_WinSock`*"]
 pub struct WNV_POLICY_MISMATCH_PARAM {
     pub CAFamily: u16,
     pub PAFamily: u16,
@@ -284,6 +297,7 @@ unsafe impl ::windows::runtime::Abi for WNV_POLICY_MISMATCH_PARAM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Networking_WinSock`*"]
 pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     pub PAFamily: u16,
     pub PA: WNV_IP_ADDRESS,
@@ -313,6 +327,7 @@ unsafe impl ::windows::runtime::Abi for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Networking_WinSock`*"]
 pub struct WNV_REDIRECT_PARAM {
     pub CAFamily: u16,
     pub PAFamily: u16,
@@ -344,6 +359,7 @@ unsafe impl ::windows::runtime::Abi for WNV_REDIRECT_PARAM {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -358,6 +374,7 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn WnvRequestNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(wnvhandle: Param0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32 {
     #[cfg(windows)]

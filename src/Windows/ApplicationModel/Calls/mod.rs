@@ -3,10 +3,12 @@
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
 pub mod Provider;
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CallAnswerEventArgs(::windows::runtime::IInspectable);
 impl CallAnswerEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AcceptedMedia(&self) -> ::windows::runtime::Result<VoipPhoneCallMedia> {
         let this = self;
         unsafe {
@@ -67,10 +69,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CallAnswerEventArgs {}
 unsafe impl ::std::marker::Sync for CallAnswerEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CallRejectEventArgs(::windows::runtime::IInspectable);
 impl CallRejectEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RejectReason(&self) -> ::windows::runtime::Result<VoipPhoneCallRejectReason> {
         let this = self;
         unsafe {
@@ -131,10 +135,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CallRejectEventArgs {}
 unsafe impl ::std::marker::Sync for CallRejectEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CallStateChangeEventArgs(::windows::runtime::IInspectable);
 impl CallStateChangeEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn State(&self) -> ::windows::runtime::Result<VoipPhoneCallState> {
         let this = self;
         unsafe {
@@ -201,6 +207,7 @@ pub struct CallsPhoneContract(pub u8);
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct CallsVoipContract(pub u8);
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CellularDtmfMode(pub i32);
@@ -220,6 +227,7 @@ unsafe impl ::windows::runtime::Abi for CellularDtmfMode {
 unsafe impl ::windows::runtime::RuntimeType for CellularDtmfMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DtmfKey(pub i32);
@@ -249,6 +257,7 @@ unsafe impl ::windows::runtime::Abi for DtmfKey {
 unsafe impl ::windows::runtime::RuntimeType for DtmfKey {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DtmfToneAudioPlayback(pub i32);
@@ -1530,10 +1539,12 @@ pub struct IVoipPhoneCall3_abi(
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct LockScreenCallContract(pub u8);
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LockScreenCallEndCallDeferral(::windows::runtime::IInspectable);
 impl LockScreenCallEndCallDeferral {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -1591,10 +1602,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LockScreenCallEndCallDeferral {}
 unsafe impl ::std::marker::Sync for LockScreenCallEndCallDeferral {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LockScreenCallEndRequestedEventArgs(::windows::runtime::IInspectable);
 impl LockScreenCallEndRequestedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<LockScreenCallEndCallDeferral> {
         let this = self;
         unsafe {
@@ -1603,6 +1616,7 @@ impl LockScreenCallEndRequestedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn Deadline(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1663,15 +1677,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LockScreenCallEndRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for LockScreenCallEndRequestedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LockScreenCallUI(::windows::runtime::IInspectable);
 impl LockScreenCallUI {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Dismiss(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn EndRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1680,11 +1697,13 @@ impl LockScreenCallUI {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveEndRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn Closed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockScreenCallUI, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1693,10 +1712,12 @@ impl LockScreenCallUI {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveClosed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CallTitle(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1704,6 +1725,7 @@ impl LockScreenCallUI {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetCallTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1761,10 +1783,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LockScreenCallUI {}
 unsafe impl ::std::marker::Sync for LockScreenCallUI {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MuteChangeEventArgs(::windows::runtime::IInspectable);
 impl MuteChangeEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Muted(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1825,6 +1849,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MuteChangeEventArgs {}
 unsafe impl ::std::marker::Sync for MuteChangeEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
@@ -1845,11 +1870,13 @@ unsafe impl ::windows::runtime::Abi for PhoneAudioRoutingEndpoint {
 unsafe impl ::windows::runtime::RuntimeType for PhoneAudioRoutingEndpoint {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCall(::windows::runtime::IInspectable);
 impl PhoneCall {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn StatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1858,11 +1885,13 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn AudioDeviceChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1871,11 +1900,13 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveAudioDeviceChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn IsMutedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1884,10 +1915,12 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveIsMutedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CallId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1895,6 +1928,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsMuted(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1902,6 +1936,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<PhoneCallStatus> {
         let this = self;
         unsafe {
@@ -1909,6 +1944,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallStatus>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AudioDevice(&self) -> ::windows::runtime::Result<PhoneCallAudioDevice> {
         let this = self;
         unsafe {
@@ -1916,6 +1952,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallAudioDevice>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetPhoneCallInfo(&self) -> ::windows::runtime::Result<PhoneCallInfo> {
         let this = self;
         unsafe {
@@ -1924,6 +1961,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetPhoneCallInfoAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallInfo>> {
         let this = self;
         unsafe {
@@ -1931,6 +1969,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallInfo>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn End(&self) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1939,6 +1978,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn EndAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -1946,6 +1986,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SendDtmfKey(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1954,6 +1995,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SendDtmfKeyAsync(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -1961,6 +2003,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), key, dtmftoneaudioplayback, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AcceptIncoming(&self) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1969,6 +2012,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn AcceptIncomingAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -1976,6 +2020,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Hold(&self) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1984,6 +2029,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn HoldAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -1991,6 +2037,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ResumeFromHold(&self) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -1999,6 +2046,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ResumeFromHoldAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2006,6 +2054,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Mute(&self) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2014,6 +2063,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn MuteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2021,6 +2071,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Unmute(&self) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2029,6 +2080,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn UnmuteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2036,6 +2088,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RejectIncoming(&self) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2044,6 +2097,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RejectIncomingAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2051,6 +2105,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ChangeAudioDevice(&self, endpoint: PhoneCallAudioDevice) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -2059,6 +2114,7 @@ impl PhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ChangeAudioDeviceAsync(&self, endpoint: PhoneCallAudioDevice) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
@@ -2066,6 +2122,7 @@ impl PhoneCall {
             (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), endpoint, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetFromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(callid: Param0) -> ::windows::runtime::Result<PhoneCall> {
         Self::IPhoneCallStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2129,6 +2186,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCall {}
 unsafe impl ::std::marker::Sync for PhoneCall {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallAudioDevice(pub i32);
@@ -2149,27 +2207,33 @@ unsafe impl ::windows::runtime::Abi for PhoneCallAudioDevice {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallAudioDevice {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallBlocking {}
 impl PhoneCallBlocking {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn BlockUnknownNumbers() -> ::windows::runtime::Result<bool> {
         Self::IPhoneCallBlockingStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetBlockUnknownNumbers(value: bool) -> ::windows::runtime::Result<()> {
         Self::IPhoneCallBlockingStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn BlockPrivateNumbers() -> ::windows::runtime::Result<bool> {
         Self::IPhoneCallBlockingStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetBlockPrivateNumbers(value: bool) -> ::windows::runtime::Result<()> {
         Self::IPhoneCallBlockingStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetCallBlockingListAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(phonenumberlist: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPhoneCallBlockingStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2184,6 +2248,7 @@ impl PhoneCallBlocking {
 impl ::windows::runtime::RuntimeName for PhoneCallBlocking {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallBlocking";
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallDirection(pub i32);
@@ -2204,6 +2269,7 @@ unsafe impl ::windows::runtime::Abi for PhoneCallDirection {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallHistoryEntry(::windows::runtime::IInspectable);
@@ -2215,6 +2281,7 @@ impl PhoneCallHistoryEntry {
         static mut SHARED: ::windows::runtime::FactoryCache<PhoneCallHistoryEntry, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2222,6 +2289,7 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Address(&self) -> ::windows::runtime::Result<PhoneCallHistoryEntryAddress> {
         let this = self;
         unsafe {
@@ -2229,11 +2297,13 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryAddress>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetAddress<'a, Param0: ::windows::runtime::IntoParam<'a, PhoneCallHistoryEntryAddress>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -2242,10 +2312,12 @@ impl PhoneCallHistoryEntry {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsCallerIdBlocked(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2253,10 +2325,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsCallerIdBlocked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsEmergency(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2264,10 +2338,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsEmergency(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsIncoming(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2275,10 +2351,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsIncoming(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsMissed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2286,10 +2364,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsMissed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsRinging(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2297,10 +2377,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsRinging(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsSeen(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2308,10 +2390,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsSeen(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsSuppressed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2319,10 +2403,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsSuppressed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsVoicemail(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2330,10 +2416,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetIsVoicemail(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Media(&self) -> ::windows::runtime::Result<PhoneCallHistoryEntryMedia> {
         let this = self;
         unsafe {
@@ -2341,10 +2429,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryMedia>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetMedia(&self, value: PhoneCallHistoryEntryMedia) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn OtherAppReadAccess(&self) -> ::windows::runtime::Result<PhoneCallHistoryEntryOtherAppReadAccess> {
         let this = self;
         unsafe {
@@ -2352,10 +2442,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryOtherAppReadAccess>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetOtherAppReadAccess(&self, value: PhoneCallHistoryEntryOtherAppReadAccess) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2363,10 +2455,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SourceDisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2374,6 +2468,7 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SourceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2381,10 +2476,12 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetSourceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SourceIdKind(&self) -> ::windows::runtime::Result<PhoneCallHistorySourceIdKind> {
         let this = self;
         unsafe {
@@ -2392,11 +2489,13 @@ impl PhoneCallHistoryEntry {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistorySourceIdKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetSourceIdKind(&self, value: PhoneCallHistorySourceIdKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2405,6 +2504,7 @@ impl PhoneCallHistoryEntry {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2462,6 +2562,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallHistoryEntry {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryEntry {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallHistoryEntryAddress(::windows::runtime::IInspectable);
@@ -2473,6 +2574,7 @@ impl PhoneCallHistoryEntryAddress {
         static mut SHARED: ::windows::runtime::FactoryCache<PhoneCallHistoryEntryAddress, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ContactId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2480,10 +2582,12 @@ impl PhoneCallHistoryEntryAddress {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetContactId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2491,10 +2595,12 @@ impl PhoneCallHistoryEntryAddress {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RawAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2502,10 +2608,12 @@ impl PhoneCallHistoryEntryAddress {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetRawAddress<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RawAddressKind(&self) -> ::windows::runtime::Result<PhoneCallHistoryEntryRawAddressKind> {
         let this = self;
         unsafe {
@@ -2513,10 +2621,12 @@ impl PhoneCallHistoryEntryAddress {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryRawAddressKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetRawAddressKind(&self, value: PhoneCallHistoryEntryRawAddressKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(rawaddress: Param0, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> ::windows::runtime::Result<PhoneCallHistoryEntryAddress> {
         Self::IPhoneCallHistoryEntryAddressFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2580,6 +2690,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallHistoryEntryAddress {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryEntryAddress {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
@@ -2599,6 +2710,7 @@ unsafe impl ::windows::runtime::Abi for PhoneCallHistoryEntryMedia {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryMedia {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
@@ -2618,6 +2730,7 @@ unsafe impl ::windows::runtime::Abi for PhoneCallHistoryEntryOtherAppReadAccess 
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
@@ -2667,6 +2780,7 @@ impl ::std::ops::Not for PhoneCallHistoryEntryQueryDesiredMedia {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallHistoryEntryQueryOptions(::windows::runtime::IInspectable);
@@ -2678,6 +2792,7 @@ impl PhoneCallHistoryEntryQueryOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<PhoneCallHistoryEntryQueryOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DesiredMedia(&self) -> ::windows::runtime::Result<PhoneCallHistoryEntryQueryDesiredMedia> {
         let this = self;
         unsafe {
@@ -2685,11 +2800,13 @@ impl PhoneCallHistoryEntryQueryOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryQueryDesiredMedia>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetDesiredMedia(&self, value: PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation_Collections`*"]
     pub fn SourceIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2750,6 +2867,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
@@ -2769,11 +2887,13 @@ unsafe impl ::windows::runtime::Abi for PhoneCallHistoryEntryRawAddressKind {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallHistoryEntryReader(::windows::runtime::IInspectable);
 impl PhoneCallHistoryEntryReader {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn ReadBatchAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>> {
         let this = self;
         unsafe {
@@ -2834,9 +2954,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallHistoryEntryReader {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryEntryReader {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallHistoryManager {}
 impl PhoneCallHistoryManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestStoreAsync(accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
         Self::IPhoneCallHistoryManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2844,6 +2966,7 @@ impl PhoneCallHistoryManager {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<PhoneCallHistoryManagerForUser> {
         Self::IPhoneCallHistoryManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2862,11 +2985,13 @@ impl PhoneCallHistoryManager {
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManager";
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallHistoryManagerForUser(::windows::runtime::IInspectable);
 impl PhoneCallHistoryManagerForUser {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
         let this = self;
         unsafe {
@@ -2875,6 +3000,7 @@ impl PhoneCallHistoryManagerForUser {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -2935,6 +3061,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallHistoryManagerForUser {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryManagerForUser {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
@@ -2954,11 +3081,13 @@ unsafe impl ::windows::runtime::Abi for PhoneCallHistorySourceIdKind {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistorySourceIdKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallHistoryStore(::windows::runtime::IInspectable);
 impl PhoneCallHistoryStore {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetEntryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, callhistoryentryid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>> {
         let this = self;
         unsafe {
@@ -2966,6 +3095,7 @@ impl PhoneCallHistoryStore {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), callhistoryentryid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetEntryReader(&self) -> ::windows::runtime::Result<PhoneCallHistoryEntryReader> {
         let this = self;
         unsafe {
@@ -2973,6 +3103,7 @@ impl PhoneCallHistoryStore {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallHistoryEntryReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetEntryReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, PhoneCallHistoryEntryQueryOptions>>(&self, queryoptions: Param0) -> ::windows::runtime::Result<PhoneCallHistoryEntryReader> {
         let this = self;
         unsafe {
@@ -2981,6 +3112,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SaveEntryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PhoneCallHistoryEntry>>(&self, callhistoryentry: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2989,6 +3121,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn DeleteEntryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PhoneCallHistoryEntry>>(&self, callhistoryentry: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2997,6 +3130,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn DeleteEntriesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>>(&self, callhistoryentries: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3005,6 +3139,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn MarkEntryAsSeenAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PhoneCallHistoryEntry>>(&self, callhistoryentry: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3013,6 +3148,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn MarkEntriesAsSeenAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<PhoneCallHistoryEntry>>>(&self, callhistoryentries: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3021,6 +3157,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetUnseenCountAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
@@ -3029,6 +3166,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn MarkAllAsSeenAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3037,6 +3175,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetSourcesUnseenCountAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, sourceids: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
@@ -3045,6 +3184,7 @@ impl PhoneCallHistoryStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`, `Foundation_Collections`*"]
     pub fn MarkSourcesAsSeenAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, sourceids: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3105,6 +3245,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallHistoryStore {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryStore {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
@@ -3125,10 +3266,12 @@ unsafe impl ::windows::runtime::Abi for PhoneCallHistoryStoreAccessType {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallInfo(::windows::runtime::IInspectable);
 impl PhoneCallInfo {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn LineId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -3136,6 +3279,7 @@ impl PhoneCallInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsHoldSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3144,6 +3288,7 @@ impl PhoneCallInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -3151,6 +3296,7 @@ impl PhoneCallInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn PhoneNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3158,6 +3304,7 @@ impl PhoneCallInfo {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3165,6 +3312,7 @@ impl PhoneCallInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CallDirection(&self) -> ::windows::runtime::Result<PhoneCallDirection> {
         let this = self;
         unsafe {
@@ -3225,12 +3373,15 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallInfo {}
 unsafe impl ::std::marker::Sync for PhoneCallInfo {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallManager {}
 impl PhoneCallManager {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ShowPhoneCallUI<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(phonenumber: Param0, displayname: Param1) -> ::windows::runtime::Result<()> {
         Self::IPhoneCallManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), phonenumber.into_param().abi(), displayname.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn CallStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -3238,25 +3389,30 @@ impl PhoneCallManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveCallStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IPhoneCallManagerStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsCallActive() -> ::windows::runtime::Result<bool> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsCallIncoming() -> ::windows::runtime::Result<bool> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ShowPhoneCallSettingsUI() -> ::windows::runtime::Result<()> {
         Self::IPhoneCallManagerStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestStoreAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallStore>> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3275,6 +3431,7 @@ impl PhoneCallManager {
 impl ::windows::runtime::RuntimeName for PhoneCallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallManager";
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallMedia(pub i32);
@@ -3295,6 +3452,7 @@ unsafe impl ::windows::runtime::Abi for PhoneCallMedia {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallMedia {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallOperationStatus(pub i32);
@@ -3317,6 +3475,7 @@ unsafe impl ::windows::runtime::Abi for PhoneCallOperationStatus {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneCallStatus(pub i32);
@@ -3340,11 +3499,13 @@ unsafe impl ::windows::runtime::Abi for PhoneCallStatus {
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallStore(::windows::runtime::IInspectable);
 impl PhoneCallStore {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn IsEmergencyPhoneNumberAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, number: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3353,6 +3514,7 @@ impl PhoneCallStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetDefaultLineAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::GUID>> {
         let this = self;
         unsafe {
@@ -3360,6 +3522,7 @@ impl PhoneCallStore {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::runtime::GUID>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RequestLineWatcher(&self) -> ::windows::runtime::Result<PhoneLineWatcher> {
         let this = self;
         unsafe {
@@ -3420,10 +3583,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallStore {}
 unsafe impl ::std::marker::Sync for PhoneCallStore {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallVideoCapabilities(::windows::runtime::IInspectable);
 impl PhoneCallVideoCapabilities {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsVideoCallingCapable(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3484,9 +3649,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallVideoCapabilities {}
 unsafe impl ::std::marker::Sync for PhoneCallVideoCapabilities {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallVideoCapabilitiesManager {}
 impl PhoneCallVideoCapabilitiesManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetCapabilitiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(phonenumber: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>> {
         Self::IPhoneCallVideoCapabilitiesManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3501,10 +3668,12 @@ impl PhoneCallVideoCapabilitiesManager {
 impl ::windows::runtime::RuntimeName for PhoneCallVideoCapabilitiesManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilitiesManager";
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneCallsResult(::windows::runtime::IInspectable);
 impl PhoneCallsResult {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn OperationStatus(&self) -> ::windows::runtime::Result<PhoneLineOperationStatus> {
         let this = self;
         unsafe {
@@ -3513,6 +3682,7 @@ impl PhoneCallsResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation_Collections`*"]
     pub fn AllActivePhoneCalls(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<PhoneCall>> {
         let this = self;
         unsafe {
@@ -3573,6 +3743,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneCallsResult {}
 unsafe impl ::std::marker::Sync for PhoneCallsResult {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneDialOptions(::windows::runtime::IInspectable);
@@ -3584,6 +3755,7 @@ impl PhoneDialOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<PhoneDialOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Number(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3591,10 +3763,12 @@ impl PhoneDialOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetNumber<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3602,11 +3776,13 @@ impl PhoneDialOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::runtime::Result<super::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -3615,11 +3791,13 @@ impl PhoneDialOptions {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `ApplicationModel_Contacts`*"]
     pub fn SetContact<'a, Param0: ::windows::runtime::IntoParam<'a, super::Contacts::Contact>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `ApplicationModel_Contacts`*"]
     pub fn ContactPhone(&self) -> ::windows::runtime::Result<super::Contacts::ContactPhone> {
         let this = self;
         unsafe {
@@ -3628,10 +3806,12 @@ impl PhoneDialOptions {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `ApplicationModel_Contacts`*"]
     pub fn SetContactPhone<'a, Param0: ::windows::runtime::IntoParam<'a, super::Contacts::ContactPhone>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Media(&self) -> ::windows::runtime::Result<PhoneCallMedia> {
         let this = self;
         unsafe {
@@ -3639,10 +3819,12 @@ impl PhoneDialOptions {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallMedia>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetMedia(&self, value: PhoneCallMedia) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AudioEndpoint(&self) -> ::windows::runtime::Result<PhoneAudioRoutingEndpoint> {
         let this = self;
         unsafe {
@@ -3650,6 +3832,7 @@ impl PhoneDialOptions {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneAudioRoutingEndpoint>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetAudioEndpoint(&self, value: PhoneAudioRoutingEndpoint) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
@@ -3707,11 +3890,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneDialOptions {}
 unsafe impl ::std::marker::Sync for PhoneDialOptions {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneLine(::windows::runtime::IInspectable);
 impl PhoneLine {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn LineChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3720,10 +3905,12 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveLineChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -3732,6 +3919,7 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `UI`*"]
     pub fn DisplayColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -3739,6 +3927,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NetworkState(&self) -> ::windows::runtime::Result<PhoneNetworkState> {
         let this = self;
         unsafe {
@@ -3746,6 +3935,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneNetworkState>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3753,6 +3943,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Voicemail(&self) -> ::windows::runtime::Result<PhoneVoicemail> {
         let this = self;
         unsafe {
@@ -3760,6 +3951,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneVoicemail>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NetworkName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3767,6 +3959,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CellularDetails(&self) -> ::windows::runtime::Result<PhoneLineCellularDetails> {
         let this = self;
         unsafe {
@@ -3774,6 +3967,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneLineCellularDetails>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Transport(&self) -> ::windows::runtime::Result<PhoneLineTransport> {
         let this = self;
         unsafe {
@@ -3781,6 +3975,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneLineTransport>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CanDial(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3788,6 +3983,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SupportsTile(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3795,6 +3991,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn VideoCallingCapabilities(&self) -> ::windows::runtime::Result<PhoneCallVideoCapabilities> {
         let this = self;
         unsafe {
@@ -3802,6 +3999,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallVideoCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn LineConfiguration(&self) -> ::windows::runtime::Result<PhoneLineConfiguration> {
         let this = self;
         unsafe {
@@ -3810,6 +4008,7 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn IsImmediateDialNumberAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, number: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3817,25 +4016,30 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), number.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Dial<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, number: Param0, displayname: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), number.into_param().abi(), displayname.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DialWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, PhoneDialOptions>>(&self, options: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), options.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(lineid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneLine>> {
         Self::IPhoneLineStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), lineid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneLine>>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn EnableTextReply(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLine2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn TransportDeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLine2>(self)?;
         unsafe {
@@ -3843,6 +4047,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DialWithResult<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, number: Param0, displayname: Param1) -> ::windows::runtime::Result<PhoneLineDialResult> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
@@ -3851,6 +4056,7 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn DialWithResultAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, number: Param0, displayname: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
@@ -3858,6 +4064,7 @@ impl PhoneLine {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), number.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhoneLineDialResult>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetAllActivePhoneCalls(&self) -> ::windows::runtime::Result<PhoneCallsResult> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
@@ -3866,6 +4073,7 @@ impl PhoneLine {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn GetAllActivePhoneCallsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PhoneCallsResult>> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLine3>(self)?;
         unsafe {
@@ -3930,10 +4138,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneLine {}
 unsafe impl ::std::marker::Sync for PhoneLine {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneLineCellularDetails(::windows::runtime::IInspectable);
 impl PhoneLineCellularDetails {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SimState(&self) -> ::windows::runtime::Result<PhoneSimState> {
         let this = self;
         unsafe {
@@ -3941,6 +4151,7 @@ impl PhoneLineCellularDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneSimState>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SimSlotIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3948,6 +4159,7 @@ impl PhoneLineCellularDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsModemOn(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3955,6 +4167,7 @@ impl PhoneLineCellularDetails {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RegistrationRejectCode(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3962,6 +4175,7 @@ impl PhoneLineCellularDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetNetworkOperatorDisplayText(&self, location: PhoneLineNetworkOperatorDisplayTextLocation) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4022,10 +4236,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneLineCellularDetails {}
 unsafe impl ::std::marker::Sync for PhoneLineCellularDetails {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneLineConfiguration(::windows::runtime::IInspectable);
 impl PhoneLineConfiguration {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsVideoCallingEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4034,6 +4250,7 @@ impl PhoneLineConfiguration {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation_Collections`*"]
     pub fn ExtendedProperties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -4094,10 +4311,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneLineConfiguration {}
 unsafe impl ::std::marker::Sync for PhoneLineConfiguration {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneLineDialResult(::windows::runtime::IInspectable);
 impl PhoneLineDialResult {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DialCallStatus(&self) -> ::windows::runtime::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
@@ -4105,6 +4324,7 @@ impl PhoneLineDialResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PhoneCallOperationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DialedCall(&self) -> ::windows::runtime::Result<PhoneCall> {
         let this = self;
         unsafe {
@@ -4165,6 +4385,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneLineDialResult {}
 unsafe impl ::std::marker::Sync for PhoneLineDialResult {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
@@ -4186,6 +4407,7 @@ unsafe impl ::windows::runtime::Abi for PhoneLineNetworkOperatorDisplayTextLocat
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineOperationStatus(pub i32);
@@ -4208,6 +4430,7 @@ unsafe impl ::windows::runtime::Abi for PhoneLineOperationStatus {
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineTransport(pub i32);
@@ -4228,10 +4451,12 @@ unsafe impl ::windows::runtime::Abi for PhoneLineTransport {
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineTransport {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneLineTransportDevice(::windows::runtime::IInspectable);
 impl PhoneLineTransportDevice {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4239,6 +4464,7 @@ impl PhoneLineTransportDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Transport(&self) -> ::windows::runtime::Result<PhoneLineTransport> {
         let this = self;
         unsafe {
@@ -4247,6 +4473,7 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Devices_Enumeration`, `Foundation`*"]
     pub fn RequestAccessAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>> {
         let this = self;
         unsafe {
@@ -4254,24 +4481,29 @@ impl PhoneLineTransportDevice {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RegisterApp(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `System`*"]
     pub fn RegisterAppForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(&self, user: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), user.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn UnregisterApp(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `System`*"]
     pub fn UnregisterAppForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(&self, user: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), user.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn IsRegistered(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4279,6 +4511,7 @@ impl PhoneLineTransportDevice {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Connect(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4287,6 +4520,7 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ConnectAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -4294,24 +4528,28 @@ impl PhoneLineTransportDevice {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn FromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0) -> ::windows::runtime::Result<PhoneLineTransportDevice> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<PhoneLineTransportDevice>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetDeviceSelectorForPhoneLineTransport(transport: PhoneLineTransport) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), transport, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn AudioRoutingStatus(&self) -> ::windows::runtime::Result<TransportDeviceAudioRoutingStatus> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -4320,6 +4558,7 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn AudioRoutingStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -4328,10 +4567,12 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveAudioRoutingStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn InBandRingingEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -4340,6 +4581,7 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn InBandRingingEnabledChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
@@ -4348,6 +4590,7 @@ impl PhoneLineTransportDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveInBandRingingEnabledChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -4409,19 +4652,23 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneLineTransportDevice {}
 unsafe impl ::std::marker::Sync for PhoneLineTransportDevice {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneLineWatcher(::windows::runtime::IInspectable);
 impl PhoneLineWatcher {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn LineAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4430,11 +4677,13 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveLineAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn LineRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4443,11 +4692,13 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveLineRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn LineUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4456,11 +4707,13 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveLineUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn EnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4469,11 +4722,13 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4482,10 +4737,12 @@ impl PhoneLineWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<PhoneLineWatcherStatus> {
         let this = self;
         unsafe {
@@ -4546,10 +4803,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneLineWatcher {}
 unsafe impl ::std::marker::Sync for PhoneLineWatcher {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneLineWatcherEventArgs(::windows::runtime::IInspectable);
 impl PhoneLineWatcherEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn LineId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -4610,6 +4869,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneLineWatcherEventArgs {}
 unsafe impl ::std::marker::Sync for PhoneLineWatcherEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneLineWatcherStatus(pub i32);
@@ -4631,6 +4891,7 @@ unsafe impl ::windows::runtime::Abi for PhoneLineWatcherStatus {
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneNetworkState(pub i32);
@@ -4656,6 +4917,7 @@ unsafe impl ::windows::runtime::Abi for PhoneNetworkState {
 unsafe impl ::windows::runtime::RuntimeType for PhoneNetworkState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneSimState(pub i32);
@@ -4681,10 +4943,12 @@ unsafe impl ::windows::runtime::Abi for PhoneSimState {
 unsafe impl ::windows::runtime::RuntimeType for PhoneSimState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PhoneVoicemail(::windows::runtime::IInspectable);
 impl PhoneVoicemail {
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Number(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4692,6 +4956,7 @@ impl PhoneVoicemail {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn MessageCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -4699,6 +4964,7 @@ impl PhoneVoicemail {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<PhoneVoicemailType> {
         let this = self;
         unsafe {
@@ -4707,6 +4973,7 @@ impl PhoneVoicemail {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn DialVoicemailAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -4767,6 +5034,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PhoneVoicemail {}
 unsafe impl ::std::marker::Sync for PhoneVoicemail {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhoneVoicemailType(pub i32);
@@ -4787,6 +5055,7 @@ unsafe impl ::windows::runtime::Abi for PhoneVoicemailType {
 unsafe impl ::windows::runtime::RuntimeType for PhoneVoicemailType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TransportDeviceAudioRoutingStatus(pub i32);
@@ -4807,11 +5076,13 @@ unsafe impl ::windows::runtime::Abi for TransportDeviceAudioRoutingStatus {
 unsafe impl ::windows::runtime::RuntimeType for TransportDeviceAudioRoutingStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoipCallCoordinator(::windows::runtime::IInspectable);
 impl VoipCallCoordinator {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ReserveCallResourcesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, taskentrypoint: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
         let this = self;
         unsafe {
@@ -4820,6 +5091,7 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn MuteStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>>(&self, mutechangehandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4828,11 +5100,13 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveMuteStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestNewIncomingCall<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -4877,6 +5151,7 @@ impl VoipCallCoordinator {
             .from_abi::<VoipPhoneCall>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RequestNewOutgoingCall<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, context: Param0, contactname: Param1, servicename: Param2, media: VoipPhoneCallMedia) -> ::windows::runtime::Result<VoipPhoneCall> {
         let this = self;
         unsafe {
@@ -4884,14 +5159,17 @@ impl VoipCallCoordinator {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), context.into_param().abi(), contactname.into_param().abi(), servicename.into_param().abi(), media, &mut result__).from_abi::<VoipPhoneCall>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyMuted(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyUnmuted(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RequestOutgoingUpgradeToVideoCall<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, callupgradeguid: Param0, context: Param1, contactname: Param2, servicename: Param3) -> ::windows::runtime::Result<VoipPhoneCall> {
         let this = self;
         unsafe {
@@ -4900,6 +5178,7 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestIncomingUpgradeToVideoCall<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -4942,20 +5221,24 @@ impl VoipCallCoordinator {
             .from_abi::<VoipPhoneCall>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn TerminateCellularCall<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, callupgradeguid: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), callupgradeguid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CancelUpgrade<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, callupgradeguid: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), callupgradeguid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<VoipCallCoordinator> {
         Self::IVoipCallCoordinatorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoipCallCoordinator>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetupNewAcceptedCall<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, context: Param0, contactname: Param1, contactnumber: Param2, servicename: Param3, media: VoipPhoneCallMedia) -> ::windows::runtime::Result<VoipPhoneCall> {
         let this = &::windows::runtime::Interface::cast::<IVoipCallCoordinator2>(self)?;
         unsafe {
@@ -4963,6 +5246,7 @@ impl VoipCallCoordinator {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), context.into_param().abi(), contactname.into_param().abi(), contactnumber.into_param().abi(), servicename.into_param().abi(), media, &mut result__).from_abi::<VoipPhoneCall>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn RequestNewAppInitiatedCall<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, context: Param0, contactname: Param1, contactnumber: Param2, servicename: Param3, media: VoipPhoneCallMedia) -> ::windows::runtime::Result<VoipPhoneCall> {
         let this = &::windows::runtime::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
@@ -4971,6 +5255,7 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RequestNewIncomingCallWithContactRemoteId<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -5019,6 +5304,7 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ReserveOneProcessCallResourcesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
         let this = &::windows::runtime::Interface::cast::<IVoipCallCoordinator4>(self)?;
         unsafe {
@@ -5083,11 +5369,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoipCallCoordinator {}
 unsafe impl ::std::marker::Sync for VoipCallCoordinator {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoipPhoneCall(::windows::runtime::IInspectable);
 impl VoipPhoneCall {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn EndRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5096,11 +5384,13 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveEndRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn HoldRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5109,11 +5399,13 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveHoldRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn ResumeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5122,11 +5414,13 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveResumeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn AnswerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>>(&self, accepthandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5135,11 +5429,13 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveAnswerRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RejectRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>>(&self, rejecthandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -5148,22 +5444,27 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn RemoveRejectRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallHeld(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallActive(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallEnded(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn ContactName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5171,11 +5472,13 @@ impl VoipPhoneCall {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetContactName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -5184,10 +5487,12 @@ impl VoipPhoneCall {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Calls`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn CallMedia(&self) -> ::windows::runtime::Result<VoipPhoneCallMedia> {
         let this = self;
         unsafe {
@@ -5195,18 +5500,22 @@ impl VoipPhoneCall {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoipPhoneCallMedia>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn SetCallMedia(&self, value: VoipPhoneCallMedia) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallReady(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn TryShowAppUI(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVoipPhoneCall2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Calls`*"]
     pub fn NotifyCallAccepted(&self, media: VoipPhoneCallMedia) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVoipPhoneCall3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), media).ok() }
@@ -5264,6 +5573,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoipPhoneCall {}
 unsafe impl ::std::marker::Sync for VoipPhoneCall {}
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoipPhoneCallMedia(pub u32);
@@ -5312,6 +5622,7 @@ impl ::std::ops::Not for VoipPhoneCallMedia {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoipPhoneCallRejectReason(pub i32);
@@ -5334,6 +5645,7 @@ unsafe impl ::windows::runtime::Abi for VoipPhoneCallRejectReason {
 unsafe impl ::windows::runtime::RuntimeType for VoipPhoneCallRejectReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoipPhoneCallResourceReservationStatus(pub i32);
@@ -5353,6 +5665,7 @@ unsafe impl ::windows::runtime::Abi for VoipPhoneCallResourceReservationStatus {
 unsafe impl ::windows::runtime::RuntimeType for VoipPhoneCallResourceReservationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoipPhoneCallState(pub i32);

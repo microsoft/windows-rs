@@ -39,6 +39,7 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderEventSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventSource {
     type Vtable = ISysStorageProviderEventSource_abi;
@@ -46,6 +47,7 @@ unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventSource {
 }
 impl ISysStorageProviderEventSource {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Implementation_FileExplorer`, `Foundation`*"]
     pub fn EventReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -54,6 +56,7 @@ impl ISysStorageProviderEventSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Implementation_FileExplorer`, `Foundation`*"]
     pub fn RemoveEventReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -118,12 +121,14 @@ pub struct ISysStorageProviderEventSource_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderHandlerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderHandlerFactory {
     type Vtable = ISysStorageProviderHandlerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4000941105, 33299, 24201, [166, 35, 20, 216, 199, 43, 138, 97]);
 }
 impl ISysStorageProviderHandlerFactory {
+    #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
     pub fn GetHttpRequestProvider<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, syncrootid: Param0) -> ::windows::runtime::Result<ISysStorageProviderHttpRequestProvider> {
         let this = self;
         unsafe {
@@ -131,6 +136,7 @@ impl ISysStorageProviderHandlerFactory {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), syncrootid.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderHttpRequestProvider>(result__)
         }
     }
+    #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
     pub fn GetEventSource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, syncrootid: Param0, eventname: Param1) -> ::windows::runtime::Result<ISysStorageProviderEventSource> {
         let this = self;
         unsafe {
@@ -196,6 +202,7 @@ pub struct ISysStorageProviderHandlerFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderHttpRequestProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderHttpRequestProvider {
     type Vtable = ISysStorageProviderHttpRequestProvider_abi;
@@ -203,6 +210,7 @@ unsafe impl ::windows::runtime::Interface for ISysStorageProviderHttpRequestProv
 }
 impl ISysStorageProviderHttpRequestProvider {
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
+    #[doc = "*Required features: `System_Implementation_FileExplorer`, `Foundation`, `Web_Http`*"]
     pub fn SendRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>>(&self, request: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>> {
         let this = self;
         unsafe {
@@ -266,10 +274,12 @@ pub struct ISysStorageProviderHttpRequestProvider_abi(
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, request: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Web_Http")))] usize,
 );
+#[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SysStorageProviderEventReceivedEventArgs(::windows::runtime::IInspectable);
 impl SysStorageProviderEventReceivedEventArgs {
+    #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
     pub fn Json(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -277,6 +287,7 @@ impl SysStorageProviderEventReceivedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(json: Param0) -> ::windows::runtime::Result<SysStorageProviderEventReceivedEventArgs> {
         Self::ISysStorageProviderEventReceivedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

@@ -17,6 +17,7 @@ pub mod Sockets;
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
 pub mod XboxLive;
+#[doc = "*Required features: `Networking`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DomainNameType(pub i32);
@@ -36,10 +37,12 @@ unsafe impl ::windows::runtime::Abi for DomainNameType {
 unsafe impl ::windows::runtime::RuntimeType for DomainNameType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
 }
+#[doc = "*Required features: `Networking`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EndpointPair(::windows::runtime::IInspectable);
 impl EndpointPair {
+    #[doc = "*Required features: `Networking`*"]
     pub fn LocalHostName(&self) -> ::windows::runtime::Result<HostName> {
         let this = self;
         unsafe {
@@ -47,10 +50,12 @@ impl EndpointPair {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HostName>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn SetLocalHostName<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn LocalServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -58,10 +63,12 @@ impl EndpointPair {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn SetLocalServiceName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn RemoteHostName(&self) -> ::windows::runtime::Result<HostName> {
         let this = self;
         unsafe {
@@ -69,10 +76,12 @@ impl EndpointPair {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HostName>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn SetRemoteHostName<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn RemoteServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -80,10 +89,12 @@ impl EndpointPair {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn SetRemoteServiceName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn CreateEndpointPair<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, HostName>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(localhostname: Param0, localservicename: Param1, remotehostname: Param2, remoteservicename: Param3) -> ::windows::runtime::Result<EndpointPair> {
         Self::IEndpointPairFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -147,11 +158,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EndpointPair {}
 unsafe impl ::std::marker::Sync for EndpointPair {}
+#[doc = "*Required features: `Networking`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HostName(::windows::runtime::IInspectable);
 impl HostName {
     #[cfg(feature = "Networking_Connectivity")]
+    #[doc = "*Required features: `Networking`, `Networking_Connectivity`*"]
     pub fn IPInformation(&self) -> ::windows::runtime::Result<Connectivity::IPInformation> {
         let this = self;
         unsafe {
@@ -159,6 +172,7 @@ impl HostName {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Connectivity::IPInformation>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn RawName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -166,6 +180,7 @@ impl HostName {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -173,6 +188,7 @@ impl HostName {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn CanonicalName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -180,6 +196,7 @@ impl HostName {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<HostNameType> {
         let this = self;
         unsafe {
@@ -187,6 +204,7 @@ impl HostName {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HostNameType>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(&self, hostname: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -195,6 +213,7 @@ impl HostName {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking`, `Foundation`*"]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::Foundation::IStringable>(self)?;
         unsafe {
@@ -202,12 +221,14 @@ impl HostName {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn CreateHostName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(hostname: Param0) -> ::windows::runtime::Result<HostName> {
         Self::IHostNameFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), hostname.into_param().abi(), &mut result__).from_abi::<HostName>(result__)
         })
     }
+    #[doc = "*Required features: `Networking`*"]
     pub fn Compare<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value1: Param0, value2: Param1) -> ::windows::runtime::Result<i32> {
         Self::IHostNameStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -301,6 +322,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::IStringable> for &
 }
 unsafe impl ::std::marker::Send for HostName {}
 unsafe impl ::std::marker::Sync for HostName {}
+#[doc = "*Required features: `Networking`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HostNameSortOptions(pub u32);
@@ -348,6 +370,7 @@ impl ::std::ops::Not for HostNameSortOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Networking`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HostNameType(pub i32);

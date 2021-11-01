@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AssignProcessToJobObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, hprocess: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14,6 +15,7 @@ pub unsafe fn AssignProcessToJobObject<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn CreateJobObjectA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -28,6 +30,7 @@ pub unsafe fn CreateJobObjectA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn CreateJobObjectW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -41,6 +44,7 @@ pub unsafe fn CreateJobObjectW<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[inline]
 pub unsafe fn FreeMemoryJobObject(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -55,6 +59,7 @@ pub unsafe fn FreeMemoryJobObject(buffer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsProcessInJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(processhandle: Param0, jobhandle: Param1, result: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -71,6 +76,7 @@ pub unsafe fn IsProcessInJob<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -113,6 +119,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_LIMIT(pub u32);
@@ -180,6 +187,7 @@ impl ::std::ops::Not for JOB_OBJECT_LIMIT {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_SECURITY(pub u32);
@@ -225,6 +233,7 @@ impl ::std::ops::Not for JOB_OBJECT_SECURITY {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_UILIMIT(pub u32);
@@ -275,6 +284,7 @@ impl ::std::ops::Not for JOB_OBJECT_UILIMIT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenJobObjectA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -289,6 +299,7 @@ pub unsafe fn OpenJobObjectA<'a, Param1: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenJobObjectW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -303,6 +314,7 @@ pub unsafe fn OpenJobObjectW<'a, Param1: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn QueryInformationJobObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, jobobjectinformationclass: super::SystemServices::JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut ::std::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -317,6 +329,7 @@ pub unsafe fn QueryInformationJobObject<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn QueryIoRateControlInformationJobObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hjob: Param0, volumename: Param1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -331,6 +344,7 @@ pub unsafe fn QueryIoRateControlInformationJobObject<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn SetInformationJobObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, jobobjectinformationclass: super::SystemServices::JOBOBJECTINFOCLASS, lpjobobjectinformation: *const ::std::ffi::c_void, cbjobobjectinformationlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -345,6 +359,7 @@ pub unsafe fn SetInformationJobObject<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn SetIoRateControlInformationJobObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32 {
     #[cfg(windows)]
@@ -359,6 +374,7 @@ pub unsafe fn SetIoRateControlInformationJobObject<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TerminateJobObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hjob: Param0, uexitcode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -373,6 +389,7 @@ pub unsafe fn TerminateJobObject<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_JobObjects`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UserHandleGrantAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(huserhandle: Param0, hjob: Param1, bgrant: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

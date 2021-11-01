@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AdjustWindowRectExForDpi<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lprect: *mut super::super::Foundation::RECT, dwstyle: u32, bmenu: Param2, dwexstyle: u32, dpi: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14,6 +15,7 @@ pub unsafe fn AdjustWindowRectExForDpi<'a, Param2: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AreDpiAwarenessContextsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(dpicontexta: Param0, dpicontextb: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -27,6 +29,7 @@ pub unsafe fn AreDpiAwarenessContextsEqual<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub u32);
@@ -70,6 +73,7 @@ impl ::std::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub u32);
@@ -114,6 +118,7 @@ impl ::std::ops::Not for DIALOG_DPI_CHANGE_BEHAVIORS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DPI_AWARENESS(pub i32);
@@ -143,11 +148,17 @@ unsafe impl ::windows::runtime::Abi for DPI_AWARENESS_CONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-4i32 as _);
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-2i32 as _);
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-1i32 as _);
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-5i32 as _);
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DPI_HOSTING_BEHAVIOR(pub i32);
@@ -164,6 +175,7 @@ unsafe impl ::windows::runtime::Abi for DPI_HOSTING_BEHAVIOR {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnableNonClientDpiScaling<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -177,6 +189,7 @@ pub unsafe fn EnableNonClientDpiScaling<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn GetAwarenessFromDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(value: Param0) -> DPI_AWARENESS {
     #[cfg(windows)]
@@ -191,6 +204,7 @@ pub unsafe fn GetAwarenessFromDpiAwarenessContext<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDialogControlDpiChangeBehavior<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     #[cfg(windows)]
@@ -205,6 +219,7 @@ pub unsafe fn GetDialogControlDpiChangeBehavior<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDialogDpiChangeBehavior<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0) -> DIALOG_DPI_CHANGE_BEHAVIORS {
     #[cfg(windows)]
@@ -219,6 +234,7 @@ pub unsafe fn GetDialogDpiChangeBehavior<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDpiAwarenessContextForProcess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
@@ -233,6 +249,7 @@ pub unsafe fn GetDpiAwarenessContextForProcess<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetDpiForMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -246,6 +263,7 @@ pub unsafe fn GetDpiForMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn GetDpiForSystem() -> u32 {
     #[cfg(windows)]
@@ -260,6 +278,7 @@ pub unsafe fn GetDpiForSystem() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDpiForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> u32 {
     #[cfg(windows)]
@@ -273,6 +292,7 @@ pub unsafe fn GetDpiForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn GetDpiFromDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(value: Param0) -> u32 {
     #[cfg(windows)]
@@ -287,6 +307,7 @@ pub unsafe fn GetDpiFromDpiAwarenessContext<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetProcessDpiAwareness<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> ::windows::runtime::Result<PROCESS_DPI_AWARENESS> {
     #[cfg(windows)]
@@ -302,6 +323,7 @@ pub unsafe fn GetProcessDpiAwareness<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetSystemDpiForProcess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> u32 {
     #[cfg(windows)]
@@ -315,6 +337,7 @@ pub unsafe fn GetSystemDpiForProcess<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
     #[cfg(windows)]
@@ -328,6 +351,7 @@ pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
@@ -341,6 +365,7 @@ pub unsafe fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
@@ -355,6 +380,7 @@ pub unsafe fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
@@ -369,6 +395,7 @@ pub unsafe fn GetWindowDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowDpiHostingBehavior<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
@@ -383,6 +410,7 @@ pub unsafe fn GetWindowDpiHostingBehavior<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsValidDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(value: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -397,6 +425,7 @@ pub unsafe fn IsValidDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LogicalToPhysicalPointForPerMonitorDPI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -410,6 +439,7 @@ pub unsafe fn LogicalToPhysicalPointForPerMonitorDPI<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MONITOR_DPI_TYPE(pub i32);
@@ -427,6 +457,7 @@ unsafe impl ::windows::runtime::Abi for MONITOR_DPI_TYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenThemeDataForDpi<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszclasslist: Param1, dpi: u32) -> isize {
     #[cfg(windows)]
@@ -440,6 +471,7 @@ pub unsafe fn OpenThemeDataForDpi<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROCESS_DPI_AWARENESS(pub i32);
@@ -456,6 +488,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_DPI_AWARENESS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -470,6 +503,7 @@ pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDialogControlDpiChangeBehavior<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -484,6 +518,7 @@ pub unsafe fn SetDialogControlDpiChangeBehavior<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDialogDpiChangeBehavior<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -497,6 +532,7 @@ pub unsafe fn SetDialogDpiChangeBehavior<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -511,6 +547,7 @@ pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetProcessDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(value: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -524,6 +561,7 @@ pub unsafe fn SetProcessDpiAwarenessContext<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn SetThreadDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(dpicontext: Param0) -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
@@ -537,6 +575,7 @@ pub unsafe fn SetThreadDpiAwarenessContext<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_HiDpi`*"]
 #[inline]
 pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
@@ -551,6 +590,7 @@ pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *mut ::std::ffi::c_void, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

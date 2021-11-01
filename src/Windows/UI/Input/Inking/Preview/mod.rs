@@ -39,16 +39,19 @@ pub struct IPalmRejectionDelayZonePreviewStatics_abi(
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputpanelvisual: ::windows::runtime::RawPtr, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: ::windows::runtime::RawPtr, viewportrect: super::super::super::super::Foundation::Rect, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Composition")))] usize,
 );
+#[doc = "*Required features: `UI_Input_Inking_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PalmRejectionDelayZonePreview(::windows::runtime::IInspectable);
 impl PalmRejectionDelayZonePreview {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Input_Inking_Preview`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
+    #[doc = "*Required features: `UI_Input_Inking_Preview`, `Foundation`, `UI_Composition`*"]
     pub fn CreateForVisual<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Composition::Visual>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Rect>>(inputpanelvisual: Param0, inputpanelrect: Param1) -> ::windows::runtime::Result<PalmRejectionDelayZonePreview> {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -56,6 +59,7 @@ impl PalmRejectionDelayZonePreview {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
+    #[doc = "*Required features: `UI_Input_Inking_Preview`, `Foundation`, `UI_Composition`*"]
     pub fn CreateForVisualWithViewportClip<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Composition::Visual>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Rect>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Composition::Visual>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Rect>>(
         inputpanelvisual: Param0,
         inputpanelrect: Param1,

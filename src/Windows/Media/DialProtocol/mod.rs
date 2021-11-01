@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DialApp(::windows::runtime::IInspectable);
 impl DialApp {
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn AppName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl DialApp {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn RequestLaunchAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, appargument: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DialAppLaunchResult>> {
         let this = self;
         unsafe {
@@ -19,6 +22,7 @@ impl DialApp {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn StopAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DialAppStopResult>> {
         let this = self;
         unsafe {
@@ -27,6 +31,7 @@ impl DialApp {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn GetAppStateAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DialAppStateDetails>> {
         let this = self;
         unsafe {
@@ -87,6 +92,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DialApp {}
 unsafe impl ::std::marker::Sync for DialApp {}
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DialAppLaunchResult(pub i32);
@@ -108,6 +114,7 @@ unsafe impl ::windows::runtime::Abi for DialAppLaunchResult {
 unsafe impl ::windows::runtime::RuntimeType for DialAppLaunchResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
 }
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DialAppState(pub i32);
@@ -129,10 +136,12 @@ unsafe impl ::windows::runtime::Abi for DialAppState {
 unsafe impl ::windows::runtime::RuntimeType for DialAppState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
 }
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DialAppStateDetails(::windows::runtime::IInspectable);
 impl DialAppStateDetails {
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn State(&self) -> ::windows::runtime::Result<DialAppState> {
         let this = self;
         unsafe {
@@ -140,6 +149,7 @@ impl DialAppStateDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DialAppState>(result__)
         }
     }
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn FullXml(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -200,6 +210,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DialAppStateDetails {}
 unsafe impl ::std::marker::Sync for DialAppStateDetails {}
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DialAppStopResult(pub i32);
@@ -221,10 +232,12 @@ unsafe impl ::windows::runtime::Abi for DialAppStopResult {
 unsafe impl ::windows::runtime::RuntimeType for DialAppStopResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
 }
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DialDevice(::windows::runtime::IInspectable);
 impl DialDevice {
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -232,6 +245,7 @@ impl DialDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn GetDialApp<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, appname: Param0) -> ::windows::runtime::Result<DialApp> {
         let this = self;
         unsafe {
@@ -239,6 +253,7 @@ impl DialDevice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), appname.into_param().abi(), &mut result__).from_abi::<DialApp>(result__)
         }
     }
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn GetDeviceSelector<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(appname: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IDialDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -246,6 +261,7 @@ impl DialDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DialDevice>> {
         Self::IDialDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -253,12 +269,14 @@ impl DialDevice {
         })
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    #[doc = "*Required features: `Media_DialProtocol`, `Devices_Enumeration`, `Foundation`*"]
     pub fn DeviceInfoSupportsDialAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Devices::Enumeration::DeviceInformation>>(device: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IDialDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), device.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IDialDevice2>(self)?;
         unsafe {
@@ -267,6 +285,7 @@ impl DialDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Storage_Streams`*"]
     pub fn Thumbnail(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::runtime::Interface::cast::<IDialDevice2>(self)?;
         unsafe {
@@ -331,6 +350,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DialDevice {}
 unsafe impl ::std::marker::Sync for DialDevice {}
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DialDeviceDisplayStatus(pub i32);
@@ -354,6 +374,7 @@ unsafe impl ::windows::runtime::Abi for DialDeviceDisplayStatus {
 unsafe impl ::windows::runtime::RuntimeType for DialDeviceDisplayStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
 }
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DialDevicePicker(::windows::runtime::IInspectable);
@@ -365,6 +386,7 @@ impl DialDevicePicker {
         static mut SHARED: ::windows::runtime::FactoryCache<DialDevicePicker, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn Filter(&self) -> ::windows::runtime::Result<DialDevicePickerFilter> {
         let this = self;
         unsafe {
@@ -373,6 +395,7 @@ impl DialDevicePicker {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Devices_Enumeration`*"]
     pub fn Appearance(&self) -> ::windows::runtime::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
         let this = self;
         unsafe {
@@ -381,6 +404,7 @@ impl DialDevicePicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn DialDeviceSelected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDeviceSelectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -389,11 +413,13 @@ impl DialDevicePicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn RemoveDialDeviceSelected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn DisconnectButtonClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -402,11 +428,13 @@ impl DialDevicePicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn RemoveDisconnectButtonClicked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn DialDevicePickerDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DialDevicePicker, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -415,21 +443,25 @@ impl DialDevicePicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn RemoveDialDevicePickerDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), selection.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`, `UI_Popups`*"]
     pub fn ShowWithPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), selection.into_param().abi(), preferredplacement).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn PickSingleDialDeviceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DialDevice>> {
         let this = self;
         unsafe {
@@ -438,6 +470,7 @@ impl DialDevicePicker {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`, `UI_Popups`*"]
     pub fn PickSingleDialDeviceAsyncWithPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DialDevice>> {
         let this = self;
         unsafe {
@@ -445,10 +478,12 @@ impl DialDevicePicker {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), selection.into_param().abi(), preferredplacement, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DialDevice>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn Hide(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn SetDisplayStatus<'a, Param0: ::windows::runtime::IntoParam<'a, DialDevice>>(&self, device: Param0, status: DialDeviceDisplayStatus) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), device.into_param().abi(), status).ok() }
@@ -506,11 +541,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DialDevicePicker {}
 unsafe impl ::std::marker::Sync for DialDevicePicker {}
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DialDevicePickerFilter(::windows::runtime::IInspectable);
 impl DialDevicePickerFilter {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation_Collections`*"]
     pub fn SupportedAppNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -571,10 +608,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DialDevicePickerFilter {}
 unsafe impl ::std::marker::Sync for DialDevicePickerFilter {}
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DialDeviceSelectedEventArgs(::windows::runtime::IInspectable);
 impl DialDeviceSelectedEventArgs {
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn SelectedDialDevice(&self) -> ::windows::runtime::Result<DialDevice> {
         let this = self;
         unsafe {
@@ -635,10 +674,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DialDeviceSelectedEventArgs {}
 unsafe impl ::std::marker::Sync for DialDeviceSelectedEventArgs {}
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DialDisconnectButtonClickedEventArgs(::windows::runtime::IInspectable);
 impl DialDisconnectButtonClickedEventArgs {
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn Device(&self) -> ::windows::runtime::Result<DialDevice> {
         let this = self;
         unsafe {
@@ -699,11 +740,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DialDisconnectButtonClickedEventArgs {}
 unsafe impl ::std::marker::Sync for DialDisconnectButtonClickedEventArgs {}
+#[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DialReceiverApp(::windows::runtime::IInspectable);
 impl DialReceiverApp {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetAdditionalDataAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>> {
         let this = self;
         unsafe {
@@ -712,6 +755,7 @@ impl DialReceiverApp {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetAdditionalDataAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>>(&self, additionaldata: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -719,6 +763,7 @@ impl DialReceiverApp {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), additionaldata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_DialProtocol`*"]
     pub fn Current() -> ::windows::runtime::Result<DialReceiverApp> {
         Self::IDialReceiverAppStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -726,6 +771,7 @@ impl DialReceiverApp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_DialProtocol`, `Foundation`*"]
     pub fn GetUniqueDeviceNameAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IDialReceiverApp2>(self)?;
         unsafe {

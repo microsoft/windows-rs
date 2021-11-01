@@ -74,9 +74,11 @@ pub struct IThreadPoolTimerStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, delay: super::super::Foundation::TimeSpan, destroyed: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `System_Threading`*"]
 pub struct ThreadPool {}
 impl ThreadPool {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn RunAsync<'a, Param0: ::windows::runtime::IntoParam<'a, WorkItemHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -84,6 +86,7 @@ impl ThreadPool {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn RunWithPriorityAsync<'a, Param0: ::windows::runtime::IntoParam<'a, WorkItemHandler>>(handler: Param0, priority: WorkItemPriority) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -91,6 +94,7 @@ impl ThreadPool {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn RunWithPriorityAndOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, WorkItemHandler>>(handler: Param0, priority: WorkItemPriority, options: WorkItemOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -105,11 +109,13 @@ impl ThreadPool {
 impl ::windows::runtime::RuntimeName for ThreadPool {
     const NAME: &'static str = "Windows.System.Threading.ThreadPool";
 }
+#[doc = "*Required features: `System_Threading`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ThreadPoolTimer(::windows::runtime::IInspectable);
 impl ThreadPoolTimer {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn Period(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -118,6 +124,7 @@ impl ThreadPoolTimer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn Delay(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -125,11 +132,13 @@ impl ThreadPoolTimer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: `System_Threading`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn CreatePeriodicTimer<'a, Param0: ::windows::runtime::IntoParam<'a, TimerElapsedHandler>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(handler: Param0, period: Param1) -> ::windows::runtime::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -137,6 +146,7 @@ impl ThreadPoolTimer {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn CreateTimer<'a, Param0: ::windows::runtime::IntoParam<'a, TimerElapsedHandler>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(handler: Param0, delay: Param1) -> ::windows::runtime::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -144,6 +154,7 @@ impl ThreadPoolTimer {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn CreatePeriodicTimerWithCompletion<'a, Param0: ::windows::runtime::IntoParam<'a, TimerElapsedHandler>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>, Param2: ::windows::runtime::IntoParam<'a, TimerDestroyedHandler>>(handler: Param0, period: Param1, destroyed: Param2) -> ::windows::runtime::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -151,6 +162,7 @@ impl ThreadPoolTimer {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn CreateTimerWithCompletion<'a, Param0: ::windows::runtime::IntoParam<'a, TimerElapsedHandler>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>, Param2: ::windows::runtime::IntoParam<'a, TimerDestroyedHandler>>(handler: Param0, delay: Param1, destroyed: Param2) -> ::windows::runtime::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -214,6 +226,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ThreadPoolTimer {}
 unsafe impl ::std::marker::Sync for ThreadPoolTimer {}
+#[doc = "*Required features: `System_Threading`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimerDestroyedHandler(::windows::runtime::IUnknown);
@@ -226,6 +239,7 @@ impl TimerDestroyedHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `System_Threading`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ThreadPoolTimer>>(&self, timer: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), timer.into_param().abi()).ok() }
@@ -285,6 +299,7 @@ impl<F: FnMut(&::std::option::Option<ThreadPoolTimer>) -> ::windows::runtime::Re
         ((*this).invoke)(&*(&timer as *const <ThreadPoolTimer as ::windows::runtime::Abi>::Abi as *const <ThreadPoolTimer as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `System_Threading`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimerElapsedHandler(::windows::runtime::IUnknown);
@@ -297,6 +312,7 @@ impl TimerElapsedHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `System_Threading`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ThreadPoolTimer>>(&self, timer: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), timer.into_param().abi()).ok() }
@@ -357,6 +373,7 @@ impl<F: FnMut(&::std::option::Option<ThreadPoolTimer>) -> ::windows::runtime::Re
     }
 }
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `System_Threading`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WorkItemHandler(::windows::runtime::IUnknown);
@@ -371,6 +388,7 @@ impl WorkItemHandler {
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading`, `Foundation`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncAction>>(&self, operation: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), operation.into_param().abi()).ok() }
@@ -435,6 +453,7 @@ impl<F: FnMut(&::std::option::Option<super::super::Foundation::IAsyncAction>) ->
         ((*this).invoke)(&*(&operation as *const <super::super::Foundation::IAsyncAction as ::windows::runtime::Abi>::Abi as *const <super::super::Foundation::IAsyncAction as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WorkItemOptions(pub u32);
@@ -482,6 +501,7 @@ impl ::std::ops::Not for WorkItemOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WorkItemPriority(pub i32);

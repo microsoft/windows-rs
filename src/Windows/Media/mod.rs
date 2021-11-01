@@ -53,10 +53,12 @@ pub mod SpeechSynthesis;
 pub mod Streaming;
 #[cfg(feature = "Media_Transcoding")]
 pub mod Transcoding;
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioBuffer(::windows::runtime::IInspectable);
 impl AudioBuffer {
+    #[doc = "*Required features: `Media`*"]
     pub fn Capacity(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -64,6 +66,7 @@ impl AudioBuffer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -71,16 +74,19 @@ impl AudioBuffer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetLength(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::runtime::Result<super::Foundation::IMemoryBufferReference> {
         let this = &::windows::runtime::Interface::cast::<super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -193,6 +199,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::IMemoryBuffer> for
 }
 unsafe impl ::std::marker::Send for AudioBuffer {}
 unsafe impl ::std::marker::Sync for AudioBuffer {}
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioBufferAccessMode(pub i32);
@@ -213,10 +220,12 @@ unsafe impl ::windows::runtime::Abi for AudioBufferAccessMode {
 unsafe impl ::windows::runtime::RuntimeType for AudioBufferAccessMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.AudioBufferAccessMode;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioFrame(::windows::runtime::IInspectable);
 impl AudioFrame {
+    #[doc = "*Required features: `Media`*"]
     pub fn LockBuffer(&self, mode: AudioBufferAccessMode) -> ::windows::runtime::Result<AudioBuffer> {
         let this = self;
         unsafe {
@@ -225,10 +234,12 @@ impl AudioFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -236,6 +247,7 @@ impl AudioFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsReadOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -244,11 +256,13 @@ impl AudioFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RelativeTime(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -257,11 +271,13 @@ impl AudioFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetSystemRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SystemRelativeTime(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -270,11 +286,13 @@ impl AudioFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -282,10 +300,12 @@ impl AudioFrame {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsDiscontinuous(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -294,6 +314,7 @@ impl AudioFrame {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn ExtendedProperties(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -301,6 +322,7 @@ impl AudioFrame {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Create(capacity: u32) -> ::windows::runtime::Result<AudioFrame> {
         Self::IAudioFrameFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -412,6 +434,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaFrame> for &AudioFrame {
 }
 unsafe impl ::std::marker::Send for AudioFrame {}
 unsafe impl ::std::marker::Sync for AudioFrame {}
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioProcessing(pub i32);
@@ -431,10 +454,12 @@ unsafe impl ::windows::runtime::Abi for AudioProcessing {
 unsafe impl ::windows::runtime::RuntimeType for AudioProcessing {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.AudioProcessing;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AutoRepeatModeChangeRequestedEventArgs(::windows::runtime::IInspectable);
 impl AutoRepeatModeChangeRequestedEventArgs {
+    #[doc = "*Required features: `Media`*"]
     pub fn RequestedAutoRepeatMode(&self) -> ::windows::runtime::Result<MediaPlaybackAutoRepeatMode> {
         let this = self;
         unsafe {
@@ -674,6 +699,7 @@ pub struct IMediaControl_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media`*"]
 pub struct IMediaExtension(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaExtension {
     type Vtable = IMediaExtension_abi;
@@ -681,6 +707,7 @@ unsafe impl ::windows::runtime::Interface for IMediaExtension {
 }
 impl IMediaExtension {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn SetProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), configuration.into_param().abi()).ok() }
@@ -799,12 +826,14 @@ pub struct IMediaExtensionManager2_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media`*"]
 pub struct IMediaFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrame {
     type Vtable = IMediaFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216322444, 22851, 18392, [142, 16, 5, 48, 138, 165, 251, 208]);
 }
 impl IMediaFrame {
+    #[doc = "*Required features: `Media`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -812,6 +841,7 @@ impl IMediaFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsReadOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -820,11 +850,13 @@ impl IMediaFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RelativeTime(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -833,11 +865,13 @@ impl IMediaFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetSystemRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SystemRelativeTime(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -846,11 +880,13 @@ impl IMediaFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -858,10 +894,12 @@ impl IMediaFrame {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsDiscontinuous(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -870,6 +908,7 @@ impl IMediaFrame {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn ExtendedProperties(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
@@ -878,6 +917,7 @@ impl IMediaFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -982,6 +1022,7 @@ pub struct IMediaFrame_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media`*"]
 pub struct IMediaMarker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaMarker {
     type Vtable = IMediaMarker_abi;
@@ -989,6 +1030,7 @@ unsafe impl ::windows::runtime::Interface for IMediaMarker {
 }
 impl IMediaMarker {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Time(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -996,6 +1038,7 @@ impl IMediaMarker {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn MediaMarkerType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1003,6 +1046,7 @@ impl IMediaMarker {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1089,6 +1133,7 @@ pub struct IMediaMarkerTypesStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media`*"]
 pub struct IMediaMarkers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaMarkers {
     type Vtable = IMediaMarkers_abi;
@@ -1096,6 +1141,7 @@ unsafe impl ::windows::runtime::Interface for IMediaMarkers {
 }
 impl IMediaMarkers {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn Markers(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVectorView<IMediaMarker>> {
         let this = self;
         unsafe {
@@ -1766,10 +1812,12 @@ pub struct IVideoFrameStatics_abi(
     #[cfg(feature = "Graphics_DirectX_Direct3D11")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, surface: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ImageDisplayProperties(::windows::runtime::IInspectable);
 impl ImageDisplayProperties {
+    #[doc = "*Required features: `Media`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1777,10 +1825,12 @@ impl ImageDisplayProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Subtitle(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1788,6 +1838,7 @@ impl ImageDisplayProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetSubtitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1845,10 +1896,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ImageDisplayProperties {}
 unsafe impl ::std::marker::Sync for ImageDisplayProperties {}
+#[doc = "*Required features: `Media`*"]
 pub struct MediaControl {}
 impl MediaControl {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SoundLevelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1857,11 +1910,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveSoundLevelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn PlayPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1870,11 +1925,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemovePlayPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn PausePressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1883,11 +1940,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemovePausePressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn StopPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1896,11 +1955,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveStopPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn PlayPauseTogglePressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1909,11 +1970,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemovePlayPauseTogglePressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RecordPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1922,11 +1985,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveRecordPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn NextTrackPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1935,11 +2000,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveNextTrackPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn PreviousTrackPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1948,11 +2015,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemovePreviousTrackPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn FastForwardPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1961,11 +2030,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveFastForwardPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RewindPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1974,11 +2045,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveRewindPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn ChannelUpPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1987,11 +2060,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveChannelUpPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn ChannelDownPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -2000,10 +2075,12 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveChannelDownPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Media`*"]
     pub fn SoundLevel() -> ::windows::runtime::Result<SoundLevel> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: SoundLevel = ::std::mem::zeroed();
@@ -2011,10 +2088,12 @@ impl MediaControl {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Media`*"]
     pub fn SetTrackName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Media`*"]
     pub fn TrackName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -2022,10 +2101,12 @@ impl MediaControl {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Media`*"]
     pub fn SetArtistName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Media`*"]
     pub fn ArtistName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -2033,10 +2114,12 @@ impl MediaControl {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsPlaying(value: bool) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Media`*"]
     pub fn IsPlaying() -> ::windows::runtime::Result<bool> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -2045,11 +2128,13 @@ impl MediaControl {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetAlbumArt<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Uri>>(value: Param0) -> ::windows::runtime::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn AlbumArt() -> ::windows::runtime::Result<super::Foundation::Uri> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2067,6 +2152,7 @@ impl ::windows::runtime::RuntimeName for MediaControl {
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct MediaControlContract(pub u8);
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaExtensionManager(::windows::runtime::IInspectable);
@@ -2078,61 +2164,74 @@ impl MediaExtensionManager {
         static mut SHARED: ::windows::runtime::FactoryCache<MediaExtensionManager, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn RegisterSchemeHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, activatableclassid: Param0, scheme: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), scheme.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn RegisterSchemeHandlerWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, scheme: Param1, configuration: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), scheme.into_param().abi(), configuration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn RegisterByteStreamHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, activatableclassid: Param0, fileextension: Param1, mimetype: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), fileextension.into_param().abi(), mimetype.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn RegisterByteStreamHandlerWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, fileextension: Param1, mimetype: Param2, configuration: Param3) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), fileextension.into_param().abi(), mimetype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn RegisterAudioDecoder<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn RegisterAudioDecoderWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn RegisterAudioEncoder<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn RegisterAudioEncoderWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn RegisterVideoDecoder<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn RegisterVideoDecoderWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn RegisterVideoEncoder<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn RegisterVideoEncoderWithSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param3: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]
+    #[doc = "*Required features: `Media`, `ApplicationModel_AppService`*"]
     pub fn RegisterMediaExtensionForAppService<'a, Param0: ::windows::runtime::IntoParam<'a, IMediaExtension>, Param1: ::windows::runtime::IntoParam<'a, super::ApplicationModel::AppService::AppServiceConnection>>(&self, extension: Param0, connection: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaExtensionManager2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), extension.into_param().abi(), connection.into_param().abi()).ok() }
@@ -2190,8 +2289,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaExtensionManager {}
 unsafe impl ::std::marker::Sync for MediaExtensionManager {}
+#[doc = "*Required features: `Media`*"]
 pub struct MediaMarkerTypes {}
 impl MediaMarkerTypes {
+    #[doc = "*Required features: `Media`*"]
     pub fn Bookmark() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaMarkerTypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -2206,6 +2307,7 @@ impl MediaMarkerTypes {
 impl ::windows::runtime::RuntimeName for MediaMarkerTypes {
     const NAME: &'static str = "Windows.Media.MediaMarkerTypes";
 }
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
@@ -2226,6 +2328,7 @@ unsafe impl ::windows::runtime::Abi for MediaPlaybackAutoRepeatMode {
 unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackAutoRepeatMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackAutoRepeatMode;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaPlaybackStatus(pub i32);
@@ -2248,6 +2351,7 @@ unsafe impl ::windows::runtime::Abi for MediaPlaybackStatus {
 unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackStatus;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaPlaybackType(pub i32);
@@ -2269,11 +2373,13 @@ unsafe impl ::windows::runtime::Abi for MediaPlaybackType {
 unsafe impl ::windows::runtime::RuntimeType for MediaPlaybackType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackType;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaProcessingTriggerDetails(::windows::runtime::IInspectable);
 impl MediaProcessingTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn Arguments(&self) -> ::windows::runtime::Result<super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -2337,6 +2443,7 @@ unsafe impl ::std::marker::Sync for MediaProcessingTriggerDetails {}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Media`, `Foundation`*"]
 pub struct MediaTimeRange {
     pub Start: super::Foundation::TimeSpan,
     pub End: super::Foundation::TimeSpan,
@@ -2372,6 +2479,7 @@ unsafe impl ::windows::runtime::Abi for MediaTimeRange {
 unsafe impl ::windows::runtime::RuntimeType for MediaTimeRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Media.MediaTimeRange;struct(Windows.Foundation.TimeSpan;i8);struct(Windows.Foundation.TimeSpan;i8))");
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaTimelineController(::windows::runtime::IInspectable);
@@ -2383,19 +2491,23 @@ impl MediaTimelineController {
         static mut SHARED: ::windows::runtime::FactoryCache<MediaTimelineController, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Resume(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Pause(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2404,10 +2516,12 @@ impl MediaTimelineController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn ClockRate(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2415,10 +2529,12 @@ impl MediaTimelineController {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetClockRate(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn State(&self) -> ::windows::runtime::Result<MediaTimelineControllerState> {
         let this = self;
         unsafe {
@@ -2427,6 +2543,7 @@ impl MediaTimelineController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn PositionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::runtime::IInspectable>>>(&self, positionchangedeventhandler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2435,11 +2552,13 @@ impl MediaTimelineController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemovePositionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::runtime::IInspectable>>>(&self, statechangedeventhandler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2448,11 +2567,13 @@ impl MediaTimelineController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
@@ -2461,10 +2582,12 @@ impl MediaTimelineController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsLoopingEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
@@ -2472,11 +2595,13 @@ impl MediaTimelineController {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsLoopingEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Failed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, MediaTimelineControllerFailedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
@@ -2485,11 +2610,13 @@ impl MediaTimelineController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Ended<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::runtime::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
@@ -2498,6 +2625,7 @@ impl MediaTimelineController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveEnded<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -2555,10 +2683,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaTimelineController {}
 unsafe impl ::std::marker::Sync for MediaTimelineController {}
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaTimelineControllerFailedEventArgs(::windows::runtime::IInspectable);
 impl MediaTimelineControllerFailedEventArgs {
+    #[doc = "*Required features: `Media`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -2619,6 +2749,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaTimelineControllerFailedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaTimelineControllerFailedEventArgs {}
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaTimelineControllerState(pub i32);
@@ -2640,10 +2771,12 @@ unsafe impl ::windows::runtime::Abi for MediaTimelineControllerState {
 unsafe impl ::windows::runtime::RuntimeType for MediaTimelineControllerState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaTimelineControllerState;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MusicDisplayProperties(::windows::runtime::IInspectable);
 impl MusicDisplayProperties {
+    #[doc = "*Required features: `Media`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2651,10 +2784,12 @@ impl MusicDisplayProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn AlbumArtist(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2662,10 +2797,12 @@ impl MusicDisplayProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetAlbumArtist<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Artist(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2673,10 +2810,12 @@ impl MusicDisplayProperties {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetArtist<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn AlbumTitle(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
@@ -2684,10 +2823,12 @@ impl MusicDisplayProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetAlbumTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn TrackNumber(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
@@ -2695,11 +2836,13 @@ impl MusicDisplayProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetTrackNumber(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn Genres(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
@@ -2707,6 +2850,7 @@ impl MusicDisplayProperties {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn AlbumTrackCount(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IMusicDisplayProperties3>(self)?;
         unsafe {
@@ -2714,6 +2858,7 @@ impl MusicDisplayProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetAlbumTrackCount(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMusicDisplayProperties3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -2771,11 +2916,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MusicDisplayProperties {}
 unsafe impl ::std::marker::Sync for MusicDisplayProperties {}
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlaybackPositionChangeRequestedEventArgs(::windows::runtime::IInspectable);
 impl PlaybackPositionChangeRequestedEventArgs {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RequestedPlaybackPosition(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2836,10 +2983,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PlaybackPositionChangeRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for PlaybackPositionChangeRequestedEventArgs {}
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlaybackRateChangeRequestedEventArgs(::windows::runtime::IInspectable);
 impl PlaybackRateChangeRequestedEventArgs {
+    #[doc = "*Required features: `Media`*"]
     pub fn RequestedPlaybackRate(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2900,10 +3049,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PlaybackRateChangeRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for PlaybackRateChangeRequestedEventArgs {}
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ShuffleEnabledChangeRequestedEventArgs(::windows::runtime::IInspectable);
 impl ShuffleEnabledChangeRequestedEventArgs {
+    #[doc = "*Required features: `Media`*"]
     pub fn RequestedShuffleEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2964,6 +3115,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ShuffleEnabledChangeRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for ShuffleEnabledChangeRequestedEventArgs {}
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SoundLevel(pub i32);
@@ -2984,10 +3136,12 @@ unsafe impl ::windows::runtime::Abi for SoundLevel {
 unsafe impl ::windows::runtime::RuntimeType for SoundLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SoundLevel;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemMediaTransportControls(::windows::runtime::IInspectable);
 impl SystemMediaTransportControls {
+    #[doc = "*Required features: `Media`*"]
     pub fn PlaybackStatus(&self) -> ::windows::runtime::Result<MediaPlaybackStatus> {
         let this = self;
         unsafe {
@@ -2995,10 +3149,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPlaybackStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetPlaybackStatus(&self, value: MediaPlaybackStatus) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn DisplayUpdater(&self) -> ::windows::runtime::Result<SystemMediaTransportControlsDisplayUpdater> {
         let this = self;
         unsafe {
@@ -3006,6 +3162,7 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemMediaTransportControlsDisplayUpdater>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SoundLevel(&self) -> ::windows::runtime::Result<SoundLevel> {
         let this = self;
         unsafe {
@@ -3013,6 +3170,7 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SoundLevel>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3020,10 +3178,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsPlayEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3031,10 +3191,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsPlayEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsStopEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3042,10 +3204,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsStopEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsPauseEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3053,10 +3217,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsPauseEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsRecordEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3064,10 +3230,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsRecordEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsFastForwardEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3075,10 +3243,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsFastForwardEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsRewindEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3086,10 +3256,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsRewindEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsPreviousEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3097,10 +3269,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsPreviousEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsNextEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3108,10 +3282,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsNextEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsChannelUpEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3119,10 +3295,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsChannelUpEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsChannelDownEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3130,11 +3308,13 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsChannelDownEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn ButtonPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsButtonPressedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3143,11 +3323,13 @@ impl SystemMediaTransportControls {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveButtonPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn PropertyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsPropertyChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3156,10 +3338,12 @@ impl SystemMediaTransportControls {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemovePropertyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn AutoRepeatMode(&self) -> ::windows::runtime::Result<MediaPlaybackAutoRepeatMode> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3167,10 +3351,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPlaybackAutoRepeatMode>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetAutoRepeatMode(&self, value: MediaPlaybackAutoRepeatMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn ShuffleEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3178,10 +3364,12 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetShuffleEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn PlaybackRate(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3189,15 +3377,18 @@ impl SystemMediaTransportControls {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetPlaybackRate(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn UpdateTimelineProperties<'a, Param0: ::windows::runtime::IntoParam<'a, SystemMediaTransportControlsTimelineProperties>>(&self, timelineproperties: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), timelineproperties.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn PlaybackPositionChangeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackPositionChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3206,11 +3397,13 @@ impl SystemMediaTransportControls {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemovePlaybackPositionChangeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn PlaybackRateChangeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackRateChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3219,11 +3412,13 @@ impl SystemMediaTransportControls {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemovePlaybackRateChangeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn ShuffleEnabledChangeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, ShuffleEnabledChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3232,11 +3427,13 @@ impl SystemMediaTransportControls {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveShuffleEnabledChangeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn AutoRepeatModeChangeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
@@ -3245,10 +3442,12 @@ impl SystemMediaTransportControls {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RemoveAutoRepeatModeChangeRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<SystemMediaTransportControls> {
         Self::ISystemMediaTransportControlsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3312,6 +3511,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemMediaTransportControls {}
 unsafe impl ::std::marker::Sync for SystemMediaTransportControls {}
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButton(pub i32);
@@ -3339,10 +3539,12 @@ unsafe impl ::windows::runtime::Abi for SystemMediaTransportControlsButton {
 unsafe impl ::windows::runtime::RuntimeType for SystemMediaTransportControlsButton {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsButton;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(::windows::runtime::IInspectable);
 impl SystemMediaTransportControlsButtonPressedEventArgs {
+    #[doc = "*Required features: `Media`*"]
     pub fn Button(&self) -> ::windows::runtime::Result<SystemMediaTransportControlsButton> {
         let this = self;
         unsafe {
@@ -3403,10 +3605,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemMediaTransportControlsButtonPressedEventArgs {}
 unsafe impl ::std::marker::Sync for SystemMediaTransportControlsButtonPressedEventArgs {}
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemMediaTransportControlsDisplayUpdater(::windows::runtime::IInspectable);
 impl SystemMediaTransportControlsDisplayUpdater {
+    #[doc = "*Required features: `Media`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MediaPlaybackType> {
         let this = self;
         unsafe {
@@ -3414,10 +3618,12 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPlaybackType>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetType(&self, value: MediaPlaybackType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn AppMediaId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3425,11 +3631,13 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetAppMediaId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media`, `Storage_Streams`*"]
     pub fn Thumbnail(&self) -> ::windows::runtime::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -3438,10 +3646,12 @@ impl SystemMediaTransportControlsDisplayUpdater {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media`, `Storage_Streams`*"]
     pub fn SetThumbnail<'a, Param0: ::windows::runtime::IntoParam<'a, super::Storage::Streams::RandomAccessStreamReference>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn MusicProperties(&self) -> ::windows::runtime::Result<MusicDisplayProperties> {
         let this = self;
         unsafe {
@@ -3449,6 +3659,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MusicDisplayProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn VideoProperties(&self) -> ::windows::runtime::Result<VideoDisplayProperties> {
         let this = self;
         unsafe {
@@ -3456,6 +3667,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoDisplayProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn ImageProperties(&self) -> ::windows::runtime::Result<ImageDisplayProperties> {
         let this = self;
         unsafe {
@@ -3464,6 +3676,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Media`, `Foundation`, `Storage`*"]
     pub fn CopyFromFileAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::Storage::StorageFile>>(&self, r#type: MediaPlaybackType, source: Param1) -> ::windows::runtime::Result<super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3471,10 +3684,12 @@ impl SystemMediaTransportControlsDisplayUpdater {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), r#type, source.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn ClearAll(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Update(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this)).ok() }
@@ -3532,6 +3747,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemMediaTransportControlsDisplayUpdater {}
 unsafe impl ::std::marker::Sync for SystemMediaTransportControlsDisplayUpdater {}
+#[doc = "*Required features: `Media`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
@@ -3550,10 +3766,12 @@ unsafe impl ::windows::runtime::Abi for SystemMediaTransportControlsProperty {
 unsafe impl ::windows::runtime::RuntimeType for SystemMediaTransportControlsProperty {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsProperty;i4)");
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(::windows::runtime::IInspectable);
 impl SystemMediaTransportControlsPropertyChangedEventArgs {
+    #[doc = "*Required features: `Media`*"]
     pub fn Property(&self) -> ::windows::runtime::Result<SystemMediaTransportControlsProperty> {
         let this = self;
         unsafe {
@@ -3614,6 +3832,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemMediaTransportControlsPropertyChangedEventArgs {}
 unsafe impl ::std::marker::Sync for SystemMediaTransportControlsPropertyChangedEventArgs {}
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemMediaTransportControlsTimelineProperties(::windows::runtime::IInspectable);
@@ -3626,6 +3845,7 @@ impl SystemMediaTransportControlsTimelineProperties {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -3634,11 +3854,13 @@ impl SystemMediaTransportControlsTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn EndTime(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -3647,11 +3869,13 @@ impl SystemMediaTransportControlsTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetEndTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn MinSeekTime(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -3660,11 +3884,13 @@ impl SystemMediaTransportControlsTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetMinSeekTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn MaxSeekTime(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -3673,11 +3899,13 @@ impl SystemMediaTransportControlsTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetMaxSeekTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -3686,6 +3914,7 @@ impl SystemMediaTransportControlsTimelineProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3743,10 +3972,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemMediaTransportControlsTimelineProperties {}
 unsafe impl ::std::marker::Sync for SystemMediaTransportControlsTimelineProperties {}
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoDisplayProperties(::windows::runtime::IInspectable);
 impl VideoDisplayProperties {
+    #[doc = "*Required features: `Media`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3754,10 +3985,12 @@ impl VideoDisplayProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Subtitle(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3765,11 +3998,13 @@ impl VideoDisplayProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetSubtitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn Genres(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IVideoDisplayProperties2>(self)?;
         unsafe {
@@ -3830,8 +4065,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VideoDisplayProperties {}
 unsafe impl ::std::marker::Sync for VideoDisplayProperties {}
+#[doc = "*Required features: `Media`*"]
 pub struct VideoEffects {}
 impl VideoEffects {
+    #[doc = "*Required features: `Media`*"]
     pub fn VideoStabilization() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IVideoEffectsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -3846,11 +4083,13 @@ impl VideoEffects {
 impl ::windows::runtime::RuntimeName for VideoEffects {
     const NAME: &'static str = "Windows.Media.VideoEffects";
 }
+#[doc = "*Required features: `Media`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoFrame(::windows::runtime::IInspectable);
 impl VideoFrame {
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media`, `Graphics_Imaging`*"]
     pub fn SoftwareBitmap(&self) -> ::windows::runtime::Result<super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
         unsafe {
@@ -3859,6 +4098,7 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn CopyToAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VideoFrame>>(&self, frame: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3867,6 +4107,7 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
+    #[doc = "*Required features: `Media`, `Graphics_DirectX_Direct3D11`*"]
     pub fn Direct3DSurface(&self) -> ::windows::runtime::Result<super::Graphics::DirectX::Direct3D11::IDirect3DSurface> {
         let this = self;
         unsafe {
@@ -3875,10 +4116,12 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -3886,6 +4129,7 @@ impl VideoFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsReadOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -3894,11 +4138,13 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn RelativeTime(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -3907,11 +4153,13 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetSystemRelativeTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SystemRelativeTime(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -3920,11 +4168,13 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -3932,10 +4182,12 @@ impl VideoFrame {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IReference<super::Foundation::TimeSpan>>(result__)
         }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn SetIsDiscontinuous(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media`*"]
     pub fn IsDiscontinuous(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -3944,6 +4196,7 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media`, `Foundation_Collections`*"]
     pub fn ExtendedProperties(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
@@ -3952,6 +4205,7 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media`, `Graphics_Imaging`*"]
     pub fn Create(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> ::windows::runtime::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3959,6 +4213,7 @@ impl VideoFrame {
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media`, `Graphics_Imaging`*"]
     pub fn CreateWithAlpha(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::runtime::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3966,6 +4221,7 @@ impl VideoFrame {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: `Media`, `Foundation`, `Graphics_Imaging`*"]
     pub fn CopyToWithBoundsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VideoFrame>, Param1: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Param2: ::windows::runtime::IntoParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>>(&self, frame: Param0, sourcebounds: Param1, destinationbounds: Param2) -> ::windows::runtime::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IVideoFrame2>(self)?;
         unsafe {
@@ -3974,6 +4230,7 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Media`, `Graphics_DirectX`*"]
     pub fn CreateAsDirect3D11SurfaceBacked(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> ::windows::runtime::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3981,6 +4238,7 @@ impl VideoFrame {
         })
     }
     #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
+    #[doc = "*Required features: `Media`, `Graphics_DirectX`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CreateAsDirect3D11SurfaceBackedWithDevice<'a, Param3: ::windows::runtime::IntoParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: Param3) -> ::windows::runtime::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3988,6 +4246,7 @@ impl VideoFrame {
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media`, `Graphics_Imaging`*"]
     pub fn CreateWithSoftwareBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::Graphics::Imaging::SoftwareBitmap>>(bitmap: Param0) -> ::windows::runtime::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3995,6 +4254,7 @@ impl VideoFrame {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
+    #[doc = "*Required features: `Media`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CreateWithDirect3D11Surface<'a, Param0: ::windows::runtime::IntoParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(surface: Param0) -> ::windows::runtime::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

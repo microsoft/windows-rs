@@ -18,9 +18,11 @@ pub struct IRetailModeStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Phone_System_Profile`*"]
 pub struct RetailMode {}
 impl RetailMode {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Phone_System_Profile`*"]
     pub fn RetailModeEnabled() -> ::windows::runtime::Result<bool> {
         Self::IRetailModeStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();

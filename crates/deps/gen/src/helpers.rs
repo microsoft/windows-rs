@@ -65,14 +65,14 @@ pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens
 }
 
-pub fn interface_method_features(def: &TypeDef, sig: &MethodSignature, gen: &Gen) -> TokenStream {
+pub fn interface_method_features(def: &TypeDef, sig: &MethodSignature, gen: &Gen) -> BTreeSet<&'static str> {
     if gen.root.is_empty() {
-        return TokenStream::new();
+        return BTreeSet::new();
     }
 
     let mut features = sig.method_features();
     features.insert(def.namespace());
-    gen.gen_cfg(&features)
+    features
 }
 
 // TODO: should have option to return "not" version to avoid calculating method_features multiple times
@@ -93,26 +93,24 @@ pub fn not_method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     gen.gen_cfg_not(&sig.method_features())
 }
 
-pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
+pub fn signature_features(sig: &Signature, gen: &Gen) -> BTreeSet<&'static str> {
     if gen.root.is_empty() {
-        return TokenStream::new();
+        return BTreeSet::new();
     }
 
-    let mut features = std::collections::BTreeSet::new();
+    let mut features = BTreeSet::new();
     let mut keys = std::collections::HashSet::new();
     sig.kind.method_features(&mut features, &mut keys);
-
-    gen.gen_cfg(&features)
+    features
 }
 
-pub fn struct_features(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn struct_features(def: &TypeDef, gen: &Gen) -> BTreeSet<&'static str> {
     if gen.root.is_empty() {
-        return TokenStream::new();
+        return BTreeSet::new();
     }
 
-    let mut features = std::collections::BTreeSet::new();
+    let mut features = BTreeSet::new();
     let mut keys = std::collections::HashSet::new();
     def.struct_features(&mut features, &mut keys);
-
-    gen.gen_cfg(&features)
+    features
 }

@@ -57,6 +57,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     }
 
     let features = struct_features(def, gen);
+    let cfg = gen.gen_cfg(&features);
+    let doc = gen.gen_cfg_doc(&features);
 
     let fields: Vec<(Field, Signature, TokenStream)> = def
         .fields()
@@ -111,7 +113,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         let signature = Literal::byte_string(def.type_signature().as_bytes());
 
         quote! {
-            #features
+            #cfg
             unsafe impl ::windows::runtime::RuntimeType for #name {
                 const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#signature);
             }
@@ -126,7 +128,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         }
     } else if is_union || has_union || is_packed {
         quote! {
-            #features
+            #cfg
             impl ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     // TODO: this can transmute for blittable but not non-blittable structs
@@ -162,7 +164,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
     let abi = if def.is_blittable() {
         quote! {
-            #features
+            #cfg
             unsafe impl ::windows::runtime::Abi for #name {
                 type Abi = Self;
                 type DefaultType = Self;
@@ -170,7 +172,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         }
     } else {
         quote! {
-            #features
+            #cfg
             unsafe impl ::windows::runtime::Abi for #name {
                 type Abi = ::std::mem::ManuallyDrop<Self>;
                 type DefaultType = Self;
@@ -195,14 +197,14 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
     let compare = if is_union | has_union | has_complex_array | is_packed {
         quote! {
-            #features
+            #cfg
             impl ::std::cmp::PartialEq for #name {
                 fn eq(&self, _other: &Self) -> bool {
                     // TODO: figure out how to compare complex structs
                     unimplemented!()
                 }
             }
-            #features
+            #cfg
             impl ::std::cmp::Eq for #name {}
         }
     } else {
@@ -222,24 +224,24 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
         if layout.is_some() {
             quote! {
-                #features
+                #cfg
                 impl ::std::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
                         unsafe { #(#compare)&&* }
                     }
                 }
-                #features
+                #cfg
                 impl ::std::cmp::Eq for #name {}
             }
         } else {
             quote! {
-                #features
+                #cfg
                 impl ::std::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
                         #(#compare)&&*
                     }
                 }
-                #features
+                #cfg
                 impl ::std::cmp::Eq for #name {}
             }
         }
@@ -271,7 +273,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
         if layout.is_some() {
             quote! {
-                #features
+                #cfg
                 impl ::std::fmt::Debug for #name {
                     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                         unsafe {
@@ -284,7 +286,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             }
         } else {
             quote! {
-                #features
+                #cfg
                 impl ::std::fmt::Debug for #name {
                     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                         fmt.debug_struct(#debug_name)
@@ -302,13 +304,14 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     quote! {
         #clone_or_copy
         #repr
-        #features
+        #cfg
+        #doc
         pub #struct_or_union #name #body
-        #features
+        #cfg
         impl #name {
             #(#constants)*
         }
-        #features
+        #cfg
         impl ::std::default::Default for #name {
             fn default() -> Self {
                 unsafe { ::std::mem::zeroed() }

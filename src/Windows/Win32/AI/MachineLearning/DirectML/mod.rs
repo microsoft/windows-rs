@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 #[inline]
 pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14,6 +15,7 @@ pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 #[inline]
 pub unsafe fn DMLCreateDevice1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -29,6 +31,7 @@ pub unsafe fn DMLCreateDevice1<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -57,6 +60,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_CELU_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_ELU_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -85,6 +89,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_ELU_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -112,6 +117,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -141,6 +147,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DES
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -168,6 +175,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -196,6 +204,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -225,6 +234,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -252,6 +262,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub SlopeTensor: *mut DML_TENSOR_DESC,
@@ -280,6 +291,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_PARAMETERIZED_RELU_OPERAT
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -309,6 +321,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub InputGradientTensor: *mut DML_TENSOR_DESC,
@@ -337,6 +350,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -364,6 +378,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_RELU_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -393,6 +408,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -422,6 +438,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -451,6 +468,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -478,6 +496,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -505,6 +524,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -533,6 +553,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -560,6 +581,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -587,6 +609,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_TANH_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -615,6 +638,7 @@ unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     pub InputParametersTensor: *mut DML_TENSOR_DESC,
     pub InputFirstMomentTensor: *mut DML_TENSOR_DESC,
@@ -676,6 +700,7 @@ unsafe impl ::windows::runtime::Abi for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ARGMAX_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -706,6 +731,7 @@ unsafe impl ::windows::runtime::Abi for DML_ARGMAX_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ARGMIN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -737,6 +763,7 @@ unsafe impl ::windows::runtime::Abi for DML_ARGMIN_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *mut DML_TENSOR_DESC,
     pub OutputGradientTensor: *mut DML_TENSOR_DESC,
@@ -786,6 +813,7 @@ unsafe impl ::windows::runtime::Abi for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -832,6 +860,7 @@ unsafe impl ::windows::runtime::Abi for DML_AVERAGE_POOLING_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_AXIS_DIRECTION(pub i32);
@@ -848,6 +877,7 @@ unsafe impl ::windows::runtime::Abi for DML_AXIS_DIRECTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub InputGradientTensor: *mut DML_TENSOR_DESC,
@@ -893,6 +923,7 @@ unsafe impl ::windows::runtime::Abi for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DE
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub MeanTensor: *mut DML_TENSOR_DESC,
@@ -943,6 +974,7 @@ unsafe impl ::windows::runtime::Abi for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_BINDING_DESC {
     pub Type: DML_BINDING_TYPE,
     pub Desc: *mut ::std::ffi::c_void,
@@ -970,6 +1002,7 @@ unsafe impl ::windows::runtime::Abi for DML_BINDING_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_BINDING_PROPERTIES {
     pub RequiredDescriptorCount: u32,
     pub TemporaryResourceSize: u64,
@@ -999,6 +1032,7 @@ unsafe impl ::windows::runtime::Abi for DML_BINDING_PROPERTIES {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 pub struct DML_BINDING_TABLE_DESC {
     pub Dispatchable: ::std::option::Option<IDMLDispatchable>,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
@@ -1032,6 +1066,7 @@ unsafe impl ::windows::runtime::Abi for DML_BINDING_TABLE_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_BINDING_TYPE(pub i32);
@@ -1050,6 +1085,7 @@ unsafe impl ::windows::runtime::Abi for DML_BINDING_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 pub struct DML_BUFFER_ARRAY_BINDING {
     pub BindingCount: u32,
     pub Bindings: *mut DML_BUFFER_BINDING,
@@ -1084,6 +1120,7 @@ unsafe impl ::windows::runtime::Abi for DML_BUFFER_ARRAY_BINDING {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
 pub struct DML_BUFFER_BINDING {
     pub Buffer: ::std::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     pub Offset: u64,
@@ -1118,6 +1155,7 @@ unsafe impl ::windows::runtime::Abi for DML_BUFFER_BINDING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_BUFFER_TENSOR_DESC {
     pub DataType: DML_TENSOR_DATA_TYPE,
     pub Flags: DML_TENSOR_FLAGS,
@@ -1158,6 +1196,7 @@ unsafe impl ::windows::runtime::Abi for DML_BUFFER_TENSOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_CAST_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1183,6 +1222,7 @@ unsafe impl ::windows::runtime::Abi for DML_CAST_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CONVOLUTION_DIRECTION(pub i32);
@@ -1199,6 +1239,7 @@ unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_DIRECTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub InputZeroPointTensor: *mut DML_TENSOR_DESC,
@@ -1245,6 +1286,7 @@ unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CONVOLUTION_MODE(pub i32);
@@ -1261,6 +1303,7 @@ unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_MODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub FilterTensor: *mut DML_TENSOR_DESC,
@@ -1326,6 +1369,7 @@ unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CREATE_DEVICE_FLAGS(pub u32);
@@ -1371,6 +1415,7 @@ impl ::std::ops::Not for DML_CREATE_DEVICE_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1408,6 +1453,7 @@ unsafe impl ::windows::runtime::Abi for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1442,6 +1488,7 @@ unsafe impl ::windows::runtime::Abi for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_DEPTH_SPACE_ORDER(pub i32);
@@ -1458,6 +1505,7 @@ unsafe impl ::windows::runtime::Abi for DML_DEPTH_SPACE_ORDER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1487,6 +1535,7 @@ unsafe impl ::windows::runtime::Abi for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1515,6 +1564,7 @@ unsafe impl ::windows::runtime::Abi for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
     pub Offset: i32,
@@ -1543,6 +1593,7 @@ unsafe impl ::windows::runtime::Abi for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1572,6 +1623,7 @@ unsafe impl ::windows::runtime::Abi for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DES
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1600,6 +1652,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1628,6 +1681,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1656,6 +1710,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -1685,6 +1740,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -1713,6 +1769,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1741,6 +1798,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1769,6 +1827,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1797,6 +1856,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1825,6 +1885,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -1853,6 +1914,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -1881,6 +1943,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1908,6 +1971,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -1935,6 +1999,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -1963,6 +2028,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -1991,6 +2057,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2019,6 +2086,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2047,6 +2115,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2075,6 +2144,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub InputGradientTensor: *mut DML_TENSOR_DESC,
@@ -2105,6 +2175,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2135,6 +2206,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2164,6 +2236,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_D
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2192,6 +2265,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2220,6 +2294,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub ScaleTensor: *mut DML_TENSOR_DESC,
@@ -2249,6 +2324,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2277,6 +2353,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2305,6 +2382,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2333,6 +2411,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2361,6 +2440,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2389,6 +2469,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2417,6 +2498,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     pub ConditionTensor: *mut DML_TENSOR_DESC,
     pub ATensor: *mut DML_TENSOR_DESC,
@@ -2446,6 +2528,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2474,6 +2557,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DE
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2501,6 +2585,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2529,6 +2614,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DE
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2557,6 +2643,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2585,6 +2672,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OP
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2613,6 +2701,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2641,6 +2730,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2669,6 +2759,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQ
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2696,6 +2787,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DE
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2724,6 +2816,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DES
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2752,6 +2845,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DE
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -2780,6 +2874,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2808,6 +2903,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2836,6 +2932,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2864,6 +2961,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2892,6 +2990,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2920,6 +3019,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERAT
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -2948,6 +3048,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub ExponentTensor: *mut DML_TENSOR_DESC,
@@ -2977,6 +3078,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub AScaleTensor: *mut DML_TENSOR_DESC,
@@ -3021,6 +3123,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OP
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub ScaleTensor: *mut DML_TENSOR_DESC,
@@ -3050,6 +3153,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3078,6 +3182,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3106,6 +3211,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3133,6 +3239,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3161,6 +3268,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3189,6 +3297,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3217,6 +3326,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -3245,6 +3355,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3273,6 +3384,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3301,6 +3413,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -3328,6 +3441,7 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_EXECUTION_FLAGS(pub u32);
@@ -3372,6 +3486,7 @@ impl ::std::ops::Not for DML_EXECUTION_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_FEATURE(pub i32);
@@ -3388,6 +3503,7 @@ unsafe impl ::windows::runtime::Abi for DML_FEATURE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FEATURE_DATA_FEATURE_LEVELS {
     pub MaxSupportedFeatureLevel: DML_FEATURE_LEVEL,
 }
@@ -3415,6 +3531,7 @@ unsafe impl ::windows::runtime::Abi for DML_FEATURE_DATA_FEATURE_LEVELS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     pub IsSupported: super::super::super::Foundation::BOOL,
 }
@@ -3445,6 +3562,7 @@ unsafe impl ::windows::runtime::Abi for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPOR
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_FEATURE_LEVEL(pub i32);
@@ -3465,6 +3583,7 @@ unsafe impl ::windows::runtime::Abi for DML_FEATURE_LEVEL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
     pub RequestedFeatureLevelCount: u32,
     pub RequestedFeatureLevels: *mut DML_FEATURE_LEVEL,
@@ -3492,6 +3611,7 @@ unsafe impl ::windows::runtime::Abi for DML_FEATURE_QUERY_FEATURE_LEVELS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     pub DataType: DML_TENSOR_DATA_TYPE,
 }
@@ -3518,6 +3638,7 @@ unsafe impl ::windows::runtime::Abi for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
@@ -3541,6 +3662,7 @@ unsafe impl ::windows::runtime::Abi for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     pub OutputTensor: *mut DML_TENSOR_DESC,
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
@@ -3565,6 +3687,7 @@ unsafe impl ::windows::runtime::Abi for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub IndicesTensor: *mut DML_TENSOR_DESC,
@@ -3594,6 +3717,7 @@ unsafe impl ::windows::runtime::Abi for DML_GATHER_ELEMENTS_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GATHER_ND1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub IndicesTensor: *mut DML_TENSOR_DESC,
@@ -3632,6 +3756,7 @@ unsafe impl ::windows::runtime::Abi for DML_GATHER_ND1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GATHER_ND_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub IndicesTensor: *mut DML_TENSOR_DESC,
@@ -3662,6 +3787,7 @@ unsafe impl ::windows::runtime::Abi for DML_GATHER_ND_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GATHER_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub IndicesTensor: *mut DML_TENSOR_DESC,
@@ -3692,6 +3818,7 @@ unsafe impl ::windows::runtime::Abi for DML_GATHER_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GEMM_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub BTensor: *mut DML_TENSOR_DESC,
@@ -3736,6 +3863,7 @@ unsafe impl ::windows::runtime::Abi for DML_GEMM_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GRAPH_DESC {
     pub InputCount: u32,
     pub OutputCount: u32,
@@ -3782,6 +3910,7 @@ unsafe impl ::windows::runtime::Abi for DML_GRAPH_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GRAPH_EDGE_DESC {
     pub Type: DML_GRAPH_EDGE_TYPE,
     pub Desc: *mut ::std::ffi::c_void,
@@ -3807,6 +3936,7 @@ unsafe impl ::windows::runtime::Abi for DML_GRAPH_EDGE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_GRAPH_EDGE_TYPE(pub i32);
@@ -3825,6 +3955,7 @@ unsafe impl ::windows::runtime::Abi for DML_GRAPH_EDGE_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_GRAPH_NODE_DESC {
     pub Type: DML_GRAPH_NODE_TYPE,
     pub Desc: *mut ::std::ffi::c_void,
@@ -3850,6 +3981,7 @@ unsafe impl ::windows::runtime::Abi for DML_GRAPH_NODE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_GRAPH_NODE_TYPE(pub i32);
@@ -3867,6 +3999,7 @@ unsafe impl ::windows::runtime::Abi for DML_GRAPH_NODE_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_GRU_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub WeightTensor: *mut DML_TENSOR_DESC,
@@ -3935,6 +4068,7 @@ unsafe impl ::windows::runtime::Abi for DML_GRU_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_INPUT_GRAPH_EDGE_DESC {
     pub GraphInputIndex: u32,
     pub ToNodeIndex: u32,
@@ -3971,6 +4105,7 @@ unsafe impl ::windows::runtime::Abi for DML_INPUT_GRAPH_EDGE_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
@@ -4005,6 +4140,7 @@ unsafe impl ::windows::runtime::Abi for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_INTERPOLATION_MODE(pub i32);
@@ -4019,6 +4155,7 @@ unsafe impl ::windows::runtime::Abi for DML_INTERPOLATION_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_IS_INFINITY_MODE(pub i32);
@@ -4036,6 +4173,7 @@ unsafe impl ::windows::runtime::Abi for DML_IS_INFINITY_MODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_JOIN_OPERATOR_DESC {
     pub InputCount: u32,
     pub InputTensors: *mut DML_TENSOR_DESC,
@@ -4066,6 +4204,7 @@ unsafe impl ::windows::runtime::Abi for DML_JOIN_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub InputGradientTensor: *mut DML_TENSOR_DESC,
@@ -4115,6 +4254,7 @@ unsafe impl ::windows::runtime::Abi for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OP
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -4161,6 +4301,7 @@ unsafe impl ::windows::runtime::Abi for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -4191,6 +4332,7 @@ unsafe impl ::windows::runtime::Abi for DML_LP_NORMALIZATION_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_LP_POOLING_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -4234,6 +4376,7 @@ unsafe impl ::windows::runtime::Abi for DML_LP_POOLING_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_LSTM_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub WeightTensor: *mut DML_TENSOR_DESC,
@@ -4316,6 +4459,7 @@ unsafe impl ::windows::runtime::Abi for DML_LSTM_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub AZeroPointTensor: *mut DML_TENSOR_DESC,
@@ -4344,6 +4488,7 @@ unsafe impl ::windows::runtime::Abi for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DES
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_MATRIX_TRANSFORM(pub i32);
@@ -4360,6 +4505,7 @@ unsafe impl ::windows::runtime::Abi for DML_MATRIX_TRANSFORM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_POOLING1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -4402,6 +4548,7 @@ unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_POOLING2_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -4446,6 +4593,7 @@ unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING2_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub InputGradientTensor: *mut DML_TENSOR_DESC,
@@ -4490,6 +4638,7 @@ unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_POOLING_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -4530,6 +4679,7 @@ unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub IndicesTensor: *mut DML_TENSOR_DESC,
@@ -4559,6 +4709,7 @@ unsafe impl ::windows::runtime::Abi for DML_MAX_UNPOOLING_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub ScaleTensor: *mut DML_TENSOR_DESC,
@@ -4610,6 +4761,7 @@ unsafe impl ::windows::runtime::Abi for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATO
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub ScaleTensor: *mut DML_TENSOR_DESC,
@@ -4656,9 +4808,11 @@ unsafe impl ::windows::runtime::Abi for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputCountTensor: *mut DML_TENSOR_DESC,
@@ -4687,6 +4841,7 @@ unsafe impl ::windows::runtime::Abi for DML_NONZERO_COORDINATES_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ONE_HOT_OPERATOR_DESC {
     pub IndicesTensor: *mut DML_TENSOR_DESC,
     pub ValuesTensor: *mut DML_TENSOR_DESC,
@@ -4716,6 +4871,7 @@ unsafe impl ::windows::runtime::Abi for DML_ONE_HOT_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_OPERATOR_DESC {
     pub Type: DML_OPERATOR_TYPE,
     pub Desc: *mut ::std::ffi::c_void,
@@ -4744,6 +4900,7 @@ unsafe impl ::windows::runtime::Abi for DML_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
     pub Operator: ::std::option::Option<IDMLOperator>,
     pub Name: super::super::super::Foundation::PSTR,
@@ -4775,6 +4932,7 @@ unsafe impl ::windows::runtime::Abi for DML_OPERATOR_GRAPH_NODE_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_OPERATOR_TYPE(pub i32);
@@ -4941,6 +5099,7 @@ unsafe impl ::windows::runtime::Abi for DML_OPERATOR_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
@@ -4974,6 +5133,7 @@ unsafe impl ::windows::runtime::Abi for DML_OUTPUT_GRAPH_EDGE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_PADDING_MODE(pub i32);
@@ -4992,6 +5152,7 @@ unsafe impl ::windows::runtime::Abi for DML_PADDING_MODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_PADDING_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -5030,9 +5191,11 @@ unsafe impl ::windows::runtime::Abi for DML_PADDING_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub InputScaleTensor: *mut DML_TENSOR_DESC,
@@ -5106,6 +5269,7 @@ unsafe impl ::windows::runtime::Abi for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     pub ATensor: *mut DML_TENSOR_DESC,
     pub AScaleTensor: *mut DML_TENSOR_DESC,
@@ -5150,6 +5314,7 @@ unsafe impl ::windows::runtime::Abi for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPE
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
     pub InputStateTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -5177,6 +5342,7 @@ unsafe impl ::windows::runtime::Abi for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
@@ -5190,6 +5356,7 @@ unsafe impl ::windows::runtime::Abi for DML_RANDOM_GENERATOR_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
@@ -5205,6 +5372,7 @@ unsafe impl ::windows::runtime::Abi for DML_RECURRENT_NETWORK_DIRECTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_REDUCE_FUNCTION(pub i32);
@@ -5231,6 +5399,7 @@ unsafe impl ::windows::runtime::Abi for DML_REDUCE_FUNCTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_REDUCE_OPERATOR_DESC {
     pub Function: DML_REDUCE_FUNCTION,
     pub InputTensor: *mut DML_TENSOR_DESC,
@@ -5261,6 +5430,7 @@ unsafe impl ::windows::runtime::Abi for DML_REDUCE_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RESAMPLE1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -5301,6 +5471,7 @@ unsafe impl ::windows::runtime::Abi for DML_RESAMPLE1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *mut DML_TENSOR_DESC,
     pub OutputGradientTensor: *mut DML_TENSOR_DESC,
@@ -5341,6 +5512,7 @@ unsafe impl ::windows::runtime::Abi for DML_RESAMPLE_GRAD_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RESAMPLE_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -5371,6 +5543,7 @@ unsafe impl ::windows::runtime::Abi for DML_RESAMPLE_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub SequenceLengthsTensor: *mut DML_TENSOR_DESC,
@@ -5400,6 +5573,7 @@ unsafe impl ::windows::runtime::Abi for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_RNN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub WeightTensor: *mut DML_TENSOR_DESC,
@@ -5459,6 +5633,7 @@ unsafe impl ::windows::runtime::Abi for DML_RNN_OPERATOR_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
 pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub ROITensor: *mut DML_TENSOR_DESC,
@@ -5532,6 +5707,7 @@ unsafe impl ::windows::runtime::Abi for DML_ROI_ALIGN1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub ROITensor: *mut DML_TENSOR_DESC,
@@ -5590,6 +5766,7 @@ unsafe impl ::windows::runtime::Abi for DML_ROI_ALIGN_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_ROI_POOLING_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub ROITensor: *mut DML_TENSOR_DESC,
@@ -5618,6 +5795,7 @@ unsafe impl ::windows::runtime::Abi for DML_ROI_POOLING_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_ROUNDING_MODE(pub i32);
@@ -5635,6 +5813,7 @@ unsafe impl ::windows::runtime::Abi for DML_ROUNDING_MODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub union DML_SCALAR_UNION {
     pub Bytes: [u8; 8],
     pub Int8: i8,
@@ -5666,6 +5845,7 @@ unsafe impl ::windows::runtime::Abi for DML_SCALAR_UNION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SCALE_BIAS {
     pub Scale: f32,
     pub Bias: f32,
@@ -5693,6 +5873,7 @@ unsafe impl ::windows::runtime::Abi for DML_SCALE_BIAS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SCATTER_ND_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub IndicesTensor: *mut DML_TENSOR_DESC,
@@ -5731,6 +5912,7 @@ unsafe impl ::windows::runtime::Abi for DML_SCATTER_ND_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SCATTER_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub IndicesTensor: *mut DML_TENSOR_DESC,
@@ -5761,6 +5943,7 @@ unsafe impl ::windows::runtime::Abi for DML_SCATTER_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SIZE_2D {
     pub Width: u32,
     pub Height: u32,
@@ -5788,6 +5971,7 @@ unsafe impl ::windows::runtime::Abi for DML_SIZE_2D {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SLICE1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -5826,6 +6010,7 @@ unsafe impl ::windows::runtime::Abi for DML_SLICE1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SLICE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *mut DML_TENSOR_DESC,
     pub OutputGradientTensor: *mut DML_TENSOR_DESC,
@@ -5864,6 +6049,7 @@ unsafe impl ::windows::runtime::Abi for DML_SLICE_GRAD_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SLICE_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -5895,6 +6081,7 @@ unsafe impl ::windows::runtime::Abi for DML_SLICE_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -5924,6 +6111,7 @@ unsafe impl ::windows::runtime::Abi for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -5952,6 +6140,7 @@ unsafe impl ::windows::runtime::Abi for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_SPLIT_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputCount: u32,
@@ -5979,8 +6168,11 @@ unsafe impl ::windows::runtime::Abi for DML_SPLIT_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_TARGET_VERSION: u32 = 16384u32;
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_DATA_TYPE(pub i32);
@@ -6007,6 +6199,7 @@ unsafe impl ::windows::runtime::Abi for DML_TENSOR_DATA_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_TENSOR_DESC {
     pub Type: DML_TENSOR_TYPE,
     pub Desc: *mut ::std::ffi::c_void,
@@ -6032,8 +6225,11 @@ unsafe impl ::windows::runtime::Abi for DML_TENSOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5u32;
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8u32;
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_FLAGS(pub u32);
@@ -6076,6 +6272,7 @@ impl ::std::ops::Not for DML_TENSOR_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_TYPE(pub i32);
@@ -6092,6 +6289,7 @@ unsafe impl ::windows::runtime::Abi for DML_TENSOR_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_TILE_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -6121,6 +6319,7 @@ unsafe impl ::windows::runtime::Abi for DML_TILE_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_TOP_K1_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputValueTensor: *mut DML_TENSOR_DESC,
@@ -6152,6 +6351,7 @@ unsafe impl ::windows::runtime::Abi for DML_TOP_K1_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_TOP_K_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputValueTensor: *mut DML_TENSOR_DESC,
@@ -6182,6 +6382,7 @@ unsafe impl ::windows::runtime::Abi for DML_TOP_K_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -6211,6 +6412,7 @@ unsafe impl ::windows::runtime::Abi for DML_UPSAMPLE_2D_OPERATOR_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
     pub InputTensor: *mut DML_TENSOR_DESC,
     pub OutputTensor: *mut DML_TENSOR_DESC,
@@ -6239,40 +6441,51 @@ unsafe impl ::windows::runtime::Abi for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLBindingTable(::windows::runtime::IUnknown);
 impl IDMLBindingTable {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn BindInputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(bindingcount), ::std::mem::transmute(bindings)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn BindOutputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(bindingcount), ::std::mem::transmute(bindings)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(binding)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn BindPersistentResource(&self, binding: *const DML_BINDING_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(binding)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc)).ok()
     }
@@ -6360,28 +6573,35 @@ pub struct IDMLBindingTable_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLCommandRecorder(::windows::runtime::IUnknown);
 impl IDMLCommandRecorder {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn RecordDispatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandList>, Param1: ::windows::runtime::IntoParam<'a, IDMLDispatchable>, Param2: ::windows::runtime::IntoParam<'a, IDMLBindingTable>>(&self, commandlist: Param0, dispatchable: Param1, bindings: Param2) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi()))
     }
@@ -6465,27 +6685,34 @@ pub struct IDMLCommandRecorder_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: ::windows::runtime::RawPtr, dispatchable: ::windows::runtime::RawPtr, bindings: ::windows::runtime::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLCompiledOperator(::windows::runtime::IUnknown);
 impl IDMLCompiledOperator {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
@@ -6610,11 +6837,13 @@ pub struct IDMLCompiledOperator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDebugDevice(::windows::runtime::IUnknown);
 impl IDMLDebugDevice {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetMuteDebugOutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, mute: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), mute.into_param().abi()))
     }
@@ -6652,54 +6881,69 @@ pub struct IDMLDebugDevice_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mute: super::super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDevice(::windows::runtime::IUnknown);
 impl IDMLDevice {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(feature), ::std::mem::transmute(featurequerydatasize), ::std::mem::transmute(featurequerydata), ::std::mem::transmute(featuresupportdatasize), ::std::mem::transmute(featuresupportdata)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CompileOperator<'a, Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>, T: ::windows::runtime::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), op.into_param().abi(), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CreateCommandRecorder<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateBindingTable<T: ::windows::runtime::Interface>(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetParentDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -6772,58 +7016,74 @@ pub struct IDMLDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDevice1(::windows::runtime::IUnknown);
 impl IDMLDevice1 {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(feature), ::std::mem::transmute(featurequerydatasize), ::std::mem::transmute(featurequerydata), ::std::mem::transmute(featuresupportdatasize), ::std::mem::transmute(featuresupportdata)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CompileOperator<'a, Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>, T: ::windows::runtime::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), op.into_param().abi(), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CreateCommandRecorder<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateBindingTable<T: ::windows::runtime::Interface>(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetParentDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn CompileGraph<T: ::windows::runtime::Interface>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
@@ -6916,23 +7176,29 @@ pub struct IDMLDevice1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDeviceChild(::windows::runtime::IUnknown);
 impl IDMLDeviceChild {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -6995,27 +7261,34 @@ pub struct IDMLDeviceChild_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDispatchable(::windows::runtime::IUnknown);
 impl IDMLDispatchable {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
@@ -7120,20 +7393,25 @@ pub struct IDMLDispatchable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLObject(::windows::runtime::IUnknown);
 impl IDMLObject {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
@@ -7174,23 +7452,29 @@ pub struct IDMLObject_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLOperator(::windows::runtime::IUnknown);
 impl IDMLOperator {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -7273,32 +7557,40 @@ pub struct IDMLOperator_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLOperatorInitializer(::windows::runtime::IUnknown);
 impl IDMLOperatorInitializer {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
         result__
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn Reset(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators)).ok()
     }
@@ -7422,23 +7714,29 @@ pub struct IDMLOperatorInitializer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLPageable(::windows::runtime::IUnknown);
 impl IDMLPageable {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)

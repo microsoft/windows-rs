@@ -126,7 +126,10 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             quote! {}
         };
 
+        let doc = gen.gen_cfg_doc(&BTreeSet::new());
+
         quote! {
+            #doc
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name(::windows::runtime::IUnknown);
@@ -174,7 +177,9 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
 
     let name: TokenStream = if *overload > 1 { format_token!("{}{}", name, overload) } else { to_ident(&name) };
 
-    let features = method_features(&signature, gen);
+    let features = signature.method_features();
+    let cfg = gen.gen_cfg(&features);
+    let doc = gen.gen_cfg_doc(&features);
 
     match signature.kind() {
         SignatureKind::Query => {
@@ -183,7 +188,8 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #features
+                #cfg
+                #doc
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params) -> ::windows::runtime::Result<T> {
                     let mut result__ = ::std::option::Option::None;
                     (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -196,7 +202,8 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #features
+                #cfg
+                #doc
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
                     (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
@@ -209,7 +216,8 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             let return_type_tokens = gen_win32_result_type(&signature, gen);
 
             quote! {
-                #features
+                #cfg
+                #doc
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
                     let mut result__: <#return_type_tokens as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__)
@@ -222,7 +230,8 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #features
+                #cfg
+                #doc
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<()> {
                     (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*).ok()
                 }
@@ -234,7 +243,8 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             let return_sig = gen_abi_type_name(&signature.return_sig.unwrap().kind, gen);
 
             quote! {
-                #features
+                #cfg
+                #doc
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = ::std::default::Default::default();
                     (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), &mut result__ #(,#args)*);
@@ -248,7 +258,8 @@ fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTree
             let return_sig = gen_win32_return_sig(&signature, gen);
 
             quote! {
-                #features
+                #cfg
+                #doc
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
                     ::std::mem::transmute((::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*))
                 }

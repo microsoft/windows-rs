@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ApplicationRecoveryFinished<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bsuccess: Param0) {
     #[cfg(windows)]
@@ -14,6 +15,7 @@ pub unsafe fn ApplicationRecoveryFinished<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -29,6 +31,7 @@ pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::runtime::Result<supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn GetApplicationRecoveryCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, precoverycallback: *mut ::std::option::Option<super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK>, ppvparameter: *mut *mut ::std::ffi::c_void, pdwpinginterval: *mut u32, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -43,6 +46,7 @@ pub unsafe fn GetApplicationRecoveryCallback<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetApplicationRestartSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pwzcommandline: super::super::Foundation::PWSTR, pcchsize: *mut u32, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -56,6 +60,7 @@ pub unsafe fn GetApplicationRestartSettings<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Recovery`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REGISTER_APPLICATION_RESTART_FLAGS(pub u32);
@@ -101,6 +106,7 @@ impl ::std::ops::Not for REGISTER_APPLICATION_RESTART_FLAGS {
     }
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[doc = "*Required features: `Win32_System_Recovery`, `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: ::std::option::Option<super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK>, pvparameter: *const ::std::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -115,6 +121,7 @@ pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: ::std::optio
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Recovery`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterApplicationRestart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzcommandline: Param0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -128,6 +135,7 @@ pub unsafe fn RegisterApplicationRestart<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Recovery`*"]
 #[inline]
 pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -141,6 +149,7 @@ pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Recovery`*"]
 #[inline]
 pub unsafe fn UnregisterApplicationRestart() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

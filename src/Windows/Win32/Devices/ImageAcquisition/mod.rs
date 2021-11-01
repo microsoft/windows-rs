@@ -1,77 +1,147 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ADVANCED_DUP: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ADVANCED_DUPLEX: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ALL_PAGES: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const AUTO_ADVANCE: u32 = 512u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const AUTO_SOURCE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BACK_FIRST: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BACK_ONLY: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BARCODE_READER: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BARCODE_READER_READY: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BASE_VAL_WIA_ERROR: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BASE_VAL_WIA_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BOTTOM_JUSTIFIED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BUS_TYPE_FIREWIRE: u32 = 203u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BUS_TYPE_PARALLEL: u32 = 202u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BUS_TYPE_SCSI: u32 = 200u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const BUS_TYPE_USB: u32 = 201u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CAPTUREMODE_BURST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CAPTUREMODE_NORMAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CAPTUREMODE_TIMELAPSE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CENTERED: u32 = 1u32;
 pub const CLSID_WiaDefaultSegFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3572814603, 2857, 17672, [137, 34, 12, 87, 151, 212, 39, 101]);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETADFAVAILABLE: u32 = 117u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETADFHASPAPER: u32 = 120u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETADFOPEN: u32 = 118u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETADFREADY: u32 = 119u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETADFSTATUS: u32 = 121u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETADFUNLOADREADY: u32 = 122u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETCAPABILITIES: u32 = 132u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETSUPPORTEDFILEFORMATS: u32 = 138u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETSUPPORTEDMEMORYFORMATS: u32 = 139u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETTPAAVAILABLE: u32 = 123u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GETTPAOPENED: u32 = 124u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_GET_INTERRUPT_EVENT: u32 = 133u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_INITIALIZE: u32 = 100u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_LOAD_ADF: u32 = 115u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_RESETSCANNER: u32 = 131u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SENDSCSICOMMAND: u32 = 127u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETCOLORDITHER: u32 = 111u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETCONTRAST: u32 = 104u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETDATATYPE: u32 = 106u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETDITHER: u32 = 107u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETFILTER: u32 = 114u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETFORMAT: u32 = 140u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETGSDNAME: u32 = 134u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETINTENSITY: u32 = 105u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETLAMP: u32 = 126u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETMATRIX: u32 = 112u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETMIRROR: u32 = 108u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETNEGATIVE: u32 = 109u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETSCANMODE: u32 = 135u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETSPEED: u32 = 113u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETSTIDEVICEHKEY: u32 = 136u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETTONEMAP: u32 = 110u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETXRESOLUTION: u32 = 102u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_SETYRESOLUTION: u32 = 103u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_STI_DEVICERESET: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_STI_DIAGNOSTIC: u32 = 130u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_STI_GETSTATUS: u32 = 129u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_TPAREADY: u32 = 125u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_UNINITIALIZE: u32 = 101u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const CMD_UNLOAD_ADF: u32 = 116u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const COPY_PARENT_PROPERTY_VALUES: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_DUP: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_DUP_AVAIL: u32 = 256u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_FEED: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_FEED_AVAIL: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_FILM_TPA: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_FLAT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_SCAN: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DETECT_STOR: u32 = 4096u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct DEVICEDIALOGDATA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -111,6 +181,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDIALOGDATA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct DEVICEDIALOGDATA2 {
     pub cbSize: u32,
     pub pIWiaItemRoot: ::std::option::Option<IWiaItem2>,
@@ -159,71 +230,121 @@ unsafe impl ::windows::runtime::Abi for DEVICEDIALOGDATA2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DEVICE_ATTENTION: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DUP: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DUPLEX: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DUP_READY: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type DeviceDialogFunction = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DEVICEDIALOGDATA>) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EFFECTMODE_BW: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EFFECTMODE_SEPIA: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EFFECTMODE_STANDARD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ENDORSER: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ENDORSER_READY: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ESC_TWAIN_CAPABILITY: u32 = 2001u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ESC_TWAIN_PRIVATE_SUPPORTED_CAPS: u32 = 2002u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMETERING_AVERAGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMETERING_CENTERSPOT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMETERING_CENTERWEIGHT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMETERING_MULTISPOT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMODE_APERTURE_PRIORITY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMODE_AUTO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMODE_MANUAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMODE_PORTRAIT: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMODE_PROGRAM_ACTION: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMODE_PROGRAM_CREATIVE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const EXPOSUREMODE_SHUTTER_PRIORITY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FEED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FEEDER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FEED_READY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FILM_TPA: u32 = 512u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FILM_TPA_READY: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLASHMODE_AUTO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLASHMODE_EXTERNALSYNC: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLASHMODE_FILL: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLASHMODE_OFF: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLASHMODE_REDEYE_AUTO: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLASHMODE_REDEYE_FILL: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLAT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLATBED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLAT_COVER_UP: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FLAT_READY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FOCUSMETERING_CENTERSPOT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FOCUSMETERING_MULTISPOT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FOCUSMODE_AUTO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FOCUSMODE_MACROAUTO: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FOCUSMODE_MANUAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FRONT_FIRST: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const FRONT_ONLY: u32 = 32u32;
 pub const GUID_DEVINTERFACE_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1809653702, 33039, 4560, [190, 199, 8, 0, 43, 226, 9, 47]);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumWIA_DEV_CAPS(::windows::runtime::IUnknown);
 impl IEnumWIA_DEV_CAPS {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumWIA_DEV_CAPS> {
         let mut result__: <IEnumWIA_DEV_CAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -266,23 +387,29 @@ pub struct IEnumWIA_DEV_CAPS_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppienum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcelt: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumWIA_DEV_INFO(::windows::runtime::IUnknown);
 impl IEnumWIA_DEV_INFO {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<IWiaPropertyStorage>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumWIA_DEV_INFO> {
         let mut result__: <IEnumWIA_DEV_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWIA_DEV_INFO>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -324,23 +451,29 @@ pub struct IEnumWIA_DEV_INFO_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppienum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumWIA_FORMAT_INFO(::windows::runtime::IUnknown);
 impl IEnumWIA_FORMAT_INFO {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_FORMAT_INFO, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__: <IEnumWIA_FORMAT_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWIA_FORMAT_INFO>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -382,23 +515,29 @@ pub struct IEnumWIA_FORMAT_INFO_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppienum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcelt: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumWiaItem(::windows::runtime::IUnknown);
 impl IEnumWiaItem {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem: *mut ::std::option::Option<IWiaItem>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppiwiaitem), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumWiaItem> {
         let mut result__: <IEnumWiaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWiaItem>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -440,23 +579,29 @@ pub struct IEnumWiaItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppienum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumWiaItem2(::windows::runtime::IUnknown);
 impl IEnumWiaItem2 {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem2: *mut ::std::option::Option<IWiaItem2>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppiwiaitem2), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumWiaItem2> {
         let mut result__: <IEnumWiaItem2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWiaItem2>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -498,28 +643,44 @@ pub struct IEnumWiaItem2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppienum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IMPRINTER: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IMPRINTER_READY: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_MSG_DATA: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_MSG_DATA_HEADER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_MSG_FILE_PREVIEW_DATA: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_MSG_FILE_PREVIEW_DATA_HEADER: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_MSG_NEW_PAGE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_MSG_STATUS: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_MSG_TERMINATION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_STATUS_MASK: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_STATUS_PROCESSING_DATA: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaAppErrorHandler(::windows::runtime::IUnknown);
 impl IWiaAppErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn ReportStatus<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaItem2>>(&self, lflags: i32, pwiaitem2: Param1, hrstatus: ::windows::runtime::HRESULT, lpercentcomplete: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pwiaitem2.into_param().abi(), ::std::mem::transmute(hrstatus), ::std::mem::transmute(lpercentcomplete)).ok()
     }
@@ -558,10 +719,12 @@ pub struct IWiaAppErrorHandler_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, pwiaitem2: ::windows::runtime::RawPtr, hrstatus: ::windows::runtime::HRESULT, lpercentcomplete: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaDataCallback(::windows::runtime::IUnknown);
 impl IWiaDataCallback {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn BandedDataCallback(&self, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -609,25 +772,31 @@ pub struct IWiaDataCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaDataTransfer(::windows::runtime::IUnknown);
 impl IWiaDataTransfer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn idtGetData<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaDataCallback>>(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmedium), piwiadatacallback.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn idtGetBandedData<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaDataCallback>>(&self, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwiadatatransinfo), piwiadatacallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn idtQueryGetData(&self, pfe: *const WIA_FORMAT_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfe)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn idtEnumWIA_FORMAT_INFO(&self) -> ::windows::runtime::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__: <IEnumWIA_FORMAT_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWIA_FORMAT_INFO>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn idtGetExtendedTransferInfo(&self) -> ::windows::runtime::Result<WIA_EXTENDED_TRANSFER_INFO> {
         let mut result__: <WIA_EXTENDED_TRANSFER_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WIA_EXTENDED_TRANSFER_INFO>(result__)
@@ -671,32 +840,39 @@ pub struct IWiaDataTransfer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaDevMgr(::windows::runtime::IUnknown);
 impl IWiaDevMgr {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> ::windows::runtime::Result<IEnumWIA_DEV_INFO> {
         let mut result__: <IEnumWIA_DEV_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflag), &mut result__).from_abi::<IEnumWIA_DEV_INFO>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdeviceid: Param0) -> ::windows::runtime::Result<IWiaItem> {
         let mut result__: <IWiaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrdeviceid.into_param().abi(), &mut result__).from_abi::<IWiaItem>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn SelectDeviceDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR, ppitemroot: *mut ::std::option::Option<IWiaItem>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(ldevicetype), ::std::mem::transmute(lflags), ::std::mem::transmute(pbstrdeviceid), ::std::mem::transmute(ppitemroot)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn SelectDeviceDlgID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(ldevicetype), ::std::mem::transmute(lflags), ::std::mem::transmute(pbstrdeviceid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn GetImageDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, IWiaItem>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwndparent: Param0, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: Param4, bstrfilename: Param5, pguidformat: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(ldevicetype), ::std::mem::transmute(lflags), ::std::mem::transmute(lintent), pitemroot.into_param().abi(), bstrfilename.into_param().abi(), ::std::mem::transmute(pguidformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn RegisterEventCallbackProgram<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         lflags: i32,
@@ -710,11 +886,13 @@ impl IWiaDevMgr {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrdeviceid.into_param().abi(), ::std::mem::transmute(peventguid), bstrcommandline.into_param().abi(), bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn RegisterEventCallbackInterface<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWiaEventCallback>>(&self, lflags: i32, bstrdeviceid: Param1, peventguid: *const ::windows::runtime::GUID, piwiaeventcallback: Param3) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrdeviceid.into_param().abi(), ::std::mem::transmute(peventguid), piwiaeventcallback.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn RegisterEventCallbackCLSID<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         lflags: i32,
@@ -728,6 +906,7 @@ impl IWiaDevMgr {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrdeviceid.into_param().abi(), ::std::mem::transmute(peventguid), ::std::mem::transmute(pclsid), bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn AddDeviceDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
@@ -791,33 +970,40 @@ pub struct IWiaDevMgr_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, lflags: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaDevMgr2(::windows::runtime::IUnknown);
 impl IWiaDevMgr2 {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> ::windows::runtime::Result<IEnumWIA_DEV_INFO> {
         let mut result__: <IEnumWIA_DEV_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IEnumWIA_DEV_INFO>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn CreateDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, bstrdeviceid: Param1) -> ::windows::runtime::Result<IWiaItem2> {
         let mut result__: <IWiaItem2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrdeviceid.into_param().abi(), &mut result__).from_abi::<IWiaItem2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn SelectDeviceDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR, ppitemroot: *mut ::std::option::Option<IWiaItem2>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(ldevicetype), ::std::mem::transmute(lflags), ::std::mem::transmute(pbstrdeviceid), ::std::mem::transmute(ppitemroot)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn SelectDeviceDlgID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(ldevicetype), ::std::mem::transmute(lflags), ::std::mem::transmute(pbstrdeviceid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn RegisterEventCallbackInterface<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWiaEventCallback>>(&self, lflags: i32, bstrdeviceid: Param1, peventguid: *const ::windows::runtime::GUID, piwiaeventcallback: Param3) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrdeviceid.into_param().abi(), ::std::mem::transmute(peventguid), piwiaeventcallback.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn RegisterEventCallbackProgram<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -840,6 +1026,7 @@ impl IWiaDevMgr2 {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrdeviceid.into_param().abi(), ::std::mem::transmute(peventguid), bstrfullappname.into_param().abi(), bstrcommandlinearg.into_param().abi(), bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn RegisterEventCallbackCLSID<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         lflags: i32,
@@ -853,6 +1040,7 @@ impl IWiaDevMgr2 {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrdeviceid.into_param().abi(), ::std::mem::transmute(peventguid), ::std::mem::transmute(pclsid), bstrname.into_param().abi(), bstrdescription.into_param().abi(), bstricon.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn GetImageDlg<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         lflags: i32,
@@ -947,60 +1135,74 @@ pub struct IWiaDevMgr2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaDrvItem(::windows::runtime::IUnknown);
 impl IWiaDrvItem {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetItemFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetDeviceSpecContext(&self) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u8>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn GetFullItemName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn GetItemName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn AddItemToFolder<'a, Param0: ::windows::runtime::IntoParam<'a, IWiaDrvItem>>(&self, __midl__iwiadrvitem0004: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), __midl__iwiadrvitem0004.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn UnlinkItemTree(&self, __midl__iwiadrvitem0005: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiadrvitem0005)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn RemoveItemFromFolder(&self, __midl__iwiadrvitem0006: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiadrvitem0006)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn FindItemByName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: Param1) -> ::windows::runtime::Result<IWiaDrvItem> {
         let mut result__: <IWiaDrvItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiadrvitem0007), __midl__iwiadrvitem0008.into_param().abi(), &mut result__).from_abi::<IWiaDrvItem>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn FindChildItemByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, __midl__iwiadrvitem0010: Param0) -> ::windows::runtime::Result<IWiaDrvItem> {
         let mut result__: <IWiaDrvItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), __midl__iwiadrvitem0010.into_param().abi(), &mut result__).from_abi::<IWiaDrvItem>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetParentItem(&self) -> ::windows::runtime::Result<IWiaDrvItem> {
         let mut result__: <IWiaDrvItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWiaDrvItem>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetFirstChildItem(&self) -> ::windows::runtime::Result<IWiaDrvItem> {
         let mut result__: <IWiaDrvItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWiaDrvItem>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetNextSiblingItem(&self) -> ::windows::runtime::Result<IWiaDrvItem> {
         let mut result__: <IWiaDrvItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWiaDrvItem>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn DumpItemData(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -1055,15 +1257,18 @@ pub struct IWiaDrvItem_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, __midl__iwiadrvitem0015: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaErrorHandler(::windows::runtime::IUnknown);
 impl IWiaErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn ReportStatus<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, IWiaItem2>>(&self, lflags: i32, hwndparent: Param1, pwiaitem2: Param2, hrstatus: ::windows::runtime::HRESULT, lpercentcomplete: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), hwndparent.into_param().abi(), pwiaitem2.into_param().abi(), ::std::mem::transmute(hrstatus), ::std::mem::transmute(lpercentcomplete)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn GetStatusDescription<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaItem2>>(&self, lflags: i32, pwiaitem2: Param1, hrstatus: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pwiaitem2.into_param().abi(), ::std::mem::transmute(hrstatus), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -1104,11 +1309,13 @@ pub struct IWiaErrorHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, pwiaitem2: ::windows::runtime::RawPtr, hrstatus: ::windows::runtime::HRESULT, pbstrdescription: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaEventCallback(::windows::runtime::IUnknown);
 impl IWiaEventCallback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn ImageEventCallback<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         peventguid: *const ::windows::runtime::GUID,
@@ -1178,20 +1385,25 @@ pub struct IWiaEventCallback_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaImageFilter(::windows::runtime::IUnknown);
 impl IWiaImageFilter {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn InitializeFilter<'a, Param0: ::windows::runtime::IntoParam<'a, IWiaItem2>, Param1: ::windows::runtime::IntoParam<'a, IWiaTransferCallback>>(&self, pwiaitem2: Param0, pwiatransfercallback: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn SetNewCallback<'a, Param0: ::windows::runtime::IntoParam<'a, IWiaTransferCallback>>(&self, pwiatransfercallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwiatransfercallback.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn FilterPreviewImage<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaItem2>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, lflags: i32, pwiachilditem2: Param1, inputimageextents: Param2, pinputstream: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pwiachilditem2.into_param().abi(), inputimageextents.into_param().abi(), pinputstream.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn ApplyProperties<'a, Param0: ::windows::runtime::IntoParam<'a, IWiaPropertyStorage>>(&self, pwiapropertystorage: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwiapropertystorage.into_param().abi()).ok()
     }
@@ -1232,68 +1444,84 @@ pub struct IWiaImageFilter_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwiapropertystorage: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaItem(::windows::runtime::IUnknown);
 impl IWiaItem {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn AnalyzeItem(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumChildItems(&self) -> ::windows::runtime::Result<IEnumWiaItem> {
         let mut result__: <IEnumWiaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWiaItem>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn DeleteItem(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn CreateChildItem<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, bstritemname: Param1, bstrfullitemname: Param2) -> ::windows::runtime::Result<IWiaItem> {
         let mut result__: <IWiaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstritemname.into_param().abi(), bstrfullitemname.into_param().abi(), &mut result__).from_abi::<IWiaItem>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumWIA_DEV_CAPS> {
         let mut result__: <IEnumWIA_DEV_CAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(peventguid), &mut result__).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn FindItemByName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, bstrfullitemname: Param1) -> ::windows::runtime::Result<IWiaItem> {
         let mut result__: <IWiaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrfullitemname.into_param().abi(), &mut result__).from_abi::<IWiaItem>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn DeviceDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut ::std::option::Option<IWiaItem>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(lintent), ::std::mem::transmute(plitemcount), ::std::mem::transmute(ppiwiaitem)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const ::windows::runtime::GUID, piwiaitem: *mut ::std::option::Option<IWiaItem>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pcmdguid), ::std::mem::transmute(piwiaitem)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetRootItem(&self) -> ::windows::runtime::Result<IWiaItem> {
         let mut result__: <IWiaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWiaItem>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> ::windows::runtime::Result<IEnumWIA_DEV_CAPS> {
         let mut result__: <IEnumWIA_DEV_CAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn DumpItemData(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn DumpDrvItemData(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn DumpTreeItemData(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Diagnostic(&self, ulsize: u32, pbuffer: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulsize), ::std::mem::transmute(pbuffer)).ok()
     }
@@ -1350,36 +1578,44 @@ pub struct IWiaItem_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulsize: u32, pbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaItem2(::windows::runtime::IUnknown);
 impl IWiaItem2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn CreateChildItem<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, litemflags: i32, lcreationflags: i32, bstritemname: Param2) -> ::windows::runtime::Result<IWiaItem2> {
         let mut result__: <IWiaItem2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(litemflags), ::std::mem::transmute(lcreationflags), bstritemname.into_param().abi(), &mut result__).from_abi::<IWiaItem2>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn DeleteItem(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumChildItems(&self, pcategoryguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumWiaItem2> {
         let mut result__: <IEnumWiaItem2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcategoryguid), &mut result__).from_abi::<IEnumWiaItem2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn FindItemByName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, bstrfullitemname: Param1) -> ::windows::runtime::Result<IWiaItem2> {
         let mut result__: <IWiaItem2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrfullitemname.into_param().abi(), &mut result__).from_abi::<IWiaItem2>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetItemCategory(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn DeviceDlg<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         lflags: i32,
@@ -1392,37 +1628,46 @@ impl IWiaItem2 {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), hwndparent.into_param().abi(), bstrfoldername.into_param().abi(), bstrfilename.into_param().abi(), ::std::mem::transmute(plnumfiles), ::std::mem::transmute(ppbstrfilepaths), ::std::mem::transmute(ppitem)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const ::windows::runtime::GUID, ppiwiaitem2: *mut ::std::option::Option<IWiaItem2>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pcmdguid), ::std::mem::transmute(ppiwiaitem2)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> ::windows::runtime::Result<IEnumWIA_DEV_CAPS> {
         let mut result__: <IEnumWIA_DEV_CAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn CheckExtension<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, bstrname: Param1, riidextensioninterface: *const ::windows::runtime::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrname.into_param().abi(), ::std::mem::transmute(riidextensioninterface), ::std::mem::transmute(pbextensionexists)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn GetExtension<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, bstrname: Param1, riidextensioninterface: *const ::windows::runtime::GUID, ppout: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstrname.into_param().abi(), ::std::mem::transmute(riidextensioninterface), ::std::mem::transmute(ppout)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetParentItem(&self) -> ::windows::runtime::Result<IWiaItem2> {
         let mut result__: <IWiaItem2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWiaItem2>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetRootItem(&self) -> ::windows::runtime::Result<IWiaItem2> {
         let mut result__: <IWiaItem2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWiaItem2>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetPreviewComponent(&self, lflags: i32) -> ::windows::runtime::Result<IWiaPreview> {
         let mut result__: <IWiaPreview as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IWiaPreview>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumWIA_DEV_CAPS> {
         let mut result__: <IEnumWIA_DEV_CAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(peventguid), &mut result__).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Diagnostic(&self, ulsize: u32, pbuffer: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulsize), ::std::mem::transmute(pbuffer)).ok()
     }
@@ -1479,18 +1724,22 @@ pub struct IWiaItem2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, peventguid: *const ::windows::runtime::GUID, ppienum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulsize: u32, pbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaItemExtras(::windows::runtime::IUnknown);
 impl IWiaItemExtras {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn GetExtendedErrorInfo(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: *const u8, cbindatasize: u32, poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwescapecode), ::std::mem::transmute(lpindata), ::std::mem::transmute(cbindatasize), ::std::mem::transmute(poutdata), ::std::mem::transmute(dwoutdatasize), ::std::mem::transmute(pdwactualdatasize)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn CancelPendingIO(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1530,17 +1779,21 @@ pub struct IWiaItemExtras_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwescapecode: u32, lpindata: *const u8, cbindatasize: u32, poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaLog(::windows::runtime::IUnknown);
 impl IWiaLog {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn InitializeLog(&self, hinstance: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hinstance)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn hResult(&self, hresult: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn Log<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(lresid), ::std::mem::transmute(ldetail), bstrtext.into_param().abi()).ok()
     }
@@ -1580,24 +1833,30 @@ pub struct IWiaLog_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaLogEx(::windows::runtime::IUnknown);
 impl IWiaLogEx {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn InitializeLogEx(&self, hinstance: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hinstance)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn hResult(&self, hresult: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn Log<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(lresid), ::std::mem::transmute(ldetail), bstrtext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn hResultEx(&self, lmethodid: i32, hresult: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmethodid), ::std::mem::transmute(hresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn LogEx<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lmethodid), ::std::mem::transmute(lflags), ::std::mem::transmute(lresid), ::std::mem::transmute(ldetail), bstrtext.into_param().abi()).ok()
     }
@@ -1640,11 +1899,13 @@ pub struct IWiaLogEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaMiniDrv(::windows::runtime::IUnknown);
 impl IWiaMiniDrv {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn drvInitializeWia<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         __midl__iwiaminidrv0000: *const u8,
@@ -1672,65 +1933,81 @@ impl IWiaMiniDrv {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn drvAcquireItemData(&self, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0009), ::std::mem::transmute(__midl__iwiaminidrv0010), ::std::mem::transmute(__midl__iwiaminidrv0011), ::std::mem::transmute(__midl__iwiaminidrv0012)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvInitItemProperties(&self, __midl__iwiaminidrv0013: *const u8, __midl__iwiaminidrv0014: i32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0013), ::std::mem::transmute(__midl__iwiaminidrv0014), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn drvValidateItemProperties(&self, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0016), ::std::mem::transmute(__midl__iwiaminidrv0017), ::std::mem::transmute(__midl__iwiaminidrv0018), ::std::mem::transmute(__midl__iwiaminidrv0019), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn drvWriteItemProperties(&self, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0021), ::std::mem::transmute(__midl__iwiaminidrv0022), ::std::mem::transmute(__midl__iwiaminidrv0023), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn drvReadItemProperties(&self, __midl__iwiaminidrv0025: *const u8, __midl__iwiaminidrv0026: i32, __midl__iwiaminidrv0027: u32, __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0025), ::std::mem::transmute(__midl__iwiaminidrv0026), ::std::mem::transmute(__midl__iwiaminidrv0027), ::std::mem::transmute(__midl__iwiaminidrv0028), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvLockWiaDevice(&self, __midl__iwiaminidrv0030: *const u8, __midl__iwiaminidrv0031: i32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0030), ::std::mem::transmute(__midl__iwiaminidrv0031), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvUnLockWiaDevice(&self, __midl__iwiaminidrv0033: *const u8, __midl__iwiaminidrv0034: i32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0033), ::std::mem::transmute(__midl__iwiaminidrv0034), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvAnalyzeItem(&self, __midl__iwiaminidrv0036: *const u8, __midl__iwiaminidrv0037: i32, __midl__iwiaminidrv0038: *const i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0036), ::std::mem::transmute(__midl__iwiaminidrv0037), ::std::mem::transmute(__midl__iwiaminidrv0038)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn drvGetDeviceErrorStr(&self, __midl__iwiaminidrv0039: i32, __midl__iwiaminidrv0040: i32, __midl__iwiaminidrv0041: *mut super::super::Foundation::PWSTR, __midl__iwiaminidrv0042: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0039), ::std::mem::transmute(__midl__iwiaminidrv0040), ::std::mem::transmute(__midl__iwiaminidrv0041), ::std::mem::transmute(__midl__iwiaminidrv0042)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvDeviceCommand(&self, __midl__iwiaminidrv0043: *const u8, __midl__iwiaminidrv0044: i32, __midl__iwiaminidrv0045: *const ::windows::runtime::GUID, __midl__iwiaminidrv0046: *mut ::std::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0047: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0043), ::std::mem::transmute(__midl__iwiaminidrv0044), ::std::mem::transmute(__midl__iwiaminidrv0045), ::std::mem::transmute(__midl__iwiaminidrv0046), ::std::mem::transmute(__midl__iwiaminidrv0047)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn drvGetCapabilities(&self, __midl__iwiaminidrv0048: *const u8, __midl__iwiaminidrv0049: i32, __midl__iwiaminidrv0050: *mut i32, __midl__iwiaminidrv0051: *mut *mut WIA_DEV_CAP_DRV, __midl__iwiaminidrv0052: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0048), ::std::mem::transmute(__midl__iwiaminidrv0049), ::std::mem::transmute(__midl__iwiaminidrv0050), ::std::mem::transmute(__midl__iwiaminidrv0051), ::std::mem::transmute(__midl__iwiaminidrv0052)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvDeleteItem(&self, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0053), ::std::mem::transmute(__midl__iwiaminidrv0054), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvFreeDrvItemContext(&self, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0056), ::std::mem::transmute(__midl__iwiaminidrv0057), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvGetWiaFormatInfo(&self, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0059), ::std::mem::transmute(__midl__iwiaminidrv0060), ::std::mem::transmute(__midl__iwiaminidrv0061), ::std::mem::transmute(__midl__iwiaminidrv0062), ::std::mem::transmute(__midl__iwiaminidrv0063)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn drvNotifyPnpEvent<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, peventguid: *const ::windows::runtime::GUID, bstrdeviceid: Param1, ulreserved: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(peventguid), bstrdeviceid.into_param().abi(), ::std::mem::transmute(ulreserved)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn drvUnInitializeWia(&self, __midl__iwiaminidrv0064: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(__midl__iwiaminidrv0064)).ok()
     }
@@ -1803,11 +2080,13 @@ pub struct IWiaMiniDrv_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, __midl__iwiaminidrv0064: *const u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaMiniDrvCallBack(::windows::runtime::IUnknown);
 impl IWiaMiniDrvCallBack {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn MiniDrvCallback(&self, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lreason), ::std::mem::transmute(lstatus), ::std::mem::transmute(lpercentcomplete), ::std::mem::transmute(loffset), ::std::mem::transmute(llength), ::std::mem::transmute(ptranctx), ::std::mem::transmute(lreserved)).ok()
     }
@@ -1845,15 +2124,18 @@ pub struct IWiaMiniDrvCallBack_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const ::std::mem::ManuallyDrop<MINIDRV_TRANSFER_CONTEXT>, lreserved: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaMiniDrvTransferCallback(::windows::runtime::IUnknown);
 impl IWiaMiniDrvTransferCallback {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetNextStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, bstritemname: Param1, bstrfullitemname: Param2) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
         let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstritemname.into_param().abi(), bstrfullitemname.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::IStream>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pwiatransferparams)).ok()
     }
@@ -1892,10 +2174,12 @@ pub struct IWiaMiniDrvTransferCallback_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaNotifyDevMgr(::windows::runtime::IUnknown);
 impl IWiaNotifyDevMgr {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn NewDeviceArrival(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1932,19 +2216,24 @@ pub struct IWiaNotifyDevMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaPreview(::windows::runtime::IUnknown);
 impl IWiaPreview {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetNewPreview<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaItem2>, Param2: ::windows::runtime::IntoParam<'a, IWiaTransferCallback>>(&self, lflags: i32, pwiaitem2: Param1, pwiatransfercallback: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn UpdatePreview<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaItem2>, Param2: ::windows::runtime::IntoParam<'a, IWiaTransferCallback>>(&self, lflags: i32, pchildwiaitem2: Param1, pwiatransfercallback: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pchildwiaitem2.into_param().abi(), pwiatransfercallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn DetectRegions(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1984,69 +2273,86 @@ pub struct IWiaPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaPropertyStorage(::windows::runtime::IUnknown);
 impl IWiaPropertyStorage {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cpspec), ::std::mem::transmute(rgpspec), ::std::mem::transmute(rgpropvar)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cpspec), ::std::mem::transmute(rgpspec), ::std::mem::transmute(rgpropvar), ::std::mem::transmute(propidnamefirst)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cpspec), ::std::mem::transmute(rgpspec)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(cpropid), ::std::mem::transmute(rgpropid), ::std::mem::transmute(rglpwstrname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(cpropid), ::std::mem::transmute(rgpropid), ::std::mem::transmute(rglpwstrname)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cpropid), ::std::mem::transmute(rgpropid)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Commit(&self, grfcommitflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfcommitflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Revert(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn Enum(&self) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG> {
         let mut result__: <super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn SetTimes(&self, pctime: *const super::super::Foundation::FILETIME, patime: *const super::super::Foundation::FILETIME, pmtime: *const super::super::Foundation::FILETIME) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pctime), ::std::mem::transmute(patime), ::std::mem::transmute(pmtime)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn SetClass(&self, clsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(clsid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn Stat(&self) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::STATPROPSETSTG> {
         let mut result__: <super::super::System::Com::StructuredStorage::STATPROPSETSTG as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::STATPROPSETSTG>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(cpspec), ::std::mem::transmute(rgpspec), ::std::mem::transmute(rgflags), ::std::mem::transmute(rgpropvar)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_System_Com`*"]
     pub unsafe fn GetPropertyStream(&self, pcompatibilityid: *mut ::windows::runtime::GUID, ppistream: *mut ::std::option::Option<super::super::System::Com::IStream>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcompatibilityid), ::std::mem::transmute(ppistream)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_System_Com`*"]
     pub unsafe fn SetPropertyStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pcompatibilityid: *mut ::windows::runtime::GUID, pistream: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcompatibilityid), pistream.into_param().abi()).ok()
     }
@@ -2109,11 +2415,13 @@ pub struct IWiaPropertyStorage_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcompatibilityid: *mut ::windows::runtime::GUID, pistream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaSegmentationFilter(::windows::runtime::IUnknown);
 impl IWiaSegmentationFilter {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_System_Com`*"]
     pub unsafe fn DetectRegions<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, IWiaItem2>>(&self, lflags: i32, pinputstream: Param1, pwiaitem2: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pinputstream.into_param().abi(), pwiaitem2.into_param().abi()).ok()
     }
@@ -2151,20 +2459,25 @@ pub struct IWiaSegmentationFilter_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, pinputstream: ::windows::runtime::RawPtr, pwiaitem2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaTransfer(::windows::runtime::IUnknown);
 impl IWiaTransfer {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Download<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaTransferCallback>>(&self, lflags: i32, piwiatransfercallback: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), piwiatransfercallback.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_System_Com`*"]
     pub unsafe fn Upload<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, IWiaTransferCallback>>(&self, lflags: i32, psource: Param1, piwiatransfercallback: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), psource.into_param().abi(), piwiatransfercallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn EnumWIA_FORMAT_INFO(&self) -> ::windows::runtime::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__: <IEnumWIA_FORMAT_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWIA_FORMAT_INFO>(result__)
@@ -2206,14 +2519,17 @@ pub struct IWiaTransfer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaTransferCallback(::windows::runtime::IUnknown);
 impl IWiaTransferCallback {
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pwiatransferparams)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetNextStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, bstritemname: Param1, bstrfullitemname: Param2) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
         let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), bstritemname.into_param().abi(), bstrfullitemname.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::IStream>(result__)
@@ -2253,19 +2569,23 @@ pub struct IWiaTransferCallback_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, bstritemname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrfullitemname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdestination: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaUIExtension(::windows::runtime::IUnknown);
 impl IWiaUIExtension {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdevicedialogdata)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetDeviceIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdeviceid: Param0, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrdeviceid.into_param().abi(), ::std::mem::transmute(phicon), ::std::mem::transmute(nsize)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDeviceBitmapLogo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdeviceid: Param0, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bstrdeviceid.into_param().abi(), ::std::mem::transmute(phbitmap), ::std::mem::transmute(nmaxwidth), ::std::mem::transmute(nmaxheight)).ok()
     }
@@ -2307,15 +2627,18 @@ pub struct IWiaUIExtension_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrdeviceid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaUIExtension2(::windows::runtime::IUnknown);
 impl IWiaUIExtension2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdevicedialogdata)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetDeviceIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdeviceid: Param0, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrdeviceid.into_param().abi(), ::std::mem::transmute(phicon), ::std::mem::transmute(nsize)).ok()
     }
@@ -2355,58 +2678,72 @@ pub struct IWiaUIExtension2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrdeviceid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWiaVideo(::windows::runtime::IUnknown);
 impl IWiaVideo {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn PreviewVisible(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn SetPreviewVisible<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bpreviewvisible: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bpreviewvisible.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn ImagesDirectory(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn SetImagesDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrimagedirectory: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrimagedirectory.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn CreateVideoByWiaDevID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrwiadeviceid: Param0, hwndparent: Param1, bstretchtofitparent: Param2, bautobeginplayback: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrwiadeviceid.into_param().abi(), hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn CreateVideoByDevNum<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, uidevicenumber: u32, hwndparent: Param1, bstretchtofitparent: Param2, bautobeginplayback: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(uidevicenumber), hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn CreateVideoByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrfriendlyname: Param0, hwndparent: Param1, bstretchtofitparent: Param2, bautobeginplayback: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrfriendlyname.into_param().abi(), hwndparent.into_param().abi(), bstretchtofitparent.into_param().abi(), bautobeginplayback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn DestroyVideo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Play(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn Pause(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn TakePicture(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
     pub unsafe fn ResizeVideo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstretchtofitparent: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bstretchtofitparent.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
     pub unsafe fn GetCurrentState(&self) -> ::windows::runtime::Result<WIAVIDEO_STATE> {
         let mut result__: <WIAVIDEO_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WIAVIDEO_STATE>(result__)
@@ -2465,32 +2802,56 @@ pub struct IWiaVideo_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstate: *mut WIAVIDEO_STATE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LAMP_ERR: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LANDSCAPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LANSCAPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LEFT_JUSTIFIED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LIGHT_SOURCE_DETECT_READY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LIGHT_SOURCE_NEGATIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LIGHT_SOURCE_POSITIVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LIGHT_SOURCE_PRESENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LIGHT_SOURCE_PRESENT_DETECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LIGHT_SOURCE_READY: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const LIGHT_SOURCE_SELECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MAX_ANSI_CHAR: u32 = 255u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MAX_IO_HANDLES: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MAX_RESERVED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MCRO_ERROR_GENERAL_ERROR: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MCRO_ERROR_OFFLINE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MCRO_ERROR_PAPER_EMPTY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MCRO_ERROR_PAPER_JAM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MCRO_ERROR_PAPER_PROBLEM: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MCRO_ERROR_USER_INTERVENTION: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MCRO_STATUS_OK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MICR_READER: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MICR_READER_READY: u32 = 65536u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct MINIDRV_TRANSFER_CONTEXT {
     pub lSize: i32,
     pub lWidthInPixels: i32,
@@ -2601,19 +2962,31 @@ unsafe impl ::windows::runtime::Abi for MINIDRV_TRANSFER_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MIRRORED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MULTIPLE_FEED: u32 = 512u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const NEXT_PAGE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const PAPER_JAM: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const PATCH_CODE_READER: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const PATCH_CODE_READER_READY: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const PATH_COVER_UP: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const PORTRAIT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const POWERMODE_BATTERY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const POWERMODE_LINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const PREFEED: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct RANGEVALUE {
     pub lMin: i32,
     pub lMax: i32,
@@ -2640,12 +3013,16 @@ unsafe impl ::windows::runtime::Abi for RANGEVALUE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const RIGHT_JUSTIFIED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ROT180: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const ROT270: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct SCANINFO {
     pub ADF: i32,
     pub TPA: i32,
@@ -2783,10 +3160,13 @@ unsafe impl ::windows::runtime::Abi for SCANINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SCANMODE_FINALSCAN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SCANMODE_PREVIEWSCAN: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct SCANWINDOW {
     pub xPos: i32,
     pub yPos: i32,
@@ -2814,20 +3194,33 @@ unsafe impl ::windows::runtime::Abi for SCANWINDOW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SCAN_FINISHED: u32 = 30u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SCAN_FIRST: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SCAN_NEXT: u32 = 20u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const STOR: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const STORAGE_FULL: u32 = 256u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const STORAGE_READY: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SUPPORT_BW: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SUPPORT_COLOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SUPPORT_GRAYSCALE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const TOP_JUSTIFIED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const TRANSPARENCY_DYNAMIC_FRAME_SUPPORT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const TRANSPARENCY_STATIC_FRAME_SUPPORT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct TWAIN_CAPABILITY {
     pub lSize: i32,
     pub lMSG: i32,
@@ -2859,12 +3252,16 @@ unsafe impl ::windows::runtime::Abi for TWAIN_CAPABILITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const TYMED_CALLBACK: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const TYMED_MULTIPAGE_CALLBACK: u32 = 512u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const TYMED_MULTIPAGE_FILE: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct VAL {
     pub lVal: i32,
     pub dblVal: f64,
@@ -2913,12 +3310,19 @@ unsafe impl ::windows::runtime::Abi for VAL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_AUTO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_DAYLIGHT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_FLASH: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_FLORESCENT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_MANUAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_ONEPUSH_AUTO: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_TUNGSTEN: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for WIAS_CHANGED_VALUE_INFO {
@@ -2928,6 +3332,7 @@ impl ::std::clone::Clone for WIAS_CHANGED_VALUE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIAS_CHANGED_VALUE_INFO {
     pub bChanged: super::super::Foundation::BOOL,
     pub vt: i32,
@@ -2963,6 +3368,7 @@ impl ::std::clone::Clone for WIAS_CHANGED_VALUE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
     pub fltVal: f32,
@@ -2998,6 +3404,7 @@ impl ::std::clone::Clone for WIAS_CHANGED_VALUE_INFO_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub union WIAS_CHANGED_VALUE_INFO_1 {
     pub lVal: i32,
     pub fltVal: f32,
@@ -3027,6 +3434,7 @@ unsafe impl ::windows::runtime::Abi for WIAS_CHANGED_VALUE_INFO_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIAS_DOWN_SAMPLE_INFO {
     pub ulOriginalWidth: u32,
     pub ulOriginalHeight: u32,
@@ -3089,6 +3497,7 @@ unsafe impl ::windows::runtime::Abi for WIAS_DOWN_SAMPLE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIAS_ENDORSER_INFO {
     pub ulPageCount: u32,
     pub ulNumEndorserValues: u32,
@@ -3124,6 +3533,7 @@ unsafe impl ::windows::runtime::Abi for WIAS_ENDORSER_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIAS_ENDORSER_VALUE {
     pub wszTokenName: super::super::Foundation::PWSTR,
     pub wszValue: super::super::Foundation::PWSTR,
@@ -3155,6 +3565,7 @@ unsafe impl ::windows::runtime::Abi for WIAS_ENDORSER_VALUE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WIAVIDEO_STATE(pub i32);
@@ -3173,26 +3584,45 @@ unsafe impl ::windows::runtime::Abi for WIAVIDEO_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ACTION_EVENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ADVANCED_PREVIEW: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP10: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP4: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP5: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP6: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP7: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP8: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_BEEP9: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ALARM_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_AUTO_CROP_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_AUTO_CROP_MULTI: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_AUTO_CROP_SINGLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_AUTO_DESKEW_OFF: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_AUTO_DESKEW_ON: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_BARCODES {
     pub Tag: u32,
     pub Version: u32,
@@ -3221,32 +3651,57 @@ unsafe impl ::windows::runtime::Abi for WIA_BARCODES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_AUTO_SEARCH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_AZTEC: u32 = 36u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODABAR: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODE128: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODE128A: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODE128B: u32 = 11u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODE128C: u32 = 12u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODE39: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODE39_FULLASCII: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODE39_MOD43: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CODE93: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CPCBINARY: u32 = 29u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_CUSTOMBASE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_DATAMATRIX: u32 = 38u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_DATASTRIP: u32 = 39u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_EAN13: u32 = 17u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_EAN8: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_EZCODE: u32 = 40u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_FIM: u32 = 30u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_GS1128: u32 = 13u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_GS1DATABAR: u32 = 14u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_HIGH_CAPACITY_COLOR: u32 = 26u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_HORIZONTAL_SEARCH: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_BARCODE_INFO {
     pub Size: u32,
     pub Type: u32,
@@ -3289,41 +3744,77 @@ unsafe impl ::windows::runtime::Abi for WIA_BARCODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_INTELLIGENT_MAIL: u32 = 23u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_INTERLEAVED_2OF5: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_ITF14: u32 = 15u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_JAN: u32 = 34u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_MAXICODE: u32 = 27u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_MSI: u32 = 33u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_NONINTERLEAVED_2OF5: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_PDF417: u32 = 28u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_PHARMACODE: u32 = 31u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_PLANET: u32 = 22u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_PLESSEY: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_POSTBAR: u32 = 24u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_POSTNETA: u32 = 18u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_POSTNETB: u32 = 19u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_POSTNETC: u32 = 20u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_POSTNET_DPBC: u32 = 21u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_QRCODE: u32 = 41u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_READER_AUTO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_READER_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_READER_FEEDER_BACK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_READER_FEEDER_DUPLEX: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_READER_FEEDER_FRONT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_READER_FLATBED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_RM4SCC: u32 = 25u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_SHOTCODE: u32 = 42u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_SMALLAZTEC: u32 = 37u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_SPARQCODE: u32 = 43u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_TELEPEN: u32 = 35u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_UPCA: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_UPCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_VERTICAL_HORIZONTAL_SEARCH: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_VERTICAL_SEARCH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BASIC_PREVIEW: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BLANK_PAGE_DETECTION_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BLANK_PAGE_DISCARD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BLANK_PAGE_JOB_SEPARATOR: u32 = 2u32;
 pub const WIA_CATEGORY_AUTO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3741212632, 27799, 19934, [177, 30, 203, 80, 155, 39, 14, 17]);
 pub const WIA_CATEGORY_BARCODE_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(920746144, 18239, 18763, [175, 143, 108, 63, 109, 116, 134, 252]);
@@ -3351,24 +3842,41 @@ pub const WIA_CMD_STOP_FEEDER: ::windows::runtime::GUID = ::windows::runtime::GU
 pub const WIA_CMD_SYNCHRONIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2603005874, 44205, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
 pub const WIA_CMD_TAKE_PICTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2945662124, 44205, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
 pub const WIA_CMD_UNLOAD_DOCUMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523976078, 44206, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COLOR_DROP_BLUE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COLOR_DROP_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COLOR_DROP_GREEN: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COLOR_DROP_RED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COLOR_DROP_RGB: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_AUTO: u32 = 100u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_BI_RLE4: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_BI_RLE8: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_G3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_G4: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_JBIG: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_JPEG: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_JPEG2K: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_COMPRESSION_PNG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_AUTO: u32 = 100u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_DATA_CALLBACK_HEADER {
     pub lSize: i32,
     pub guidFormatID: ::windows::runtime::GUID,
@@ -3396,21 +3904,34 @@ unsafe impl ::windows::runtime::Abi for WIA_DATA_CALLBACK_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_COLOR: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_COLOR_DITHER: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_COLOR_THRESHOLD: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_DITHER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_GRAYSCALE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_RAW_BGR: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_RAW_CMY: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_RAW_CMYK: u32 = 11u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_RAW_RGB: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_RAW_YUV: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_RAW_YUVK: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_THRESHOLD: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_DATA_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulSection: u32,
@@ -3455,18 +3976,28 @@ unsafe impl ::windows::runtime::Abi for WIA_DATA_TRANSFER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEPTH_AUTO: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVICE_COMMANDS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVICE_CONNECTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVICE_DIALOG_SINGLE_IMAGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVICE_DIALOG_USE_COMMON_UI: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVICE_EVENTS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVICE_NOT_CONNECTED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVINFO_ENUM_ALL: u32 = 15u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEVINFO_ENUM_LOCAL: u32 = 16u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_DEV_CAP {
     pub guid: ::windows::runtime::GUID,
     pub ulFlags: u32,
@@ -3505,6 +4036,7 @@ unsafe impl ::windows::runtime::Abi for WIA_DEV_CAP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_DEV_CAP_DRV {
     pub guid: *mut ::windows::runtime::GUID,
     pub ulFlags: u32,
@@ -3539,26 +4071,44 @@ unsafe impl ::windows::runtime::Abi for WIA_DEV_CAP_DRV {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_BAUDRATE: u32 = 12u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_DEV_DESC: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_DEV_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_DEV_NAME: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_DEV_TYPE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_DRIVER_VERSION: u32 = 15u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_FIRST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_HW_CONFIG: u32 = 11u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_PNP_ID: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_PORT_NAME: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_REMOTE_DEV_ID: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_SERVER_NAME: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_STI_DRIVER_VERSION: u32 = 17u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_STI_GEN_CAPABILITIES: u32 = 13u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_UI_CLSID: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_VEND_DESC: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_WIA_VERSION: u32 = 14u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
     pub bstrPatternName: super::super::Foundation::BSTR,
@@ -3594,119 +4144,233 @@ unsafe impl ::windows::runtime::Abi for WIA_DITHER_PATTERN_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DONT_SHOW_PREVIEW_CONTROL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DONT_USE_SEGMENTATION_FILTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPA_CONNECT_STATUS: u32 = 1027u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPA_DEVICE_TIME: u32 = 1028u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPA_FIRMWARE_VERSION: u32 = 1026u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_ARTIST: u32 = 2091u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_BATTERY_STATUS: u32 = 2065u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_BURST_INTERVAL: u32 = 2075u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_BURST_NUMBER: u32 = 2076u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_CAPTURE_DELAY: u32 = 2082u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_CAPTURE_MODE: u32 = 2081u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_COMPRESSION_SETTING: u32 = 2071u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_CONTRAST: u32 = 2080u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_COPYRIGHT_INFO: u32 = 2092u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_DIGITAL_ZOOM: u32 = 2078u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_DIMENSION: u32 = 2070u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_EFFECT_MODE: u32 = 2077u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_EXPOSURE_COMP: u32 = 2053u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_EXPOSURE_INDEX: u32 = 2083u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_EXPOSURE_METERING_MODE: u32 = 2084u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_EXPOSURE_MODE: u32 = 2052u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_EXPOSURE_TIME: u32 = 2054u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_FLASH_MODE: u32 = 2056u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_FNUMBER: u32 = 2055u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_FOCAL_LENGTH: u32 = 2087u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_FOCUS_DISTANCE: u32 = 2086u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_FOCUS_MANUAL_DIST: u32 = 2058u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_FOCUS_METERING: u32 = 2072u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_FOCUS_METERING_MODE: u32 = 2085u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_FOCUS_MODE: u32 = 2057u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_PAN_POSITION: u32 = 2060u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_PICTURES_REMAINING: u32 = 2051u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_PICTURES_TAKEN: u32 = 2050u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_PICT_HEIGHT: u32 = 2069u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_PICT_WIDTH: u32 = 2068u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_POWER_MODE: u32 = 2064u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_RGB_GAIN: u32 = 2088u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_SHARPNESS: u32 = 2079u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_THUMB_HEIGHT: u32 = 2067u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_THUMB_WIDTH: u32 = 2066u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_TILT_POSITION: u32 = 2061u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_TIMELAPSE_INTERVAL: u32 = 2073u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_TIMELAPSE_NUMBER: u32 = 2074u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_TIMER_MODE: u32 = 2062u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_TIMER_VALUE: u32 = 2063u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_UPLOAD_URL: u32 = 2090u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_WHITE_BALANCE: u32 = 2089u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPC_ZOOM_POSITION: u32 = 2059u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPF_FIRST: u32 = 3330u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPF_MOUNT_POINT: u32 = 3330u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_DEVICE_ID: u32 = 3114u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_DITHER_PATTERN_DATA: u32 = 3085u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_DITHER_SELECT: u32 = 3084u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_DOCUMENT_HANDLING_CAPABILITIES: u32 = 3086u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_DOCUMENT_HANDLING_CAPACITY: u32 = 3089u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_DOCUMENT_HANDLING_SELECT: u32 = 3088u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_DOCUMENT_HANDLING_STATUS: u32 = 3087u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_ENDORSER_CHARACTERS: u32 = 3092u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_ENDORSER_STRING: u32 = 3093u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_FILTER_SELECT: u32 = 3083u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_FIRST: u32 = 3074u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_GLOBAL_IDENTITY: u32 = 3115u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_HORIZONTAL_BED_REGISTRATION: u32 = 3079u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_HORIZONTAL_BED_SIZE: u32 = 3074u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_HORIZONTAL_SHEET_FEED_SIZE: u32 = 3076u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_MAX_SCAN_TIME: u32 = 3095u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_MIN_HORIZONTAL_SHEET_FEED_SIZE: u32 = 3104u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_MIN_VERTICAL_SHEET_FEED_SIZE: u32 = 3105u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_OPTICAL_XRES: u32 = 3090u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_OPTICAL_YRES: u32 = 3091u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_PAD_COLOR: u32 = 3082u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_PAGES: u32 = 3096u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_PAGE_HEIGHT: u32 = 3099u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_PAGE_SIZE: u32 = 3097u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_PAGE_WIDTH: u32 = 3098u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_PLATEN_COLOR: u32 = 3081u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_PREVIEW: u32 = 3100u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_SCAN_AHEAD_PAGES: u32 = 3094u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_SCAN_AVAILABLE_ITEM: u32 = 3116u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_SERVICE_ID: u32 = 3113u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_SHEET_FEEDER_REGISTRATION: u32 = 3078u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_SHOW_PREVIEW_CONTROL: u32 = 3103u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_TRANSPARENCY: u32 = 3101u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_TRANSPARENCY_CAPABILITIES: u32 = 3106u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_TRANSPARENCY_SELECT: u32 = 3102u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_TRANSPARENCY_STATUS: u32 = 3107u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_USER_NAME: u32 = 3112u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_VERTICAL_BED_REGISTRATION: u32 = 3080u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_VERTICAL_BED_SIZE: u32 = 3075u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPS_VERTICAL_SHEET_FEED_SIZE: u32 = 3077u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPV_DSHOW_DEVICE_PATH: u32 = 3588u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPV_IMAGES_DIRECTORY: u32 = 3587u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DPV_LAST_PICTURE_TAKEN: u32 = 3586u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320954i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_COVER_OPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320944i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_DESTINATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320942i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_DEVICE_COMMUNICATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320950i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_DEVICE_LOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320947i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_EXCEPTION_IN_DRIVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320946i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_GENERAL_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320959i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_INCORRECT_HARDWARE_SETTING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320948i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_INVALID_COMMAND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320949i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_INVALID_DRIVER_RESPONSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320945i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_ITEM_DELETED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320951i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_LAMP_OFF: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320943i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_MAXIMUM_PRINTER_ENDORSER_COUNTER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320939i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_MULTI_FEED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320940i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_NETWORK_RESERVATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320941i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_OFFLINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320955i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_PAPER_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320957i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_PAPER_JAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320958i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_PAPER_PROBLEM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320956i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_USER_INTERVENTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320952i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ERROR_WARMING_UP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320953i32 as _);
 pub const WIA_EVENT_CANCEL_IO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3361798072, 40141, 16874, [187, 191, 77, 208, 156, 91, 23, 149]);
 pub const WIA_EVENT_COVER_CLOSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1729405414, 57989, 18060, [155, 140, 218, 125, 196, 203, 170, 5]);
@@ -3741,6 +4405,7 @@ pub const WIA_EVENT_TREE_UPDATED: ::windows::runtime::GUID = ::windows::runtime:
 pub const WIA_EVENT_VOLUME_INSERT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520300541, 53693, 4562, [179, 31, 0, 192, 79, 104, 206, 97]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulMinBufferSize: u32,
@@ -3769,17 +4434,27 @@ unsafe impl ::windows::runtime::Abi for WIA_EXTENDED_TRANSFER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FEEDER_CONTROL_AUTO: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FEEDER_CONTROL_MANUAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FILM_BW_NEGATIVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FILM_COLOR_NEGATIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FILM_COLOR_SLIDE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FINAL_SCAN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FLAG_NOM: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FLAG_NUM_ELEMS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FLAG_VALUES: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_FORMAT_INFO {
     pub guidFormatID: ::windows::runtime::GUID,
     pub lTymed: i32,
@@ -3805,184 +4480,361 @@ unsafe impl ::windows::runtime::Abi for WIA_FORMAT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_BEST_PREVIEW: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_IMAGE_TYPE_COLOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_IMAGE_TYPE_GRAYSCALE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_IMAGE_TYPE_MASK: u32 = 15u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_IMAGE_TYPE_TEXT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_MAXIMIZE_QUALITY: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_MINIMIZE_SIZE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_SIZE_MASK: u32 = 983040u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_ACCESS_RIGHTS: u32 = 4102u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_APP_COLOR_MAPPING: u32 = 4121u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_BITS_PER_CHANNEL: u32 = 4110u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_BUFFER_SIZE: u32 = 4118u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_BYTES_PER_LINE: u32 = 4113u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_CHANNELS_PER_PIXEL: u32 = 4109u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_COLOR_PROFILE: u32 = 4117u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_COMPRESSION: u32 = 4107u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_DATATYPE: u32 = 4103u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_DEPTH: u32 = 4104u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_FILENAME_EXTENSION: u32 = 4123u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_FIRST: u32 = 4098u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_FORMAT: u32 = 4106u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_FULL_ITEM_NAME: u32 = 4099u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_GAMMA_CURVES: u32 = 4115u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_ICM_PROFILE_NAME: u32 = 4120u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_ITEMS_STORED: u32 = 4127u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_ITEM_CATEGORY: u32 = 4125u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_ITEM_FLAGS: u32 = 4101u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_ITEM_NAME: u32 = 4098u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_ITEM_SIZE: u32 = 4116u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_ITEM_TIME: u32 = 4100u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_MIN_BUFFER_SIZE: u32 = 4118u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_NUMBER_OF_LINES: u32 = 4114u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_PIXELS_PER_LINE: u32 = 4112u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_PLANAR: u32 = 4111u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_PREFERRED_FORMAT: u32 = 4105u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_PROP_STREAM_COMPAT_ID: u32 = 4122u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_RAW_BITS_PER_CHANNEL: u32 = 4128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_REGION_TYPE: u32 = 4119u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_SUPPRESS_PROPERTY_PAGE: u32 = 4124u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_TYMED: u32 = 4108u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPA_UPLOAD_ITEM_SIZE: u32 = 4126u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_AUDIO_AVAILABLE: u32 = 5125u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_AUDIO_DATA: u32 = 5127u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_AUDIO_DATA_FORMAT: u32 = 5126u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_FIRST: u32 = 5122u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_NUM_PICT_PER_ROW: u32 = 5128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_SEQUENCE: u32 = 5129u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_THUMBNAIL: u32 = 5122u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_THUMB_HEIGHT: u32 = 5124u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_THUMB_WIDTH: u32 = 5123u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPC_TIMEDELAY: u32 = 5130u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_ALARM: u32 = 4185u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_AUTO_CROP: u32 = 4170u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_AUTO_DESKEW: u32 = 3107u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_BARCODE_READER: u32 = 4150u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_BARCODE_SEARCH_DIRECTION: u32 = 4152u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_BARCODE_SEARCH_TIMEOUT: u32 = 4154u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_BLANK_PAGES: u32 = 4167u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_BLANK_PAGES_SENSITIVITY: u32 = 4192u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_BRIGHTNESS: u32 = 6154u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_COLOR_DROP: u32 = 4176u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_COLOR_DROP_BLUE: u32 = 4179u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_COLOR_DROP_GREEN: u32 = 4178u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_COLOR_DROP_MULTI: u32 = 4191u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_COLOR_DROP_RED: u32 = 4177u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_CONTRAST: u32 = 6155u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_CUR_INTENT: u32 = 6146u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_DESKEW_X: u32 = 6162u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_DESKEW_Y: u32 = 6163u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_DOCUMENT_HANDLING_SELECT: u32 = 3088u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_ENABLED_BARCODE_TYPES: u32 = 4156u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_ENABLED_PATCH_CODE_TYPES: u32 = 4163u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_FEEDER_CONTROL: u32 = 4182u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_FILM_NODE_NAME: u32 = 4129u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_FILM_SCAN_MODE: u32 = 3104u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_FIRST: u32 = 6146u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_INVERT: u32 = 6160u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_JOB_SEPARATORS: u32 = 4165u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_LAMP: u32 = 3105u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_LAMP_AUTO_OFF: u32 = 3106u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_LONG_DOCUMENT: u32 = 4166u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MAXIMUM_BARCODES_PER_PAGE: u32 = 4151u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MAXIMUM_BARCODE_SEARCH_RETRIES: u32 = 4153u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MAX_HORIZONTAL_SIZE: u32 = 6165u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MAX_VERTICAL_SIZE: u32 = 6166u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MICR_READER: u32 = 4164u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MIN_HORIZONTAL_SIZE: u32 = 6167u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MIN_VERTICAL_SIZE: u32 = 6168u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MIRROR: u32 = 6158u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MULTI_FEED: u32 = 4168u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MULTI_FEED_DETECT_METHOD: u32 = 4193u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_MULTI_FEED_SENSITIVITY: u32 = 4169u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_OPTICAL_XRES: u32 = 3090u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_OPTICAL_YRES: u32 = 3091u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_ORIENTATION: u32 = 6156u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_OVER_SCAN: u32 = 4171u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_OVER_SCAN_BOTTOM: u32 = 4175u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_OVER_SCAN_LEFT: u32 = 4172u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_OVER_SCAN_RIGHT: u32 = 4173u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_OVER_SCAN_TOP: u32 = 4174u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PAGES: u32 = 3096u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PAGE_HEIGHT: u32 = 3099u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PAGE_SIZE: u32 = 3097u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PAGE_WIDTH: u32 = 3098u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PATCH_CODE_READER: u32 = 4157u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PHOTOMETRIC_INTERP: u32 = 6153u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PREVIEW: u32 = 3100u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PREVIEW_TYPE: u32 = 3111u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER: u32 = 4130u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_CHARACTER_ROTATION: u32 = 4187u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_COUNTER: u32 = 4132u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_COUNTER_DIGITS: u32 = 4190u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_FONT_TYPE: u32 = 4184u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_GRAPHICS: u32 = 4142u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_DOWNLOAD: u32 = 4149u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MAX_HEIGHT: u32 = 4147u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MAX_WIDTH: u32 = 4145u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MIN_HEIGHT: u32 = 4146u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_MIN_WIDTH: u32 = 4144u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_POSITION: u32 = 4143u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_GRAPHICS_UPLOAD: u32 = 4148u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_INK: u32 = 4186u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_MAX_CHARACTERS: u32 = 4188u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_MAX_GRAPHICS: u32 = 4189u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_NUM_LINES: u32 = 4136u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_ORDER: u32 = 4131u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_PADDING: u32 = 4183u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_STEP: u32 = 4133u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_STRING: u32 = 4137u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_TEXT_DOWNLOAD: u32 = 4141u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_TEXT_UPLOAD: u32 = 4140u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_VALID_CHARACTERS: u32 = 4138u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_VALID_FORMAT_SPECIFIERS: u32 = 4139u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_XOFFSET: u32 = 4134u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_PRINTER_ENDORSER_YOFFSET: u32 = 4135u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_ROTATION: u32 = 6157u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_SCAN_AHEAD: u32 = 4180u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_SCAN_AHEAD_CAPACITY: u32 = 4181u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_SEGMENTATION: u32 = 6164u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_SHEET_FEEDER_REGISTRATION: u32 = 3078u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_SHOW_PREVIEW_CONTROL: u32 = 3103u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_SUPPORTED_BARCODE_TYPES: u32 = 4155u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_SUPPORTED_PATCH_CODE_TYPES: u32 = 4162u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_SUPPORTS_CHILD_ITEM_CREATION: u32 = 3108u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_THRESHOLD: u32 = 6159u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_TRANSFER_CAPABILITIES: u32 = 6169u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_WARM_UP_TIME: u32 = 6161u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_XEXTENT: u32 = 6151u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_XPOS: u32 = 6149u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_XRES: u32 = 6147u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_XSCALING: u32 = 3109u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_YEXTENT: u32 = 6152u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_YPOS: u32 = 6150u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_YRES: u32 = 6148u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IPS_YSCALING: u32 = 3110u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_IS_DEFAULT_HANDLER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ITEM_CAN_BE_DELETED: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ITEM_READ: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ITEM_WRITE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LAMP_OFF: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LAMP_ON: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LINE_ORDER_BOTTOM_TO_TOP: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LINE_ORDER_TOP_TO_BOTTOM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LIST_COUNT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LIST_NOM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LIST_NUM_ELEMS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LIST_VALUES: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LONG_DOCUMENT_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LONG_DOCUMENT_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_LONG_DOCUMENT_SPLIT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MAJOR_EVENT_DEVICE_CONNECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MAJOR_EVENT_DEVICE_DISCONNECT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MAJOR_EVENT_PICTURE_DELETED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MAJOR_EVENT_PICTURE_TAKEN: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MAX_CTX_SIZE: u32 = 16777216u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_MICR {
     pub Tag: u32,
     pub Version: u32,
@@ -4015,6 +4867,7 @@ unsafe impl ::windows::runtime::Abi for WIA_MICR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_MICR_INFO {
     pub Size: u32,
     pub Page: u32,
@@ -4042,88 +4895,169 @@ unsafe impl ::windows::runtime::Abi for WIA_MICR_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MICR_READER_AUTO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MICR_READER_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MICR_READER_FEEDER_BACK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MICR_READER_FEEDER_DUPLEX: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MICR_READER_FEEDER_FRONT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MICR_READER_FLATBED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MULTI_FEED_DETECT_CONTINUE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MULTI_FEED_DETECT_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MULTI_FEED_DETECT_METHOD_LENGTH: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MULTI_FEED_DETECT_METHOD_OVERLAP: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MULTI_FEED_DETECT_STOP_ERROR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MULTI_FEED_DETECT_STOP_SUCCESS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_NOTIFICATION_EVENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_NUM_DIP: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_NUM_IPC: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ORDER_BGR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ORDER_RGB: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_OVER_SCAN_ALL: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_OVER_SCAN_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_OVER_SCAN_LEFT_RIGHT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_OVER_SCAN_TOP_BOTTOM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PACKED_PIXEL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_A4: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_AUTO: u32 = 100u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_BUSINESSCARD: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_CUSTOM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_CUSTOM_BASE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_DIN_2B: u32 = 52u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_DIN_4B: u32 = 53u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A0: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A1: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A10: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A2: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A3: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A4: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A5: u32 = 11u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A6: u32 = 12u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A7: u32 = 13u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A8: u32 = 14u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_A9: u32 = 15u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B0: u32 = 17u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B1: u32 = 18u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B10: u32 = 27u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B2: u32 = 19u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B3: u32 = 20u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B4: u32 = 21u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B5: u32 = 22u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B6: u32 = 23u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B7: u32 = 24u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B8: u32 = 25u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_B9: u32 = 26u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C0: u32 = 28u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C1: u32 = 29u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C10: u32 = 38u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C2: u32 = 30u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C3: u32 = 31u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C4: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C5: u32 = 33u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C6: u32 = 34u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C7: u32 = 35u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C8: u32 = 36u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_ISO_C9: u32 = 37u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_2A: u32 = 50u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_4A: u32 = 51u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B0: u32 = 39u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B1: u32 = 40u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B10: u32 = 49u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B2: u32 = 41u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B3: u32 = 42u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B4: u32 = 43u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B5: u32 = 44u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B6: u32 = 45u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B7: u32 = 46u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B8: u32 = 47u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_JIS_B9: u32 = 48u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_LETTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_USLEDGER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_USLEGAL: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_USLETTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PAGE_USSTATEMENT: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PATCH_CODES {
     pub Tag: u32,
     pub Version: u32,
@@ -4152,22 +5086,37 @@ unsafe impl ::windows::runtime::Abi for WIA_PATCH_CODES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_10: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_11: u32 = 11u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_12: u32 = 12u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_13: u32 = 13u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_14: u32 = 14u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_4: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_6: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_7: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_8: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_9: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_CUSTOM_BASE: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PATCH_CODE_INFO {
     pub Type: u32,
 }
@@ -4192,81 +5141,154 @@ unsafe impl ::windows::runtime::Abi for WIA_PATCH_CODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_READER_AUTO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_READER_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_READER_FEEDER_BACK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_READER_FEEDER_DUPLEX: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_READER_FEEDER_FRONT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_READER_FLATBED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_T: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PHOTO_WHITE_0: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PHOTO_WHITE_1: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PLANAR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PREVIEW_SCAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_AFTER_SCAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_AUTO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_BEFORE_SCAN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_DIGITAL: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_FEEDER_BACK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_FEEDER_DUPLEX: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_FEEDER_FRONT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_FLATBED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_BACKGROUND: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_BOTTOM: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_BOTTOM_LEFT: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_BOTTOM_RIGHT: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_DEVICE_DEFAULT: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_LEFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_RIGHT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_TOP: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_TOP_LEFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINTER_ENDORSER_GRAPHICS_TOP_RIGHT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_AM_PM: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_DATE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_DAY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_BOLD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_EXTRA_BOLD: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_ITALIC: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_ITALIC_BOLD: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_ITALIC_EXTRA_BOLD: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_LARGE: u32 = 12u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_LARGE_BOLD: u32 = 13u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_LARGE_EXTRA_BOLD: u32 = 14u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_LARGE_ITALIC: u32 = 17u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_LARGE_ITALIC_BOLD: u32 = 15u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_LARGE_ITALIC_EXTRA_BOLD: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_SMALL: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_SMALL_BOLD: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_SMALL_EXTRA_BOLD: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_SMALL_ITALIC: u32 = 11u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_SMALL_ITALIC_BOLD: u32 = 9u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_FONT_SMALL_ITALIC_EXTRA_BOLD: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_HOUR_12H: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_HOUR_24H: u32 = 7u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_IMAGE: u32 = 13u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_MILLISECOND: u32 = 14u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_MINUTE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_MONTH: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_MONTH_NAME: u32 = 15u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_MONTH_SHORT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_PADDING_BLANK: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_PADDING_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_PADDING_ZERO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_PAGE_COUNT: u32 = 12u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_SECOND: u32 = 11u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_TIME_12H: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_TIME_24H: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_WEEK_DAY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_WEEK_DAY_SHORT: u32 = 17u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRINT_YEAR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRIVATE_DEVPROP: u32 = 38914u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PRIVATE_ITEMPROP: u32 = 71682u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_PROPERTY_CONTEXT {
     pub cProps: u32,
     pub pProps: *mut u32,
@@ -4307,6 +5329,7 @@ impl ::std::clone::Clone for WIA_PROPERTY_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_PROPERTY_INFO {
     pub lAccessFlags: u32,
     pub vt: u16,
@@ -4341,6 +5364,7 @@ impl ::std::clone::Clone for WIA_PROPERTY_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub union WIA_PROPERTY_INFO_0 {
     pub Range: WIA_PROPERTY_INFO_0_7,
     pub RangeFloat: WIA_PROPERTY_INFO_0_6,
@@ -4374,6 +5398,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PROPERTY_INFO_0_0 {
     pub Nom: i32,
     pub ValidBits: i32,
@@ -4402,6 +5427,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_0 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
     pub Nom: super::super::Foundation::BSTR,
@@ -4436,6 +5462,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
     pub Nom: f64,
@@ -4464,6 +5491,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
     pub Nom: ::windows::runtime::GUID,
@@ -4492,6 +5520,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
     pub Nom: i32,
@@ -4520,6 +5549,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PROPERTY_INFO_0_5 {
     pub Dummy: i32,
 }
@@ -4546,6 +5576,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_5 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PROPERTY_INFO_0_6 {
     pub Min: f64,
     pub Nom: f64,
@@ -4575,6 +5606,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_6 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Min: i32,
     pub Nom: i32,
@@ -4605,6 +5637,7 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_7 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: u32,
     pub pszName: super::super::Foundation::PWSTR,
@@ -4636,24 +5669,41 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPID_TO_NAME {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROPPAGE_CAMERA_ITEM_GENERAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROPPAGE_DEVICE_GENERAL: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROPPAGE_SCANNER_ITEM_GENERAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROP_CACHEABLE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROP_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROP_LIST: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROP_NONE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROP_RANGE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROP_READ: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROP_SYNC_REQUIRED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROP_WRITE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_RANGE_MAX: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_RANGE_MIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_RANGE_NOM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_RANGE_NUM_ELEMS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_RANGE_STEP: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WIA_RAW_HEADER {
     pub Tag: u32,
     pub Version: u32,
@@ -4734,46 +5784,87 @@ unsafe impl ::windows::runtime::Abi for WIA_RAW_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_REGISTER_EVENT_CALLBACK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_RESERVED_FOR_NEW_PROPS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SCAN_AHEAD_ALL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SCAN_AHEAD_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SCAN_AHEAD_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SELECT_DEVICE_NODEFAULT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SEPARATOR_DETECT_NOSCAN_CONTINUE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SEPARATOR_DETECT_NOSCAN_STOP: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SEPARATOR_DETECT_SCAN_CONTINUE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SEPARATOR_DETECT_SCAN_STOP: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SEPARATOR_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SET_DEFAULT_HANDLER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_SHOW_PREVIEW_CONTROL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_STATUS_CALIBRATING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162691i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_STATUS_CLEAR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162696i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_STATUS_END_OF_MEDIA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162689i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_STATUS_NETWORK_DEVICE_RESERVED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162695i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_STATUS_NOT_HANDLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162698i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_STATUS_RESERVING_NETWORK_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162694i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_STATUS_SKIP_ITEM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162697i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_STATUS_WARMING_UP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162690i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_S_CHANGE_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2162699i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_S_NO_DEVICE_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145320939i32 as _);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_TRANSFER_ACQUIRE_CHILDREN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_TRANSFER_CHILDREN_SINGLE_SCAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_TRANSFER_MSG_DEVICE_STATUS: u32 = 5u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_TRANSFER_MSG_END_OF_STREAM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_TRANSFER_MSG_END_OF_TRANSFER: u32 = 3u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_TRANSFER_MSG_NEW_PAGE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_TRANSFER_MSG_STATUS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_UNREGISTER_EVENT_CALLBACK: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_USE_SEGMENTATION_FILTER: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_FRIENDLY_NAME: u32 = 38920u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_MANUFACTURER: u32 = 38914u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_MANUFACTURER_URL: u32 = 38915u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_MODEL_NAME: u32 = 38916u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_MODEL_NUMBER: u32 = 38917u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_MODEL_URL: u32 = 38918u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_PRESENTATION_URL: u32 = 38919u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_SCAN_AVAILABLE_ITEM: u32 = 38922u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_WSD_SERIAL_NUMBER: u32 = 38921u32;
 pub const WiaAudFmt_AIFF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1726136143, 46844, 17471, [148, 200, 47, 51, 200, 166, 90, 175]);
 pub const WiaAudFmt_MP3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(264008187, 17343, 18930, [145, 144, 230, 254, 207, 243, 126, 84]);
@@ -4823,32 +5914,56 @@ pub const WiaImgFmt_XMLBAR: ::windows::runtime::GUID = ::windows::runtime::GUID:
 pub const WiaImgFmt_XMLMIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(756436065, 47534, 19235, [137, 115, 199, 6, 126, 31, 189, 49]);
 pub const WiaImgFmt_XMLPAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4170739541, 61522, 17933, [149, 35, 58, 125, 254, 219, 179, 60]);
 pub const WiaImgFmt_XPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1879788047, 8209, 16668, [180, 48, 209, 224, 178, 225, 11, 40]);
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeAnalyze: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeAudio: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeBurst: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeDeleted: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeDevice: u32 = 64u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeDisconnected: u32 = 256u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeDocument: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeFile: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeFolder: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeFree: u32 = 0u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeGenerated: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeHPanorama: u32 = 512u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeHasAttachments: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeImage: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeMask: u32 = 2148532223u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeProgrammableDataSource: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeRemoved: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeRoot: u32 = 8u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeStorage: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeTransfer: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeTwainCapabilityPassThrough: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeVPanorama: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WiaItemTypeVideo: u32 = 65536u32;
 pub const WiaLog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2716291927, 34842, 16798, [131, 226, 187, 22, 219, 25, 124, 104]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub struct WiaTransferParams {
     pub lMessage: i32,
     pub lPercentComplete: i32,
