@@ -140,6 +140,12 @@ namespace Component
 
     namespace Structs
     {
+        enum Enum
+        {
+            First,
+            Second,
+        };
+
         struct Blittable
         {
             Boolean Bool;
@@ -154,6 +160,8 @@ namespace Component
             Single Single;
             Double Double;
             Guid Guid;
+            HRESULT HResult;
+            Enum Enum;
         };
 
         struct NonBlittable
@@ -173,6 +181,7 @@ namespace Component
             static UInt32 SizeOfBlittable{ get; };
             static UInt32 SizeOfNonBlittable{ get; };
             static UInt32 SizeOfNested{ get; };
+            static Guid GuidOfRefNested{ get; };
         }
     }
 

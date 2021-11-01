@@ -36,6 +36,8 @@ impl RustTest {
             Single: 1.0,
             Double: 0.1,
             Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
+            HResult: HRESULT(123),
+            Enum: Enum::First,
         };
 
         let mut b = Blittable::default();
@@ -61,6 +63,8 @@ impl RustTest {
                 Single: 1.0,
                 Double: 0.1,
                 Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
+                HResult: HRESULT(1),
+                Enum: Enum::First,
             },
             Blittable {
                 Bool: false,
@@ -75,6 +79,8 @@ impl RustTest {
                 Single: 1.0,
                 Double: 0.1,
                 Guid: "9E234A6E-DF89-4891-AAD5-632692BBB1DC".into(),
+                HResult: HRESULT(2),
+                Enum: Enum::Second,
             },
             Blittable {
                 Bool: true,
@@ -89,6 +95,8 @@ impl RustTest {
                 Single: 1.0,
                 Double: 0.1,
                 Guid: "286F8B75-2DF4-49CF-841C-52438E2D5326".into(),
+                HResult: HRESULT(3),
+                Enum: Enum::First,
             },
         ];
 
@@ -120,6 +128,8 @@ fn test_interface(test: &ITestBlittable) -> Result<()> {
         Single: 1.0,
         Double: 0.1,
         Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
+        HResult: HRESULT(1),
+        Enum: Enum::First,
     };
 
     let mut b = Blittable::default();
@@ -149,6 +159,8 @@ fn test_interface(test: &ITestBlittable) -> Result<()> {
             Single: 1.0,
             Double: 0.1,
             Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
+            HResult: HRESULT(1),
+            Enum: Enum::First,
         },
         Blittable {
             Bool: false,
@@ -163,6 +175,8 @@ fn test_interface(test: &ITestBlittable) -> Result<()> {
             Single: 1.0,
             Double: 0.1,
             Guid: "9E234A6E-DF89-4891-AAD5-632692BBB1DC".into(),
+            HResult: HRESULT(2),
+            Enum: Enum::Second,
         },
         Blittable {
             Bool: true,
@@ -177,6 +191,8 @@ fn test_interface(test: &ITestBlittable) -> Result<()> {
             Single: 1.0,
             Double: 0.1,
             Guid: "286F8B75-2DF4-49CF-841C-52438E2D5326".into(),
+            HResult: HRESULT(3),
+            Enum: Enum::First,
         },
     ];
 

@@ -130,6 +130,7 @@ impl ElementType {
             Self::String => "string".to_owned(),
             Self::IInspectable => "cinterface(IInspectable)".to_owned(),
             Self::GUID => "g16".to_owned(),
+            Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_owned(),
             Self::TypeDef(t) => t.type_signature(),
             _ => unimplemented!(),
         }
