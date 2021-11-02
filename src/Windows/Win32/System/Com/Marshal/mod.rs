@@ -1316,7 +1316,7 @@ pub unsafe fn HWND_UserUnmarshal64(param0: *const u32, param1: *const u8, param2
 }
 #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMarshal(::windows::runtime::IUnknown);
 impl IMarshal {
     #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
@@ -1348,26 +1348,6 @@ unsafe impl ::windows::runtime::Interface for IMarshal {
     type Vtable = IMarshal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
-impl ::std::convert::From<IMarshal> for ::windows::runtime::IUnknown {
-    fn from(value: IMarshal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMarshal> for ::windows::runtime::IUnknown {
-    fn from(value: &IMarshal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMarshal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMarshal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarshal_abi(
@@ -1383,7 +1363,7 @@ pub struct IMarshal_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMarshal2(::windows::runtime::IUnknown);
 impl IMarshal2 {
     #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
@@ -1414,26 +1394,6 @@ impl IMarshal2 {
 unsafe impl ::windows::runtime::Interface for IMarshal2 {
     type Vtable = IMarshal2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(463, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
-}
-impl ::std::convert::From<IMarshal2> for ::windows::runtime::IUnknown {
-    fn from(value: IMarshal2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMarshal2> for ::windows::runtime::IUnknown {
-    fn from(value: &IMarshal2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMarshal2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMarshal2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IMarshal2> for IMarshal {
     fn from(value: IMarshal2) -> Self {
@@ -1470,7 +1430,7 @@ pub struct IMarshal2_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMarshalingStream(::windows::runtime::IUnknown);
 impl IMarshalingStream {
     #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
@@ -1530,26 +1490,6 @@ impl IMarshalingStream {
 unsafe impl ::windows::runtime::Interface for IMarshalingStream {
     type Vtable = IMarshalingStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639801318, 24834, 18531, [159, 38, 56, 154, 70, 118, 239, 222]);
-}
-impl ::std::convert::From<IMarshalingStream> for ::windows::runtime::IUnknown {
-    fn from(value: IMarshalingStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMarshalingStream> for ::windows::runtime::IUnknown {
-    fn from(value: &IMarshalingStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMarshalingStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMarshalingStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IMarshalingStream> for super::IStream {
     fn from(value: IMarshalingStream) -> Self {

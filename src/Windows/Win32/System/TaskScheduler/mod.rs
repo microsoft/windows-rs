@@ -30,7 +30,7 @@ unsafe impl ::windows::runtime::Abi for DAILY {
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IAction(::windows::runtime::IUnknown);
 impl IAction {
     #[cfg(feature = "Win32_Foundation")]
@@ -51,26 +51,6 @@ impl IAction {
 unsafe impl ::windows::runtime::Interface for IAction {
     type Vtable = IAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3135588759, 18609, 19646, [153, 101, 214, 190, 38, 62, 190, 164]);
-}
-impl ::std::convert::From<IAction> for ::windows::runtime::IUnknown {
-    fn from(value: IAction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAction> for ::windows::runtime::IUnknown {
-    fn from(value: &IAction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAction> for super::Ole::Automation::IDispatch {
@@ -118,7 +98,7 @@ pub struct IAction_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IActionCollection(::windows::runtime::IUnknown);
 impl IActionCollection {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -173,26 +153,6 @@ impl IActionCollection {
 unsafe impl ::windows::runtime::Interface for IActionCollection {
     type Vtable = IActionCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(42077721, 31640, 20178, [178, 232, 253, 204, 206, 255, 97, 155]);
-}
-impl ::std::convert::From<IActionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: IActionCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IActionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &IActionCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IActionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IActionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IActionCollection> for super::Ole::Automation::IDispatch {
@@ -250,7 +210,7 @@ pub struct IActionCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IBootTrigger(::windows::runtime::IUnknown);
 impl IBootTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -350,26 +310,6 @@ unsafe impl ::windows::runtime::Interface for IBootTrigger {
     type Vtable = IBootTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714880474, 54103, 16884, [187, 193, 32, 122, 193, 177, 243, 203]);
 }
-impl ::std::convert::From<IBootTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IBootTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBootTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IBootTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBootTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBootTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IBootTrigger> for ITrigger {
     fn from(value: IBootTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -456,7 +396,7 @@ pub struct IBootTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IComHandlerAction(::windows::runtime::IUnknown);
 impl IComHandlerAction {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -518,26 +458,6 @@ impl IComHandlerAction {
 unsafe impl ::windows::runtime::Interface for IComHandlerAction {
     type Vtable = IComHandlerAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1831850578, 30149, 20326, [144, 186, 42, 125, 140, 195, 3, 159]);
-}
-impl ::std::convert::From<IComHandlerAction> for ::windows::runtime::IUnknown {
-    fn from(value: IComHandlerAction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IComHandlerAction> for ::windows::runtime::IUnknown {
-    fn from(value: &IComHandlerAction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IComHandlerAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IComHandlerAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IComHandlerAction> for IAction {
     fn from(value: IComHandlerAction) -> Self {
@@ -613,7 +533,7 @@ pub struct IComHandlerAction_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDailyTrigger(::windows::runtime::IUnknown);
 impl IDailyTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -721,26 +641,6 @@ unsafe impl ::windows::runtime::Interface for IDailyTrigger {
     type Vtable = IDailyTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(309091544, 45704, 16853, [141, 191, 228, 145, 68, 106, 220, 92]);
 }
-impl ::std::convert::From<IDailyTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IDailyTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDailyTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IDailyTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDailyTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDailyTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IDailyTrigger> for ITrigger {
     fn from(value: IDailyTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -829,7 +729,7 @@ pub struct IDailyTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEmailAction(::windows::runtime::IUnknown);
 impl IEmailAction {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -971,26 +871,6 @@ unsafe impl ::windows::runtime::Interface for IEmailAction {
     type Vtable = IEmailAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284568676, 32278, 17172, [160, 194, 12, 54, 131, 249, 157, 64]);
 }
-impl ::std::convert::From<IEmailAction> for ::windows::runtime::IUnknown {
-    fn from(value: IEmailAction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEmailAction> for ::windows::runtime::IUnknown {
-    fn from(value: &IEmailAction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEmailAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEmailAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IEmailAction> for IAction {
     fn from(value: IEmailAction) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1095,7 +975,7 @@ pub struct IEmailAction_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumWorkItems(::windows::runtime::IUnknown);
 impl IEnumWorkItems {
     #[cfg(feature = "Win32_Foundation")]
@@ -1121,26 +1001,6 @@ unsafe impl ::windows::runtime::Interface for IEnumWorkItems {
     type Vtable = IEnumWorkItems_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708392, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
 }
-impl ::std::convert::From<IEnumWorkItems> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumWorkItems) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumWorkItems> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumWorkItems) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumWorkItems {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumWorkItems {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWorkItems_abi(
@@ -1155,7 +1015,7 @@ pub struct IEnumWorkItems_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEventTrigger(::windows::runtime::IUnknown);
 impl IEventTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -1274,26 +1134,6 @@ unsafe impl ::windows::runtime::Interface for IEventTrigger {
     type Vtable = IEventTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562733927, 38483, 20207, [185, 79, 7, 50, 202, 122, 242, 81]);
 }
-impl ::std::convert::From<IEventTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IEventTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEventTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IEventTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEventTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEventTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IEventTrigger> for ITrigger {
     fn from(value: IEventTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1386,7 +1226,7 @@ pub struct IEventTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IExecAction(::windows::runtime::IUnknown);
 impl IExecAction {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -1458,26 +1298,6 @@ impl IExecAction {
 unsafe impl ::windows::runtime::Interface for IExecAction {
     type Vtable = IExecAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1279091277, 64875, 18851, [185, 183, 9, 203, 60, 211, 240, 71]);
-}
-impl ::std::convert::From<IExecAction> for ::windows::runtime::IUnknown {
-    fn from(value: IExecAction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IExecAction> for ::windows::runtime::IUnknown {
-    fn from(value: &IExecAction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IExecAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IExecAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IExecAction> for IAction {
     fn from(value: IExecAction) -> Self {
@@ -1557,7 +1377,7 @@ pub struct IExecAction_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IExecAction2(::windows::runtime::IUnknown);
 impl IExecAction2 {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -1637,26 +1457,6 @@ impl IExecAction2 {
 unsafe impl ::windows::runtime::Interface for IExecAction2 {
     type Vtable = IExecAction2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071105858, 48549, 20075, [145, 67, 226, 191, 79, 137, 135, 182]);
-}
-impl ::std::convert::From<IExecAction2> for ::windows::runtime::IUnknown {
-    fn from(value: IExecAction2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IExecAction2> for ::windows::runtime::IUnknown {
-    fn from(value: &IExecAction2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IExecAction2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IExecAction2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IExecAction2> for IExecAction {
     fn from(value: IExecAction2) -> Self {
@@ -1758,7 +1558,7 @@ pub struct IExecAction2_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IIdleSettings(::windows::runtime::IUnknown);
 impl IIdleSettings {
     #[cfg(feature = "Win32_Foundation")]
@@ -1801,26 +1601,6 @@ impl IIdleSettings {
 unsafe impl ::windows::runtime::Interface for IIdleSettings {
     type Vtable = IIdleSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220442721, 83, 17218, [168, 253, 8, 143, 171, 241, 31, 50]);
-}
-impl ::std::convert::From<IIdleSettings> for ::windows::runtime::IUnknown {
-    fn from(value: IIdleSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IIdleSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &IIdleSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdleSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdleSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IIdleSettings> for super::Ole::Automation::IDispatch {
@@ -1875,7 +1655,7 @@ pub struct IIdleSettings_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IIdleTrigger(::windows::runtime::IUnknown);
 impl IIdleTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -1965,26 +1745,6 @@ unsafe impl ::windows::runtime::Interface for IIdleTrigger {
     type Vtable = IIdleTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3577205424, 40883, 19764, [151, 57, 31, 245, 206, 123, 30, 243]);
 }
-impl ::std::convert::From<IIdleTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IIdleTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IIdleTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IIdleTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIdleTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIdleTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IIdleTrigger> for ITrigger {
     fn from(value: IIdleTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2067,7 +1827,7 @@ pub struct IIdleTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ILogonTrigger(::windows::runtime::IUnknown);
 impl ILogonTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -2177,26 +1937,6 @@ unsafe impl ::windows::runtime::Interface for ILogonTrigger {
     type Vtable = ILogonTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1926946360, 64228, 19262, [186, 244, 93, 0, 154, 240, 43, 28]);
 }
-impl ::std::convert::From<ILogonTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: ILogonTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILogonTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &ILogonTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILogonTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILogonTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ILogonTrigger> for ITrigger {
     fn from(value: ILogonTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2287,7 +2027,7 @@ pub struct ILogonTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMaintenanceSettings(::windows::runtime::IUnknown);
 impl IMaintenanceSettings {
     #[cfg(feature = "Win32_Foundation")]
@@ -2322,26 +2062,6 @@ impl IMaintenanceSettings {
 unsafe impl ::windows::runtime::Interface for IMaintenanceSettings {
     type Vtable = IMaintenanceSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2785169320, 38482, 19163, [166, 191, 92, 252, 216, 119, 167, 186]);
-}
-impl ::std::convert::From<IMaintenanceSettings> for ::windows::runtime::IUnknown {
-    fn from(value: IMaintenanceSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMaintenanceSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &IMaintenanceSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMaintenanceSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMaintenanceSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMaintenanceSettings> for super::Ole::Automation::IDispatch {
@@ -2394,7 +2114,7 @@ pub struct IMaintenanceSettings_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMonthlyDOWTrigger(::windows::runtime::IUnknown);
 impl IMonthlyDOWTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -2526,26 +2246,6 @@ unsafe impl ::windows::runtime::Interface for IMonthlyDOWTrigger {
     type Vtable = IMonthlyDOWTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010129827, 37114, 17322, [181, 46, 205, 165, 73, 155, 148, 106]);
 }
-impl ::std::convert::From<IMonthlyDOWTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IMonthlyDOWTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMonthlyDOWTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IMonthlyDOWTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMonthlyDOWTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMonthlyDOWTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IMonthlyDOWTrigger> for ITrigger {
     fn from(value: IMonthlyDOWTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2640,7 +2340,7 @@ pub struct IMonthlyDOWTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMonthlyTrigger(::windows::runtime::IUnknown);
 impl IMonthlyTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -2764,26 +2464,6 @@ unsafe impl ::windows::runtime::Interface for IMonthlyTrigger {
     type Vtable = IMonthlyTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2546228977, 27394, 18970, [156, 14, 30, 191, 186, 21, 0, 172]);
 }
-impl ::std::convert::From<IMonthlyTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IMonthlyTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMonthlyTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IMonthlyTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMonthlyTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMonthlyTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IMonthlyTrigger> for ITrigger {
     fn from(value: IMonthlyTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2876,7 +2556,7 @@ pub struct IMonthlyTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetworkSettings(::windows::runtime::IUnknown);
 impl INetworkSettings {
     #[cfg(feature = "Win32_Foundation")]
@@ -2903,26 +2583,6 @@ impl INetworkSettings {
 unsafe impl ::windows::runtime::Interface for INetworkSettings {
     type Vtable = INetworkSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2675829380, 49931, 16965, [128, 182, 0, 233, 246, 70, 241, 180]);
-}
-impl ::std::convert::From<INetworkSettings> for ::windows::runtime::IUnknown {
-    fn from(value: INetworkSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetworkSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &INetworkSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetworkSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetworkSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetworkSettings> for super::Ole::Automation::IDispatch {
@@ -2973,7 +2633,7 @@ pub struct INetworkSettings_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPrincipal(::windows::runtime::IUnknown);
 impl IPrincipal {
     #[cfg(feature = "Win32_Foundation")]
@@ -3037,26 +2697,6 @@ unsafe impl ::windows::runtime::Interface for IPrincipal {
     type Vtable = IPrincipal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3649917413, 51636, 18794, [169, 193, 24, 152, 2, 97, 207, 15]);
 }
-impl ::std::convert::From<IPrincipal> for ::windows::runtime::IUnknown {
-    fn from(value: IPrincipal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPrincipal> for ::windows::runtime::IUnknown {
-    fn from(value: &IPrincipal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrincipal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrincipal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrincipal> for super::Ole::Automation::IDispatch {
     fn from(value: IPrincipal) -> Self {
@@ -3118,7 +2758,7 @@ pub struct IPrincipal_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPrincipal2(::windows::runtime::IUnknown);
 impl IPrincipal2 {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -3147,26 +2787,6 @@ impl IPrincipal2 {
 unsafe impl ::windows::runtime::Interface for IPrincipal2 {
     type Vtable = IPrincipal2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(612964782, 58181, 19053, [138, 235, 224, 211, 22, 92, 144, 78]);
-}
-impl ::std::convert::From<IPrincipal2> for ::windows::runtime::IUnknown {
-    fn from(value: IPrincipal2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPrincipal2> for ::windows::runtime::IUnknown {
-    fn from(value: &IPrincipal2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrincipal2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrincipal2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrincipal2> for super::Ole::Automation::IDispatch {
@@ -3216,7 +2836,7 @@ pub struct IPrincipal2_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IProvideTaskPage(::windows::runtime::IUnknown);
 impl IProvideTaskPage {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -3230,26 +2850,6 @@ unsafe impl ::windows::runtime::Interface for IProvideTaskPage {
     type Vtable = IProvideTaskPage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082549642, 52155, 4559, [182, 4, 0, 192, 79, 216, 213, 101]);
 }
-impl ::std::convert::From<IProvideTaskPage> for ::windows::runtime::IUnknown {
-    fn from(value: IProvideTaskPage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IProvideTaskPage> for ::windows::runtime::IUnknown {
-    fn from(value: &IProvideTaskPage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvideTaskPage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProvideTaskPage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideTaskPage_abi(
@@ -3261,7 +2861,7 @@ pub struct IProvideTaskPage_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRegisteredTask(::windows::runtime::IUnknown);
 impl IRegisteredTask {
     #[cfg(feature = "Win32_Foundation")]
@@ -3363,26 +2963,6 @@ unsafe impl ::windows::runtime::Interface for IRegisteredTask {
     type Vtable = IRegisteredTask_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2626089760, 57059, 19921, [185, 114, 163, 3, 242, 107, 6, 30]);
 }
-impl ::std::convert::From<IRegisteredTask> for ::windows::runtime::IUnknown {
-    fn from(value: IRegisteredTask) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRegisteredTask> for ::windows::runtime::IUnknown {
-    fn from(value: &IRegisteredTask) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRegisteredTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRegisteredTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRegisteredTask> for super::Ole::Automation::IDispatch {
     fn from(value: IRegisteredTask) -> Self {
@@ -3450,7 +3030,7 @@ pub struct IRegisteredTask_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRegisteredTaskCollection(::windows::runtime::IUnknown);
 impl IRegisteredTaskCollection {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -3473,26 +3053,6 @@ impl IRegisteredTaskCollection {
 unsafe impl ::windows::runtime::Interface for IRegisteredTaskCollection {
     type Vtable = IRegisteredTaskCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254601908, 17063, 16868, [164, 217, 172, 51, 167, 47, 45, 82]);
-}
-impl ::std::convert::From<IRegisteredTaskCollection> for ::windows::runtime::IUnknown {
-    fn from(value: IRegisteredTaskCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRegisteredTaskCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &IRegisteredTaskCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRegisteredTaskCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRegisteredTaskCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRegisteredTaskCollection> for super::Ole::Automation::IDispatch {
@@ -3539,7 +3099,7 @@ pub struct IRegisteredTaskCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRegistrationInfo(::windows::runtime::IUnknown);
 impl IRegistrationInfo {
     #[cfg(feature = "Win32_Foundation")]
@@ -3637,26 +3197,6 @@ unsafe impl ::windows::runtime::Interface for IRegistrationInfo {
     type Vtable = IRegistrationInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1097698163, 52033, 20129, [128, 92, 155, 233, 165, 172, 74, 116]);
 }
-impl ::std::convert::From<IRegistrationInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IRegistrationInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRegistrationInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IRegistrationInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRegistrationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRegistrationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRegistrationInfo> for super::Ole::Automation::IDispatch {
     fn from(value: IRegistrationInfo) -> Self {
@@ -3734,7 +3274,7 @@ pub struct IRegistrationInfo_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRegistrationTrigger(::windows::runtime::IUnknown);
 impl IRegistrationTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -3834,26 +3374,6 @@ unsafe impl ::windows::runtime::Interface for IRegistrationTrigger {
     type Vtable = IRegistrationTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1284500538, 49688, 19980, [178, 61, 98, 144, 36, 219, 145, 162]);
 }
-impl ::std::convert::From<IRegistrationTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IRegistrationTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRegistrationTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IRegistrationTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRegistrationTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRegistrationTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IRegistrationTrigger> for ITrigger {
     fn from(value: IRegistrationTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3940,7 +3460,7 @@ pub struct IRegistrationTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRepetitionPattern(::windows::runtime::IUnknown);
 impl IRepetitionPattern {
     #[cfg(feature = "Win32_Foundation")]
@@ -3975,26 +3495,6 @@ impl IRepetitionPattern {
 unsafe impl ::windows::runtime::Interface for IRepetitionPattern {
     type Vtable = IRepetitionPattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2142874865, 9918, 16398, [133, 181, 41, 75, 156, 117, 223, 214]);
-}
-impl ::std::convert::From<IRepetitionPattern> for ::windows::runtime::IUnknown {
-    fn from(value: IRepetitionPattern) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRepetitionPattern> for ::windows::runtime::IUnknown {
-    fn from(value: &IRepetitionPattern) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRepetitionPattern {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRepetitionPattern {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRepetitionPattern> for super::Ole::Automation::IDispatch {
@@ -4047,7 +3547,7 @@ pub struct IRepetitionPattern_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRunningTask(::windows::runtime::IUnknown);
 impl IRunningTask {
     #[cfg(feature = "Win32_Foundation")]
@@ -4096,26 +3596,6 @@ impl IRunningTask {
 unsafe impl ::windows::runtime::Interface for IRunningTask {
     type Vtable = IRunningTask_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698126075, 31642, 20254, [164, 113, 190, 235, 142, 155, 131, 78]);
-}
-impl ::std::convert::From<IRunningTask> for ::windows::runtime::IUnknown {
-    fn from(value: IRunningTask) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRunningTask> for ::windows::runtime::IUnknown {
-    fn from(value: &IRunningTask) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRunningTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRunningTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRunningTask> for super::Ole::Automation::IDispatch {
@@ -4170,7 +3650,7 @@ pub struct IRunningTask_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRunningTaskCollection(::windows::runtime::IUnknown);
 impl IRunningTaskCollection {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -4193,26 +3673,6 @@ impl IRunningTaskCollection {
 unsafe impl ::windows::runtime::Interface for IRunningTaskCollection {
     type Vtable = IRunningTaskCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1785160011, 26664, 20460, [170, 84, 109, 82, 232, 241, 242, 219]);
-}
-impl ::std::convert::From<IRunningTaskCollection> for ::windows::runtime::IUnknown {
-    fn from(value: IRunningTaskCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRunningTaskCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &IRunningTaskCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRunningTaskCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRunningTaskCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRunningTaskCollection> for super::Ole::Automation::IDispatch {
@@ -4259,7 +3719,7 @@ pub struct IRunningTaskCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IScheduledWorkItem(::windows::runtime::IUnknown);
 impl IScheduledWorkItem {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -4406,26 +3866,6 @@ unsafe impl ::windows::runtime::Interface for IScheduledWorkItem {
     type Vtable = IScheduledWorkItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2797163248, 42161, 4560, [153, 125, 0, 170, 0, 104, 135, 236]);
 }
-impl ::std::convert::From<IScheduledWorkItem> for ::windows::runtime::IUnknown {
-    fn from(value: IScheduledWorkItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IScheduledWorkItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IScheduledWorkItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IScheduledWorkItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IScheduledWorkItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScheduledWorkItem_abi(
@@ -4475,7 +3915,7 @@ pub struct IScheduledWorkItem_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISessionStateChangeTrigger(::windows::runtime::IUnknown);
 impl ISessionStateChangeTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -4593,26 +4033,6 @@ unsafe impl ::windows::runtime::Interface for ISessionStateChangeTrigger {
     type Vtable = ISessionStateChangeTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1968023323, 17285, 17525, [157, 217, 89, 130, 148, 250, 54, 65]);
 }
-impl ::std::convert::From<ISessionStateChangeTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: ISessionStateChangeTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISessionStateChangeTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &ISessionStateChangeTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISessionStateChangeTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISessionStateChangeTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ISessionStateChangeTrigger> for ITrigger {
     fn from(value: ISessionStateChangeTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4705,7 +4125,7 @@ pub struct ISessionStateChangeTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IShowMessageAction(::windows::runtime::IUnknown);
 impl IShowMessageAction {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -4767,26 +4187,6 @@ impl IShowMessageAction {
 unsafe impl ::windows::runtime::Interface for IShowMessageAction {
     type Vtable = IShowMessageAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1348378216, 44937, 18104, [163, 15, 86, 22, 42, 131, 213, 55]);
-}
-impl ::std::convert::From<IShowMessageAction> for ::windows::runtime::IUnknown {
-    fn from(value: IShowMessageAction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IShowMessageAction> for ::windows::runtime::IUnknown {
-    fn from(value: &IShowMessageAction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IShowMessageAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IShowMessageAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IShowMessageAction> for IAction {
     fn from(value: IShowMessageAction) -> Self {
@@ -4862,7 +4262,7 @@ pub struct IShowMessageAction_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITask(::windows::runtime::IUnknown);
 impl ITask {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -5069,26 +4469,6 @@ unsafe impl ::windows::runtime::Interface for ITask {
     type Vtable = ITask_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708388, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
 }
-impl ::std::convert::From<ITask> for ::windows::runtime::IUnknown {
-    fn from(value: ITask) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITask> for ::windows::runtime::IUnknown {
-    fn from(value: &ITask) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITask> for IScheduledWorkItem {
     fn from(value: ITask) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5176,7 +4556,7 @@ pub struct ITask_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskDefinition(::windows::runtime::IUnknown);
 impl ITaskDefinition {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -5249,26 +4629,6 @@ unsafe impl ::windows::runtime::Interface for ITaskDefinition {
     type Vtable = ITaskDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122775493, 21357, 20343, [184, 82, 251, 193, 53, 111, 222, 182]);
 }
-impl ::std::convert::From<ITaskDefinition> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskDefinition> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskDefinition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskDefinition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITaskDefinition> for super::Ole::Automation::IDispatch {
     fn from(value: ITaskDefinition) -> Self {
@@ -5328,7 +4688,7 @@ pub struct ITaskDefinition_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskFolder(::windows::runtime::IUnknown);
 impl ITaskFolder {
     #[cfg(feature = "Win32_Foundation")]
@@ -5427,26 +4787,6 @@ unsafe impl ::windows::runtime::Interface for ITaskFolder {
     type Vtable = ITaskFolder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2365243490, 41088, 19477, [154, 136, 170, 124, 42, 248, 13, 252]);
 }
-impl ::std::convert::From<ITaskFolder> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskFolder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskFolder> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskFolder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskFolder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskFolder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITaskFolder> for super::Ole::Automation::IDispatch {
     fn from(value: ITaskFolder) -> Self {
@@ -5514,7 +4854,7 @@ pub struct ITaskFolder_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskFolderCollection(::windows::runtime::IUnknown);
 impl ITaskFolderCollection {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -5537,26 +4877,6 @@ impl ITaskFolderCollection {
 unsafe impl ::windows::runtime::Interface for ITaskFolderCollection {
     type Vtable = ITaskFolderCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031635046, 34404, 16959, [151, 241, 99, 115, 86, 165, 216, 18]);
-}
-impl ::std::convert::From<ITaskFolderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskFolderCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskFolderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskFolderCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskFolderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskFolderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITaskFolderCollection> for super::Ole::Automation::IDispatch {
@@ -5603,7 +4923,7 @@ pub struct ITaskFolderCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskHandler(::windows::runtime::IUnknown);
 impl ITaskHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -5629,26 +4949,6 @@ unsafe impl ::windows::runtime::Interface for ITaskHandler {
     type Vtable = ITaskHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2208135010, 20769, 16393, [146, 52, 79, 13, 25, 57, 79, 4]);
 }
-impl ::std::convert::From<ITaskHandler> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskHandler_abi(
@@ -5663,7 +4963,7 @@ pub struct ITaskHandler_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskHandlerStatus(::windows::runtime::IUnknown);
 impl ITaskHandlerStatus {
     #[cfg(feature = "Win32_Foundation")]
@@ -5680,26 +4980,6 @@ unsafe impl ::windows::runtime::Interface for ITaskHandlerStatus {
     type Vtable = ITaskHandlerStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3941366415, 10144, 19932, [134, 117, 20, 114, 106, 1, 163, 138]);
 }
-impl ::std::convert::From<ITaskHandlerStatus> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskHandlerStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskHandlerStatus> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskHandlerStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskHandlerStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskHandlerStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskHandlerStatus_abi(
@@ -5712,7 +4992,7 @@ pub struct ITaskHandlerStatus_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskNamedValueCollection(::windows::runtime::IUnknown);
 impl ITaskNamedValueCollection {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -5747,26 +5027,6 @@ impl ITaskNamedValueCollection {
 unsafe impl ::windows::runtime::Interface for ITaskNamedValueCollection {
     type Vtable = ITaskNamedValueCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3035595371, 25539, 18148, [165, 4, 239, 105, 228, 247, 234, 77]);
-}
-impl ::std::convert::From<ITaskNamedValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskNamedValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskNamedValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskNamedValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskNamedValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskNamedValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITaskNamedValueCollection> for super::Ole::Automation::IDispatch {
@@ -5816,7 +5076,7 @@ pub struct ITaskNamedValueCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskNamedValuePair(::windows::runtime::IUnknown);
 impl ITaskNamedValuePair {
     #[cfg(feature = "Win32_Foundation")]
@@ -5843,26 +5103,6 @@ impl ITaskNamedValuePair {
 unsafe impl ::windows::runtime::Interface for ITaskNamedValuePair {
     type Vtable = ITaskNamedValuePair_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(956530792, 11078, 19197, [134, 98, 123, 182, 248, 104, 210, 33]);
-}
-impl ::std::convert::From<ITaskNamedValuePair> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskNamedValuePair) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskNamedValuePair> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskNamedValuePair) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskNamedValuePair {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskNamedValuePair {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITaskNamedValuePair> for super::Ole::Automation::IDispatch {
@@ -5913,7 +5153,7 @@ pub struct ITaskNamedValuePair_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskScheduler(::windows::runtime::IUnknown);
 impl ITaskScheduler {
     #[cfg(feature = "Win32_Foundation")]
@@ -5964,26 +5204,6 @@ unsafe impl ::windows::runtime::Interface for ITaskScheduler {
     type Vtable = ITaskScheduler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708391, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
 }
-impl ::std::convert::From<ITaskScheduler> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskScheduler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskScheduler> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskScheduler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskScheduler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskScheduler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskScheduler_abi(
@@ -6008,7 +5228,7 @@ pub struct ITaskScheduler_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskService(::windows::runtime::IUnknown);
 impl ITaskService {
     #[cfg(feature = "Win32_Foundation")]
@@ -6065,26 +5285,6 @@ unsafe impl ::windows::runtime::Interface for ITaskService {
     type Vtable = ITaskService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(799777991, 19881, 16403, [150, 151, 32, 204, 63, 212, 15, 133]);
 }
-impl ::std::convert::From<ITaskService> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskService> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITaskService> for super::Ole::Automation::IDispatch {
     fn from(value: ITaskService) -> Self {
@@ -6140,7 +5340,7 @@ pub struct ITaskService_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskSettings(::windows::runtime::IUnknown);
 impl ITaskSettings {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -6318,26 +5518,6 @@ unsafe impl ::windows::runtime::Interface for ITaskSettings {
     type Vtable = ITaskSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2413064477, 11522, 19596, [135, 227, 239, 246, 153, 222, 18, 126]);
 }
-impl ::std::convert::From<ITaskSettings> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITaskSettings> for super::Ole::Automation::IDispatch {
     fn from(value: ITaskSettings) -> Self {
@@ -6427,7 +5607,7 @@ pub struct ITaskSettings_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskSettings2(::windows::runtime::IUnknown);
 impl ITaskSettings2 {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -6450,26 +5630,6 @@ impl ITaskSettings2 {
 unsafe impl ::windows::runtime::Interface for ITaskSettings2 {
     type Vtable = ITaskSettings2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(738575344, 28397, 19461, [161, 95, 237, 125, 122, 152, 163, 105]);
-}
-impl ::std::convert::From<ITaskSettings2> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskSettings2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskSettings2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskSettings2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskSettings2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskSettings2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITaskSettings2> for super::Ole::Automation::IDispatch {
@@ -6516,7 +5676,7 @@ pub struct ITaskSettings2_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskSettings3(::windows::runtime::IUnknown);
 impl ITaskSettings3 {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -6753,26 +5913,6 @@ unsafe impl ::windows::runtime::Interface for ITaskSettings3 {
     type Vtable = ITaskSettings3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(182046935, 3199, 20155, [154, 95, 209, 198, 72, 220, 165, 40]);
 }
-impl ::std::convert::From<ITaskSettings3> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskSettings3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskSettings3> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskSettings3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskSettings3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskSettings3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITaskSettings3> for ITaskSettings {
     fn from(value: ITaskSettings3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6891,7 +6031,7 @@ pub struct ITaskSettings3_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskTrigger(::windows::runtime::IUnknown);
 impl ITaskTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -6914,26 +6054,6 @@ unsafe impl ::windows::runtime::Interface for ITaskTrigger {
     type Vtable = ITaskTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344708395, 41643, 4558, [177, 31, 0, 170, 0, 83, 5, 3]);
 }
-impl ::std::convert::From<ITaskTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskTrigger_abi(
@@ -6947,7 +6067,7 @@ pub struct ITaskTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITaskVariables(::windows::runtime::IUnknown);
 impl ITaskVariables {
     #[cfg(feature = "Win32_Foundation")]
@@ -6972,26 +6092,6 @@ unsafe impl ::windows::runtime::Interface for ITaskVariables {
     type Vtable = ITaskVariables_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1045205841, 55654, 19339, [187, 135, 206, 186, 104, 187, 1, 7]);
 }
-impl ::std::convert::From<ITaskVariables> for ::windows::runtime::IUnknown {
-    fn from(value: ITaskVariables) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITaskVariables> for ::windows::runtime::IUnknown {
-    fn from(value: &ITaskVariables) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITaskVariables {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITaskVariables {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITaskVariables_abi(
@@ -7007,7 +6107,7 @@ pub struct ITaskVariables_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITimeTrigger(::windows::runtime::IUnknown);
 impl ITimeTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -7107,26 +6207,6 @@ unsafe impl ::windows::runtime::Interface for ITimeTrigger {
     type Vtable = ITimeTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3025618912, 60327, 17014, [159, 41, 133, 197, 187, 48, 0, 6]);
 }
-impl ::std::convert::From<ITimeTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: ITimeTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITimeTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &ITimeTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITimeTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITimeTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITimeTrigger> for ITrigger {
     fn from(value: ITimeTrigger) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7213,7 +6293,7 @@ pub struct ITimeTrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITrigger(::windows::runtime::IUnknown);
 impl ITrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -7282,26 +6362,6 @@ unsafe impl ::windows::runtime::Interface for ITrigger {
     type Vtable = ITrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(160700437, 60041, 19291, [137, 224, 42, 119, 56, 1, 250, 195]);
 }
-impl ::std::convert::From<ITrigger> for ::windows::runtime::IUnknown {
-    fn from(value: ITrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &ITrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITrigger> for super::Ole::Automation::IDispatch {
     fn from(value: ITrigger) -> Self {
@@ -7364,7 +6424,7 @@ pub struct ITrigger_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITriggerCollection(::windows::runtime::IUnknown);
 impl ITriggerCollection {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -7399,26 +6459,6 @@ impl ITriggerCollection {
 unsafe impl ::windows::runtime::Interface for ITriggerCollection {
     type Vtable = ITriggerCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2246004865, 6948, 20274, [135, 138, 217, 209, 77, 244, 203, 119]);
-}
-impl ::std::convert::From<ITriggerCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ITriggerCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITriggerCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ITriggerCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITriggerCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITriggerCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITriggerCollection> for super::Ole::Automation::IDispatch {
@@ -7468,7 +6508,7 @@ pub struct ITriggerCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWeeklyTrigger(::windows::runtime::IUnknown);
 impl IWeeklyTrigger {
     #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
@@ -7583,26 +6623,6 @@ impl IWeeklyTrigger {
 unsafe impl ::windows::runtime::Interface for IWeeklyTrigger {
     type Vtable = IWeeklyTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345911960, 33535, 17261, [135, 40, 165, 18, 165, 124, 157, 193]);
-}
-impl ::std::convert::From<IWeeklyTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IWeeklyTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWeeklyTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IWeeklyTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWeeklyTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWeeklyTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IWeeklyTrigger> for ITrigger {
     fn from(value: IWeeklyTrigger) -> Self {

@@ -106,7 +106,7 @@ unsafe impl ::windows::runtime::Abi for EVENT_DATA_HEADER {
 pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355358737, 65209, 19200, [144, 244, 211, 41, 71, 174, 22, 129]);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowBulkCapabilities(::windows::runtime::IUnknown);
 impl ISideShowBulkCapabilities {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
@@ -122,26 +122,6 @@ impl ISideShowBulkCapabilities {
 unsafe impl ::windows::runtime::Interface for ISideShowBulkCapabilities {
     type Vtable = ISideShowBulkCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(975929276, 15061, 18621, [187, 241, 14, 108, 251, 209, 8, 7]);
-}
-impl ::std::convert::From<ISideShowBulkCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowBulkCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowBulkCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowBulkCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ISideShowBulkCapabilities> for ISideShowCapabilities {
     fn from(value: ISideShowBulkCapabilities) -> Self {
@@ -175,7 +155,7 @@ pub struct ISideShowBulkCapabilities_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowCapabilities(::windows::runtime::IUnknown);
 impl ISideShowCapabilities {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
@@ -188,26 +168,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowCapabilities {
     type Vtable = ISideShowCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398674297, 49310, 19028, [165, 17, 89, 123, 171, 58, 114, 184]);
 }
-impl ::std::convert::From<ISideShowCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowCapabilities_abi(
@@ -219,7 +179,7 @@ pub struct ISideShowCapabilities_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowCapabilitiesCollection(::windows::runtime::IUnknown);
 impl ISideShowCapabilitiesCollection {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -237,26 +197,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowCapabilitiesCollection {
     type Vtable = ISideShowCapabilitiesCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345344919, 24077, 20471, [179, 175, 51, 208, 217, 189, 82, 221]);
 }
-impl ::std::convert::From<ISideShowCapabilitiesCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowCapabilitiesCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowCapabilitiesCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowCapabilitiesCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowCapabilitiesCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowCapabilitiesCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowCapabilitiesCollection_abi(
@@ -268,7 +208,7 @@ pub struct ISideShowCapabilitiesCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowContent(::windows::runtime::IUnknown);
 impl ISideShowContent {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -291,26 +231,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowContent {
     type Vtable = ISideShowContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3246740205, 29951, 20460, [190, 7, 76, 254, 210, 157, 72, 135]);
 }
-impl ::std::convert::From<ISideShowContent> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowContent> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowContent_abi(
@@ -324,7 +244,7 @@ pub struct ISideShowContent_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowContentManager(::windows::runtime::IUnknown);
 impl ISideShowContentManager {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -353,26 +273,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowContentManager {
     type Vtable = ISideShowContentManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2782246507, 61177, 16859, [141, 126, 225, 124, 51, 171, 16, 176]);
 }
-impl ::std::convert::From<ISideShowContentManager> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowContentManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowContentManager> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowContentManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowContentManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowContentManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowContentManager_abi(
@@ -387,7 +287,7 @@ pub struct ISideShowContentManager_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowEvents(::windows::runtime::IUnknown);
 impl ISideShowEvents {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -412,26 +312,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowEvents {
     type Vtable = ISideShowEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1644087884, 57012, 19070, [141, 117, 81, 241, 19, 45, 97, 91]);
 }
-impl ::std::convert::From<ISideShowEvents> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowEvents> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowEvents_abi(
@@ -445,7 +325,7 @@ pub struct ISideShowEvents_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowKeyCollection(::windows::runtime::IUnknown);
 impl ISideShowKeyCollection {
     #[cfg(feature = "Win32_System_PropertiesSystem")]
@@ -475,26 +355,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowKeyCollection {
     type Vtable = ISideShowKeyCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(72643516, 41851, 18775, [177, 68, 104, 16, 84, 17, 237, 142]);
 }
-impl ::std::convert::From<ISideShowKeyCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowKeyCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowKeyCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowKeyCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowKeyCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowKeyCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowKeyCollection_abi(
@@ -511,7 +371,7 @@ pub struct ISideShowKeyCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowNotification(::windows::runtime::IUnknown);
 impl ISideShowNotification {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -572,26 +432,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowNotification {
     type Vtable = ISideShowNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63517440, 35506, 16837, [155, 121, 70, 18, 122, 48, 225, 72]);
 }
-impl ::std::convert::From<ISideShowNotification> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowNotification_abi(
@@ -619,7 +459,7 @@ pub struct ISideShowNotification_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowNotificationManager(::windows::runtime::IUnknown);
 impl ISideShowNotificationManager {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -639,26 +479,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowNotificationManager {
     type Vtable = ISideShowNotificationManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1674488073, 62137, 17154, [181, 225, 198, 142, 109, 154, 184, 51]);
 }
-impl ::std::convert::From<ISideShowNotificationManager> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowNotificationManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowNotificationManager> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowNotificationManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowNotificationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowNotificationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowNotificationManager_abi(
@@ -671,7 +491,7 @@ pub struct ISideShowNotificationManager_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowPropVariantCollection(::windows::runtime::IUnknown);
 impl ISideShowPropVariantCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
@@ -701,26 +521,6 @@ unsafe impl ::windows::runtime::Interface for ISideShowPropVariantCollection {
     type Vtable = ISideShowPropVariantCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(782738761, 31743, 19118, [186, 176, 34, 212, 49, 17, 222, 73]);
 }
-impl ::std::convert::From<ISideShowPropVariantCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowPropVariantCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowPropVariantCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowPropVariantCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowPropVariantCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowPropVariantCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISideShowPropVariantCollection_abi(
@@ -737,7 +537,7 @@ pub struct ISideShowPropVariantCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISideShowSession(::windows::runtime::IUnknown);
 impl ISideShowSession {
     #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -754,26 +554,6 @@ impl ISideShowSession {
 unsafe impl ::windows::runtime::Interface for ISideShowSession {
     type Vtable = ISideShowSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793957358, 40573, 18722, [159, 194, 171, 122, 164, 28, 228, 145]);
-}
-impl ::std::convert::From<ISideShowSession> for ::windows::runtime::IUnknown {
-    fn from(value: ISideShowSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISideShowSession> for ::windows::runtime::IUnknown {
-    fn from(value: &ISideShowSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISideShowSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISideShowSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

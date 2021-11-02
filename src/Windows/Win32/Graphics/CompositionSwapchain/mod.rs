@@ -81,7 +81,7 @@ pub unsafe fn CreatePresentationFactory<'a, Param0: ::windows::runtime::IntoPara
 }
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ICompositionFramePresentStatistics(::windows::runtime::IUnknown);
 impl ICompositionFramePresentStatistics {
     #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
@@ -109,26 +109,6 @@ impl ICompositionFramePresentStatistics {
 unsafe impl ::windows::runtime::Interface for ICompositionFramePresentStatistics {
     type Vtable = ICompositionFramePresentStatistics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2873217319, 49409, 19466, [145, 29, 249, 242, 233, 208, 142, 100]);
-}
-impl ::std::convert::From<ICompositionFramePresentStatistics> for ::windows::runtime::IUnknown {
-    fn from(value: ICompositionFramePresentStatistics) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICompositionFramePresentStatistics> for ::windows::runtime::IUnknown {
-    fn from(value: &ICompositionFramePresentStatistics) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICompositionFramePresentStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICompositionFramePresentStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ICompositionFramePresentStatistics> for IPresentStatistics {
     fn from(value: ICompositionFramePresentStatistics) -> Self {
@@ -165,7 +145,7 @@ pub struct ICompositionFramePresentStatistics_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IIndependentFlipFramePresentStatistics(::windows::runtime::IUnknown);
 impl IIndependentFlipFramePresentStatistics {
     #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
@@ -208,26 +188,6 @@ unsafe impl ::windows::runtime::Interface for IIndependentFlipFramePresentStatis
     type Vtable = IIndependentFlipFramePresentStatistics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2358492711, 44436, 19872, [143, 212, 36, 19, 19, 45, 18, 78]);
 }
-impl ::std::convert::From<IIndependentFlipFramePresentStatistics> for ::windows::runtime::IUnknown {
-    fn from(value: IIndependentFlipFramePresentStatistics) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IIndependentFlipFramePresentStatistics> for ::windows::runtime::IUnknown {
-    fn from(value: &IIndependentFlipFramePresentStatistics) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIndependentFlipFramePresentStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIndependentFlipFramePresentStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IIndependentFlipFramePresentStatistics> for IPresentStatistics {
     fn from(value: IIndependentFlipFramePresentStatistics) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -265,7 +225,7 @@ pub struct IIndependentFlipFramePresentStatistics_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPresentStatistics(::windows::runtime::IUnknown);
 impl IPresentStatistics {
     #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
@@ -281,26 +241,6 @@ unsafe impl ::windows::runtime::Interface for IPresentStatistics {
     type Vtable = IPresentStatistics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024849882, 29314, 18781, [157, 215, 206, 173, 216, 180, 187, 134]);
 }
-impl ::std::convert::From<IPresentStatistics> for ::windows::runtime::IUnknown {
-    fn from(value: IPresentStatistics) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPresentStatistics> for ::windows::runtime::IUnknown {
-    fn from(value: &IPresentStatistics) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPresentStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPresentStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentStatistics_abi(
@@ -312,7 +252,7 @@ pub struct IPresentStatistics_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPresentStatusPresentStatistics(::windows::runtime::IUnknown);
 impl IPresentStatusPresentStatistics {
     #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
@@ -335,26 +275,6 @@ impl IPresentStatusPresentStatistics {
 unsafe impl ::windows::runtime::Interface for IPresentStatusPresentStatistics {
     type Vtable = IPresentStatusPresentStatistics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3387763265, 31179, 17246, [150, 78, 200, 85, 48, 85, 66, 12]);
-}
-impl ::std::convert::From<IPresentStatusPresentStatistics> for ::windows::runtime::IUnknown {
-    fn from(value: IPresentStatusPresentStatistics) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPresentStatusPresentStatistics> for ::windows::runtime::IUnknown {
-    fn from(value: &IPresentStatusPresentStatistics) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPresentStatusPresentStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPresentStatusPresentStatistics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IPresentStatusPresentStatistics> for IPresentStatistics {
     fn from(value: IPresentStatusPresentStatistics) -> Self {
@@ -389,7 +309,7 @@ pub struct IPresentStatusPresentStatistics_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPresentationBuffer(::windows::runtime::IUnknown);
 impl IPresentationBuffer {
     #[cfg(feature = "Win32_Foundation")]
@@ -408,26 +328,6 @@ unsafe impl ::windows::runtime::Interface for IPresentationBuffer {
     type Vtable = IPresentationBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(773946682, 23227, 16696, [154, 19, 167, 117, 89, 60, 137, 202]);
 }
-impl ::std::convert::From<IPresentationBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: IPresentationBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPresentationBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: &IPresentationBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPresentationBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPresentationBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationBuffer_abi(
@@ -440,7 +340,7 @@ pub struct IPresentationBuffer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPresentationContent(::windows::runtime::IUnknown);
 impl IPresentationContent {
     #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
@@ -452,26 +352,6 @@ unsafe impl ::windows::runtime::Interface for IPresentationContent {
     type Vtable = IPresentationContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1449704313, 15758, 16732, [178, 21, 243, 128, 32, 242, 210, 82]);
 }
-impl ::std::convert::From<IPresentationContent> for ::windows::runtime::IUnknown {
-    fn from(value: IPresentationContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPresentationContent> for ::windows::runtime::IUnknown {
-    fn from(value: &IPresentationContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPresentationContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPresentationContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationContent_abi(
@@ -482,7 +362,7 @@ pub struct IPresentationContent_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPresentationFactory(::windows::runtime::IUnknown);
 impl IPresentationFactory {
     #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
@@ -503,26 +383,6 @@ unsafe impl ::windows::runtime::Interface for IPresentationFactory {
     type Vtable = IPresentationFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2410904408, 7540, 20324, [164, 156, 31, 151, 168, 10, 46, 192]);
 }
-impl ::std::convert::From<IPresentationFactory> for ::windows::runtime::IUnknown {
-    fn from(value: IPresentationFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPresentationFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &IPresentationFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPresentationFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPresentationFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationFactory_abi(
@@ -535,7 +395,7 @@ pub struct IPresentationFactory_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPresentationManager(::windows::runtime::IUnknown);
 impl IPresentationManager {
     #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
@@ -603,26 +463,6 @@ unsafe impl ::windows::runtime::Interface for IPresentationManager {
     type Vtable = IPresentationManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4216729474, 25234, 18186, [136, 177, 132, 54, 97, 231, 242, 12]);
 }
-impl ::std::convert::From<IPresentationManager> for ::windows::runtime::IUnknown {
-    fn from(value: IPresentationManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPresentationManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IPresentationManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPresentationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPresentationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationManager_abi(
@@ -648,7 +488,7 @@ pub struct IPresentationManager_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPresentationSurface(::windows::runtime::IUnknown);
 impl IPresentationSurface {
     #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
@@ -694,26 +534,6 @@ impl IPresentationSurface {
 unsafe impl ::windows::runtime::Interface for IPresentationSurface {
     type Vtable = IPresentationSurface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506559739, 59968, 20154, [163, 235, 67, 117, 160, 235, 78, 220]);
-}
-impl ::std::convert::From<IPresentationSurface> for ::windows::runtime::IUnknown {
-    fn from(value: IPresentationSurface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPresentationSurface> for ::windows::runtime::IUnknown {
-    fn from(value: &IPresentationSurface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPresentationSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPresentationSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IPresentationSurface> for IPresentationContent {
     fn from(value: IPresentationSurface) -> Self {

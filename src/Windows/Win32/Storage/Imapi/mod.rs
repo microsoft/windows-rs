@@ -38,7 +38,7 @@ pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DDiscFormat2DataEvents(::windows::runtime::IUnknown);
 impl DDiscFormat2DataEvents {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -50,26 +50,6 @@ impl DDiscFormat2DataEvents {
 unsafe impl ::windows::runtime::Interface for DDiscFormat2DataEvents {
     type Vtable = DDiscFormat2DataEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801532, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<DDiscFormat2DataEvents> for ::windows::runtime::IUnknown {
-    fn from(value: DDiscFormat2DataEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DDiscFormat2DataEvents> for ::windows::runtime::IUnknown {
-    fn from(value: &DDiscFormat2DataEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DDiscFormat2DataEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DDiscFormat2DataEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DDiscFormat2DataEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -114,7 +94,7 @@ pub struct DDiscFormat2DataEvents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DDiscFormat2EraseEvents(::windows::runtime::IUnknown);
 impl DDiscFormat2EraseEvents {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -126,26 +106,6 @@ impl DDiscFormat2EraseEvents {
 unsafe impl ::windows::runtime::Interface for DDiscFormat2EraseEvents {
     type Vtable = DDiscFormat2EraseEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801530, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<DDiscFormat2EraseEvents> for ::windows::runtime::IUnknown {
-    fn from(value: DDiscFormat2EraseEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DDiscFormat2EraseEvents> for ::windows::runtime::IUnknown {
-    fn from(value: &DDiscFormat2EraseEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DDiscFormat2EraseEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DDiscFormat2EraseEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DDiscFormat2EraseEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -190,7 +150,7 @@ pub struct DDiscFormat2EraseEvents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DDiscFormat2RawCDEvents(::windows::runtime::IUnknown);
 impl DDiscFormat2RawCDEvents {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -202,26 +162,6 @@ impl DDiscFormat2RawCDEvents {
 unsafe impl ::windows::runtime::Interface for DDiscFormat2RawCDEvents {
     type Vtable = DDiscFormat2RawCDEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801538, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<DDiscFormat2RawCDEvents> for ::windows::runtime::IUnknown {
-    fn from(value: DDiscFormat2RawCDEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DDiscFormat2RawCDEvents> for ::windows::runtime::IUnknown {
-    fn from(value: &DDiscFormat2RawCDEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DDiscFormat2RawCDEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DDiscFormat2RawCDEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DDiscFormat2RawCDEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -266,7 +206,7 @@ pub struct DDiscFormat2RawCDEvents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DDiscFormat2TrackAtOnceEvents(::windows::runtime::IUnknown);
 impl DDiscFormat2TrackAtOnceEvents {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -278,26 +218,6 @@ impl DDiscFormat2TrackAtOnceEvents {
 unsafe impl ::windows::runtime::Interface for DDiscFormat2TrackAtOnceEvents {
     type Vtable = DDiscFormat2TrackAtOnceEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801535, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<DDiscFormat2TrackAtOnceEvents> for ::windows::runtime::IUnknown {
-    fn from(value: DDiscFormat2TrackAtOnceEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DDiscFormat2TrackAtOnceEvents> for ::windows::runtime::IUnknown {
-    fn from(value: &DDiscFormat2TrackAtOnceEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DDiscFormat2TrackAtOnceEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DDiscFormat2TrackAtOnceEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DDiscFormat2TrackAtOnceEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -342,7 +262,7 @@ pub struct DDiscFormat2TrackAtOnceEvents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DDiscMaster2Events(::windows::runtime::IUnknown);
 impl DDiscMaster2Events {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
@@ -359,26 +279,6 @@ impl DDiscMaster2Events {
 unsafe impl ::windows::runtime::Interface for DDiscMaster2Events {
     type Vtable = DDiscMaster2Events_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801521, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<DDiscMaster2Events> for ::windows::runtime::IUnknown {
-    fn from(value: DDiscMaster2Events) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DDiscMaster2Events> for ::windows::runtime::IUnknown {
-    fn from(value: &DDiscMaster2Events) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DDiscMaster2Events {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DDiscMaster2Events {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DDiscMaster2Events> for super::super::System::Ole::Automation::IDispatch {
@@ -425,7 +325,7 @@ pub struct DDiscMaster2Events_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DFileSystemImageEvents(::windows::runtime::IUnknown);
 impl DFileSystemImageEvents {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
@@ -437,26 +337,6 @@ impl DFileSystemImageEvents {
 unsafe impl ::windows::runtime::Interface for DFileSystemImageEvents {
     type Vtable = DFileSystemImageEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904991, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-}
-impl ::std::convert::From<DFileSystemImageEvents> for ::windows::runtime::IUnknown {
-    fn from(value: DFileSystemImageEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DFileSystemImageEvents> for ::windows::runtime::IUnknown {
-    fn from(value: &DFileSystemImageEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DFileSystemImageEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DFileSystemImageEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DFileSystemImageEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -501,7 +381,7 @@ pub struct DFileSystemImageEvents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DFileSystemImageImportEvents(::windows::runtime::IUnknown);
 impl DFileSystemImageImportEvents {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
@@ -513,26 +393,6 @@ impl DFileSystemImageImportEvents {
 unsafe impl ::windows::runtime::Interface for DFileSystemImageImportEvents {
     type Vtable = DFileSystemImageImportEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3529257209, 16519, 17254, [158, 36, 229, 91, 226, 134, 66, 75]);
-}
-impl ::std::convert::From<DFileSystemImageImportEvents> for ::windows::runtime::IUnknown {
-    fn from(value: DFileSystemImageImportEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DFileSystemImageImportEvents> for ::windows::runtime::IUnknown {
-    fn from(value: &DFileSystemImageImportEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DFileSystemImageImportEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DFileSystemImageImportEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DFileSystemImageImportEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -965,7 +825,7 @@ pub const DISPID_IWRITEENGINE2_WRITEINPROGRESS: u32 = 261u32;
 pub const DISPID_IWRITEENGINE2_WRITESECTION: u32 = 512u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DWriteEngine2Events(::windows::runtime::IUnknown);
 impl DWriteEngine2Events {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -977,26 +837,6 @@ impl DWriteEngine2Events {
 unsafe impl ::windows::runtime::Interface for DWriteEngine2Events {
     type Vtable = DWriteEngine2Events_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801527, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<DWriteEngine2Events> for ::windows::runtime::IUnknown {
-    fn from(value: DWriteEngine2Events) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DWriteEngine2Events> for ::windows::runtime::IUnknown {
-    fn from(value: &DWriteEngine2Events) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DWriteEngine2Events {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DWriteEngine2Events {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<DWriteEngine2Events> for super::super::System::Ole::Automation::IDispatch {
@@ -1117,7 +957,7 @@ pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::std::ffi::c_void, lpproptagar
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IBlockRange(::windows::runtime::IUnknown);
 impl IBlockRange {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -1134,26 +974,6 @@ impl IBlockRange {
 unsafe impl ::windows::runtime::Interface for IBlockRange {
     type Vtable = IBlockRange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186597, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
-}
-impl ::std::convert::From<IBlockRange> for ::windows::runtime::IUnknown {
-    fn from(value: IBlockRange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBlockRange> for ::windows::runtime::IUnknown {
-    fn from(value: &IBlockRange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBlockRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBlockRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IBlockRange> for super::super::System::Ole::Automation::IDispatch {
@@ -1198,7 +1018,7 @@ pub struct IBlockRange_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IBlockRangeList(::windows::runtime::IUnknown);
 impl IBlockRangeList {
     #[cfg(feature = "Win32_System_Com")]
@@ -1211,26 +1031,6 @@ impl IBlockRangeList {
 unsafe impl ::windows::runtime::Interface for IBlockRangeList {
     type Vtable = IBlockRangeList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186598, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
-}
-impl ::std::convert::From<IBlockRangeList> for ::windows::runtime::IUnknown {
-    fn from(value: IBlockRangeList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBlockRangeList> for ::windows::runtime::IUnknown {
-    fn from(value: &IBlockRangeList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBlockRangeList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBlockRangeList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IBlockRangeList> for super::super::System::Ole::Automation::IDispatch {
@@ -1275,7 +1075,7 @@ pub struct IBlockRangeList_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IBootOptions(::windows::runtime::IUnknown);
 impl IBootOptions {
     #[cfg(feature = "Win32_System_Com")]
@@ -1327,26 +1127,6 @@ impl IBootOptions {
 unsafe impl ::windows::runtime::Interface for IBootOptions {
     type Vtable = IBootOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904980, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-}
-impl ::std::convert::From<IBootOptions> for ::windows::runtime::IUnknown {
-    fn from(value: IBootOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBootOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &IBootOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBootOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBootOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IBootOptions> for super::super::System::Ole::Automation::IDispatch {
@@ -1402,7 +1182,7 @@ pub struct IBootOptions_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IBurnVerification(::windows::runtime::IUnknown);
 impl IBurnVerification {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -1419,26 +1199,6 @@ unsafe impl ::windows::runtime::Interface for IBurnVerification {
     type Vtable = IBurnVerification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3539982388, 38283, 17005, [132, 112, 42, 19, 135, 156, 106, 145]);
 }
-impl ::std::convert::From<IBurnVerification> for ::windows::runtime::IUnknown {
-    fn from(value: IBurnVerification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBurnVerification> for ::windows::runtime::IUnknown {
-    fn from(value: &IBurnVerification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBurnVerification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBurnVerification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBurnVerification_abi(
@@ -1450,7 +1210,7 @@ pub struct IBurnVerification_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscFormat2(::windows::runtime::IUnknown);
 impl IDiscFormat2 {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -1483,26 +1243,6 @@ impl IDiscFormat2 {
 unsafe impl ::windows::runtime::Interface for IDiscFormat2 {
     type Vtable = IDiscFormat2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801554, 36708, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<IDiscFormat2> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscFormat2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscFormat2> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscFormat2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscFormat2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscFormat2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDiscFormat2> for super::super::System::Ole::Automation::IDispatch {
@@ -1551,7 +1291,7 @@ pub struct IDiscFormat2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscFormat2Data(::windows::runtime::IUnknown);
 impl IDiscFormat2Data {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -1762,26 +1502,6 @@ unsafe impl ::windows::runtime::Interface for IDiscFormat2Data {
     type Vtable = IDiscFormat2Data_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801555, 40804, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscFormat2Data> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscFormat2Data) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscFormat2Data> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscFormat2Data) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscFormat2Data {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscFormat2Data {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IDiscFormat2Data> for IDiscFormat2 {
     fn from(value: IDiscFormat2Data) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1887,7 +1607,7 @@ pub struct IDiscFormat2Data_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscFormat2DataEventArgs(::windows::runtime::IUnknown);
 impl IDiscFormat2DataEventArgs {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -1971,26 +1691,6 @@ unsafe impl ::windows::runtime::Interface for IDiscFormat2DataEventArgs {
     type Vtable = IDiscFormat2DataEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801533, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscFormat2DataEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscFormat2DataEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscFormat2DataEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscFormat2DataEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscFormat2DataEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscFormat2DataEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IDiscFormat2DataEventArgs> for IWriteEngine2EventArgs {
     fn from(value: IDiscFormat2DataEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2063,7 +1763,7 @@ pub struct IDiscFormat2DataEventArgs_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscFormat2Erase(::windows::runtime::IUnknown);
 impl IDiscFormat2Erase {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -2156,26 +1856,6 @@ unsafe impl ::windows::runtime::Interface for IDiscFormat2Erase {
     type Vtable = IDiscFormat2Erase_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801558, 36708, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscFormat2Erase> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscFormat2Erase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscFormat2Erase> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscFormat2Erase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscFormat2Erase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscFormat2Erase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IDiscFormat2Erase> for IDiscFormat2 {
     fn from(value: IDiscFormat2Erase) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2253,7 +1933,7 @@ pub struct IDiscFormat2Erase_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscFormat2RawCD(::windows::runtime::IUnknown);
 impl IDiscFormat2RawCD {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -2425,26 +2105,6 @@ unsafe impl ::windows::runtime::Interface for IDiscFormat2RawCD {
     type Vtable = IDiscFormat2RawCD_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801557, 36708, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscFormat2RawCD> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscFormat2RawCD) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscFormat2RawCD> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscFormat2RawCD) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscFormat2RawCD {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscFormat2RawCD {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IDiscFormat2RawCD> for IDiscFormat2 {
     fn from(value: IDiscFormat2RawCD) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2543,7 +2203,7 @@ pub struct IDiscFormat2RawCD_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscFormat2RawCDEventArgs(::windows::runtime::IUnknown);
 impl IDiscFormat2RawCDEventArgs {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -2622,26 +2282,6 @@ unsafe impl ::windows::runtime::Interface for IDiscFormat2RawCDEventArgs {
     type Vtable = IDiscFormat2RawCDEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801539, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscFormat2RawCDEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscFormat2RawCDEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscFormat2RawCDEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscFormat2RawCDEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscFormat2RawCDEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscFormat2RawCDEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IDiscFormat2RawCDEventArgs> for IWriteEngine2EventArgs {
     fn from(value: IDiscFormat2RawCDEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2713,7 +2353,7 @@ pub struct IDiscFormat2RawCDEventArgs_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscFormat2TrackAtOnce(::windows::runtime::IUnknown);
 impl IDiscFormat2TrackAtOnce {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -2890,26 +2530,6 @@ unsafe impl ::windows::runtime::Interface for IDiscFormat2TrackAtOnce {
     type Vtable = IDiscFormat2TrackAtOnce_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801556, 36708, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscFormat2TrackAtOnce> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscFormat2TrackAtOnce) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscFormat2TrackAtOnce> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscFormat2TrackAtOnce) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscFormat2TrackAtOnce {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscFormat2TrackAtOnce {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IDiscFormat2TrackAtOnce> for IDiscFormat2 {
     fn from(value: IDiscFormat2TrackAtOnce) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3008,7 +2628,7 @@ pub struct IDiscFormat2TrackAtOnce_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscFormat2TrackAtOnceEventArgs(::windows::runtime::IUnknown);
 impl IDiscFormat2TrackAtOnceEventArgs {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -3092,26 +2712,6 @@ unsafe impl ::windows::runtime::Interface for IDiscFormat2TrackAtOnceEventArgs {
     type Vtable = IDiscFormat2TrackAtOnceEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801536, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscFormat2TrackAtOnceEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscFormat2TrackAtOnceEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscFormat2TrackAtOnceEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscFormat2TrackAtOnceEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscFormat2TrackAtOnceEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscFormat2TrackAtOnceEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IDiscFormat2TrackAtOnceEventArgs> for IWriteEngine2EventArgs {
     fn from(value: IDiscFormat2TrackAtOnceEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3184,7 +2784,7 @@ pub struct IDiscFormat2TrackAtOnceEventArgs_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscMaster(::windows::runtime::IUnknown);
 impl IDiscMaster {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -3245,26 +2845,6 @@ unsafe impl ::windows::runtime::Interface for IDiscMaster {
     type Vtable = IDiscMaster_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376569954, 20901, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 }
-impl ::std::convert::From<IDiscMaster> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscMaster) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscMaster> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscMaster) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscMaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscMaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscMaster_abi(
@@ -3286,7 +2866,7 @@ pub struct IDiscMaster_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscMaster2(::windows::runtime::IUnknown);
 impl IDiscMaster2 {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3315,26 +2895,6 @@ impl IDiscMaster2 {
 unsafe impl ::windows::runtime::Interface for IDiscMaster2 {
     type Vtable = IDiscMaster2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801520, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<IDiscMaster2> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscMaster2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscMaster2> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscMaster2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscMaster2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscMaster2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDiscMaster2> for super::super::System::Ole::Automation::IDispatch {
@@ -3383,7 +2943,7 @@ pub struct IDiscMaster2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscMasterProgressEvents(::windows::runtime::IUnknown);
 impl IDiscMasterProgressEvents {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -3428,26 +2988,6 @@ unsafe impl ::windows::runtime::Interface for IDiscMasterProgressEvents {
     type Vtable = IDiscMasterProgressEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3969798593, 20061, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 }
-impl ::std::convert::From<IDiscMasterProgressEvents> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscMasterProgressEvents) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscMasterProgressEvents> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscMasterProgressEvents) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscMasterProgressEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscMasterProgressEvents {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscMasterProgressEvents_abi(
@@ -3466,7 +3006,7 @@ pub struct IDiscMasterProgressEvents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscRecorder(::windows::runtime::IUnknown);
 impl IDiscRecorder {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -3544,26 +3084,6 @@ unsafe impl ::windows::runtime::Interface for IDiscRecorder {
     type Vtable = IDiscRecorder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2242680694, 51848, 19698, [137, 78, 9, 89, 140, 7, 138, 65]);
 }
-impl ::std::convert::From<IDiscRecorder> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscRecorder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscRecorder> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscRecorder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscRecorder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscRecorder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscRecorder_abi(
@@ -3593,7 +3113,7 @@ pub struct IDiscRecorder_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscRecorder2(::windows::runtime::IUnknown);
 impl IDiscRecorder2 {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -3713,26 +3233,6 @@ unsafe impl ::windows::runtime::Interface for IDiscRecorder2 {
     type Vtable = IDiscRecorder2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801523, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscRecorder2> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscRecorder2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscRecorder2> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscRecorder2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscRecorder2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscRecorder2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDiscRecorder2> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IDiscRecorder2) -> Self {
@@ -3809,7 +3309,7 @@ pub struct IDiscRecorder2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDiscRecorder2Ex(::windows::runtime::IUnknown);
 impl IDiscRecorder2Ex {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -3895,26 +3395,6 @@ unsafe impl ::windows::runtime::Interface for IDiscRecorder2Ex {
     type Vtable = IDiscRecorder2Ex_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801522, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IDiscRecorder2Ex> for ::windows::runtime::IUnknown {
-    fn from(value: IDiscRecorder2Ex) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDiscRecorder2Ex> for ::windows::runtime::IUnknown {
-    fn from(value: &IDiscRecorder2Ex) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDiscRecorder2Ex {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDiscRecorder2Ex {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiscRecorder2Ex_abi(
@@ -3945,7 +3425,7 @@ pub struct IDiscRecorder2Ex_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumDiscMasterFormats(::windows::runtime::IUnknown);
 impl IEnumDiscMasterFormats {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -3970,26 +3450,6 @@ unsafe impl ::windows::runtime::Interface for IEnumDiscMasterFormats {
     type Vtable = IEnumDiscMasterFormats_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723773409, 21690, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 }
-impl ::std::convert::From<IEnumDiscMasterFormats> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumDiscMasterFormats) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumDiscMasterFormats> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumDiscMasterFormats) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDiscMasterFormats {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDiscMasterFormats {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDiscMasterFormats_abi(
@@ -4003,7 +3463,7 @@ pub struct IEnumDiscMasterFormats_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumDiscRecorders(::windows::runtime::IUnknown);
 impl IEnumDiscRecorders {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -4028,26 +3488,6 @@ unsafe impl ::windows::runtime::Interface for IEnumDiscRecorders {
     type Vtable = IEnumDiscRecorders_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2602115553, 21676, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 }
-impl ::std::convert::From<IEnumDiscRecorders> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumDiscRecorders) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumDiscRecorders> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumDiscRecorders) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDiscRecorders {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDiscRecorders {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDiscRecorders_abi(
@@ -4061,7 +3501,7 @@ pub struct IEnumDiscRecorders_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumFsiItems(::windows::runtime::IUnknown);
 impl IEnumFsiItems {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -4086,26 +3526,6 @@ unsafe impl ::windows::runtime::Interface for IEnumFsiItems {
     type Vtable = IEnumFsiItems_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904986, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 }
-impl ::std::convert::From<IEnumFsiItems> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumFsiItems) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumFsiItems> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumFsiItems) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumFsiItems {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumFsiItems {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumFsiItems_abi(
@@ -4119,7 +3539,7 @@ pub struct IEnumFsiItems_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumProgressItems(::windows::runtime::IUnknown);
 impl IEnumProgressItems {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -4144,26 +3564,6 @@ unsafe impl ::windows::runtime::Interface for IEnumProgressItems {
     type Vtable = IEnumProgressItems_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904982, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 }
-impl ::std::convert::From<IEnumProgressItems> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumProgressItems) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumProgressItems> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumProgressItems) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumProgressItems {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumProgressItems {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumProgressItems_abi(
@@ -4177,7 +3577,7 @@ pub struct IEnumProgressItems_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFileSystemImage(::windows::runtime::IUnknown);
 impl IFileSystemImage {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -4433,26 +3833,6 @@ unsafe impl ::windows::runtime::Interface for IFileSystemImage {
     type Vtable = IFileSystemImage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904993, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 }
-impl ::std::convert::From<IFileSystemImage> for ::windows::runtime::IUnknown {
-    fn from(value: IFileSystemImage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFileSystemImage> for ::windows::runtime::IUnknown {
-    fn from(value: &IFileSystemImage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFileSystemImage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFileSystemImage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFileSystemImage> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFileSystemImage) -> Self {
@@ -4560,7 +3940,7 @@ pub struct IFileSystemImage_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFileSystemImage2(::windows::runtime::IUnknown);
 impl IFileSystemImage2 {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -4848,26 +4228,6 @@ unsafe impl ::windows::runtime::Interface for IFileSystemImage2 {
     type Vtable = IFileSystemImage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3613674284, 5431, 18279, [182, 47, 241, 56, 123, 2, 221, 253]);
 }
-impl ::std::convert::From<IFileSystemImage2> for ::windows::runtime::IUnknown {
-    fn from(value: IFileSystemImage2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFileSystemImage2> for ::windows::runtime::IUnknown {
-    fn from(value: &IFileSystemImage2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFileSystemImage2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFileSystemImage2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IFileSystemImage2> for IFileSystemImage {
     fn from(value: IFileSystemImage2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4999,7 +4359,7 @@ pub struct IFileSystemImage2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFileSystemImage3(::windows::runtime::IUnknown);
 impl IFileSystemImage3 {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -5301,26 +4661,6 @@ unsafe impl ::windows::runtime::Interface for IFileSystemImage3 {
     type Vtable = IFileSystemImage3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2097120300, 32407, 18439, [131, 4, 145, 13, 216, 247, 192, 81]);
 }
-impl ::std::convert::From<IFileSystemImage3> for ::windows::runtime::IUnknown {
-    fn from(value: IFileSystemImage3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFileSystemImage3> for ::windows::runtime::IUnknown {
-    fn from(value: &IFileSystemImage3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFileSystemImage3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFileSystemImage3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IFileSystemImage3> for IFileSystemImage2 {
     fn from(value: IFileSystemImage3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5475,7 +4815,7 @@ pub struct IFileSystemImage3_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFileSystemImageResult(::windows::runtime::IUnknown);
 impl IFileSystemImageResult {
     #[cfg(feature = "Win32_System_Com")]
@@ -5509,26 +4849,6 @@ impl IFileSystemImageResult {
 unsafe impl ::windows::runtime::Interface for IFileSystemImageResult {
     type Vtable = IFileSystemImageResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904984, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-}
-impl ::std::convert::From<IFileSystemImageResult> for ::windows::runtime::IUnknown {
-    fn from(value: IFileSystemImageResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFileSystemImageResult> for ::windows::runtime::IUnknown {
-    fn from(value: &IFileSystemImageResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFileSystemImageResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFileSystemImageResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFileSystemImageResult> for super::super::System::Ole::Automation::IDispatch {
@@ -5578,7 +4898,7 @@ pub struct IFileSystemImageResult_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFileSystemImageResult2(::windows::runtime::IUnknown);
 impl IFileSystemImageResult2 {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -5638,26 +4958,6 @@ impl IFileSystemImageResult2 {
 unsafe impl ::windows::runtime::Interface for IFileSystemImageResult2 {
     type Vtable = IFileSystemImageResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186601, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
-}
-impl ::std::convert::From<IFileSystemImageResult2> for ::windows::runtime::IUnknown {
-    fn from(value: IFileSystemImageResult2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFileSystemImageResult2> for ::windows::runtime::IUnknown {
-    fn from(value: &IFileSystemImageResult2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFileSystemImageResult2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFileSystemImageResult2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IFileSystemImageResult2> for IFileSystemImageResult {
     fn from(value: IFileSystemImageResult2) -> Self {
@@ -5728,7 +5028,7 @@ pub struct IFileSystemImageResult2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFsiDirectoryItem(::windows::runtime::IUnknown);
 impl IFsiDirectoryItem {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -5868,26 +5168,6 @@ unsafe impl ::windows::runtime::Interface for IFsiDirectoryItem {
     type Vtable = IFsiDirectoryItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904988, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 }
-impl ::std::convert::From<IFsiDirectoryItem> for ::windows::runtime::IUnknown {
-    fn from(value: IFsiDirectoryItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFsiDirectoryItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IFsiDirectoryItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsiDirectoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsiDirectoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IFsiDirectoryItem> for IFsiItem {
     fn from(value: IFsiDirectoryItem) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5982,7 +5262,7 @@ pub struct IFsiDirectoryItem_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFsiDirectoryItem2(::windows::runtime::IUnknown);
 impl IFsiDirectoryItem2 {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -6127,26 +5407,6 @@ unsafe impl ::windows::runtime::Interface for IFsiDirectoryItem2 {
     type Vtable = IFsiDirectoryItem2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4160441243, 28054, 19835, [145, 21, 32, 27, 20, 72, 17, 239]);
 }
-impl ::std::convert::From<IFsiDirectoryItem2> for ::windows::runtime::IUnknown {
-    fn from(value: IFsiDirectoryItem2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFsiDirectoryItem2> for ::windows::runtime::IUnknown {
-    fn from(value: &IFsiDirectoryItem2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsiDirectoryItem2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsiDirectoryItem2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IFsiDirectoryItem2> for IFsiDirectoryItem {
     fn from(value: IFsiDirectoryItem2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6263,7 +5523,7 @@ pub struct IFsiDirectoryItem2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFsiFileItem(::windows::runtime::IUnknown);
 impl IFsiFileItem {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -6378,26 +5638,6 @@ unsafe impl ::windows::runtime::Interface for IFsiFileItem {
     type Vtable = IFsiFileItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904987, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 }
-impl ::std::convert::From<IFsiFileItem> for ::windows::runtime::IUnknown {
-    fn from(value: IFsiFileItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFsiFileItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IFsiFileItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsiFileItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsiFileItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IFsiFileItem> for IFsiItem {
     fn from(value: IFsiFileItem) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6482,7 +5722,7 @@ pub struct IFsiFileItem_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFsiFileItem2(::windows::runtime::IUnknown);
 impl IFsiFileItem2 {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -6626,26 +5866,6 @@ unsafe impl ::windows::runtime::Interface for IFsiFileItem2 {
     type Vtable = IFsiFileItem2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(429722649, 4577, 16619, [142, 194, 200, 200, 34, 160, 119, 146]);
 }
-impl ::std::convert::From<IFsiFileItem2> for ::windows::runtime::IUnknown {
-    fn from(value: IFsiFileItem2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFsiFileItem2> for ::windows::runtime::IUnknown {
-    fn from(value: &IFsiFileItem2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsiFileItem2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsiFileItem2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IFsiFileItem2> for IFsiFileItem {
     fn from(value: IFsiFileItem2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6758,7 +5978,7 @@ pub struct IFsiFileItem2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFsiItem(::windows::runtime::IUnknown);
 impl IFsiItem {
     #[cfg(feature = "Win32_Foundation")]
@@ -6826,26 +6046,6 @@ unsafe impl ::windows::runtime::Interface for IFsiItem {
     type Vtable = IFsiItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904985, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 }
-impl ::std::convert::From<IFsiItem> for ::windows::runtime::IUnknown {
-    fn from(value: IFsiItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFsiItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IFsiItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsiItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsiItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsiItem> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFsiItem) -> Self {
@@ -6903,7 +6103,7 @@ pub struct IFsiItem_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFsiNamedStreams(::windows::runtime::IUnknown);
 impl IFsiNamedStreams {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6931,26 +6131,6 @@ impl IFsiNamedStreams {
 unsafe impl ::windows::runtime::Interface for IFsiNamedStreams {
     type Vtable = IFsiNamedStreams_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3984177750, 21140, 16976, [141, 70, 249, 174, 206, 226, 52, 89]);
-}
-impl ::std::convert::From<IFsiNamedStreams> for ::windows::runtime::IUnknown {
-    fn from(value: IFsiNamedStreams) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFsiNamedStreams> for ::windows::runtime::IUnknown {
-    fn from(value: &IFsiNamedStreams) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFsiNamedStreams {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFsiNamedStreams {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFsiNamedStreams> for super::super::System::Ole::Automation::IDispatch {
@@ -6998,7 +6178,7 @@ pub struct IFsiNamedStreams_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IIsoImageManager(::windows::runtime::IUnknown);
 impl IIsoImageManager {
     #[cfg(feature = "Win32_Foundation")]
@@ -7031,26 +6211,6 @@ impl IIsoImageManager {
 unsafe impl ::windows::runtime::Interface for IIsoImageManager {
     type Vtable = IIsoImageManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1822657509, 64443, 18432, [149, 161, 164, 56, 134, 94, 176, 212]);
-}
-impl ::std::convert::From<IIsoImageManager> for ::windows::runtime::IUnknown {
-    fn from(value: IIsoImageManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IIsoImageManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IIsoImageManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIsoImageManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIsoImageManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IIsoImageManager> for super::super::System::Ole::Automation::IDispatch {
@@ -7102,7 +6262,7 @@ pub struct IIsoImageManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IJolietDiscMaster(::windows::runtime::IUnknown);
 impl IJolietDiscMaster {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -7140,26 +6300,6 @@ impl IJolietDiscMaster {
 unsafe impl ::windows::runtime::Interface for IJolietDiscMaster {
     type Vtable = IJolietDiscMaster_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820765902, 20060, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
-}
-impl ::std::convert::From<IJolietDiscMaster> for ::windows::runtime::IUnknown {
-    fn from(value: IJolietDiscMaster) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IJolietDiscMaster> for ::windows::runtime::IUnknown {
-    fn from(value: &IJolietDiscMaster) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IJolietDiscMaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IJolietDiscMaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7859,7 +6999,7 @@ unsafe impl ::windows::runtime::Abi for IMMP_MPV_STORE_DRIVER_HANDLE {
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMultisession(::windows::runtime::IUnknown);
 impl IMultisession {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -7885,26 +7025,6 @@ impl IMultisession {
 unsafe impl ::windows::runtime::Interface for IMultisession {
     type Vtable = IMultisession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801552, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<IMultisession> for ::windows::runtime::IUnknown {
-    fn from(value: IMultisession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMultisession> for ::windows::runtime::IUnknown {
-    fn from(value: &IMultisession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultisession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultisession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMultisession> for super::super::System::Ole::Automation::IDispatch {
@@ -7951,7 +7071,7 @@ pub struct IMultisession_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMultisessionRandomWrite(::windows::runtime::IUnknown);
 impl IMultisessionRandomWrite {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -8013,26 +7133,6 @@ impl IMultisessionRandomWrite {
 unsafe impl ::windows::runtime::Interface for IMultisessionRandomWrite {
     type Vtable = IMultisessionRandomWrite_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186595, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
-}
-impl ::std::convert::From<IMultisessionRandomWrite> for ::windows::runtime::IUnknown {
-    fn from(value: IMultisessionRandomWrite) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMultisessionRandomWrite> for ::windows::runtime::IUnknown {
-    fn from(value: &IMultisessionRandomWrite) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultisessionRandomWrite {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultisessionRandomWrite {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IMultisessionRandomWrite> for IMultisession {
     fn from(value: IMultisessionRandomWrite) -> Self {
@@ -8102,7 +7202,7 @@ pub struct IMultisessionRandomWrite_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMultisessionSequential(::windows::runtime::IUnknown);
 impl IMultisessionSequential {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -8175,26 +7275,6 @@ unsafe impl ::windows::runtime::Interface for IMultisessionSequential {
     type Vtable = IMultisessionSequential_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801553, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IMultisessionSequential> for ::windows::runtime::IUnknown {
-    fn from(value: IMultisessionSequential) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMultisessionSequential> for ::windows::runtime::IUnknown {
-    fn from(value: &IMultisessionSequential) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultisessionSequential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultisessionSequential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IMultisessionSequential> for IMultisession {
     fn from(value: IMultisessionSequential) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8265,7 +7345,7 @@ pub struct IMultisessionSequential_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMultisessionSequential2(::windows::runtime::IUnknown);
 impl IMultisessionSequential2 {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -8342,26 +7422,6 @@ impl IMultisessionSequential2 {
 unsafe impl ::windows::runtime::Interface for IMultisessionSequential2 {
     type Vtable = IMultisessionSequential2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3037186594, 8708, 4573, [150, 106, 0, 26, 160, 27, 188, 88]);
-}
-impl ::std::convert::From<IMultisessionSequential2> for ::windows::runtime::IUnknown {
-    fn from(value: IMultisessionSequential2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMultisessionSequential2> for ::windows::runtime::IUnknown {
-    fn from(value: &IMultisessionSequential2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultisessionSequential2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultisessionSequential2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IMultisessionSequential2> for IMultisessionSequential {
     fn from(value: IMultisessionSequential2) -> Self {
@@ -8454,7 +7514,7 @@ pub struct IMultisessionSequential2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IProgressItem(::windows::runtime::IUnknown);
 impl IProgressItem {
     #[cfg(feature = "Win32_Foundation")]
@@ -8482,26 +7542,6 @@ impl IProgressItem {
 unsafe impl ::windows::runtime::Interface for IProgressItem {
     type Vtable = IProgressItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904981, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-}
-impl ::std::convert::From<IProgressItem> for ::windows::runtime::IUnknown {
-    fn from(value: IProgressItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IProgressItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IProgressItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProgressItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProgressItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IProgressItem> for super::super::System::Ole::Automation::IDispatch {
@@ -8549,7 +7589,7 @@ pub struct IProgressItem_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IProgressItems(::windows::runtime::IUnknown);
 impl IProgressItems {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8588,26 +7628,6 @@ impl IProgressItems {
 unsafe impl ::windows::runtime::Interface for IProgressItems {
     type Vtable = IProgressItems_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904983, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
-}
-impl ::std::convert::From<IProgressItems> for ::windows::runtime::IUnknown {
-    fn from(value: IProgressItems) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IProgressItems> for ::windows::runtime::IUnknown {
-    fn from(value: &IProgressItems) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProgressItems {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProgressItems {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IProgressItems> for super::super::System::Ole::Automation::IDispatch {
@@ -8658,7 +7678,7 @@ pub struct IProgressItems_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRawCDImageCreator(::windows::runtime::IUnknown);
 impl IRawCDImageCreator {
     #[cfg(feature = "Win32_System_Com")]
@@ -8761,26 +7781,6 @@ unsafe impl ::windows::runtime::Interface for IRawCDImageCreator {
     type Vtable = IRawCDImageCreator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630732112, 40293, 18894, [179, 53, 64, 99, 13, 144, 18, 39]);
 }
-impl ::std::convert::From<IRawCDImageCreator> for ::windows::runtime::IUnknown {
-    fn from(value: IRawCDImageCreator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRawCDImageCreator> for ::windows::runtime::IUnknown {
-    fn from(value: &IRawCDImageCreator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawCDImageCreator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawCDImageCreator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRawCDImageCreator> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IRawCDImageCreator) -> Self {
@@ -8848,7 +7848,7 @@ pub struct IRawCDImageCreator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRawCDImageTrackInfo(::windows::runtime::IUnknown);
 impl IRawCDImageTrackInfo {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -8919,26 +7919,6 @@ unsafe impl ::windows::runtime::Interface for IRawCDImageTrackInfo {
     type Vtable = IRawCDImageTrackInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630732113, 40293, 18894, [179, 53, 64, 99, 13, 144, 18, 39]);
 }
-impl ::std::convert::From<IRawCDImageTrackInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IRawCDImageTrackInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRawCDImageTrackInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IRawCDImageTrackInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawCDImageTrackInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawCDImageTrackInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IRawCDImageTrackInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IRawCDImageTrackInfo) -> Self {
@@ -8996,7 +7976,7 @@ pub struct IRawCDImageTrackInfo_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRedbookDiscMaster(::windows::runtime::IUnknown);
 impl IRedbookDiscMaster {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -9041,26 +8021,6 @@ unsafe impl ::windows::runtime::Interface for IRedbookDiscMaster {
     type Vtable = IRedbookDiscMaster_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3820765901, 20060, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 }
-impl ::std::convert::From<IRedbookDiscMaster> for ::windows::runtime::IUnknown {
-    fn from(value: IRedbookDiscMaster) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRedbookDiscMaster> for ::windows::runtime::IUnknown {
-    fn from(value: &IRedbookDiscMaster) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRedbookDiscMaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRedbookDiscMaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRedbookDiscMaster_abi(
@@ -9078,7 +8038,7 @@ pub struct IRedbookDiscMaster_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IStreamConcatenate(::windows::runtime::IUnknown);
 impl IStreamConcatenate {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -9156,26 +8116,6 @@ impl IStreamConcatenate {
 unsafe impl ::windows::runtime::Interface for IStreamConcatenate {
     type Vtable = IStreamConcatenate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801542, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<IStreamConcatenate> for ::windows::runtime::IUnknown {
-    fn from(value: IStreamConcatenate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IStreamConcatenate> for ::windows::runtime::IUnknown {
-    fn from(value: &IStreamConcatenate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStreamConcatenate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStreamConcatenate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IStreamConcatenate> for super::super::System::Com::IStream {
@@ -9257,7 +8197,7 @@ pub struct IStreamConcatenate_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IStreamInterleave(::windows::runtime::IUnknown);
 impl IStreamInterleave {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -9320,26 +8260,6 @@ impl IStreamInterleave {
 unsafe impl ::windows::runtime::Interface for IStreamInterleave {
     type Vtable = IStreamInterleave_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801543, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<IStreamInterleave> for ::windows::runtime::IUnknown {
-    fn from(value: IStreamInterleave) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IStreamInterleave> for ::windows::runtime::IUnknown {
-    fn from(value: &IStreamInterleave) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStreamInterleave {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStreamInterleave {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IStreamInterleave> for super::super::System::Com::IStream {
@@ -9415,7 +8335,7 @@ pub struct IStreamInterleave_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IStreamPseudoRandomBased(::windows::runtime::IUnknown);
 impl IStreamPseudoRandomBased {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -9490,26 +8410,6 @@ impl IStreamPseudoRandomBased {
 unsafe impl ::windows::runtime::Interface for IStreamPseudoRandomBased {
     type Vtable = IStreamPseudoRandomBased_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801541, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<IStreamPseudoRandomBased> for ::windows::runtime::IUnknown {
-    fn from(value: IStreamPseudoRandomBased) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IStreamPseudoRandomBased> for ::windows::runtime::IUnknown {
-    fn from(value: &IStreamPseudoRandomBased) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStreamPseudoRandomBased {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStreamPseudoRandomBased {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IStreamPseudoRandomBased> for super::super::System::Com::IStream {
@@ -9587,7 +8487,7 @@ pub struct IStreamPseudoRandomBased_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWriteEngine2(::windows::runtime::IUnknown);
 impl IWriteEngine2 {
     #[cfg(feature = "Win32_System_Com")]
@@ -9654,26 +8554,6 @@ unsafe impl ::windows::runtime::Interface for IWriteEngine2 {
     type Vtable = IWriteEngine2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801525, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
 }
-impl ::std::convert::From<IWriteEngine2> for ::windows::runtime::IUnknown {
-    fn from(value: IWriteEngine2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWriteEngine2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWriteEngine2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWriteEngine2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWriteEngine2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWriteEngine2> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IWriteEngine2) -> Self {
@@ -9729,7 +8609,7 @@ pub struct IWriteEngine2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWriteEngine2EventArgs(::windows::runtime::IUnknown);
 impl IWriteEngine2EventArgs {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -9771,26 +8651,6 @@ impl IWriteEngine2EventArgs {
 unsafe impl ::windows::runtime::Interface for IWriteEngine2EventArgs {
     type Vtable = IWriteEngine2EventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801526, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<IWriteEngine2EventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: IWriteEngine2EventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWriteEngine2EventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &IWriteEngine2EventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWriteEngine2EventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWriteEngine2EventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWriteEngine2EventArgs> for super::super::System::Ole::Automation::IDispatch {
@@ -9840,7 +8700,7 @@ pub struct IWriteEngine2EventArgs_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWriteSpeedDescriptor(::windows::runtime::IUnknown);
 impl IWriteSpeedDescriptor {
     #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -9862,26 +8722,6 @@ impl IWriteSpeedDescriptor {
 unsafe impl ::windows::runtime::Interface for IWriteSpeedDescriptor {
     type Vtable = IWriteSpeedDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(657801540, 32612, 23311, [143, 0, 93, 119, 175, 190, 38, 30]);
-}
-impl ::std::convert::From<IWriteSpeedDescriptor> for ::windows::runtime::IUnknown {
-    fn from(value: IWriteSpeedDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWriteSpeedDescriptor> for ::windows::runtime::IUnknown {
-    fn from(value: &IWriteSpeedDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWriteSpeedDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWriteSpeedDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWriteSpeedDescriptor> for super::super::System::Ole::Automation::IDispatch {

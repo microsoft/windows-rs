@@ -1490,7 +1490,7 @@ pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: sup
 }
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ICcgDomainAuthCredentials(::windows::runtime::IUnknown);
 impl ICcgDomainAuthCredentials {
     #[cfg(feature = "Win32_Foundation")]
@@ -1502,26 +1502,6 @@ impl ICcgDomainAuthCredentials {
 unsafe impl ::windows::runtime::Interface for ICcgDomainAuthCredentials {
     type Vtable = ICcgDomainAuthCredentials_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1858970904, 8208, 17463, [139, 195, 70, 231, 82, 183, 177, 114]);
-}
-impl ::std::convert::From<ICcgDomainAuthCredentials> for ::windows::runtime::IUnknown {
-    fn from(value: ICcgDomainAuthCredentials) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICcgDomainAuthCredentials> for ::windows::runtime::IUnknown {
-    fn from(value: &ICcgDomainAuthCredentials) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICcgDomainAuthCredentials {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICcgDomainAuthCredentials {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

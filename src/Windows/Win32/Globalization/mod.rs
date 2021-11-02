@@ -2716,7 +2716,7 @@ unsafe impl ::windows::runtime::Abi for HSAVEDUILANGUAGES {
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IComprehensiveSpellCheckProvider(::windows::runtime::IUnknown);
 impl IComprehensiveSpellCheckProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -2729,26 +2729,6 @@ impl IComprehensiveSpellCheckProvider {
 unsafe impl ::windows::runtime::Interface for IComprehensiveSpellCheckProvider {
     type Vtable = IComprehensiveSpellCheckProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(207157470, 36500, 18334, [151, 23, 112, 196, 44, 74, 210, 195]);
-}
-impl ::std::convert::From<IComprehensiveSpellCheckProvider> for ::windows::runtime::IUnknown {
-    fn from(value: IComprehensiveSpellCheckProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IComprehensiveSpellCheckProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &IComprehensiveSpellCheckProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IComprehensiveSpellCheckProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IComprehensiveSpellCheckProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2769,7 +2749,7 @@ pub const IDN_RAW_PUNYCODE: u32 = 8u32;
 pub const IDN_USE_STD3_ASCII_RULES: u32 = 2u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumCodePage(::windows::runtime::IUnknown);
 impl IEnumCodePage {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -2794,26 +2774,6 @@ unsafe impl ::windows::runtime::Interface for IEnumCodePage {
     type Vtable = IEnumCodePage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660349923, 14151, 4560, [159, 234, 0, 170, 0, 63, 134, 70]);
 }
-impl ::std::convert::From<IEnumCodePage> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumCodePage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumCodePage> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumCodePage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumCodePage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumCodePage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCodePage_abi(
@@ -2827,7 +2787,7 @@ pub struct IEnumCodePage_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumRfc1766(::windows::runtime::IUnknown);
 impl IEnumRfc1766 {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -2852,26 +2812,6 @@ unsafe impl ::windows::runtime::Interface for IEnumRfc1766 {
     type Vtable = IEnumRfc1766_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1036229917, 49200, 4560, [184, 27, 0, 192, 79, 201, 179, 31]);
 }
-impl ::std::convert::From<IEnumRfc1766> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumRfc1766) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumRfc1766> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumRfc1766) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumRfc1766 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumRfc1766 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumRfc1766_abi(
@@ -2885,7 +2825,7 @@ pub struct IEnumRfc1766_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumScript(::windows::runtime::IUnknown);
 impl IEnumScript {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -2910,26 +2850,6 @@ unsafe impl ::windows::runtime::Interface for IEnumScript {
     type Vtable = IEnumScript_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2925466672, 14475, 4562, [131, 128, 0, 192, 79, 143, 93, 161]);
 }
-impl ::std::convert::From<IEnumScript> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumScript) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumScript> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumScript) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumScript {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumScript {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumScript_abi(
@@ -2943,7 +2863,7 @@ pub struct IEnumScript_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumSpellingError(::windows::runtime::IUnknown);
 impl IEnumSpellingError {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -2955,26 +2875,6 @@ impl IEnumSpellingError {
 unsafe impl ::windows::runtime::Interface for IEnumSpellingError {
     type Vtable = IEnumSpellingError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151562196, 10280, 17424, [130, 144, 65, 141, 29, 115, 199, 98]);
-}
-impl ::std::convert::From<IEnumSpellingError> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumSpellingError) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumSpellingError> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumSpellingError) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSpellingError {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSpellingError {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3010,7 +2910,7 @@ pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
 pub const IME_CMODE_ROMAN: u32 = 16u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangCodePages(::windows::runtime::IUnknown);
 impl IMLangCodePages {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3038,26 +2938,6 @@ unsafe impl ::windows::runtime::Interface for IMLangCodePages {
     type Vtable = IMLangCodePages_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899626051, 48458, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 }
-impl ::std::convert::From<IMLangCodePages> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangCodePages) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangCodePages> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangCodePages) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangCodePages {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangCodePages {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangCodePages_abi(
@@ -3072,7 +2952,7 @@ pub struct IMLangCodePages_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangConvertCharset(::windows::runtime::IUnknown);
 impl IMLangConvertCharset {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3113,26 +2993,6 @@ unsafe impl ::windows::runtime::Interface for IMLangConvertCharset {
     type Vtable = IMLangConvertCharset_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597496216, 52650, 4560, [184, 34, 0, 192, 79, 201, 179, 31]);
 }
-impl ::std::convert::From<IMLangConvertCharset> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangConvertCharset) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangConvertCharset> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangConvertCharset) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangConvertCharset {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangConvertCharset {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangConvertCharset_abi(
@@ -3151,7 +3011,7 @@ pub struct IMLangConvertCharset_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangFontLink(::windows::runtime::IUnknown);
 impl IMLangFontLink {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3200,26 +3060,6 @@ unsafe impl ::windows::runtime::Interface for IMLangFontLink {
     type Vtable = IMLangFontLink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899626049, 48458, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 }
-impl ::std::convert::From<IMLangFontLink> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangFontLink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangFontLink> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangFontLink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangFontLink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangFontLink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IMLangFontLink> for IMLangCodePages {
     fn from(value: IMLangFontLink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3261,7 +3101,7 @@ pub struct IMLangFontLink_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangFontLink2(::windows::runtime::IUnknown);
 impl IMLangFontLink2 {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3325,26 +3165,6 @@ unsafe impl ::windows::runtime::Interface for IMLangFontLink2 {
     type Vtable = IMLangFontLink2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704602978, 11064, 4562, [183, 236, 0, 192, 79, 143, 93, 154]);
 }
-impl ::std::convert::From<IMLangFontLink2> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangFontLink2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangFontLink2> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangFontLink2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangFontLink2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangFontLink2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IMLangFontLink2> for IMLangCodePages {
     fn from(value: IMLangFontLink2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3390,7 +3210,7 @@ pub struct IMLangFontLink2_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangLineBreakConsole(::windows::runtime::IUnknown);
 impl IMLangLineBreakConsole {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3412,26 +3232,6 @@ unsafe impl ::windows::runtime::Interface for IMLangLineBreakConsole {
     type Vtable = IMLangLineBreakConsole_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4122881761, 49111, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 }
-impl ::std::convert::From<IMLangLineBreakConsole> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangLineBreakConsole) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangLineBreakConsole> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangLineBreakConsole) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangLineBreakConsole {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangLineBreakConsole {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangLineBreakConsole_abi(
@@ -3446,7 +3246,7 @@ pub struct IMLangLineBreakConsole_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangString(::windows::runtime::IUnknown);
 impl IMLangString {
     #[cfg(feature = "Win32_Foundation")]
@@ -3472,26 +3272,6 @@ unsafe impl ::windows::runtime::Interface for IMLangString {
     type Vtable = IMLangString_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297806, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 }
-impl ::std::convert::From<IMLangString> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangString) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangString> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangString) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangString {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangString {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangString_abi(
@@ -3506,7 +3286,7 @@ pub struct IMLangString_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangStringAStr(::windows::runtime::IUnknown);
 impl IMLangStringAStr {
     #[cfg(feature = "Win32_Foundation")]
@@ -3591,26 +3371,6 @@ unsafe impl ::windows::runtime::Interface for IMLangStringAStr {
     type Vtable = IMLangStringAStr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297810, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 }
-impl ::std::convert::From<IMLangStringAStr> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangStringAStr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangStringAStr> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangStringAStr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangStringAStr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangStringAStr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IMLangStringAStr> for IMLangString {
     fn from(value: IMLangStringAStr) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3657,7 +3417,7 @@ pub struct IMLangStringAStr_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangStringBufA(::windows::runtime::IUnknown);
 impl IMLangStringBufA {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3688,26 +3448,6 @@ unsafe impl ::windows::runtime::Interface for IMLangStringBufA {
     type Vtable = IMLangStringBufA_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3528117539, 47730, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 }
-impl ::std::convert::From<IMLangStringBufA> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangStringBufA) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangStringBufA> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangStringBufA) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangStringBufA {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangStringBufA {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangStringBufA_abi(
@@ -3724,7 +3464,7 @@ pub struct IMLangStringBufA_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangStringBufW(::windows::runtime::IUnknown);
 impl IMLangStringBufW {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3754,26 +3494,6 @@ unsafe impl ::windows::runtime::Interface for IMLangStringBufW {
     type Vtable = IMLangStringBufW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3528117537, 47730, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 }
-impl ::std::convert::From<IMLangStringBufW> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangStringBufW) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangStringBufW> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangStringBufW) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangStringBufW {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangStringBufW {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangStringBufW_abi(
@@ -3789,7 +3509,7 @@ pub struct IMLangStringBufW_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMLangStringWStr(::windows::runtime::IUnknown);
 impl IMLangStringWStr {
     #[cfg(feature = "Win32_Foundation")]
@@ -3851,26 +3571,6 @@ unsafe impl ::windows::runtime::Interface for IMLangStringWStr {
     type Vtable = IMLangStringWStr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297808, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 }
-impl ::std::convert::From<IMLangStringWStr> for ::windows::runtime::IUnknown {
-    fn from(value: IMLangStringWStr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMLangStringWStr> for ::windows::runtime::IUnknown {
-    fn from(value: &IMLangStringWStr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLangStringWStr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLangStringWStr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IMLangStringWStr> for IMLangString {
     fn from(value: IMLangStringWStr) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3917,7 +3617,7 @@ pub struct IMLangStringWStr_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMultiLanguage(::windows::runtime::IUnknown);
 impl IMultiLanguage {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -3999,26 +3699,6 @@ unsafe impl ::windows::runtime::Interface for IMultiLanguage {
     type Vtable = IMultiLanguage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660349921, 14151, 4560, [159, 234, 0, 170, 0, 63, 134, 70]);
 }
-impl ::std::convert::From<IMultiLanguage> for ::windows::runtime::IUnknown {
-    fn from(value: IMultiLanguage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMultiLanguage> for ::windows::runtime::IUnknown {
-    fn from(value: &IMultiLanguage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultiLanguage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultiLanguage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiLanguage_abi(
@@ -4048,7 +3728,7 @@ pub struct IMultiLanguage_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMultiLanguage2(::windows::runtime::IUnknown);
 impl IMultiLanguage2 {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -4188,26 +3868,6 @@ unsafe impl ::windows::runtime::Interface for IMultiLanguage2 {
     type Vtable = IMultiLanguage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3704602980, 11064, 4562, [183, 236, 0, 192, 79, 143, 93, 154]);
 }
-impl ::std::convert::From<IMultiLanguage2> for ::windows::runtime::IUnknown {
-    fn from(value: IMultiLanguage2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMultiLanguage2> for ::windows::runtime::IUnknown {
-    fn from(value: &IMultiLanguage2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultiLanguage2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultiLanguage2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiLanguage2_abi(
@@ -4257,7 +3917,7 @@ pub struct IMultiLanguage2_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMultiLanguage3(::windows::runtime::IUnknown);
 impl IMultiLanguage3 {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -4428,26 +4088,6 @@ unsafe impl ::windows::runtime::Interface for IMultiLanguage3 {
     type Vtable = IMultiLanguage3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314416811, 45399, 17955, [154, 204, 106, 29, 156, 174, 190, 4]);
 }
-impl ::std::convert::From<IMultiLanguage3> for ::windows::runtime::IUnknown {
-    fn from(value: IMultiLanguage3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMultiLanguage3> for ::windows::runtime::IUnknown {
-    fn from(value: &IMultiLanguage3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMultiLanguage3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMultiLanguage3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IMultiLanguage3> for IMultiLanguage2 {
     fn from(value: IMultiLanguage3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4521,7 +4161,7 @@ pub struct IMultiLanguage3_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOptionDescription(::windows::runtime::IUnknown);
 impl IOptionDescription {
     #[cfg(feature = "Win32_Foundation")]
@@ -4552,26 +4192,6 @@ impl IOptionDescription {
 unsafe impl ::windows::runtime::Interface for IOptionDescription {
     type Vtable = IOptionDescription_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1127112581, 13775, 17926, [168, 1, 111, 112, 39, 126, 29, 122]);
-}
-impl ::std::convert::From<IOptionDescription> for ::windows::runtime::IUnknown {
-    fn from(value: IOptionDescription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOptionDescription> for ::windows::runtime::IUnknown {
-    fn from(value: &IOptionDescription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOptionDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOptionDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4689,7 +4309,7 @@ impl ::std::ops::Not for IS_VALID_LOCALE_FLAGS {
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISpellCheckProvider(::windows::runtime::IUnknown);
 impl ISpellCheckProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -4755,26 +4375,6 @@ unsafe impl ::windows::runtime::Interface for ISpellCheckProvider {
     type Vtable = ISpellCheckProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1944680160, 36564, 20145, [128, 215, 27, 224, 161, 107, 12, 56]);
 }
-impl ::std::convert::From<ISpellCheckProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ISpellCheckProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpellCheckProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpellCheckProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpellCheckProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpellCheckProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckProvider_abi(
@@ -4804,7 +4404,7 @@ pub struct ISpellCheckProvider_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISpellCheckProviderFactory(::windows::runtime::IUnknown);
 impl ISpellCheckProviderFactory {
     #[cfg(feature = "Win32_System_Com")]
@@ -4830,26 +4430,6 @@ unsafe impl ::windows::runtime::Interface for ISpellCheckProviderFactory {
     type Vtable = ISpellCheckProviderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2674335249, 30678, 19602, [174, 251, 97, 82, 21, 227, 164, 190]);
 }
-impl ::std::convert::From<ISpellCheckProviderFactory> for ::windows::runtime::IUnknown {
-    fn from(value: ISpellCheckProviderFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpellCheckProviderFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpellCheckProviderFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpellCheckProviderFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpellCheckProviderFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckProviderFactory_abi(
@@ -4865,7 +4445,7 @@ pub struct ISpellCheckProviderFactory_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISpellChecker(::windows::runtime::IUnknown);
 impl ISpellChecker {
     #[cfg(feature = "Win32_Foundation")]
@@ -4951,26 +4531,6 @@ unsafe impl ::windows::runtime::Interface for ISpellChecker {
     type Vtable = ISpellChecker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3070036849, 58044, 18003, [141, 5, 241, 151, 228, 18, 119, 11]);
 }
-impl ::std::convert::From<ISpellChecker> for ::windows::runtime::IUnknown {
-    fn from(value: ISpellChecker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpellChecker> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpellChecker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpellChecker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpellChecker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellChecker_abi(
@@ -5006,7 +4566,7 @@ pub struct ISpellChecker_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISpellChecker2(::windows::runtime::IUnknown);
 impl ISpellChecker2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -5097,26 +4657,6 @@ unsafe impl ::windows::runtime::Interface for ISpellChecker2 {
     type Vtable = ISpellChecker2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3891076209, 34807, 17272, [168, 64, 201, 32, 13, 172, 238, 71]);
 }
-impl ::std::convert::From<ISpellChecker2> for ::windows::runtime::IUnknown {
-    fn from(value: ISpellChecker2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpellChecker2> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpellChecker2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpellChecker2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpellChecker2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ISpellChecker2> for ISpellChecker {
     fn from(value: ISpellChecker2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5174,7 +4714,7 @@ pub struct ISpellChecker2_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISpellCheckerChangedEventHandler(::windows::runtime::IUnknown);
 impl ISpellCheckerChangedEventHandler {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -5186,26 +4726,6 @@ unsafe impl ::windows::runtime::Interface for ISpellCheckerChangedEventHandler {
     type Vtable = ISpellCheckerChangedEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(193177008, 31023, 20139, [151, 153, 172, 245, 44, 94, 208, 138]);
 }
-impl ::std::convert::From<ISpellCheckerChangedEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: ISpellCheckerChangedEventHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpellCheckerChangedEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpellCheckerChangedEventHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpellCheckerChangedEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpellCheckerChangedEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckerChangedEventHandler_abi(
@@ -5216,7 +4736,7 @@ pub struct ISpellCheckerChangedEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISpellCheckerFactory(::windows::runtime::IUnknown);
 impl ISpellCheckerFactory {
     #[cfg(feature = "Win32_System_Com")]
@@ -5242,26 +4762,6 @@ unsafe impl ::windows::runtime::Interface for ISpellCheckerFactory {
     type Vtable = ISpellCheckerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2382465693, 9237, 18039, [191, 8, 121, 78, 166, 31, 148, 187]);
 }
-impl ::std::convert::From<ISpellCheckerFactory> for ::windows::runtime::IUnknown {
-    fn from(value: ISpellCheckerFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpellCheckerFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpellCheckerFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpellCheckerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpellCheckerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckerFactory_abi(
@@ -5277,7 +4777,7 @@ pub struct ISpellCheckerFactory_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ISpellingError(::windows::runtime::IUnknown);
 impl ISpellingError {
     #[doc = "*Required features: `Win32_Globalization`*"]
@@ -5306,26 +4806,6 @@ unsafe impl ::windows::runtime::Interface for ISpellingError {
     type Vtable = ISpellingError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083349345, 64488, 19271, [155, 39, 108, 13, 46, 13, 224, 163]);
 }
-impl ::std::convert::From<ISpellingError> for ::windows::runtime::IUnknown {
-    fn from(value: ISpellingError) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpellingError> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpellingError) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpellingError {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpellingError {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellingError_abi(
@@ -5340,7 +4820,7 @@ pub struct ISpellingError_abi(
 );
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUserDictionariesRegistrar(::windows::runtime::IUnknown);
 impl IUserDictionariesRegistrar {
     #[cfg(feature = "Win32_Foundation")]
@@ -5357,26 +4837,6 @@ impl IUserDictionariesRegistrar {
 unsafe impl ::windows::runtime::Interface for IUserDictionariesRegistrar {
     type Vtable = IUserDictionariesRegistrar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2853661573, 3602, 18500, [142, 26, 238, 241, 218, 119, 245, 134]);
-}
-impl ::std::convert::From<IUserDictionariesRegistrar> for ::windows::runtime::IUnknown {
-    fn from(value: IUserDictionariesRegistrar) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUserDictionariesRegistrar> for ::windows::runtime::IUnknown {
-    fn from(value: &IUserDictionariesRegistrar) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUserDictionariesRegistrar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUserDictionariesRegistrar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
