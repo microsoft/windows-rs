@@ -2165,7 +2165,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for HighDynamicRangeOutput {}
 unsafe impl ::std::marker::Sync for HighDynamicRangeOutput {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStreamDescriptor {
@@ -2185,7 +2185,7 @@ pub struct IAudioStreamDescriptor_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStreamDescriptor2 {
@@ -2211,7 +2211,7 @@ pub struct IAudioStreamDescriptor2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptor3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStreamDescriptor3 {
@@ -2230,7 +2230,7 @@ pub struct IAudioStreamDescriptor3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioStreamDescriptorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStreamDescriptorFactory {
@@ -2250,7 +2250,7 @@ pub struct IAudioStreamDescriptorFactory_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioTrack(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioTrack {
@@ -2278,7 +2278,7 @@ pub struct IAudioTrack_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioTrackOpenFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioTrackOpenFailedEventArgs {
@@ -2297,7 +2297,7 @@ pub struct IAudioTrackOpenFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioTrackSupportInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioTrackSupportInfo {
@@ -2319,7 +2319,7 @@ pub struct IAudioTrackSupportInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MediaSourceStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IChapterCue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChapterCue {
@@ -2339,7 +2339,7 @@ pub struct IChapterCue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICodecInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICodecInfo {
@@ -2363,7 +2363,7 @@ pub struct ICodecInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICodecQuery(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICodecQuery {
@@ -2383,7 +2383,7 @@ pub struct ICodecQuery_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICodecSubtypesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICodecSubtypesStatics {
@@ -2452,7 +2452,7 @@ pub struct ICodecSubtypesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDataCue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataCue {
@@ -2474,7 +2474,7 @@ pub struct IDataCue_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDataCue2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataCue2 {
@@ -2494,7 +2494,7 @@ pub struct IDataCue2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFaceDetectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectedEventArgs {
@@ -2513,7 +2513,7 @@ pub struct IFaceDetectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFaceDetectionEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectionEffect {
@@ -2541,7 +2541,7 @@ pub struct IFaceDetectionEffect_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFaceDetectionEffectDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectionEffectDefinition {
@@ -2563,7 +2563,7 @@ pub struct IFaceDetectionEffectDefinition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFaceDetectionEffectFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectionEffectFrame {
@@ -2583,7 +2583,7 @@ pub struct IFaceDetectionEffectFrame_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHighDynamicRangeControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHighDynamicRangeControl {
@@ -2603,7 +2603,7 @@ pub struct IHighDynamicRangeControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHighDynamicRangeOutput(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHighDynamicRangeOutput {
@@ -2624,7 +2624,7 @@ pub struct IHighDynamicRangeOutput_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Devices_Core")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IImageCue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageCue {
@@ -2650,7 +2650,7 @@ pub struct IImageCue_abi(
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IInitializeMediaStreamSourceRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInitializeMediaStreamSourceRequestedEventArgs {
@@ -2673,7 +2673,7 @@ pub struct IInitializeMediaStreamSourceRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILowLightFusionResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLightFusionResult {
@@ -2693,7 +2693,7 @@ pub struct ILowLightFusionResult_abi(
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILowLightFusionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLightFusionStatics {
@@ -2716,7 +2716,7 @@ pub struct ILowLightFusionStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaBinder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBinder {
@@ -2741,7 +2741,7 @@ pub struct IMediaBinder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaBindingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBindingEventArgs {
@@ -2772,7 +2772,7 @@ pub struct IMediaBindingEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaBindingEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBindingEventArgs2 {
@@ -2794,7 +2794,7 @@ pub struct IMediaBindingEventArgs2_abi(
     #[cfg(not(feature = "Storage"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaBindingEventArgs3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaBindingEventArgs3 {
@@ -2814,7 +2814,7 @@ pub struct IMediaBindingEventArgs3_abi(
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaCue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCue {
@@ -2869,46 +2869,6 @@ impl IMediaCue {
 unsafe impl ::windows::runtime::RuntimeType for IMediaCue {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c7d15e5d-59dc-431f-a0ee-27744323b36d}");
 }
-impl ::std::convert::From<IMediaCue> for ::windows::runtime::IUnknown {
-    fn from(value: IMediaCue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMediaCue> for ::windows::runtime::IUnknown {
-    fn from(value: &IMediaCue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaCue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaCue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IMediaCue> for ::windows::runtime::IInspectable {
-    fn from(value: IMediaCue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IMediaCue> for ::windows::runtime::IInspectable {
-    fn from(value: &IMediaCue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaCue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaCue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaCue_abi(
@@ -2930,7 +2890,7 @@ pub struct IMediaCue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaCueEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCueEventArgs {
@@ -2949,7 +2909,7 @@ pub struct IMediaCueEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource {
@@ -2959,46 +2919,6 @@ unsafe impl ::windows::runtime::Interface for IMediaSource {
 impl IMediaSource {}
 unsafe impl ::windows::runtime::RuntimeType for IMediaSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e7bfb599-a09d-4c21-bcdf-20af4f86b3d9}");
-}
-impl ::std::convert::From<IMediaSource> for ::windows::runtime::IUnknown {
-    fn from(value: IMediaSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMediaSource> for ::windows::runtime::IUnknown {
-    fn from(value: &IMediaSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IMediaSource> for ::windows::runtime::IInspectable {
-    fn from(value: IMediaSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IMediaSource> for ::windows::runtime::IInspectable {
-    fn from(value: &IMediaSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3011,7 +2931,7 @@ pub struct IMediaSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource2 {
@@ -3042,7 +2962,7 @@ pub struct IMediaSource2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSource3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource3 {
@@ -3066,7 +2986,7 @@ pub struct IMediaSource3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSource4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource4 {
@@ -3092,7 +3012,7 @@ pub struct IMediaSource4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSource5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSource5 {
@@ -3112,7 +3032,7 @@ pub struct IMediaSource5_abi(
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceAppServiceConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceAppServiceConnection {
@@ -3135,7 +3055,7 @@ pub struct IMediaSourceAppServiceConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceAppServiceConnectionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceAppServiceConnectionFactory {
@@ -3155,7 +3075,7 @@ pub struct IMediaSourceAppServiceConnectionFactory_abi(
     #[cfg(not(feature = "ApplicationModel_AppService"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceError(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceError {
@@ -3174,7 +3094,7 @@ pub struct IMediaSourceError_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceOpenOperationCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceOpenOperationCompletedEventArgs {
@@ -3193,7 +3113,7 @@ pub struct IMediaSourceOpenOperationCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStateChangedEventArgs {
@@ -3213,7 +3133,7 @@ pub struct IMediaSourceStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MediaSourceState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStatics {
@@ -3244,7 +3164,7 @@ pub struct IMediaSourceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStatics2 {
@@ -3263,7 +3183,7 @@ pub struct IMediaSourceStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, binder: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStatics3 {
@@ -3283,7 +3203,7 @@ pub struct IMediaSourceStatics3_abi(
     #[cfg(not(feature = "Media_Capture_Frames"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceStatics4 {
@@ -3303,7 +3223,7 @@ pub struct IMediaSourceStatics4_abi(
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaStreamDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamDescriptor {
@@ -3349,46 +3269,6 @@ impl IMediaStreamDescriptor {
 unsafe impl ::windows::runtime::RuntimeType for IMediaStreamDescriptor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{80f16e6e-92f7-451e-97d2-afd80742da70}");
 }
-impl ::std::convert::From<IMediaStreamDescriptor> for ::windows::runtime::IUnknown {
-    fn from(value: IMediaStreamDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMediaStreamDescriptor> for ::windows::runtime::IUnknown {
-    fn from(value: &IMediaStreamDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaStreamDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaStreamDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IMediaStreamDescriptor> for ::windows::runtime::IInspectable {
-    fn from(value: IMediaStreamDescriptor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IMediaStreamDescriptor> for ::windows::runtime::IInspectable {
-    fn from(value: &IMediaStreamDescriptor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaStreamDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaStreamDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaStreamDescriptor_abi(
@@ -3405,7 +3285,7 @@ pub struct IMediaStreamDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaStreamDescriptor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamDescriptor2 {
@@ -3464,46 +3344,6 @@ impl IMediaStreamDescriptor2 {
 unsafe impl ::windows::runtime::RuntimeType for IMediaStreamDescriptor2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5073010f-e8b2-4071-b00b-ebf337a76b58}");
 }
-impl ::std::convert::From<IMediaStreamDescriptor2> for ::windows::runtime::IUnknown {
-    fn from(value: IMediaStreamDescriptor2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMediaStreamDescriptor2> for ::windows::runtime::IUnknown {
-    fn from(value: &IMediaStreamDescriptor2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaStreamDescriptor2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaStreamDescriptor2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IMediaStreamDescriptor2> for ::windows::runtime::IInspectable {
-    fn from(value: IMediaStreamDescriptor2) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IMediaStreamDescriptor2> for ::windows::runtime::IInspectable {
-    fn from(value: &IMediaStreamDescriptor2) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaStreamDescriptor2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaStreamDescriptor2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<IMediaStreamDescriptor2> for IMediaStreamDescriptor {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IMediaStreamDescriptor2) -> ::windows::runtime::Result<Self> {
@@ -3539,7 +3379,7 @@ pub struct IMediaStreamDescriptor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSample(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSample {
@@ -3580,7 +3420,7 @@ pub struct IMediaStreamSample_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSample2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSample2 {
@@ -3600,7 +3440,7 @@ pub struct IMediaStreamSample2_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSampleProtectionProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSampleProtectionProperties {
@@ -3624,7 +3464,7 @@ pub struct IMediaStreamSampleProtectionProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSampleStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSampleStatics {
@@ -3646,7 +3486,7 @@ pub struct IMediaStreamSampleStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSampleStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSampleStatics2 {
@@ -3666,7 +3506,7 @@ pub struct IMediaStreamSampleStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSource {
@@ -3731,7 +3571,7 @@ pub struct IMediaStreamSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, streamdescriptor: ::windows::runtime::RawPtr, keyIdentifier_array_size: u32, keyidentifier: *const u8, licenseData_array_size: u32, licensedata: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSource2 {
@@ -3753,7 +3593,7 @@ pub struct IMediaStreamSource2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSource3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSource3 {
@@ -3775,7 +3615,7 @@ pub struct IMediaStreamSource3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSource4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSource4 {
@@ -3795,7 +3635,7 @@ pub struct IMediaStreamSource4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceClosedEventArgs {
@@ -3814,7 +3654,7 @@ pub struct IMediaStreamSourceClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceClosedRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceClosedRequest {
@@ -3833,7 +3673,7 @@ pub struct IMediaStreamSourceClosedRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MediaStreamSourceClosedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceFactory {
@@ -3853,7 +3693,7 @@ pub struct IMediaStreamSourceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptor: ::windows::runtime::RawPtr, descriptor2: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSampleRenderedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSampleRenderedEventArgs {
@@ -3873,7 +3713,7 @@ pub struct IMediaStreamSourceSampleRenderedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSampleRequest {
@@ -3896,7 +3736,7 @@ pub struct IMediaStreamSourceSampleRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, progress: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequestDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSampleRequestDeferral {
@@ -3915,7 +3755,7 @@ pub struct IMediaStreamSourceSampleRequestDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSampleRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSampleRequestedEventArgs {
@@ -3934,7 +3774,7 @@ pub struct IMediaStreamSourceSampleRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceStartingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceStartingEventArgs {
@@ -3953,7 +3793,7 @@ pub struct IMediaStreamSourceStartingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceStartingRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceStartingRequest {
@@ -3976,7 +3816,7 @@ pub struct IMediaStreamSourceStartingRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceStartingRequestDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceStartingRequestDeferral {
@@ -3995,7 +3835,7 @@ pub struct IMediaStreamSourceStartingRequestDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSwitchStreamsRequest {
@@ -4016,7 +3856,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequestDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSwitchStreamsRequestDeferral {
@@ -4035,7 +3875,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequestDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaStreamSourceSwitchStreamsRequestedEventArgs {
@@ -4054,7 +3894,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct IMediaTrack(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTrack {
@@ -4103,46 +3943,6 @@ impl IMediaTrack {
 unsafe impl ::windows::runtime::RuntimeType for IMediaTrack {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{03e1fafc-c931-491a-b46b-c10ee8c256b7}");
 }
-impl ::std::convert::From<IMediaTrack> for ::windows::runtime::IUnknown {
-    fn from(value: IMediaTrack) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMediaTrack> for ::windows::runtime::IUnknown {
-    fn from(value: &IMediaTrack) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMediaTrack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMediaTrack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IMediaTrack> for ::windows::runtime::IInspectable {
-    fn from(value: IMediaTrack) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IMediaTrack> for ::windows::runtime::IInspectable {
-    fn from(value: &IMediaTrack) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMediaTrack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMediaTrack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTrack_abi(
@@ -4159,7 +3959,7 @@ pub struct IMediaTrack_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMseSourceBuffer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseSourceBuffer {
@@ -4223,7 +4023,7 @@ pub struct IMseSourceBuffer_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMseSourceBufferList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseSourceBufferList {
@@ -4251,7 +4051,7 @@ pub struct IMseSourceBufferList_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMseStreamSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseStreamSource {
@@ -4291,7 +4091,7 @@ pub struct IMseStreamSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: MseEndOfStreamStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMseStreamSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseStreamSource2 {
@@ -4313,7 +4113,7 @@ pub struct IMseStreamSource2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMseStreamSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMseStreamSourceStatics {
@@ -4332,7 +4132,7 @@ pub struct IMseStreamSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contenttype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISceneAnalysisEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneAnalysisEffect {
@@ -4359,7 +4159,7 @@ pub struct ISceneAnalysisEffect_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISceneAnalysisEffectFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneAnalysisEffectFrame {
@@ -4380,7 +4180,7 @@ pub struct ISceneAnalysisEffectFrame_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISceneAnalysisEffectFrame2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneAnalysisEffectFrame2 {
@@ -4399,7 +4199,7 @@ pub struct ISceneAnalysisEffectFrame2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SceneAnalysisRecommendation) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISceneAnalyzedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneAnalyzedEventArgs {
@@ -4418,7 +4218,7 @@ pub struct ISceneAnalyzedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct ISingleSelectMediaTrackList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISingleSelectMediaTrackList {
@@ -4458,46 +4258,6 @@ impl ISingleSelectMediaTrackList {
 unsafe impl ::windows::runtime::RuntimeType for ISingleSelectMediaTrackList {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{77206f1f-c34f-494f-8077-2bad9ff4ecf1}");
 }
-impl ::std::convert::From<ISingleSelectMediaTrackList> for ::windows::runtime::IUnknown {
-    fn from(value: ISingleSelectMediaTrackList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISingleSelectMediaTrackList> for ::windows::runtime::IUnknown {
-    fn from(value: &ISingleSelectMediaTrackList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISingleSelectMediaTrackList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISingleSelectMediaTrackList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISingleSelectMediaTrackList> for ::windows::runtime::IInspectable {
-    fn from(value: ISingleSelectMediaTrackList) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISingleSelectMediaTrackList> for ::windows::runtime::IInspectable {
-    fn from(value: &ISingleSelectMediaTrackList) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISingleSelectMediaTrackList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISingleSelectMediaTrackList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISingleSelectMediaTrackList_abi(
@@ -4515,7 +4275,7 @@ pub struct ISingleSelectMediaTrackList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpeechCue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechCue {
@@ -4543,7 +4303,7 @@ pub struct ISpeechCue_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedMetadataStreamDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataStreamDescriptor {
@@ -4564,7 +4324,7 @@ pub struct ITimedMetadataStreamDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedMetadataStreamDescriptorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataStreamDescriptorFactory {
@@ -4584,7 +4344,7 @@ pub struct ITimedMetadataStreamDescriptorFactory_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrack(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrack {
@@ -4622,7 +4382,7 @@ pub struct ITimedMetadataTrack_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cue: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrack2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrack2 {
@@ -4643,7 +4403,7 @@ pub struct ITimedMetadataTrack2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrackError(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackError {
@@ -4663,7 +4423,7 @@ pub struct ITimedMetadataTrackError_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrackFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackFactory {
@@ -4682,7 +4442,7 @@ pub struct ITimedMetadataTrackFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, language: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, kind: TimedMetadataKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrackFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackFailedEventArgs {
@@ -4701,7 +4461,7 @@ pub struct ITimedMetadataTrackFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Core`*"]
 pub struct ITimedMetadataTrackProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedMetadataTrackProvider {
@@ -4722,46 +4482,6 @@ impl ITimedMetadataTrackProvider {
 unsafe impl ::windows::runtime::RuntimeType for ITimedMetadataTrackProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3b7f2024-f74e-4ade-93c5-219da05b6856}");
 }
-impl ::std::convert::From<ITimedMetadataTrackProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ITimedMetadataTrackProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITimedMetadataTrackProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ITimedMetadataTrackProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITimedMetadataTrackProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITimedMetadataTrackProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ITimedMetadataTrackProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ITimedMetadataTrackProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ITimedMetadataTrackProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ITimedMetadataTrackProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ITimedMetadataTrackProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ITimedMetadataTrackProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataTrackProvider_abi(
@@ -4775,7 +4495,7 @@ pub struct ITimedMetadataTrackProvider_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextBouten(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextBouten {
@@ -4801,7 +4521,7 @@ pub struct ITimedTextBouten_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: TimedTextBoutenPosition) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextCue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextCue {
@@ -4825,7 +4545,7 @@ pub struct ITimedTextCue_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextLine(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextLine {
@@ -4847,7 +4567,7 @@ pub struct ITimedTextLine_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextRegion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextRegion {
@@ -4891,7 +4611,7 @@ pub struct ITimedTextRegion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: TimedTextScrollMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextRuby(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextRuby {
@@ -4917,7 +4637,7 @@ pub struct ITimedTextRuby_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: TimedTextRubyReserve) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSource {
@@ -4939,7 +4659,7 @@ pub struct ITimedTextSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextSourceResolveResultEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSourceResolveResultEventArgs {
@@ -4960,7 +4680,7 @@ pub struct ITimedTextSourceResolveResultEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSourceStatics {
@@ -4986,7 +4706,7 @@ pub struct ITimedTextSourceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextSourceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSourceStatics2 {
@@ -5012,7 +4732,7 @@ pub struct ITimedTextSourceStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextStyle(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextStyle {
@@ -5060,7 +4780,7 @@ pub struct ITimedTextStyle_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: TimedTextDouble) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextStyle2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextStyle2 {
@@ -5086,7 +4806,7 @@ pub struct ITimedTextStyle2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextStyle3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextStyle3 {
@@ -5110,7 +4830,7 @@ pub struct ITimedTextStyle3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITimedTextSubformat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimedTextSubformat {
@@ -5134,7 +4854,7 @@ pub struct ITimedTextSubformat_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVideoStabilizationEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStabilizationEffect {
@@ -5160,7 +4880,7 @@ pub struct IVideoStabilizationEffect_abi(
     #[cfg(not(all(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVideoStabilizationEffectEnabledChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStabilizationEffectEnabledChangedEventArgs {
@@ -5179,7 +4899,7 @@ pub struct IVideoStabilizationEffectEnabledChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VideoStabilizationEffectEnabledChangedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVideoStreamDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStreamDescriptor {
@@ -5199,7 +4919,7 @@ pub struct IVideoStreamDescriptor_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVideoStreamDescriptor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStreamDescriptor2 {
@@ -5218,7 +4938,7 @@ pub struct IVideoStreamDescriptor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVideoStreamDescriptorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoStreamDescriptorFactory {
@@ -5238,7 +4958,7 @@ pub struct IVideoStreamDescriptorFactory_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVideoTrack(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTrack {
@@ -5266,7 +4986,7 @@ pub struct IVideoTrack_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVideoTrackOpenFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTrackOpenFailedEventArgs {
@@ -5285,7 +5005,7 @@ pub struct IVideoTrackOpenFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVideoTrackSupportInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTrackSupportInfo {

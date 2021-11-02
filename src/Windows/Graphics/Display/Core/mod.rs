@@ -422,7 +422,7 @@ unsafe impl ::windows::runtime::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformation {
@@ -455,7 +455,7 @@ pub struct IHdmiDisplayInformation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformationStatics {
@@ -474,7 +474,7 @@ pub struct IHdmiDisplayInformationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode {
@@ -503,7 +503,7 @@ pub struct IHdmiDisplayMode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode2 {

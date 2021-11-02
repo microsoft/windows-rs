@@ -34,7 +34,7 @@ unsafe impl ::windows::runtime::RuntimeType for FeatureElementKindPreview {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.FeatureElementKindPreview;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IImageVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageVariableDescriptorPreview {
@@ -56,7 +56,7 @@ pub struct IImageVariableDescriptorPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IInferencingOptionsPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInferencingOptionsPreview {
@@ -84,7 +84,7 @@ pub struct IInferencingOptionsPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelBindingPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingPreview {
@@ -106,7 +106,7 @@ pub struct ILearningModelBindingPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelBindingPreviewFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingPreviewFactory {
@@ -125,7 +125,7 @@ pub struct ILearningModelBindingPreviewFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, model: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelDescriptionPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDescriptionPreview {
@@ -154,7 +154,7 @@ pub struct ILearningModelDescriptionPreview_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelEvaluationResultPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelEvaluationResultPreview {
@@ -175,7 +175,7 @@ pub struct ILearningModelEvaluationResultPreview_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelPreview {
@@ -200,7 +200,7 @@ pub struct ILearningModelPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelPreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelPreviewStatics {
@@ -222,7 +222,7 @@ pub struct ILearningModelPreviewStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 pub struct ILearningModelVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelVariableDescriptorPreview {
@@ -270,46 +270,6 @@ impl ILearningModelVariableDescriptorPreview {
 unsafe impl ::windows::runtime::RuntimeType for ILearningModelVariableDescriptorPreview {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b13df682-fc30-492b-8ea0-ed1f53c0b038}");
 }
-impl ::std::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::runtime::IUnknown {
-    fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::runtime::IUnknown {
-    fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::runtime::IInspectable {
-    fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::runtime::IInspectable {
-    fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelVariableDescriptorPreview_abi(
@@ -325,7 +285,7 @@ pub struct ILearningModelVariableDescriptorPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMapVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapVariableDescriptorPreview {
@@ -349,7 +309,7 @@ pub struct IMapVariableDescriptorPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISequenceVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISequenceVariableDescriptorPreview {
@@ -368,7 +328,7 @@ pub struct ISequenceVariableDescriptorPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorVariableDescriptorPreview {

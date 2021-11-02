@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceInfo {
@@ -27,7 +27,7 @@ pub struct ISpatialSurfaceInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMesh(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceMesh {
@@ -52,7 +52,7 @@ pub struct ISpatialSurfaceMesh_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshBuffer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceMeshBuffer {
@@ -76,7 +76,7 @@ pub struct ISpatialSurfaceMeshBuffer_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceMeshOptions {
@@ -108,7 +108,7 @@ pub struct ISpatialSurfaceMeshOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMeshOptionsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceMeshOptionsStatics {
@@ -132,7 +132,7 @@ pub struct ISpatialSurfaceMeshOptionsStatics_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceObserver {
@@ -159,7 +159,7 @@ pub struct ISpatialSurfaceObserver_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserverStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceObserverStatics {
@@ -179,7 +179,7 @@ pub struct ISpatialSurfaceObserverStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserverStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialSurfaceObserverStatics2 {

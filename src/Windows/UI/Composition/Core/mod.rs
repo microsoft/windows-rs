@@ -134,7 +134,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 unsafe impl ::std::marker::Send for CompositorController {}
 unsafe impl ::std::marker::Sync for CompositorController {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICompositorController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorController {

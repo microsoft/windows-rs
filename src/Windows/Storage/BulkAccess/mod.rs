@@ -1600,7 +1600,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Search::IStorageFolderQueryOpe
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFileInformationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileInformationFactory {
@@ -1633,7 +1633,7 @@ pub struct IFileInformationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFileInformationFactoryFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileInformationFactoryFactory {
@@ -1659,7 +1659,7 @@ pub struct IFileInformationFactoryFactory_abi(
     #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Storage_BulkAccess`*"]
 pub struct IStorageItemInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemInformation {
@@ -1754,46 +1754,6 @@ impl IStorageItemInformation {
 }
 unsafe impl ::windows::runtime::RuntimeType for IStorageItemInformation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
-}
-impl ::std::convert::From<IStorageItemInformation> for ::windows::runtime::IUnknown {
-    fn from(value: IStorageItemInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IStorageItemInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &IStorageItemInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStorageItemInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStorageItemInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IStorageItemInformation> for ::windows::runtime::IInspectable {
-    fn from(value: IStorageItemInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IStorageItemInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &IStorageItemInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IStorageItemInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IStorageItemInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

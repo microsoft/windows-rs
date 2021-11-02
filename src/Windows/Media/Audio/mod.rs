@@ -4930,7 +4930,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for FrameInputNodeQuantumStartedEventArgs {}
 unsafe impl ::std::marker::Sync for FrameInputNodeQuantumStartedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioDeviceInputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceInputNode {
@@ -4950,7 +4950,7 @@ pub struct IAudioDeviceInputNode_abi(
     #[cfg(not(feature = "Devices_Enumeration"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioDeviceOutputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceOutputNode {
@@ -4970,7 +4970,7 @@ pub struct IAudioDeviceOutputNode_abi(
     #[cfg(not(feature = "Devices_Enumeration"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioFileInputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFileInputNode {
@@ -5014,7 +5014,7 @@ pub struct IAudioFileInputNode_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioFileOutputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFileOutputNode {
@@ -5038,7 +5038,7 @@ pub struct IAudioFileOutputNode_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Media_Transcoding")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioFrameCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameCompletedEventArgs {
@@ -5057,7 +5057,7 @@ pub struct IAudioFrameCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioFrameInputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameInputNode {
@@ -5088,7 +5088,7 @@ pub struct IAudioFrameInputNode_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioFrameOutputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameOutputNode {
@@ -5107,7 +5107,7 @@ pub struct IAudioFrameOutputNode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraph(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph {
@@ -5171,7 +5171,7 @@ pub struct IAudioGraph_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraph2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph2 {
@@ -5199,7 +5199,7 @@ pub struct IAudioGraph2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraph3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraph3 {
@@ -5221,7 +5221,7 @@ pub struct IAudioGraph3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Media_Core")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraphConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphConnection {
@@ -5242,7 +5242,7 @@ pub struct IAudioGraphConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraphSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettings {
@@ -5278,7 +5278,7 @@ pub struct IAudioGraphSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::AudioProcessing) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraphSettings2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettings2 {
@@ -5298,7 +5298,7 @@ pub struct IAudioGraphSettings2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraphSettingsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphSettingsFactory {
@@ -5318,7 +5318,7 @@ pub struct IAudioGraphSettingsFactory_abi(
     #[cfg(not(feature = "Media_Render"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraphStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphStatics {
@@ -5338,7 +5338,7 @@ pub struct IAudioGraphStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioGraphUnrecoverableErrorOccurredEventArgs {
@@ -5357,7 +5357,7 @@ pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AudioGraphUnrecoverableError) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Audio`*"]
 pub struct IAudioInputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioInputNode {
@@ -5470,46 +5470,6 @@ impl IAudioInputNode {
 unsafe impl ::windows::runtime::RuntimeType for IAudioInputNode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d148005c-8428-4784-b7fd-a99d468c5d20}");
 }
-impl ::std::convert::From<IAudioInputNode> for ::windows::runtime::IUnknown {
-    fn from(value: IAudioInputNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAudioInputNode> for ::windows::runtime::IUnknown {
-    fn from(value: &IAudioInputNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioInputNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioInputNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IAudioInputNode> for ::windows::runtime::IInspectable {
-    fn from(value: IAudioInputNode) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IAudioInputNode> for ::windows::runtime::IInspectable {
-    fn from(value: &IAudioInputNode) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAudioInputNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAudioInputNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IAudioInputNode> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -5574,7 +5534,7 @@ pub struct IAudioInputNode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, destination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Audio`*"]
 pub struct IAudioInputNode2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioInputNode2 {
@@ -5695,46 +5655,6 @@ impl IAudioInputNode2 {
 unsafe impl ::windows::runtime::RuntimeType for IAudioInputNode2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{905156b7-ca68-4c6d-a8bc-e3ee17fe3fd2}");
 }
-impl ::std::convert::From<IAudioInputNode2> for ::windows::runtime::IUnknown {
-    fn from(value: IAudioInputNode2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAudioInputNode2> for ::windows::runtime::IUnknown {
-    fn from(value: &IAudioInputNode2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioInputNode2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioInputNode2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IAudioInputNode2> for ::windows::runtime::IInspectable {
-    fn from(value: IAudioInputNode2) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IAudioInputNode2> for ::windows::runtime::IInspectable {
-    fn from(value: &IAudioInputNode2) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAudioInputNode2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAudioInputNode2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IAudioInputNode2> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -5817,7 +5737,7 @@ pub struct IAudioInputNode2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Audio`*"]
 pub struct IAudioNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNode {
@@ -5906,46 +5826,6 @@ impl IAudioNode {
 unsafe impl ::windows::runtime::RuntimeType for IAudioNode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{15389d7f-dbd8-4819-bf03-668e9357cd6d}");
 }
-impl ::std::convert::From<IAudioNode> for ::windows::runtime::IUnknown {
-    fn from(value: IAudioNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAudioNode> for ::windows::runtime::IUnknown {
-    fn from(value: &IAudioNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IAudioNode> for ::windows::runtime::IInspectable {
-    fn from(value: IAudioNode) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IAudioNode> for ::windows::runtime::IInspectable {
-    fn from(value: &IAudioNode) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAudioNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAudioNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IAudioNode> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -5998,7 +5878,7 @@ pub struct IAudioNode_abi(
     #[cfg(not(feature = "Media_Effects"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitter {
@@ -6037,7 +5917,7 @@ pub struct IAudioNodeEmitter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitter2 {
@@ -6057,7 +5937,7 @@ pub struct IAudioNodeEmitter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SpatialAudioModel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitterConeProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterConeProperties {
@@ -6078,7 +5958,7 @@ pub struct IAudioNodeEmitterConeProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitterDecayModel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterDecayModel {
@@ -6100,7 +5980,7 @@ pub struct IAudioNodeEmitterDecayModel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitterDecayModelStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterDecayModelStatics {
@@ -6120,7 +6000,7 @@ pub struct IAudioNodeEmitterDecayModelStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mingain: f64, maxgain: f64, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterFactory {
@@ -6139,7 +6019,7 @@ pub struct IAudioNodeEmitterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, shape: ::windows::runtime::RawPtr, decaymodel: ::windows::runtime::RawPtr, settings: AudioNodeEmitterSettings, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitterNaturalDecayModelProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterNaturalDecayModelProperties {
@@ -6159,7 +6039,7 @@ pub struct IAudioNodeEmitterNaturalDecayModelProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitterShape(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterShape {
@@ -6179,7 +6059,7 @@ pub struct IAudioNodeEmitterShape_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeEmitterShapeStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeEmitterShapeStatics {
@@ -6199,7 +6079,7 @@ pub struct IAudioNodeEmitterShapeStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioNodeListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeListener {
@@ -6231,7 +6111,7 @@ pub struct IAudioNodeListener_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Media_Audio`*"]
 pub struct IAudioNodeWithListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeWithListener {
@@ -6333,46 +6213,6 @@ impl IAudioNodeWithListener {
 unsafe impl ::windows::runtime::RuntimeType for IAudioNodeWithListener {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0e0f907c-79ff-4544-9eeb-01257b15105a}");
 }
-impl ::std::convert::From<IAudioNodeWithListener> for ::windows::runtime::IUnknown {
-    fn from(value: IAudioNodeWithListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAudioNodeWithListener> for ::windows::runtime::IUnknown {
-    fn from(value: &IAudioNodeWithListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioNodeWithListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioNodeWithListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IAudioNodeWithListener> for ::windows::runtime::IInspectable {
-    fn from(value: IAudioNodeWithListener) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IAudioNodeWithListener> for ::windows::runtime::IInspectable {
-    fn from(value: &IAudioNodeWithListener) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAudioNodeWithListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAudioNodeWithListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IAudioNodeWithListener> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -6434,7 +6274,7 @@ pub struct IAudioNodeWithListener_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioPlaybackConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnection {
@@ -6464,7 +6304,7 @@ pub struct IAudioPlaybackConnection_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioPlaybackConnectionOpenResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnectionOpenResult {
@@ -6484,7 +6324,7 @@ pub struct IAudioPlaybackConnectionOpenResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioPlaybackConnectionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioPlaybackConnectionStatics {
@@ -6504,7 +6344,7 @@ pub struct IAudioPlaybackConnectionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioStateMonitor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStateMonitor {
@@ -6527,7 +6367,7 @@ pub struct IAudioStateMonitor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::SoundLevel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAudioStateMonitorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioStateMonitorStatics {
@@ -6559,7 +6399,7 @@ pub struct IAudioStateMonitorStatics_abi(
     #[cfg(not(feature = "Media_Capture"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioDeviceInputNodeResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceInputNodeResult {
@@ -6579,7 +6419,7 @@ pub struct ICreateAudioDeviceInputNodeResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioDeviceInputNodeResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceInputNodeResult2 {
@@ -6598,7 +6438,7 @@ pub struct ICreateAudioDeviceInputNodeResult2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioDeviceOutputNodeResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceOutputNodeResult {
@@ -6618,7 +6458,7 @@ pub struct ICreateAudioDeviceOutputNodeResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioDeviceOutputNodeResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioDeviceOutputNodeResult2 {
@@ -6637,7 +6477,7 @@ pub struct ICreateAudioDeviceOutputNodeResult2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioFileInputNodeResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileInputNodeResult {
@@ -6657,7 +6497,7 @@ pub struct ICreateAudioFileInputNodeResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioFileInputNodeResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileInputNodeResult2 {
@@ -6676,7 +6516,7 @@ pub struct ICreateAudioFileInputNodeResult2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioFileOutputNodeResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileOutputNodeResult {
@@ -6696,7 +6536,7 @@ pub struct ICreateAudioFileOutputNodeResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioFileOutputNodeResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioFileOutputNodeResult2 {
@@ -6715,7 +6555,7 @@ pub struct ICreateAudioFileOutputNodeResult2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioGraphResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioGraphResult {
@@ -6735,7 +6575,7 @@ pub struct ICreateAudioGraphResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateAudioGraphResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateAudioGraphResult2 {
@@ -6754,7 +6594,7 @@ pub struct ICreateAudioGraphResult2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateMediaSourceAudioInputNodeResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateMediaSourceAudioInputNodeResult {
@@ -6774,7 +6614,7 @@ pub struct ICreateMediaSourceAudioInputNodeResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICreateMediaSourceAudioInputNodeResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateMediaSourceAudioInputNodeResult2 {
@@ -6793,7 +6633,7 @@ pub struct ICreateMediaSourceAudioInputNodeResult2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IEchoEffectDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEchoEffectDefinition {
@@ -6817,7 +6657,7 @@ pub struct IEchoEffectDefinition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IEchoEffectDefinitionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEchoEffectDefinitionFactory {
@@ -6836,7 +6676,7 @@ pub struct IEchoEffectDefinitionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, audiograph: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IEqualizerBand(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerBand {
@@ -6860,7 +6700,7 @@ pub struct IEqualizerBand_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IEqualizerEffectDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerEffectDefinition {
@@ -6880,7 +6720,7 @@ pub struct IEqualizerEffectDefinition_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IEqualizerEffectDefinitionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEqualizerEffectDefinitionFactory {
@@ -6899,7 +6739,7 @@ pub struct IEqualizerEffectDefinitionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, audiograph: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFrameInputNodeQuantumStartedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameInputNodeQuantumStartedEventArgs {
@@ -6918,7 +6758,7 @@ pub struct IFrameInputNodeQuantumStartedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILimiterEffectDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILimiterEffectDefinition {
@@ -6940,7 +6780,7 @@ pub struct ILimiterEffectDefinition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILimiterEffectDefinitionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILimiterEffectDefinitionFactory {
@@ -6959,7 +6799,7 @@ pub struct ILimiterEffectDefinitionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, audiograph: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMediaSourceAudioInputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaSourceAudioInputNode {
@@ -7003,7 +6843,7 @@ pub struct IMediaSourceAudioInputNode_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IReverbEffectDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReverbEffectDefinition {
@@ -7067,7 +6907,7 @@ pub struct IReverbEffectDefinition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IReverbEffectDefinitionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReverbEffectDefinitionFactory {
@@ -7086,7 +6926,7 @@ pub struct IReverbEffectDefinitionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, audiograph: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISetDefaultSpatialAudioFormatResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISetDefaultSpatialAudioFormatResult {
@@ -7105,7 +6945,7 @@ pub struct ISetDefaultSpatialAudioFormatResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SetDefaultSpatialAudioFormatStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialAudioDeviceConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioDeviceConfiguration {
@@ -7134,7 +6974,7 @@ pub struct ISpatialAudioDeviceConfiguration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialAudioDeviceConfigurationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioDeviceConfigurationStatics {
@@ -7153,7 +6993,7 @@ pub struct ISpatialAudioDeviceConfigurationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialAudioFormatConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatConfiguration {
@@ -7177,7 +7017,7 @@ pub struct ISpatialAudioFormatConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: MixedRealitySpatialAudioFormatPolicy) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialAudioFormatConfigurationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatConfigurationStatics {
@@ -7196,7 +7036,7 @@ pub struct ISpatialAudioFormatConfigurationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialAudioFormatSubtypeStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatSubtypeStatics {
@@ -7220,7 +7060,7 @@ pub struct ISpatialAudioFormatSubtypeStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISpatialAudioFormatSubtypeStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAudioFormatSubtypeStatics2 {

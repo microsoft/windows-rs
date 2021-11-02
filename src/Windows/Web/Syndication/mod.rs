@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationAttribute(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationAttribute {
@@ -24,7 +24,7 @@ pub struct ISyndicationAttribute_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationAttributeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationAttributeFactory {
@@ -43,7 +43,7 @@ pub struct ISyndicationAttributeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, attributename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, attributenamespace: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, attributevalue: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationCategory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationCategory {
@@ -67,7 +67,7 @@ pub struct ISyndicationCategory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationCategoryFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationCategoryFactory {
@@ -87,7 +87,7 @@ pub struct ISyndicationCategoryFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, term: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, scheme: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, label: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Web_Syndication`*"]
 pub struct ISyndicationClient(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationClient {
@@ -182,46 +182,6 @@ impl ISyndicationClient {
 unsafe impl ::windows::runtime::RuntimeType for ISyndicationClient {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{9e18a9b7-7249-4b45-b229-7df895a5a1f5}");
 }
-impl ::std::convert::From<ISyndicationClient> for ::windows::runtime::IUnknown {
-    fn from(value: ISyndicationClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISyndicationClient> for ::windows::runtime::IUnknown {
-    fn from(value: &ISyndicationClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISyndicationClient {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISyndicationClient {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISyndicationClient> for ::windows::runtime::IInspectable {
-    fn from(value: ISyndicationClient) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISyndicationClient> for ::windows::runtime::IInspectable {
-    fn from(value: &ISyndicationClient) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISyndicationClient {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISyndicationClient {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationClient_abi(
@@ -250,7 +210,7 @@ pub struct ISyndicationClient_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationClientFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationClientFactory {
@@ -270,7 +230,7 @@ pub struct ISyndicationClientFactory_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationContent {
@@ -292,7 +252,7 @@ pub struct ISyndicationContent_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationContentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationContentFactory {
@@ -313,7 +273,7 @@ pub struct ISyndicationContentFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationErrorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationErrorStatics {
@@ -332,7 +292,7 @@ pub struct ISyndicationErrorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresult: i32, result__: *mut SyndicationErrorStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationFeed(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationFeed {
@@ -394,7 +354,7 @@ pub struct ISyndicationFeed_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationFeedFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationFeedFactory {
@@ -414,7 +374,7 @@ pub struct ISyndicationFeedFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationGenerator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationGenerator {
@@ -440,7 +400,7 @@ pub struct ISyndicationGenerator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationGeneratorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationGeneratorFactory {
@@ -459,7 +419,7 @@ pub struct ISyndicationGeneratorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationItem {
@@ -519,7 +479,7 @@ pub struct ISyndicationItem_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationItemFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationItemFactory {
@@ -539,7 +499,7 @@ pub struct ISyndicationItemFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationLink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationLink {
@@ -571,7 +531,7 @@ pub struct ISyndicationLink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationLinkFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationLinkFactory {
@@ -593,7 +553,7 @@ pub struct ISyndicationLinkFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Web_Syndication`*"]
 pub struct ISyndicationNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationNode {
@@ -699,46 +659,6 @@ impl ISyndicationNode {
 unsafe impl ::windows::runtime::RuntimeType for ISyndicationNode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{753cef78-51f8-45c0-a9f5-f1719dec3fb2}");
 }
-impl ::std::convert::From<ISyndicationNode> for ::windows::runtime::IUnknown {
-    fn from(value: ISyndicationNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISyndicationNode> for ::windows::runtime::IUnknown {
-    fn from(value: &ISyndicationNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISyndicationNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISyndicationNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISyndicationNode> for ::windows::runtime::IInspectable {
-    fn from(value: ISyndicationNode) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISyndicationNode> for ::windows::runtime::IInspectable {
-    fn from(value: &ISyndicationNode) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISyndicationNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISyndicationNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyndicationNode_abi(
@@ -768,7 +688,7 @@ pub struct ISyndicationNode_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationNodeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationNodeFactory {
@@ -787,7 +707,7 @@ pub struct ISyndicationNodeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, nodenamespace: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, nodevalue: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationPerson(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationPerson {
@@ -813,7 +733,7 @@ pub struct ISyndicationPerson_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationPersonFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationPersonFactory {
@@ -834,7 +754,7 @@ pub struct ISyndicationPersonFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Web_Syndication`*"]
 pub struct ISyndicationText(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationText {
@@ -981,46 +901,6 @@ impl ISyndicationText {
 unsafe impl ::windows::runtime::RuntimeType for ISyndicationText {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b9cc5e80-313a-4091-a2a6-243e0ee923f9}");
 }
-impl ::std::convert::From<ISyndicationText> for ::windows::runtime::IUnknown {
-    fn from(value: ISyndicationText) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISyndicationText> for ::windows::runtime::IUnknown {
-    fn from(value: &ISyndicationText) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISyndicationText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISyndicationText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISyndicationText> for ::windows::runtime::IInspectable {
-    fn from(value: ISyndicationText) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISyndicationText> for ::windows::runtime::IInspectable {
-    fn from(value: &ISyndicationText) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISyndicationText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISyndicationText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<ISyndicationText> for ISyndicationNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ISyndicationText) -> ::windows::runtime::Result<Self> {
@@ -1062,7 +942,7 @@ pub struct ISyndicationText_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISyndicationTextFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationTextFactory {

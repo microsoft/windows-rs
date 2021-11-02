@@ -92,7 +92,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for CustomXamlResourceLoader {}
 unsafe impl ::std::marker::Sync for CustomXamlResourceLoader {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICustomXamlResourceLoader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomXamlResourceLoader {
@@ -110,7 +110,7 @@ pub struct ICustomXamlResourceLoader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICustomXamlResourceLoaderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomXamlResourceLoaderFactory {
@@ -129,7 +129,7 @@ pub struct ICustomXamlResourceLoaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICustomXamlResourceLoaderOverrides(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomXamlResourceLoaderOverrides {
@@ -148,7 +148,7 @@ pub struct ICustomXamlResourceLoaderOverrides_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, objecttype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertytype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICustomXamlResourceLoaderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomXamlResourceLoaderStatics {

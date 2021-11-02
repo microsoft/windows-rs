@@ -1989,7 +1989,7 @@ unsafe impl ::windows::runtime::RuntimeType for ExifOrientationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapBuffer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapBuffer {
@@ -2009,7 +2009,7 @@ pub struct IBitmapBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, result__: *mut BitmapPlaneDescription) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapCodecInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapCodecInformation {
@@ -2033,7 +2033,7 @@ pub struct IBitmapCodecInformation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapDecoder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoder {
@@ -2058,7 +2058,7 @@ pub struct IBitmapDecoder_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapDecoderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoderStatics {
@@ -2089,7 +2089,7 @@ pub struct IBitmapDecoderStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapDecoderStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoderStatics2 {
@@ -2109,7 +2109,7 @@ pub struct IBitmapDecoderStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapEncoder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoder {
@@ -2144,7 +2144,7 @@ pub struct IBitmapEncoder_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapEncoderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderStatics {
@@ -2178,7 +2178,7 @@ pub struct IBitmapEncoderStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapEncoderStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderStatics2 {
@@ -2197,7 +2197,7 @@ pub struct IBitmapEncoderStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapEncoderWithSoftwareBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderWithSoftwareBitmap {
@@ -2216,7 +2216,7 @@ pub struct IBitmapEncoderWithSoftwareBitmap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bitmap: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct IBitmapFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapFrame {
@@ -2327,46 +2327,6 @@ impl IBitmapFrame {
 unsafe impl ::windows::runtime::RuntimeType for IBitmapFrame {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{72a49a1c-8081-438d-91bc-94ecfc8185c6}");
 }
-impl ::std::convert::From<IBitmapFrame> for ::windows::runtime::IUnknown {
-    fn from(value: IBitmapFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBitmapFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &IBitmapFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBitmapFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBitmapFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IBitmapFrame> for ::windows::runtime::IInspectable {
-    fn from(value: IBitmapFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IBitmapFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &IBitmapFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBitmapFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBitmapFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapFrame_abi(
@@ -2393,7 +2353,7 @@ pub struct IBitmapFrame_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct IBitmapFrameWithSoftwareBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapFrameWithSoftwareBitmap {
@@ -2531,46 +2491,6 @@ impl IBitmapFrameWithSoftwareBitmap {
 unsafe impl ::windows::runtime::RuntimeType for IBitmapFrameWithSoftwareBitmap {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{fe287c9a-420c-4963-87ad-691436e08383}");
 }
-impl ::std::convert::From<IBitmapFrameWithSoftwareBitmap> for ::windows::runtime::IUnknown {
-    fn from(value: IBitmapFrameWithSoftwareBitmap) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBitmapFrameWithSoftwareBitmap> for ::windows::runtime::IUnknown {
-    fn from(value: &IBitmapFrameWithSoftwareBitmap) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBitmapFrameWithSoftwareBitmap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBitmapFrameWithSoftwareBitmap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IBitmapFrameWithSoftwareBitmap> for ::windows::runtime::IInspectable {
-    fn from(value: IBitmapFrameWithSoftwareBitmap) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IBitmapFrameWithSoftwareBitmap> for ::windows::runtime::IInspectable {
-    fn from(value: &IBitmapFrameWithSoftwareBitmap) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBitmapFrameWithSoftwareBitmap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBitmapFrameWithSoftwareBitmap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<IBitmapFrameWithSoftwareBitmap> for IBitmapFrame {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IBitmapFrameWithSoftwareBitmap) -> ::windows::runtime::Result<Self> {
@@ -2610,7 +2530,7 @@ pub struct IBitmapFrameWithSoftwareBitmap_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapProperties {
@@ -2630,7 +2550,7 @@ pub struct IBitmapProperties_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct IBitmapPropertiesView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapPropertiesView {
@@ -2651,46 +2571,6 @@ impl IBitmapPropertiesView {
 unsafe impl ::windows::runtime::RuntimeType for IBitmapPropertiesView {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{7e0fe87a-3a70-48f8-9c55-196cf5a545f5}");
 }
-impl ::std::convert::From<IBitmapPropertiesView> for ::windows::runtime::IUnknown {
-    fn from(value: IBitmapPropertiesView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBitmapPropertiesView> for ::windows::runtime::IUnknown {
-    fn from(value: &IBitmapPropertiesView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBitmapPropertiesView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBitmapPropertiesView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IBitmapPropertiesView> for ::windows::runtime::IInspectable {
-    fn from(value: IBitmapPropertiesView) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IBitmapPropertiesView> for ::windows::runtime::IInspectable {
-    fn from(value: &IBitmapPropertiesView) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBitmapPropertiesView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBitmapPropertiesView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapPropertiesView_abi(
@@ -2704,7 +2584,7 @@ pub struct IBitmapPropertiesView_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapTransform(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTransform {
@@ -2734,7 +2614,7 @@ pub struct IBitmapTransform_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: BitmapBounds) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapTypedValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTypedValue {
@@ -2755,7 +2635,7 @@ pub struct IBitmapTypedValue_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBitmapTypedValueFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTypedValueFactory {
@@ -2775,7 +2655,7 @@ pub struct IBitmapTypedValueFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPixelDataProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPixelDataProvider {
@@ -2794,7 +2674,7 @@ pub struct IPixelDataProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISoftwareBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmap {
@@ -2828,7 +2708,7 @@ pub struct ISoftwareBitmap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapFactory {
@@ -2848,7 +2728,7 @@ pub struct ISoftwareBitmapFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapStatics {

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBitmapEffect {
@@ -36,7 +36,7 @@ pub struct ILampArrayBitmapEffect_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBitmapEffectFactory {
@@ -55,7 +55,7 @@ pub struct ILampArrayBitmapEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lamparray: ::windows::runtime::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBitmapRequestedEventArgs {
@@ -77,7 +77,7 @@ pub struct ILampArrayBitmapRequestedEventArgs_abi(
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayBlinkEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBlinkEffect {
@@ -123,7 +123,7 @@ pub struct ILampArrayBlinkEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: LampArrayRepetitionMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayBlinkEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayBlinkEffectFactory {
@@ -142,7 +142,7 @@ pub struct ILampArrayBlinkEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lamparray: ::windows::runtime::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayColorRampEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayColorRampEffect {
@@ -174,7 +174,7 @@ pub struct ILampArrayColorRampEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: LampArrayEffectCompletionBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayColorRampEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayColorRampEffectFactory {
@@ -193,7 +193,7 @@ pub struct ILampArrayColorRampEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lamparray: ::windows::runtime::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayCustomEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayCustomEffect {
@@ -223,7 +223,7 @@ pub struct ILampArrayCustomEffect_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayCustomEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayCustomEffectFactory {
@@ -242,7 +242,7 @@ pub struct ILampArrayCustomEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lamparray: ::windows::runtime::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 pub struct ILampArrayEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayEffect {
@@ -267,46 +267,6 @@ impl ILampArrayEffect {
 unsafe impl ::windows::runtime::RuntimeType for ILampArrayEffect {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{11d45590-57fb-4546-b1ce-863107f740df}");
 }
-impl ::std::convert::From<ILampArrayEffect> for ::windows::runtime::IUnknown {
-    fn from(value: ILampArrayEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILampArrayEffect> for ::windows::runtime::IUnknown {
-    fn from(value: &ILampArrayEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILampArrayEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILampArrayEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ILampArrayEffect> for ::windows::runtime::IInspectable {
-    fn from(value: ILampArrayEffect) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ILampArrayEffect> for ::windows::runtime::IInspectable {
-    fn from(value: &ILampArrayEffect) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILampArrayEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILampArrayEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayEffect_abi(
@@ -320,7 +280,7 @@ pub struct ILampArrayEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayEffectPlaylist(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayEffectPlaylist {
@@ -349,7 +309,7 @@ pub struct ILampArrayEffectPlaylist_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: LampArrayRepetitionMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayEffectPlaylistStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayEffectPlaylistStatics {
@@ -373,7 +333,7 @@ pub struct ILampArrayEffectPlaylistStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArraySolidEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArraySolidEffect {
@@ -405,7 +365,7 @@ pub struct ILampArraySolidEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: LampArrayEffectCompletionBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArraySolidEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArraySolidEffectFactory {
@@ -424,7 +384,7 @@ pub struct ILampArraySolidEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lamparray: ::windows::runtime::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILampArrayUpdateRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayUpdateRequestedEventArgs {

@@ -294,7 +294,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Syndication::ISyndicationClien
 unsafe impl ::std::marker::Send for AtomPubClient {}
 unsafe impl ::std::marker::Sync for AtomPubClient {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAtomPubClient(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAtomPubClient {
@@ -333,7 +333,7 @@ pub struct IAtomPubClient_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAtomPubClientFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAtomPubClientFactory {
@@ -353,7 +353,7 @@ pub struct IAtomPubClientFactory_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IResourceCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCollection {
@@ -379,7 +379,7 @@ pub struct IResourceCollection_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IServiceDocument(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceDocument {
@@ -399,7 +399,7 @@ pub struct IServiceDocument_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWorkspace(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWorkspace {

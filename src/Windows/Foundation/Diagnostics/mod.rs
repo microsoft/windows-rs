@@ -433,7 +433,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IClosable> for &FileLoggingSes
 unsafe impl ::std::marker::Send for FileLoggingSession {}
 unsafe impl ::std::marker::Sync for FileLoggingSession {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAsyncCausalityTracerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsyncCausalityTracerStatics {
@@ -458,7 +458,7 @@ pub struct IAsyncCausalityTracerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cookie: super::EventRegistrationToken) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IErrorDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorDetails {
@@ -479,7 +479,7 @@ pub struct IErrorDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IErrorDetailsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorDetailsStatics {
@@ -498,7 +498,7 @@ pub struct IErrorDetailsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorcode: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 pub struct IErrorReportingSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorReportingSettings {
@@ -523,46 +523,6 @@ impl IErrorReportingSettings {
 unsafe impl ::windows::runtime::RuntimeType for IErrorReportingSettings {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0}");
 }
-impl ::std::convert::From<IErrorReportingSettings> for ::windows::runtime::IUnknown {
-    fn from(value: IErrorReportingSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IErrorReportingSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &IErrorReportingSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorReportingSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IErrorReportingSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IErrorReportingSettings> for ::windows::runtime::IInspectable {
-    fn from(value: IErrorReportingSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IErrorReportingSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &IErrorReportingSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IErrorReportingSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IErrorReportingSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorReportingSettings_abi(
@@ -576,7 +536,7 @@ pub struct IErrorReportingSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ErrorOptions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 pub struct IFileLoggingSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileLoggingSession {
@@ -638,46 +598,6 @@ impl IFileLoggingSession {
 unsafe impl ::windows::runtime::RuntimeType for IFileLoggingSession {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{24c74216-fed2-404c-895f-1f9699cb02f7}");
 }
-impl ::std::convert::From<IFileLoggingSession> for ::windows::runtime::IUnknown {
-    fn from(value: IFileLoggingSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFileLoggingSession> for ::windows::runtime::IUnknown {
-    fn from(value: &IFileLoggingSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFileLoggingSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFileLoggingSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IFileLoggingSession> for ::windows::runtime::IInspectable {
-    fn from(value: IFileLoggingSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IFileLoggingSession> for ::windows::runtime::IInspectable {
-    fn from(value: &IFileLoggingSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IFileLoggingSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IFileLoggingSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<IFileLoggingSession> for super::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IFileLoggingSession) -> ::windows::runtime::Result<Self> {
@@ -719,7 +639,7 @@ pub struct IFileLoggingSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::EventRegistrationToken) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFileLoggingSessionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileLoggingSessionFactory {
@@ -738,7 +658,7 @@ pub struct IFileLoggingSessionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILogFileGeneratedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILogFileGeneratedEventArgs {
@@ -758,7 +678,7 @@ pub struct ILogFileGeneratedEventArgs_abi(
     #[cfg(not(feature = "Storage"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingActivity(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivity {
@@ -778,7 +698,7 @@ pub struct ILoggingActivity_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingActivity2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivity2 {
@@ -800,7 +720,7 @@ pub struct ILoggingActivity2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stopeventname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, fields: ::windows::runtime::RawPtr, options: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingActivityFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivityFactory {
@@ -820,7 +740,7 @@ pub struct ILoggingActivityFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activityname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, loggingchannel: ::windows::runtime::RawPtr, level: LoggingLevel, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 pub struct ILoggingChannel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannel {
@@ -894,46 +814,6 @@ impl ILoggingChannel {
 unsafe impl ::windows::runtime::RuntimeType for ILoggingChannel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e9a50343-11d7-4f01-b5ca-cf495278c0a8}");
 }
-impl ::std::convert::From<ILoggingChannel> for ::windows::runtime::IUnknown {
-    fn from(value: ILoggingChannel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILoggingChannel> for ::windows::runtime::IUnknown {
-    fn from(value: &ILoggingChannel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILoggingChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILoggingChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ILoggingChannel> for ::windows::runtime::IInspectable {
-    fn from(value: ILoggingChannel) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ILoggingChannel> for ::windows::runtime::IInspectable {
-    fn from(value: &ILoggingChannel) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILoggingChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILoggingChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<ILoggingChannel> for super::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ILoggingChannel) -> ::windows::runtime::Result<Self> {
@@ -976,7 +856,7 @@ pub struct ILoggingChannel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::EventRegistrationToken) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingChannel2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannel2 {
@@ -995,7 +875,7 @@ pub struct ILoggingChannel2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingChannelFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelFactory {
@@ -1014,7 +894,7 @@ pub struct ILoggingChannelFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingChannelFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelFactory2 {
@@ -1034,7 +914,7 @@ pub struct ILoggingChannelFactory2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: ::windows::runtime::RawPtr, id: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingChannelOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelOptions {
@@ -1054,7 +934,7 @@ pub struct ILoggingChannelOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingChannelOptionsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelOptionsFactory {
@@ -1073,7 +953,7 @@ pub struct ILoggingChannelOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, group: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingFields(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingFields {
@@ -1206,7 +1086,7 @@ pub struct ILoggingFields_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, value_array_size: u32, value: *const super::Rect, format: LoggingFieldFormat, tags: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingOptions {
@@ -1236,7 +1116,7 @@ pub struct ILoggingOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingOptionsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingOptionsFactory {
@@ -1255,7 +1135,7 @@ pub struct ILoggingOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, keywords: i64, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 pub struct ILoggingSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingSession {
@@ -1304,46 +1184,6 @@ impl ILoggingSession {
 unsafe impl ::windows::runtime::RuntimeType for ILoggingSession {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{6221f306-9380-4ad7-baf5-41ea9310d768}");
 }
-impl ::std::convert::From<ILoggingSession> for ::windows::runtime::IUnknown {
-    fn from(value: ILoggingSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILoggingSession> for ::windows::runtime::IUnknown {
-    fn from(value: &ILoggingSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILoggingSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILoggingSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ILoggingSession> for ::windows::runtime::IInspectable {
-    fn from(value: ILoggingSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ILoggingSession> for ::windows::runtime::IInspectable {
-    fn from(value: &ILoggingSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILoggingSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILoggingSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<ILoggingSession> for super::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ILoggingSession) -> ::windows::runtime::Result<Self> {
@@ -1383,7 +1223,7 @@ pub struct ILoggingSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, loggingchannel: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILoggingSessionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingSessionFactory {
@@ -1402,7 +1242,7 @@ pub struct ILoggingSessionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 pub struct ILoggingTarget(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingTarget {
@@ -1490,46 +1330,6 @@ impl ILoggingTarget {
 unsafe impl ::windows::runtime::RuntimeType for ILoggingTarget {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{65f16c35-e388-4e26-b17a-f51cd3a83916}");
 }
-impl ::std::convert::From<ILoggingTarget> for ::windows::runtime::IUnknown {
-    fn from(value: ILoggingTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILoggingTarget> for ::windows::runtime::IUnknown {
-    fn from(value: &ILoggingTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILoggingTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILoggingTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ILoggingTarget> for ::windows::runtime::IInspectable {
-    fn from(value: ILoggingTarget) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ILoggingTarget> for ::windows::runtime::IInspectable {
-    fn from(value: &ILoggingTarget) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILoggingTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILoggingTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingTarget_abi(
@@ -1552,7 +1352,7 @@ pub struct ILoggingTarget_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, starteventname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, fields: ::windows::runtime::RawPtr, level: LoggingLevel, options: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITracingStatusChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITracingStatusChangedEventArgs {

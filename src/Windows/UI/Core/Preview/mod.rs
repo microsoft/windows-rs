@@ -70,7 +70,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for CoreAppWindowPreview {}
 unsafe impl ::std::marker::Sync for CoreAppWindowPreview {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreAppWindowPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAppWindowPreview {
@@ -88,7 +88,7 @@ pub struct ICoreAppWindowPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreAppWindowPreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAppWindowPreviewStatics {
@@ -108,7 +108,7 @@ pub struct ICoreAppWindowPreviewStatics_abi(
     #[cfg(not(feature = "UI_WindowManagement"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISystemNavigationCloseRequestedPreviewEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationCloseRequestedPreviewEventArgs {
@@ -130,7 +130,7 @@ pub struct ISystemNavigationCloseRequestedPreviewEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationManagerPreview {
@@ -152,7 +152,7 @@ pub struct ISystemNavigationManagerPreview_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerPreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationManagerPreviewStatics {

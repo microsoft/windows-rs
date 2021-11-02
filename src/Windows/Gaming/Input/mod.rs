@@ -1323,7 +1323,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGameControllerBatteryInfo> for &Head
 unsafe impl ::std::marker::Send for Headset {}
 unsafe impl ::std::marker::Sync for Headset {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IArcadeStick(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStick {
@@ -1343,7 +1343,7 @@ pub struct IArcadeStick_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ArcadeStickReading) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IArcadeStickStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStickStatics {
@@ -1371,7 +1371,7 @@ pub struct IArcadeStickStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IArcadeStickStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStickStatics2 {
@@ -1390,7 +1390,7 @@ pub struct IArcadeStickStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFlightStick(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlightStick {
@@ -1411,7 +1411,7 @@ pub struct IFlightStick_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut FlightStickReading) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFlightStickStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlightStickStatics {
@@ -1440,7 +1440,7 @@ pub struct IFlightStickStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input`*"]
 pub struct IGameController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameController {
@@ -1522,46 +1522,6 @@ impl IGameController {
 unsafe impl ::windows::runtime::RuntimeType for IGameController {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
 }
-impl ::std::convert::From<IGameController> for ::windows::runtime::IUnknown {
-    fn from(value: IGameController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IGameController> for ::windows::runtime::IUnknown {
-    fn from(value: &IGameController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGameController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IGameController> for ::windows::runtime::IInspectable {
-    fn from(value: IGameController) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IGameController> for ::windows::runtime::IInspectable {
-    fn from(value: &IGameController) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGameController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGameController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameController_abi(
@@ -1589,7 +1549,7 @@ pub struct IGameController_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input`*"]
 pub struct IGameControllerBatteryInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerBatteryInfo {
@@ -1610,46 +1570,6 @@ impl IGameControllerBatteryInfo {
 unsafe impl ::windows::runtime::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
 }
-impl ::std::convert::From<IGameControllerBatteryInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IGameControllerBatteryInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IGameControllerBatteryInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IGameControllerBatteryInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameControllerBatteryInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGameControllerBatteryInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IGameControllerBatteryInfo> for ::windows::runtime::IInspectable {
-    fn from(value: IGameControllerBatteryInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IGameControllerBatteryInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &IGameControllerBatteryInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGameControllerBatteryInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGameControllerBatteryInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerBatteryInfo_abi(
@@ -1663,7 +1583,7 @@ pub struct IGameControllerBatteryInfo_abi(
     #[cfg(not(feature = "Devices_Power"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGamepad(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepad {
@@ -1684,7 +1604,7 @@ pub struct IGamepad_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GamepadReading) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGamepad2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepad2 {
@@ -1703,7 +1623,7 @@ pub struct IGamepad2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, button: GamepadButtons, result__: *mut GameControllerButtonLabel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGamepadStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepadStatics {
@@ -1731,7 +1651,7 @@ pub struct IGamepadStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGamepadStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepadStatics2 {
@@ -1750,7 +1670,7 @@ pub struct IGamepadStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHeadset(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHeadset {
@@ -1770,7 +1690,7 @@ pub struct IHeadset_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRacingWheel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheel {
@@ -1797,7 +1717,7 @@ pub struct IRacingWheel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RacingWheelReading) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRacingWheelStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheelStatics {
@@ -1825,7 +1745,7 @@ pub struct IRacingWheelStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRacingWheelStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheelStatics2 {
@@ -1844,7 +1764,7 @@ pub struct IRacingWheelStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRawGameController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameController {
@@ -1872,7 +1792,7 @@ pub struct IRawGameController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, switchindex: i32, result__: *mut GameControllerSwitchKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRawGameController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameController2 {
@@ -1894,7 +1814,7 @@ pub struct IRawGameController2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRawGameControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameControllerStatics {
@@ -1923,7 +1843,7 @@ pub struct IRawGameControllerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUINavigationController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationController {
@@ -1944,7 +1864,7 @@ pub struct IUINavigationController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, button: RequiredUINavigationButtons, result__: *mut GameControllerButtonLabel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUINavigationControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationControllerStatics {
@@ -1972,7 +1892,7 @@ pub struct IUINavigationControllerStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUINavigationControllerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationControllerStatics2 {

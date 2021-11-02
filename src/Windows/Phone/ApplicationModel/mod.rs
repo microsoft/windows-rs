@@ -66,7 +66,7 @@ impl ::std::ops::Not for ApplicationProfileModes {
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IApplicationProfileStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationProfileStatics {

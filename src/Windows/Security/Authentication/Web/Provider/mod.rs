@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountClientView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountClientView {
@@ -22,7 +22,7 @@ pub struct IWebAccountClientView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountClientViewFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountClientViewFactory {
@@ -44,7 +44,7 @@ pub struct IWebAccountClientViewFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountManagerStatics {
@@ -82,7 +82,7 @@ pub struct IWebAccountManagerStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountManagerStatics2 {
@@ -102,7 +102,7 @@ pub struct IWebAccountManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountManagerStatics3 {
@@ -130,7 +130,7 @@ pub struct IWebAccountManagerStatics3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountManagerStatics4 {
@@ -152,7 +152,7 @@ pub struct IWebAccountManagerStatics4_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountMapManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountMapManagerStatics {
@@ -179,7 +179,7 @@ pub struct IWebAccountMapManagerStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountProviderAddAccountOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderAddAccountOperation {
@@ -198,7 +198,7 @@ pub struct IWebAccountProviderAddAccountOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
 pub struct IWebAccountProviderBaseReportOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderBaseReportOperation {
@@ -221,46 +221,6 @@ impl IWebAccountProviderBaseReportOperation {
 unsafe impl ::windows::runtime::RuntimeType for IWebAccountProviderBaseReportOperation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{bba4acbb-993b-4d57-bbe4-1421e3668b4c}");
 }
-impl ::std::convert::From<IWebAccountProviderBaseReportOperation> for ::windows::runtime::IUnknown {
-    fn from(value: IWebAccountProviderBaseReportOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderBaseReportOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebAccountProviderBaseReportOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebAccountProviderBaseReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebAccountProviderBaseReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebAccountProviderBaseReportOperation> for ::windows::runtime::IInspectable {
-    fn from(value: IWebAccountProviderBaseReportOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderBaseReportOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebAccountProviderBaseReportOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebAccountProviderBaseReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebAccountProviderBaseReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderBaseReportOperation_abi(
@@ -275,7 +235,7 @@ pub struct IWebAccountProviderBaseReportOperation_abi(
     #[cfg(not(feature = "Security_Authentication_Web_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountProviderDeleteAccountOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderDeleteAccountOperation {
@@ -295,7 +255,7 @@ pub struct IWebAccountProviderDeleteAccountOperation_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountProviderManageAccountOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderManageAccountOperation {
@@ -316,7 +276,7 @@ pub struct IWebAccountProviderManageAccountOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
 pub struct IWebAccountProviderOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderOperation {
@@ -336,46 +296,6 @@ impl IWebAccountProviderOperation {
 unsafe impl ::windows::runtime::RuntimeType for IWebAccountProviderOperation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{6d5d2426-10b1-419a-a44e-f9c5161574e6}");
 }
-impl ::std::convert::From<IWebAccountProviderOperation> for ::windows::runtime::IUnknown {
-    fn from(value: IWebAccountProviderOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebAccountProviderOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebAccountProviderOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebAccountProviderOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebAccountProviderOperation> for ::windows::runtime::IInspectable {
-    fn from(value: IWebAccountProviderOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebAccountProviderOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebAccountProviderOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebAccountProviderOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderOperation_abi(
@@ -388,7 +308,7 @@ pub struct IWebAccountProviderOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WebAccountProviderOperationKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountProviderRetrieveCookiesOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderRetrieveCookiesOperation {
@@ -416,7 +336,7 @@ pub struct IWebAccountProviderRetrieveCookiesOperation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountProviderSignOutAccountOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderSignOutAccountOperation {
@@ -439,7 +359,7 @@ pub struct IWebAccountProviderSignOutAccountOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
 pub struct IWebAccountProviderSilentReportOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderSilentReportOperation {
@@ -472,46 +392,6 @@ impl IWebAccountProviderSilentReportOperation {
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebAccountProviderSilentReportOperation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e0b545f8-3b0f-44da-924c-7b18baaa62a9}");
-}
-impl ::std::convert::From<IWebAccountProviderSilentReportOperation> for ::windows::runtime::IUnknown {
-    fn from(value: IWebAccountProviderSilentReportOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderSilentReportOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebAccountProviderSilentReportOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebAccountProviderSilentReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebAccountProviderSilentReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebAccountProviderSilentReportOperation> for ::windows::runtime::IInspectable {
-    fn from(value: IWebAccountProviderSilentReportOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderSilentReportOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebAccountProviderSilentReportOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebAccountProviderSilentReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebAccountProviderSilentReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IWebAccountProviderSilentReportOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::runtime::Error;
@@ -549,7 +429,7 @@ pub struct IWebAccountProviderSilentReportOperation_abi(
     #[cfg(not(feature = "Security_Authentication_Web_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
 pub struct IWebAccountProviderTokenObjects(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderTokenObjects {
@@ -569,46 +449,6 @@ impl IWebAccountProviderTokenObjects {
 unsafe impl ::windows::runtime::RuntimeType for IWebAccountProviderTokenObjects {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{408f284b-1328-42db-89a4-0bce7a717d8e}");
 }
-impl ::std::convert::From<IWebAccountProviderTokenObjects> for ::windows::runtime::IUnknown {
-    fn from(value: IWebAccountProviderTokenObjects) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderTokenObjects> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebAccountProviderTokenObjects) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebAccountProviderTokenObjects {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebAccountProviderTokenObjects {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebAccountProviderTokenObjects> for ::windows::runtime::IInspectable {
-    fn from(value: IWebAccountProviderTokenObjects) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderTokenObjects> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebAccountProviderTokenObjects) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebAccountProviderTokenObjects {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebAccountProviderTokenObjects {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderTokenObjects_abi(
@@ -621,7 +461,7 @@ pub struct IWebAccountProviderTokenObjects_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
 pub struct IWebAccountProviderTokenObjects2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderTokenObjects2 {
@@ -649,46 +489,6 @@ impl IWebAccountProviderTokenObjects2 {
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebAccountProviderTokenObjects2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1020b893-5ca5-4fff-95fb-b820273fc395}");
-}
-impl ::std::convert::From<IWebAccountProviderTokenObjects2> for ::windows::runtime::IUnknown {
-    fn from(value: IWebAccountProviderTokenObjects2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderTokenObjects2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebAccountProviderTokenObjects2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebAccountProviderTokenObjects2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebAccountProviderTokenObjects2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebAccountProviderTokenObjects2> for ::windows::runtime::IInspectable {
-    fn from(value: IWebAccountProviderTokenObjects2) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderTokenObjects2> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebAccountProviderTokenObjects2) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebAccountProviderTokenObjects2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebAccountProviderTokenObjects2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IWebAccountProviderTokenObjects2> for IWebAccountProviderTokenObjects {
     type Error = ::windows::runtime::Error;
@@ -725,7 +525,7 @@ pub struct IWebAccountProviderTokenObjects2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
 pub struct IWebAccountProviderTokenOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderTokenOperation {
@@ -777,46 +577,6 @@ impl IWebAccountProviderTokenOperation {
 unsafe impl ::windows::runtime::RuntimeType for IWebAccountProviderTokenOperation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{95c613be-2034-4c38-9434-d26c14b2b4b2}");
 }
-impl ::std::convert::From<IWebAccountProviderTokenOperation> for ::windows::runtime::IUnknown {
-    fn from(value: IWebAccountProviderTokenOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderTokenOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebAccountProviderTokenOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebAccountProviderTokenOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebAccountProviderTokenOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebAccountProviderTokenOperation> for ::windows::runtime::IInspectable {
-    fn from(value: IWebAccountProviderTokenOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderTokenOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebAccountProviderTokenOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebAccountProviderTokenOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebAccountProviderTokenOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<IWebAccountProviderTokenOperation> for IWebAccountProviderOperation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IWebAccountProviderTokenOperation) -> ::windows::runtime::Result<Self> {
@@ -857,7 +617,7 @@ pub struct IWebAccountProviderTokenOperation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Security_Authentication_Web_Provider`*"]
 pub struct IWebAccountProviderUIReportOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderUIReportOperation {
@@ -884,46 +644,6 @@ impl IWebAccountProviderUIReportOperation {
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebAccountProviderUIReportOperation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{28ff92d3-8f80-42fb-944f-b2107bbd42e6}");
-}
-impl ::std::convert::From<IWebAccountProviderUIReportOperation> for ::windows::runtime::IUnknown {
-    fn from(value: IWebAccountProviderUIReportOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderUIReportOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebAccountProviderUIReportOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebAccountProviderUIReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebAccountProviderUIReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebAccountProviderUIReportOperation> for ::windows::runtime::IInspectable {
-    fn from(value: IWebAccountProviderUIReportOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebAccountProviderUIReportOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebAccountProviderUIReportOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebAccountProviderUIReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebAccountProviderUIReportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IWebAccountProviderUIReportOperation> for IWebAccountProviderBaseReportOperation {
     type Error = ::windows::runtime::Error;
@@ -959,7 +679,7 @@ pub struct IWebAccountProviderUIReportOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountScopeManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountScopeManagerStatics {
@@ -983,7 +703,7 @@ pub struct IWebAccountScopeManagerStatics_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebProviderTokenRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenRequest {
@@ -1010,7 +730,7 @@ pub struct IWebProviderTokenRequest_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Cryptography_Core")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebProviderTokenRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenRequest2 {
@@ -1030,7 +750,7 @@ pub struct IWebProviderTokenRequest2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebProviderTokenRequest3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenRequest3 {
@@ -1052,7 +772,7 @@ pub struct IWebProviderTokenRequest3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebProviderTokenResponse(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenResponse {
@@ -1072,7 +792,7 @@ pub struct IWebProviderTokenResponse_abi(
     #[cfg(not(feature = "Security_Authentication_Web_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebProviderTokenResponseFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderTokenResponseFactory {

@@ -551,7 +551,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for CoreDropOperationTargetRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreDragDropManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragDropManager {
@@ -575,7 +575,7 @@ pub struct ICoreDragDropManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreDragDropManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragDropManagerStatics {
@@ -594,7 +594,7 @@ pub struct ICoreDragDropManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreDragInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragInfo {
@@ -616,7 +616,7 @@ pub struct ICoreDragInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreDragInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragInfo2 {
@@ -635,7 +635,7 @@ pub struct ICoreDragInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::DataPackageOperation) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreDragOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragOperation {
@@ -663,7 +663,7 @@ pub struct ICoreDragOperation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreDragOperation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragOperation2 {
@@ -683,7 +683,7 @@ pub struct ICoreDragOperation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::DataPackageOperation) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreDragUIOverride(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragUIOverride {
@@ -714,7 +714,7 @@ pub struct ICoreDragUIOverride_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 pub struct ICoreDropOperationTarget(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDropOperationTarget {
@@ -762,46 +762,6 @@ impl ICoreDropOperationTarget {
 unsafe impl ::windows::runtime::RuntimeType for ICoreDropOperationTarget {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d9126196-4c5b-417d-bb37-76381def8db4}");
 }
-impl ::std::convert::From<ICoreDropOperationTarget> for ::windows::runtime::IUnknown {
-    fn from(value: ICoreDropOperationTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICoreDropOperationTarget> for ::windows::runtime::IUnknown {
-    fn from(value: &ICoreDropOperationTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICoreDropOperationTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICoreDropOperationTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ICoreDropOperationTarget> for ::windows::runtime::IInspectable {
-    fn from(value: ICoreDropOperationTarget) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ICoreDropOperationTarget> for ::windows::runtime::IInspectable {
-    fn from(value: &ICoreDropOperationTarget) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICoreDropOperationTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICoreDropOperationTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDropOperationTarget_abi(
@@ -821,7 +781,7 @@ pub struct ICoreDropOperationTarget_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreDropOperationTargetRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDropOperationTargetRequestedEventArgs {

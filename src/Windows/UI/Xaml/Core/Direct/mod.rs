@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlDirect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirect {
@@ -86,7 +86,7 @@ pub struct IXamlDirect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, eventindex: XamlEventIndex, handler: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Xaml_Core_Direct`*"]
 pub struct IXamlDirectObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirectObject {
@@ -96,46 +96,6 @@ unsafe impl ::windows::runtime::Interface for IXamlDirectObject {
 impl IXamlDirectObject {}
 unsafe impl ::windows::runtime::RuntimeType for IXamlDirectObject {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{10614a82-cee4-4645-ba25-d071ce778355}");
-}
-impl ::std::convert::From<IXamlDirectObject> for ::windows::runtime::IUnknown {
-    fn from(value: IXamlDirectObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXamlDirectObject> for ::windows::runtime::IUnknown {
-    fn from(value: &IXamlDirectObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlDirectObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXamlDirectObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXamlDirectObject> for ::windows::runtime::IInspectable {
-    fn from(value: IXamlDirectObject) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXamlDirectObject> for ::windows::runtime::IInspectable {
-    fn from(value: &IXamlDirectObject) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXamlDirectObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXamlDirectObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -148,7 +108,7 @@ pub struct IXamlDirectObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlDirectStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirectStatics {

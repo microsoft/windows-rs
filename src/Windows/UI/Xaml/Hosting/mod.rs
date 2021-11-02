@@ -789,7 +789,7 @@ unsafe impl ::std::marker::Sync for ElementCompositionPreview {}
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct HostingContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDesignerAppExitedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppExitedEventArgs {
@@ -808,7 +808,7 @@ pub struct IDesignerAppExitedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDesignerAppManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppManager {
@@ -835,7 +835,7 @@ pub struct IDesignerAppManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDesignerAppManagerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppManagerFactory {
@@ -854,7 +854,7 @@ pub struct IDesignerAppManagerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appusermodelid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDesignerAppView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppView {
@@ -879,7 +879,7 @@ pub struct IDesignerAppView_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSource {
@@ -909,7 +909,7 @@ pub struct IDesktopWindowXamlSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, request: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceFactory {
@@ -928,7 +928,7 @@ pub struct IDesktopWindowXamlSourceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceGotFocusEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceGotFocusEventArgs {
@@ -947,7 +947,7 @@ pub struct IDesktopWindowXamlSourceGotFocusEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceTakeFocusRequestedEventArgs {
@@ -966,7 +966,7 @@ pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IElementCompositionPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreview {
@@ -984,7 +984,7 @@ pub struct IElementCompositionPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics {
@@ -1010,7 +1010,7 @@ pub struct IElementCompositionPreviewStatics_abi(
     #[cfg(not(all(feature = "UI_Composition", feature = "UI_Xaml_Controls")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics2 {
@@ -1035,7 +1035,7 @@ pub struct IElementCompositionPreviewStatics2_abi(
     #[cfg(not(feature = "UI_Composition"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics3 {
@@ -1057,7 +1057,7 @@ pub struct IElementCompositionPreviewStatics3_abi(
     #[cfg(not(feature = "UI_WindowManagement"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWindowsXamlManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowsXamlManager {
@@ -1075,7 +1075,7 @@ pub struct IWindowsXamlManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWindowsXamlManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowsXamlManagerStatics {
@@ -1094,7 +1094,7 @@ pub struct IWindowsXamlManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationRequest {
@@ -1116,7 +1116,7 @@ pub struct IXamlSourceFocusNavigationRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationRequestFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationRequestFactory {
@@ -1139,7 +1139,7 @@ pub struct IXamlSourceFocusNavigationRequestFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationResult {
@@ -1158,7 +1158,7 @@ pub struct IXamlSourceFocusNavigationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResultFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationResultFactory {
@@ -1177,7 +1177,7 @@ pub struct IXamlSourceFocusNavigationResultFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, focusmoved: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlUIPresenter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenter {
@@ -1204,7 +1204,7 @@ pub struct IXamlUIPresenter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 pub struct IXamlUIPresenterHost(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost {
@@ -1224,46 +1224,6 @@ impl IXamlUIPresenterHost {
 unsafe impl ::windows::runtime::RuntimeType for IXamlUIPresenterHost {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{aafb84cd-9f6d-4f80-ac2c-0e6cb9f31659}");
 }
-impl ::std::convert::From<IXamlUIPresenterHost> for ::windows::runtime::IUnknown {
-    fn from(value: IXamlUIPresenterHost) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXamlUIPresenterHost> for ::windows::runtime::IUnknown {
-    fn from(value: &IXamlUIPresenterHost) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlUIPresenterHost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXamlUIPresenterHost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXamlUIPresenterHost> for ::windows::runtime::IInspectable {
-    fn from(value: IXamlUIPresenterHost) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXamlUIPresenterHost> for ::windows::runtime::IInspectable {
-    fn from(value: &IXamlUIPresenterHost) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXamlUIPresenterHost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXamlUIPresenterHost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost_abi(
@@ -1276,7 +1236,7 @@ pub struct IXamlUIPresenterHost_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 pub struct IXamlUIPresenterHost2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost2 {
@@ -1296,46 +1256,6 @@ impl IXamlUIPresenterHost2 {
 unsafe impl ::windows::runtime::RuntimeType for IXamlUIPresenterHost2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{61595672-7ca4-4a21-b56a-88f4812388ca}");
 }
-impl ::std::convert::From<IXamlUIPresenterHost2> for ::windows::runtime::IUnknown {
-    fn from(value: IXamlUIPresenterHost2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXamlUIPresenterHost2> for ::windows::runtime::IUnknown {
-    fn from(value: &IXamlUIPresenterHost2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlUIPresenterHost2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXamlUIPresenterHost2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXamlUIPresenterHost2> for ::windows::runtime::IInspectable {
-    fn from(value: IXamlUIPresenterHost2) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXamlUIPresenterHost2> for ::windows::runtime::IInspectable {
-    fn from(value: &IXamlUIPresenterHost2) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXamlUIPresenterHost2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXamlUIPresenterHost2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost2_abi(
@@ -1348,7 +1268,7 @@ pub struct IXamlUIPresenterHost2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 pub struct IXamlUIPresenterHost3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost3 {
@@ -1368,46 +1288,6 @@ impl IXamlUIPresenterHost3 {
 unsafe impl ::windows::runtime::RuntimeType for IXamlUIPresenterHost3 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b14292bf-7320-41bb-9f26-4d6fd34db45a}");
 }
-impl ::std::convert::From<IXamlUIPresenterHost3> for ::windows::runtime::IUnknown {
-    fn from(value: IXamlUIPresenterHost3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXamlUIPresenterHost3> for ::windows::runtime::IUnknown {
-    fn from(value: &IXamlUIPresenterHost3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlUIPresenterHost3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXamlUIPresenterHost3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXamlUIPresenterHost3> for ::windows::runtime::IInspectable {
-    fn from(value: IXamlUIPresenterHost3) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXamlUIPresenterHost3> for ::windows::runtime::IInspectable {
-    fn from(value: &IXamlUIPresenterHost3) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXamlUIPresenterHost3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXamlUIPresenterHost3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost3_abi(
@@ -1420,7 +1300,7 @@ pub struct IXamlUIPresenterHost3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dictionary: ::windows::runtime::RawPtr, dictionarykey: ::windows::runtime::RawPtr, suggestedvalue: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterStatics {
@@ -1442,7 +1322,7 @@ pub struct IXamlUIPresenterStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterStatics2 {

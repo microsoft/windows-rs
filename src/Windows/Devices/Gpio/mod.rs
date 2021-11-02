@@ -929,7 +929,7 @@ unsafe impl ::windows::runtime::RuntimeType for GpioSharingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioChangeCounter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeCounter {
@@ -956,7 +956,7 @@ pub struct IGpioChangeCounter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioChangeCounterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeCounterFactory {
@@ -975,7 +975,7 @@ pub struct IGpioChangeCounterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioChangeReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeReader {
@@ -1011,7 +1011,7 @@ pub struct IGpioChangeReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioChangeReaderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeReaderFactory {
@@ -1031,7 +1031,7 @@ pub struct IGpioChangeReaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: ::windows::runtime::RawPtr, mincapacity: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioController {
@@ -1053,7 +1053,7 @@ pub struct IGpioController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinnumber: i32, sharingmode: GpioSharingMode, pin: *mut ::windows::runtime::RawPtr, openstatus: *mut GpioOpenStatus, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerStatics {
@@ -1072,7 +1072,7 @@ pub struct IGpioControllerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioControllerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerStatics2 {
@@ -1094,7 +1094,7 @@ pub struct IGpioControllerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioPin(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPin {
@@ -1127,7 +1127,7 @@ pub struct IGpioPin_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GpioPinValue) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGpioPinValueChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinValueChangedEventArgs {

@@ -85,7 +85,7 @@ impl<F: FnMut(&::windows::runtime::GUID, &::std::option::Option<super::super::Fo
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment {
@@ -123,7 +123,7 @@ pub struct IIsolatedWindowsEnvironment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, receiverid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment2 {
@@ -145,7 +145,7 @@ pub struct IIsolatedWindowsEnvironment2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment3 {
@@ -168,7 +168,7 @@ pub struct IIsolatedWindowsEnvironment3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentCreateResult {
@@ -189,7 +189,7 @@ pub struct IIsolatedWindowsEnvironmentCreateResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFactory {
@@ -214,7 +214,7 @@ pub struct IIsolatedWindowsEnvironmentFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFile {
@@ -235,7 +235,7 @@ pub struct IIsolatedWindowsEnvironmentFile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFile2 {
@@ -255,7 +255,7 @@ pub struct IIsolatedWindowsEnvironmentFile2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentHostStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentHostStatics {
@@ -276,7 +276,7 @@ pub struct IIsolatedWindowsEnvironmentHostStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentLaunchFileResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentLaunchFileResult {
@@ -297,7 +297,7 @@ pub struct IIsolatedWindowsEnvironmentLaunchFileResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOptions {
@@ -332,7 +332,7 @@ pub struct IIsolatedWindowsEnvironmentOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOptions2 {
@@ -352,7 +352,7 @@ pub struct IIsolatedWindowsEnvironmentOptions2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationData {
@@ -378,7 +378,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
@@ -398,7 +398,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
@@ -418,7 +418,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ownername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentPostMessageResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentPostMessageResult {
@@ -438,7 +438,7 @@ pub struct IIsolatedWindowsEnvironmentPostMessageResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentProcess(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentProcess {
@@ -462,7 +462,7 @@ pub struct IIsolatedWindowsEnvironmentProcess_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFileRequestOptions {
@@ -482,7 +482,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFileResult {
@@ -503,7 +503,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
@@ -523,7 +523,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFolderResult {
@@ -543,7 +543,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentStartProcessResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentStartProcessResult {
@@ -564,7 +564,7 @@ pub struct IIsolatedWindowsEnvironmentStartProcessResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentTelemetryParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentTelemetryParameters {
@@ -584,7 +584,7 @@ pub struct IIsolatedWindowsEnvironmentTelemetryParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentUserInfo {
@@ -606,7 +606,7 @@ pub struct IIsolatedWindowsEnvironmentUserInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsHostMessengerStatics {
@@ -627,7 +627,7 @@ pub struct IIsolatedWindowsHostMessengerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filepath: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsHostMessengerStatics2 {

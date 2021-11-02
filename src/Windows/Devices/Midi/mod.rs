@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiChannelPressureMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiChannelPressureMessage {
@@ -20,7 +20,7 @@ pub struct IMidiChannelPressureMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiChannelPressureMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiChannelPressureMessageFactory {
@@ -39,7 +39,7 @@ pub struct IMidiChannelPressureMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channel: u8, pressure: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiControlChangeMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiControlChangeMessage {
@@ -60,7 +60,7 @@ pub struct IMidiControlChangeMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiControlChangeMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiControlChangeMessageFactory {
@@ -79,7 +79,7 @@ pub struct IMidiControlChangeMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channel: u8, controller: u8, controlvalue: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiInPort(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiInPort {
@@ -102,7 +102,7 @@ pub struct IMidiInPort_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiInPortStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiInPortStatics {
@@ -123,7 +123,7 @@ pub struct IMidiInPortStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Midi`*"]
 pub struct IMidiMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiMessage {
@@ -161,46 +161,6 @@ impl IMidiMessage {
 unsafe impl ::windows::runtime::RuntimeType for IMidiMessage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{79767945-1094-4283-9be0-289fc0ee8334}");
 }
-impl ::std::convert::From<IMidiMessage> for ::windows::runtime::IUnknown {
-    fn from(value: IMidiMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMidiMessage> for ::windows::runtime::IUnknown {
-    fn from(value: &IMidiMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMidiMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMidiMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IMidiMessage> for ::windows::runtime::IInspectable {
-    fn from(value: IMidiMessage) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IMidiMessage> for ::windows::runtime::IInspectable {
-    fn from(value: &IMidiMessage) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMidiMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMidiMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiMessage_abi(
@@ -217,7 +177,7 @@ pub struct IMidiMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MidiMessageType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiMessageReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiMessageReceivedEventArgs {
@@ -236,7 +196,7 @@ pub struct IMidiMessageReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiNoteOffMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOffMessage {
@@ -257,7 +217,7 @@ pub struct IMidiNoteOffMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiNoteOffMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOffMessageFactory {
@@ -276,7 +236,7 @@ pub struct IMidiNoteOffMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channel: u8, note: u8, velocity: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiNoteOnMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOnMessage {
@@ -297,7 +257,7 @@ pub struct IMidiNoteOnMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiNoteOnMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiNoteOnMessageFactory {
@@ -316,7 +276,7 @@ pub struct IMidiNoteOnMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channel: u8, note: u8, velocity: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Midi`*"]
 pub struct IMidiOutPort(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiOutPort {
@@ -352,46 +312,6 @@ impl IMidiOutPort {
 }
 unsafe impl ::windows::runtime::RuntimeType for IMidiOutPort {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{931d6d9f-57a2-4a3a-adb8-4640886f6693}");
-}
-impl ::std::convert::From<IMidiOutPort> for ::windows::runtime::IUnknown {
-    fn from(value: IMidiOutPort) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMidiOutPort> for ::windows::runtime::IUnknown {
-    fn from(value: &IMidiOutPort) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMidiOutPort {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMidiOutPort {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IMidiOutPort> for ::windows::runtime::IInspectable {
-    fn from(value: IMidiOutPort) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IMidiOutPort> for ::windows::runtime::IInspectable {
-    fn from(value: &IMidiOutPort) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMidiOutPort {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMidiOutPort {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IMidiOutPort> for super::super::Foundation::IClosable {
@@ -434,7 +354,7 @@ pub struct IMidiOutPort_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiOutPortStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiOutPortStatics {
@@ -455,7 +375,7 @@ pub struct IMidiOutPortStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiPitchBendChangeMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPitchBendChangeMessage {
@@ -475,7 +395,7 @@ pub struct IMidiPitchBendChangeMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiPitchBendChangeMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPitchBendChangeMessageFactory {
@@ -494,7 +414,7 @@ pub struct IMidiPitchBendChangeMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channel: u8, bend: u16, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiPolyphonicKeyPressureMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPolyphonicKeyPressureMessage {
@@ -515,7 +435,7 @@ pub struct IMidiPolyphonicKeyPressureMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiPolyphonicKeyPressureMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiPolyphonicKeyPressureMessageFactory {
@@ -534,7 +454,7 @@ pub struct IMidiPolyphonicKeyPressureMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channel: u8, note: u8, pressure: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiProgramChangeMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiProgramChangeMessage {
@@ -554,7 +474,7 @@ pub struct IMidiProgramChangeMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiProgramChangeMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiProgramChangeMessageFactory {
@@ -573,7 +493,7 @@ pub struct IMidiProgramChangeMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channel: u8, program: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiSongPositionPointerMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongPositionPointerMessage {
@@ -592,7 +512,7 @@ pub struct IMidiSongPositionPointerMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiSongPositionPointerMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongPositionPointerMessageFactory {
@@ -611,7 +531,7 @@ pub struct IMidiSongPositionPointerMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, beats: u16, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiSongSelectMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongSelectMessage {
@@ -630,7 +550,7 @@ pub struct IMidiSongSelectMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiSongSelectMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSongSelectMessageFactory {
@@ -649,7 +569,7 @@ pub struct IMidiSongSelectMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, song: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiSynthesizer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSynthesizer {
@@ -671,7 +591,7 @@ pub struct IMidiSynthesizer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiSynthesizerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSynthesizerStatics {
@@ -695,7 +615,7 @@ pub struct IMidiSynthesizerStatics_abi(
     #[cfg(not(feature = "Devices_Enumeration"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiSystemExclusiveMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiSystemExclusiveMessageFactory {
@@ -715,7 +635,7 @@ pub struct IMidiSystemExclusiveMessageFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiTimeCodeMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiTimeCodeMessage {
@@ -735,7 +655,7 @@ pub struct IMidiTimeCodeMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMidiTimeCodeMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiTimeCodeMessageFactory {

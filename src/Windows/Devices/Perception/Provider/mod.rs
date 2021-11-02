@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IKnownPerceptionFrameKindStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionFrameKindStatics {
@@ -21,7 +21,7 @@ pub struct IKnownPerceptionFrameKindStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionControlGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionControlGroup {
@@ -41,7 +41,7 @@ pub struct IPerceptionControlGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionControlGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionControlGroupFactory {
@@ -61,7 +61,7 @@ pub struct IPerceptionControlGroupFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelation {
@@ -84,7 +84,7 @@ pub struct IPerceptionCorrelation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationFactory {
@@ -104,7 +104,7 @@ pub struct IPerceptionCorrelationFactory_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationGroup {
@@ -124,7 +124,7 @@ pub struct IPerceptionCorrelationGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationGroupFactory {
@@ -144,7 +144,7 @@ pub struct IPerceptionCorrelationGroupFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionFaceAuthenticationGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFaceAuthenticationGroup {
@@ -164,7 +164,7 @@ pub struct IPerceptionFaceAuthenticationGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionFaceAuthenticationGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFaceAuthenticationGroupFactory {
@@ -184,7 +184,7 @@ pub struct IPerceptionFaceAuthenticationGroupFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrame {
@@ -210,7 +210,7 @@ pub struct IPerceptionFrame_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Perception_Provider`*"]
 pub struct IPerceptionFrameProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProvider {
@@ -274,46 +274,6 @@ impl IPerceptionFrameProvider {
 unsafe impl ::windows::runtime::RuntimeType for IPerceptionFrameProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{794f7ab9-b37d-3b33-a10d-30626419ce65}");
 }
-impl ::std::convert::From<IPerceptionFrameProvider> for ::windows::runtime::IUnknown {
-    fn from(value: IPerceptionFrameProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPerceptionFrameProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &IPerceptionFrameProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPerceptionFrameProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPerceptionFrameProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IPerceptionFrameProvider> for ::windows::runtime::IInspectable {
-    fn from(value: IPerceptionFrameProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IPerceptionFrameProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &IPerceptionFrameProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IPerceptionFrameProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IPerceptionFrameProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IPerceptionFrameProvider> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -358,7 +318,7 @@ pub struct IPerceptionFrameProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionFrameProviderInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProviderInfo {
@@ -386,7 +346,7 @@ pub struct IPerceptionFrameProviderInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Perception_Provider`*"]
 pub struct IPerceptionFrameProviderManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProviderManager {
@@ -412,46 +372,6 @@ impl IPerceptionFrameProviderManager {
 }
 unsafe impl ::windows::runtime::RuntimeType for IPerceptionFrameProviderManager {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a959ce07-ead3-33df-8ec1-b924abe019c4}");
-}
-impl ::std::convert::From<IPerceptionFrameProviderManager> for ::windows::runtime::IUnknown {
-    fn from(value: IPerceptionFrameProviderManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPerceptionFrameProviderManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IPerceptionFrameProviderManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPerceptionFrameProviderManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPerceptionFrameProviderManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IPerceptionFrameProviderManager> for ::windows::runtime::IInspectable {
-    fn from(value: IPerceptionFrameProviderManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IPerceptionFrameProviderManager> for ::windows::runtime::IInspectable {
-    fn from(value: &IPerceptionFrameProviderManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IPerceptionFrameProviderManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IPerceptionFrameProviderManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IPerceptionFrameProviderManager> for super::super::super::Foundation::IClosable {
@@ -491,7 +411,7 @@ pub struct IPerceptionFrameProviderManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, frameproviderinfo: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionFrameProviderManagerServiceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProviderManagerServiceStatics {
@@ -519,7 +439,7 @@ pub struct IPerceptionFrameProviderManagerServiceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, provider: ::windows::runtime::RawPtr, frame: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionPropertyChangeRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionPropertyChangeRequest {
@@ -543,7 +463,7 @@ pub struct IPerceptionPropertyChangeRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionVideoFrameAllocator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionVideoFrameAllocator {
@@ -564,7 +484,7 @@ pub struct IPerceptionVideoFrameAllocator_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerceptionVideoFrameAllocatorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionVideoFrameAllocatorFactory {

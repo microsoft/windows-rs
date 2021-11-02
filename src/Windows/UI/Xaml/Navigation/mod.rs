@@ -97,7 +97,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for FrameNavigationOptions {}
 unsafe impl ::std::marker::Sync for FrameNavigationOptions {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFrameNavigationOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameNavigationOptions {
@@ -121,7 +121,7 @@ pub struct IFrameNavigationOptions_abi(
     #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFrameNavigationOptionsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameNavigationOptionsFactory {
@@ -140,7 +140,7 @@ pub struct IFrameNavigationOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct INavigatingCancelEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigatingCancelEventArgs {
@@ -163,7 +163,7 @@ pub struct INavigatingCancelEventArgs_abi(
     #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct INavigatingCancelEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigatingCancelEventArgs2 {
@@ -184,7 +184,7 @@ pub struct INavigatingCancelEventArgs2_abi(
     #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct INavigationEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationEventArgs {
@@ -211,7 +211,7 @@ pub struct INavigationEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct INavigationEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationEventArgs2 {
@@ -231,7 +231,7 @@ pub struct INavigationEventArgs2_abi(
     #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct INavigationFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INavigationFailedEventArgs {
@@ -254,7 +254,7 @@ pub struct INavigationFailedEventArgs_abi(
     #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPageStackEntry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPageStackEntry {
@@ -277,7 +277,7 @@ pub struct IPageStackEntry_abi(
     #[cfg(not(feature = "UI_Xaml_Media_Animation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPageStackEntryFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPageStackEntryFactory {
@@ -297,7 +297,7 @@ pub struct IPageStackEntryFactory_abi(
     #[cfg(not(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPageStackEntryStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPageStackEntryStatics {

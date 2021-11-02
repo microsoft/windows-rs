@@ -2256,7 +2256,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for BarcodeSymbologyAttributesBuilder {}
 unsafe impl ::std::marker::Sync for BarcodeSymbologyAttributesBuilder {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequest {
@@ -2278,7 +2278,7 @@ pub struct IBarcodeScannerDisableScannerRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequest2 {
@@ -2300,7 +2300,7 @@ pub struct IBarcodeScannerDisableScannerRequest2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerDisableScannerRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequestEventArgs {
@@ -2321,7 +2321,7 @@ pub struct IBarcodeScannerDisableScannerRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerEnableScannerRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequest {
@@ -2343,7 +2343,7 @@ pub struct IBarcodeScannerEnableScannerRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerEnableScannerRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequest2 {
@@ -2365,7 +2365,7 @@ pub struct IBarcodeScannerEnableScannerRequest2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerEnableScannerRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequestEventArgs {
@@ -2386,7 +2386,7 @@ pub struct IBarcodeScannerEnableScannerRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerFrameReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerFrameReader {
@@ -2415,7 +2415,7 @@ pub struct IBarcodeScannerFrameReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerFrameReaderFrameArrivedEventArgs {
@@ -2435,7 +2435,7 @@ pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequest {
@@ -2458,7 +2458,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequest2 {
@@ -2480,7 +2480,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequestEventArgs {
@@ -2501,7 +2501,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerHideVideoPreviewRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequest {
@@ -2523,7 +2523,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerHideVideoPreviewRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequest2 {
@@ -2545,7 +2545,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequest2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequestEventArgs {
@@ -2566,7 +2566,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerProviderConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderConnection {
@@ -2635,7 +2635,7 @@ pub struct IBarcodeScannerProviderConnection_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerProviderConnection2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderConnection2 {
@@ -2659,7 +2659,7 @@ pub struct IBarcodeScannerProviderConnection2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerProviderTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderTriggerDetails {
@@ -2678,7 +2678,7 @@ pub struct IBarcodeScannerProviderTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequest {
@@ -2702,7 +2702,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequest2 {
@@ -2724,7 +2724,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequestEventArgs {
@@ -2745,7 +2745,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequest {
@@ -2769,7 +2769,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequest2 {
@@ -2791,7 +2791,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequestEventArgs {
@@ -2812,7 +2812,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequest {
@@ -2834,7 +2834,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequest2 {
@@ -2856,7 +2856,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequestEventArgs {
@@ -2877,7 +2877,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequest {
@@ -2899,7 +2899,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequest2 {
@@ -2921,7 +2921,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequestEventArgs {
@@ -2942,7 +2942,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeScannerVideoFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerVideoFrame {
@@ -2966,7 +2966,7 @@ pub struct IBarcodeScannerVideoFrame_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBarcodeSymbologyAttributesBuilder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologyAttributesBuilder {

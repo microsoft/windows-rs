@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISysStorageProviderEventReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventReceivedEventArgs {
@@ -19,7 +19,7 @@ pub struct ISysStorageProviderEventReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISysStorageProviderEventReceivedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventReceivedEventArgsFactory {
@@ -38,7 +38,7 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, json: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderEventSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderEventSource {
@@ -65,46 +65,6 @@ impl ISysStorageProviderEventSource {
 unsafe impl ::windows::runtime::RuntimeType for ISysStorageProviderEventSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1f36c476-9546-536a-8381-2f9a2c08cedd}");
 }
-impl ::std::convert::From<ISysStorageProviderEventSource> for ::windows::runtime::IUnknown {
-    fn from(value: ISysStorageProviderEventSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISysStorageProviderEventSource> for ::windows::runtime::IUnknown {
-    fn from(value: &ISysStorageProviderEventSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISysStorageProviderEventSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISysStorageProviderEventSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISysStorageProviderEventSource> for ::windows::runtime::IInspectable {
-    fn from(value: ISysStorageProviderEventSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISysStorageProviderEventSource> for ::windows::runtime::IInspectable {
-    fn from(value: &ISysStorageProviderEventSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISysStorageProviderEventSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISysStorageProviderEventSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISysStorageProviderEventSource_abi(
@@ -120,7 +80,7 @@ pub struct ISysStorageProviderEventSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderHandlerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderHandlerFactory {
@@ -148,46 +108,6 @@ impl ISysStorageProviderHandlerFactory {
 unsafe impl ::windows::runtime::RuntimeType for ISysStorageProviderHandlerFactory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ee798431-8213-5e89-a623-14d8c72b8a61}");
 }
-impl ::std::convert::From<ISysStorageProviderHandlerFactory> for ::windows::runtime::IUnknown {
-    fn from(value: ISysStorageProviderHandlerFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &ISysStorageProviderHandlerFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISysStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISysStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISysStorageProviderHandlerFactory> for ::windows::runtime::IInspectable {
-    fn from(value: ISysStorageProviderHandlerFactory) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::runtime::IInspectable {
-    fn from(value: &ISysStorageProviderHandlerFactory) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISysStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISysStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISysStorageProviderHandlerFactory_abi(
@@ -201,7 +121,7 @@ pub struct ISysStorageProviderHandlerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, syncrootid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, eventname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `System_Implementation_FileExplorer`*"]
 pub struct ISysStorageProviderHttpRequestProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISysStorageProviderHttpRequestProvider {
@@ -221,46 +141,6 @@ impl ISysStorageProviderHttpRequestProvider {
 }
 unsafe impl ::windows::runtime::RuntimeType for ISysStorageProviderHttpRequestProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{cb6fefb6-e76a-5c25-a33e-3e78a6e0e0ce}");
-}
-impl ::std::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ISysStorageProviderHttpRequestProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISysStorageProviderHttpRequestProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISysStorageProviderHttpRequestProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ISysStorageProviderHttpRequestProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISysStorageProviderHttpRequestProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISysStorageProviderHttpRequestProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

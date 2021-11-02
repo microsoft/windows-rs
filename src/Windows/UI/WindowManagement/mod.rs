@@ -1715,7 +1715,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, AppWindowPresentationConfiguration> f
 unsafe impl ::std::marker::Send for FullScreenPresentationConfiguration {}
 unsafe impl ::std::marker::Sync for FullScreenPresentationConfiguration {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindow(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindow {
@@ -1776,7 +1776,7 @@ pub struct IAppWindow_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowChangedEventArgs {
@@ -1802,7 +1802,7 @@ pub struct IAppWindowChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowCloseRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowCloseRequestedEventArgs {
@@ -1824,7 +1824,7 @@ pub struct IAppWindowCloseRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowClosedEventArgs {
@@ -1843,7 +1843,7 @@ pub struct IAppWindowClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AppWindowClosedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowFrame {
@@ -1863,7 +1863,7 @@ pub struct IAppWindowFrame_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Composition")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowFrameStyle(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowFrameStyle {
@@ -1883,7 +1883,7 @@ pub struct IAppWindowFrameStyle_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, framestyle: AppWindowFrameStyle) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowPlacement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPlacement {
@@ -1906,7 +1906,7 @@ pub struct IAppWindowPlacement_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowPresentationConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresentationConfiguration {
@@ -1925,7 +1925,7 @@ pub struct IAppWindowPresentationConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AppWindowPresentationKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowPresentationConfigurationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresentationConfigurationFactory {
@@ -1943,7 +1943,7 @@ pub struct IAppWindowPresentationConfigurationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowPresenter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowPresenter {
@@ -1965,7 +1965,7 @@ pub struct IAppWindowPresenter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presentationkind: AppWindowPresentationKind, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowStatics {
@@ -1987,7 +1987,7 @@ pub struct IAppWindowStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBar(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBar {
@@ -2058,7 +2058,7 @@ pub struct IAppWindowTitleBar_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBarOcclusion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBarOcclusion {
@@ -2078,7 +2078,7 @@ pub struct IAppWindowTitleBarOcclusion_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBarVisibility(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppWindowTitleBarVisibility {
@@ -2098,7 +2098,7 @@ pub struct IAppWindowTitleBarVisibility_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICompactOverlayPresentationConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompactOverlayPresentationConfiguration {
@@ -2116,7 +2116,7 @@ pub struct ICompactOverlayPresentationConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDefaultPresentationConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDefaultPresentationConfiguration {
@@ -2134,7 +2134,7 @@ pub struct IDefaultPresentationConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDisplayRegion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayRegion {
@@ -2163,7 +2163,7 @@ pub struct IDisplayRegion_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFullScreenPresentationConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFullScreenPresentationConfiguration {
@@ -2183,7 +2183,7 @@ pub struct IFullScreenPresentationConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWindowServicesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowServicesStatics {
@@ -2203,7 +2203,7 @@ pub struct IWindowServicesStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWindowingEnvironment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironment {
@@ -2229,7 +2229,7 @@ pub struct IWindowingEnvironment_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentAddedEventArgs {
@@ -2248,7 +2248,7 @@ pub struct IWindowingEnvironmentAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentChangedEventArgs {
@@ -2266,7 +2266,7 @@ pub struct IWindowingEnvironmentChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentRemovedEventArgs {
@@ -2285,7 +2285,7 @@ pub struct IWindowingEnvironmentRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowingEnvironmentStatics {

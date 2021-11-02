@@ -1389,7 +1389,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for AppointmentDataProviderTriggerDetails {}
 unsafe impl ::std::marker::Sync for AppointmentDataProviderTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCancelMeetingRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCancelMeetingRequest {
@@ -1418,7 +1418,7 @@ pub struct IAppointmentCalendarCancelMeetingRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCancelMeetingRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCancelMeetingRequestEventArgs {
@@ -1439,7 +1439,7 @@ pub struct IAppointmentCalendarCancelMeetingRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
@@ -1466,7 +1466,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
@@ -1487,7 +1487,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarForwardMeetingRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarForwardMeetingRequest {
@@ -1518,7 +1518,7 @@ pub struct IAppointmentCalendarForwardMeetingRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarForwardMeetingRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarForwardMeetingRequestEventArgs {
@@ -1539,7 +1539,7 @@ pub struct IAppointmentCalendarForwardMeetingRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
@@ -1571,7 +1571,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
@@ -1592,7 +1592,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarSyncManagerSyncRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarSyncManagerSyncRequest {
@@ -1615,7 +1615,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
@@ -1636,7 +1636,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarUpdateMeetingResponseRequest {
@@ -1666,7 +1666,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
@@ -1687,7 +1687,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentDataProviderConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentDataProviderConnection {
@@ -1730,7 +1730,7 @@ pub struct IAppointmentDataProviderConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAppointmentDataProviderTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentDataProviderTriggerDetails {

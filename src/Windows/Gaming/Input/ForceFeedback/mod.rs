@@ -543,7 +543,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for ForceFeedbackMotor {}
 unsafe impl ::std::marker::Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IConditionForceEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConditionForceEffect {
@@ -564,7 +564,7 @@ pub struct IConditionForceEffect_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IConditionForceEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConditionForceEffectFactory {
@@ -583,7 +583,7 @@ pub struct IConditionForceEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effectkind: ConditionForceEffectKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IConstantForceEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConstantForceEffect {
@@ -606,7 +606,7 @@ pub struct IConstantForceEffect_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 pub struct IForceFeedbackEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForceFeedbackEffect {
@@ -649,46 +649,6 @@ impl IForceFeedbackEffect {
 unsafe impl ::windows::runtime::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a17fba0c-2ae4-48c2-8063-eabd0777cb89}");
 }
-impl ::std::convert::From<IForceFeedbackEffect> for ::windows::runtime::IUnknown {
-    fn from(value: IForceFeedbackEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IForceFeedbackEffect> for ::windows::runtime::IUnknown {
-    fn from(value: &IForceFeedbackEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IForceFeedbackEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IForceFeedbackEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IForceFeedbackEffect> for ::windows::runtime::IInspectable {
-    fn from(value: IForceFeedbackEffect) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IForceFeedbackEffect> for ::windows::runtime::IInspectable {
-    fn from(value: &IForceFeedbackEffect) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IForceFeedbackEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IForceFeedbackEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IForceFeedbackEffect_abi(
@@ -705,7 +665,7 @@ pub struct IForceFeedbackEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IForceFeedbackMotor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForceFeedbackMotor {
@@ -741,7 +701,7 @@ pub struct IForceFeedbackMotor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPeriodicForceEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeriodicForceEffect {
@@ -779,7 +739,7 @@ pub struct IPeriodicForceEffect_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPeriodicForceEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeriodicForceEffectFactory {
@@ -798,7 +758,7 @@ pub struct IPeriodicForceEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effectkind: PeriodicForceEffectKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRampForceEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRampForceEffect {

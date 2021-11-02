@@ -830,7 +830,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Printing::IPr
 unsafe impl ::std::marker::Send for HtmlPrintDocumentSource {}
 unsafe impl ::std::marker::Sync for HtmlPrintDocumentSource {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IActivatedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedDeferral {
@@ -849,7 +849,7 @@ pub struct IActivatedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_WebUI`*"]
 pub struct IActivatedEventArgsDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedEventArgsDeferral {
@@ -869,46 +869,6 @@ impl IActivatedEventArgsDeferral {
 unsafe impl ::windows::runtime::RuntimeType for IActivatedEventArgsDeferral {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ca6d5f74-63c2-44a6-b97b-d9a03c20bc9b}");
 }
-impl ::std::convert::From<IActivatedEventArgsDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: IActivatedEventArgsDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IActivatedEventArgsDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &IActivatedEventArgsDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IActivatedEventArgsDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IActivatedEventArgsDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IActivatedEventArgsDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: IActivatedEventArgsDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IActivatedEventArgsDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &IActivatedEventArgsDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IActivatedEventArgsDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IActivatedEventArgsDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedEventArgsDeferral_abi(
@@ -921,7 +881,7 @@ pub struct IActivatedEventArgsDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IActivatedOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedOperation {
@@ -940,7 +900,7 @@ pub struct IActivatedOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHtmlPrintDocumentSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHtmlPrintDocumentSource {
@@ -976,7 +936,7 @@ pub struct IHtmlPrintDocumentSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strpagerange: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct INewWebUIViewCreatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INewWebUIViewCreatedEventArgs {
@@ -1000,7 +960,7 @@ pub struct INewWebUIViewCreatedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics {
@@ -1034,7 +994,7 @@ pub struct IWebUIActivationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics2 {
@@ -1061,7 +1021,7 @@ pub struct IWebUIActivationStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics3 {
@@ -1083,7 +1043,7 @@ pub struct IWebUIActivationStatics3_abi(
     #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics4 {
@@ -1109,7 +1069,7 @@ pub struct IWebUIActivationStatics4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_WebUI`*"]
 pub struct IWebUIBackgroundTaskInstance(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIBackgroundTaskInstance {
@@ -1134,46 +1094,6 @@ impl IWebUIBackgroundTaskInstance {
 unsafe impl ::windows::runtime::RuntimeType for IWebUIBackgroundTaskInstance {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{23f12c25-e2f7-4741-bc9c-394595de24dc}");
 }
-impl ::std::convert::From<IWebUIBackgroundTaskInstance> for ::windows::runtime::IUnknown {
-    fn from(value: IWebUIBackgroundTaskInstance) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebUIBackgroundTaskInstance> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebUIBackgroundTaskInstance) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebUIBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebUIBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebUIBackgroundTaskInstance> for ::windows::runtime::IInspectable {
-    fn from(value: IWebUIBackgroundTaskInstance) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebUIBackgroundTaskInstance> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebUIBackgroundTaskInstance) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebUIBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebUIBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstance_abi(
@@ -1187,7 +1107,7 @@ pub struct IWebUIBackgroundTaskInstance_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, succeeded: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstanceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIBackgroundTaskInstanceStatics {
@@ -1206,7 +1126,7 @@ pub struct IWebUIBackgroundTaskInstanceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUINavigatedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedDeferral {
@@ -1225,7 +1145,7 @@ pub struct IWebUINavigatedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_WebUI`*"]
 pub struct IWebUINavigatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedEventArgs {
@@ -1245,46 +1165,6 @@ impl IWebUINavigatedEventArgs {
 unsafe impl ::windows::runtime::RuntimeType for IWebUINavigatedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a75841b8-2499-4030-a69d-15d2d9cfe524}");
 }
-impl ::std::convert::From<IWebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: IWebUINavigatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebUINavigatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebUINavigatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebUINavigatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebUINavigatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: IWebUINavigatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebUINavigatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebUINavigatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebUINavigatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebUINavigatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUINavigatedEventArgs_abi(
@@ -1297,7 +1177,7 @@ pub struct IWebUINavigatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUINavigatedOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedOperation {
@@ -1316,7 +1196,7 @@ pub struct IWebUINavigatedOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUIView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIView {
@@ -1345,7 +1225,7 @@ pub struct IWebUIView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUIViewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIViewStatics {

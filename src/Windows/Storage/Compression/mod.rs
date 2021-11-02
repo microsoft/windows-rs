@@ -342,7 +342,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IInputStream> for &De
 unsafe impl ::std::marker::Send for Decompressor {}
 unsafe impl ::std::marker::Sync for Decompressor {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICompressor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompressor {
@@ -364,7 +364,7 @@ pub struct ICompressor_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICompressorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompressorFactory {
@@ -386,7 +386,7 @@ pub struct ICompressorFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDecompressor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecompressor {
@@ -406,7 +406,7 @@ pub struct IDecompressor_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDecompressorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecompressorFactory {

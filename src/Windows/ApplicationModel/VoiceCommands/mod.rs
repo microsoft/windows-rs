@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommand(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommand {
@@ -23,7 +23,7 @@ pub struct IVoiceCommand_abi(
     #[cfg(not(feature = "Media_SpeechRecognition"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandCompletedEventArgs {
@@ -42,7 +42,7 @@ pub struct IVoiceCommandCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VoiceCommandCompletionReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandConfirmationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandConfirmationResult {
@@ -61,7 +61,7 @@ pub struct IVoiceCommandConfirmationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandContentTile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandContentTile {
@@ -97,7 +97,7 @@ pub struct IVoiceCommandContentTile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: VoiceCommandContentTileType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDefinition {
@@ -119,7 +119,7 @@ pub struct IVoiceCommandDefinition_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandDefinitionManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDefinitionManagerStatics {
@@ -141,7 +141,7 @@ pub struct IVoiceCommandDefinitionManagerStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandDisambiguationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandDisambiguationResult {
@@ -160,7 +160,7 @@ pub struct IVoiceCommandDisambiguationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandResponse(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandResponse {
@@ -186,7 +186,7 @@ pub struct IVoiceCommandResponse_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandResponseStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandResponseStatics {
@@ -211,7 +211,7 @@ pub struct IVoiceCommandResponseStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandServiceConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandServiceConnection {
@@ -249,7 +249,7 @@ pub struct IVoiceCommandServiceConnection_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandServiceConnectionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandServiceConnectionStatics {
@@ -269,7 +269,7 @@ pub struct IVoiceCommandServiceConnectionStatics_abi(
     #[cfg(not(feature = "ApplicationModel_AppService"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IVoiceCommandUserMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandUserMessage {

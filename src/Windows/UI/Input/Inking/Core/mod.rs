@@ -659,7 +659,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for CoreWetStrokeUpdateSource {}
 unsafe impl ::std::marker::Sync for CoreWetStrokeUpdateSource {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreIncrementalInkStroke(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreIncrementalInkStroke {
@@ -685,7 +685,7 @@ pub struct ICoreIncrementalInkStroke_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreIncrementalInkStrokeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreIncrementalInkStrokeFactory {
@@ -705,7 +705,7 @@ pub struct ICoreIncrementalInkStrokeFactory_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreInkIndependentInputSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSource {
@@ -752,7 +752,7 @@ pub struct ICoreInkIndependentInputSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreInkIndependentInputSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSource2 {
@@ -774,7 +774,7 @@ pub struct ICoreInkIndependentInputSource2_abi(
     #[cfg(not(feature = "UI_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreInkIndependentInputSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkIndependentInputSourceStatics {
@@ -793,7 +793,7 @@ pub struct ICoreInkIndependentInputSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkpresenter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreInkPresenterHost(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInkPresenterHost {
@@ -816,7 +816,7 @@ pub struct ICoreInkPresenterHost_abi(
     #[cfg(not(feature = "UI_Composition"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreWetStrokeUpdateEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateEventArgs {
@@ -839,7 +839,7 @@ pub struct ICoreWetStrokeUpdateEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: CoreWetStrokeDisposition) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreWetStrokeUpdateSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateSource {
@@ -878,7 +878,7 @@ pub struct ICoreWetStrokeUpdateSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICoreWetStrokeUpdateSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWetStrokeUpdateSourceStatics {

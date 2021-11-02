@@ -24,7 +24,7 @@ unsafe impl ::windows::runtime::RuntimeType for HingeState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Preview.HingeState;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITwoPanelHingedDevicePosturePreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreview {
@@ -48,7 +48,7 @@ pub struct ITwoPanelHingedDevicePosturePreview_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITwoPanelHingedDevicePosturePreviewReading(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewReading {
@@ -75,7 +75,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewReading_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
@@ -94,7 +94,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITwoPanelHingedDevicePosturePreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITwoPanelHingedDevicePosturePreviewStatics {

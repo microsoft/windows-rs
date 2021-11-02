@@ -2,7 +2,7 @@
 #[cfg(feature = "ApplicationModel_UserDataTasks_DataProvider")]
 pub mod DataProvider;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTask(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTask {
@@ -55,7 +55,7 @@ pub struct IUserDataTask_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskBatch {
@@ -75,7 +75,7 @@ pub struct IUserDataTaskBatch_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskList {
@@ -118,7 +118,7 @@ pub struct IUserDataTaskList_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListLimitedWriteOperations(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListLimitedWriteOperations {
@@ -144,7 +144,7 @@ pub struct IUserDataTaskListLimitedWriteOperations_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListSyncManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManager {
@@ -178,7 +178,7 @@ pub struct IUserDataTaskListSyncManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskManager {
@@ -200,7 +200,7 @@ pub struct IUserDataTaskManager_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskManagerStatics {
@@ -221,7 +221,7 @@ pub struct IUserDataTaskManagerStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskQueryOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskQueryOptions {
@@ -243,7 +243,7 @@ pub struct IUserDataTaskQueryOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: UserDataTaskQueryKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskReader {
@@ -263,7 +263,7 @@ pub struct IUserDataTaskReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskRecurrenceProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskRecurrenceProperties {
@@ -309,7 +309,7 @@ pub struct IUserDataTaskRecurrenceProperties_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskRegenerationProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskRegenerationProperties {
@@ -339,7 +339,7 @@ pub struct IUserDataTaskRegenerationProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskStore {

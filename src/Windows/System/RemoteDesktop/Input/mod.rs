@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRemoteTextConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteTextConnection {
@@ -23,7 +23,7 @@ pub struct IRemoteTextConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pduData_array_size: u32, pdudata: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IRemoteTextConnectionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteTextConnectionFactory {

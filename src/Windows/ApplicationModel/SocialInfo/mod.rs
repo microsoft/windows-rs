@@ -2,7 +2,7 @@
 #[cfg(feature = "ApplicationModel_SocialInfo_Provider")]
 pub mod Provider;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISocialFeedChildItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedChildItem {
@@ -35,7 +35,7 @@ pub struct ISocialFeedChildItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISocialFeedContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedContent {
@@ -61,7 +61,7 @@ pub struct ISocialFeedContent_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISocialFeedItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedItem {
@@ -104,7 +104,7 @@ pub struct ISocialFeedItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SocialFeedItemStyle) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISocialFeedSharedItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedSharedItem {
@@ -137,7 +137,7 @@ pub struct ISocialFeedSharedItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISocialItemThumbnail(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialItemThumbnail {
@@ -169,7 +169,7 @@ pub struct ISocialItemThumbnail_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISocialUserInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialUserInfo {

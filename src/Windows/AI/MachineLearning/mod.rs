@@ -2,7 +2,7 @@
 #[cfg(feature = "AI_MachineLearning_Preview")]
 pub mod Preview;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureDescriptor {
@@ -26,7 +26,7 @@ pub struct IImageFeatureDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureDescriptor2 {
@@ -45,7 +45,7 @@ pub struct IImageFeatureDescriptor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut LearningModelPixelRange) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IImageFeatureValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureValue {
@@ -65,7 +65,7 @@ pub struct IImageFeatureValue_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IImageFeatureValueStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureValueStatics {
@@ -85,7 +85,7 @@ pub struct IImageFeatureValueStatics_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModel {
@@ -114,7 +114,7 @@ pub struct ILearningModel_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelBinding(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBinding {
@@ -136,7 +136,7 @@ pub struct ILearningModelBinding_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelBindingFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingFactory {
@@ -155,7 +155,7 @@ pub struct ILearningModelBindingFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDevice {
@@ -177,7 +177,7 @@ pub struct ILearningModelDevice_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceFactory {
@@ -196,7 +196,7 @@ pub struct ILearningModelDeviceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicekind: LearningModelDeviceKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceStatics {
@@ -216,7 +216,7 @@ pub struct ILearningModelDeviceStatics_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelEvaluationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelEvaluationResult {
@@ -239,7 +239,7 @@ pub struct ILearningModelEvaluationResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `AI_MachineLearning`*"]
 pub struct ILearningModelFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelFeatureDescriptor {
@@ -283,46 +283,6 @@ impl ILearningModelFeatureDescriptor {
 unsafe impl ::windows::runtime::RuntimeType for ILearningModelFeatureDescriptor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{bc08cf7c-6ed0-4004-97ba-b9a2eecd2b4f}");
 }
-impl ::std::convert::From<ILearningModelFeatureDescriptor> for ::windows::runtime::IUnknown {
-    fn from(value: ILearningModelFeatureDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILearningModelFeatureDescriptor> for ::windows::runtime::IUnknown {
-    fn from(value: &ILearningModelFeatureDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILearningModelFeatureDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILearningModelFeatureDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ILearningModelFeatureDescriptor> for ::windows::runtime::IInspectable {
-    fn from(value: ILearningModelFeatureDescriptor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ILearningModelFeatureDescriptor> for ::windows::runtime::IInspectable {
-    fn from(value: &ILearningModelFeatureDescriptor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILearningModelFeatureDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILearningModelFeatureDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelFeatureDescriptor_abi(
@@ -338,7 +298,7 @@ pub struct ILearningModelFeatureDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `AI_MachineLearning`*"]
 pub struct ILearningModelFeatureValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelFeatureValue {
@@ -358,46 +318,6 @@ impl ILearningModelFeatureValue {
 unsafe impl ::windows::runtime::RuntimeType for ILearningModelFeatureValue {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{f51005db-4085-4dfe-9fed-95eb0c0cf75c}");
 }
-impl ::std::convert::From<ILearningModelFeatureValue> for ::windows::runtime::IUnknown {
-    fn from(value: ILearningModelFeatureValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILearningModelFeatureValue> for ::windows::runtime::IUnknown {
-    fn from(value: &ILearningModelFeatureValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILearningModelFeatureValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILearningModelFeatureValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ILearningModelFeatureValue> for ::windows::runtime::IInspectable {
-    fn from(value: ILearningModelFeatureValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ILearningModelFeatureValue> for ::windows::runtime::IInspectable {
-    fn from(value: &ILearningModelFeatureValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILearningModelFeatureValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILearningModelFeatureValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelFeatureValue_abi(
@@ -410,7 +330,7 @@ pub struct ILearningModelFeatureValue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut LearningModelFeatureKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `AI_MachineLearning`*"]
 pub struct ILearningModelOperatorProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelOperatorProvider {
@@ -420,46 +340,6 @@ unsafe impl ::windows::runtime::Interface for ILearningModelOperatorProvider {
 impl ILearningModelOperatorProvider {}
 unsafe impl ::windows::runtime::RuntimeType for ILearningModelOperatorProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{2a222e5d-afb1-47ed-bfad-b5b3a459ec04}");
-}
-impl ::std::convert::From<ILearningModelOperatorProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ILearningModelOperatorProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ILearningModelOperatorProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ILearningModelOperatorProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILearningModelOperatorProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ILearningModelOperatorProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ILearningModelOperatorProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ILearningModelOperatorProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ILearningModelOperatorProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ILearningModelOperatorProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILearningModelOperatorProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILearningModelOperatorProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -472,7 +352,7 @@ pub struct ILearningModelOperatorProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSession {
@@ -501,7 +381,7 @@ pub struct ILearningModelSession_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionFactory {
@@ -521,7 +401,7 @@ pub struct ILearningModelSessionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, model: ::windows::runtime::RawPtr, devicetorunon: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionFactory2 {
@@ -540,7 +420,7 @@ pub struct ILearningModelSessionFactory2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, model: ::windows::runtime::RawPtr, devicetorunon: ::windows::runtime::RawPtr, learningmodelsessionoptions: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions {
@@ -560,7 +440,7 @@ pub struct ILearningModelSessionOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions2 {
@@ -580,7 +460,7 @@ pub struct ILearningModelSessionOptions2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions3 {
@@ -599,7 +479,7 @@ pub struct ILearningModelSessionOptions3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, dimension: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ILearningModelStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelStatics {
@@ -631,7 +511,7 @@ pub struct ILearningModelStatics_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMapFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapFeatureDescriptor {
@@ -651,7 +531,7 @@ pub struct IMapFeatureDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISequenceFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISequenceFeatureDescriptor {
@@ -670,7 +550,7 @@ pub struct ISequenceFeatureDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `AI_MachineLearning`*"]
 pub struct ITensor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensor {
@@ -706,46 +586,6 @@ impl ITensor {
 }
 unsafe impl ::windows::runtime::RuntimeType for ITensor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{05489593-a305-4a25-ad09-440119b4b7f6}");
-}
-impl ::std::convert::From<ITensor> for ::windows::runtime::IUnknown {
-    fn from(value: ITensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITensor> for ::windows::runtime::IUnknown {
-    fn from(value: &ITensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ITensor> for ::windows::runtime::IInspectable {
-    fn from(value: ITensor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ITensor> for ::windows::runtime::IInspectable {
-    fn from(value: &ITensor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ITensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ITensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<ITensor> for ILearningModelFeatureValue {
     type Error = ::windows::runtime::Error;
@@ -783,7 +623,7 @@ pub struct ITensor_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorBoolean(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBoolean {
@@ -803,7 +643,7 @@ pub struct ITensorBoolean_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorBooleanStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBooleanStatics {
@@ -828,7 +668,7 @@ pub struct ITensorBooleanStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorBooleanStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBooleanStatics2 {
@@ -849,7 +689,7 @@ pub struct ITensorBooleanStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorDouble(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDouble {
@@ -869,7 +709,7 @@ pub struct ITensorDouble_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorDoubleStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDoubleStatics {
@@ -894,7 +734,7 @@ pub struct ITensorDoubleStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorDoubleStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDoubleStatics2 {
@@ -915,7 +755,7 @@ pub struct ITensorDoubleStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFeatureDescriptor {
@@ -936,7 +776,7 @@ pub struct ITensorFeatureDescriptor_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorFloat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat {
@@ -956,7 +796,7 @@ pub struct ITensorFloat_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorFloat16Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16Bit {
@@ -976,7 +816,7 @@ pub struct ITensorFloat16Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16BitStatics {
@@ -1001,7 +841,7 @@ pub struct ITensorFloat16BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16BitStatics2 {
@@ -1022,7 +862,7 @@ pub struct ITensorFloat16BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorFloatStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloatStatics {
@@ -1047,7 +887,7 @@ pub struct ITensorFloatStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorFloatStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloatStatics2 {
@@ -1068,7 +908,7 @@ pub struct ITensorFloatStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt16Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16Bit {
@@ -1088,7 +928,7 @@ pub struct ITensorInt16Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16BitStatics {
@@ -1113,7 +953,7 @@ pub struct ITensorInt16BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16BitStatics2 {
@@ -1134,7 +974,7 @@ pub struct ITensorInt16BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt32Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32Bit {
@@ -1154,7 +994,7 @@ pub struct ITensorInt32Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32BitStatics {
@@ -1179,7 +1019,7 @@ pub struct ITensorInt32BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32BitStatics2 {
@@ -1200,7 +1040,7 @@ pub struct ITensorInt32BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt64Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64Bit {
@@ -1220,7 +1060,7 @@ pub struct ITensorInt64Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64BitStatics {
@@ -1245,7 +1085,7 @@ pub struct ITensorInt64BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64BitStatics2 {
@@ -1266,7 +1106,7 @@ pub struct ITensorInt64BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt8Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8Bit {
@@ -1286,7 +1126,7 @@ pub struct ITensorInt8Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8BitStatics {
@@ -1311,7 +1151,7 @@ pub struct ITensorInt8BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8BitStatics2 {
@@ -1332,7 +1172,7 @@ pub struct ITensorInt8BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorString(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorString {
@@ -1352,7 +1192,7 @@ pub struct ITensorString_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorStringStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorStringStatics {
@@ -1377,7 +1217,7 @@ pub struct ITensorStringStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorStringStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorStringStatics2 {
@@ -1396,7 +1236,7 @@ pub struct ITensorStringStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt16Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16Bit {
@@ -1416,7 +1256,7 @@ pub struct ITensorUInt16Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16BitStatics {
@@ -1441,7 +1281,7 @@ pub struct ITensorUInt16BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16BitStatics2 {
@@ -1462,7 +1302,7 @@ pub struct ITensorUInt16BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt32Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32Bit {
@@ -1482,7 +1322,7 @@ pub struct ITensorUInt32Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32BitStatics {
@@ -1507,7 +1347,7 @@ pub struct ITensorUInt32BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32BitStatics2 {
@@ -1528,7 +1368,7 @@ pub struct ITensorUInt32BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt64Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64Bit {
@@ -1548,7 +1388,7 @@ pub struct ITensorUInt64Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64BitStatics {
@@ -1573,7 +1413,7 @@ pub struct ITensorUInt64BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64BitStatics2 {
@@ -1594,7 +1434,7 @@ pub struct ITensorUInt64BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt8Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8Bit {
@@ -1614,7 +1454,7 @@ pub struct ITensorUInt8Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt8BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8BitStatics {
@@ -1639,7 +1479,7 @@ pub struct ITensorUInt8BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITensorUInt8BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8BitStatics2 {

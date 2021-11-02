@@ -195,7 +195,7 @@ impl ::windows::runtime::RuntimeName for HardwareButtons {
     const NAME: &'static str = "Windows.Phone.UI.Input.HardwareButtons";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IBackPressedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackPressedEventArgs {
@@ -215,7 +215,7 @@ pub struct IBackPressedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICameraEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraEventArgs {
@@ -233,7 +233,7 @@ pub struct ICameraEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHardwareButtonsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHardwareButtonsStatics {
@@ -255,7 +255,7 @@ pub struct IHardwareButtonsStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHardwareButtonsStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHardwareButtonsStatics2 {

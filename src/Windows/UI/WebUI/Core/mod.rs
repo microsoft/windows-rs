@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBar(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBar {
@@ -48,7 +48,7 @@ pub struct IWebUICommandBar_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarBitmapIcon(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarBitmapIcon {
@@ -70,7 +70,7 @@ pub struct IWebUICommandBarBitmapIcon_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarBitmapIconFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarBitmapIconFactory {
@@ -90,7 +90,7 @@ pub struct IWebUICommandBarBitmapIconFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarConfirmationButton(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarConfirmationButton {
@@ -114,7 +114,7 @@ pub struct IWebUICommandBarConfirmationButton_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 pub struct IWebUICommandBarElement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarElement {
@@ -124,46 +124,6 @@ unsafe impl ::windows::runtime::Interface for IWebUICommandBarElement {
 impl IWebUICommandBarElement {}
 unsafe impl ::windows::runtime::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c9069ec2-284a-4633-8aad-637a27e282c3}");
-}
-impl ::std::convert::From<IWebUICommandBarElement> for ::windows::runtime::IUnknown {
-    fn from(value: IWebUICommandBarElement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebUICommandBarElement> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebUICommandBarElement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebUICommandBarElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebUICommandBarElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebUICommandBarElement> for ::windows::runtime::IInspectable {
-    fn from(value: IWebUICommandBarElement) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebUICommandBarElement> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebUICommandBarElement) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebUICommandBarElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebUICommandBarElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -176,7 +136,7 @@ pub struct IWebUICommandBarElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_WebUI_Core`*"]
 pub struct IWebUICommandBarIcon(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarIcon {
@@ -186,46 +146,6 @@ unsafe impl ::windows::runtime::Interface for IWebUICommandBarIcon {
 impl IWebUICommandBarIcon {}
 unsafe impl ::windows::runtime::RuntimeType for IWebUICommandBarIcon {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d587655d-2014-42be-969a-7d14ca6c8a49}");
-}
-impl ::std::convert::From<IWebUICommandBarIcon> for ::windows::runtime::IUnknown {
-    fn from(value: IWebUICommandBarIcon) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebUICommandBarIcon> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebUICommandBarIcon) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebUICommandBarIcon {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebUICommandBarIcon {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebUICommandBarIcon> for ::windows::runtime::IInspectable {
-    fn from(value: IWebUICommandBarIcon) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebUICommandBarIcon> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebUICommandBarIcon) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebUICommandBarIcon {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebUICommandBarIcon {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -238,7 +158,7 @@ pub struct IWebUICommandBarIcon_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarIconButton(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarIconButton {
@@ -270,7 +190,7 @@ pub struct IWebUICommandBarIconButton_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarItemInvokedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarItemInvokedEventArgs {
@@ -289,7 +209,7 @@ pub struct IWebUICommandBarItemInvokedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarSizeChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarSizeChangedEventArgs {
@@ -309,7 +229,7 @@ pub struct IWebUICommandBarSizeChangedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarStatics {
@@ -328,7 +248,7 @@ pub struct IWebUICommandBarStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarSymbolIcon(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarSymbolIcon {
@@ -348,7 +268,7 @@ pub struct IWebUICommandBarSymbolIcon_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebUICommandBarSymbolIconFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUICommandBarSymbolIconFactory {

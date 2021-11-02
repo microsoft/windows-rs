@@ -512,7 +512,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGameControllerProvider> for &HidGame
 unsafe impl ::std::marker::Send for HidGameControllerProvider {}
 unsafe impl ::std::marker::Sync for HidGameControllerProvider {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct ICustomGameControllerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomGameControllerFactory {
@@ -542,46 +542,6 @@ impl ICustomGameControllerFactory {
 unsafe impl ::windows::runtime::RuntimeType for ICustomGameControllerFactory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{69a0ae5e-758e-4cbe-ace6-62155fe9126f}");
 }
-impl ::std::convert::From<ICustomGameControllerFactory> for ::windows::runtime::IUnknown {
-    fn from(value: ICustomGameControllerFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICustomGameControllerFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &ICustomGameControllerFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICustomGameControllerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICustomGameControllerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ICustomGameControllerFactory> for ::windows::runtime::IInspectable {
-    fn from(value: ICustomGameControllerFactory) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ICustomGameControllerFactory> for ::windows::runtime::IInspectable {
-    fn from(value: &ICustomGameControllerFactory) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICustomGameControllerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICustomGameControllerFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomGameControllerFactory_abi(
@@ -596,7 +556,7 @@ pub struct ICustomGameControllerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameControllerFactoryManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerFactoryManagerStatics {
@@ -617,7 +577,7 @@ pub struct IGameControllerFactoryManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: ::windows::runtime::RawPtr, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameControllerFactoryManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerFactoryManagerStatics2 {
@@ -636,7 +596,7 @@ pub struct IGameControllerFactoryManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IGameControllerInputSink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerInputSink {
@@ -658,46 +618,6 @@ impl IGameControllerInputSink {
 unsafe impl ::windows::runtime::RuntimeType for IGameControllerInputSink {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1ff6f922-c640-4c78-a820-9a715c558bcb}");
 }
-impl ::std::convert::From<IGameControllerInputSink> for ::windows::runtime::IUnknown {
-    fn from(value: IGameControllerInputSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IGameControllerInputSink> for ::windows::runtime::IUnknown {
-    fn from(value: &IGameControllerInputSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IGameControllerInputSink> for ::windows::runtime::IInspectable {
-    fn from(value: IGameControllerInputSink) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IGameControllerInputSink> for ::windows::runtime::IInspectable {
-    fn from(value: &IGameControllerInputSink) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerInputSink_abi(
@@ -711,7 +631,7 @@ pub struct IGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerProvider {
@@ -763,46 +683,6 @@ impl IGameControllerProvider {
 unsafe impl ::windows::runtime::RuntimeType for IGameControllerProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e6d73982-2996-4559-b16c-3e57d46e58d6}");
 }
-impl ::std::convert::From<IGameControllerProvider> for ::windows::runtime::IUnknown {
-    fn from(value: IGameControllerProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IGameControllerProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &IGameControllerProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGameControllerProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGameControllerProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IGameControllerProvider> for ::windows::runtime::IInspectable {
-    fn from(value: IGameControllerProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IGameControllerProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &IGameControllerProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGameControllerProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGameControllerProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerProvider_abi(
@@ -819,7 +699,7 @@ pub struct IGameControllerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGipFirmwareUpdateResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipFirmwareUpdateResult {
@@ -840,7 +720,7 @@ pub struct IGipFirmwareUpdateResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GipFirmwareUpdateStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IGipGameControllerInputSink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipGameControllerInputSink {
@@ -871,46 +751,6 @@ impl IGipGameControllerInputSink {
 }
 unsafe impl ::windows::runtime::RuntimeType for IGipGameControllerInputSink {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a2108abf-09f1-43bc-a140-80f899ec36fb}");
-}
-impl ::std::convert::From<IGipGameControllerInputSink> for ::windows::runtime::IUnknown {
-    fn from(value: IGipGameControllerInputSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IGipGameControllerInputSink> for ::windows::runtime::IUnknown {
-    fn from(value: &IGipGameControllerInputSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGipGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGipGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IGipGameControllerInputSink> for ::windows::runtime::IInspectable {
-    fn from(value: IGipGameControllerInputSink) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IGipGameControllerInputSink> for ::windows::runtime::IInspectable {
-    fn from(value: &IGipGameControllerInputSink) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGipGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGipGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IGipGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::runtime::Error;
@@ -947,7 +787,7 @@ pub struct IGipGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messageBuffer_array_size: u32, messagebuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGipGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipGameControllerProvider {
@@ -969,7 +809,7 @@ pub struct IGipGameControllerProvider_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IHidGameControllerInputSink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidGameControllerInputSink {
@@ -995,46 +835,6 @@ impl IHidGameControllerInputSink {
 }
 unsafe impl ::windows::runtime::RuntimeType for IHidGameControllerInputSink {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{f754c322-182d-40e4-a126-fcee4ffa1e31}");
-}
-impl ::std::convert::From<IHidGameControllerInputSink> for ::windows::runtime::IUnknown {
-    fn from(value: IHidGameControllerInputSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IHidGameControllerInputSink> for ::windows::runtime::IUnknown {
-    fn from(value: &IHidGameControllerInputSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHidGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IHidGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IHidGameControllerInputSink> for ::windows::runtime::IInspectable {
-    fn from(value: IHidGameControllerInputSink) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IHidGameControllerInputSink> for ::windows::runtime::IInspectable {
-    fn from(value: &IHidGameControllerInputSink) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IHidGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IHidGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IHidGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::runtime::Error;
@@ -1070,7 +870,7 @@ pub struct IHidGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHidGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidGameControllerProvider {
@@ -1093,7 +893,7 @@ pub struct IHidGameControllerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IXusbGameControllerInputSink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXusbGameControllerInputSink {
@@ -1119,46 +919,6 @@ impl IXusbGameControllerInputSink {
 }
 unsafe impl ::windows::runtime::RuntimeType for IXusbGameControllerInputSink {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b2ac1d95-6ecb-42b3-8aab-025401ca4712}");
-}
-impl ::std::convert::From<IXusbGameControllerInputSink> for ::windows::runtime::IUnknown {
-    fn from(value: IXusbGameControllerInputSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXusbGameControllerInputSink> for ::windows::runtime::IUnknown {
-    fn from(value: &IXusbGameControllerInputSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXusbGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXusbGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXusbGameControllerInputSink> for ::windows::runtime::IInspectable {
-    fn from(value: IXusbGameControllerInputSink) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXusbGameControllerInputSink> for ::windows::runtime::IInspectable {
-    fn from(value: &IXusbGameControllerInputSink) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXusbGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXusbGameControllerInputSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IXusbGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::runtime::Error;
@@ -1194,7 +954,7 @@ pub struct IXusbGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, reportid: u8, inputBuffer_array_size: u32, inputbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IXusbGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXusbGameControllerProvider {

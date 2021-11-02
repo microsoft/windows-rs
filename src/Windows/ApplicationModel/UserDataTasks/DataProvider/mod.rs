@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskDataProviderConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskDataProviderConnection {
@@ -39,7 +39,7 @@ pub struct IUserDataTaskDataProviderConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskDataProviderTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskDataProviderTriggerDetails {
@@ -58,7 +58,7 @@ pub struct IUserDataTaskDataProviderTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListCompleteTaskRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCompleteTaskRequest {
@@ -82,7 +82,7 @@ pub struct IUserDataTaskListCompleteTaskRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListCompleteTaskRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCompleteTaskRequestEventArgs {
@@ -103,7 +103,7 @@ pub struct IUserDataTaskListCompleteTaskRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListCreateOrUpdateTaskRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCreateOrUpdateTaskRequest {
@@ -127,7 +127,7 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
@@ -148,7 +148,7 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListDeleteTaskRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListDeleteTaskRequest {
@@ -172,7 +172,7 @@ pub struct IUserDataTaskListDeleteTaskRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListDeleteTaskRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListDeleteTaskRequestEventArgs {
@@ -193,7 +193,7 @@ pub struct IUserDataTaskListDeleteTaskRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListSkipOccurrenceRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSkipOccurrenceRequest {
@@ -217,7 +217,7 @@ pub struct IUserDataTaskListSkipOccurrenceRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSkipOccurrenceRequestEventArgs {
@@ -238,7 +238,7 @@ pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListSyncManagerSyncRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManagerSyncRequest {
@@ -261,7 +261,7 @@ pub struct IUserDataTaskListSyncManagerSyncRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManagerSyncRequestEventArgs {

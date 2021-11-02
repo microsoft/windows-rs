@@ -105,7 +105,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for AlternateWordForm {}
 unsafe impl ::std::marker::Sync for AlternateWordForm {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IAlternateWordForm(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAlternateWordForm {
@@ -126,7 +126,7 @@ pub struct IAlternateWordForm_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AlternateNormalizationFormat) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISelectableWordSegment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectableWordSegment {
@@ -146,7 +146,7 @@ pub struct ISelectableWordSegment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TextSegment) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISelectableWordsSegmenter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectableWordsSegmenter {
@@ -170,7 +170,7 @@ pub struct ISelectableWordsSegmenter_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISelectableWordsSegmenterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectableWordsSegmenterFactory {
@@ -189,7 +189,7 @@ pub struct ISelectableWordsSegmenterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, language: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISemanticTextQuery(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISemanticTextQuery {
@@ -211,7 +211,7 @@ pub struct ISemanticTextQuery_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISemanticTextQueryFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISemanticTextQueryFactory {
@@ -231,7 +231,7 @@ pub struct ISemanticTextQueryFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aqsfilter: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, filterlanguage: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextConversionGenerator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextConversionGenerator {
@@ -255,7 +255,7 @@ pub struct ITextConversionGenerator_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextConversionGeneratorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextConversionGeneratorFactory {
@@ -274,7 +274,7 @@ pub struct ITextConversionGeneratorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languagetag: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextPhoneme(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPhoneme {
@@ -294,7 +294,7 @@ pub struct ITextPhoneme_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextPredictionGenerator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPredictionGenerator {
@@ -318,7 +318,7 @@ pub struct ITextPredictionGenerator_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextPredictionGenerator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPredictionGenerator2 {
@@ -344,7 +344,7 @@ pub struct ITextPredictionGenerator2_abi(
     #[cfg(not(feature = "UI_Text_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextPredictionGeneratorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPredictionGeneratorFactory {
@@ -363,7 +363,7 @@ pub struct ITextPredictionGeneratorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languagetag: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextReverseConversionGenerator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextReverseConversionGenerator {
@@ -385,7 +385,7 @@ pub struct ITextReverseConversionGenerator_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextReverseConversionGenerator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextReverseConversionGenerator2 {
@@ -405,7 +405,7 @@ pub struct ITextReverseConversionGenerator2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITextReverseConversionGeneratorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextReverseConversionGeneratorFactory {
@@ -424,7 +424,7 @@ pub struct ITextReverseConversionGeneratorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languagetag: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IUnicodeCharactersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnicodeCharactersStatics {
@@ -459,7 +459,7 @@ pub struct IUnicodeCharactersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, codepoint: u32, result__: *mut UnicodeGeneralCategory) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWordSegment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWordSegment {
@@ -481,7 +481,7 @@ pub struct IWordSegment_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWordsSegmenter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWordsSegmenter {
@@ -505,7 +505,7 @@ pub struct IWordsSegmenter_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWordsSegmenterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWordsSegmenterFactory {

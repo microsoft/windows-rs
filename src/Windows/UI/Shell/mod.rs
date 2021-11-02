@@ -18,7 +18,7 @@ impl ::windows::runtime::RuntimeName for AdaptiveCardBuilder {
     const NAME: &'static str = "Windows.UI.Shell.AdaptiveCardBuilder";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Shell`*"]
 pub struct IAdaptiveCard(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveCard {
@@ -38,46 +38,6 @@ impl IAdaptiveCard {
 unsafe impl ::windows::runtime::RuntimeType for IAdaptiveCard {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
 }
-impl ::std::convert::From<IAdaptiveCard> for ::windows::runtime::IUnknown {
-    fn from(value: IAdaptiveCard) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAdaptiveCard> for ::windows::runtime::IUnknown {
-    fn from(value: &IAdaptiveCard) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdaptiveCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAdaptiveCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IAdaptiveCard> for ::windows::runtime::IInspectable {
-    fn from(value: IAdaptiveCard) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IAdaptiveCard> for ::windows::runtime::IInspectable {
-    fn from(value: &IAdaptiveCard) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAdaptiveCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAdaptiveCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveCard_abi(
@@ -90,7 +50,7 @@ pub struct IAdaptiveCard_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Shell`*"]
 pub struct IAdaptiveCardBuilderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveCardBuilderStatics {
@@ -110,46 +70,6 @@ impl IAdaptiveCardBuilderStatics {
 unsafe impl ::windows::runtime::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{766d8f08-d3fe-4347-a0bc-b9ea9a6dc28e}");
 }
-impl ::std::convert::From<IAdaptiveCardBuilderStatics> for ::windows::runtime::IUnknown {
-    fn from(value: IAdaptiveCardBuilderStatics) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::runtime::IUnknown {
-    fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdaptiveCardBuilderStatics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAdaptiveCardBuilderStatics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IAdaptiveCardBuilderStatics> for ::windows::runtime::IInspectable {
-    fn from(value: IAdaptiveCardBuilderStatics) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::runtime::IInspectable {
-    fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAdaptiveCardBuilderStatics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAdaptiveCardBuilderStatics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveCardBuilderStatics_abi(
@@ -162,7 +82,7 @@ pub struct IAdaptiveCardBuilderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ISecurityAppManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecurityAppManager {
@@ -185,7 +105,7 @@ pub struct ISecurityAppManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IShareWindowCommandEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandEventArgs {
@@ -206,7 +126,7 @@ pub struct IShareWindowCommandEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ShareWindowCommand) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IShareWindowCommandSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandSource {
@@ -235,7 +155,7 @@ pub struct IShareWindowCommandSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IShareWindowCommandSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandSourceStatics {
@@ -254,7 +174,7 @@ pub struct IShareWindowCommandSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITaskbarManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManager {
@@ -282,7 +202,7 @@ pub struct ITaskbarManager_abi(
     #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITaskbarManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManager2 {
@@ -306,7 +226,7 @@ pub struct ITaskbarManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITaskbarManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManagerStatics {

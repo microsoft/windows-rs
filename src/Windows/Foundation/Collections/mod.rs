@@ -44,46 +44,6 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IIterable<T> {
 unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IIterable<T> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{faa585ea-6214-4217-afda-7f46de5869b3}").push_slice(b";").push_other(<T as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IIterable<T>> for ::windows::runtime::IUnknown {
-    fn from(value: IIterable<T>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IIterable<T>> for ::windows::runtime::IUnknown {
-    fn from(value: &IIterable<T>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIterable<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIterable<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IIterable<T>> for ::windows::runtime::IInspectable {
-    fn from(value: IIterable<T>) -> Self {
-        value.0
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IIterable<T>> for ::windows::runtime::IInspectable {
-    fn from(value: &IIterable<T>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IIterable<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IIterable<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl<T: ::windows::runtime::RuntimeType> ::std::iter::IntoIterator for IIterable<T> {
     type Item = T;
     type IntoIter = IIterator<Self::Item>;
@@ -159,46 +119,6 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IIterator<T> {
 unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IIterator<T> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{6a79e863-4300-459a-9966-cbb660963ee1}").push_slice(b";").push_other(<T as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IIterator<T>> for ::windows::runtime::IUnknown {
-    fn from(value: IIterator<T>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IIterator<T>> for ::windows::runtime::IUnknown {
-    fn from(value: &IIterator<T>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIterator<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IIterator<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IIterator<T>> for ::windows::runtime::IInspectable {
-    fn from(value: IIterator<T>) -> Self {
-        value.0
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IIterator<T>> for ::windows::runtime::IInspectable {
-    fn from(value: &IIterator<T>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IIterator<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IIterator<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl<T: ::windows::runtime::RuntimeType> ::std::iter::Iterator for IIterator<T> {
     type Item = T;
     fn next(&mut self) -> ::std::option::Option<Self::Item> {
@@ -257,46 +177,6 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
 }
 unsafe impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IKeyValuePair<K, V> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{02b51929-c1c4-4a7e-8940-0312b5c18500}").push_slice(b";").push_other(<K as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IKeyValuePair<K, V>> for ::windows::runtime::IUnknown {
-    fn from(value: IKeyValuePair<K, V>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IKeyValuePair<K, V>> for ::windows::runtime::IUnknown {
-    fn from(value: &IKeyValuePair<K, V>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IKeyValuePair<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IKeyValuePair<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IKeyValuePair<K, V>> for ::windows::runtime::IInspectable {
-    fn from(value: IKeyValuePair<K, V>) -> Self {
-        value.0
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IKeyValuePair<K, V>> for ::windows::runtime::IInspectable {
-    fn from(value: &IKeyValuePair<K, V>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IKeyValuePair<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IKeyValuePair<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,46 +269,6 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
 unsafe impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IMap<K, V> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{3c2925fe-8519-45c1-aa79-197b6718c1c1}").push_slice(b";").push_other(<K as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IMap<K, V>> for ::windows::runtime::IUnknown {
-    fn from(value: IMap<K, V>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IMap<K, V>> for ::windows::runtime::IUnknown {
-    fn from(value: &IMap<K, V>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMap<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMap<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IMap<K, V>> for ::windows::runtime::IInspectable {
-    fn from(value: IMap<K, V>) -> Self {
-        value.0
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IMap<K, V>> for ::windows::runtime::IInspectable {
-    fn from(value: &IMap<K, V>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMap<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMap<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IMap<K, V>> for IIterable<IKeyValuePair<K, V>> {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IMap<K, V>) -> ::windows::runtime::Result<Self> {
@@ -520,46 +360,6 @@ impl<K: ::windows::runtime::RuntimeType + 'static> IMapChangedEventArgs<K> {
 unsafe impl<K: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IMapChangedEventArgs<K> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9939f4df-050a-4c0f-aa60-77075f9c4777}").push_slice(b";").push_other(<K as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
-impl<K: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IMapChangedEventArgs<K>> for ::windows::runtime::IUnknown {
-    fn from(value: IMapChangedEventArgs<K>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IMapChangedEventArgs<K>> for ::windows::runtime::IUnknown {
-    fn from(value: &IMapChangedEventArgs<K>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMapChangedEventArgs<K> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMapChangedEventArgs<K> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IMapChangedEventArgs<K>> for ::windows::runtime::IInspectable {
-    fn from(value: IMapChangedEventArgs<K>) -> Self {
-        value.0
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IMapChangedEventArgs<K>> for ::windows::runtime::IInspectable {
-    fn from(value: &IMapChangedEventArgs<K>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMapChangedEventArgs<K> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMapChangedEventArgs<K> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapChangedEventArgs_abi<K>(
@@ -627,46 +427,6 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
 }
 unsafe impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IMapView<K, V> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{e480ce40-a338-4ada-adcf-272272e48cb9}").push_slice(b";").push_other(<K as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IMapView<K, V>> for ::windows::runtime::IUnknown {
-    fn from(value: IMapView<K, V>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IMapView<K, V>> for ::windows::runtime::IUnknown {
-    fn from(value: &IMapView<K, V>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMapView<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMapView<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IMapView<K, V>> for ::windows::runtime::IInspectable {
-    fn from(value: IMapView<K, V>) -> Self {
-        value.0
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IMapView<K, V>> for ::windows::runtime::IInspectable {
-    fn from(value: &IMapView<K, V>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IMapView<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IMapView<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IMapView<K, V>> for IIterable<IKeyValuePair<K, V>> {
     type Error = ::windows::runtime::Error;
@@ -811,46 +571,6 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
 }
 unsafe impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IObservableMap<K, V> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{65df2bf5-bf39-41b5-aebc-5a9d865e472b}").push_slice(b";").push_other(<K as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IObservableMap<K, V>> for ::windows::runtime::IUnknown {
-    fn from(value: IObservableMap<K, V>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IObservableMap<K, V>> for ::windows::runtime::IUnknown {
-    fn from(value: &IObservableMap<K, V>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IObservableMap<K, V>> for ::windows::runtime::IInspectable {
-    fn from(value: IObservableMap<K, V>) -> Self {
-        value.0
-    }
-}
-impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IObservableMap<K, V>> for ::windows::runtime::IInspectable {
-    fn from(value: &IObservableMap<K, V>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IObservableMap<K, V>> for IIterable<IKeyValuePair<K, V>> {
     type Error = ::windows::runtime::Error;
@@ -1040,46 +760,6 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
 unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IObservableVector<T> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{5917eb53-50b4-4a0d-b309-65862b3f1dbc}").push_slice(b";").push_other(<T as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IObservableVector<T>> for ::windows::runtime::IUnknown {
-    fn from(value: IObservableVector<T>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IObservableVector<T>> for ::windows::runtime::IUnknown {
-    fn from(value: &IObservableVector<T>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IObservableVector<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IObservableVector<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IObservableVector<T>> for ::windows::runtime::IInspectable {
-    fn from(value: IObservableVector<T>) -> Self {
-        value.0
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IObservableVector<T>> for ::windows::runtime::IInspectable {
-    fn from(value: &IObservableVector<T>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IObservableVector<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IObservableVector<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IObservableVector<T>> for IIterable<T> {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IObservableVector<T>) -> ::windows::runtime::Result<Self> {
@@ -1156,7 +836,7 @@ pub struct IObservableVector_abi<T>(
 where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IPropertySet(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertySet {
@@ -1238,46 +918,6 @@ impl IPropertySet {
 }
 unsafe impl ::windows::runtime::RuntimeType for IPropertySet {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{8a43ed9f-f4e6-4421-acf9-1dab2986820c}");
-}
-impl ::std::convert::From<IPropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: IPropertySet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: &IPropertySet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IPropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: IPropertySet) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IPropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: &IPropertySet) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IPropertySet> for IIterable<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
     type Error = ::windows::runtime::Error;
@@ -1469,46 +1109,6 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
 unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IVector<T> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{913337e9-11a1-4345-a3a2-4e7f956e222d}").push_slice(b";").push_other(<T as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IVector<T>> for ::windows::runtime::IUnknown {
-    fn from(value: IVector<T>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IVector<T>> for ::windows::runtime::IUnknown {
-    fn from(value: &IVector<T>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVector<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVector<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IVector<T>> for ::windows::runtime::IInspectable {
-    fn from(value: IVector<T>) -> Self {
-        value.0
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IVector<T>> for ::windows::runtime::IInspectable {
-    fn from(value: &IVector<T>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IVector<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IVector<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IVector<T>> for IIterable<T> {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IVector<T>) -> ::windows::runtime::Result<Self> {
@@ -1589,7 +1189,7 @@ pub struct IVector_abi<T>(
 where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IVectorChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVectorChangedEventArgs {
@@ -1616,46 +1216,6 @@ impl IVectorChangedEventArgs {
 }
 unsafe impl ::windows::runtime::RuntimeType for IVectorChangedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{575933df-34fe-4480-af15-07691f3d5d9b}");
-}
-impl ::std::convert::From<IVectorChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: IVectorChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IVectorChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &IVectorChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVectorChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVectorChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IVectorChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: IVectorChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IVectorChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &IVectorChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IVectorChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IVectorChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1723,46 +1283,6 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVectorView<T> {
 }
 unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IVectorView<T> {
     const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}").push_slice(b";").push_other(<T as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IVectorView<T>> for ::windows::runtime::IUnknown {
-    fn from(value: IVectorView<T>) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IVectorView<T>> for ::windows::runtime::IUnknown {
-    fn from(value: &IVectorView<T>) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVectorView<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVectorView<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IVectorView<T>> for ::windows::runtime::IInspectable {
-    fn from(value: IVectorView<T>) -> Self {
-        value.0
-    }
-}
-impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IVectorView<T>> for ::windows::runtime::IInspectable {
-    fn from(value: &IVectorView<T>) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IVectorView<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IVectorView<T> {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IVectorView<T>> for IIterable<T> {
     type Error = ::windows::runtime::Error;

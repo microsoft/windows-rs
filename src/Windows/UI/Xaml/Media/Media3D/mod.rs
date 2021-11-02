@@ -405,7 +405,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::DependencyObject> for &
 unsafe impl ::std::marker::Send for CompositeTransform3D {}
 unsafe impl ::std::marker::Sync for CompositeTransform3D {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICompositeTransform3D(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositeTransform3D {
@@ -447,7 +447,7 @@ pub struct ICompositeTransform3D_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ICompositeTransform3DStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositeTransform3DStatics {
@@ -477,7 +477,7 @@ pub struct ICompositeTransform3DStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMatrix3DHelper(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMatrix3DHelper {
@@ -495,7 +495,7 @@ pub struct IMatrix3DHelper_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IMatrix3DHelperStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMatrix3DHelperStatics {
@@ -519,7 +519,7 @@ pub struct IMatrix3DHelperStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: Matrix3D, result__: *mut Matrix3D) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerspectiveTransform3D(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerspectiveTransform3D {
@@ -543,7 +543,7 @@ pub struct IPerspectiveTransform3D_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IPerspectiveTransform3DStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerspectiveTransform3DStatics {
@@ -564,7 +564,7 @@ pub struct IPerspectiveTransform3DStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITransform3D(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransform3D {
@@ -582,7 +582,7 @@ pub struct ITransform3D_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct ITransform3DFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransform3DFactory {

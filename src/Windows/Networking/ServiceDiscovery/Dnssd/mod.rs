@@ -689,7 +689,7 @@ unsafe impl ::windows::runtime::RuntimeType for DnssdServiceWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDnssdRegistrationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdRegistrationResult {
@@ -710,7 +710,7 @@ pub struct IDnssdRegistrationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDnssdServiceInstance(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceInstance {
@@ -748,7 +748,7 @@ pub struct IDnssdServiceInstance_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDnssdServiceInstanceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceInstanceFactory {
@@ -767,7 +767,7 @@ pub struct IDnssdServiceInstanceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dnssdserviceinstancename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, hostname: ::windows::runtime::RawPtr, port: u16, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDnssdServiceWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDnssdServiceWatcher {

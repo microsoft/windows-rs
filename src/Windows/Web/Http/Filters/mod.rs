@@ -592,7 +592,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for HttpServerCustomValidationRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter {
@@ -636,7 +636,7 @@ pub struct IHttpBaseProtocolFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter2 {
@@ -656,7 +656,7 @@ pub struct IHttpBaseProtocolFilter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::HttpVersion) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter3 {
@@ -676,7 +676,7 @@ pub struct IHttpBaseProtocolFilter3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: HttpCookieUsageBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter4 {
@@ -699,7 +699,7 @@ pub struct IHttpBaseProtocolFilter4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter5 {
@@ -719,7 +719,7 @@ pub struct IHttpBaseProtocolFilter5_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilterStatics {
@@ -739,7 +739,7 @@ pub struct IHttpBaseProtocolFilterStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHttpCacheControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCacheControl {
@@ -761,7 +761,7 @@ pub struct IHttpCacheControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: HttpCacheWriteBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Web_Http_Filters`*"]
 pub struct IHttpFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpFilter {
@@ -787,46 +787,6 @@ impl IHttpFilter {
 }
 unsafe impl ::windows::runtime::RuntimeType for IHttpFilter {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a4cb6dd5-0902-439e-bfd7-e12552b165ce}");
-}
-impl ::std::convert::From<IHttpFilter> for ::windows::runtime::IUnknown {
-    fn from(value: IHttpFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IHttpFilter> for ::windows::runtime::IUnknown {
-    fn from(value: &IHttpFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IHttpFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IHttpFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IHttpFilter> for ::windows::runtime::IInspectable {
-    fn from(value: IHttpFilter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IHttpFilter> for ::windows::runtime::IInspectable {
-    fn from(value: &IHttpFilter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IHttpFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IHttpFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IHttpFilter> for super::super::super::Foundation::IClosable {
@@ -867,7 +827,7 @@ pub struct IHttpFilter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IHttpServerCustomValidationRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpServerCustomValidationRequestedEventArgs {

@@ -2,7 +2,7 @@
 #[cfg(feature = "System_Threading_Core")]
 pub mod Core;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IThreadPoolStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolStatics {
@@ -26,7 +26,7 @@ pub struct IThreadPoolStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IThreadPoolTimer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolTimer {
@@ -49,7 +49,7 @@ pub struct IThreadPoolTimer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IThreadPoolTimerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolTimerStatics {

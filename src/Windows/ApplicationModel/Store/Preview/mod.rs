@@ -131,7 +131,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for DeliveryOptimizationSettings {}
 unsafe impl ::std::marker::Sync for DeliveryOptimizationSettings {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDeliveryOptimizationSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeliveryOptimizationSettings {
@@ -151,7 +151,7 @@ pub struct IDeliveryOptimizationSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DeliveryOptimizationDownloadModeSource) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IDeliveryOptimizationSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeliveryOptimizationSettingsStatics {
@@ -170,7 +170,7 @@ pub struct IDeliveryOptimizationSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreConfigurationStatics {
@@ -196,7 +196,7 @@ pub struct IStoreConfigurationStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreConfigurationStatics2 {
@@ -218,7 +218,7 @@ pub struct IStoreConfigurationStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreConfigurationStatics3 {
@@ -249,7 +249,7 @@ pub struct IStoreConfigurationStatics3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreConfigurationStatics4 {
@@ -279,7 +279,7 @@ pub struct IStoreConfigurationStatics4_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStoreConfigurationStatics5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreConfigurationStatics5 {
@@ -303,7 +303,7 @@ pub struct IStoreConfigurationStatics5_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStoreHardwareManufacturerInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreHardwareManufacturerInfo {
@@ -325,7 +325,7 @@ pub struct IStoreHardwareManufacturerInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStorePreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePreview {
@@ -347,7 +347,7 @@ pub struct IStorePreview_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStorePreviewProductInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePreviewProductInfo {
@@ -371,7 +371,7 @@ pub struct IStorePreviewProductInfo_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStorePreviewPurchaseResults(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePreviewPurchaseResults {
@@ -390,7 +390,7 @@ pub struct IStorePreviewPurchaseResults_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut StorePreviewProductPurchaseStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IStorePreviewSkuInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePreviewSkuInfo {
@@ -417,7 +417,7 @@ pub struct IStorePreviewSkuInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerHelper(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationCoreManagerHelper {

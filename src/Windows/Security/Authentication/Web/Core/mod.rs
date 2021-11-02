@@ -105,7 +105,7 @@ unsafe impl ::windows::runtime::RuntimeType for FindAllWebAccountsStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IFindAllAccountsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFindAllAccountsResult {
@@ -127,7 +127,7 @@ pub struct IFindAllAccountsResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountEventArgs {
@@ -147,7 +147,7 @@ pub struct IWebAccountEventArgs_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountMonitor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountMonitor {
@@ -177,7 +177,7 @@ pub struct IWebAccountMonitor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAccountMonitor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountMonitor2 {
@@ -199,7 +199,7 @@ pub struct IWebAccountMonitor2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationCoreManagerStatics {
@@ -231,7 +231,7 @@ pub struct IWebAuthenticationCoreManagerStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationCoreManagerStatics2 {
@@ -251,7 +251,7 @@ pub struct IWebAuthenticationCoreManagerStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationCoreManagerStatics3 {
@@ -271,7 +271,7 @@ pub struct IWebAuthenticationCoreManagerStatics3_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationCoreManagerStatics4 {
@@ -299,7 +299,7 @@ pub struct IWebAuthenticationCoreManagerStatics4_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebProviderError(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderError {
@@ -321,7 +321,7 @@ pub struct IWebProviderError_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebProviderErrorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebProviderErrorFactory {
@@ -340,7 +340,7 @@ pub struct IWebProviderErrorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorcode: u32, errormessage: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebTokenRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebTokenRequest {
@@ -365,7 +365,7 @@ pub struct IWebTokenRequest_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebTokenRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebTokenRequest2 {
@@ -385,7 +385,7 @@ pub struct IWebTokenRequest2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebTokenRequest3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebTokenRequest3 {
@@ -405,7 +405,7 @@ pub struct IWebTokenRequest3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebTokenRequestFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebTokenRequestFactory {
@@ -431,7 +431,7 @@ pub struct IWebTokenRequestFactory_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebTokenRequestResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebTokenRequestResult {
@@ -455,7 +455,7 @@ pub struct IWebTokenRequestResult_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebTokenResponse(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebTokenResponse {
@@ -479,7 +479,7 @@ pub struct IWebTokenResponse_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IWebTokenResponseFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebTokenResponseFactory {

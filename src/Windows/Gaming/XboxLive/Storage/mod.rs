@@ -1007,7 +1007,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for GameSaveProviderGetResult {}
 unsafe impl ::std::marker::Sync for GameSaveProviderGetResult {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveBlobGetResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobGetResult {
@@ -1028,7 +1028,7 @@ pub struct IGameSaveBlobGetResult_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveBlobInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfo {
@@ -1048,7 +1048,7 @@ pub struct IGameSaveBlobInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveBlobInfoGetResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfoGetResult {
@@ -1069,7 +1069,7 @@ pub struct IGameSaveBlobInfoGetResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveBlobInfoQuery(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveBlobInfoQuery {
@@ -1093,7 +1093,7 @@ pub struct IGameSaveBlobInfoQuery_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveContainer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainer {
@@ -1122,7 +1122,7 @@ pub struct IGameSaveContainer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, blobnameprefix: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveContainerInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfo {
@@ -1146,7 +1146,7 @@ pub struct IGameSaveContainerInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveContainerInfoGetResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfoGetResult {
@@ -1167,7 +1167,7 @@ pub struct IGameSaveContainerInfoGetResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveContainerInfoQuery(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveContainerInfoQuery {
@@ -1191,7 +1191,7 @@ pub struct IGameSaveContainerInfoQuery_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveOperationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveOperationResult {
@@ -1210,7 +1210,7 @@ pub struct IGameSaveOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GameSaveErrorStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProvider {
@@ -1239,7 +1239,7 @@ pub struct IGameSaveProvider_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveProviderGetResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProviderGetResult {
@@ -1259,7 +1259,7 @@ pub struct IGameSaveProviderGetResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc(hidden)]
 pub struct IGameSaveProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameSaveProviderStatics {
