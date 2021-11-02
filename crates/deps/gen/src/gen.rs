@@ -32,6 +32,17 @@ impl Gen {
                 return TokenStream::new();
             }
 
+            if !self.root.is_empty() && self.root != "Windows" && namespace.starts_with("Windows.") {
+                let mut tokens : TokenStream = "::windows::".into();
+
+                for namespace in namespace.split('.').skip(1) {
+                    tokens.push_str(namespace);
+                    tokens.push_str("::");
+                }
+    
+                return tokens;
+            }
+
             let mut relative = self.relative.split('.').peekable();
             let mut namespace = namespace.split('.').peekable();
 
