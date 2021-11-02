@@ -55,7 +55,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapBounds {
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapBuffer(::windows::runtime::IInspectable);
 impl BitmapBuffer {
     #[doc = "*Required features: `Graphics_Imaging`*"]
@@ -99,46 +99,6 @@ unsafe impl ::windows::runtime::Interface for BitmapBuffer {
 }
 impl ::windows::runtime::RuntimeName for BitmapBuffer {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapBuffer";
-}
-impl ::std::convert::From<BitmapBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapBuffer> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapBuffer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapBuffer> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapBuffer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BitmapBuffer> for super::super::Foundation::IClosable {
@@ -217,7 +177,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapBufferAccessMode {
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapCodecInformation(::windows::runtime::IInspectable);
 impl BitmapCodecInformation {
     #[doc = "*Required features: `Graphics_Imaging`*"]
@@ -265,51 +225,11 @@ unsafe impl ::windows::runtime::Interface for BitmapCodecInformation {
 impl ::windows::runtime::RuntimeName for BitmapCodecInformation {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapCodecInformation";
 }
-impl ::std::convert::From<BitmapCodecInformation> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapCodecInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapCodecInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapCodecInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapCodecInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapCodecInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapCodecInformation> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapCodecInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapCodecInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapCodecInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapCodecInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapCodecInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BitmapCodecInformation {}
 unsafe impl ::std::marker::Sync for BitmapCodecInformation {}
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapDecoder(::windows::runtime::IInspectable);
 impl BitmapDecoder {
     #[doc = "*Required features: `Graphics_Imaging`*"]
@@ -586,46 +506,6 @@ unsafe impl ::windows::runtime::Interface for BitmapDecoder {
 impl ::windows::runtime::RuntimeName for BitmapDecoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapDecoder";
 }
-impl ::std::convert::From<BitmapDecoder> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapDecoder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapDecoder> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapDecoder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapDecoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapDecoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapDecoder> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapDecoder) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapDecoder> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapDecoder) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapDecoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapDecoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<BitmapDecoder> for IBitmapFrame {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BitmapDecoder) -> ::windows::runtime::Result<Self> {
@@ -674,7 +554,7 @@ unsafe impl ::std::marker::Send for BitmapDecoder {}
 unsafe impl ::std::marker::Sync for BitmapDecoder {}
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapEncoder(::windows::runtime::IInspectable);
 impl BitmapEncoder {
     #[doc = "*Required features: `Graphics_Imaging`*"]
@@ -897,46 +777,6 @@ unsafe impl ::windows::runtime::Interface for BitmapEncoder {
 impl ::windows::runtime::RuntimeName for BitmapEncoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapEncoder";
 }
-impl ::std::convert::From<BitmapEncoder> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapEncoder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapEncoder> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapEncoder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapEncoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapEncoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapEncoder> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapEncoder) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapEncoder> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapEncoder) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapEncoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapEncoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BitmapEncoder {}
 unsafe impl ::std::marker::Sync for BitmapEncoder {}
 #[doc = "*Required features: `Graphics_Imaging`*"]
@@ -962,7 +802,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapFlip {
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapFrame(::windows::runtime::IInspectable);
 impl BitmapFrame {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -1102,46 +942,6 @@ unsafe impl ::windows::runtime::Interface for BitmapFrame {
 impl ::windows::runtime::RuntimeName for BitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapFrame";
 }
-impl ::std::convert::From<BitmapFrame> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapFrame> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<BitmapFrame> for IBitmapFrame {
     fn from(value: BitmapFrame) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1270,7 +1070,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapPlaneDescription {
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapProperties(::windows::runtime::IInspectable);
 impl BitmapProperties {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1302,46 +1102,6 @@ unsafe impl ::windows::runtime::Interface for BitmapProperties {
 impl ::windows::runtime::RuntimeName for BitmapProperties {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapProperties";
 }
-impl ::std::convert::From<BitmapProperties> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapProperties> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<BitmapProperties> for IBitmapPropertiesView {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BitmapProperties) -> ::windows::runtime::Result<Self> {
@@ -1368,7 +1128,7 @@ unsafe impl ::std::marker::Send for BitmapProperties {}
 unsafe impl ::std::marker::Sync for BitmapProperties {}
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapPropertiesView(::windows::runtime::IInspectable);
 impl BitmapPropertiesView {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1390,46 +1150,6 @@ unsafe impl ::windows::runtime::Interface for BitmapPropertiesView {
 }
 impl ::windows::runtime::RuntimeName for BitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertiesView";
-}
-impl ::std::convert::From<BitmapPropertiesView> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapPropertiesView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapPropertiesView> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapPropertiesView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapPropertiesView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapPropertiesView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapPropertiesView> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapPropertiesView) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapPropertiesView> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapPropertiesView) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapPropertiesView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapPropertiesView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<BitmapPropertiesView> for IBitmapPropertiesView {
     fn from(value: BitmapPropertiesView) -> Self {
@@ -1456,7 +1176,7 @@ unsafe impl ::std::marker::Sync for BitmapPropertiesView {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapPropertySet(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl BitmapPropertySet {
@@ -1546,54 +1266,6 @@ unsafe impl ::windows::runtime::Interface for BitmapPropertySet {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for BitmapPropertySet {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertySet";
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<BitmapPropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapPropertySet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&BitmapPropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapPropertySet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<BitmapPropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapPropertySet) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&BitmapPropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapPropertySet) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<BitmapPropertySet> for super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, BitmapTypedValue> {
@@ -1720,7 +1392,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapSize {
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapTransform(::windows::runtime::IInspectable);
 impl BitmapTransform {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1819,51 +1491,11 @@ unsafe impl ::windows::runtime::Interface for BitmapTransform {
 impl ::windows::runtime::RuntimeName for BitmapTransform {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTransform";
 }
-impl ::std::convert::From<BitmapTransform> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapTransform> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapTransform> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapTransform) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapTransform> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapTransform) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BitmapTransform {}
 unsafe impl ::std::marker::Sync for BitmapTransform {}
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BitmapTypedValue(::windows::runtime::IInspectable);
 impl BitmapTypedValue {
     #[doc = "*Required features: `Graphics_Imaging`*"]
@@ -1905,46 +1537,6 @@ unsafe impl ::windows::runtime::Interface for BitmapTypedValue {
 }
 impl ::windows::runtime::RuntimeName for BitmapTypedValue {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTypedValue";
-}
-impl ::std::convert::From<BitmapTypedValue> for ::windows::runtime::IUnknown {
-    fn from(value: BitmapTypedValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BitmapTypedValue> for ::windows::runtime::IUnknown {
-    fn from(value: &BitmapTypedValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapTypedValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BitmapTypedValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BitmapTypedValue> for ::windows::runtime::IInspectable {
-    fn from(value: BitmapTypedValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BitmapTypedValue> for ::windows::runtime::IInspectable {
-    fn from(value: &BitmapTypedValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapTypedValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapTypedValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for BitmapTypedValue {}
 unsafe impl ::std::marker::Sync for BitmapTypedValue {}
@@ -2759,7 +2351,7 @@ pub struct ISoftwareBitmapStatics_abi(
 #[cfg(feature = "Storage_Streams")]
 #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ImageStream(::windows::runtime::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ImageStream {
@@ -2893,54 +2485,6 @@ unsafe impl ::windows::runtime::Interface for ImageStream {
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::runtime::RuntimeName for ImageStream {
     const NAME: &'static str = "Windows.Graphics.Imaging.ImageStream";
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<ImageStream> for ::windows::runtime::IUnknown {
-    fn from(value: ImageStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&ImageStream> for ::windows::runtime::IUnknown {
-    fn from(value: &ImageStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImageStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<ImageStream> for ::windows::runtime::IInspectable {
-    fn from(value: ImageStream) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&ImageStream> for ::windows::runtime::IInspectable {
-    fn from(value: &ImageStream) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ImageStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ImageStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::std::convert::From<ImageStream> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
@@ -3124,7 +2668,7 @@ unsafe impl ::windows::runtime::RuntimeType for JpegSubsamplingMode {
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PixelDataProvider(::windows::runtime::IInspectable);
 impl PixelDataProvider {
     #[doc = "*Required features: `Graphics_Imaging`*"]
@@ -3145,46 +2689,6 @@ unsafe impl ::windows::runtime::Interface for PixelDataProvider {
 }
 impl ::windows::runtime::RuntimeName for PixelDataProvider {
     const NAME: &'static str = "Windows.Graphics.Imaging.PixelDataProvider";
-}
-impl ::std::convert::From<PixelDataProvider> for ::windows::runtime::IUnknown {
-    fn from(value: PixelDataProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PixelDataProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &PixelDataProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PixelDataProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PixelDataProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PixelDataProvider> for ::windows::runtime::IInspectable {
-    fn from(value: PixelDataProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PixelDataProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &PixelDataProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PixelDataProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PixelDataProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PixelDataProvider {}
 unsafe impl ::std::marker::Sync for PixelDataProvider {}
@@ -3215,7 +2719,7 @@ unsafe impl ::windows::runtime::RuntimeType for PngFilterMode {
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SoftwareBitmap(::windows::runtime::IInspectable);
 impl SoftwareBitmap {
     #[doc = "*Required features: `Graphics_Imaging`*"]
@@ -3408,46 +2912,6 @@ unsafe impl ::windows::runtime::Interface for SoftwareBitmap {
 }
 impl ::windows::runtime::RuntimeName for SoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.SoftwareBitmap";
-}
-impl ::std::convert::From<SoftwareBitmap> for ::windows::runtime::IUnknown {
-    fn from(value: SoftwareBitmap) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SoftwareBitmap> for ::windows::runtime::IUnknown {
-    fn from(value: &SoftwareBitmap) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SoftwareBitmap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SoftwareBitmap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SoftwareBitmap> for ::windows::runtime::IInspectable {
-    fn from(value: SoftwareBitmap) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SoftwareBitmap> for ::windows::runtime::IInspectable {
-    fn from(value: &SoftwareBitmap) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SoftwareBitmap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SoftwareBitmap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SoftwareBitmap> for super::super::Foundation::IClosable {

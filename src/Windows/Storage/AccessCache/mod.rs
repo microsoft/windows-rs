@@ -84,7 +84,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccessListEntry {
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Storage_AccessCache`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AccessListEntryView(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl AccessListEntryView {
@@ -146,54 +146,6 @@ unsafe impl ::windows::runtime::Interface for AccessListEntryView {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for AccessListEntryView {
     const NAME: &'static str = "Windows.Storage.AccessCache.AccessListEntryView";
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<AccessListEntryView> for ::windows::runtime::IUnknown {
-    fn from(value: AccessListEntryView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&AccessListEntryView> for ::windows::runtime::IUnknown {
-    fn from(value: &AccessListEntryView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccessListEntryView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccessListEntryView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<AccessListEntryView> for ::windows::runtime::IInspectable {
-    fn from(value: AccessListEntryView) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&AccessListEntryView> for ::windows::runtime::IInspectable {
-    fn from(value: &AccessListEntryView) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccessListEntryView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccessListEntryView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<AccessListEntryView> for super::super::Foundation::Collections::IVectorView<AccessListEntry> {
@@ -535,7 +487,7 @@ pub struct IStorageItemMostRecentlyUsedList2_abi(
 );
 #[doc = "*Required features: `Storage_AccessCache`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ItemRemovedEventArgs(::windows::runtime::IInspectable);
 impl ItemRemovedEventArgs {
     #[doc = "*Required features: `Storage_AccessCache`*"]
@@ -556,46 +508,6 @@ unsafe impl ::windows::runtime::Interface for ItemRemovedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ItemRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.AccessCache.ItemRemovedEventArgs";
-}
-impl ::std::convert::From<ItemRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ItemRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ItemRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ItemRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ItemRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ItemRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ItemRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ItemRemovedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ItemRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ItemRemovedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ItemRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ItemRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[doc = "*Required features: `Storage_AccessCache`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -664,7 +576,7 @@ impl ::windows::runtime::RuntimeName for StorageApplicationPermissions {
 }
 #[doc = "*Required features: `Storage_AccessCache`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageItemAccessList(::windows::runtime::IInspectable);
 impl StorageItemAccessList {
     #[doc = "*Required features: `Storage_AccessCache`*"]
@@ -801,46 +713,6 @@ unsafe impl ::windows::runtime::Interface for StorageItemAccessList {
 impl ::windows::runtime::RuntimeName for StorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemAccessList";
 }
-impl ::std::convert::From<StorageItemAccessList> for ::windows::runtime::IUnknown {
-    fn from(value: StorageItemAccessList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageItemAccessList> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageItemAccessList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageItemAccessList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageItemAccessList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageItemAccessList> for ::windows::runtime::IInspectable {
-    fn from(value: StorageItemAccessList) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageItemAccessList> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageItemAccessList) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageItemAccessList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageItemAccessList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<StorageItemAccessList> for IStorageItemAccessList {
     fn from(value: StorageItemAccessList) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -863,7 +735,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemAccessList> for &StorageI
 }
 #[doc = "*Required features: `Storage_AccessCache`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageItemMostRecentlyUsedList(::windows::runtime::IInspectable);
 impl StorageItemMostRecentlyUsedList {
     #[cfg(feature = "Foundation")]
@@ -1027,46 +899,6 @@ unsafe impl ::windows::runtime::Interface for StorageItemMostRecentlyUsedList {
 }
 impl ::windows::runtime::RuntimeName for StorageItemMostRecentlyUsedList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList";
-}
-impl ::std::convert::From<StorageItemMostRecentlyUsedList> for ::windows::runtime::IUnknown {
-    fn from(value: StorageItemMostRecentlyUsedList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageItemMostRecentlyUsedList> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageItemMostRecentlyUsedList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageItemMostRecentlyUsedList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageItemMostRecentlyUsedList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageItemMostRecentlyUsedList> for ::windows::runtime::IInspectable {
-    fn from(value: StorageItemMostRecentlyUsedList) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageItemMostRecentlyUsedList> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageItemMostRecentlyUsedList) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageItemMostRecentlyUsedList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageItemMostRecentlyUsedList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<StorageItemMostRecentlyUsedList> for IStorageItemAccessList {
     type Error = ::windows::runtime::Error;

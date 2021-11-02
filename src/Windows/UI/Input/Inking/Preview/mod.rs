@@ -41,7 +41,7 @@ pub struct IPalmRejectionDelayZonePreviewStatics_abi(
 );
 #[doc = "*Required features: `UI_Input_Inking_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PalmRejectionDelayZonePreview(::windows::runtime::IInspectable);
 impl PalmRejectionDelayZonePreview {
     #[cfg(feature = "Foundation")]
@@ -85,46 +85,6 @@ unsafe impl ::windows::runtime::Interface for PalmRejectionDelayZonePreview {
 }
 impl ::windows::runtime::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";
-}
-impl ::std::convert::From<PalmRejectionDelayZonePreview> for ::windows::runtime::IUnknown {
-    fn from(value: PalmRejectionDelayZonePreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PalmRejectionDelayZonePreview> for ::windows::runtime::IUnknown {
-    fn from(value: &PalmRejectionDelayZonePreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PalmRejectionDelayZonePreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PalmRejectionDelayZonePreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PalmRejectionDelayZonePreview> for ::windows::runtime::IInspectable {
-    fn from(value: PalmRejectionDelayZonePreview) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PalmRejectionDelayZonePreview> for ::windows::runtime::IInspectable {
-    fn from(value: &PalmRejectionDelayZonePreview) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PalmRejectionDelayZonePreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PalmRejectionDelayZonePreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {

@@ -46,7 +46,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceAudioNotificationKind {
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceAudioNotificationRequestedEventArgs(::windows::runtime::IInspectable);
 impl GuidanceAudioNotificationRequestedEventArgs {
     #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -84,46 +84,6 @@ unsafe impl ::windows::runtime::Interface for GuidanceAudioNotificationRequested
 }
 impl ::windows::runtime::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs";
-}
-impl ::std::convert::From<GuidanceAudioNotificationRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceAudioNotificationRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceAudioNotificationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceAudioNotificationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceAudioNotificationRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceAudioNotificationRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceAudioNotificationRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceAudioNotificationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceAudioNotificationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GuidanceAudioNotificationRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
@@ -182,7 +142,7 @@ impl ::std::ops::Not for GuidanceAudioNotifications {
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceLaneInfo(::windows::runtime::IInspectable);
 impl GuidanceLaneInfo {
     #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -211,46 +171,6 @@ unsafe impl ::windows::runtime::Interface for GuidanceLaneInfo {
 }
 impl ::windows::runtime::RuntimeName for GuidanceLaneInfo {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceLaneInfo";
-}
-impl ::std::convert::From<GuidanceLaneInfo> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceLaneInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceLaneInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceLaneInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceLaneInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceLaneInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceLaneInfo> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceLaneInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceLaneInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceLaneInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceLaneInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceLaneInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GuidanceLaneInfo {}
 unsafe impl ::std::marker::Sync for GuidanceLaneInfo {}
@@ -313,7 +233,7 @@ impl ::std::ops::Not for GuidanceLaneMarkers {
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceManeuver(::windows::runtime::IInspectable);
 impl GuidanceManeuver {
     #[cfg(feature = "Devices_Geolocation")]
@@ -424,46 +344,6 @@ unsafe impl ::windows::runtime::Interface for GuidanceManeuver {
 impl ::windows::runtime::RuntimeName for GuidanceManeuver {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceManeuver";
 }
-impl ::std::convert::From<GuidanceManeuver> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceManeuver) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceManeuver> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceManeuver) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceManeuver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceManeuver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceManeuver> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceManeuver) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceManeuver> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceManeuver) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceManeuver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceManeuver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GuidanceManeuver {}
 unsafe impl ::std::marker::Sync for GuidanceManeuver {}
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -534,7 +414,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceManeuverKind {
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceMapMatchedCoordinate(::windows::runtime::IInspectable);
 impl GuidanceMapMatchedCoordinate {
     #[cfg(feature = "Devices_Geolocation")]
@@ -589,46 +469,6 @@ unsafe impl ::windows::runtime::Interface for GuidanceMapMatchedCoordinate {
 impl ::windows::runtime::RuntimeName for GuidanceMapMatchedCoordinate {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate";
 }
-impl ::std::convert::From<GuidanceMapMatchedCoordinate> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceMapMatchedCoordinate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceMapMatchedCoordinate> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceMapMatchedCoordinate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceMapMatchedCoordinate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceMapMatchedCoordinate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceMapMatchedCoordinate> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceMapMatchedCoordinate) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceMapMatchedCoordinate> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceMapMatchedCoordinate) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceMapMatchedCoordinate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceMapMatchedCoordinate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GuidanceMapMatchedCoordinate {}
 unsafe impl ::std::marker::Sync for GuidanceMapMatchedCoordinate {}
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -655,7 +495,7 @@ unsafe impl ::windows::runtime::RuntimeType for GuidanceMode {
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceNavigator(::windows::runtime::IInspectable);
 impl GuidanceNavigator {
     #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -902,51 +742,11 @@ unsafe impl ::windows::runtime::Interface for GuidanceNavigator {
 impl ::windows::runtime::RuntimeName for GuidanceNavigator {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceNavigator";
 }
-impl ::std::convert::From<GuidanceNavigator> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceNavigator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceNavigator> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceNavigator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceNavigator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceNavigator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceNavigator> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceNavigator) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceNavigator> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceNavigator) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceNavigator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceNavigator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GuidanceNavigator {}
 unsafe impl ::std::marker::Sync for GuidanceNavigator {}
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceReroutedEventArgs(::windows::runtime::IInspectable);
 impl GuidanceReroutedEventArgs {
     #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -968,51 +768,11 @@ unsafe impl ::windows::runtime::Interface for GuidanceReroutedEventArgs {
 impl ::windows::runtime::RuntimeName for GuidanceReroutedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs";
 }
-impl ::std::convert::From<GuidanceReroutedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceReroutedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceReroutedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceReroutedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceReroutedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceReroutedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceReroutedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceReroutedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceReroutedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceReroutedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceReroutedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceReroutedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GuidanceReroutedEventArgs {}
 unsafe impl ::std::marker::Sync for GuidanceReroutedEventArgs {}
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceRoadSegment(::windows::runtime::IInspectable);
 impl GuidanceRoadSegment {
     #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -1108,51 +868,11 @@ unsafe impl ::windows::runtime::Interface for GuidanceRoadSegment {
 impl ::windows::runtime::RuntimeName for GuidanceRoadSegment {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSegment";
 }
-impl ::std::convert::From<GuidanceRoadSegment> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceRoadSegment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceRoadSegment> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceRoadSegment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceRoadSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceRoadSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceRoadSegment> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceRoadSegment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceRoadSegment> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceRoadSegment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceRoadSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceRoadSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GuidanceRoadSegment {}
 unsafe impl ::std::marker::Sync for GuidanceRoadSegment {}
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceRoadSignpost(::windows::runtime::IInspectable);
 impl GuidanceRoadSignpost {
     #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -1209,51 +929,11 @@ unsafe impl ::windows::runtime::Interface for GuidanceRoadSignpost {
 impl ::windows::runtime::RuntimeName for GuidanceRoadSignpost {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSignpost";
 }
-impl ::std::convert::From<GuidanceRoadSignpost> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceRoadSignpost) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceRoadSignpost> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceRoadSignpost) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceRoadSignpost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceRoadSignpost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceRoadSignpost> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceRoadSignpost) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceRoadSignpost> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceRoadSignpost) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceRoadSignpost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceRoadSignpost {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GuidanceRoadSignpost {}
 unsafe impl ::std::marker::Sync for GuidanceRoadSignpost {}
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceRoute(::windows::runtime::IInspectable);
 impl GuidanceRoute {
     #[cfg(feature = "Foundation")]
@@ -1346,51 +1026,11 @@ unsafe impl ::windows::runtime::Interface for GuidanceRoute {
 impl ::windows::runtime::RuntimeName for GuidanceRoute {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoute";
 }
-impl ::std::convert::From<GuidanceRoute> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceRoute) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceRoute> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceRoute) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceRoute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceRoute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceRoute> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceRoute) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceRoute> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceRoute) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceRoute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceRoute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GuidanceRoute {}
 unsafe impl ::std::marker::Sync for GuidanceRoute {}
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceTelemetryCollector(::windows::runtime::IInspectable);
 impl GuidanceTelemetryCollector {
     #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -1459,51 +1099,11 @@ unsafe impl ::windows::runtime::Interface for GuidanceTelemetryCollector {
 impl ::windows::runtime::RuntimeName for GuidanceTelemetryCollector {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceTelemetryCollector";
 }
-impl ::std::convert::From<GuidanceTelemetryCollector> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceTelemetryCollector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceTelemetryCollector> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceTelemetryCollector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceTelemetryCollector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceTelemetryCollector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceTelemetryCollector> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceTelemetryCollector) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceTelemetryCollector> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceTelemetryCollector) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceTelemetryCollector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceTelemetryCollector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GuidanceTelemetryCollector {}
 unsafe impl ::std::marker::Sync for GuidanceTelemetryCollector {}
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GuidanceUpdatedEventArgs(::windows::runtime::IInspectable);
 impl GuidanceUpdatedEventArgs {
     #[doc = "*Required features: `Services_Maps_Guidance`*"]
@@ -1631,46 +1231,6 @@ unsafe impl ::windows::runtime::Interface for GuidanceUpdatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for GuidanceUpdatedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs";
-}
-impl ::std::convert::From<GuidanceUpdatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: GuidanceUpdatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GuidanceUpdatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &GuidanceUpdatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GuidanceUpdatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GuidanceUpdatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GuidanceUpdatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: GuidanceUpdatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GuidanceUpdatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &GuidanceUpdatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GuidanceUpdatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GuidanceUpdatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GuidanceUpdatedEventArgs {}
 unsafe impl ::std::marker::Sync for GuidanceUpdatedEventArgs {}

@@ -181,7 +181,7 @@ impl<F: FnMut(&::std::option::Option<GameListEntry>) -> ::windows::runtime::Resu
 }
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameListEntry(::windows::runtime::IInspectable);
 impl GameListEntry {
     #[cfg(feature = "ApplicationModel")]
@@ -307,46 +307,6 @@ unsafe impl ::windows::runtime::Interface for GameListEntry {
 impl ::windows::runtime::RuntimeName for GameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameListEntry";
 }
-impl ::std::convert::From<GameListEntry> for ::windows::runtime::IUnknown {
-    fn from(value: GameListEntry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameListEntry> for ::windows::runtime::IUnknown {
-    fn from(value: &GameListEntry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameListEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameListEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameListEntry> for ::windows::runtime::IInspectable {
-    fn from(value: GameListEntry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameListEntry> for ::windows::runtime::IInspectable {
-    fn from(value: &GameListEntry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameListEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameListEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<GameListEntry> for IGameListEntry {
     fn from(value: GameListEntry) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -466,7 +426,7 @@ impl<F: FnMut(&::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> + 
 }
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameModeConfiguration(::windows::runtime::IInspectable);
 impl GameModeConfiguration {
     #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
@@ -614,51 +574,11 @@ unsafe impl ::windows::runtime::Interface for GameModeConfiguration {
 impl ::windows::runtime::RuntimeName for GameModeConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration";
 }
-impl ::std::convert::From<GameModeConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: GameModeConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameModeConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &GameModeConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameModeConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameModeConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameModeConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: GameModeConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameModeConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &GameModeConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameModeConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameModeConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameModeConfiguration {}
 unsafe impl ::std::marker::Sync for GameModeConfiguration {}
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameModeUserConfiguration(::windows::runtime::IInspectable);
 impl GameModeUserConfiguration {
     #[cfg(feature = "Foundation_Collections")]
@@ -700,46 +620,6 @@ unsafe impl ::windows::runtime::Interface for GameModeUserConfiguration {
 }
 impl ::windows::runtime::RuntimeName for GameModeUserConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration";
-}
-impl ::std::convert::From<GameModeUserConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: GameModeUserConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameModeUserConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &GameModeUserConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameModeUserConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameModeUserConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameModeUserConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: GameModeUserConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameModeUserConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &GameModeUserConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameModeUserConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameModeUserConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GameModeUserConfiguration {}
 unsafe impl ::std::marker::Sync for GameModeUserConfiguration {}

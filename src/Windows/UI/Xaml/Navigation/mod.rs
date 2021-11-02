@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Xaml_Navigation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FrameNavigationOptions(::windows::runtime::IInspectable);
 impl FrameNavigationOptions {
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
@@ -53,46 +53,6 @@ unsafe impl ::windows::runtime::Interface for FrameNavigationOptions {
 }
 impl ::windows::runtime::RuntimeName for FrameNavigationOptions {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.FrameNavigationOptions";
-}
-impl ::std::convert::From<FrameNavigationOptions> for ::windows::runtime::IUnknown {
-    fn from(value: FrameNavigationOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FrameNavigationOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &FrameNavigationOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FrameNavigationOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FrameNavigationOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FrameNavigationOptions> for ::windows::runtime::IInspectable {
-    fn from(value: FrameNavigationOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FrameNavigationOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &FrameNavigationOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FrameNavigationOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FrameNavigationOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for FrameNavigationOptions {}
 unsafe impl ::std::marker::Sync for FrameNavigationOptions {}
@@ -471,7 +431,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 }
 #[doc = "*Required features: `UI_Xaml_Navigation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NavigatingCancelEventArgs(::windows::runtime::IInspectable);
 impl NavigatingCancelEventArgs {
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
@@ -531,46 +491,6 @@ unsafe impl ::windows::runtime::Interface for NavigatingCancelEventArgs {
 }
 impl ::windows::runtime::RuntimeName for NavigatingCancelEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs";
-}
-impl ::std::convert::From<NavigatingCancelEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: NavigatingCancelEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NavigatingCancelEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &NavigatingCancelEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NavigatingCancelEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NavigatingCancelEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NavigatingCancelEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: NavigatingCancelEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NavigatingCancelEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &NavigatingCancelEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NavigatingCancelEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NavigatingCancelEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for NavigatingCancelEventArgs {}
 unsafe impl ::std::marker::Sync for NavigatingCancelEventArgs {}
@@ -674,7 +594,7 @@ unsafe impl ::windows::runtime::RuntimeType for NavigationCacheMode {
 }
 #[doc = "*Required features: `UI_Xaml_Navigation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NavigationEventArgs(::windows::runtime::IInspectable);
 impl NavigationEventArgs {
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
@@ -745,51 +665,11 @@ unsafe impl ::windows::runtime::Interface for NavigationEventArgs {
 impl ::windows::runtime::RuntimeName for NavigationEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigationEventArgs";
 }
-impl ::std::convert::From<NavigationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: NavigationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NavigationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &NavigationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NavigationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NavigationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NavigationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: NavigationEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NavigationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &NavigationEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NavigationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NavigationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for NavigationEventArgs {}
 unsafe impl ::std::marker::Sync for NavigationEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Navigation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NavigationFailedEventArgs(::windows::runtime::IInspectable);
 impl NavigationFailedEventArgs {
     #[doc = "*Required features: `UI_Xaml_Navigation`*"]
@@ -832,46 +712,6 @@ unsafe impl ::windows::runtime::Interface for NavigationFailedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for NavigationFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigationFailedEventArgs";
-}
-impl ::std::convert::From<NavigationFailedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: NavigationFailedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NavigationFailedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &NavigationFailedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NavigationFailedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NavigationFailedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NavigationFailedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: NavigationFailedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NavigationFailedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &NavigationFailedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NavigationFailedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NavigationFailedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for NavigationFailedEventArgs {}
 unsafe impl ::std::marker::Sync for NavigationFailedEventArgs {}
@@ -1053,7 +893,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 }
 #[doc = "*Required features: `UI_Xaml_Navigation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PageStackEntry(::windows::runtime::IInspectable);
 impl PageStackEntry {
     #[cfg(feature = "UI_Xaml_Interop")]
@@ -1171,46 +1011,6 @@ unsafe impl ::windows::runtime::Interface for PageStackEntry {
 }
 impl ::windows::runtime::RuntimeName for PageStackEntry {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.PageStackEntry";
-}
-impl ::std::convert::From<PageStackEntry> for ::windows::runtime::IUnknown {
-    fn from(value: PageStackEntry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PageStackEntry> for ::windows::runtime::IUnknown {
-    fn from(value: &PageStackEntry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PageStackEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PageStackEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PageStackEntry> for ::windows::runtime::IInspectable {
-    fn from(value: PageStackEntry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PageStackEntry> for ::windows::runtime::IInspectable {
-    fn from(value: &PageStackEntry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PageStackEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PageStackEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<PageStackEntry> for super::DependencyObject {
     fn from(value: PageStackEntry) -> Self {

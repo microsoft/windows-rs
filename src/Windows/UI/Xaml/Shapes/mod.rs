@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Ellipse(::windows::runtime::IInspectable);
 impl Ellipse {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2349,46 +2349,6 @@ unsafe impl ::windows::runtime::Interface for Ellipse {
 impl ::windows::runtime::RuntimeName for Ellipse {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Ellipse";
 }
-impl ::std::convert::From<Ellipse> for ::windows::runtime::IUnknown {
-    fn from(value: Ellipse) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Ellipse> for ::windows::runtime::IUnknown {
-    fn from(value: &Ellipse) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Ellipse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Ellipse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Ellipse> for ::windows::runtime::IInspectable {
-    fn from(value: Ellipse) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Ellipse> for ::windows::runtime::IInspectable {
-    fn from(value: &Ellipse) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Ellipse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Ellipse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "UI_Composition")]
 impl ::std::convert::TryFrom<Ellipse> for super::super::Composition::IAnimationObject {
     type Error = ::windows::runtime::Error;
@@ -2911,7 +2871,7 @@ pub struct IShapeStatics_abi(
 );
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Line(::windows::runtime::IInspectable);
 impl Line {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5343,46 +5303,6 @@ unsafe impl ::windows::runtime::Interface for Line {
 impl ::windows::runtime::RuntimeName for Line {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Line";
 }
-impl ::std::convert::From<Line> for ::windows::runtime::IUnknown {
-    fn from(value: Line) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Line> for ::windows::runtime::IUnknown {
-    fn from(value: &Line) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Line {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Line {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Line> for ::windows::runtime::IInspectable {
-    fn from(value: Line) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Line> for ::windows::runtime::IInspectable {
-    fn from(value: &Line) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Line {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Line {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "UI_Composition")]
 impl ::std::convert::TryFrom<Line> for super::super::Composition::IAnimationObject {
     type Error = ::windows::runtime::Error;
@@ -5519,7 +5439,7 @@ unsafe impl ::std::marker::Send for Line {}
 unsafe impl ::std::marker::Sync for Line {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Path(::windows::runtime::IInspectable);
 impl Path {
     #[cfg(feature = "UI_Xaml_Media")]
@@ -7897,46 +7817,6 @@ unsafe impl ::windows::runtime::Interface for Path {
 impl ::windows::runtime::RuntimeName for Path {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Path";
 }
-impl ::std::convert::From<Path> for ::windows::runtime::IUnknown {
-    fn from(value: Path) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Path> for ::windows::runtime::IUnknown {
-    fn from(value: &Path) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Path {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Path {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Path> for ::windows::runtime::IInspectable {
-    fn from(value: Path) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Path> for ::windows::runtime::IInspectable {
-    fn from(value: &Path) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Path {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Path {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "UI_Composition")]
 impl ::std::convert::TryFrom<Path> for super::super::Composition::IAnimationObject {
     type Error = ::windows::runtime::Error;
@@ -8073,7 +7953,7 @@ unsafe impl ::std::marker::Send for Path {}
 unsafe impl ::std::marker::Sync for Path {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Polygon(::windows::runtime::IInspectable);
 impl Polygon {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -10469,46 +10349,6 @@ unsafe impl ::windows::runtime::Interface for Polygon {
 impl ::windows::runtime::RuntimeName for Polygon {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Polygon";
 }
-impl ::std::convert::From<Polygon> for ::windows::runtime::IUnknown {
-    fn from(value: Polygon) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Polygon> for ::windows::runtime::IUnknown {
-    fn from(value: &Polygon) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Polygon {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Polygon {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Polygon> for ::windows::runtime::IInspectable {
-    fn from(value: Polygon) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Polygon> for ::windows::runtime::IInspectable {
-    fn from(value: &Polygon) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Polygon {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Polygon {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "UI_Composition")]
 impl ::std::convert::TryFrom<Polygon> for super::super::Composition::IAnimationObject {
     type Error = ::windows::runtime::Error;
@@ -10645,7 +10485,7 @@ unsafe impl ::std::marker::Send for Polygon {}
 unsafe impl ::std::marker::Sync for Polygon {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Polyline(::windows::runtime::IInspectable);
 impl Polyline {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -13041,46 +12881,6 @@ unsafe impl ::windows::runtime::Interface for Polyline {
 impl ::windows::runtime::RuntimeName for Polyline {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Polyline";
 }
-impl ::std::convert::From<Polyline> for ::windows::runtime::IUnknown {
-    fn from(value: Polyline) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Polyline> for ::windows::runtime::IUnknown {
-    fn from(value: &Polyline) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Polyline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Polyline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Polyline> for ::windows::runtime::IInspectable {
-    fn from(value: Polyline) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Polyline> for ::windows::runtime::IInspectable {
-    fn from(value: &Polyline) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Polyline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Polyline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "UI_Composition")]
 impl ::std::convert::TryFrom<Polyline> for super::super::Composition::IAnimationObject {
     type Error = ::windows::runtime::Error;
@@ -13217,7 +13017,7 @@ unsafe impl ::std::marker::Send for Polyline {}
 unsafe impl ::std::marker::Sync for Polyline {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Rectangle(::windows::runtime::IInspectable);
 impl Rectangle {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -15609,46 +15409,6 @@ unsafe impl ::windows::runtime::Interface for Rectangle {
 impl ::windows::runtime::RuntimeName for Rectangle {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Rectangle";
 }
-impl ::std::convert::From<Rectangle> for ::windows::runtime::IUnknown {
-    fn from(value: Rectangle) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Rectangle> for ::windows::runtime::IUnknown {
-    fn from(value: &Rectangle) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Rectangle {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Rectangle {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Rectangle> for ::windows::runtime::IInspectable {
-    fn from(value: Rectangle) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Rectangle> for ::windows::runtime::IInspectable {
-    fn from(value: &Rectangle) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Rectangle {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Rectangle {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "UI_Composition")]
 impl ::std::convert::TryFrom<Rectangle> for super::super::Composition::IAnimationObject {
     type Error = ::windows::runtime::Error;
@@ -15785,7 +15545,7 @@ unsafe impl ::std::marker::Send for Rectangle {}
 unsafe impl ::std::marker::Sync for Rectangle {}
 #[doc = "*Required features: `UI_Xaml_Shapes`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Shape(::windows::runtime::IInspectable);
 impl Shape {
     #[cfg(feature = "UI_Xaml_Media")]
@@ -18206,46 +17966,6 @@ unsafe impl ::windows::runtime::Interface for Shape {
 }
 impl ::windows::runtime::RuntimeName for Shape {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Shape";
-}
-impl ::std::convert::From<Shape> for ::windows::runtime::IUnknown {
-    fn from(value: Shape) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Shape> for ::windows::runtime::IUnknown {
-    fn from(value: &Shape) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Shape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Shape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Shape> for ::windows::runtime::IInspectable {
-    fn from(value: Shape) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Shape> for ::windows::runtime::IInspectable {
-    fn from(value: &Shape) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Shape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Shape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "UI_Composition")]
 impl ::std::convert::TryFrom<Shape> for super::super::Composition::IAnimationObject {

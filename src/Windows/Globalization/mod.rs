@@ -61,7 +61,7 @@ impl ::windows::runtime::RuntimeName for ApplicationLanguages {
 }
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Calendar(::windows::runtime::IInspectable);
 impl Calendar {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -850,46 +850,6 @@ unsafe impl ::windows::runtime::Interface for Calendar {
 impl ::windows::runtime::RuntimeName for Calendar {
     const NAME: &'static str = "Windows.Globalization.Calendar";
 }
-impl ::std::convert::From<Calendar> for ::windows::runtime::IUnknown {
-    fn from(value: Calendar) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Calendar> for ::windows::runtime::IUnknown {
-    fn from(value: &Calendar) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Calendar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Calendar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Calendar> for ::windows::runtime::IInspectable {
-    fn from(value: Calendar) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Calendar> for ::windows::runtime::IInspectable {
-    fn from(value: &Calendar) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Calendar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Calendar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Calendar {}
 unsafe impl ::std::marker::Sync for Calendar {}
 #[doc = "*Required features: `Globalization`*"]
@@ -1043,7 +1003,7 @@ impl ::windows::runtime::RuntimeName for ClockIdentifiers {
 }
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CurrencyAmount(::windows::runtime::IInspectable);
 impl CurrencyAmount {
     #[doc = "*Required features: `Globalization`*"]
@@ -1083,46 +1043,6 @@ unsafe impl ::windows::runtime::Interface for CurrencyAmount {
 }
 impl ::windows::runtime::RuntimeName for CurrencyAmount {
     const NAME: &'static str = "Windows.Globalization.CurrencyAmount";
-}
-impl ::std::convert::From<CurrencyAmount> for ::windows::runtime::IUnknown {
-    fn from(value: CurrencyAmount) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CurrencyAmount> for ::windows::runtime::IUnknown {
-    fn from(value: &CurrencyAmount) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CurrencyAmount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CurrencyAmount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CurrencyAmount> for ::windows::runtime::IInspectable {
-    fn from(value: CurrencyAmount) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CurrencyAmount> for ::windows::runtime::IInspectable {
-    fn from(value: &CurrencyAmount) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CurrencyAmount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CurrencyAmount {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CurrencyAmount {}
 unsafe impl ::std::marker::Sync for CurrencyAmount {}
@@ -2306,7 +2226,7 @@ unsafe impl ::windows::runtime::RuntimeType for DayOfWeek {
 }
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GeographicRegion(::windows::runtime::IInspectable);
 impl GeographicRegion {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2405,46 +2325,6 @@ unsafe impl ::windows::runtime::Interface for GeographicRegion {
 }
 impl ::windows::runtime::RuntimeName for GeographicRegion {
     const NAME: &'static str = "Windows.Globalization.GeographicRegion";
-}
-impl ::std::convert::From<GeographicRegion> for ::windows::runtime::IUnknown {
-    fn from(value: GeographicRegion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GeographicRegion> for ::windows::runtime::IUnknown {
-    fn from(value: &GeographicRegion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GeographicRegion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GeographicRegion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GeographicRegion> for ::windows::runtime::IInspectable {
-    fn from(value: GeographicRegion) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GeographicRegion> for ::windows::runtime::IInspectable {
-    fn from(value: &GeographicRegion) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GeographicRegion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GeographicRegion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GeographicRegion {}
 unsafe impl ::std::marker::Sync for GeographicRegion {}
@@ -3374,7 +3254,7 @@ pub struct ITimeZoneOnCalendar_abi(
 );
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct JapanesePhoneme(::windows::runtime::IInspectable);
 impl JapanesePhoneme {
     #[doc = "*Required features: `Globalization`*"]
@@ -3412,46 +3292,6 @@ unsafe impl ::windows::runtime::Interface for JapanesePhoneme {
 impl ::windows::runtime::RuntimeName for JapanesePhoneme {
     const NAME: &'static str = "Windows.Globalization.JapanesePhoneme";
 }
-impl ::std::convert::From<JapanesePhoneme> for ::windows::runtime::IUnknown {
-    fn from(value: JapanesePhoneme) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&JapanesePhoneme> for ::windows::runtime::IUnknown {
-    fn from(value: &JapanesePhoneme) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for JapanesePhoneme {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &JapanesePhoneme {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<JapanesePhoneme> for ::windows::runtime::IInspectable {
-    fn from(value: JapanesePhoneme) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&JapanesePhoneme> for ::windows::runtime::IInspectable {
-    fn from(value: &JapanesePhoneme) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for JapanesePhoneme {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a JapanesePhoneme {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `Globalization`*"]
 pub struct JapanesePhoneticAnalyzer {}
 impl JapanesePhoneticAnalyzer {
@@ -3481,7 +3321,7 @@ impl ::windows::runtime::RuntimeName for JapanesePhoneticAnalyzer {
 }
 #[doc = "*Required features: `Globalization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Language(::windows::runtime::IInspectable);
 impl Language {
     #[doc = "*Required features: `Globalization`*"]
@@ -3603,46 +3443,6 @@ unsafe impl ::windows::runtime::Interface for Language {
 }
 impl ::windows::runtime::RuntimeName for Language {
     const NAME: &'static str = "Windows.Globalization.Language";
-}
-impl ::std::convert::From<Language> for ::windows::runtime::IUnknown {
-    fn from(value: Language) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Language> for ::windows::runtime::IUnknown {
-    fn from(value: &Language) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Language {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Language {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Language> for ::windows::runtime::IInspectable {
-    fn from(value: Language) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Language> for ::windows::runtime::IInspectable {
-    fn from(value: &Language) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Language {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Language {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for Language {}
 unsafe impl ::std::marker::Sync for Language {}

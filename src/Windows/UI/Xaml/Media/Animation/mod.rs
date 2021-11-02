@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AddDeleteThemeTransition(::windows::runtime::IInspectable);
 impl AddDeleteThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -78,46 +78,6 @@ unsafe impl ::windows::runtime::Interface for AddDeleteThemeTransition {
 impl ::windows::runtime::RuntimeName for AddDeleteThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition";
 }
-impl ::std::convert::From<AddDeleteThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: AddDeleteThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AddDeleteThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &AddDeleteThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AddDeleteThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AddDeleteThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AddDeleteThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: AddDeleteThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AddDeleteThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &AddDeleteThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AddDeleteThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AddDeleteThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<AddDeleteThemeTransition> for Transition {
     fn from(value: AddDeleteThemeTransition) -> Self {
         ::std::convert::Into::<Transition>::into(&value)
@@ -162,7 +122,7 @@ unsafe impl ::std::marker::Send for AddDeleteThemeTransition {}
 unsafe impl ::std::marker::Sync for AddDeleteThemeTransition {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackEase(::windows::runtime::IInspectable);
 impl BackEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -284,46 +244,6 @@ unsafe impl ::windows::runtime::Interface for BackEase {
 impl ::windows::runtime::RuntimeName for BackEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BackEase";
 }
-impl ::std::convert::From<BackEase> for ::windows::runtime::IUnknown {
-    fn from(value: BackEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackEase> for ::windows::runtime::IUnknown {
-    fn from(value: &BackEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackEase> for ::windows::runtime::IInspectable {
-    fn from(value: BackEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackEase> for ::windows::runtime::IInspectable {
-    fn from(value: &BackEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<BackEase> for EasingFunctionBase {
     fn from(value: BackEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -368,7 +288,7 @@ unsafe impl ::std::marker::Send for BackEase {}
 unsafe impl ::std::marker::Sync for BackEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BasicConnectedAnimationConfiguration(::windows::runtime::IInspectable);
 impl BasicConnectedAnimationConfiguration {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -392,46 +312,6 @@ unsafe impl ::windows::runtime::Interface for BasicConnectedAnimationConfigurati
 }
 impl ::windows::runtime::RuntimeName for BasicConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration";
-}
-impl ::std::convert::From<BasicConnectedAnimationConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: BasicConnectedAnimationConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BasicConnectedAnimationConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &BasicConnectedAnimationConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BasicConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BasicConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BasicConnectedAnimationConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: BasicConnectedAnimationConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BasicConnectedAnimationConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &BasicConnectedAnimationConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BasicConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BasicConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<BasicConnectedAnimationConfiguration> for ConnectedAnimationConfiguration {
     fn from(value: BasicConnectedAnimationConfiguration) -> Self {
@@ -457,7 +337,7 @@ unsafe impl ::std::marker::Send for BasicConnectedAnimationConfiguration {}
 unsafe impl ::std::marker::Sync for BasicConnectedAnimationConfiguration {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BeginStoryboard(::windows::runtime::IInspectable);
 impl BeginStoryboard {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -558,46 +438,6 @@ unsafe impl ::windows::runtime::Interface for BeginStoryboard {
 impl ::windows::runtime::RuntimeName for BeginStoryboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BeginStoryboard";
 }
-impl ::std::convert::From<BeginStoryboard> for ::windows::runtime::IUnknown {
-    fn from(value: BeginStoryboard) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BeginStoryboard> for ::windows::runtime::IUnknown {
-    fn from(value: &BeginStoryboard) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BeginStoryboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BeginStoryboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BeginStoryboard> for ::windows::runtime::IInspectable {
-    fn from(value: BeginStoryboard) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BeginStoryboard> for ::windows::runtime::IInspectable {
-    fn from(value: &BeginStoryboard) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BeginStoryboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BeginStoryboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<BeginStoryboard> for super::super::TriggerAction {
     fn from(value: BeginStoryboard) -> Self {
         ::std::convert::Into::<super::super::TriggerAction>::into(&value)
@@ -642,7 +482,7 @@ unsafe impl ::std::marker::Send for BeginStoryboard {}
 unsafe impl ::std::marker::Sync for BeginStoryboard {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BounceEase(::windows::runtime::IInspectable);
 impl BounceEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -784,46 +624,6 @@ unsafe impl ::windows::runtime::Interface for BounceEase {
 impl ::windows::runtime::RuntimeName for BounceEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BounceEase";
 }
-impl ::std::convert::From<BounceEase> for ::windows::runtime::IUnknown {
-    fn from(value: BounceEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BounceEase> for ::windows::runtime::IUnknown {
-    fn from(value: &BounceEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BounceEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BounceEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BounceEase> for ::windows::runtime::IInspectable {
-    fn from(value: BounceEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BounceEase> for ::windows::runtime::IInspectable {
-    fn from(value: &BounceEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BounceEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BounceEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<BounceEase> for EasingFunctionBase {
     fn from(value: BounceEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -868,7 +668,7 @@ unsafe impl ::std::marker::Send for BounceEase {}
 unsafe impl ::std::marker::Sync for BounceEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CircleEase(::windows::runtime::IInspectable);
 impl CircleEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -966,46 +766,6 @@ unsafe impl ::windows::runtime::Interface for CircleEase {
 impl ::windows::runtime::RuntimeName for CircleEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CircleEase";
 }
-impl ::std::convert::From<CircleEase> for ::windows::runtime::IUnknown {
-    fn from(value: CircleEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CircleEase> for ::windows::runtime::IUnknown {
-    fn from(value: &CircleEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CircleEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CircleEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CircleEase> for ::windows::runtime::IInspectable {
-    fn from(value: CircleEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CircleEase> for ::windows::runtime::IInspectable {
-    fn from(value: &CircleEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CircleEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CircleEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<CircleEase> for EasingFunctionBase {
     fn from(value: CircleEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -1071,7 +831,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClockState {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ColorAnimation(::windows::runtime::IInspectable);
 impl ColorAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1357,46 +1117,6 @@ unsafe impl ::windows::runtime::Interface for ColorAnimation {
 impl ::windows::runtime::RuntimeName for ColorAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorAnimation";
 }
-impl ::std::convert::From<ColorAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: ColorAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ColorAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &ColorAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ColorAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ColorAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ColorAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: ColorAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ColorAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &ColorAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ColorAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ColorAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ColorAnimation> for Timeline {
     fn from(value: ColorAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -1441,7 +1161,7 @@ unsafe impl ::std::marker::Send for ColorAnimation {}
 unsafe impl ::std::marker::Sync for ColorAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ColorAnimationUsingKeyFrames(::windows::runtime::IInspectable);
 impl ColorAnimationUsingKeyFrames {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1650,46 +1370,6 @@ unsafe impl ::windows::runtime::Interface for ColorAnimationUsingKeyFrames {
 impl ::windows::runtime::RuntimeName for ColorAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames";
 }
-impl ::std::convert::From<ColorAnimationUsingKeyFrames> for ::windows::runtime::IUnknown {
-    fn from(value: ColorAnimationUsingKeyFrames) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ColorAnimationUsingKeyFrames> for ::windows::runtime::IUnknown {
-    fn from(value: &ColorAnimationUsingKeyFrames) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ColorAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ColorAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ColorAnimationUsingKeyFrames> for ::windows::runtime::IInspectable {
-    fn from(value: ColorAnimationUsingKeyFrames) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ColorAnimationUsingKeyFrames> for ::windows::runtime::IInspectable {
-    fn from(value: &ColorAnimationUsingKeyFrames) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ColorAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ColorAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ColorAnimationUsingKeyFrames> for Timeline {
     fn from(value: ColorAnimationUsingKeyFrames) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -1734,7 +1414,7 @@ unsafe impl ::std::marker::Send for ColorAnimationUsingKeyFrames {}
 unsafe impl ::std::marker::Sync for ColorAnimationUsingKeyFrames {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ColorKeyFrame(::windows::runtime::IInspectable);
 impl ColorKeyFrame {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -1850,46 +1530,6 @@ unsafe impl ::windows::runtime::Interface for ColorKeyFrame {
 impl ::windows::runtime::RuntimeName for ColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorKeyFrame";
 }
-impl ::std::convert::From<ColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: ColorKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &ColorKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: ColorKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &ColorKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ColorKeyFrame> for super::super::DependencyObject {
     fn from(value: ColorKeyFrame) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -1915,7 +1555,7 @@ unsafe impl ::std::marker::Sync for ColorKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ColorKeyFrameCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ColorKeyFrameCollection {
@@ -2037,54 +1677,6 @@ impl ::windows::runtime::RuntimeName for ColorKeyFrameCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<ColorKeyFrameCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ColorKeyFrameCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&ColorKeyFrameCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ColorKeyFrameCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ColorKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ColorKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<ColorKeyFrameCollection> for ::windows::runtime::IInspectable {
-    fn from(value: ColorKeyFrameCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&ColorKeyFrameCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &ColorKeyFrameCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ColorKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ColorKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ColorKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame> {
     fn from(value: ColorKeyFrameCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2156,7 +1748,7 @@ impl ::std::iter::IntoIterator for &ColorKeyFrameCollection {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CommonNavigationTransitionInfo(::windows::runtime::IInspectable);
 impl CommonNavigationTransitionInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2288,46 +1880,6 @@ unsafe impl ::windows::runtime::Interface for CommonNavigationTransitionInfo {
 impl ::windows::runtime::RuntimeName for CommonNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo";
 }
-impl ::std::convert::From<CommonNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: CommonNavigationTransitionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CommonNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &CommonNavigationTransitionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CommonNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CommonNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CommonNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: CommonNavigationTransitionInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CommonNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &CommonNavigationTransitionInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CommonNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CommonNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<CommonNavigationTransitionInfo> for NavigationTransitionInfo {
     fn from(value: CommonNavigationTransitionInfo) -> Self {
         ::std::convert::Into::<NavigationTransitionInfo>::into(&value)
@@ -2372,7 +1924,7 @@ unsafe impl ::std::marker::Send for CommonNavigationTransitionInfo {}
 unsafe impl ::std::marker::Sync for CommonNavigationTransitionInfo {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConnectedAnimation(::windows::runtime::IInspectable);
 impl ConnectedAnimation {
     #[cfg(feature = "Foundation")]
@@ -2455,46 +2007,6 @@ unsafe impl ::windows::runtime::Interface for ConnectedAnimation {
 impl ::windows::runtime::RuntimeName for ConnectedAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimation";
 }
-impl ::std::convert::From<ConnectedAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: ConnectedAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConnectedAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &ConnectedAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectedAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConnectedAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConnectedAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: ConnectedAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConnectedAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &ConnectedAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectedAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectedAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ConnectedAnimation {}
 unsafe impl ::std::marker::Sync for ConnectedAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -2521,7 +2033,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConnectedAnimationComponent {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConnectedAnimationConfiguration(::windows::runtime::IInspectable);
 impl ConnectedAnimationConfiguration {}
 unsafe impl ::windows::runtime::RuntimeType for ConnectedAnimationConfiguration {
@@ -2534,51 +2046,11 @@ unsafe impl ::windows::runtime::Interface for ConnectedAnimationConfiguration {
 impl ::windows::runtime::RuntimeName for ConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration";
 }
-impl ::std::convert::From<ConnectedAnimationConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: ConnectedAnimationConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConnectedAnimationConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &ConnectedAnimationConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConnectedAnimationConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: ConnectedAnimationConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConnectedAnimationConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &ConnectedAnimationConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ConnectedAnimationConfiguration {}
 unsafe impl ::std::marker::Sync for ConnectedAnimationConfiguration {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConnectedAnimationService(::windows::runtime::IInspectable);
 impl ConnectedAnimationService {
     #[cfg(feature = "Foundation")]
@@ -2649,51 +2121,11 @@ unsafe impl ::windows::runtime::Interface for ConnectedAnimationService {
 impl ::windows::runtime::RuntimeName for ConnectedAnimationService {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimationService";
 }
-impl ::std::convert::From<ConnectedAnimationService> for ::windows::runtime::IUnknown {
-    fn from(value: ConnectedAnimationService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConnectedAnimationService> for ::windows::runtime::IUnknown {
-    fn from(value: &ConnectedAnimationService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectedAnimationService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConnectedAnimationService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConnectedAnimationService> for ::windows::runtime::IInspectable {
-    fn from(value: ConnectedAnimationService) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConnectedAnimationService> for ::windows::runtime::IInspectable {
-    fn from(value: &ConnectedAnimationService) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectedAnimationService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectedAnimationService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ConnectedAnimationService {}
 unsafe impl ::std::marker::Sync for ConnectedAnimationService {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContentThemeTransition(::windows::runtime::IInspectable);
 impl ContentThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2814,46 +2246,6 @@ unsafe impl ::windows::runtime::Interface for ContentThemeTransition {
 impl ::windows::runtime::RuntimeName for ContentThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ContentThemeTransition";
 }
-impl ::std::convert::From<ContentThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: ContentThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContentThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &ContentThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContentThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: ContentThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContentThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &ContentThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContentThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContentThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContentThemeTransition> for Transition {
     fn from(value: ContentThemeTransition) -> Self {
         ::std::convert::Into::<Transition>::into(&value)
@@ -2898,7 +2290,7 @@ unsafe impl ::std::marker::Send for ContentThemeTransition {}
 unsafe impl ::std::marker::Sync for ContentThemeTransition {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContinuumNavigationTransitionInfo(::windows::runtime::IInspectable);
 impl ContinuumNavigationTransitionInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3068,46 +2460,6 @@ unsafe impl ::windows::runtime::Interface for ContinuumNavigationTransitionInfo 
 impl ::windows::runtime::RuntimeName for ContinuumNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo";
 }
-impl ::std::convert::From<ContinuumNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ContinuumNavigationTransitionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContinuumNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ContinuumNavigationTransitionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContinuumNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContinuumNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContinuumNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: ContinuumNavigationTransitionInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContinuumNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &ContinuumNavigationTransitionInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContinuumNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContinuumNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContinuumNavigationTransitionInfo> for NavigationTransitionInfo {
     fn from(value: ContinuumNavigationTransitionInfo) -> Self {
         ::std::convert::Into::<NavigationTransitionInfo>::into(&value)
@@ -3152,7 +2504,7 @@ unsafe impl ::std::marker::Send for ContinuumNavigationTransitionInfo {}
 unsafe impl ::std::marker::Sync for ContinuumNavigationTransitionInfo {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CubicEase(::windows::runtime::IInspectable);
 impl CubicEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3250,46 +2602,6 @@ unsafe impl ::windows::runtime::Interface for CubicEase {
 impl ::windows::runtime::RuntimeName for CubicEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CubicEase";
 }
-impl ::std::convert::From<CubicEase> for ::windows::runtime::IUnknown {
-    fn from(value: CubicEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CubicEase> for ::windows::runtime::IUnknown {
-    fn from(value: &CubicEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CubicEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CubicEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CubicEase> for ::windows::runtime::IInspectable {
-    fn from(value: CubicEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CubicEase> for ::windows::runtime::IInspectable {
-    fn from(value: &CubicEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CubicEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CubicEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<CubicEase> for EasingFunctionBase {
     fn from(value: CubicEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -3334,7 +2646,7 @@ unsafe impl ::std::marker::Send for CubicEase {}
 unsafe impl ::std::marker::Sync for CubicEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DirectConnectedAnimationConfiguration(::windows::runtime::IInspectable);
 impl DirectConnectedAnimationConfiguration {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -3358,46 +2670,6 @@ unsafe impl ::windows::runtime::Interface for DirectConnectedAnimationConfigurat
 }
 impl ::windows::runtime::RuntimeName for DirectConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration";
-}
-impl ::std::convert::From<DirectConnectedAnimationConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: DirectConnectedAnimationConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DirectConnectedAnimationConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &DirectConnectedAnimationConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DirectConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DirectConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DirectConnectedAnimationConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: DirectConnectedAnimationConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DirectConnectedAnimationConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &DirectConnectedAnimationConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DirectConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DirectConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<DirectConnectedAnimationConfiguration> for ConnectedAnimationConfiguration {
     fn from(value: DirectConnectedAnimationConfiguration) -> Self {
@@ -3423,7 +2695,7 @@ unsafe impl ::std::marker::Send for DirectConnectedAnimationConfiguration {}
 unsafe impl ::std::marker::Sync for DirectConnectedAnimationConfiguration {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DiscreteColorKeyFrame(::windows::runtime::IInspectable);
 impl DiscreteColorKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3528,46 +2800,6 @@ unsafe impl ::windows::runtime::Interface for DiscreteColorKeyFrame {
 impl ::windows::runtime::RuntimeName for DiscreteColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame";
 }
-impl ::std::convert::From<DiscreteColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: DiscreteColorKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DiscreteColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &DiscreteColorKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DiscreteColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DiscreteColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DiscreteColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: DiscreteColorKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DiscreteColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &DiscreteColorKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DiscreteColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DiscreteColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DiscreteColorKeyFrame> for ColorKeyFrame {
     fn from(value: DiscreteColorKeyFrame) -> Self {
         ::std::convert::Into::<ColorKeyFrame>::into(&value)
@@ -3612,7 +2844,7 @@ unsafe impl ::std::marker::Send for DiscreteColorKeyFrame {}
 unsafe impl ::std::marker::Sync for DiscreteColorKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DiscreteDoubleKeyFrame(::windows::runtime::IInspectable);
 impl DiscreteDoubleKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3717,46 +2949,6 @@ unsafe impl ::windows::runtime::Interface for DiscreteDoubleKeyFrame {
 impl ::windows::runtime::RuntimeName for DiscreteDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame";
 }
-impl ::std::convert::From<DiscreteDoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: DiscreteDoubleKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DiscreteDoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &DiscreteDoubleKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DiscreteDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DiscreteDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DiscreteDoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: DiscreteDoubleKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DiscreteDoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &DiscreteDoubleKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DiscreteDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DiscreteDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DiscreteDoubleKeyFrame> for DoubleKeyFrame {
     fn from(value: DiscreteDoubleKeyFrame) -> Self {
         ::std::convert::Into::<DoubleKeyFrame>::into(&value)
@@ -3801,7 +2993,7 @@ unsafe impl ::std::marker::Send for DiscreteDoubleKeyFrame {}
 unsafe impl ::std::marker::Sync for DiscreteDoubleKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DiscreteObjectKeyFrame(::windows::runtime::IInspectable);
 impl DiscreteObjectKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3906,46 +3098,6 @@ unsafe impl ::windows::runtime::Interface for DiscreteObjectKeyFrame {
 impl ::windows::runtime::RuntimeName for DiscreteObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame";
 }
-impl ::std::convert::From<DiscreteObjectKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: DiscreteObjectKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DiscreteObjectKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &DiscreteObjectKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DiscreteObjectKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DiscreteObjectKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DiscreteObjectKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: DiscreteObjectKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DiscreteObjectKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &DiscreteObjectKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DiscreteObjectKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DiscreteObjectKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DiscreteObjectKeyFrame> for ObjectKeyFrame {
     fn from(value: DiscreteObjectKeyFrame) -> Self {
         ::std::convert::Into::<ObjectKeyFrame>::into(&value)
@@ -3990,7 +3142,7 @@ unsafe impl ::std::marker::Send for DiscreteObjectKeyFrame {}
 unsafe impl ::std::marker::Sync for DiscreteObjectKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DiscretePointKeyFrame(::windows::runtime::IInspectable);
 impl DiscretePointKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4097,46 +3249,6 @@ unsafe impl ::windows::runtime::Interface for DiscretePointKeyFrame {
 impl ::windows::runtime::RuntimeName for DiscretePointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame";
 }
-impl ::std::convert::From<DiscretePointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: DiscretePointKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DiscretePointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &DiscretePointKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DiscretePointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DiscretePointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DiscretePointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: DiscretePointKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DiscretePointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &DiscretePointKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DiscretePointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DiscretePointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DiscretePointKeyFrame> for PointKeyFrame {
     fn from(value: DiscretePointKeyFrame) -> Self {
         ::std::convert::Into::<PointKeyFrame>::into(&value)
@@ -4181,7 +3293,7 @@ unsafe impl ::std::marker::Send for DiscretePointKeyFrame {}
 unsafe impl ::std::marker::Sync for DiscretePointKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DoubleAnimation(::windows::runtime::IInspectable);
 impl DoubleAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4467,46 +3579,6 @@ unsafe impl ::windows::runtime::Interface for DoubleAnimation {
 impl ::windows::runtime::RuntimeName for DoubleAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleAnimation";
 }
-impl ::std::convert::From<DoubleAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: DoubleAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DoubleAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &DoubleAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DoubleAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DoubleAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DoubleAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: DoubleAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DoubleAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &DoubleAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DoubleAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DoubleAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DoubleAnimation> for Timeline {
     fn from(value: DoubleAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -4551,7 +3623,7 @@ unsafe impl ::std::marker::Send for DoubleAnimation {}
 unsafe impl ::std::marker::Sync for DoubleAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DoubleAnimationUsingKeyFrames(::windows::runtime::IInspectable);
 impl DoubleAnimationUsingKeyFrames {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4760,46 +3832,6 @@ unsafe impl ::windows::runtime::Interface for DoubleAnimationUsingKeyFrames {
 impl ::windows::runtime::RuntimeName for DoubleAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames";
 }
-impl ::std::convert::From<DoubleAnimationUsingKeyFrames> for ::windows::runtime::IUnknown {
-    fn from(value: DoubleAnimationUsingKeyFrames) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DoubleAnimationUsingKeyFrames> for ::windows::runtime::IUnknown {
-    fn from(value: &DoubleAnimationUsingKeyFrames) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DoubleAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DoubleAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DoubleAnimationUsingKeyFrames> for ::windows::runtime::IInspectable {
-    fn from(value: DoubleAnimationUsingKeyFrames) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DoubleAnimationUsingKeyFrames> for ::windows::runtime::IInspectable {
-    fn from(value: &DoubleAnimationUsingKeyFrames) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DoubleAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DoubleAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DoubleAnimationUsingKeyFrames> for Timeline {
     fn from(value: DoubleAnimationUsingKeyFrames) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -4844,7 +3876,7 @@ unsafe impl ::std::marker::Send for DoubleAnimationUsingKeyFrames {}
 unsafe impl ::std::marker::Sync for DoubleAnimationUsingKeyFrames {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DoubleKeyFrame(::windows::runtime::IInspectable);
 impl DoubleKeyFrame {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -4960,46 +3992,6 @@ unsafe impl ::windows::runtime::Interface for DoubleKeyFrame {
 impl ::windows::runtime::RuntimeName for DoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleKeyFrame";
 }
-impl ::std::convert::From<DoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: DoubleKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &DoubleKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: DoubleKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &DoubleKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DoubleKeyFrame> for super::super::DependencyObject {
     fn from(value: DoubleKeyFrame) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -5025,7 +4017,7 @@ unsafe impl ::std::marker::Sync for DoubleKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DoubleKeyFrameCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl DoubleKeyFrameCollection {
@@ -5147,54 +4139,6 @@ impl ::windows::runtime::RuntimeName for DoubleKeyFrameCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<DoubleKeyFrameCollection> for ::windows::runtime::IUnknown {
-    fn from(value: DoubleKeyFrameCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&DoubleKeyFrameCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &DoubleKeyFrameCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DoubleKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DoubleKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<DoubleKeyFrameCollection> for ::windows::runtime::IInspectable {
-    fn from(value: DoubleKeyFrameCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&DoubleKeyFrameCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &DoubleKeyFrameCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DoubleKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DoubleKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<DoubleKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame> {
     fn from(value: DoubleKeyFrameCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5266,7 +4210,7 @@ impl ::std::iter::IntoIterator for &DoubleKeyFrameCollection {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DragItemThemeAnimation(::windows::runtime::IInspectable);
 impl DragItemThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5466,46 +4410,6 @@ unsafe impl ::windows::runtime::Interface for DragItemThemeAnimation {
 impl ::windows::runtime::RuntimeName for DragItemThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation";
 }
-impl ::std::convert::From<DragItemThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: DragItemThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DragItemThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &DragItemThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DragItemThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DragItemThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DragItemThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: DragItemThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DragItemThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &DragItemThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DragItemThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DragItemThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DragItemThemeAnimation> for Timeline {
     fn from(value: DragItemThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -5550,7 +4454,7 @@ unsafe impl ::std::marker::Send for DragItemThemeAnimation {}
 unsafe impl ::std::marker::Sync for DragItemThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DragOverThemeAnimation(::windows::runtime::IInspectable);
 impl DragOverThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5792,46 +4696,6 @@ unsafe impl ::windows::runtime::Interface for DragOverThemeAnimation {
 impl ::windows::runtime::RuntimeName for DragOverThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation";
 }
-impl ::std::convert::From<DragOverThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: DragOverThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DragOverThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &DragOverThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DragOverThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DragOverThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DragOverThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: DragOverThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DragOverThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &DragOverThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DragOverThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DragOverThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DragOverThemeAnimation> for Timeline {
     fn from(value: DragOverThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -5876,7 +4740,7 @@ unsafe impl ::std::marker::Send for DragOverThemeAnimation {}
 unsafe impl ::std::marker::Sync for DragOverThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DrillInNavigationTransitionInfo(::windows::runtime::IInspectable);
 impl DrillInNavigationTransitionInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5966,46 +4830,6 @@ unsafe impl ::windows::runtime::Interface for DrillInNavigationTransitionInfo {
 impl ::windows::runtime::RuntimeName for DrillInNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo";
 }
-impl ::std::convert::From<DrillInNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: DrillInNavigationTransitionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DrillInNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &DrillInNavigationTransitionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DrillInNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DrillInNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DrillInNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: DrillInNavigationTransitionInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DrillInNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &DrillInNavigationTransitionInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DrillInNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DrillInNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DrillInNavigationTransitionInfo> for NavigationTransitionInfo {
     fn from(value: DrillInNavigationTransitionInfo) -> Self {
         ::std::convert::Into::<NavigationTransitionInfo>::into(&value)
@@ -6050,7 +4874,7 @@ unsafe impl ::std::marker::Send for DrillInNavigationTransitionInfo {}
 unsafe impl ::std::marker::Sync for DrillInNavigationTransitionInfo {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DrillInThemeAnimation(::windows::runtime::IInspectable);
 impl DrillInThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6310,46 +5134,6 @@ unsafe impl ::windows::runtime::Interface for DrillInThemeAnimation {
 impl ::windows::runtime::RuntimeName for DrillInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation";
 }
-impl ::std::convert::From<DrillInThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: DrillInThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DrillInThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &DrillInThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DrillInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DrillInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DrillInThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: DrillInThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DrillInThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &DrillInThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DrillInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DrillInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DrillInThemeAnimation> for Timeline {
     fn from(value: DrillInThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -6394,7 +5178,7 @@ unsafe impl ::std::marker::Send for DrillInThemeAnimation {}
 unsafe impl ::std::marker::Sync for DrillInThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DrillOutThemeAnimation(::windows::runtime::IInspectable);
 impl DrillOutThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6654,46 +5438,6 @@ unsafe impl ::windows::runtime::Interface for DrillOutThemeAnimation {
 impl ::windows::runtime::RuntimeName for DrillOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation";
 }
-impl ::std::convert::From<DrillOutThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: DrillOutThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DrillOutThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &DrillOutThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DrillOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DrillOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DrillOutThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: DrillOutThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DrillOutThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &DrillOutThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DrillOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DrillOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DrillOutThemeAnimation> for Timeline {
     fn from(value: DrillOutThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -6738,7 +5482,7 @@ unsafe impl ::std::marker::Send for DrillOutThemeAnimation {}
 unsafe impl ::std::marker::Sync for DrillOutThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DropTargetItemThemeAnimation(::windows::runtime::IInspectable);
 impl DropTargetItemThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6938,46 +5682,6 @@ unsafe impl ::windows::runtime::Interface for DropTargetItemThemeAnimation {
 impl ::windows::runtime::RuntimeName for DropTargetItemThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation";
 }
-impl ::std::convert::From<DropTargetItemThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: DropTargetItemThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DropTargetItemThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &DropTargetItemThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DropTargetItemThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DropTargetItemThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DropTargetItemThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: DropTargetItemThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DropTargetItemThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &DropTargetItemThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DropTargetItemThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DropTargetItemThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<DropTargetItemThemeAnimation> for Timeline {
     fn from(value: DropTargetItemThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -7022,7 +5726,7 @@ unsafe impl ::std::marker::Send for DropTargetItemThemeAnimation {}
 unsafe impl ::std::marker::Sync for DropTargetItemThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EasingColorKeyFrame(::windows::runtime::IInspectable);
 impl EasingColorKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -7151,46 +5855,6 @@ unsafe impl ::windows::runtime::Interface for EasingColorKeyFrame {
 impl ::windows::runtime::RuntimeName for EasingColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame";
 }
-impl ::std::convert::From<EasingColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: EasingColorKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EasingColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &EasingColorKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EasingColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EasingColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EasingColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: EasingColorKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EasingColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &EasingColorKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EasingColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EasingColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<EasingColorKeyFrame> for ColorKeyFrame {
     fn from(value: EasingColorKeyFrame) -> Self {
         ::std::convert::Into::<ColorKeyFrame>::into(&value)
@@ -7235,7 +5899,7 @@ unsafe impl ::std::marker::Send for EasingColorKeyFrame {}
 unsafe impl ::std::marker::Sync for EasingColorKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EasingDoubleKeyFrame(::windows::runtime::IInspectable);
 impl EasingDoubleKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -7364,46 +6028,6 @@ unsafe impl ::windows::runtime::Interface for EasingDoubleKeyFrame {
 impl ::windows::runtime::RuntimeName for EasingDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame";
 }
-impl ::std::convert::From<EasingDoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: EasingDoubleKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EasingDoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &EasingDoubleKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EasingDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EasingDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EasingDoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: EasingDoubleKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EasingDoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &EasingDoubleKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EasingDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EasingDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<EasingDoubleKeyFrame> for DoubleKeyFrame {
     fn from(value: EasingDoubleKeyFrame) -> Self {
         ::std::convert::Into::<DoubleKeyFrame>::into(&value)
@@ -7448,7 +6072,7 @@ unsafe impl ::std::marker::Send for EasingDoubleKeyFrame {}
 unsafe impl ::std::marker::Sync for EasingDoubleKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EasingFunctionBase(::windows::runtime::IInspectable);
 impl EasingFunctionBase {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -7550,46 +6174,6 @@ unsafe impl ::windows::runtime::Interface for EasingFunctionBase {
 impl ::windows::runtime::RuntimeName for EasingFunctionBase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingFunctionBase";
 }
-impl ::std::convert::From<EasingFunctionBase> for ::windows::runtime::IUnknown {
-    fn from(value: EasingFunctionBase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EasingFunctionBase> for ::windows::runtime::IUnknown {
-    fn from(value: &EasingFunctionBase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EasingFunctionBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EasingFunctionBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EasingFunctionBase> for ::windows::runtime::IInspectable {
-    fn from(value: EasingFunctionBase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EasingFunctionBase> for ::windows::runtime::IInspectable {
-    fn from(value: &EasingFunctionBase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EasingFunctionBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EasingFunctionBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<EasingFunctionBase> for super::super::DependencyObject {
     fn from(value: EasingFunctionBase) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -7635,7 +6219,7 @@ unsafe impl ::windows::runtime::RuntimeType for EasingMode {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EasingPointKeyFrame(::windows::runtime::IInspectable);
 impl EasingPointKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -7766,46 +6350,6 @@ unsafe impl ::windows::runtime::Interface for EasingPointKeyFrame {
 impl ::windows::runtime::RuntimeName for EasingPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame";
 }
-impl ::std::convert::From<EasingPointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: EasingPointKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EasingPointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &EasingPointKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EasingPointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EasingPointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EasingPointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: EasingPointKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EasingPointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &EasingPointKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EasingPointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EasingPointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<EasingPointKeyFrame> for PointKeyFrame {
     fn from(value: EasingPointKeyFrame) -> Self {
         ::std::convert::Into::<PointKeyFrame>::into(&value)
@@ -7850,7 +6394,7 @@ unsafe impl ::std::marker::Send for EasingPointKeyFrame {}
 unsafe impl ::std::marker::Sync for EasingPointKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EdgeUIThemeTransition(::windows::runtime::IInspectable);
 impl EdgeUIThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -7953,46 +6497,6 @@ unsafe impl ::windows::runtime::Interface for EdgeUIThemeTransition {
 impl ::windows::runtime::RuntimeName for EdgeUIThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition";
 }
-impl ::std::convert::From<EdgeUIThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: EdgeUIThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EdgeUIThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &EdgeUIThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EdgeUIThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EdgeUIThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EdgeUIThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: EdgeUIThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EdgeUIThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &EdgeUIThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EdgeUIThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EdgeUIThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<EdgeUIThemeTransition> for Transition {
     fn from(value: EdgeUIThemeTransition) -> Self {
         ::std::convert::Into::<Transition>::into(&value)
@@ -8037,7 +6541,7 @@ unsafe impl ::std::marker::Send for EdgeUIThemeTransition {}
 unsafe impl ::std::marker::Sync for EdgeUIThemeTransition {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ElasticEase(::windows::runtime::IInspectable);
 impl ElasticEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -8179,46 +6683,6 @@ unsafe impl ::windows::runtime::Interface for ElasticEase {
 impl ::windows::runtime::RuntimeName for ElasticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ElasticEase";
 }
-impl ::std::convert::From<ElasticEase> for ::windows::runtime::IUnknown {
-    fn from(value: ElasticEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ElasticEase> for ::windows::runtime::IUnknown {
-    fn from(value: &ElasticEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ElasticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ElasticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ElasticEase> for ::windows::runtime::IInspectable {
-    fn from(value: ElasticEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ElasticEase> for ::windows::runtime::IInspectable {
-    fn from(value: &ElasticEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ElasticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ElasticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ElasticEase> for EasingFunctionBase {
     fn from(value: ElasticEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -8263,7 +6727,7 @@ unsafe impl ::std::marker::Send for ElasticEase {}
 unsafe impl ::std::marker::Sync for ElasticEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EntranceNavigationTransitionInfo(::windows::runtime::IInspectable);
 impl EntranceNavigationTransitionInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -8375,46 +6839,6 @@ unsafe impl ::windows::runtime::Interface for EntranceNavigationTransitionInfo {
 impl ::windows::runtime::RuntimeName for EntranceNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo";
 }
-impl ::std::convert::From<EntranceNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: EntranceNavigationTransitionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EntranceNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &EntranceNavigationTransitionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EntranceNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EntranceNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EntranceNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: EntranceNavigationTransitionInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EntranceNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &EntranceNavigationTransitionInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EntranceNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EntranceNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<EntranceNavigationTransitionInfo> for NavigationTransitionInfo {
     fn from(value: EntranceNavigationTransitionInfo) -> Self {
         ::std::convert::Into::<NavigationTransitionInfo>::into(&value)
@@ -8459,7 +6883,7 @@ unsafe impl ::std::marker::Send for EntranceNavigationTransitionInfo {}
 unsafe impl ::std::marker::Sync for EntranceNavigationTransitionInfo {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EntranceThemeTransition(::windows::runtime::IInspectable);
 impl EntranceThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -8600,46 +7024,6 @@ unsafe impl ::windows::runtime::Interface for EntranceThemeTransition {
 impl ::windows::runtime::RuntimeName for EntranceThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EntranceThemeTransition";
 }
-impl ::std::convert::From<EntranceThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: EntranceThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EntranceThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &EntranceThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EntranceThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EntranceThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EntranceThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: EntranceThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EntranceThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &EntranceThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EntranceThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EntranceThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<EntranceThemeTransition> for Transition {
     fn from(value: EntranceThemeTransition) -> Self {
         ::std::convert::Into::<Transition>::into(&value)
@@ -8684,7 +7068,7 @@ unsafe impl ::std::marker::Send for EntranceThemeTransition {}
 unsafe impl ::std::marker::Sync for EntranceThemeTransition {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ExponentialEase(::windows::runtime::IInspectable);
 impl ExponentialEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -8806,46 +7190,6 @@ unsafe impl ::windows::runtime::Interface for ExponentialEase {
 impl ::windows::runtime::RuntimeName for ExponentialEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ExponentialEase";
 }
-impl ::std::convert::From<ExponentialEase> for ::windows::runtime::IUnknown {
-    fn from(value: ExponentialEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ExponentialEase> for ::windows::runtime::IUnknown {
-    fn from(value: &ExponentialEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ExponentialEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ExponentialEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ExponentialEase> for ::windows::runtime::IInspectable {
-    fn from(value: ExponentialEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ExponentialEase> for ::windows::runtime::IInspectable {
-    fn from(value: &ExponentialEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ExponentialEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ExponentialEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ExponentialEase> for EasingFunctionBase {
     fn from(value: ExponentialEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -8890,7 +7234,7 @@ unsafe impl ::std::marker::Send for ExponentialEase {}
 unsafe impl ::std::marker::Sync for ExponentialEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FadeInThemeAnimation(::windows::runtime::IInspectable);
 impl FadeInThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -9090,46 +7434,6 @@ unsafe impl ::windows::runtime::Interface for FadeInThemeAnimation {
 impl ::windows::runtime::RuntimeName for FadeInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation";
 }
-impl ::std::convert::From<FadeInThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: FadeInThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FadeInThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &FadeInThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FadeInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FadeInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FadeInThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: FadeInThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FadeInThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &FadeInThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FadeInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FadeInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<FadeInThemeAnimation> for Timeline {
     fn from(value: FadeInThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -9174,7 +7478,7 @@ unsafe impl ::std::marker::Send for FadeInThemeAnimation {}
 unsafe impl ::std::marker::Sync for FadeInThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FadeOutThemeAnimation(::windows::runtime::IInspectable);
 impl FadeOutThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -9374,46 +7678,6 @@ unsafe impl ::windows::runtime::Interface for FadeOutThemeAnimation {
 impl ::windows::runtime::RuntimeName for FadeOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation";
 }
-impl ::std::convert::From<FadeOutThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: FadeOutThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FadeOutThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &FadeOutThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FadeOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FadeOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FadeOutThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: FadeOutThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FadeOutThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &FadeOutThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FadeOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FadeOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<FadeOutThemeAnimation> for Timeline {
     fn from(value: FadeOutThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -9478,7 +7742,7 @@ unsafe impl ::windows::runtime::RuntimeType for FillBehavior {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GravityConnectedAnimationConfiguration(::windows::runtime::IInspectable);
 impl GravityConnectedAnimationConfiguration {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -9515,46 +7779,6 @@ unsafe impl ::windows::runtime::Interface for GravityConnectedAnimationConfigura
 }
 impl ::windows::runtime::RuntimeName for GravityConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration";
-}
-impl ::std::convert::From<GravityConnectedAnimationConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: GravityConnectedAnimationConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GravityConnectedAnimationConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &GravityConnectedAnimationConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GravityConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GravityConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GravityConnectedAnimationConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: GravityConnectedAnimationConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GravityConnectedAnimationConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &GravityConnectedAnimationConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GravityConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GravityConnectedAnimationConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<GravityConnectedAnimationConfiguration> for ConnectedAnimationConfiguration {
     fn from(value: GravityConnectedAnimationConfiguration) -> Self {
@@ -12869,7 +11093,7 @@ pub struct ITransitionFactory_abi(
 );
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct KeySpline(::windows::runtime::IInspectable);
 impl KeySpline {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -12976,46 +11200,6 @@ unsafe impl ::windows::runtime::Interface for KeySpline {
 impl ::windows::runtime::RuntimeName for KeySpline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.KeySpline";
 }
-impl ::std::convert::From<KeySpline> for ::windows::runtime::IUnknown {
-    fn from(value: KeySpline) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&KeySpline> for ::windows::runtime::IUnknown {
-    fn from(value: &KeySpline) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeySpline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &KeySpline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<KeySpline> for ::windows::runtime::IInspectable {
-    fn from(value: KeySpline) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&KeySpline> for ::windows::runtime::IInspectable {
-    fn from(value: &KeySpline) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeySpline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeySpline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<KeySpline> for super::super::DependencyObject {
     fn from(value: KeySpline) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -13078,7 +11262,7 @@ unsafe impl ::windows::runtime::RuntimeType for KeyTime {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct KeyTimeHelper(::windows::runtime::IInspectable);
 impl KeyTimeHelper {
     #[cfg(feature = "Foundation")]
@@ -13104,51 +11288,11 @@ unsafe impl ::windows::runtime::Interface for KeyTimeHelper {
 impl ::windows::runtime::RuntimeName for KeyTimeHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.KeyTimeHelper";
 }
-impl ::std::convert::From<KeyTimeHelper> for ::windows::runtime::IUnknown {
-    fn from(value: KeyTimeHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&KeyTimeHelper> for ::windows::runtime::IUnknown {
-    fn from(value: &KeyTimeHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyTimeHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &KeyTimeHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<KeyTimeHelper> for ::windows::runtime::IInspectable {
-    fn from(value: KeyTimeHelper) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&KeyTimeHelper> for ::windows::runtime::IInspectable {
-    fn from(value: &KeyTimeHelper) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyTimeHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyTimeHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for KeyTimeHelper {}
 unsafe impl ::std::marker::Sync for KeyTimeHelper {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LinearColorKeyFrame(::windows::runtime::IInspectable);
 impl LinearColorKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -13253,46 +11397,6 @@ unsafe impl ::windows::runtime::Interface for LinearColorKeyFrame {
 impl ::windows::runtime::RuntimeName for LinearColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame";
 }
-impl ::std::convert::From<LinearColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: LinearColorKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LinearColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &LinearColorKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LinearColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LinearColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LinearColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: LinearColorKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LinearColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &LinearColorKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LinearColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LinearColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<LinearColorKeyFrame> for ColorKeyFrame {
     fn from(value: LinearColorKeyFrame) -> Self {
         ::std::convert::Into::<ColorKeyFrame>::into(&value)
@@ -13337,7 +11441,7 @@ unsafe impl ::std::marker::Send for LinearColorKeyFrame {}
 unsafe impl ::std::marker::Sync for LinearColorKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LinearDoubleKeyFrame(::windows::runtime::IInspectable);
 impl LinearDoubleKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -13442,46 +11546,6 @@ unsafe impl ::windows::runtime::Interface for LinearDoubleKeyFrame {
 impl ::windows::runtime::RuntimeName for LinearDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame";
 }
-impl ::std::convert::From<LinearDoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: LinearDoubleKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LinearDoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &LinearDoubleKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LinearDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LinearDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LinearDoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: LinearDoubleKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LinearDoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &LinearDoubleKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LinearDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LinearDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<LinearDoubleKeyFrame> for DoubleKeyFrame {
     fn from(value: LinearDoubleKeyFrame) -> Self {
         ::std::convert::Into::<DoubleKeyFrame>::into(&value)
@@ -13526,7 +11590,7 @@ unsafe impl ::std::marker::Send for LinearDoubleKeyFrame {}
 unsafe impl ::std::marker::Sync for LinearDoubleKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LinearPointKeyFrame(::windows::runtime::IInspectable);
 impl LinearPointKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -13633,46 +11697,6 @@ unsafe impl ::windows::runtime::Interface for LinearPointKeyFrame {
 impl ::windows::runtime::RuntimeName for LinearPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame";
 }
-impl ::std::convert::From<LinearPointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: LinearPointKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LinearPointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &LinearPointKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LinearPointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LinearPointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LinearPointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: LinearPointKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LinearPointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &LinearPointKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LinearPointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LinearPointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<LinearPointKeyFrame> for PointKeyFrame {
     fn from(value: LinearPointKeyFrame) -> Self {
         ::std::convert::Into::<PointKeyFrame>::into(&value)
@@ -13717,7 +11741,7 @@ unsafe impl ::std::marker::Send for LinearPointKeyFrame {}
 unsafe impl ::std::marker::Sync for LinearPointKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NavigationThemeTransition(::windows::runtime::IInspectable);
 impl NavigationThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -13818,46 +11842,6 @@ unsafe impl ::windows::runtime::Interface for NavigationThemeTransition {
 impl ::windows::runtime::RuntimeName for NavigationThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.NavigationThemeTransition";
 }
-impl ::std::convert::From<NavigationThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: NavigationThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NavigationThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &NavigationThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NavigationThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NavigationThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NavigationThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: NavigationThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NavigationThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &NavigationThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NavigationThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NavigationThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<NavigationThemeTransition> for Transition {
     fn from(value: NavigationThemeTransition) -> Self {
         ::std::convert::Into::<Transition>::into(&value)
@@ -13902,7 +11886,7 @@ unsafe impl ::std::marker::Send for NavigationThemeTransition {}
 unsafe impl ::std::marker::Sync for NavigationThemeTransition {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NavigationTransitionInfo(::windows::runtime::IInspectable);
 impl NavigationTransitionInfo {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -13985,46 +11969,6 @@ unsafe impl ::windows::runtime::Interface for NavigationTransitionInfo {
 impl ::windows::runtime::RuntimeName for NavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo";
 }
-impl ::std::convert::From<NavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: NavigationTransitionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &NavigationTransitionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: NavigationTransitionInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &NavigationTransitionInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<NavigationTransitionInfo> for super::super::DependencyObject {
     fn from(value: NavigationTransitionInfo) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -14049,7 +11993,7 @@ unsafe impl ::std::marker::Send for NavigationTransitionInfo {}
 unsafe impl ::std::marker::Sync for NavigationTransitionInfo {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ObjectAnimationUsingKeyFrames(::windows::runtime::IInspectable);
 impl ObjectAnimationUsingKeyFrames {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -14258,46 +12202,6 @@ unsafe impl ::windows::runtime::Interface for ObjectAnimationUsingKeyFrames {
 impl ::windows::runtime::RuntimeName for ObjectAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames";
 }
-impl ::std::convert::From<ObjectAnimationUsingKeyFrames> for ::windows::runtime::IUnknown {
-    fn from(value: ObjectAnimationUsingKeyFrames) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ObjectAnimationUsingKeyFrames> for ::windows::runtime::IUnknown {
-    fn from(value: &ObjectAnimationUsingKeyFrames) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ObjectAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ObjectAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ObjectAnimationUsingKeyFrames> for ::windows::runtime::IInspectable {
-    fn from(value: ObjectAnimationUsingKeyFrames) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ObjectAnimationUsingKeyFrames> for ::windows::runtime::IInspectable {
-    fn from(value: &ObjectAnimationUsingKeyFrames) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ObjectAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ObjectAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ObjectAnimationUsingKeyFrames> for Timeline {
     fn from(value: ObjectAnimationUsingKeyFrames) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -14342,7 +12246,7 @@ unsafe impl ::std::marker::Send for ObjectAnimationUsingKeyFrames {}
 unsafe impl ::std::marker::Sync for ObjectAnimationUsingKeyFrames {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ObjectKeyFrame(::windows::runtime::IInspectable);
 impl ObjectKeyFrame {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -14458,46 +12362,6 @@ unsafe impl ::windows::runtime::Interface for ObjectKeyFrame {
 impl ::windows::runtime::RuntimeName for ObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ObjectKeyFrame";
 }
-impl ::std::convert::From<ObjectKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: ObjectKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ObjectKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &ObjectKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ObjectKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ObjectKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ObjectKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: ObjectKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ObjectKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &ObjectKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ObjectKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ObjectKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ObjectKeyFrame> for super::super::DependencyObject {
     fn from(value: ObjectKeyFrame) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -14523,7 +12387,7 @@ unsafe impl ::std::marker::Sync for ObjectKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ObjectKeyFrameCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ObjectKeyFrameCollection {
@@ -14645,54 +12509,6 @@ impl ::windows::runtime::RuntimeName for ObjectKeyFrameCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<ObjectKeyFrameCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ObjectKeyFrameCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&ObjectKeyFrameCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ObjectKeyFrameCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ObjectKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ObjectKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<ObjectKeyFrameCollection> for ::windows::runtime::IInspectable {
-    fn from(value: ObjectKeyFrameCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&ObjectKeyFrameCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &ObjectKeyFrameCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ObjectKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ObjectKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ObjectKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame> {
     fn from(value: ObjectKeyFrameCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14764,7 +12580,7 @@ impl ::std::iter::IntoIterator for &ObjectKeyFrameCollection {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PaneThemeTransition(::windows::runtime::IInspectable);
 impl PaneThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -14867,46 +12683,6 @@ unsafe impl ::windows::runtime::Interface for PaneThemeTransition {
 impl ::windows::runtime::RuntimeName for PaneThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PaneThemeTransition";
 }
-impl ::std::convert::From<PaneThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: PaneThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PaneThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &PaneThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaneThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PaneThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PaneThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: PaneThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PaneThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &PaneThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PaneThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PaneThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PaneThemeTransition> for Transition {
     fn from(value: PaneThemeTransition) -> Self {
         ::std::convert::Into::<Transition>::into(&value)
@@ -14951,7 +12727,7 @@ unsafe impl ::std::marker::Send for PaneThemeTransition {}
 unsafe impl ::std::marker::Sync for PaneThemeTransition {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PointAnimation(::windows::runtime::IInspectable);
 impl PointAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -15237,46 +13013,6 @@ unsafe impl ::windows::runtime::Interface for PointAnimation {
 impl ::windows::runtime::RuntimeName for PointAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointAnimation";
 }
-impl ::std::convert::From<PointAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: PointAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PointAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &PointAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PointAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PointAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: PointAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PointAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &PointAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PointAnimation> for Timeline {
     fn from(value: PointAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -15321,7 +13057,7 @@ unsafe impl ::std::marker::Send for PointAnimation {}
 unsafe impl ::std::marker::Sync for PointAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PointAnimationUsingKeyFrames(::windows::runtime::IInspectable);
 impl PointAnimationUsingKeyFrames {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -15530,46 +13266,6 @@ unsafe impl ::windows::runtime::Interface for PointAnimationUsingKeyFrames {
 impl ::windows::runtime::RuntimeName for PointAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames";
 }
-impl ::std::convert::From<PointAnimationUsingKeyFrames> for ::windows::runtime::IUnknown {
-    fn from(value: PointAnimationUsingKeyFrames) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PointAnimationUsingKeyFrames> for ::windows::runtime::IUnknown {
-    fn from(value: &PointAnimationUsingKeyFrames) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PointAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PointAnimationUsingKeyFrames> for ::windows::runtime::IInspectable {
-    fn from(value: PointAnimationUsingKeyFrames) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PointAnimationUsingKeyFrames> for ::windows::runtime::IInspectable {
-    fn from(value: &PointAnimationUsingKeyFrames) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointAnimationUsingKeyFrames {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PointAnimationUsingKeyFrames> for Timeline {
     fn from(value: PointAnimationUsingKeyFrames) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -15614,7 +13310,7 @@ unsafe impl ::std::marker::Send for PointAnimationUsingKeyFrames {}
 unsafe impl ::std::marker::Sync for PointAnimationUsingKeyFrames {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PointKeyFrame(::windows::runtime::IInspectable);
 impl PointKeyFrame {
     #[cfg(feature = "Foundation")]
@@ -15732,46 +13428,6 @@ unsafe impl ::windows::runtime::Interface for PointKeyFrame {
 impl ::windows::runtime::RuntimeName for PointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointKeyFrame";
 }
-impl ::std::convert::From<PointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: PointKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &PointKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: PointKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &PointKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PointKeyFrame> for super::super::DependencyObject {
     fn from(value: PointKeyFrame) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -15797,7 +13453,7 @@ unsafe impl ::std::marker::Sync for PointKeyFrame {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PointKeyFrameCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl PointKeyFrameCollection {
@@ -15919,54 +13575,6 @@ impl ::windows::runtime::RuntimeName for PointKeyFrameCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PointKeyFrameCollection> for ::windows::runtime::IUnknown {
-    fn from(value: PointKeyFrameCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PointKeyFrameCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &PointKeyFrameCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PointKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<PointKeyFrameCollection> for ::windows::runtime::IInspectable {
-    fn from(value: PointKeyFrameCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&PointKeyFrameCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &PointKeyFrameCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointKeyFrameCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<PointKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<PointKeyFrame> {
     fn from(value: PointKeyFrameCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16038,7 +13646,7 @@ impl ::std::iter::IntoIterator for &PointKeyFrameCollection {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PointerDownThemeAnimation(::windows::runtime::IInspectable);
 impl PointerDownThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -16238,46 +13846,6 @@ unsafe impl ::windows::runtime::Interface for PointerDownThemeAnimation {
 impl ::windows::runtime::RuntimeName for PointerDownThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation";
 }
-impl ::std::convert::From<PointerDownThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: PointerDownThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PointerDownThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &PointerDownThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointerDownThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PointerDownThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PointerDownThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: PointerDownThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PointerDownThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &PointerDownThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointerDownThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointerDownThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PointerDownThemeAnimation> for Timeline {
     fn from(value: PointerDownThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -16322,7 +13890,7 @@ unsafe impl ::std::marker::Send for PointerDownThemeAnimation {}
 unsafe impl ::std::marker::Sync for PointerDownThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PointerUpThemeAnimation(::windows::runtime::IInspectable);
 impl PointerUpThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -16522,46 +14090,6 @@ unsafe impl ::windows::runtime::Interface for PointerUpThemeAnimation {
 impl ::windows::runtime::RuntimeName for PointerUpThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation";
 }
-impl ::std::convert::From<PointerUpThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: PointerUpThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PointerUpThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &PointerUpThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointerUpThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PointerUpThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PointerUpThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: PointerUpThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PointerUpThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &PointerUpThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointerUpThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointerUpThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PointerUpThemeAnimation> for Timeline {
     fn from(value: PointerUpThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -16606,7 +14134,7 @@ unsafe impl ::std::marker::Send for PointerUpThemeAnimation {}
 unsafe impl ::std::marker::Sync for PointerUpThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PopInThemeAnimation(::windows::runtime::IInspectable);
 impl PopInThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -16846,46 +14374,6 @@ unsafe impl ::windows::runtime::Interface for PopInThemeAnimation {
 impl ::windows::runtime::RuntimeName for PopInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopInThemeAnimation";
 }
-impl ::std::convert::From<PopInThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: PopInThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PopInThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &PopInThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PopInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PopInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PopInThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: PopInThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PopInThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &PopInThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PopInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PopInThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PopInThemeAnimation> for Timeline {
     fn from(value: PopInThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -16930,7 +14418,7 @@ unsafe impl ::std::marker::Send for PopInThemeAnimation {}
 unsafe impl ::std::marker::Sync for PopInThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PopOutThemeAnimation(::windows::runtime::IInspectable);
 impl PopOutThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -17130,46 +14618,6 @@ unsafe impl ::windows::runtime::Interface for PopOutThemeAnimation {
 impl ::windows::runtime::RuntimeName for PopOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation";
 }
-impl ::std::convert::From<PopOutThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: PopOutThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PopOutThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &PopOutThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PopOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PopOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PopOutThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: PopOutThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PopOutThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &PopOutThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PopOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PopOutThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PopOutThemeAnimation> for Timeline {
     fn from(value: PopOutThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -17214,7 +14662,7 @@ unsafe impl ::std::marker::Send for PopOutThemeAnimation {}
 unsafe impl ::std::marker::Sync for PopOutThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PopupThemeTransition(::windows::runtime::IInspectable);
 impl PopupThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -17335,46 +14783,6 @@ unsafe impl ::windows::runtime::Interface for PopupThemeTransition {
 impl ::windows::runtime::RuntimeName for PopupThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopupThemeTransition";
 }
-impl ::std::convert::From<PopupThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: PopupThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PopupThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &PopupThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PopupThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PopupThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PopupThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: PopupThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PopupThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &PopupThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PopupThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PopupThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PopupThemeTransition> for Transition {
     fn from(value: PopupThemeTransition) -> Self {
         ::std::convert::Into::<Transition>::into(&value)
@@ -17419,7 +14827,7 @@ unsafe impl ::std::marker::Send for PopupThemeTransition {}
 unsafe impl ::std::marker::Sync for PopupThemeTransition {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PowerEase(::windows::runtime::IInspectable);
 impl PowerEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -17541,46 +14949,6 @@ unsafe impl ::windows::runtime::Interface for PowerEase {
 impl ::windows::runtime::RuntimeName for PowerEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PowerEase";
 }
-impl ::std::convert::From<PowerEase> for ::windows::runtime::IUnknown {
-    fn from(value: PowerEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PowerEase> for ::windows::runtime::IUnknown {
-    fn from(value: &PowerEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PowerEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PowerEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PowerEase> for ::windows::runtime::IInspectable {
-    fn from(value: PowerEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PowerEase> for ::windows::runtime::IInspectable {
-    fn from(value: &PowerEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PowerEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PowerEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PowerEase> for EasingFunctionBase {
     fn from(value: PowerEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -17625,7 +14993,7 @@ unsafe impl ::std::marker::Send for PowerEase {}
 unsafe impl ::std::marker::Sync for PowerEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct QuadraticEase(::windows::runtime::IInspectable);
 impl QuadraticEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -17723,46 +15091,6 @@ unsafe impl ::windows::runtime::Interface for QuadraticEase {
 impl ::windows::runtime::RuntimeName for QuadraticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuadraticEase";
 }
-impl ::std::convert::From<QuadraticEase> for ::windows::runtime::IUnknown {
-    fn from(value: QuadraticEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&QuadraticEase> for ::windows::runtime::IUnknown {
-    fn from(value: &QuadraticEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for QuadraticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &QuadraticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<QuadraticEase> for ::windows::runtime::IInspectable {
-    fn from(value: QuadraticEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&QuadraticEase> for ::windows::runtime::IInspectable {
-    fn from(value: &QuadraticEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for QuadraticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a QuadraticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<QuadraticEase> for EasingFunctionBase {
     fn from(value: QuadraticEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -17807,7 +15135,7 @@ unsafe impl ::std::marker::Send for QuadraticEase {}
 unsafe impl ::std::marker::Sync for QuadraticEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct QuarticEase(::windows::runtime::IInspectable);
 impl QuarticEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -17905,46 +15233,6 @@ unsafe impl ::windows::runtime::Interface for QuarticEase {
 impl ::windows::runtime::RuntimeName for QuarticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuarticEase";
 }
-impl ::std::convert::From<QuarticEase> for ::windows::runtime::IUnknown {
-    fn from(value: QuarticEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&QuarticEase> for ::windows::runtime::IUnknown {
-    fn from(value: &QuarticEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for QuarticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &QuarticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<QuarticEase> for ::windows::runtime::IInspectable {
-    fn from(value: QuarticEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&QuarticEase> for ::windows::runtime::IInspectable {
-    fn from(value: &QuarticEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for QuarticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a QuarticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<QuarticEase> for EasingFunctionBase {
     fn from(value: QuarticEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -17989,7 +15277,7 @@ unsafe impl ::std::marker::Send for QuarticEase {}
 unsafe impl ::std::marker::Sync for QuarticEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct QuinticEase(::windows::runtime::IInspectable);
 impl QuinticEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -18087,46 +15375,6 @@ unsafe impl ::windows::runtime::Interface for QuinticEase {
 impl ::windows::runtime::RuntimeName for QuinticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuinticEase";
 }
-impl ::std::convert::From<QuinticEase> for ::windows::runtime::IUnknown {
-    fn from(value: QuinticEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&QuinticEase> for ::windows::runtime::IUnknown {
-    fn from(value: &QuinticEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for QuinticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &QuinticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<QuinticEase> for ::windows::runtime::IInspectable {
-    fn from(value: QuinticEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&QuinticEase> for ::windows::runtime::IInspectable {
-    fn from(value: &QuinticEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for QuinticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a QuinticEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<QuinticEase> for EasingFunctionBase {
     fn from(value: QuinticEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -18171,7 +15419,7 @@ unsafe impl ::std::marker::Send for QuinticEase {}
 unsafe impl ::std::marker::Sync for QuinticEase {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ReorderThemeTransition(::windows::runtime::IInspectable);
 impl ReorderThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -18247,46 +15495,6 @@ unsafe impl ::windows::runtime::Interface for ReorderThemeTransition {
 }
 impl ::windows::runtime::RuntimeName for ReorderThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ReorderThemeTransition";
-}
-impl ::std::convert::From<ReorderThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: ReorderThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ReorderThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &ReorderThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ReorderThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ReorderThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ReorderThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: ReorderThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ReorderThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &ReorderThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ReorderThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ReorderThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ReorderThemeTransition> for Transition {
     fn from(value: ReorderThemeTransition) -> Self {
@@ -18372,7 +15580,7 @@ unsafe impl ::windows::runtime::RuntimeType for RepeatBehavior {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RepeatBehaviorHelper(::windows::runtime::IInspectable);
 impl RepeatBehaviorHelper {
     #[cfg(feature = "Foundation")]
@@ -18438,46 +15646,6 @@ unsafe impl ::windows::runtime::Interface for RepeatBehaviorHelper {
 impl ::windows::runtime::RuntimeName for RepeatBehaviorHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper";
 }
-impl ::std::convert::From<RepeatBehaviorHelper> for ::windows::runtime::IUnknown {
-    fn from(value: RepeatBehaviorHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RepeatBehaviorHelper> for ::windows::runtime::IUnknown {
-    fn from(value: &RepeatBehaviorHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RepeatBehaviorHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RepeatBehaviorHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RepeatBehaviorHelper> for ::windows::runtime::IInspectable {
-    fn from(value: RepeatBehaviorHelper) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RepeatBehaviorHelper> for ::windows::runtime::IInspectable {
-    fn from(value: &RepeatBehaviorHelper) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RepeatBehaviorHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RepeatBehaviorHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RepeatBehaviorHelper {}
 unsafe impl ::std::marker::Sync for RepeatBehaviorHelper {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -18503,7 +15671,7 @@ unsafe impl ::windows::runtime::RuntimeType for RepeatBehaviorType {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RepositionThemeAnimation(::windows::runtime::IInspectable);
 impl RepositionThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -18743,46 +15911,6 @@ unsafe impl ::windows::runtime::Interface for RepositionThemeAnimation {
 impl ::windows::runtime::RuntimeName for RepositionThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation";
 }
-impl ::std::convert::From<RepositionThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: RepositionThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RepositionThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &RepositionThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RepositionThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RepositionThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RepositionThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: RepositionThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RepositionThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &RepositionThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RepositionThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RepositionThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<RepositionThemeAnimation> for Timeline {
     fn from(value: RepositionThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -18827,7 +15955,7 @@ unsafe impl ::std::marker::Send for RepositionThemeAnimation {}
 unsafe impl ::std::marker::Sync for RepositionThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RepositionThemeTransition(::windows::runtime::IInspectable);
 impl RepositionThemeTransition {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -18928,46 +16056,6 @@ unsafe impl ::windows::runtime::Interface for RepositionThemeTransition {
 impl ::windows::runtime::RuntimeName for RepositionThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepositionThemeTransition";
 }
-impl ::std::convert::From<RepositionThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: RepositionThemeTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RepositionThemeTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &RepositionThemeTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RepositionThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RepositionThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RepositionThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: RepositionThemeTransition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RepositionThemeTransition> for ::windows::runtime::IInspectable {
-    fn from(value: &RepositionThemeTransition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RepositionThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RepositionThemeTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<RepositionThemeTransition> for Transition {
     fn from(value: RepositionThemeTransition) -> Self {
         ::std::convert::Into::<Transition>::into(&value)
@@ -19012,7 +16100,7 @@ unsafe impl ::std::marker::Send for RepositionThemeTransition {}
 unsafe impl ::std::marker::Sync for RepositionThemeTransition {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SineEase(::windows::runtime::IInspectable);
 impl SineEase {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -19110,46 +16198,6 @@ unsafe impl ::windows::runtime::Interface for SineEase {
 impl ::windows::runtime::RuntimeName for SineEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SineEase";
 }
-impl ::std::convert::From<SineEase> for ::windows::runtime::IUnknown {
-    fn from(value: SineEase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SineEase> for ::windows::runtime::IUnknown {
-    fn from(value: &SineEase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SineEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SineEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SineEase> for ::windows::runtime::IInspectable {
-    fn from(value: SineEase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SineEase> for ::windows::runtime::IInspectable {
-    fn from(value: &SineEase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SineEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SineEase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SineEase> for EasingFunctionBase {
     fn from(value: SineEase) -> Self {
         ::std::convert::Into::<EasingFunctionBase>::into(&value)
@@ -19215,7 +16263,7 @@ unsafe impl ::windows::runtime::RuntimeType for SlideNavigationTransitionEffect 
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SlideNavigationTransitionInfo(::windows::runtime::IInspectable);
 impl SlideNavigationTransitionInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -19329,46 +16377,6 @@ unsafe impl ::windows::runtime::Interface for SlideNavigationTransitionInfo {
 impl ::windows::runtime::RuntimeName for SlideNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo";
 }
-impl ::std::convert::From<SlideNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: SlideNavigationTransitionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SlideNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &SlideNavigationTransitionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SlideNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SlideNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SlideNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: SlideNavigationTransitionInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SlideNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &SlideNavigationTransitionInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SlideNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SlideNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SlideNavigationTransitionInfo> for NavigationTransitionInfo {
     fn from(value: SlideNavigationTransitionInfo) -> Self {
         ::std::convert::Into::<NavigationTransitionInfo>::into(&value)
@@ -19413,7 +16421,7 @@ unsafe impl ::std::marker::Send for SlideNavigationTransitionInfo {}
 unsafe impl ::std::marker::Sync for SlideNavigationTransitionInfo {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SplineColorKeyFrame(::windows::runtime::IInspectable);
 impl SplineColorKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -19542,46 +16550,6 @@ unsafe impl ::windows::runtime::Interface for SplineColorKeyFrame {
 impl ::windows::runtime::RuntimeName for SplineColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame";
 }
-impl ::std::convert::From<SplineColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: SplineColorKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SplineColorKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &SplineColorKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SplineColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SplineColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SplineColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: SplineColorKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SplineColorKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &SplineColorKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SplineColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SplineColorKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SplineColorKeyFrame> for ColorKeyFrame {
     fn from(value: SplineColorKeyFrame) -> Self {
         ::std::convert::Into::<ColorKeyFrame>::into(&value)
@@ -19626,7 +16594,7 @@ unsafe impl ::std::marker::Send for SplineColorKeyFrame {}
 unsafe impl ::std::marker::Sync for SplineColorKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SplineDoubleKeyFrame(::windows::runtime::IInspectable);
 impl SplineDoubleKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -19755,46 +16723,6 @@ unsafe impl ::windows::runtime::Interface for SplineDoubleKeyFrame {
 impl ::windows::runtime::RuntimeName for SplineDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame";
 }
-impl ::std::convert::From<SplineDoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: SplineDoubleKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SplineDoubleKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &SplineDoubleKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SplineDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SplineDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SplineDoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: SplineDoubleKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SplineDoubleKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &SplineDoubleKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SplineDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SplineDoubleKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SplineDoubleKeyFrame> for DoubleKeyFrame {
     fn from(value: SplineDoubleKeyFrame) -> Self {
         ::std::convert::Into::<DoubleKeyFrame>::into(&value)
@@ -19839,7 +16767,7 @@ unsafe impl ::std::marker::Send for SplineDoubleKeyFrame {}
 unsafe impl ::std::marker::Sync for SplineDoubleKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SplinePointKeyFrame(::windows::runtime::IInspectable);
 impl SplinePointKeyFrame {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -19970,46 +16898,6 @@ unsafe impl ::windows::runtime::Interface for SplinePointKeyFrame {
 impl ::windows::runtime::RuntimeName for SplinePointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame";
 }
-impl ::std::convert::From<SplinePointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: SplinePointKeyFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SplinePointKeyFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &SplinePointKeyFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SplinePointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SplinePointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SplinePointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: SplinePointKeyFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SplinePointKeyFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &SplinePointKeyFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SplinePointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SplinePointKeyFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SplinePointKeyFrame> for PointKeyFrame {
     fn from(value: SplinePointKeyFrame) -> Self {
         ::std::convert::Into::<PointKeyFrame>::into(&value)
@@ -20054,7 +16942,7 @@ unsafe impl ::std::marker::Send for SplinePointKeyFrame {}
 unsafe impl ::std::marker::Sync for SplinePointKeyFrame {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SplitCloseThemeAnimation(::windows::runtime::IInspectable);
 impl SplitCloseThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -20456,46 +17344,6 @@ unsafe impl ::windows::runtime::Interface for SplitCloseThemeAnimation {
 impl ::windows::runtime::RuntimeName for SplitCloseThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation";
 }
-impl ::std::convert::From<SplitCloseThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: SplitCloseThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SplitCloseThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &SplitCloseThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SplitCloseThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SplitCloseThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SplitCloseThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: SplitCloseThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SplitCloseThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &SplitCloseThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SplitCloseThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SplitCloseThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SplitCloseThemeAnimation> for Timeline {
     fn from(value: SplitCloseThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -20540,7 +17388,7 @@ unsafe impl ::std::marker::Send for SplitCloseThemeAnimation {}
 unsafe impl ::std::marker::Sync for SplitCloseThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SplitOpenThemeAnimation(::windows::runtime::IInspectable);
 impl SplitOpenThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -20942,46 +17790,6 @@ unsafe impl ::windows::runtime::Interface for SplitOpenThemeAnimation {
 impl ::windows::runtime::RuntimeName for SplitOpenThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation";
 }
-impl ::std::convert::From<SplitOpenThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: SplitOpenThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SplitOpenThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &SplitOpenThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SplitOpenThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SplitOpenThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SplitOpenThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: SplitOpenThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SplitOpenThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &SplitOpenThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SplitOpenThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SplitOpenThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SplitOpenThemeAnimation> for Timeline {
     fn from(value: SplitOpenThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -21026,7 +17834,7 @@ unsafe impl ::std::marker::Send for SplitOpenThemeAnimation {}
 unsafe impl ::std::marker::Sync for SplitOpenThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Storyboard(::windows::runtime::IInspectable);
 impl Storyboard {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -21309,46 +18117,6 @@ unsafe impl ::windows::runtime::Interface for Storyboard {
 impl ::windows::runtime::RuntimeName for Storyboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Storyboard";
 }
-impl ::std::convert::From<Storyboard> for ::windows::runtime::IUnknown {
-    fn from(value: Storyboard) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Storyboard> for ::windows::runtime::IUnknown {
-    fn from(value: &Storyboard) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Storyboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Storyboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Storyboard> for ::windows::runtime::IInspectable {
-    fn from(value: Storyboard) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Storyboard> for ::windows::runtime::IInspectable {
-    fn from(value: &Storyboard) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Storyboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Storyboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Storyboard> for Timeline {
     fn from(value: Storyboard) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -21393,7 +18161,7 @@ unsafe impl ::std::marker::Send for Storyboard {}
 unsafe impl ::std::marker::Sync for Storyboard {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SuppressNavigationTransitionInfo(::windows::runtime::IInspectable);
 impl SuppressNavigationTransitionInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -21483,46 +18251,6 @@ unsafe impl ::windows::runtime::Interface for SuppressNavigationTransitionInfo {
 impl ::windows::runtime::RuntimeName for SuppressNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo";
 }
-impl ::std::convert::From<SuppressNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: SuppressNavigationTransitionInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SuppressNavigationTransitionInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &SuppressNavigationTransitionInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SuppressNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SuppressNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SuppressNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: SuppressNavigationTransitionInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SuppressNavigationTransitionInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &SuppressNavigationTransitionInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SuppressNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SuppressNavigationTransitionInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SuppressNavigationTransitionInfo> for NavigationTransitionInfo {
     fn from(value: SuppressNavigationTransitionInfo) -> Self {
         ::std::convert::Into::<NavigationTransitionInfo>::into(&value)
@@ -21567,7 +18295,7 @@ unsafe impl ::std::marker::Send for SuppressNavigationTransitionInfo {}
 unsafe impl ::std::marker::Sync for SuppressNavigationTransitionInfo {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SwipeBackThemeAnimation(::windows::runtime::IInspectable);
 impl SwipeBackThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -21807,46 +18535,6 @@ unsafe impl ::windows::runtime::Interface for SwipeBackThemeAnimation {
 impl ::windows::runtime::RuntimeName for SwipeBackThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation";
 }
-impl ::std::convert::From<SwipeBackThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: SwipeBackThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SwipeBackThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &SwipeBackThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SwipeBackThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SwipeBackThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SwipeBackThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: SwipeBackThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SwipeBackThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &SwipeBackThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SwipeBackThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SwipeBackThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SwipeBackThemeAnimation> for Timeline {
     fn from(value: SwipeBackThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -21891,7 +18579,7 @@ unsafe impl ::std::marker::Send for SwipeBackThemeAnimation {}
 unsafe impl ::std::marker::Sync for SwipeBackThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SwipeHintThemeAnimation(::windows::runtime::IInspectable);
 impl SwipeHintThemeAnimation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -22131,46 +18819,6 @@ unsafe impl ::windows::runtime::Interface for SwipeHintThemeAnimation {
 impl ::windows::runtime::RuntimeName for SwipeHintThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation";
 }
-impl ::std::convert::From<SwipeHintThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: SwipeHintThemeAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SwipeHintThemeAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &SwipeHintThemeAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SwipeHintThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SwipeHintThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SwipeHintThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: SwipeHintThemeAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SwipeHintThemeAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &SwipeHintThemeAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SwipeHintThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SwipeHintThemeAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<SwipeHintThemeAnimation> for Timeline {
     fn from(value: SwipeHintThemeAnimation) -> Self {
         ::std::convert::Into::<Timeline>::into(&value)
@@ -22215,7 +18863,7 @@ unsafe impl ::std::marker::Send for SwipeHintThemeAnimation {}
 unsafe impl ::std::marker::Sync for SwipeHintThemeAnimation {}
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Timeline(::windows::runtime::IInspectable);
 impl Timeline {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -22441,46 +19089,6 @@ unsafe impl ::windows::runtime::Interface for Timeline {
 impl ::windows::runtime::RuntimeName for Timeline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Timeline";
 }
-impl ::std::convert::From<Timeline> for ::windows::runtime::IUnknown {
-    fn from(value: Timeline) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Timeline> for ::windows::runtime::IUnknown {
-    fn from(value: &Timeline) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Timeline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Timeline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Timeline> for ::windows::runtime::IInspectable {
-    fn from(value: Timeline) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Timeline> for ::windows::runtime::IInspectable {
-    fn from(value: &Timeline) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Timeline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Timeline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Timeline> for super::super::DependencyObject {
     fn from(value: Timeline) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -22506,7 +19114,7 @@ unsafe impl ::std::marker::Sync for Timeline {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TimelineCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl TimelineCollection {
@@ -22628,54 +19236,6 @@ impl ::windows::runtime::RuntimeName for TimelineCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.TimelineCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<TimelineCollection> for ::windows::runtime::IUnknown {
-    fn from(value: TimelineCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&TimelineCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &TimelineCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimelineCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimelineCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<TimelineCollection> for ::windows::runtime::IInspectable {
-    fn from(value: TimelineCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&TimelineCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &TimelineCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimelineCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimelineCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<TimelineCollection> for super::super::super::super::Foundation::Collections::IVector<Timeline> {
     fn from(value: TimelineCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -22747,7 +19307,7 @@ impl ::std::iter::IntoIterator for &TimelineCollection {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Transition(::windows::runtime::IInspectable);
 impl Transition {
     #[doc = "*Required features: `UI_Xaml_Media_Animation`*"]
@@ -22817,46 +19377,6 @@ unsafe impl ::windows::runtime::Interface for Transition {
 impl ::windows::runtime::RuntimeName for Transition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Transition";
 }
-impl ::std::convert::From<Transition> for ::windows::runtime::IUnknown {
-    fn from(value: Transition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Transition> for ::windows::runtime::IUnknown {
-    fn from(value: &Transition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Transition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Transition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Transition> for ::windows::runtime::IInspectable {
-    fn from(value: Transition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Transition> for ::windows::runtime::IInspectable {
-    fn from(value: &Transition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Transition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Transition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Transition> for super::super::DependencyObject {
     fn from(value: Transition) -> Self {
         ::std::convert::Into::<super::super::DependencyObject>::into(&value)
@@ -22882,7 +19402,7 @@ unsafe impl ::std::marker::Sync for Transition {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Xaml_Media_Animation`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TransitionCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl TransitionCollection {
@@ -23002,54 +19522,6 @@ unsafe impl ::windows::runtime::Interface for TransitionCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for TransitionCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.TransitionCollection";
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<TransitionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: TransitionCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&TransitionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &TransitionCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TransitionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TransitionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<TransitionCollection> for ::windows::runtime::IInspectable {
-    fn from(value: TransitionCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&TransitionCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &TransitionCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TransitionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TransitionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<TransitionCollection> for super::super::super::super::Foundation::Collections::IVector<Transition> {

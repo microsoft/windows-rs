@@ -3,7 +3,7 @@
 pub mod Core;
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AdvancedColorInfo(::windows::runtime::IInspectable);
 impl AdvancedColorInfo {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -109,46 +109,6 @@ unsafe impl ::windows::runtime::Interface for AdvancedColorInfo {
 impl ::windows::runtime::RuntimeName for AdvancedColorInfo {
     const NAME: &'static str = "Windows.Graphics.Display.AdvancedColorInfo";
 }
-impl ::std::convert::From<AdvancedColorInfo> for ::windows::runtime::IUnknown {
-    fn from(value: AdvancedColorInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AdvancedColorInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &AdvancedColorInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AdvancedColorInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AdvancedColorInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AdvancedColorInfo> for ::windows::runtime::IInspectable {
-    fn from(value: AdvancedColorInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AdvancedColorInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &AdvancedColorInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AdvancedColorInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AdvancedColorInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AdvancedColorInfo {}
 unsafe impl ::std::marker::Sync for AdvancedColorInfo {}
 #[doc = "*Required features: `Graphics_Display`*"]
@@ -174,7 +134,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdvancedColorKind {
 }
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BrightnessOverride(::windows::runtime::IInspectable);
 impl BrightnessOverride {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -311,51 +271,11 @@ unsafe impl ::windows::runtime::Interface for BrightnessOverride {
 impl ::windows::runtime::RuntimeName for BrightnessOverride {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverride";
 }
-impl ::std::convert::From<BrightnessOverride> for ::windows::runtime::IUnknown {
-    fn from(value: BrightnessOverride) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BrightnessOverride> for ::windows::runtime::IUnknown {
-    fn from(value: &BrightnessOverride) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BrightnessOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BrightnessOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BrightnessOverride> for ::windows::runtime::IInspectable {
-    fn from(value: BrightnessOverride) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BrightnessOverride> for ::windows::runtime::IInspectable {
-    fn from(value: &BrightnessOverride) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BrightnessOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BrightnessOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BrightnessOverride {}
 unsafe impl ::std::marker::Sync for BrightnessOverride {}
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BrightnessOverrideSettings(::windows::runtime::IInspectable);
 impl BrightnessOverrideSettings {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -410,51 +330,11 @@ unsafe impl ::windows::runtime::Interface for BrightnessOverrideSettings {
 impl ::windows::runtime::RuntimeName for BrightnessOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverrideSettings";
 }
-impl ::std::convert::From<BrightnessOverrideSettings> for ::windows::runtime::IUnknown {
-    fn from(value: BrightnessOverrideSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BrightnessOverrideSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &BrightnessOverrideSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BrightnessOverrideSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BrightnessOverrideSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BrightnessOverrideSettings> for ::windows::runtime::IInspectable {
-    fn from(value: BrightnessOverrideSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BrightnessOverrideSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &BrightnessOverrideSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BrightnessOverrideSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BrightnessOverrideSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BrightnessOverrideSettings {}
 unsafe impl ::std::marker::Sync for BrightnessOverrideSettings {}
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ColorOverrideSettings(::windows::runtime::IInspectable);
 impl ColorOverrideSettings {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -486,46 +366,6 @@ unsafe impl ::windows::runtime::Interface for ColorOverrideSettings {
 }
 impl ::windows::runtime::RuntimeName for ColorOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.ColorOverrideSettings";
-}
-impl ::std::convert::From<ColorOverrideSettings> for ::windows::runtime::IUnknown {
-    fn from(value: ColorOverrideSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ColorOverrideSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &ColorOverrideSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ColorOverrideSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ColorOverrideSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ColorOverrideSettings> for ::windows::runtime::IInspectable {
-    fn from(value: ColorOverrideSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ColorOverrideSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &ColorOverrideSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ColorOverrideSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ColorOverrideSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ColorOverrideSettings {}
 unsafe impl ::std::marker::Sync for ColorOverrideSettings {}
@@ -641,7 +481,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayColorOverrideScenario {
 }
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayEnhancementOverride(::windows::runtime::IInspectable);
 impl DisplayEnhancementOverride {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -771,51 +611,11 @@ unsafe impl ::windows::runtime::Interface for DisplayEnhancementOverride {
 impl ::windows::runtime::RuntimeName for DisplayEnhancementOverride {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverride";
 }
-impl ::std::convert::From<DisplayEnhancementOverride> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayEnhancementOverride) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayEnhancementOverride> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayEnhancementOverride) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayEnhancementOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayEnhancementOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayEnhancementOverride> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayEnhancementOverride) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayEnhancementOverride> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayEnhancementOverride) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayEnhancementOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayEnhancementOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayEnhancementOverride {}
 unsafe impl ::std::marker::Sync for DisplayEnhancementOverride {}
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayEnhancementOverrideCapabilities(::windows::runtime::IInspectable);
 impl DisplayEnhancementOverrideCapabilities {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -854,51 +654,11 @@ unsafe impl ::windows::runtime::Interface for DisplayEnhancementOverrideCapabili
 impl ::windows::runtime::RuntimeName for DisplayEnhancementOverrideCapabilities {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities";
 }
-impl ::std::convert::From<DisplayEnhancementOverrideCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayEnhancementOverrideCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayEnhancementOverrideCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayEnhancementOverrideCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayEnhancementOverrideCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayEnhancementOverrideCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayEnhancementOverrideCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayEnhancementOverrideCapabilities) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayEnhancementOverrideCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayEnhancementOverrideCapabilities) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayEnhancementOverrideCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayEnhancementOverrideCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayEnhancementOverrideCapabilities {}
 unsafe impl ::std::marker::Sync for DisplayEnhancementOverrideCapabilities {}
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows::runtime::IInspectable);
 impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -920,51 +680,11 @@ unsafe impl ::windows::runtime::Interface for DisplayEnhancementOverrideCapabili
 impl ::windows::runtime::RuntimeName for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs";
 }
-impl ::std::convert::From<DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayEnhancementOverrideCapabilitiesChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayEnhancementOverrideCapabilitiesChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayInformation(::windows::runtime::IInspectable);
 impl DisplayInformation {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -1193,46 +913,6 @@ unsafe impl ::windows::runtime::Interface for DisplayInformation {
 }
 impl ::windows::runtime::RuntimeName for DisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayInformation";
-}
-impl ::std::convert::From<DisplayInformation> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayInformation> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DisplayInformation {}
 unsafe impl ::std::marker::Sync for DisplayInformation {}
@@ -1510,7 +1190,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>) -> ::win
 }
 #[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayServices(::windows::runtime::IInspectable);
 impl DisplayServices {
     #[doc = "*Required features: `Graphics_Display`*"]
@@ -1534,46 +1214,6 @@ unsafe impl ::windows::runtime::Interface for DisplayServices {
 }
 impl ::windows::runtime::RuntimeName for DisplayServices {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayServices";
-}
-impl ::std::convert::From<DisplayServices> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayServices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayServices> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayServices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayServices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayServices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayServices> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayServices) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayServices> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayServices) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayServices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayServices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DisplayServices {}
 unsafe impl ::std::marker::Sync for DisplayServices {}

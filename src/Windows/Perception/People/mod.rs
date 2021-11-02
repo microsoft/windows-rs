@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EyesPose(::windows::runtime::IInspectable);
 impl EyesPose {
     #[doc = "*Required features: `Perception_People`*"]
@@ -59,46 +59,6 @@ unsafe impl ::windows::runtime::Interface for EyesPose {
 impl ::windows::runtime::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
 }
-impl ::std::convert::From<EyesPose> for ::windows::runtime::IUnknown {
-    fn from(value: EyesPose) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EyesPose> for ::windows::runtime::IUnknown {
-    fn from(value: &EyesPose) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EyesPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EyesPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EyesPose> for ::windows::runtime::IInspectable {
-    fn from(value: EyesPose) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EyesPose> for ::windows::runtime::IInspectable {
-    fn from(value: &EyesPose) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EyesPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EyesPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for EyesPose {}
 unsafe impl ::std::marker::Sync for EyesPose {}
 #[doc = "*Required features: `Perception_People`*"]
@@ -147,7 +107,7 @@ unsafe impl ::windows::runtime::RuntimeType for HandJointKind {
 }
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HandMeshObserver(::windows::runtime::IInspectable);
 impl HandMeshObserver {
     #[cfg(feature = "UI_Input_Spatial")]
@@ -223,46 +183,6 @@ unsafe impl ::windows::runtime::Interface for HandMeshObserver {
 impl ::windows::runtime::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
 }
-impl ::std::convert::From<HandMeshObserver> for ::windows::runtime::IUnknown {
-    fn from(value: HandMeshObserver) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HandMeshObserver> for ::windows::runtime::IUnknown {
-    fn from(value: &HandMeshObserver) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HandMeshObserver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HandMeshObserver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HandMeshObserver> for ::windows::runtime::IInspectable {
-    fn from(value: HandMeshObserver) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HandMeshObserver> for ::windows::runtime::IInspectable {
-    fn from(value: &HandMeshObserver) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HandMeshObserver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HandMeshObserver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for HandMeshObserver {}
 unsafe impl ::std::marker::Sync for HandMeshObserver {}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -306,7 +226,7 @@ unsafe impl ::windows::runtime::RuntimeType for HandMeshVertex {
 }
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HandMeshVertexState(::windows::runtime::IInspectable);
 impl HandMeshVertexState {
     #[cfg(feature = "Perception_Spatial")]
@@ -343,51 +263,11 @@ unsafe impl ::windows::runtime::Interface for HandMeshVertexState {
 impl ::windows::runtime::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
 }
-impl ::std::convert::From<HandMeshVertexState> for ::windows::runtime::IUnknown {
-    fn from(value: HandMeshVertexState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HandMeshVertexState> for ::windows::runtime::IUnknown {
-    fn from(value: &HandMeshVertexState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HandMeshVertexState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HandMeshVertexState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HandMeshVertexState> for ::windows::runtime::IInspectable {
-    fn from(value: HandMeshVertexState) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HandMeshVertexState> for ::windows::runtime::IInspectable {
-    fn from(value: &HandMeshVertexState) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HandMeshVertexState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HandMeshVertexState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for HandMeshVertexState {}
 unsafe impl ::std::marker::Sync for HandMeshVertexState {}
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HandPose(::windows::runtime::IInspectable);
 impl HandPose {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -434,51 +314,11 @@ unsafe impl ::windows::runtime::Interface for HandPose {
 impl ::windows::runtime::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
 }
-impl ::std::convert::From<HandPose> for ::windows::runtime::IUnknown {
-    fn from(value: HandPose) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HandPose> for ::windows::runtime::IUnknown {
-    fn from(value: &HandPose) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HandPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HandPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HandPose> for ::windows::runtime::IInspectable {
-    fn from(value: HandPose) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HandPose> for ::windows::runtime::IInspectable {
-    fn from(value: &HandPose) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HandPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HandPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for HandPose {}
 unsafe impl ::std::marker::Sync for HandPose {}
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HeadPose(::windows::runtime::IInspectable);
 impl HeadPose {
     #[cfg(feature = "Foundation_Numerics")]
@@ -518,46 +358,6 @@ unsafe impl ::windows::runtime::Interface for HeadPose {
 }
 impl ::windows::runtime::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
-}
-impl ::std::convert::From<HeadPose> for ::windows::runtime::IUnknown {
-    fn from(value: HeadPose) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HeadPose> for ::windows::runtime::IUnknown {
-    fn from(value: &HeadPose) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HeadPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HeadPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HeadPose> for ::windows::runtime::IInspectable {
-    fn from(value: HeadPose) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HeadPose> for ::windows::runtime::IInspectable {
-    fn from(value: &HeadPose) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HeadPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HeadPose {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for HeadPose {}
 unsafe impl ::std::marker::Sync for HeadPose {}

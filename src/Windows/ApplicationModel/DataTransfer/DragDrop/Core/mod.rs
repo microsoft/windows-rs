@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreDragDropManager(::windows::runtime::IInspectable);
 impl CoreDragDropManager {
     #[cfg(feature = "Foundation")]
@@ -54,51 +54,11 @@ unsafe impl ::windows::runtime::Interface for CoreDragDropManager {
 impl ::windows::runtime::RuntimeName for CoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager";
 }
-impl ::std::convert::From<CoreDragDropManager> for ::windows::runtime::IUnknown {
-    fn from(value: CoreDragDropManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreDragDropManager> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreDragDropManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreDragDropManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreDragDropManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreDragDropManager> for ::windows::runtime::IInspectable {
-    fn from(value: CoreDragDropManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreDragDropManager> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreDragDropManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreDragDropManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreDragDropManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreDragDropManager {}
 unsafe impl ::std::marker::Sync for CoreDragDropManager {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreDragInfo(::windows::runtime::IInspectable);
 impl CoreDragInfo {
     #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
@@ -145,51 +105,11 @@ unsafe impl ::windows::runtime::Interface for CoreDragInfo {
 impl ::windows::runtime::RuntimeName for CoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo";
 }
-impl ::std::convert::From<CoreDragInfo> for ::windows::runtime::IUnknown {
-    fn from(value: CoreDragInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreDragInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreDragInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreDragInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreDragInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreDragInfo> for ::windows::runtime::IInspectable {
-    fn from(value: CoreDragInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreDragInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreDragInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreDragInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreDragInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreDragInfo {}
 unsafe impl ::std::marker::Sync for CoreDragInfo {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreDragOperation(::windows::runtime::IInspectable);
 impl CoreDragOperation {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -270,46 +190,6 @@ unsafe impl ::windows::runtime::Interface for CoreDragOperation {
 impl ::windows::runtime::RuntimeName for CoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation";
 }
-impl ::std::convert::From<CoreDragOperation> for ::windows::runtime::IUnknown {
-    fn from(value: CoreDragOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreDragOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreDragOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreDragOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreDragOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreDragOperation> for ::windows::runtime::IInspectable {
-    fn from(value: CoreDragOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreDragOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreDragOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreDragOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreDragOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreDragOperation {}
 unsafe impl ::std::marker::Sync for CoreDragOperation {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
@@ -362,7 +242,7 @@ impl ::std::ops::Not for CoreDragUIContentMode {
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreDragUIOverride(::windows::runtime::IInspectable);
 impl CoreDragUIOverride {
     #[cfg(feature = "Graphics_Imaging")]
@@ -445,51 +325,11 @@ unsafe impl ::windows::runtime::Interface for CoreDragUIOverride {
 impl ::windows::runtime::RuntimeName for CoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride";
 }
-impl ::std::convert::From<CoreDragUIOverride> for ::windows::runtime::IUnknown {
-    fn from(value: CoreDragUIOverride) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreDragUIOverride> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreDragUIOverride) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreDragUIOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreDragUIOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreDragUIOverride> for ::windows::runtime::IInspectable {
-    fn from(value: CoreDragUIOverride) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreDragUIOverride> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreDragUIOverride) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreDragUIOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreDragUIOverride {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreDragUIOverride {}
 unsafe impl ::std::marker::Sync for CoreDragUIOverride {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreDropOperationTargetRequestedEventArgs(::windows::runtime::IInspectable);
 impl CoreDropOperationTargetRequestedEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer_DragDrop_Core`*"]
@@ -507,46 +347,6 @@ unsafe impl ::windows::runtime::Interface for CoreDropOperationTargetRequestedEv
 }
 impl ::windows::runtime::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs";
-}
-impl ::std::convert::From<CoreDropOperationTargetRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CoreDropOperationTargetRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreDropOperationTargetRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreDropOperationTargetRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreDropOperationTargetRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreDropOperationTargetRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreDropOperationTargetRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CoreDropOperationTargetRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreDropOperationTargetRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreDropOperationTargetRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreDropOperationTargetRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreDropOperationTargetRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CoreDropOperationTargetRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for CoreDropOperationTargetRequestedEventArgs {}

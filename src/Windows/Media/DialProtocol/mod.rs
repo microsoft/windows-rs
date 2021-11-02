@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialApp(::windows::runtime::IInspectable);
 impl DialApp {
     #[doc = "*Required features: `Media_DialProtocol`*"]
@@ -49,46 +49,6 @@ unsafe impl ::windows::runtime::Interface for DialApp {
 }
 impl ::windows::runtime::RuntimeName for DialApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialApp";
-}
-impl ::std::convert::From<DialApp> for ::windows::runtime::IUnknown {
-    fn from(value: DialApp) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialApp> for ::windows::runtime::IUnknown {
-    fn from(value: &DialApp) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialApp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialApp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialApp> for ::windows::runtime::IInspectable {
-    fn from(value: DialApp) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialApp> for ::windows::runtime::IInspectable {
-    fn from(value: &DialApp) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialApp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialApp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DialApp {}
 unsafe impl ::std::marker::Sync for DialApp {}
@@ -138,7 +98,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialAppState {
 }
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialAppStateDetails(::windows::runtime::IInspectable);
 impl DialAppStateDetails {
     #[doc = "*Required features: `Media_DialProtocol`*"]
@@ -168,46 +128,6 @@ unsafe impl ::windows::runtime::Interface for DialAppStateDetails {
 impl ::windows::runtime::RuntimeName for DialAppStateDetails {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialAppStateDetails";
 }
-impl ::std::convert::From<DialAppStateDetails> for ::windows::runtime::IUnknown {
-    fn from(value: DialAppStateDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialAppStateDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &DialAppStateDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialAppStateDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialAppStateDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialAppStateDetails> for ::windows::runtime::IInspectable {
-    fn from(value: DialAppStateDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialAppStateDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &DialAppStateDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialAppStateDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialAppStateDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DialAppStateDetails {}
 unsafe impl ::std::marker::Sync for DialAppStateDetails {}
 #[doc = "*Required features: `Media_DialProtocol`*"]
@@ -234,7 +154,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialAppStopResult {
 }
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialDevice(::windows::runtime::IInspectable);
 impl DialDevice {
     #[doc = "*Required features: `Media_DialProtocol`*"]
@@ -308,46 +228,6 @@ unsafe impl ::windows::runtime::Interface for DialDevice {
 impl ::windows::runtime::RuntimeName for DialDevice {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevice";
 }
-impl ::std::convert::From<DialDevice> for ::windows::runtime::IUnknown {
-    fn from(value: DialDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &DialDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialDevice> for ::windows::runtime::IInspectable {
-    fn from(value: DialDevice) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialDevice> for ::windows::runtime::IInspectable {
-    fn from(value: &DialDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DialDevice {}
 unsafe impl ::std::marker::Sync for DialDevice {}
 #[doc = "*Required features: `Media_DialProtocol`*"]
@@ -376,7 +256,7 @@ unsafe impl ::windows::runtime::RuntimeType for DialDeviceDisplayStatus {
 }
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialDevicePicker(::windows::runtime::IInspectable);
 impl DialDevicePicker {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -499,51 +379,11 @@ unsafe impl ::windows::runtime::Interface for DialDevicePicker {
 impl ::windows::runtime::RuntimeName for DialDevicePicker {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePicker";
 }
-impl ::std::convert::From<DialDevicePicker> for ::windows::runtime::IUnknown {
-    fn from(value: DialDevicePicker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialDevicePicker> for ::windows::runtime::IUnknown {
-    fn from(value: &DialDevicePicker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialDevicePicker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialDevicePicker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialDevicePicker> for ::windows::runtime::IInspectable {
-    fn from(value: DialDevicePicker) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialDevicePicker> for ::windows::runtime::IInspectable {
-    fn from(value: &DialDevicePicker) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialDevicePicker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialDevicePicker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DialDevicePicker {}
 unsafe impl ::std::marker::Sync for DialDevicePicker {}
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialDevicePickerFilter(::windows::runtime::IInspectable);
 impl DialDevicePickerFilter {
     #[cfg(feature = "Foundation_Collections")]
@@ -566,51 +406,11 @@ unsafe impl ::windows::runtime::Interface for DialDevicePickerFilter {
 impl ::windows::runtime::RuntimeName for DialDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePickerFilter";
 }
-impl ::std::convert::From<DialDevicePickerFilter> for ::windows::runtime::IUnknown {
-    fn from(value: DialDevicePickerFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialDevicePickerFilter> for ::windows::runtime::IUnknown {
-    fn from(value: &DialDevicePickerFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialDevicePickerFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialDevicePickerFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialDevicePickerFilter> for ::windows::runtime::IInspectable {
-    fn from(value: DialDevicePickerFilter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialDevicePickerFilter> for ::windows::runtime::IInspectable {
-    fn from(value: &DialDevicePickerFilter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialDevicePickerFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialDevicePickerFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DialDevicePickerFilter {}
 unsafe impl ::std::marker::Sync for DialDevicePickerFilter {}
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialDeviceSelectedEventArgs(::windows::runtime::IInspectable);
 impl DialDeviceSelectedEventArgs {
     #[doc = "*Required features: `Media_DialProtocol`*"]
@@ -632,51 +432,11 @@ unsafe impl ::windows::runtime::Interface for DialDeviceSelectedEventArgs {
 impl ::windows::runtime::RuntimeName for DialDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDeviceSelectedEventArgs";
 }
-impl ::std::convert::From<DialDeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DialDeviceSelectedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialDeviceSelectedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DialDeviceSelectedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialDeviceSelectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialDeviceSelectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialDeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DialDeviceSelectedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialDeviceSelectedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DialDeviceSelectedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialDeviceSelectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialDeviceSelectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DialDeviceSelectedEventArgs {}
 unsafe impl ::std::marker::Sync for DialDeviceSelectedEventArgs {}
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialDisconnectButtonClickedEventArgs(::windows::runtime::IInspectable);
 impl DialDisconnectButtonClickedEventArgs {
     #[doc = "*Required features: `Media_DialProtocol`*"]
@@ -698,51 +458,11 @@ unsafe impl ::windows::runtime::Interface for DialDisconnectButtonClickedEventAr
 impl ::windows::runtime::RuntimeName for DialDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs";
 }
-impl ::std::convert::From<DialDisconnectButtonClickedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DialDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialDisconnectButtonClickedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DialDisconnectButtonClickedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialDisconnectButtonClickedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialDisconnectButtonClickedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialDisconnectButtonClickedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DialDisconnectButtonClickedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialDisconnectButtonClickedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DialDisconnectButtonClickedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialDisconnectButtonClickedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialDisconnectButtonClickedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DialDisconnectButtonClickedEventArgs {}
 unsafe impl ::std::marker::Sync for DialDisconnectButtonClickedEventArgs {}
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialReceiverApp(::windows::runtime::IInspectable);
 impl DialReceiverApp {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -793,46 +513,6 @@ unsafe impl ::windows::runtime::Interface for DialReceiverApp {
 }
 impl ::windows::runtime::RuntimeName for DialReceiverApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialReceiverApp";
-}
-impl ::std::convert::From<DialReceiverApp> for ::windows::runtime::IUnknown {
-    fn from(value: DialReceiverApp) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialReceiverApp> for ::windows::runtime::IUnknown {
-    fn from(value: &DialReceiverApp) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialReceiverApp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialReceiverApp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialReceiverApp> for ::windows::runtime::IInspectable {
-    fn from(value: DialReceiverApp) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialReceiverApp> for ::windows::runtime::IInspectable {
-    fn from(value: &DialReceiverApp) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialReceiverApp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialReceiverApp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DialReceiverApp {}
 unsafe impl ::std::marker::Sync for DialReceiverApp {}

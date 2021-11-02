@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatCapabilities(::windows::runtime::IInspectable);
 impl ChatCapabilities {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -55,46 +55,6 @@ unsafe impl ::windows::runtime::Interface for ChatCapabilities {
 impl ::windows::runtime::RuntimeName for ChatCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatCapabilities";
 }
-impl ::std::convert::From<ChatCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: ChatCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: ChatCapabilities) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatCapabilities) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatCapabilities {}
 unsafe impl ::std::marker::Sync for ChatCapabilities {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -146,7 +106,7 @@ impl ::windows::runtime::RuntimeName for ChatCapabilitiesManager {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatConversation(::windows::runtime::IInspectable);
 impl ChatConversation {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -317,46 +277,6 @@ unsafe impl ::windows::runtime::Interface for ChatConversation {
 impl ::windows::runtime::RuntimeName for ChatConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversation";
 }
-impl ::std::convert::From<ChatConversation> for ::windows::runtime::IUnknown {
-    fn from(value: ChatConversation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatConversation> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatConversation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatConversation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatConversation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatConversation> for ::windows::runtime::IInspectable {
-    fn from(value: ChatConversation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatConversation> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatConversation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatConversation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatConversation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<ChatConversation> for IChatItem {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ChatConversation) -> ::windows::runtime::Result<Self> {
@@ -383,7 +303,7 @@ unsafe impl ::std::marker::Send for ChatConversation {}
 unsafe impl ::std::marker::Sync for ChatConversation {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatConversationReader(::windows::runtime::IInspectable);
 impl ChatConversationReader {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -415,51 +335,11 @@ unsafe impl ::windows::runtime::Interface for ChatConversationReader {
 impl ::windows::runtime::RuntimeName for ChatConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationReader";
 }
-impl ::std::convert::From<ChatConversationReader> for ::windows::runtime::IUnknown {
-    fn from(value: ChatConversationReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatConversationReader> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatConversationReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatConversationReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatConversationReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatConversationReader> for ::windows::runtime::IInspectable {
-    fn from(value: ChatConversationReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatConversationReader> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatConversationReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatConversationReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatConversationReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatConversationReader {}
 unsafe impl ::std::marker::Sync for ChatConversationReader {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatConversationThreadingInfo(::windows::runtime::IInspectable);
 impl ChatConversationThreadingInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -541,46 +421,6 @@ unsafe impl ::windows::runtime::Interface for ChatConversationThreadingInfo {
 impl ::windows::runtime::RuntimeName for ChatConversationThreadingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationThreadingInfo";
 }
-impl ::std::convert::From<ChatConversationThreadingInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ChatConversationThreadingInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatConversationThreadingInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatConversationThreadingInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatConversationThreadingInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatConversationThreadingInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatConversationThreadingInfo> for ::windows::runtime::IInspectable {
-    fn from(value: ChatConversationThreadingInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatConversationThreadingInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatConversationThreadingInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatConversationThreadingInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatConversationThreadingInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatConversationThreadingInfo {}
 unsafe impl ::std::marker::Sync for ChatConversationThreadingInfo {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -627,7 +467,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatItemKind {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessage(::windows::runtime::IInspectable);
 impl ChatMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -988,46 +828,6 @@ unsafe impl ::windows::runtime::Interface for ChatMessage {
 impl ::windows::runtime::RuntimeName for ChatMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessage";
 }
-impl ::std::convert::From<ChatMessage> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessage> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessage> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessage) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessage> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessage) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<ChatMessage> for IChatItem {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ChatMessage) -> ::windows::runtime::Result<Self> {
@@ -1054,7 +854,7 @@ unsafe impl ::std::marker::Send for ChatMessage {}
 unsafe impl ::std::marker::Sync for ChatMessage {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageAttachment(::windows::runtime::IInspectable);
 impl ChatMessageAttachment {
     #[cfg(feature = "Storage_Streams")]
@@ -1175,46 +975,6 @@ unsafe impl ::windows::runtime::Interface for ChatMessageAttachment {
 impl ::windows::runtime::RuntimeName for ChatMessageAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageAttachment";
 }
-impl ::std::convert::From<ChatMessageAttachment> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageAttachment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageAttachment> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageAttachment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageAttachment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageAttachment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageAttachment> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageAttachment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageAttachment> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageAttachment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageAttachment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageAttachment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageAttachment {}
 unsafe impl ::std::marker::Sync for ChatMessageAttachment {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1238,7 +998,7 @@ impl ::windows::runtime::RuntimeName for ChatMessageBlocking {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageChange(::windows::runtime::IInspectable);
 impl ChatMessageChange {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1268,51 +1028,11 @@ unsafe impl ::windows::runtime::Interface for ChatMessageChange {
 impl ::windows::runtime::RuntimeName for ChatMessageChange {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChange";
 }
-impl ::std::convert::From<ChatMessageChange> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageChange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageChange> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageChange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageChange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageChange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageChange> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageChange) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageChange> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageChange) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageChange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageChange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageChange {}
 unsafe impl ::std::marker::Sync for ChatMessageChange {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageChangeReader(::windows::runtime::IInspectable);
 impl ChatMessageChangeReader {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1345,51 +1065,11 @@ unsafe impl ::windows::runtime::Interface for ChatMessageChangeReader {
 impl ::windows::runtime::RuntimeName for ChatMessageChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeReader";
 }
-impl ::std::convert::From<ChatMessageChangeReader> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageChangeReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageChangeReader> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageChangeReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageChangeReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageChangeReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageChangeReader> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageChangeReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageChangeReader> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageChangeReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageChangeReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageChangeReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageChangeReader {}
 unsafe impl ::std::marker::Sync for ChatMessageChangeReader {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageChangeTracker(::windows::runtime::IInspectable);
 impl ChatMessageChangeTracker {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1421,46 +1101,6 @@ unsafe impl ::windows::runtime::Interface for ChatMessageChangeTracker {
 impl ::windows::runtime::RuntimeName for ChatMessageChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeTracker";
 }
-impl ::std::convert::From<ChatMessageChangeTracker> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageChangeTracker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageChangeTracker> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageChangeTracker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageChangeTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageChangeTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageChangeTracker> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageChangeTracker) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageChangeTracker> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageChangeTracker) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageChangeTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageChangeTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageChangeTracker {}
 unsafe impl ::std::marker::Sync for ChatMessageChangeTracker {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1487,7 +1127,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageChangeType {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageChangedDeferral(::windows::runtime::IInspectable);
 impl ChatMessageChangedDeferral {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1506,51 +1146,11 @@ unsafe impl ::windows::runtime::Interface for ChatMessageChangedDeferral {
 impl ::windows::runtime::RuntimeName for ChatMessageChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedDeferral";
 }
-impl ::std::convert::From<ChatMessageChangedDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageChangedDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageChangedDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageChangedDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageChangedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageChangedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageChangedDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageChangedDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageChangedDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageChangedDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageChangedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageChangedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageChangedDeferral {}
 unsafe impl ::std::marker::Sync for ChatMessageChangedDeferral {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageChangedEventArgs(::windows::runtime::IInspectable);
 impl ChatMessageChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1571,46 +1171,6 @@ unsafe impl ::windows::runtime::Interface for ChatMessageChangedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ChatMessageChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs";
-}
-impl ::std::convert::From<ChatMessageChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ChatMessageChangedEventArgs {}
 unsafe impl ::std::marker::Sync for ChatMessageChangedEventArgs {}
@@ -1712,7 +1272,7 @@ impl ::windows::runtime::RuntimeName for ChatMessageManager {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageNotificationTriggerDetails(::windows::runtime::IInspectable);
 impl ChatMessageNotificationTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1766,46 +1326,6 @@ unsafe impl ::windows::runtime::Interface for ChatMessageNotificationTriggerDeta
 impl ::windows::runtime::RuntimeName for ChatMessageNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails";
 }
-impl ::std::convert::From<ChatMessageNotificationTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageNotificationTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageNotificationTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageNotificationTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageNotificationTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageNotificationTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageNotificationTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageNotificationTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageNotificationTriggerDetails {}
 unsafe impl ::std::marker::Sync for ChatMessageNotificationTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -1832,7 +1352,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageOperatorKind {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageReader(::windows::runtime::IInspectable);
 impl ChatMessageReader {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -1863,46 +1383,6 @@ unsafe impl ::windows::runtime::Interface for ChatMessageReader {
 }
 impl ::windows::runtime::RuntimeName for ChatMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageReader";
-}
-impl ::std::convert::From<ChatMessageReader> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageReader> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageReader> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageReader> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ChatMessageReader {}
 unsafe impl ::std::marker::Sync for ChatMessageReader {}
@@ -1940,7 +1420,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageStatus {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageStore(::windows::runtime::IInspectable);
 impl ChatMessageStore {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -2213,51 +1693,11 @@ unsafe impl ::windows::runtime::Interface for ChatMessageStore {
 impl ::windows::runtime::RuntimeName for ChatMessageStore {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStore";
 }
-impl ::std::convert::From<ChatMessageStore> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageStore> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageStore> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageStore) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageStore> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageStore) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageStore {}
 unsafe impl ::std::marker::Sync for ChatMessageStore {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageStoreChangedEventArgs(::windows::runtime::IInspectable);
 impl ChatMessageStoreChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -2287,51 +1727,11 @@ unsafe impl ::windows::runtime::Interface for ChatMessageStoreChangedEventArgs {
 impl ::windows::runtime::RuntimeName for ChatMessageStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs";
 }
-impl ::std::convert::From<ChatMessageStoreChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageStoreChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageStoreChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageStoreChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageStoreChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageStoreChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageStoreChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageStoreChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageStoreChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageStoreChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageStoreChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageStoreChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageStoreChangedEventArgs {}
 unsafe impl ::std::marker::Sync for ChatMessageStoreChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageTransport(::windows::runtime::IInspectable);
 impl ChatMessageTransport {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -2402,51 +1802,11 @@ unsafe impl ::windows::runtime::Interface for ChatMessageTransport {
 impl ::windows::runtime::RuntimeName for ChatMessageTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransport";
 }
-impl ::std::convert::From<ChatMessageTransport> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageTransport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageTransport> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageTransport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageTransport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageTransport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageTransport> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageTransport) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageTransport> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageTransport) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageTransport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageTransport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageTransport {}
 unsafe impl ::std::marker::Sync for ChatMessageTransport {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageTransportConfiguration(::windows::runtime::IInspectable);
 impl ChatMessageTransportConfiguration {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -2502,46 +1862,6 @@ unsafe impl ::windows::runtime::Interface for ChatMessageTransportConfiguration 
 impl ::windows::runtime::RuntimeName for ChatMessageTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration";
 }
-impl ::std::convert::From<ChatMessageTransportConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageTransportConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageTransportConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageTransportConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageTransportConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageTransportConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageTransportConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageTransportConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageTransportConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageTransportConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageTransportConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageTransportConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageTransportConfiguration {}
 unsafe impl ::std::marker::Sync for ChatMessageTransportConfiguration {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -2568,7 +1888,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageTransportKind {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatMessageValidationResult(::windows::runtime::IInspectable);
 impl ChatMessageValidationResult {
     #[cfg(feature = "Foundation")]
@@ -2617,46 +1937,6 @@ unsafe impl ::windows::runtime::Interface for ChatMessageValidationResult {
 impl ::windows::runtime::RuntimeName for ChatMessageValidationResult {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageValidationResult";
 }
-impl ::std::convert::From<ChatMessageValidationResult> for ::windows::runtime::IUnknown {
-    fn from(value: ChatMessageValidationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatMessageValidationResult> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatMessageValidationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatMessageValidationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatMessageValidationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatMessageValidationResult> for ::windows::runtime::IInspectable {
-    fn from(value: ChatMessageValidationResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatMessageValidationResult> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatMessageValidationResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatMessageValidationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatMessageValidationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatMessageValidationResult {}
 unsafe impl ::std::marker::Sync for ChatMessageValidationResult {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -2693,7 +1973,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatMessageValidationStatus {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatQueryOptions(::windows::runtime::IInspectable);
 impl ChatQueryOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2727,51 +2007,11 @@ unsafe impl ::windows::runtime::Interface for ChatQueryOptions {
 impl ::windows::runtime::RuntimeName for ChatQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatQueryOptions";
 }
-impl ::std::convert::From<ChatQueryOptions> for ::windows::runtime::IUnknown {
-    fn from(value: ChatQueryOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatQueryOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatQueryOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatQueryOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatQueryOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatQueryOptions> for ::windows::runtime::IInspectable {
-    fn from(value: ChatQueryOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatQueryOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatQueryOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatQueryOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatQueryOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatQueryOptions {}
 unsafe impl ::std::marker::Sync for ChatQueryOptions {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatRecipientDeliveryInfo(::windows::runtime::IInspectable);
 impl ChatRecipientDeliveryInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2875,46 +2115,6 @@ unsafe impl ::windows::runtime::Interface for ChatRecipientDeliveryInfo {
 impl ::windows::runtime::RuntimeName for ChatRecipientDeliveryInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo";
 }
-impl ::std::convert::From<ChatRecipientDeliveryInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ChatRecipientDeliveryInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatRecipientDeliveryInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatRecipientDeliveryInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatRecipientDeliveryInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatRecipientDeliveryInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatRecipientDeliveryInfo> for ::windows::runtime::IInspectable {
-    fn from(value: ChatRecipientDeliveryInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatRecipientDeliveryInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatRecipientDeliveryInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatRecipientDeliveryInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatRecipientDeliveryInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatRecipientDeliveryInfo {}
 unsafe impl ::std::marker::Sync for ChatRecipientDeliveryInfo {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -2940,7 +2140,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatRestoreHistorySpan {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatSearchReader(::windows::runtime::IInspectable);
 impl ChatSearchReader {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -2972,46 +2172,6 @@ unsafe impl ::windows::runtime::Interface for ChatSearchReader {
 impl ::windows::runtime::RuntimeName for ChatSearchReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSearchReader";
 }
-impl ::std::convert::From<ChatSearchReader> for ::windows::runtime::IUnknown {
-    fn from(value: ChatSearchReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatSearchReader> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatSearchReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatSearchReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatSearchReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatSearchReader> for ::windows::runtime::IInspectable {
-    fn from(value: ChatSearchReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatSearchReader> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatSearchReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatSearchReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatSearchReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatSearchReader {}
 unsafe impl ::std::marker::Sync for ChatSearchReader {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -3042,7 +2202,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChatStoreChangedEventKind {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatSyncConfiguration(::windows::runtime::IInspectable);
 impl ChatSyncConfiguration {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -3082,51 +2242,11 @@ unsafe impl ::windows::runtime::Interface for ChatSyncConfiguration {
 impl ::windows::runtime::RuntimeName for ChatSyncConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncConfiguration";
 }
-impl ::std::convert::From<ChatSyncConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: ChatSyncConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatSyncConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatSyncConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatSyncConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatSyncConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatSyncConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: ChatSyncConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatSyncConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatSyncConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatSyncConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatSyncConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChatSyncConfiguration {}
 unsafe impl ::std::marker::Sync for ChatSyncConfiguration {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChatSyncManager(::windows::runtime::IInspectable);
 impl ChatSyncManager {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -3188,46 +2308,6 @@ unsafe impl ::windows::runtime::Interface for ChatSyncManager {
 }
 impl ::windows::runtime::RuntimeName for ChatSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncManager";
-}
-impl ::std::convert::From<ChatSyncManager> for ::windows::runtime::IUnknown {
-    fn from(value: ChatSyncManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChatSyncManager> for ::windows::runtime::IUnknown {
-    fn from(value: &ChatSyncManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChatSyncManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChatSyncManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChatSyncManager> for ::windows::runtime::IInspectable {
-    fn from(value: ChatSyncManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChatSyncManager> for ::windows::runtime::IInspectable {
-    fn from(value: &ChatSyncManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChatSyncManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChatSyncManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ChatSyncManager {}
 unsafe impl ::std::marker::Sync for ChatSyncManager {}
@@ -4560,7 +3640,7 @@ pub struct IRemoteParticipantComposingChangedEventArgs_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RcsEndUserMessage(::windows::runtime::IInspectable);
 impl RcsEndUserMessage {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -4633,51 +3713,11 @@ unsafe impl ::windows::runtime::Interface for RcsEndUserMessage {
 impl ::windows::runtime::RuntimeName for RcsEndUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessage";
 }
-impl ::std::convert::From<RcsEndUserMessage> for ::windows::runtime::IUnknown {
-    fn from(value: RcsEndUserMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessage> for ::windows::runtime::IUnknown {
-    fn from(value: &RcsEndUserMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsEndUserMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsEndUserMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RcsEndUserMessage> for ::windows::runtime::IInspectable {
-    fn from(value: RcsEndUserMessage) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessage> for ::windows::runtime::IInspectable {
-    fn from(value: &RcsEndUserMessage) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsEndUserMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsEndUserMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RcsEndUserMessage {}
 unsafe impl ::std::marker::Sync for RcsEndUserMessage {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RcsEndUserMessageAction(::windows::runtime::IInspectable);
 impl RcsEndUserMessageAction {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -4699,51 +3739,11 @@ unsafe impl ::windows::runtime::Interface for RcsEndUserMessageAction {
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageAction {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAction";
 }
-impl ::std::convert::From<RcsEndUserMessageAction> for ::windows::runtime::IUnknown {
-    fn from(value: RcsEndUserMessageAction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessageAction> for ::windows::runtime::IUnknown {
-    fn from(value: &RcsEndUserMessageAction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsEndUserMessageAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsEndUserMessageAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RcsEndUserMessageAction> for ::windows::runtime::IInspectable {
-    fn from(value: RcsEndUserMessageAction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessageAction> for ::windows::runtime::IInspectable {
-    fn from(value: &RcsEndUserMessageAction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsEndUserMessageAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsEndUserMessageAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RcsEndUserMessageAction {}
 unsafe impl ::std::marker::Sync for RcsEndUserMessageAction {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RcsEndUserMessageAvailableEventArgs(::windows::runtime::IInspectable);
 impl RcsEndUserMessageAvailableEventArgs {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -4773,51 +3773,11 @@ unsafe impl ::windows::runtime::Interface for RcsEndUserMessageAvailableEventArg
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageAvailableEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs";
 }
-impl ::std::convert::From<RcsEndUserMessageAvailableEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: RcsEndUserMessageAvailableEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessageAvailableEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &RcsEndUserMessageAvailableEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsEndUserMessageAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsEndUserMessageAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RcsEndUserMessageAvailableEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: RcsEndUserMessageAvailableEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessageAvailableEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &RcsEndUserMessageAvailableEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsEndUserMessageAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsEndUserMessageAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RcsEndUserMessageAvailableEventArgs {}
 unsafe impl ::std::marker::Sync for RcsEndUserMessageAvailableEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RcsEndUserMessageAvailableTriggerDetails(::windows::runtime::IInspectable);
 impl RcsEndUserMessageAvailableTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -4847,51 +3807,11 @@ unsafe impl ::windows::runtime::Interface for RcsEndUserMessageAvailableTriggerD
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails";
 }
-impl ::std::convert::From<RcsEndUserMessageAvailableTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsEndUserMessageAvailableTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsEndUserMessageAvailableTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RcsEndUserMessageAvailableTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessageAvailableTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &RcsEndUserMessageAvailableTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsEndUserMessageAvailableTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsEndUserMessageAvailableTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RcsEndUserMessageAvailableTriggerDetails {}
 unsafe impl ::std::marker::Sync for RcsEndUserMessageAvailableTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RcsEndUserMessageManager(::windows::runtime::IInspectable);
 impl RcsEndUserMessageManager {
     #[cfg(feature = "Foundation")]
@@ -4919,46 +3839,6 @@ unsafe impl ::windows::runtime::Interface for RcsEndUserMessageManager {
 }
 impl ::windows::runtime::RuntimeName for RcsEndUserMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageManager";
-}
-impl ::std::convert::From<RcsEndUserMessageManager> for ::windows::runtime::IUnknown {
-    fn from(value: RcsEndUserMessageManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessageManager> for ::windows::runtime::IUnknown {
-    fn from(value: &RcsEndUserMessageManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsEndUserMessageManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsEndUserMessageManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RcsEndUserMessageManager> for ::windows::runtime::IInspectable {
-    fn from(value: RcsEndUserMessageManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RcsEndUserMessageManager> for ::windows::runtime::IInspectable {
-    fn from(value: &RcsEndUserMessageManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsEndUserMessageManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsEndUserMessageManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for RcsEndUserMessageManager {}
 unsafe impl ::std::marker::Sync for RcsEndUserMessageManager {}
@@ -5045,7 +3925,7 @@ unsafe impl ::windows::runtime::RuntimeType for RcsServiceKind {
 }
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RcsServiceKindSupportedChangedEventArgs(::windows::runtime::IInspectable);
 impl RcsServiceKindSupportedChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -5067,51 +3947,11 @@ unsafe impl ::windows::runtime::Interface for RcsServiceKindSupportedChangedEven
 impl ::windows::runtime::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs";
 }
-impl ::std::convert::From<RcsServiceKindSupportedChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: RcsServiceKindSupportedChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RcsServiceKindSupportedChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &RcsServiceKindSupportedChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsServiceKindSupportedChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsServiceKindSupportedChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RcsServiceKindSupportedChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: RcsServiceKindSupportedChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RcsServiceKindSupportedChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &RcsServiceKindSupportedChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsServiceKindSupportedChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsServiceKindSupportedChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RcsServiceKindSupportedChangedEventArgs {}
 unsafe impl ::std::marker::Sync for RcsServiceKindSupportedChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RcsTransport(::windows::runtime::IInspectable);
 impl RcsTransport {
     #[cfg(feature = "Foundation_Collections")]
@@ -5197,51 +4037,11 @@ unsafe impl ::windows::runtime::Interface for RcsTransport {
 impl ::windows::runtime::RuntimeName for RcsTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransport";
 }
-impl ::std::convert::From<RcsTransport> for ::windows::runtime::IUnknown {
-    fn from(value: RcsTransport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RcsTransport> for ::windows::runtime::IUnknown {
-    fn from(value: &RcsTransport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsTransport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsTransport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RcsTransport> for ::windows::runtime::IInspectable {
-    fn from(value: RcsTransport) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RcsTransport> for ::windows::runtime::IInspectable {
-    fn from(value: &RcsTransport) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsTransport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsTransport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RcsTransport {}
 unsafe impl ::std::marker::Sync for RcsTransport {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RcsTransportConfiguration(::windows::runtime::IInspectable);
 impl RcsTransportConfiguration {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -5303,51 +4103,11 @@ unsafe impl ::windows::runtime::Interface for RcsTransportConfiguration {
 impl ::windows::runtime::RuntimeName for RcsTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransportConfiguration";
 }
-impl ::std::convert::From<RcsTransportConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: RcsTransportConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RcsTransportConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &RcsTransportConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RcsTransportConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RcsTransportConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RcsTransportConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: RcsTransportConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RcsTransportConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &RcsTransportConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RcsTransportConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RcsTransportConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RcsTransportConfiguration {}
 unsafe impl ::std::marker::Sync for RcsTransportConfiguration {}
 #[doc = "*Required features: `ApplicationModel_Chat`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RemoteParticipantComposingChangedEventArgs(::windows::runtime::IInspectable);
 impl RemoteParticipantComposingChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Chat`*"]
@@ -5384,46 +4144,6 @@ unsafe impl ::windows::runtime::Interface for RemoteParticipantComposingChangedE
 }
 impl ::windows::runtime::RuntimeName for RemoteParticipantComposingChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs";
-}
-impl ::std::convert::From<RemoteParticipantComposingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: RemoteParticipantComposingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RemoteParticipantComposingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &RemoteParticipantComposingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoteParticipantComposingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoteParticipantComposingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RemoteParticipantComposingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: RemoteParticipantComposingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RemoteParticipantComposingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &RemoteParticipantComposingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RemoteParticipantComposingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RemoteParticipantComposingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for RemoteParticipantComposingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for RemoteParticipantComposingChangedEventArgs {}

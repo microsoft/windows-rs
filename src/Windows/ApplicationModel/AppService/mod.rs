@@ -20,7 +20,7 @@ impl ::windows::runtime::RuntimeName for AppServiceCatalog {
 }
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppServiceClosedEventArgs(::windows::runtime::IInspectable);
 impl AppServiceClosedEventArgs {
     #[doc = "*Required features: `ApplicationModel_AppService`*"]
@@ -41,46 +41,6 @@ unsafe impl ::windows::runtime::Interface for AppServiceClosedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for AppServiceClosedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceClosedEventArgs";
-}
-impl ::std::convert::From<AppServiceClosedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AppServiceClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppServiceClosedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AppServiceClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppServiceClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppServiceClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppServiceClosedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AppServiceClosedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppServiceClosedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AppServiceClosedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppServiceClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppServiceClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for AppServiceClosedEventArgs {}
 unsafe impl ::std::marker::Sync for AppServiceClosedEventArgs {}
@@ -108,7 +68,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceClosedStatus {
 }
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppServiceConnection(::windows::runtime::IInspectable);
 impl AppServiceConnection {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -245,46 +205,6 @@ unsafe impl ::windows::runtime::Interface for AppServiceConnection {
 impl ::windows::runtime::RuntimeName for AppServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceConnection";
 }
-impl ::std::convert::From<AppServiceConnection> for ::windows::runtime::IUnknown {
-    fn from(value: AppServiceConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppServiceConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &AppServiceConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppServiceConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppServiceConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppServiceConnection> for ::windows::runtime::IInspectable {
-    fn from(value: AppServiceConnection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppServiceConnection> for ::windows::runtime::IInspectable {
-    fn from(value: &AppServiceConnection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppServiceConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppServiceConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<AppServiceConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -345,7 +265,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceConnectionStatus {
 }
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppServiceDeferral(::windows::runtime::IInspectable);
 impl AppServiceDeferral {
     #[doc = "*Required features: `ApplicationModel_AppService`*"]
@@ -364,51 +284,11 @@ unsafe impl ::windows::runtime::Interface for AppServiceDeferral {
 impl ::windows::runtime::RuntimeName for AppServiceDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceDeferral";
 }
-impl ::std::convert::From<AppServiceDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: AppServiceDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppServiceDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &AppServiceDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppServiceDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppServiceDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppServiceDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: AppServiceDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppServiceDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &AppServiceDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppServiceDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppServiceDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppServiceDeferral {}
 unsafe impl ::std::marker::Sync for AppServiceDeferral {}
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppServiceRequest(::windows::runtime::IInspectable);
 impl AppServiceRequest {
     #[cfg(feature = "Foundation_Collections")]
@@ -440,51 +320,11 @@ unsafe impl ::windows::runtime::Interface for AppServiceRequest {
 impl ::windows::runtime::RuntimeName for AppServiceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequest";
 }
-impl ::std::convert::From<AppServiceRequest> for ::windows::runtime::IUnknown {
-    fn from(value: AppServiceRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppServiceRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &AppServiceRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppServiceRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppServiceRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppServiceRequest> for ::windows::runtime::IInspectable {
-    fn from(value: AppServiceRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppServiceRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &AppServiceRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppServiceRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppServiceRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppServiceRequest {}
 unsafe impl ::std::marker::Sync for AppServiceRequest {}
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppServiceRequestReceivedEventArgs(::windows::runtime::IInspectable);
 impl AppServiceRequestReceivedEventArgs {
     #[doc = "*Required features: `ApplicationModel_AppService`*"]
@@ -514,51 +354,11 @@ unsafe impl ::windows::runtime::Interface for AppServiceRequestReceivedEventArgs
 impl ::windows::runtime::RuntimeName for AppServiceRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs";
 }
-impl ::std::convert::From<AppServiceRequestReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AppServiceRequestReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppServiceRequestReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AppServiceRequestReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppServiceRequestReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppServiceRequestReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppServiceRequestReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AppServiceRequestReceivedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppServiceRequestReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AppServiceRequestReceivedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppServiceRequestReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppServiceRequestReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppServiceRequestReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for AppServiceRequestReceivedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppServiceResponse(::windows::runtime::IInspectable);
 impl AppServiceResponse {
     #[cfg(feature = "Foundation_Collections")]
@@ -588,46 +388,6 @@ unsafe impl ::windows::runtime::Interface for AppServiceResponse {
 }
 impl ::windows::runtime::RuntimeName for AppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceResponse";
-}
-impl ::std::convert::From<AppServiceResponse> for ::windows::runtime::IUnknown {
-    fn from(value: AppServiceResponse) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppServiceResponse> for ::windows::runtime::IUnknown {
-    fn from(value: &AppServiceResponse) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppServiceResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppServiceResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppServiceResponse> for ::windows::runtime::IInspectable {
-    fn from(value: AppServiceResponse) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppServiceResponse> for ::windows::runtime::IInspectable {
-    fn from(value: &AppServiceResponse) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppServiceResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppServiceResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for AppServiceResponse {}
 unsafe impl ::std::marker::Sync for AppServiceResponse {}
@@ -662,7 +422,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppServiceResponseStatus {
 }
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppServiceTriggerDetails(::windows::runtime::IInspectable);
 impl AppServiceTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_AppService`*"]
@@ -724,46 +484,6 @@ unsafe impl ::windows::runtime::Interface for AppServiceTriggerDetails {
 }
 impl ::windows::runtime::RuntimeName for AppServiceTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceTriggerDetails";
-}
-impl ::std::convert::From<AppServiceTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: AppServiceTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppServiceTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &AppServiceTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppServiceTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppServiceTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppServiceTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: AppServiceTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppServiceTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &AppServiceTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppServiceTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppServiceTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for AppServiceTriggerDetails {}
 unsafe impl ::std::marker::Sync for AppServiceTriggerDetails {}
@@ -1068,7 +788,7 @@ pub struct IStatelessAppServiceResponse_abi(
 );
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StatelessAppServiceResponse(::windows::runtime::IInspectable);
 impl StatelessAppServiceResponse {
     #[cfg(feature = "Foundation_Collections")]
@@ -1098,46 +818,6 @@ unsafe impl ::windows::runtime::Interface for StatelessAppServiceResponse {
 }
 impl ::windows::runtime::RuntimeName for StatelessAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.StatelessAppServiceResponse";
-}
-impl ::std::convert::From<StatelessAppServiceResponse> for ::windows::runtime::IUnknown {
-    fn from(value: StatelessAppServiceResponse) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StatelessAppServiceResponse> for ::windows::runtime::IUnknown {
-    fn from(value: &StatelessAppServiceResponse) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StatelessAppServiceResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StatelessAppServiceResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StatelessAppServiceResponse> for ::windows::runtime::IInspectable {
-    fn from(value: StatelessAppServiceResponse) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StatelessAppServiceResponse> for ::windows::runtime::IInspectable {
-    fn from(value: &StatelessAppServiceResponse) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StatelessAppServiceResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StatelessAppServiceResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for StatelessAppServiceResponse {}
 unsafe impl ::std::marker::Sync for StatelessAppServiceResponse {}

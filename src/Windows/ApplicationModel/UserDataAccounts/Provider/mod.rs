@@ -116,7 +116,7 @@ pub struct IUserDataAccountProviderSettingsOperation_abi(
 );
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserDataAccountPartnerAccountInfo(::windows::runtime::IInspectable);
 impl UserDataAccountPartnerAccountInfo {
     #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
@@ -154,51 +154,11 @@ unsafe impl ::windows::runtime::Interface for UserDataAccountPartnerAccountInfo 
 impl ::windows::runtime::RuntimeName for UserDataAccountPartnerAccountInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo";
 }
-impl ::std::convert::From<UserDataAccountPartnerAccountInfo> for ::windows::runtime::IUnknown {
-    fn from(value: UserDataAccountPartnerAccountInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserDataAccountPartnerAccountInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &UserDataAccountPartnerAccountInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataAccountPartnerAccountInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataAccountPartnerAccountInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserDataAccountPartnerAccountInfo> for ::windows::runtime::IInspectable {
-    fn from(value: UserDataAccountPartnerAccountInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserDataAccountPartnerAccountInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &UserDataAccountPartnerAccountInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataAccountPartnerAccountInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataAccountPartnerAccountInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserDataAccountPartnerAccountInfo {}
 unsafe impl ::std::marker::Sync for UserDataAccountPartnerAccountInfo {}
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserDataAccountProviderAddAccountOperation(::windows::runtime::IInspectable);
 impl UserDataAccountProviderAddAccountOperation {
     #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
@@ -241,46 +201,6 @@ unsafe impl ::windows::runtime::Interface for UserDataAccountProviderAddAccountO
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation";
-}
-impl ::std::convert::From<UserDataAccountProviderAddAccountOperation> for ::windows::runtime::IUnknown {
-    fn from(value: UserDataAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserDataAccountProviderAddAccountOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &UserDataAccountProviderAddAccountOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserDataAccountProviderAddAccountOperation> for ::windows::runtime::IInspectable {
-    fn from(value: UserDataAccountProviderAddAccountOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserDataAccountProviderAddAccountOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &UserDataAccountProviderAddAccountOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataAccountProviderAddAccountOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<UserDataAccountProviderAddAccountOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::runtime::Error;
@@ -349,7 +269,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserDataAccountProviderPartnerAc
 }
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserDataAccountProviderResolveErrorsOperation(::windows::runtime::IInspectable);
 impl UserDataAccountProviderResolveErrorsOperation {
     #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
@@ -384,46 +304,6 @@ unsafe impl ::windows::runtime::Interface for UserDataAccountProviderResolveErro
 impl ::windows::runtime::RuntimeName for UserDataAccountProviderResolveErrorsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation";
 }
-impl ::std::convert::From<UserDataAccountProviderResolveErrorsOperation> for ::windows::runtime::IUnknown {
-    fn from(value: UserDataAccountProviderResolveErrorsOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserDataAccountProviderResolveErrorsOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &UserDataAccountProviderResolveErrorsOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserDataAccountProviderResolveErrorsOperation> for ::windows::runtime::IInspectable {
-    fn from(value: UserDataAccountProviderResolveErrorsOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserDataAccountProviderResolveErrorsOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &UserDataAccountProviderResolveErrorsOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataAccountProviderResolveErrorsOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<UserDataAccountProviderResolveErrorsOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: UserDataAccountProviderResolveErrorsOperation) -> ::windows::runtime::Result<Self> {
@@ -450,7 +330,7 @@ unsafe impl ::std::marker::Send for UserDataAccountProviderResolveErrorsOperatio
 unsafe impl ::std::marker::Sync for UserDataAccountProviderResolveErrorsOperation {}
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserDataAccountProviderSettingsOperation(::windows::runtime::IInspectable);
 impl UserDataAccountProviderSettingsOperation {
     #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
@@ -484,46 +364,6 @@ unsafe impl ::windows::runtime::Interface for UserDataAccountProviderSettingsOpe
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountProviderSettingsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation";
-}
-impl ::std::convert::From<UserDataAccountProviderSettingsOperation> for ::windows::runtime::IUnknown {
-    fn from(value: UserDataAccountProviderSettingsOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserDataAccountProviderSettingsOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &UserDataAccountProviderSettingsOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserDataAccountProviderSettingsOperation> for ::windows::runtime::IInspectable {
-    fn from(value: UserDataAccountProviderSettingsOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserDataAccountProviderSettingsOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &UserDataAccountProviderSettingsOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataAccountProviderSettingsOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<UserDataAccountProviderSettingsOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::runtime::Error;

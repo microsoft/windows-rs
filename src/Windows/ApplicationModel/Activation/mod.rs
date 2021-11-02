@@ -92,7 +92,7 @@ unsafe impl ::windows::runtime::RuntimeType for ApplicationExecutionState {
 }
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(::windows::runtime::IInspectable);
 impl AppointmentsProviderAddAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -155,46 +155,6 @@ unsafe impl ::windows::runtime::Interface for AppointmentsProviderAddAppointment
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
-}
-impl ::std::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
@@ -286,7 +246,7 @@ unsafe impl ::std::marker::Send for AppointmentsProviderAddAppointmentActivatedE
 unsafe impl ::std::marker::Sync for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows::runtime::IInspectable);
 impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -349,46 +309,6 @@ unsafe impl ::windows::runtime::Interface for AppointmentsProviderRemoveAppointm
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
-}
-impl ::std::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
@@ -480,7 +400,7 @@ unsafe impl ::std::marker::Send for AppointmentsProviderRemoveAppointmentActivat
 unsafe impl ::std::marker::Sync for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows::runtime::IInspectable);
 impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -543,46 +463,6 @@ unsafe impl ::windows::runtime::Interface for AppointmentsProviderReplaceAppoint
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
-}
-impl ::std::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
@@ -674,7 +554,7 @@ unsafe impl ::std::marker::Send for AppointmentsProviderReplaceAppointmentActiva
 unsafe impl ::std::marker::Sync for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows::runtime::IInspectable);
 impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -753,46 +633,6 @@ unsafe impl ::windows::runtime::Interface for AppointmentsProviderShowAppointmen
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
-}
-impl ::std::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
@@ -884,7 +724,7 @@ unsafe impl ::std::marker::Send for AppointmentsProviderShowAppointmentDetailsAc
 unsafe impl ::std::marker::Sync for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(::windows::runtime::IInspectable);
 impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -956,46 +796,6 @@ unsafe impl ::windows::runtime::Interface for AppointmentsProviderShowTimeFrameA
 }
 impl ::windows::runtime::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
-}
-impl ::std::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
@@ -1087,7 +887,7 @@ unsafe impl ::std::marker::Send for AppointmentsProviderShowTimeFrameActivatedEv
 unsafe impl ::std::marker::Sync for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackgroundActivatedEventArgs(::windows::runtime::IInspectable);
 impl BackgroundActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Background")]
@@ -1109,46 +909,6 @@ unsafe impl ::windows::runtime::Interface for BackgroundActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
-}
-impl ::std::convert::From<BackgroundActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackgroundActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackgroundActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: BackgroundActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackgroundActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<BackgroundActivatedEventArgs> for IBackgroundActivatedEventArgs {
     fn from(value: BackgroundActivatedEventArgs) -> Self {
@@ -1174,7 +934,7 @@ unsafe impl ::std::marker::Send for BackgroundActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for BackgroundActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BarcodeScannerPreviewActivatedEventArgs(::windows::runtime::IInspectable);
 impl BarcodeScannerPreviewActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -1228,46 +988,6 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerPreviewActivatedEven
 }
 impl ::windows::runtime::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
-}
-impl ::std::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -1337,7 +1057,7 @@ unsafe impl ::std::marker::Send for BarcodeScannerPreviewActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerPreviewActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CachedFileUpdaterActivatedEventArgs(::windows::runtime::IInspectable);
 impl CachedFileUpdaterActivatedEventArgs {
     #[cfg(feature = "Storage_Provider")]
@@ -1392,46 +1112,6 @@ unsafe impl ::windows::runtime::Interface for CachedFileUpdaterActivatedEventArg
 }
 impl ::windows::runtime::RuntimeName for CachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
-}
-impl ::std::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<CachedFileUpdaterActivatedEventArgs> for ICachedFileUpdaterActivatedEventArgs {
     fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
@@ -1501,7 +1181,7 @@ unsafe impl ::std::marker::Send for CachedFileUpdaterActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for CachedFileUpdaterActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CameraSettingsActivatedEventArgs(::windows::runtime::IInspectable);
 impl CameraSettingsActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -1555,46 +1235,6 @@ unsafe impl ::windows::runtime::Interface for CameraSettingsActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for CameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
 }
-impl ::std::convert::From<CameraSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CameraSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CameraSettingsActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<CameraSettingsActivatedEventArgs> for ICameraSettingsActivatedEventArgs {
     fn from(value: CameraSettingsActivatedEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1641,7 +1281,7 @@ unsafe impl ::std::marker::Send for CameraSettingsActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for CameraSettingsActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CommandLineActivatedEventArgs(::windows::runtime::IInspectable);
 impl CommandLineActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -1695,46 +1335,6 @@ unsafe impl ::windows::runtime::Interface for CommandLineActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for CommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
-}
-impl ::std::convert::From<CommandLineActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CommandLineActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CommandLineActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CommandLineActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CommandLineActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -1804,7 +1404,7 @@ unsafe impl ::std::marker::Send for CommandLineActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for CommandLineActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CommandLineActivationOperation(::windows::runtime::IInspectable);
 impl CommandLineActivationOperation {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -1856,46 +1456,6 @@ unsafe impl ::windows::runtime::Interface for CommandLineActivationOperation {
 impl ::windows::runtime::RuntimeName for CommandLineActivationOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
 }
-impl ::std::convert::From<CommandLineActivationOperation> for ::windows::runtime::IUnknown {
-    fn from(value: CommandLineActivationOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CommandLineActivationOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CommandLineActivationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CommandLineActivationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CommandLineActivationOperation> for ::windows::runtime::IInspectable {
-    fn from(value: CommandLineActivationOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CommandLineActivationOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CommandLineActivationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CommandLineActivationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CommandLineActivationOperation {}
 unsafe impl ::std::marker::Sync for CommandLineActivationOperation {}
 #[repr(C)]
@@ -1903,7 +1463,7 @@ unsafe impl ::std::marker::Sync for CommandLineActivationOperation {}
 pub struct ContactActivatedEventsContract(pub u8);
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactCallActivatedEventArgs(::windows::runtime::IInspectable);
 impl ContactCallActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -1974,46 +1534,6 @@ unsafe impl ::windows::runtime::Interface for ContactCallActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for ContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
 }
-impl ::std::convert::From<ContactCallActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactCallActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactCallActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactCallActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactCallActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContactCallActivatedEventArgs> for IContactCallActivatedEventArgs {
     fn from(value: ContactCallActivatedEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2082,7 +1602,7 @@ unsafe impl ::std::marker::Send for ContactCallActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactCallActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactMapActivatedEventArgs(::windows::runtime::IInspectable);
 impl ContactMapActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -2145,46 +1665,6 @@ unsafe impl ::windows::runtime::Interface for ContactMapActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
-}
-impl ::std::convert::From<ContactMapActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactMapActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactMapActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactMapActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactMapActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ContactMapActivatedEventArgs> for IContactMapActivatedEventArgs {
     fn from(value: ContactMapActivatedEventArgs) -> Self {
@@ -2254,7 +1734,7 @@ unsafe impl ::std::marker::Send for ContactMapActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactMapActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactMessageActivatedEventArgs(::windows::runtime::IInspectable);
 impl ContactMessageActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -2325,46 +1805,6 @@ unsafe impl ::windows::runtime::Interface for ContactMessageActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for ContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
 }
-impl ::std::convert::From<ContactMessageActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactMessageActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactMessageActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactMessageActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactMessageActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContactMessageActivatedEventArgs> for IContactMessageActivatedEventArgs {
     fn from(value: ContactMessageActivatedEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2433,7 +1873,7 @@ unsafe impl ::std::marker::Send for ContactMessageActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactMessageActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactPanelActivatedEventArgs(::windows::runtime::IInspectable);
 impl ContactPanelActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -2497,46 +1937,6 @@ unsafe impl ::windows::runtime::Interface for ContactPanelActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
-}
-impl ::std::convert::From<ContactPanelActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactPanelActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactPanelActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactPanelActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactPanelActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -2606,7 +2006,7 @@ unsafe impl ::std::marker::Send for ContactPanelActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactPanelActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactPickerActivatedEventArgs(::windows::runtime::IInspectable);
 impl ContactPickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
@@ -2652,46 +2052,6 @@ unsafe impl ::windows::runtime::Interface for ContactPickerActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
-}
-impl ::std::convert::From<ContactPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactPickerActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ContactPickerActivatedEventArgs> for IContactPickerActivatedEventArgs {
     fn from(value: ContactPickerActivatedEventArgs) -> Self {
@@ -2739,7 +2099,7 @@ unsafe impl ::std::marker::Send for ContactPickerActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactPickerActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactPostActivatedEventArgs(::windows::runtime::IInspectable);
 impl ContactPostActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -2810,46 +2170,6 @@ unsafe impl ::windows::runtime::Interface for ContactPostActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for ContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
 }
-impl ::std::convert::From<ContactPostActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactPostActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactPostActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactPostActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactPostActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContactPostActivatedEventArgs> for IContactPostActivatedEventArgs {
     fn from(value: ContactPostActivatedEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2918,7 +2238,7 @@ unsafe impl ::std::marker::Send for ContactPostActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactPostActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactVideoCallActivatedEventArgs(::windows::runtime::IInspectable);
 impl ContactVideoCallActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -2989,46 +2309,6 @@ unsafe impl ::windows::runtime::Interface for ContactVideoCallActivatedEventArgs
 impl ::windows::runtime::RuntimeName for ContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
 }
-impl ::std::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContactVideoCallActivatedEventArgs> for IContactVideoCallActivatedEventArgs {
     fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3097,7 +2377,7 @@ unsafe impl ::std::marker::Send for ContactVideoCallActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactVideoCallActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DeviceActivatedEventArgs(::windows::runtime::IInspectable);
 impl DeviceActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -3176,46 +2456,6 @@ unsafe impl ::windows::runtime::Interface for DeviceActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for DeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
-}
-impl ::std::convert::From<DeviceActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DeviceActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DeviceActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DeviceActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DeviceActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DeviceActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<DeviceActivatedEventArgs> for IDeviceActivatedEventArgs {
     fn from(value: DeviceActivatedEventArgs) -> Self {
@@ -3329,7 +2569,7 @@ unsafe impl ::std::marker::Send for DeviceActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for DeviceActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DevicePairingActivatedEventArgs(::windows::runtime::IInspectable);
 impl DevicePairingActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -3384,46 +2624,6 @@ unsafe impl ::windows::runtime::Interface for DevicePairingActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for DevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
-}
-impl ::std::convert::From<DevicePairingActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DevicePairingActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DevicePairingActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DevicePairingActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DevicePairingActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -3493,7 +2693,7 @@ unsafe impl ::std::marker::Send for DevicePairingActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for DevicePairingActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DialReceiverActivatedEventArgs(::windows::runtime::IInspectable);
 impl DialReceiverActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -3580,46 +2780,6 @@ unsafe impl ::windows::runtime::Interface for DialReceiverActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for DialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
-}
-impl ::std::convert::From<DialReceiverActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DialReceiverActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DialReceiverActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DialReceiverActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DialReceiverActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<DialReceiverActivatedEventArgs> for IDialReceiverActivatedEventArgs {
     fn from(value: DialReceiverActivatedEventArgs) -> Self {
@@ -3755,7 +2915,7 @@ unsafe impl ::std::marker::Send for DialReceiverActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for DialReceiverActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FileActivatedEventArgs(::windows::runtime::IInspectable);
 impl FileActivatedEventArgs {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
@@ -3852,46 +3012,6 @@ unsafe impl ::windows::runtime::Interface for FileActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for FileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
-}
-impl ::std::convert::From<FileActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: FileActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FileActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FileActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: FileActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FileActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<FileActivatedEventArgs> for IFileActivatedEventArgs {
     fn from(value: FileActivatedEventArgs) -> Self {
@@ -4049,7 +3169,7 @@ unsafe impl ::std::marker::Send for FileActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for FileActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FileOpenPickerActivatedEventArgs(::windows::runtime::IInspectable);
 impl FileOpenPickerActivatedEventArgs {
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -4112,46 +3232,6 @@ unsafe impl ::windows::runtime::Interface for FileOpenPickerActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for FileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
-}
-impl ::std::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs {
     fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
@@ -4243,7 +3323,7 @@ unsafe impl ::std::marker::Send for FileOpenPickerActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for FileOpenPickerActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FileOpenPickerContinuationEventArgs(::windows::runtime::IInspectable);
 impl FileOpenPickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
@@ -4308,46 +3388,6 @@ unsafe impl ::windows::runtime::Interface for FileOpenPickerContinuationEventArg
 }
 impl ::windows::runtime::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
-}
-impl ::std::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<FileOpenPickerContinuationEventArgs> for IFileOpenPickerContinuationEventArgs {
     fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
@@ -4439,7 +3479,7 @@ unsafe impl ::std::marker::Send for FileOpenPickerContinuationEventArgs {}
 unsafe impl ::std::marker::Sync for FileOpenPickerContinuationEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FileSavePickerActivatedEventArgs(::windows::runtime::IInspectable);
 impl FileSavePickerActivatedEventArgs {
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -4510,46 +3550,6 @@ unsafe impl ::windows::runtime::Interface for FileSavePickerActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for FileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
-}
-impl ::std::convert::From<FileSavePickerActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FileSavePickerActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: FileSavePickerActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs {
     fn from(value: FileSavePickerActivatedEventArgs) -> Self {
@@ -4641,7 +3641,7 @@ unsafe impl ::std::marker::Send for FileSavePickerActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for FileSavePickerActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FileSavePickerContinuationEventArgs(::windows::runtime::IInspectable);
 impl FileSavePickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
@@ -4706,46 +3706,6 @@ unsafe impl ::windows::runtime::Interface for FileSavePickerContinuationEventArg
 }
 impl ::windows::runtime::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
-}
-impl ::std::convert::From<FileSavePickerContinuationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FileSavePickerContinuationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: FileSavePickerContinuationEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<FileSavePickerContinuationEventArgs> for IFileSavePickerContinuationEventArgs {
     fn from(value: FileSavePickerContinuationEventArgs) -> Self {
@@ -4837,7 +3797,7 @@ unsafe impl ::std::marker::Send for FileSavePickerContinuationEventArgs {}
 unsafe impl ::std::marker::Sync for FileSavePickerContinuationEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FolderPickerContinuationEventArgs(::windows::runtime::IInspectable);
 impl FolderPickerContinuationEventArgs {
     #[cfg(feature = "deprecated")]
@@ -4902,46 +3862,6 @@ unsafe impl ::windows::runtime::Interface for FolderPickerContinuationEventArgs 
 }
 impl ::windows::runtime::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
-}
-impl ::std::convert::From<FolderPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FolderPickerContinuationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FolderPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: FolderPickerContinuationEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FolderPickerContinuationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<FolderPickerContinuationEventArgs> for IFolderPickerContinuationEventArgs {
     fn from(value: FolderPickerContinuationEventArgs) -> Self {
@@ -10472,7 +9392,7 @@ pub struct IWebAuthenticationBrokerContinuationEventArgs_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LaunchActivatedEventArgs(::windows::runtime::IInspectable);
 impl LaunchActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -10567,46 +9487,6 @@ unsafe impl ::windows::runtime::Interface for LaunchActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for LaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
-}
-impl ::std::convert::From<LaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: LaunchActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &LaunchActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: LaunchActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &LaunchActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<LaunchActivatedEventArgs> for ILaunchActivatedEventArgs {
     fn from(value: LaunchActivatedEventArgs) -> Self {
@@ -10764,7 +9644,7 @@ unsafe impl ::std::marker::Send for LaunchActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for LaunchActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LockScreenActivatedEventArgs(::windows::runtime::IInspectable);
 impl LockScreenActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -10818,46 +9698,6 @@ unsafe impl ::windows::runtime::Interface for LockScreenActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for LockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
-}
-impl ::std::convert::From<LockScreenActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: LockScreenActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LockScreenActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &LockScreenActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LockScreenActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: LockScreenActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LockScreenActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &LockScreenActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<LockScreenActivatedEventArgs> for ILockScreenActivatedEventArgs {
     fn from(value: LockScreenActivatedEventArgs) -> Self {
@@ -10927,7 +9767,7 @@ unsafe impl ::std::marker::Send for LockScreenActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for LockScreenActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LockScreenCallActivatedEventArgs(::windows::runtime::IInspectable);
 impl LockScreenCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Calls")]
@@ -11006,46 +9846,6 @@ unsafe impl ::windows::runtime::Interface for LockScreenCallActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for LockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
-}
-impl ::std::convert::From<LockScreenCallActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: LockScreenCallActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LockScreenCallActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &LockScreenCallActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LockScreenCallActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: LockScreenCallActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LockScreenCallActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &LockScreenCallActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<LockScreenCallActivatedEventArgs> for ILockScreenCallActivatedEventArgs {
     fn from(value: LockScreenCallActivatedEventArgs) -> Self {
@@ -11159,7 +9959,7 @@ unsafe impl ::std::marker::Send for LockScreenCallActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for LockScreenCallActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LockScreenComponentActivatedEventArgs(::windows::runtime::IInspectable);
 impl LockScreenComponentActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -11197,46 +9997,6 @@ unsafe impl ::windows::runtime::Interface for LockScreenComponentActivatedEventA
 impl ::windows::runtime::RuntimeName for LockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
 }
-impl ::std::convert::From<LockScreenComponentActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: LockScreenComponentActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LockScreenComponentActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &LockScreenComponentActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LockScreenComponentActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: LockScreenComponentActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LockScreenComponentActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &LockScreenComponentActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<LockScreenComponentActivatedEventArgs> for IActivatedEventArgs {
     fn from(value: LockScreenComponentActivatedEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11261,7 +10021,7 @@ unsafe impl ::std::marker::Send for LockScreenComponentActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for LockScreenComponentActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallActivatedEventArgs(::windows::runtime::IInspectable);
 impl PhoneCallActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -11315,46 +10075,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCallActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for PhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
-}
-impl ::std::convert::From<PhoneCallActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<PhoneCallActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -11424,7 +10144,7 @@ unsafe impl ::std::marker::Send for PhoneCallActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for PhoneCallActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PickerReturnedActivatedEventArgs(::windows::runtime::IInspectable);
 impl PickerReturnedActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -11469,46 +10189,6 @@ unsafe impl ::windows::runtime::Interface for PickerReturnedActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for PickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
-}
-impl ::std::convert::From<PickerReturnedActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PickerReturnedActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PickerReturnedActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PickerReturnedActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PickerReturnedActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PickerReturnedActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PickerReturnedActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PickerReturnedActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<PickerReturnedActivatedEventArgs> for IPickerReturnedActivatedEventArgs {
     fn from(value: PickerReturnedActivatedEventArgs) -> Self {
@@ -11556,7 +10236,7 @@ unsafe impl ::std::marker::Send for PickerReturnedActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for PickerReturnedActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Print3DWorkflowActivatedEventArgs(::windows::runtime::IInspectable);
 impl Print3DWorkflowActivatedEventArgs {
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -11602,46 +10282,6 @@ unsafe impl ::windows::runtime::Interface for Print3DWorkflowActivatedEventArgs 
 }
 impl ::windows::runtime::RuntimeName for Print3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
-}
-impl ::std::convert::From<Print3DWorkflowActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: Print3DWorkflowActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Print3DWorkflowActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &Print3DWorkflowActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Print3DWorkflowActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: Print3DWorkflowActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Print3DWorkflowActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &Print3DWorkflowActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<Print3DWorkflowActivatedEventArgs> for IPrint3DWorkflowActivatedEventArgs {
     fn from(value: Print3DWorkflowActivatedEventArgs) -> Self {
@@ -11689,7 +10329,7 @@ unsafe impl ::std::marker::Send for Print3DWorkflowActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for Print3DWorkflowActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskSettingsActivatedEventArgs(::windows::runtime::IInspectable);
 impl PrintTaskSettingsActivatedEventArgs {
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -11735,46 +10375,6 @@ unsafe impl ::windows::runtime::Interface for PrintTaskSettingsActivatedEventArg
 }
 impl ::windows::runtime::RuntimeName for PrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
-}
-impl ::std::convert::From<PrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskSettingsActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskSettingsActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskSettingsActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskSettingsActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskSettingsActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<PrintTaskSettingsActivatedEventArgs> for IPrintTaskSettingsActivatedEventArgs {
     fn from(value: PrintTaskSettingsActivatedEventArgs) -> Self {
@@ -11822,7 +10422,7 @@ unsafe impl ::std::marker::Send for PrintTaskSettingsActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintTaskSettingsActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProtocolActivatedEventArgs(::windows::runtime::IInspectable);
 impl ProtocolActivatedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -11911,46 +10511,6 @@ unsafe impl ::windows::runtime::Interface for ProtocolActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
-}
-impl ::std::convert::From<ProtocolActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ProtocolActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProtocolActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ProtocolActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProtocolActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ProtocolActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProtocolActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ProtocolActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ProtocolActivatedEventArgs> for IProtocolActivatedEventArgs {
     fn from(value: ProtocolActivatedEventArgs) -> Self {
@@ -12086,7 +10646,7 @@ unsafe impl ::std::marker::Send for ProtocolActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ProtocolActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProtocolForResultsActivatedEventArgs(::windows::runtime::IInspectable);
 impl ProtocolForResultsActivatedEventArgs {
     #[cfg(feature = "System")]
@@ -12184,46 +10744,6 @@ unsafe impl ::windows::runtime::Interface for ProtocolForResultsActivatedEventAr
 }
 impl ::windows::runtime::RuntimeName for ProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
-}
-impl ::std::convert::From<ProtocolForResultsActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ProtocolForResultsActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProtocolForResultsActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ProtocolForResultsActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProtocolForResultsActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ProtocolForResultsActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProtocolForResultsActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ProtocolForResultsActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ProtocolForResultsActivatedEventArgs> for IProtocolForResultsActivatedEventArgs {
     fn from(value: ProtocolForResultsActivatedEventArgs) -> Self {
@@ -12381,7 +10901,7 @@ unsafe impl ::std::marker::Send for ProtocolForResultsActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ProtocolForResultsActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RestrictedLaunchActivatedEventArgs(::windows::runtime::IInspectable);
 impl RestrictedLaunchActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -12435,46 +10955,6 @@ unsafe impl ::windows::runtime::Interface for RestrictedLaunchActivatedEventArgs
 }
 impl ::windows::runtime::RuntimeName for RestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
-}
-impl ::std::convert::From<RestrictedLaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: RestrictedLaunchActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RestrictedLaunchActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &RestrictedLaunchActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RestrictedLaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: RestrictedLaunchActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RestrictedLaunchActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &RestrictedLaunchActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<RestrictedLaunchActivatedEventArgs> for IRestrictedLaunchActivatedEventArgs {
     fn from(value: RestrictedLaunchActivatedEventArgs) -> Self {
@@ -12544,7 +11024,7 @@ unsafe impl ::std::marker::Send for RestrictedLaunchActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for RestrictedLaunchActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SearchActivatedEventArgs(::windows::runtime::IInspectable);
 impl SearchActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -12632,46 +11112,6 @@ unsafe impl ::windows::runtime::Interface for SearchActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for SearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
-}
-impl ::std::convert::From<SearchActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: SearchActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SearchActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &SearchActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SearchActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: SearchActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SearchActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &SearchActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<SearchActivatedEventArgs> for ISearchActivatedEventArgs {
     fn from(value: SearchActivatedEventArgs) -> Self {
@@ -12807,7 +11247,7 @@ unsafe impl ::std::marker::Send for SearchActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for SearchActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShareTargetActivatedEventArgs(::windows::runtime::IInspectable);
 impl ShareTargetActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
@@ -12862,46 +11302,6 @@ unsafe impl ::windows::runtime::Interface for ShareTargetActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
-}
-impl ::std::convert::From<ShareTargetActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ShareTargetActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShareTargetActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ShareTargetActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShareTargetActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ShareTargetActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShareTargetActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ShareTargetActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ShareTargetActivatedEventArgs> for IShareTargetActivatedEventArgs {
     fn from(value: ShareTargetActivatedEventArgs) -> Self {
@@ -12971,7 +11371,7 @@ unsafe impl ::std::marker::Send for ShareTargetActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ShareTargetActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SplashScreen(::windows::runtime::IInspectable);
 impl SplashScreen {
     #[cfg(feature = "Foundation")]
@@ -13009,49 +11409,9 @@ unsafe impl ::windows::runtime::Interface for SplashScreen {
 impl ::windows::runtime::RuntimeName for SplashScreen {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SplashScreen";
 }
-impl ::std::convert::From<SplashScreen> for ::windows::runtime::IUnknown {
-    fn from(value: SplashScreen) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SplashScreen> for ::windows::runtime::IUnknown {
-    fn from(value: &SplashScreen) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SplashScreen {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SplashScreen {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SplashScreen> for ::windows::runtime::IInspectable {
-    fn from(value: SplashScreen) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SplashScreen> for ::windows::runtime::IInspectable {
-    fn from(value: &SplashScreen) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SplashScreen {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SplashScreen {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StartupTaskActivatedEventArgs(::windows::runtime::IInspectable);
 impl StartupTaskActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -13105,46 +11465,6 @@ unsafe impl ::windows::runtime::Interface for StartupTaskActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for StartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
-}
-impl ::std::convert::From<StartupTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: StartupTaskActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StartupTaskActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &StartupTaskActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StartupTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: StartupTaskActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StartupTaskActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &StartupTaskActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<StartupTaskActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -13214,7 +11534,7 @@ unsafe impl ::std::marker::Send for StartupTaskActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for StartupTaskActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TileActivatedInfo(::windows::runtime::IInspectable);
 impl TileActivatedInfo {
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))]
@@ -13237,51 +11557,11 @@ unsafe impl ::windows::runtime::Interface for TileActivatedInfo {
 impl ::windows::runtime::RuntimeName for TileActivatedInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.TileActivatedInfo";
 }
-impl ::std::convert::From<TileActivatedInfo> for ::windows::runtime::IUnknown {
-    fn from(value: TileActivatedInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TileActivatedInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &TileActivatedInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TileActivatedInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TileActivatedInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TileActivatedInfo> for ::windows::runtime::IInspectable {
-    fn from(value: TileActivatedInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TileActivatedInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &TileActivatedInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TileActivatedInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TileActivatedInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for TileActivatedInfo {}
 unsafe impl ::std::marker::Sync for TileActivatedInfo {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastNotificationActivatedEventArgs(::windows::runtime::IInspectable);
 impl ToastNotificationActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -13352,46 +11632,6 @@ unsafe impl ::windows::runtime::Interface for ToastNotificationActivatedEventArg
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
-}
-impl ::std::convert::From<ToastNotificationActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ToastNotificationActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastNotificationActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastNotificationActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastNotificationActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ToastNotificationActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastNotificationActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastNotificationActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ToastNotificationActivatedEventArgs> for IToastNotificationActivatedEventArgs {
     fn from(value: ToastNotificationActivatedEventArgs) -> Self {
@@ -13483,7 +11723,7 @@ unsafe impl ::std::marker::Send for ToastNotificationActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for ToastNotificationActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserDataAccountProviderActivatedEventArgs(::windows::runtime::IInspectable);
 impl UserDataAccountProviderActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -13529,46 +11769,6 @@ unsafe impl ::windows::runtime::Interface for UserDataAccountProviderActivatedEv
 }
 impl ::windows::runtime::RuntimeName for UserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
-}
-impl ::std::convert::From<UserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: UserDataAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &UserDataAccountProviderActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: UserDataAccountProviderActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserDataAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &UserDataAccountProviderActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<UserDataAccountProviderActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -13616,7 +11816,7 @@ unsafe impl ::std::marker::Send for UserDataAccountProviderActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for UserDataAccountProviderActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VoiceCommandActivatedEventArgs(::windows::runtime::IInspectable);
 impl VoiceCommandActivatedEventArgs {
     #[cfg(feature = "Media_SpeechRecognition")]
@@ -13671,46 +11871,6 @@ unsafe impl ::windows::runtime::Interface for VoiceCommandActivatedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for VoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
-}
-impl ::std::convert::From<VoiceCommandActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: VoiceCommandActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VoiceCommandActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &VoiceCommandActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VoiceCommandActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: VoiceCommandActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VoiceCommandActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &VoiceCommandActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<VoiceCommandActivatedEventArgs> for IVoiceCommandActivatedEventArgs {
     fn from(value: VoiceCommandActivatedEventArgs) -> Self {
@@ -13780,7 +11940,7 @@ unsafe impl ::std::marker::Send for VoiceCommandActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for VoiceCommandActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WalletActionActivatedEventArgs(::windows::runtime::IInspectable);
 impl WalletActionActivatedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Activation`*"]
@@ -13843,46 +12003,6 @@ unsafe impl ::windows::runtime::Interface for WalletActionActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 }
-impl ::std::convert::From<WalletActionActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: WalletActionActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WalletActionActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &WalletActionActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WalletActionActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: WalletActionActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WalletActionActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &WalletActionActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<WalletActionActivatedEventArgs> for IWalletActionActivatedEventArgs {
     fn from(value: WalletActionActivatedEventArgs) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13929,7 +12049,7 @@ unsafe impl ::std::marker::Send for WalletActionActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for WalletActionActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebAccountProviderActivatedEventArgs(::windows::runtime::IInspectable);
 impl WebAccountProviderActivatedEventArgs {
     #[cfg(feature = "Security_Authentication_Web_Provider")]
@@ -13984,46 +12104,6 @@ unsafe impl ::windows::runtime::Interface for WebAccountProviderActivatedEventAr
 }
 impl ::windows::runtime::RuntimeName for WebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
-}
-impl ::std::convert::From<WebAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: WebAccountProviderActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebAccountProviderActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &WebAccountProviderActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: WebAccountProviderActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebAccountProviderActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &WebAccountProviderActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<WebAccountProviderActivatedEventArgs> for IWebAccountProviderActivatedEventArgs {
     fn from(value: WebAccountProviderActivatedEventArgs) -> Self {
@@ -14093,7 +12173,7 @@ unsafe impl ::std::marker::Send for WebAccountProviderActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for WebAccountProviderActivatedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(::windows::runtime::IInspectable);
 impl WebAuthenticationBrokerContinuationEventArgs {
     #[cfg(feature = "Security_Authentication_Web")]
@@ -14148,46 +12228,6 @@ unsafe impl ::windows::runtime::Interface for WebAuthenticationBrokerContinuatio
 }
 impl ::windows::runtime::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";
-}
-impl ::std::convert::From<WebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &WebAuthenticationBrokerContinuationEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<WebAuthenticationBrokerContinuationEventArgs> for IWebAuthenticationBrokerContinuationEventArgs {
     fn from(value: WebAuthenticationBrokerContinuationEventArgs) -> Self {

@@ -413,7 +413,7 @@ pub struct ILampArrayUpdateRequestedEventArgs_abi(
 );
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LampArrayBitmapEffect(::windows::runtime::IInspectable);
 impl LampArrayBitmapEffect {
     #[cfg(feature = "Foundation")]
@@ -520,46 +520,6 @@ unsafe impl ::windows::runtime::Interface for LampArrayBitmapEffect {
 impl ::windows::runtime::RuntimeName for LampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
 }
-impl ::std::convert::From<LampArrayBitmapEffect> for ::windows::runtime::IUnknown {
-    fn from(value: LampArrayBitmapEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LampArrayBitmapEffect> for ::windows::runtime::IUnknown {
-    fn from(value: &LampArrayBitmapEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LampArrayBitmapEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LampArrayBitmapEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LampArrayBitmapEffect> for ::windows::runtime::IInspectable {
-    fn from(value: LampArrayBitmapEffect) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LampArrayBitmapEffect> for ::windows::runtime::IInspectable {
-    fn from(value: &LampArrayBitmapEffect) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LampArrayBitmapEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LampArrayBitmapEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<LampArrayBitmapEffect> for ILampArrayEffect {
     type Error = ::windows::runtime::Error;
     fn try_from(value: LampArrayBitmapEffect) -> ::windows::runtime::Result<Self> {
@@ -586,7 +546,7 @@ unsafe impl ::std::marker::Send for LampArrayBitmapEffect {}
 unsafe impl ::std::marker::Sync for LampArrayBitmapEffect {}
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LampArrayBitmapRequestedEventArgs(::windows::runtime::IInspectable);
 impl LampArrayBitmapRequestedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -615,51 +575,11 @@ unsafe impl ::windows::runtime::Interface for LampArrayBitmapRequestedEventArgs 
 impl ::windows::runtime::RuntimeName for LampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
 }
-impl ::std::convert::From<LampArrayBitmapRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: LampArrayBitmapRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LampArrayBitmapRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &LampArrayBitmapRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LampArrayBitmapRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LampArrayBitmapRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LampArrayBitmapRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: LampArrayBitmapRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LampArrayBitmapRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &LampArrayBitmapRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LampArrayBitmapRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LampArrayBitmapRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for LampArrayBitmapRequestedEventArgs {}
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LampArrayBlinkEffect(::windows::runtime::IInspectable);
 impl LampArrayBlinkEffect {
     #[cfg(feature = "UI")]
@@ -813,46 +733,6 @@ unsafe impl ::windows::runtime::Interface for LampArrayBlinkEffect {
 impl ::windows::runtime::RuntimeName for LampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
 }
-impl ::std::convert::From<LampArrayBlinkEffect> for ::windows::runtime::IUnknown {
-    fn from(value: LampArrayBlinkEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LampArrayBlinkEffect> for ::windows::runtime::IUnknown {
-    fn from(value: &LampArrayBlinkEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LampArrayBlinkEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LampArrayBlinkEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LampArrayBlinkEffect> for ::windows::runtime::IInspectable {
-    fn from(value: LampArrayBlinkEffect) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LampArrayBlinkEffect> for ::windows::runtime::IInspectable {
-    fn from(value: &LampArrayBlinkEffect) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LampArrayBlinkEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LampArrayBlinkEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<LampArrayBlinkEffect> for ILampArrayEffect {
     type Error = ::windows::runtime::Error;
     fn try_from(value: LampArrayBlinkEffect) -> ::windows::runtime::Result<Self> {
@@ -879,7 +759,7 @@ unsafe impl ::std::marker::Send for LampArrayBlinkEffect {}
 unsafe impl ::std::marker::Sync for LampArrayBlinkEffect {}
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LampArrayColorRampEffect(::windows::runtime::IInspectable);
 impl LampArrayColorRampEffect {
     #[cfg(feature = "UI")]
@@ -975,46 +855,6 @@ unsafe impl ::windows::runtime::Interface for LampArrayColorRampEffect {
 impl ::windows::runtime::RuntimeName for LampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
 }
-impl ::std::convert::From<LampArrayColorRampEffect> for ::windows::runtime::IUnknown {
-    fn from(value: LampArrayColorRampEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LampArrayColorRampEffect> for ::windows::runtime::IUnknown {
-    fn from(value: &LampArrayColorRampEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LampArrayColorRampEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LampArrayColorRampEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LampArrayColorRampEffect> for ::windows::runtime::IInspectable {
-    fn from(value: LampArrayColorRampEffect) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LampArrayColorRampEffect> for ::windows::runtime::IInspectable {
-    fn from(value: &LampArrayColorRampEffect) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LampArrayColorRampEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LampArrayColorRampEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<LampArrayColorRampEffect> for ILampArrayEffect {
     type Error = ::windows::runtime::Error;
     fn try_from(value: LampArrayColorRampEffect) -> ::windows::runtime::Result<Self> {
@@ -1041,7 +881,7 @@ unsafe impl ::std::marker::Send for LampArrayColorRampEffect {}
 unsafe impl ::std::marker::Sync for LampArrayColorRampEffect {}
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LampArrayCustomEffect(::windows::runtime::IInspectable);
 impl LampArrayCustomEffect {
     #[cfg(feature = "Foundation")]
@@ -1124,46 +964,6 @@ unsafe impl ::windows::runtime::Interface for LampArrayCustomEffect {
 impl ::windows::runtime::RuntimeName for LampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayCustomEffect";
 }
-impl ::std::convert::From<LampArrayCustomEffect> for ::windows::runtime::IUnknown {
-    fn from(value: LampArrayCustomEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LampArrayCustomEffect> for ::windows::runtime::IUnknown {
-    fn from(value: &LampArrayCustomEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LampArrayCustomEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LampArrayCustomEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LampArrayCustomEffect> for ::windows::runtime::IInspectable {
-    fn from(value: LampArrayCustomEffect) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LampArrayCustomEffect> for ::windows::runtime::IInspectable {
-    fn from(value: &LampArrayCustomEffect) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LampArrayCustomEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LampArrayCustomEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<LampArrayCustomEffect> for ILampArrayEffect {
     type Error = ::windows::runtime::Error;
     fn try_from(value: LampArrayCustomEffect) -> ::windows::runtime::Result<Self> {
@@ -1210,7 +1010,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayEffectCompletionBehavio
 }
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LampArrayEffectPlaylist(::windows::runtime::IInspectable);
 impl LampArrayEffectPlaylist {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1359,46 +1159,6 @@ unsafe impl ::windows::runtime::Interface for LampArrayEffectPlaylist {
 impl ::windows::runtime::RuntimeName for LampArrayEffectPlaylist {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist";
 }
-impl ::std::convert::From<LampArrayEffectPlaylist> for ::windows::runtime::IUnknown {
-    fn from(value: LampArrayEffectPlaylist) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LampArrayEffectPlaylist> for ::windows::runtime::IUnknown {
-    fn from(value: &LampArrayEffectPlaylist) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LampArrayEffectPlaylist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LampArrayEffectPlaylist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LampArrayEffectPlaylist> for ::windows::runtime::IInspectable {
-    fn from(value: LampArrayEffectPlaylist) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LampArrayEffectPlaylist> for ::windows::runtime::IInspectable {
-    fn from(value: &LampArrayEffectPlaylist) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LampArrayEffectPlaylist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LampArrayEffectPlaylist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<LampArrayEffectPlaylist> for super::super::super::Foundation::Collections::IIterable<ILampArrayEffect> {
     type Error = ::windows::runtime::Error;
@@ -1511,7 +1271,7 @@ unsafe impl ::windows::runtime::RuntimeType for LampArrayRepetitionMode {
 }
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LampArraySolidEffect(::windows::runtime::IInspectable);
 impl LampArraySolidEffect {
     #[cfg(feature = "UI")]
@@ -1607,46 +1367,6 @@ unsafe impl ::windows::runtime::Interface for LampArraySolidEffect {
 impl ::windows::runtime::RuntimeName for LampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArraySolidEffect";
 }
-impl ::std::convert::From<LampArraySolidEffect> for ::windows::runtime::IUnknown {
-    fn from(value: LampArraySolidEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LampArraySolidEffect> for ::windows::runtime::IUnknown {
-    fn from(value: &LampArraySolidEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LampArraySolidEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LampArraySolidEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LampArraySolidEffect> for ::windows::runtime::IInspectable {
-    fn from(value: LampArraySolidEffect) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LampArraySolidEffect> for ::windows::runtime::IInspectable {
-    fn from(value: &LampArraySolidEffect) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LampArraySolidEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LampArraySolidEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<LampArraySolidEffect> for ILampArrayEffect {
     type Error = ::windows::runtime::Error;
     fn try_from(value: LampArraySolidEffect) -> ::windows::runtime::Result<Self> {
@@ -1673,7 +1393,7 @@ unsafe impl ::std::marker::Send for LampArraySolidEffect {}
 unsafe impl ::std::marker::Sync for LampArraySolidEffect {}
 #[doc = "*Required features: `Devices_Lights_Effects`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LampArrayUpdateRequestedEventArgs(::windows::runtime::IInspectable);
 impl LampArrayUpdateRequestedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -1719,46 +1439,6 @@ unsafe impl ::windows::runtime::Interface for LampArrayUpdateRequestedEventArgs 
 }
 impl ::windows::runtime::RuntimeName for LampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";
-}
-impl ::std::convert::From<LampArrayUpdateRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: LampArrayUpdateRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LampArrayUpdateRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &LampArrayUpdateRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LampArrayUpdateRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LampArrayUpdateRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LampArrayUpdateRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: LampArrayUpdateRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LampArrayUpdateRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &LampArrayUpdateRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LampArrayUpdateRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LampArrayUpdateRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for LampArrayUpdateRequestedEventArgs {}

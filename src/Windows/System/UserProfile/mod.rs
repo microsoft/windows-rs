@@ -51,7 +51,7 @@ impl ::windows::runtime::RuntimeName for AdvertisingManager {
 }
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AdvertisingManagerForUser(::windows::runtime::IInspectable);
 impl AdvertisingManagerForUser {
     #[doc = "*Required features: `System_UserProfile`*"]
@@ -81,51 +81,11 @@ unsafe impl ::windows::runtime::Interface for AdvertisingManagerForUser {
 impl ::windows::runtime::RuntimeName for AdvertisingManagerForUser {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManagerForUser";
 }
-impl ::std::convert::From<AdvertisingManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: AdvertisingManagerForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AdvertisingManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: &AdvertisingManagerForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AdvertisingManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AdvertisingManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AdvertisingManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: AdvertisingManagerForUser) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AdvertisingManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: &AdvertisingManagerForUser) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AdvertisingManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AdvertisingManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AdvertisingManagerForUser {}
 unsafe impl ::std::marker::Sync for AdvertisingManagerForUser {}
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AssignedAccessSettings(::windows::runtime::IInspectable);
 impl AssignedAccessSettings {
     #[doc = "*Required features: `System_UserProfile`*"]
@@ -181,51 +141,11 @@ unsafe impl ::windows::runtime::Interface for AssignedAccessSettings {
 impl ::windows::runtime::RuntimeName for AssignedAccessSettings {
     const NAME: &'static str = "Windows.System.UserProfile.AssignedAccessSettings";
 }
-impl ::std::convert::From<AssignedAccessSettings> for ::windows::runtime::IUnknown {
-    fn from(value: AssignedAccessSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AssignedAccessSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &AssignedAccessSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AssignedAccessSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AssignedAccessSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AssignedAccessSettings> for ::windows::runtime::IInspectable {
-    fn from(value: AssignedAccessSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AssignedAccessSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &AssignedAccessSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AssignedAccessSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AssignedAccessSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AssignedAccessSettings {}
 unsafe impl ::std::marker::Sync for AssignedAccessSettings {}
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DiagnosticsSettings(::windows::runtime::IInspectable);
 impl DiagnosticsSettings {
     #[doc = "*Required features: `System_UserProfile`*"]
@@ -273,51 +193,11 @@ unsafe impl ::windows::runtime::Interface for DiagnosticsSettings {
 impl ::windows::runtime::RuntimeName for DiagnosticsSettings {
     const NAME: &'static str = "Windows.System.UserProfile.DiagnosticsSettings";
 }
-impl ::std::convert::From<DiagnosticsSettings> for ::windows::runtime::IUnknown {
-    fn from(value: DiagnosticsSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DiagnosticsSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &DiagnosticsSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DiagnosticsSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DiagnosticsSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DiagnosticsSettings> for ::windows::runtime::IInspectable {
-    fn from(value: DiagnosticsSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DiagnosticsSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &DiagnosticsSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DiagnosticsSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DiagnosticsSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DiagnosticsSettings {}
 unsafe impl ::std::marker::Sync for DiagnosticsSettings {}
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FirstSignInSettings(::windows::runtime::IInspectable);
 impl FirstSignInSettings {
     #[cfg(feature = "Foundation_Collections")]
@@ -383,46 +263,6 @@ unsafe impl ::windows::runtime::Interface for FirstSignInSettings {
 }
 impl ::windows::runtime::RuntimeName for FirstSignInSettings {
     const NAME: &'static str = "Windows.System.UserProfile.FirstSignInSettings";
-}
-impl ::std::convert::From<FirstSignInSettings> for ::windows::runtime::IUnknown {
-    fn from(value: FirstSignInSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FirstSignInSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &FirstSignInSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FirstSignInSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FirstSignInSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FirstSignInSettings> for ::windows::runtime::IInspectable {
-    fn from(value: FirstSignInSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FirstSignInSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &FirstSignInSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FirstSignInSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FirstSignInSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<FirstSignInSettings> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
@@ -584,7 +424,7 @@ impl ::windows::runtime::RuntimeName for GlobalizationPreferences {
 }
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GlobalizationPreferencesForUser(::windows::runtime::IInspectable);
 impl GlobalizationPreferencesForUser {
     #[doc = "*Required features: `System_UserProfile`*"]
@@ -658,46 +498,6 @@ unsafe impl ::windows::runtime::Interface for GlobalizationPreferencesForUser {
 }
 impl ::windows::runtime::RuntimeName for GlobalizationPreferencesForUser {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferencesForUser";
-}
-impl ::std::convert::From<GlobalizationPreferencesForUser> for ::windows::runtime::IUnknown {
-    fn from(value: GlobalizationPreferencesForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GlobalizationPreferencesForUser> for ::windows::runtime::IUnknown {
-    fn from(value: &GlobalizationPreferencesForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GlobalizationPreferencesForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GlobalizationPreferencesForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GlobalizationPreferencesForUser> for ::windows::runtime::IInspectable {
-    fn from(value: GlobalizationPreferencesForUser) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GlobalizationPreferencesForUser> for ::windows::runtime::IInspectable {
-    fn from(value: &GlobalizationPreferencesForUser) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GlobalizationPreferencesForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GlobalizationPreferencesForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GlobalizationPreferencesForUser {}
 unsafe impl ::std::marker::Sync for GlobalizationPreferencesForUser {}
@@ -1367,7 +1167,7 @@ pub struct UserProfileContract(pub u8);
 pub struct UserProfileLockScreenContract(pub u8);
 #[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserProfilePersonalizationSettings(::windows::runtime::IInspectable);
 impl UserProfilePersonalizationSettings {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -1416,46 +1216,6 @@ unsafe impl ::windows::runtime::Interface for UserProfilePersonalizationSettings
 }
 impl ::windows::runtime::RuntimeName for UserProfilePersonalizationSettings {
     const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";
-}
-impl ::std::convert::From<UserProfilePersonalizationSettings> for ::windows::runtime::IUnknown {
-    fn from(value: UserProfilePersonalizationSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserProfilePersonalizationSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &UserProfilePersonalizationSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserProfilePersonalizationSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserProfilePersonalizationSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserProfilePersonalizationSettings> for ::windows::runtime::IInspectable {
-    fn from(value: UserProfilePersonalizationSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserProfilePersonalizationSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &UserProfilePersonalizationSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserProfilePersonalizationSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserProfilePersonalizationSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for UserProfilePersonalizationSettings {}
 unsafe impl ::std::marker::Sync for UserProfilePersonalizationSettings {}

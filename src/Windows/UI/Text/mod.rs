@@ -23,7 +23,7 @@ unsafe impl ::windows::runtime::RuntimeType for CaretType {
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContentLinkInfo(::windows::runtime::IInspectable);
 impl ContentLinkInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -110,46 +110,6 @@ unsafe impl ::windows::runtime::Interface for ContentLinkInfo {
 }
 impl ::windows::runtime::RuntimeName for ContentLinkInfo {
     const NAME: &'static str = "Windows.UI.Text.ContentLinkInfo";
-}
-impl ::std::convert::From<ContentLinkInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ContentLinkInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContentLinkInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ContentLinkInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentLinkInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentLinkInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContentLinkInfo> for ::windows::runtime::IInspectable {
-    fn from(value: ContentLinkInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContentLinkInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &ContentLinkInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContentLinkInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContentLinkInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ContentLinkInfo {}
 unsafe impl ::std::marker::Sync for ContentLinkInfo {}
@@ -283,7 +243,7 @@ unsafe impl ::windows::runtime::RuntimeType for FontWeight {
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FontWeights(::windows::runtime::IInspectable);
 impl FontWeights {
     #[doc = "*Required features: `UI_Text`*"]
@@ -377,46 +337,6 @@ unsafe impl ::windows::runtime::Interface for FontWeights {
 }
 impl ::windows::runtime::RuntimeName for FontWeights {
     const NAME: &'static str = "Windows.UI.Text.FontWeights";
-}
-impl ::std::convert::From<FontWeights> for ::windows::runtime::IUnknown {
-    fn from(value: FontWeights) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FontWeights> for ::windows::runtime::IUnknown {
-    fn from(value: &FontWeights) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FontWeights {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FontWeights {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FontWeights> for ::windows::runtime::IInspectable {
-    fn from(value: FontWeights) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FontWeights> for ::windows::runtime::IInspectable {
-    fn from(value: &FontWeights) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FontWeights {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FontWeights {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for FontWeights {}
 unsafe impl ::std::marker::Sync for FontWeights {}
@@ -2872,7 +2792,7 @@ unsafe impl ::windows::runtime::RuntimeType for RichEditMathMode {
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RichEditTextDocument(::windows::runtime::IInspectable);
 impl RichEditTextDocument {
     #[doc = "*Required features: `UI_Text`*"]
@@ -3112,46 +3032,6 @@ unsafe impl ::windows::runtime::Interface for RichEditTextDocument {
 impl ::windows::runtime::RuntimeName for RichEditTextDocument {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextDocument";
 }
-impl ::std::convert::From<RichEditTextDocument> for ::windows::runtime::IUnknown {
-    fn from(value: RichEditTextDocument) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RichEditTextDocument> for ::windows::runtime::IUnknown {
-    fn from(value: &RichEditTextDocument) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RichEditTextDocument {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RichEditTextDocument {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RichEditTextDocument> for ::windows::runtime::IInspectable {
-    fn from(value: RichEditTextDocument) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RichEditTextDocument> for ::windows::runtime::IInspectable {
-    fn from(value: &RichEditTextDocument) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RichEditTextDocument {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RichEditTextDocument {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<RichEditTextDocument> for ITextDocument {
     fn from(value: RichEditTextDocument) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3176,7 +3056,7 @@ unsafe impl ::std::marker::Send for RichEditTextDocument {}
 unsafe impl ::std::marker::Sync for RichEditTextDocument {}
 #[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RichEditTextRange(::windows::runtime::IInspectable);
 impl RichEditTextRange {
     #[doc = "*Required features: `UI_Text`*"]
@@ -3543,46 +3423,6 @@ unsafe impl ::windows::runtime::Interface for RichEditTextRange {
 }
 impl ::windows::runtime::RuntimeName for RichEditTextRange {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextRange";
-}
-impl ::std::convert::From<RichEditTextRange> for ::windows::runtime::IUnknown {
-    fn from(value: RichEditTextRange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RichEditTextRange> for ::windows::runtime::IUnknown {
-    fn from(value: &RichEditTextRange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RichEditTextRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RichEditTextRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RichEditTextRange> for ::windows::runtime::IInspectable {
-    fn from(value: RichEditTextRange) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RichEditTextRange> for ::windows::runtime::IInspectable {
-    fn from(value: &RichEditTextRange) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RichEditTextRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RichEditTextRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<RichEditTextRange> for ITextRange {
     fn from(value: RichEditTextRange) -> Self {

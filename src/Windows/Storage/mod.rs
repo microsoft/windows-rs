@@ -17,7 +17,7 @@ pub mod Search;
 pub mod Streams;
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppDataPaths(::windows::runtime::IInspectable);
 impl AppDataPaths {
     #[doc = "*Required features: `Storage`*"]
@@ -122,51 +122,11 @@ unsafe impl ::windows::runtime::Interface for AppDataPaths {
 impl ::windows::runtime::RuntimeName for AppDataPaths {
     const NAME: &'static str = "Windows.Storage.AppDataPaths";
 }
-impl ::std::convert::From<AppDataPaths> for ::windows::runtime::IUnknown {
-    fn from(value: AppDataPaths) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppDataPaths> for ::windows::runtime::IUnknown {
-    fn from(value: &AppDataPaths) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppDataPaths> for ::windows::runtime::IInspectable {
-    fn from(value: AppDataPaths) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppDataPaths> for ::windows::runtime::IInspectable {
-    fn from(value: &AppDataPaths) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppDataPaths {}
 unsafe impl ::std::marker::Sync for AppDataPaths {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ApplicationData(::windows::runtime::IInspectable);
 impl ApplicationData {
     #[doc = "*Required features: `Storage`*"]
@@ -345,46 +305,6 @@ unsafe impl ::windows::runtime::Interface for ApplicationData {
 impl ::windows::runtime::RuntimeName for ApplicationData {
     const NAME: &'static str = "Windows.Storage.ApplicationData";
 }
-impl ::std::convert::From<ApplicationData> for ::windows::runtime::IUnknown {
-    fn from(value: ApplicationData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ApplicationData> for ::windows::runtime::IUnknown {
-    fn from(value: &ApplicationData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ApplicationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ApplicationData> for ::windows::runtime::IInspectable {
-    fn from(value: ApplicationData) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ApplicationData> for ::windows::runtime::IInspectable {
-    fn from(value: &ApplicationData) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ApplicationData> for super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -416,7 +336,7 @@ unsafe impl ::std::marker::Sync for ApplicationData {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Storage`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ApplicationDataCompositeValue(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataCompositeValue {
@@ -521,54 +441,6 @@ unsafe impl ::windows::runtime::Interface for ApplicationDataCompositeValue {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for ApplicationDataCompositeValue {
     const NAME: &'static str = "Windows.Storage.ApplicationDataCompositeValue";
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<ApplicationDataCompositeValue> for ::windows::runtime::IUnknown {
-    fn from(value: ApplicationDataCompositeValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&ApplicationDataCompositeValue> for ::windows::runtime::IUnknown {
-    fn from(value: &ApplicationDataCompositeValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationDataCompositeValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ApplicationDataCompositeValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<ApplicationDataCompositeValue> for ::windows::runtime::IInspectable {
-    fn from(value: ApplicationDataCompositeValue) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&ApplicationDataCompositeValue> for ::windows::runtime::IInspectable {
-    fn from(value: &ApplicationDataCompositeValue) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationDataCompositeValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationDataCompositeValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ApplicationDataCompositeValue> for super::Foundation::Collections::IPropertySet {
@@ -694,7 +566,7 @@ impl ::std::iter::IntoIterator for &ApplicationDataCompositeValue {
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ApplicationDataContainer(::windows::runtime::IInspectable);
 impl ApplicationDataContainer {
     #[doc = "*Required features: `Storage`*"]
@@ -761,46 +633,6 @@ unsafe impl ::windows::runtime::Interface for ApplicationDataContainer {
 impl ::windows::runtime::RuntimeName for ApplicationDataContainer {
     const NAME: &'static str = "Windows.Storage.ApplicationDataContainer";
 }
-impl ::std::convert::From<ApplicationDataContainer> for ::windows::runtime::IUnknown {
-    fn from(value: ApplicationDataContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ApplicationDataContainer> for ::windows::runtime::IUnknown {
-    fn from(value: &ApplicationDataContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationDataContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ApplicationDataContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ApplicationDataContainer> for ::windows::runtime::IInspectable {
-    fn from(value: ApplicationDataContainer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ApplicationDataContainer> for ::windows::runtime::IInspectable {
-    fn from(value: &ApplicationDataContainer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationDataContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationDataContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ApplicationDataContainer> for super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -832,7 +664,7 @@ unsafe impl ::std::marker::Sync for ApplicationDataContainer {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Storage`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ApplicationDataContainerSettings(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataContainerSettings {
@@ -930,54 +762,6 @@ unsafe impl ::windows::runtime::Interface for ApplicationDataContainerSettings {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for ApplicationDataContainerSettings {
     const NAME: &'static str = "Windows.Storage.ApplicationDataContainerSettings";
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<ApplicationDataContainerSettings> for ::windows::runtime::IUnknown {
-    fn from(value: ApplicationDataContainerSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&ApplicationDataContainerSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &ApplicationDataContainerSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationDataContainerSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ApplicationDataContainerSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<ApplicationDataContainerSettings> for ::windows::runtime::IInspectable {
-    fn from(value: ApplicationDataContainerSettings) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&ApplicationDataContainerSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &ApplicationDataContainerSettings) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationDataContainerSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationDataContainerSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<ApplicationDataContainerSettings> for super::Foundation::Collections::IPropertySet {
@@ -4554,7 +4338,7 @@ impl ::windows::runtime::RuntimeName for PathIO {
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SetVersionDeferral(::windows::runtime::IInspectable);
 impl SetVersionDeferral {
     #[doc = "*Required features: `Storage`*"]
@@ -4573,51 +4357,11 @@ unsafe impl ::windows::runtime::Interface for SetVersionDeferral {
 impl ::windows::runtime::RuntimeName for SetVersionDeferral {
     const NAME: &'static str = "Windows.Storage.SetVersionDeferral";
 }
-impl ::std::convert::From<SetVersionDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: SetVersionDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SetVersionDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &SetVersionDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SetVersionDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SetVersionDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SetVersionDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: SetVersionDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SetVersionDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &SetVersionDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SetVersionDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SetVersionDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SetVersionDeferral {}
 unsafe impl ::std::marker::Sync for SetVersionDeferral {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SetVersionRequest(::windows::runtime::IInspectable);
 impl SetVersionRequest {
     #[doc = "*Required features: `Storage`*"]
@@ -4655,46 +4399,6 @@ unsafe impl ::windows::runtime::Interface for SetVersionRequest {
 impl ::windows::runtime::RuntimeName for SetVersionRequest {
     const NAME: &'static str = "Windows.Storage.SetVersionRequest";
 }
-impl ::std::convert::From<SetVersionRequest> for ::windows::runtime::IUnknown {
-    fn from(value: SetVersionRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SetVersionRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &SetVersionRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SetVersionRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SetVersionRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SetVersionRequest> for ::windows::runtime::IInspectable {
-    fn from(value: SetVersionRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SetVersionRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &SetVersionRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SetVersionRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SetVersionRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SetVersionRequest {}
 unsafe impl ::std::marker::Sync for SetVersionRequest {}
 #[doc = "*Required features: `Storage`*"]
@@ -4719,7 +4423,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageDeleteOption {
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageFile(::windows::runtime::IInspectable);
 impl StorageFile {
     #[doc = "*Required features: `Storage`*"]
@@ -5145,46 +4849,6 @@ unsafe impl ::windows::runtime::Interface for StorageFile {
 impl ::windows::runtime::RuntimeName for StorageFile {
     const NAME: &'static str = "Windows.Storage.StorageFile";
 }
-impl ::std::convert::From<StorageFile> for ::windows::runtime::IUnknown {
-    fn from(value: StorageFile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageFile> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageFile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageFile> for ::windows::runtime::IInspectable {
-    fn from(value: StorageFile) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageFile> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageFile) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<StorageFile> for IStorageFile {
     fn from(value: StorageFile) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5413,7 +5077,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, Streams::IRandomAccessStreamReference
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageFolder(::windows::runtime::IInspectable);
 impl StorageFolder {
     #[cfg(feature = "Foundation")]
@@ -5909,46 +5573,6 @@ unsafe impl ::windows::runtime::Interface for StorageFolder {
 impl ::windows::runtime::RuntimeName for StorageFolder {
     const NAME: &'static str = "Windows.Storage.StorageFolder";
 }
-impl ::std::convert::From<StorageFolder> for ::windows::runtime::IUnknown {
-    fn from(value: StorageFolder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageFolder> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageFolder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageFolder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageFolder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageFolder> for ::windows::runtime::IInspectable {
-    fn from(value: StorageFolder) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageFolder> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageFolder) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageFolder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageFolder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<StorageFolder> for IStorageFolder {
     fn from(value: StorageFolder) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6178,7 +5802,7 @@ impl ::std::ops::Not for StorageItemTypes {
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageLibrary(::windows::runtime::IInspectable);
 impl StorageLibrary {
     #[cfg(feature = "Foundation")]
@@ -6283,49 +5907,9 @@ unsafe impl ::windows::runtime::Interface for StorageLibrary {
 impl ::windows::runtime::RuntimeName for StorageLibrary {
     const NAME: &'static str = "Windows.Storage.StorageLibrary";
 }
-impl ::std::convert::From<StorageLibrary> for ::windows::runtime::IUnknown {
-    fn from(value: StorageLibrary) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageLibrary> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageLibrary) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibrary {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibrary {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageLibrary> for ::windows::runtime::IInspectable {
-    fn from(value: StorageLibrary) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageLibrary> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageLibrary) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageLibrary {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageLibrary {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageLibraryChange(::windows::runtime::IInspectable);
 impl StorageLibraryChange {
     #[doc = "*Required features: `Storage`*"]
@@ -6380,51 +5964,11 @@ unsafe impl ::windows::runtime::Interface for StorageLibraryChange {
 impl ::windows::runtime::RuntimeName for StorageLibraryChange {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChange";
 }
-impl ::std::convert::From<StorageLibraryChange> for ::windows::runtime::IUnknown {
-    fn from(value: StorageLibraryChange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageLibraryChange> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageLibraryChange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryChange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryChange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageLibraryChange> for ::windows::runtime::IInspectable {
-    fn from(value: StorageLibraryChange) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageLibraryChange> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageLibraryChange) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageLibraryChange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageLibraryChange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StorageLibraryChange {}
 unsafe impl ::std::marker::Sync for StorageLibraryChange {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageLibraryChangeReader(::windows::runtime::IInspectable);
 impl StorageLibraryChangeReader {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -6464,51 +6008,11 @@ unsafe impl ::windows::runtime::Interface for StorageLibraryChangeReader {
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeReader {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeReader";
 }
-impl ::std::convert::From<StorageLibraryChangeReader> for ::windows::runtime::IUnknown {
-    fn from(value: StorageLibraryChangeReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageLibraryChangeReader> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageLibraryChangeReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryChangeReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryChangeReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageLibraryChangeReader> for ::windows::runtime::IInspectable {
-    fn from(value: StorageLibraryChangeReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageLibraryChangeReader> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageLibraryChangeReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageLibraryChangeReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageLibraryChangeReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StorageLibraryChangeReader {}
 unsafe impl ::std::marker::Sync for StorageLibraryChangeReader {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageLibraryChangeTracker(::windows::runtime::IInspectable);
 impl StorageLibraryChangeTracker {
     #[doc = "*Required features: `Storage`*"]
@@ -6550,51 +6054,11 @@ unsafe impl ::windows::runtime::Interface for StorageLibraryChangeTracker {
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeTracker {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTracker";
 }
-impl ::std::convert::From<StorageLibraryChangeTracker> for ::windows::runtime::IUnknown {
-    fn from(value: StorageLibraryChangeTracker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageLibraryChangeTracker> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageLibraryChangeTracker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryChangeTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryChangeTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageLibraryChangeTracker> for ::windows::runtime::IInspectable {
-    fn from(value: StorageLibraryChangeTracker) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageLibraryChangeTracker> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageLibraryChangeTracker) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageLibraryChangeTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageLibraryChangeTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StorageLibraryChangeTracker {}
 unsafe impl ::std::marker::Sync for StorageLibraryChangeTracker {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageLibraryChangeTrackerOptions(::windows::runtime::IInspectable);
 impl StorageLibraryChangeTrackerOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6628,46 +6092,6 @@ unsafe impl ::windows::runtime::Interface for StorageLibraryChangeTrackerOptions
 impl ::windows::runtime::RuntimeName for StorageLibraryChangeTrackerOptions {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTrackerOptions";
 }
-impl ::std::convert::From<StorageLibraryChangeTrackerOptions> for ::windows::runtime::IUnknown {
-    fn from(value: StorageLibraryChangeTrackerOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageLibraryChangeTrackerOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageLibraryChangeTrackerOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryChangeTrackerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryChangeTrackerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageLibraryChangeTrackerOptions> for ::windows::runtime::IInspectable {
-    fn from(value: StorageLibraryChangeTrackerOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageLibraryChangeTrackerOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageLibraryChangeTrackerOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageLibraryChangeTrackerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageLibraryChangeTrackerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StorageLibraryChangeTrackerOptions {}
 unsafe impl ::std::marker::Sync for StorageLibraryChangeTrackerOptions {}
 #[doc = "*Required features: `Storage`*"]
@@ -6700,7 +6124,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorageLibraryChangeType {
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageLibraryLastChangeId(::windows::runtime::IInspectable);
 impl StorageLibraryLastChangeId {
     #[doc = "*Required features: `Storage`*"]
@@ -6724,46 +6148,6 @@ unsafe impl ::windows::runtime::Interface for StorageLibraryLastChangeId {
 }
 impl ::windows::runtime::RuntimeName for StorageLibraryLastChangeId {
     const NAME: &'static str = "Windows.Storage.StorageLibraryLastChangeId";
-}
-impl ::std::convert::From<StorageLibraryLastChangeId> for ::windows::runtime::IUnknown {
-    fn from(value: StorageLibraryLastChangeId) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageLibraryLastChangeId> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageLibraryLastChangeId) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageLibraryLastChangeId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageLibraryLastChangeId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageLibraryLastChangeId> for ::windows::runtime::IInspectable {
-    fn from(value: StorageLibraryLastChangeId) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageLibraryLastChangeId> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageLibraryLastChangeId) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageLibraryLastChangeId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageLibraryLastChangeId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for StorageLibraryLastChangeId {}
 unsafe impl ::std::marker::Sync for StorageLibraryLastChangeId {}
@@ -6818,7 +6202,7 @@ impl ::std::ops::Not for StorageOpenOptions {
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageProvider(::windows::runtime::IInspectable);
 impl StorageProvider {
     #[doc = "*Required features: `Storage`*"]
@@ -6857,49 +6241,9 @@ unsafe impl ::windows::runtime::Interface for StorageProvider {
 impl ::windows::runtime::RuntimeName for StorageProvider {
     const NAME: &'static str = "Windows.Storage.StorageProvider";
 }
-impl ::std::convert::From<StorageProvider> for ::windows::runtime::IUnknown {
-    fn from(value: StorageProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageProvider> for ::windows::runtime::IInspectable {
-    fn from(value: StorageProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StorageStreamTransaction(::windows::runtime::IInspectable);
 impl StorageStreamTransaction {
     #[cfg(feature = "Storage_Streams")]
@@ -6937,46 +6281,6 @@ unsafe impl ::windows::runtime::Interface for StorageStreamTransaction {
 impl ::windows::runtime::RuntimeName for StorageStreamTransaction {
     const NAME: &'static str = "Windows.Storage.StorageStreamTransaction";
 }
-impl ::std::convert::From<StorageStreamTransaction> for ::windows::runtime::IUnknown {
-    fn from(value: StorageStreamTransaction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StorageStreamTransaction> for ::windows::runtime::IUnknown {
-    fn from(value: &StorageStreamTransaction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageStreamTransaction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StorageStreamTransaction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StorageStreamTransaction> for ::windows::runtime::IInspectable {
-    fn from(value: StorageStreamTransaction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StorageStreamTransaction> for ::windows::runtime::IInspectable {
-    fn from(value: &StorageStreamTransaction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageStreamTransaction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageStreamTransaction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<StorageStreamTransaction> for super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -7006,7 +6310,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::IClosable> for &St
 #[cfg(feature = "Storage_Streams")]
 #[doc = "*Required features: `Storage`, `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamedFileDataRequest(::windows::runtime::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequest {
@@ -7052,54 +6356,6 @@ unsafe impl ::windows::runtime::Interface for StreamedFileDataRequest {
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::runtime::RuntimeName for StreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.StreamedFileDataRequest";
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<StreamedFileDataRequest> for ::windows::runtime::IUnknown {
-    fn from(value: StreamedFileDataRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&StreamedFileDataRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamedFileDataRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamedFileDataRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamedFileDataRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<StreamedFileDataRequest> for ::windows::runtime::IInspectable {
-    fn from(value: StreamedFileDataRequest) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::std::convert::From<&StreamedFileDataRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamedFileDataRequest) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamedFileDataRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamedFileDataRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::std::convert::From<StreamedFileDataRequest> for Streams::IOutputStream {
@@ -7281,7 +6537,7 @@ unsafe impl ::windows::runtime::RuntimeType for StreamedFileFailureMode {
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemAudioProperties(::windows::runtime::IInspectable);
 impl SystemAudioProperties {
     #[doc = "*Required features: `Storage`*"]
@@ -7303,51 +6559,11 @@ unsafe impl ::windows::runtime::Interface for SystemAudioProperties {
 impl ::windows::runtime::RuntimeName for SystemAudioProperties {
     const NAME: &'static str = "Windows.Storage.SystemAudioProperties";
 }
-impl ::std::convert::From<SystemAudioProperties> for ::windows::runtime::IUnknown {
-    fn from(value: SystemAudioProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemAudioProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemAudioProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemAudioProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemAudioProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemAudioProperties> for ::windows::runtime::IInspectable {
-    fn from(value: SystemAudioProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemAudioProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemAudioProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemAudioProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemAudioProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SystemAudioProperties {}
 unsafe impl ::std::marker::Sync for SystemAudioProperties {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemDataPaths(::windows::runtime::IInspectable);
 impl SystemDataPaths {
     #[doc = "*Required features: `Storage`*"]
@@ -7500,51 +6716,11 @@ unsafe impl ::windows::runtime::Interface for SystemDataPaths {
 impl ::windows::runtime::RuntimeName for SystemDataPaths {
     const NAME: &'static str = "Windows.Storage.SystemDataPaths";
 }
-impl ::std::convert::From<SystemDataPaths> for ::windows::runtime::IUnknown {
-    fn from(value: SystemDataPaths) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemDataPaths> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemDataPaths) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemDataPaths> for ::windows::runtime::IInspectable {
-    fn from(value: SystemDataPaths) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemDataPaths> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemDataPaths) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SystemDataPaths {}
 unsafe impl ::std::marker::Sync for SystemDataPaths {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemGPSProperties(::windows::runtime::IInspectable);
 impl SystemGPSProperties {
     #[doc = "*Required features: `Storage`*"]
@@ -7574,51 +6750,11 @@ unsafe impl ::windows::runtime::Interface for SystemGPSProperties {
 impl ::windows::runtime::RuntimeName for SystemGPSProperties {
     const NAME: &'static str = "Windows.Storage.SystemGPSProperties";
 }
-impl ::std::convert::From<SystemGPSProperties> for ::windows::runtime::IUnknown {
-    fn from(value: SystemGPSProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemGPSProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemGPSProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemGPSProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemGPSProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemGPSProperties> for ::windows::runtime::IInspectable {
-    fn from(value: SystemGPSProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemGPSProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemGPSProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemGPSProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemGPSProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SystemGPSProperties {}
 unsafe impl ::std::marker::Sync for SystemGPSProperties {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemImageProperties(::windows::runtime::IInspectable);
 impl SystemImageProperties {
     #[doc = "*Required features: `Storage`*"]
@@ -7648,51 +6784,11 @@ unsafe impl ::windows::runtime::Interface for SystemImageProperties {
 impl ::windows::runtime::RuntimeName for SystemImageProperties {
     const NAME: &'static str = "Windows.Storage.SystemImageProperties";
 }
-impl ::std::convert::From<SystemImageProperties> for ::windows::runtime::IUnknown {
-    fn from(value: SystemImageProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemImageProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemImageProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemImageProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemImageProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemImageProperties> for ::windows::runtime::IInspectable {
-    fn from(value: SystemImageProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemImageProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemImageProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemImageProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemImageProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SystemImageProperties {}
 unsafe impl ::std::marker::Sync for SystemImageProperties {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemMediaProperties(::windows::runtime::IInspectable);
 impl SystemMediaProperties {
     #[doc = "*Required features: `Storage`*"]
@@ -7754,51 +6850,11 @@ unsafe impl ::windows::runtime::Interface for SystemMediaProperties {
 impl ::windows::runtime::RuntimeName for SystemMediaProperties {
     const NAME: &'static str = "Windows.Storage.SystemMediaProperties";
 }
-impl ::std::convert::From<SystemMediaProperties> for ::windows::runtime::IUnknown {
-    fn from(value: SystemMediaProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemMediaProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemMediaProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemMediaProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemMediaProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemMediaProperties> for ::windows::runtime::IInspectable {
-    fn from(value: SystemMediaProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemMediaProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemMediaProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemMediaProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemMediaProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SystemMediaProperties {}
 unsafe impl ::std::marker::Sync for SystemMediaProperties {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemMusicProperties(::windows::runtime::IInspectable);
 impl SystemMusicProperties {
     #[doc = "*Required features: `Storage`*"]
@@ -7876,51 +6932,11 @@ unsafe impl ::windows::runtime::Interface for SystemMusicProperties {
 impl ::windows::runtime::RuntimeName for SystemMusicProperties {
     const NAME: &'static str = "Windows.Storage.SystemMusicProperties";
 }
-impl ::std::convert::From<SystemMusicProperties> for ::windows::runtime::IUnknown {
-    fn from(value: SystemMusicProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemMusicProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemMusicProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemMusicProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemMusicProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemMusicProperties> for ::windows::runtime::IInspectable {
-    fn from(value: SystemMusicProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemMusicProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemMusicProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemMusicProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemMusicProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SystemMusicProperties {}
 unsafe impl ::std::marker::Sync for SystemMusicProperties {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemPhotoProperties(::windows::runtime::IInspectable);
 impl SystemPhotoProperties {
     #[doc = "*Required features: `Storage`*"]
@@ -7973,46 +6989,6 @@ unsafe impl ::windows::runtime::Interface for SystemPhotoProperties {
 }
 impl ::windows::runtime::RuntimeName for SystemPhotoProperties {
     const NAME: &'static str = "Windows.Storage.SystemPhotoProperties";
-}
-impl ::std::convert::From<SystemPhotoProperties> for ::windows::runtime::IUnknown {
-    fn from(value: SystemPhotoProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemPhotoProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemPhotoProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemPhotoProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemPhotoProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemPhotoProperties> for ::windows::runtime::IInspectable {
-    fn from(value: SystemPhotoProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemPhotoProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemPhotoProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemPhotoProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemPhotoProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for SystemPhotoProperties {}
 unsafe impl ::std::marker::Sync for SystemPhotoProperties {}
@@ -8120,7 +7096,7 @@ impl ::windows::runtime::RuntimeName for SystemProperties {
 }
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemVideoProperties(::windows::runtime::IInspectable);
 impl SystemVideoProperties {
     #[doc = "*Required features: `Storage`*"]
@@ -8174,51 +7150,11 @@ unsafe impl ::windows::runtime::Interface for SystemVideoProperties {
 impl ::windows::runtime::RuntimeName for SystemVideoProperties {
     const NAME: &'static str = "Windows.Storage.SystemVideoProperties";
 }
-impl ::std::convert::From<SystemVideoProperties> for ::windows::runtime::IUnknown {
-    fn from(value: SystemVideoProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemVideoProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemVideoProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemVideoProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemVideoProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemVideoProperties> for ::windows::runtime::IInspectable {
-    fn from(value: SystemVideoProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemVideoProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemVideoProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemVideoProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemVideoProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SystemVideoProperties {}
 unsafe impl ::std::marker::Sync for SystemVideoProperties {}
 #[doc = "*Required features: `Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserDataPaths(::windows::runtime::IInspectable);
 impl UserDataPaths {
     #[doc = "*Required features: `Storage`*"]
@@ -8402,46 +7338,6 @@ unsafe impl ::windows::runtime::Interface for UserDataPaths {
 }
 impl ::windows::runtime::RuntimeName for UserDataPaths {
     const NAME: &'static str = "Windows.Storage.UserDataPaths";
-}
-impl ::std::convert::From<UserDataPaths> for ::windows::runtime::IUnknown {
-    fn from(value: UserDataPaths) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserDataPaths> for ::windows::runtime::IUnknown {
-    fn from(value: &UserDataPaths) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserDataPaths> for ::windows::runtime::IInspectable {
-    fn from(value: UserDataPaths) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserDataPaths> for ::windows::runtime::IInspectable {
-    fn from(value: &UserDataPaths) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataPaths {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for UserDataPaths {}
 unsafe impl ::std::marker::Sync for UserDataPaths {}

@@ -141,7 +141,7 @@ impl ::windows::runtime::RuntimeName for Clipboard {
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ClipboardContentOptions(::windows::runtime::IInspectable);
 impl ClipboardContentOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -206,51 +206,11 @@ unsafe impl ::windows::runtime::Interface for ClipboardContentOptions {
 impl ::windows::runtime::RuntimeName for ClipboardContentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardContentOptions";
 }
-impl ::std::convert::From<ClipboardContentOptions> for ::windows::runtime::IUnknown {
-    fn from(value: ClipboardContentOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ClipboardContentOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &ClipboardContentOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClipboardContentOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClipboardContentOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ClipboardContentOptions> for ::windows::runtime::IInspectable {
-    fn from(value: ClipboardContentOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ClipboardContentOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &ClipboardContentOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ClipboardContentOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ClipboardContentOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ClipboardContentOptions {}
 unsafe impl ::std::marker::Sync for ClipboardContentOptions {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ClipboardHistoryChangedEventArgs(::windows::runtime::IInspectable);
 impl ClipboardHistoryChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ClipboardHistoryChangedEventArgs {
@@ -263,51 +223,11 @@ unsafe impl ::windows::runtime::Interface for ClipboardHistoryChangedEventArgs {
 impl ::windows::runtime::RuntimeName for ClipboardHistoryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs";
 }
-impl ::std::convert::From<ClipboardHistoryChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ClipboardHistoryChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ClipboardHistoryChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ClipboardHistoryChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClipboardHistoryChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClipboardHistoryChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ClipboardHistoryChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ClipboardHistoryChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ClipboardHistoryChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ClipboardHistoryChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ClipboardHistoryChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ClipboardHistoryChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ClipboardHistoryChangedEventArgs {}
 unsafe impl ::std::marker::Sync for ClipboardHistoryChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ClipboardHistoryItem(::windows::runtime::IInspectable);
 impl ClipboardHistoryItem {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -346,51 +266,11 @@ unsafe impl ::windows::runtime::Interface for ClipboardHistoryItem {
 impl ::windows::runtime::RuntimeName for ClipboardHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem";
 }
-impl ::std::convert::From<ClipboardHistoryItem> for ::windows::runtime::IUnknown {
-    fn from(value: ClipboardHistoryItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ClipboardHistoryItem> for ::windows::runtime::IUnknown {
-    fn from(value: &ClipboardHistoryItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClipboardHistoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClipboardHistoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ClipboardHistoryItem> for ::windows::runtime::IInspectable {
-    fn from(value: ClipboardHistoryItem) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ClipboardHistoryItem> for ::windows::runtime::IInspectable {
-    fn from(value: &ClipboardHistoryItem) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ClipboardHistoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ClipboardHistoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ClipboardHistoryItem {}
 unsafe impl ::std::marker::Sync for ClipboardHistoryItem {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ClipboardHistoryItemsResult(::windows::runtime::IInspectable);
 impl ClipboardHistoryItemsResult {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -421,46 +301,6 @@ unsafe impl ::windows::runtime::Interface for ClipboardHistoryItemsResult {
 impl ::windows::runtime::RuntimeName for ClipboardHistoryItemsResult {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult";
 }
-impl ::std::convert::From<ClipboardHistoryItemsResult> for ::windows::runtime::IUnknown {
-    fn from(value: ClipboardHistoryItemsResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ClipboardHistoryItemsResult> for ::windows::runtime::IUnknown {
-    fn from(value: &ClipboardHistoryItemsResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ClipboardHistoryItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ClipboardHistoryItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ClipboardHistoryItemsResult> for ::windows::runtime::IInspectable {
-    fn from(value: ClipboardHistoryItemsResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ClipboardHistoryItemsResult> for ::windows::runtime::IInspectable {
-    fn from(value: &ClipboardHistoryItemsResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ClipboardHistoryItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ClipboardHistoryItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ClipboardHistoryItemsResult {}
 unsafe impl ::std::marker::Sync for ClipboardHistoryItemsResult {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -486,7 +326,7 @@ unsafe impl ::windows::runtime::RuntimeType for ClipboardHistoryItemsResultStatu
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataPackage(::windows::runtime::IInspectable);
 impl DataPackage {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -667,46 +507,6 @@ unsafe impl ::windows::runtime::Interface for DataPackage {
 impl ::windows::runtime::RuntimeName for DataPackage {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackage";
 }
-impl ::std::convert::From<DataPackage> for ::windows::runtime::IUnknown {
-    fn from(value: DataPackage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataPackage> for ::windows::runtime::IUnknown {
-    fn from(value: &DataPackage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataPackage> for ::windows::runtime::IInspectable {
-    fn from(value: DataPackage) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataPackage> for ::windows::runtime::IInspectable {
-    fn from(value: &DataPackage) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DataPackage {}
 unsafe impl ::std::marker::Sync for DataPackage {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -761,7 +561,7 @@ impl ::std::ops::Not for DataPackageOperation {
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataPackagePropertySet(::windows::runtime::IInspectable);
 impl DataPackagePropertySet {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -1018,46 +818,6 @@ unsafe impl ::windows::runtime::Interface for DataPackagePropertySet {
 impl ::windows::runtime::RuntimeName for DataPackagePropertySet {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackagePropertySet";
 }
-impl ::std::convert::From<DataPackagePropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: DataPackagePropertySet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataPackagePropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: &DataPackagePropertySet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPackagePropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataPackagePropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataPackagePropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: DataPackagePropertySet) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataPackagePropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: &DataPackagePropertySet) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataPackagePropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataPackagePropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<DataPackagePropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
     type Error = ::windows::runtime::Error;
@@ -1130,7 +890,7 @@ impl ::std::iter::IntoIterator for &DataPackagePropertySet {
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataPackagePropertySetView(::windows::runtime::IInspectable);
 impl DataPackagePropertySetView {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -1305,46 +1065,6 @@ unsafe impl ::windows::runtime::Interface for DataPackagePropertySetView {
 impl ::windows::runtime::RuntimeName for DataPackagePropertySetView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView";
 }
-impl ::std::convert::From<DataPackagePropertySetView> for ::windows::runtime::IUnknown {
-    fn from(value: DataPackagePropertySetView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataPackagePropertySetView> for ::windows::runtime::IUnknown {
-    fn from(value: &DataPackagePropertySetView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPackagePropertySetView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataPackagePropertySetView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataPackagePropertySetView> for ::windows::runtime::IInspectable {
-    fn from(value: DataPackagePropertySetView) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataPackagePropertySetView> for ::windows::runtime::IInspectable {
-    fn from(value: &DataPackagePropertySetView) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataPackagePropertySetView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataPackagePropertySetView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<DataPackagePropertySetView> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
     type Error = ::windows::runtime::Error;
@@ -1417,7 +1137,7 @@ impl ::std::iter::IntoIterator for &DataPackagePropertySetView {
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataPackageView(::windows::runtime::IInspectable);
 impl DataPackageView {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -1601,51 +1321,11 @@ unsafe impl ::windows::runtime::Interface for DataPackageView {
 impl ::windows::runtime::RuntimeName for DataPackageView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackageView";
 }
-impl ::std::convert::From<DataPackageView> for ::windows::runtime::IUnknown {
-    fn from(value: DataPackageView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataPackageView> for ::windows::runtime::IUnknown {
-    fn from(value: &DataPackageView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataPackageView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataPackageView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataPackageView> for ::windows::runtime::IInspectable {
-    fn from(value: DataPackageView) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataPackageView> for ::windows::runtime::IInspectable {
-    fn from(value: &DataPackageView) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataPackageView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataPackageView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DataPackageView {}
 unsafe impl ::std::marker::Sync for DataPackageView {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataProviderDeferral(::windows::runtime::IInspectable);
 impl DataProviderDeferral {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -1663,46 +1343,6 @@ unsafe impl ::windows::runtime::Interface for DataProviderDeferral {
 }
 impl ::windows::runtime::RuntimeName for DataProviderDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderDeferral";
-}
-impl ::std::convert::From<DataProviderDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: DataProviderDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataProviderDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &DataProviderDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataProviderDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataProviderDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataProviderDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: DataProviderDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataProviderDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &DataProviderDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataProviderDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataProviderDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DataProviderDeferral {}
 unsafe impl ::std::marker::Sync for DataProviderDeferral {}
@@ -1781,7 +1421,7 @@ impl<F: FnMut(&::std::option::Option<DataProviderRequest>) -> ::windows::runtime
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataProviderRequest(::windows::runtime::IInspectable);
 impl DataProviderRequest {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -1825,51 +1465,11 @@ unsafe impl ::windows::runtime::Interface for DataProviderRequest {
 impl ::windows::runtime::RuntimeName for DataProviderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderRequest";
 }
-impl ::std::convert::From<DataProviderRequest> for ::windows::runtime::IUnknown {
-    fn from(value: DataProviderRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataProviderRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &DataProviderRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataProviderRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataProviderRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataProviderRequest> for ::windows::runtime::IInspectable {
-    fn from(value: DataProviderRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataProviderRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &DataProviderRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataProviderRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataProviderRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DataProviderRequest {}
 unsafe impl ::std::marker::Sync for DataProviderRequest {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataRequest(::windows::runtime::IInspectable);
 impl DataRequest {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -1918,51 +1518,11 @@ unsafe impl ::windows::runtime::Interface for DataRequest {
 impl ::windows::runtime::RuntimeName for DataRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequest";
 }
-impl ::std::convert::From<DataRequest> for ::windows::runtime::IUnknown {
-    fn from(value: DataRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &DataRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataRequest> for ::windows::runtime::IInspectable {
-    fn from(value: DataRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &DataRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DataRequest {}
 unsafe impl ::std::marker::Sync for DataRequest {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataRequestDeferral(::windows::runtime::IInspectable);
 impl DataRequestDeferral {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -1981,51 +1541,11 @@ unsafe impl ::windows::runtime::Interface for DataRequestDeferral {
 impl ::windows::runtime::RuntimeName for DataRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestDeferral";
 }
-impl ::std::convert::From<DataRequestDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: DataRequestDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataRequestDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &DataRequestDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataRequestDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataRequestDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataRequestDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: DataRequestDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataRequestDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &DataRequestDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataRequestDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataRequestDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DataRequestDeferral {}
 unsafe impl ::std::marker::Sync for DataRequestDeferral {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataRequestedEventArgs(::windows::runtime::IInspectable);
 impl DataRequestedEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -2047,51 +1567,11 @@ unsafe impl ::windows::runtime::Interface for DataRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for DataRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs";
 }
-impl ::std::convert::From<DataRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DataRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DataRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DataRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DataRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DataRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for DataRequestedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DataTransferManager(::windows::runtime::IInspectable);
 impl DataTransferManager {
     #[cfg(feature = "Foundation")]
@@ -2183,46 +1663,6 @@ unsafe impl ::windows::runtime::Interface for DataTransferManager {
 }
 impl ::windows::runtime::RuntimeName for DataTransferManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataTransferManager";
-}
-impl ::std::convert::From<DataTransferManager> for ::windows::runtime::IUnknown {
-    fn from(value: DataTransferManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DataTransferManager> for ::windows::runtime::IUnknown {
-    fn from(value: &DataTransferManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DataTransferManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DataTransferManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DataTransferManager> for ::windows::runtime::IInspectable {
-    fn from(value: DataTransferManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DataTransferManager> for ::windows::runtime::IInspectable {
-    fn from(value: &DataTransferManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DataTransferManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DataTransferManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 pub struct HtmlFormatHelper {}
@@ -3366,7 +2806,7 @@ pub struct ITargetApplicationChosenEventArgs_abi(
 );
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OperationCompletedEventArgs(::windows::runtime::IInspectable);
 impl OperationCompletedEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -3396,46 +2836,6 @@ unsafe impl ::windows::runtime::Interface for OperationCompletedEventArgs {
 impl ::windows::runtime::RuntimeName for OperationCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs";
 }
-impl ::std::convert::From<OperationCompletedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: OperationCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OperationCompletedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &OperationCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OperationCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OperationCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OperationCompletedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: OperationCompletedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OperationCompletedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &OperationCompletedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OperationCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OperationCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OperationCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for OperationCompletedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -3461,7 +2861,7 @@ unsafe impl ::windows::runtime::RuntimeType for SetHistoryItemAsContentStatus {
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShareCompletedEventArgs(::windows::runtime::IInspectable);
 impl ShareCompletedEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -3483,51 +2883,11 @@ unsafe impl ::windows::runtime::Interface for ShareCompletedEventArgs {
 impl ::windows::runtime::RuntimeName for ShareCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs";
 }
-impl ::std::convert::From<ShareCompletedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ShareCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShareCompletedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ShareCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShareCompletedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ShareCompletedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShareCompletedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ShareCompletedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ShareCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for ShareCompletedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShareProvider(::windows::runtime::IInspectable);
 impl ShareProvider {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -3591,46 +2951,6 @@ unsafe impl ::windows::runtime::Interface for ShareProvider {
 }
 impl ::windows::runtime::RuntimeName for ShareProvider {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvider";
-}
-impl ::std::convert::From<ShareProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ShareProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShareProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ShareProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShareProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ShareProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShareProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ShareProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ShareProvider {}
 unsafe impl ::std::marker::Sync for ShareProvider {}
@@ -3709,7 +3029,7 @@ impl<F: FnMut(&::std::option::Option<ShareProviderOperation>) -> ::windows::runt
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShareProviderOperation(::windows::runtime::IInspectable);
 impl ShareProviderOperation {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -3744,51 +3064,11 @@ unsafe impl ::windows::runtime::Interface for ShareProviderOperation {
 impl ::windows::runtime::RuntimeName for ShareProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProviderOperation";
 }
-impl ::std::convert::From<ShareProviderOperation> for ::windows::runtime::IUnknown {
-    fn from(value: ShareProviderOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShareProviderOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &ShareProviderOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareProviderOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareProviderOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShareProviderOperation> for ::windows::runtime::IInspectable {
-    fn from(value: ShareProviderOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShareProviderOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &ShareProviderOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareProviderOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareProviderOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ShareProviderOperation {}
 unsafe impl ::std::marker::Sync for ShareProviderOperation {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShareProvidersRequestedEventArgs(::windows::runtime::IInspectable);
 impl ShareProvidersRequestedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -3828,51 +3108,11 @@ unsafe impl ::windows::runtime::Interface for ShareProvidersRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for ShareProvidersRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs";
 }
-impl ::std::convert::From<ShareProvidersRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ShareProvidersRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShareProvidersRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ShareProvidersRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareProvidersRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareProvidersRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShareProvidersRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ShareProvidersRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShareProvidersRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ShareProvidersRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareProvidersRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareProvidersRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ShareProvidersRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for ShareProvidersRequestedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShareTargetInfo(::windows::runtime::IInspectable);
 impl ShareTargetInfo {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -3902,51 +3142,11 @@ unsafe impl ::windows::runtime::Interface for ShareTargetInfo {
 impl ::windows::runtime::RuntimeName for ShareTargetInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTargetInfo";
 }
-impl ::std::convert::From<ShareTargetInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ShareTargetInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShareTargetInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ShareTargetInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareTargetInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareTargetInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShareTargetInfo> for ::windows::runtime::IInspectable {
-    fn from(value: ShareTargetInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShareTargetInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &ShareTargetInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareTargetInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareTargetInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ShareTargetInfo {}
 unsafe impl ::std::marker::Sync for ShareTargetInfo {}
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShareUIOptions(::windows::runtime::IInspectable);
 impl ShareUIOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3994,46 +3194,6 @@ unsafe impl ::windows::runtime::Interface for ShareUIOptions {
 }
 impl ::windows::runtime::RuntimeName for ShareUIOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareUIOptions";
-}
-impl ::std::convert::From<ShareUIOptions> for ::windows::runtime::IUnknown {
-    fn from(value: ShareUIOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShareUIOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &ShareUIOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShareUIOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShareUIOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShareUIOptions> for ::windows::runtime::IInspectable {
-    fn from(value: ShareUIOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShareUIOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &ShareUIOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShareUIOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShareUIOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ShareUIOptions {}
 unsafe impl ::std::marker::Sync for ShareUIOptions {}
@@ -4174,7 +3334,7 @@ impl ::windows::runtime::RuntimeName for StandardDataFormats {
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TargetApplicationChosenEventArgs(::windows::runtime::IInspectable);
 impl TargetApplicationChosenEventArgs {
     #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -4195,46 +3355,6 @@ unsafe impl ::windows::runtime::Interface for TargetApplicationChosenEventArgs {
 }
 impl ::windows::runtime::RuntimeName for TargetApplicationChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs";
-}
-impl ::std::convert::From<TargetApplicationChosenEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: TargetApplicationChosenEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TargetApplicationChosenEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &TargetApplicationChosenEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TargetApplicationChosenEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TargetApplicationChosenEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TargetApplicationChosenEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: TargetApplicationChosenEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TargetApplicationChosenEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &TargetApplicationChosenEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TargetApplicationChosenEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TargetApplicationChosenEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for TargetApplicationChosenEventArgs {}
 unsafe impl ::std::marker::Sync for TargetApplicationChosenEventArgs {}

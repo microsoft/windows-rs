@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Block(::windows::runtime::IInspectable);
 impl Block {
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
@@ -538,46 +538,6 @@ unsafe impl ::windows::runtime::Interface for Block {
 impl ::windows::runtime::RuntimeName for Block {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Block";
 }
-impl ::std::convert::From<Block> for ::windows::runtime::IUnknown {
-    fn from(value: Block) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Block> for ::windows::runtime::IUnknown {
-    fn from(value: &Block) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Block {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Block {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Block> for ::windows::runtime::IInspectable {
-    fn from(value: Block) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Block> for ::windows::runtime::IInspectable {
-    fn from(value: &Block) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Block {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Block {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Block> for TextElement {
     fn from(value: Block) -> Self {
         ::std::convert::Into::<TextElement>::into(&value)
@@ -623,7 +583,7 @@ unsafe impl ::std::marker::Sync for Block {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BlockCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl BlockCollection {
@@ -738,54 +698,6 @@ impl ::windows::runtime::RuntimeName for BlockCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.BlockCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<BlockCollection> for ::windows::runtime::IUnknown {
-    fn from(value: BlockCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&BlockCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &BlockCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BlockCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BlockCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<BlockCollection> for ::windows::runtime::IInspectable {
-    fn from(value: BlockCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&BlockCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &BlockCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BlockCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BlockCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<BlockCollection> for super::super::super::Foundation::Collections::IVector<Block> {
     fn from(value: BlockCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -857,7 +769,7 @@ impl ::std::iter::IntoIterator for &BlockCollection {
 }
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Bold(::windows::runtime::IInspectable);
 impl Bold {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1308,46 +1220,6 @@ unsafe impl ::windows::runtime::Interface for Bold {
 impl ::windows::runtime::RuntimeName for Bold {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Bold";
 }
-impl ::std::convert::From<Bold> for ::windows::runtime::IUnknown {
-    fn from(value: Bold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Bold> for ::windows::runtime::IUnknown {
-    fn from(value: &Bold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Bold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Bold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Bold> for ::windows::runtime::IInspectable {
-    fn from(value: Bold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Bold> for ::windows::runtime::IInspectable {
-    fn from(value: &Bold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Bold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Bold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Bold> for Span {
     fn from(value: Bold) -> Self {
         ::std::convert::Into::<Span>::into(&value)
@@ -1432,7 +1304,7 @@ unsafe impl ::std::marker::Send for Bold {}
 unsafe impl ::std::marker::Sync for Bold {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactContentLinkProvider(::windows::runtime::IInspectable);
 impl ContactContentLinkProvider {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1509,46 +1381,6 @@ unsafe impl ::windows::runtime::Interface for ContactContentLinkProvider {
 impl ::windows::runtime::RuntimeName for ContactContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContactContentLinkProvider";
 }
-impl ::std::convert::From<ContactContentLinkProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ContactContentLinkProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactContentLinkProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactContentLinkProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactContentLinkProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ContactContentLinkProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactContentLinkProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactContentLinkProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContactContentLinkProvider> for ContentLinkProvider {
     fn from(value: ContactContentLinkProvider) -> Self {
         ::std::convert::Into::<ContentLinkProvider>::into(&value)
@@ -1593,7 +1425,7 @@ unsafe impl ::std::marker::Send for ContactContentLinkProvider {}
 unsafe impl ::std::marker::Sync for ContactContentLinkProvider {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContentLink(::windows::runtime::IInspectable);
 impl ContentLink {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2388,46 +2220,6 @@ unsafe impl ::windows::runtime::Interface for ContentLink {
 impl ::windows::runtime::RuntimeName for ContentLink {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLink";
 }
-impl ::std::convert::From<ContentLink> for ::windows::runtime::IUnknown {
-    fn from(value: ContentLink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContentLink> for ::windows::runtime::IUnknown {
-    fn from(value: &ContentLink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentLink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentLink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContentLink> for ::windows::runtime::IInspectable {
-    fn from(value: ContentLink) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContentLink> for ::windows::runtime::IInspectable {
-    fn from(value: &ContentLink) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContentLink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContentLink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContentLink> for Inline {
     fn from(value: ContentLink) -> Self {
         ::std::convert::Into::<Inline>::into(&value)
@@ -2492,7 +2284,7 @@ unsafe impl ::std::marker::Send for ContentLink {}
 unsafe impl ::std::marker::Sync for ContentLink {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContentLinkInvokedEventArgs(::windows::runtime::IInspectable);
 impl ContentLinkInvokedEventArgs {
     #[cfg(feature = "UI_Text")]
@@ -2528,51 +2320,11 @@ unsafe impl ::windows::runtime::Interface for ContentLinkInvokedEventArgs {
 impl ::windows::runtime::RuntimeName for ContentLinkInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkInvokedEventArgs";
 }
-impl ::std::convert::From<ContentLinkInvokedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContentLinkInvokedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContentLinkInvokedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContentLinkInvokedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentLinkInvokedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentLinkInvokedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContentLinkInvokedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContentLinkInvokedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContentLinkInvokedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContentLinkInvokedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContentLinkInvokedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContentLinkInvokedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContentLinkInvokedEventArgs {}
 unsafe impl ::std::marker::Sync for ContentLinkInvokedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContentLinkProvider(::windows::runtime::IInspectable);
 impl ContentLinkProvider {
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
@@ -2642,46 +2394,6 @@ unsafe impl ::windows::runtime::Interface for ContentLinkProvider {
 impl ::windows::runtime::RuntimeName for ContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkProvider";
 }
-impl ::std::convert::From<ContentLinkProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ContentLinkProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContentLinkProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ContentLinkProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContentLinkProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ContentLinkProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContentLinkProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ContentLinkProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<ContentLinkProvider> for super::DependencyObject {
     fn from(value: ContentLinkProvider) -> Self {
         ::std::convert::Into::<super::DependencyObject>::into(&value)
@@ -2706,7 +2418,7 @@ unsafe impl ::std::marker::Send for ContentLinkProvider {}
 unsafe impl ::std::marker::Sync for ContentLinkProvider {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContentLinkProviderCollection(::windows::runtime::IInspectable);
 impl ContentLinkProviderCollection {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2823,46 +2535,6 @@ unsafe impl ::windows::runtime::Interface for ContentLinkProviderCollection {
 impl ::windows::runtime::RuntimeName for ContentLinkProviderCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkProviderCollection";
 }
-impl ::std::convert::From<ContentLinkProviderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ContentLinkProviderCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContentLinkProviderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ContentLinkProviderCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentLinkProviderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentLinkProviderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContentLinkProviderCollection> for ::windows::runtime::IInspectable {
-    fn from(value: ContentLinkProviderCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContentLinkProviderCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &ContentLinkProviderCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContentLinkProviderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContentLinkProviderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<ContentLinkProviderCollection> for super::super::super::Foundation::Collections::IIterable<ContentLinkProvider> {
     type Error = ::windows::runtime::Error;
@@ -2935,7 +2607,7 @@ impl ::std::iter::IntoIterator for &ContentLinkProviderCollection {
 }
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Glyphs(::windows::runtime::IInspectable);
 impl Glyphs {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5320,46 +4992,6 @@ unsafe impl ::windows::runtime::Interface for Glyphs {
 impl ::windows::runtime::RuntimeName for Glyphs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Glyphs";
 }
-impl ::std::convert::From<Glyphs> for ::windows::runtime::IUnknown {
-    fn from(value: Glyphs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Glyphs> for ::windows::runtime::IUnknown {
-    fn from(value: &Glyphs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Glyphs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Glyphs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Glyphs> for ::windows::runtime::IInspectable {
-    fn from(value: Glyphs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Glyphs> for ::windows::runtime::IInspectable {
-    fn from(value: &Glyphs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Glyphs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Glyphs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "UI_Composition")]
 impl ::std::convert::TryFrom<Glyphs> for super::super::Composition::IAnimationObject {
     type Error = ::windows::runtime::Error;
@@ -5476,7 +5108,7 @@ unsafe impl ::std::marker::Send for Glyphs {}
 unsafe impl ::std::marker::Sync for Glyphs {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Hyperlink(::windows::runtime::IInspectable);
 impl Hyperlink {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6285,46 +5917,6 @@ unsafe impl ::windows::runtime::Interface for Hyperlink {
 impl ::windows::runtime::RuntimeName for Hyperlink {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Hyperlink";
 }
-impl ::std::convert::From<Hyperlink> for ::windows::runtime::IUnknown {
-    fn from(value: Hyperlink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Hyperlink> for ::windows::runtime::IUnknown {
-    fn from(value: &Hyperlink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Hyperlink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Hyperlink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Hyperlink> for ::windows::runtime::IInspectable {
-    fn from(value: Hyperlink) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Hyperlink> for ::windows::runtime::IInspectable {
-    fn from(value: &Hyperlink) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Hyperlink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Hyperlink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Hyperlink> for Span {
     fn from(value: Hyperlink) -> Self {
         ::std::convert::Into::<Span>::into(&value)
@@ -6409,7 +6001,7 @@ unsafe impl ::std::marker::Send for Hyperlink {}
 unsafe impl ::std::marker::Sync for Hyperlink {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HyperlinkClickEventArgs(::windows::runtime::IInspectable);
 impl HyperlinkClickEventArgs {
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
@@ -6430,46 +6022,6 @@ unsafe impl ::windows::runtime::Interface for HyperlinkClickEventArgs {
 }
 impl ::windows::runtime::RuntimeName for HyperlinkClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.HyperlinkClickEventArgs";
-}
-impl ::std::convert::From<HyperlinkClickEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: HyperlinkClickEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HyperlinkClickEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &HyperlinkClickEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HyperlinkClickEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HyperlinkClickEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HyperlinkClickEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: HyperlinkClickEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HyperlinkClickEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &HyperlinkClickEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HyperlinkClickEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HyperlinkClickEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<HyperlinkClickEventArgs> for super::RoutedEventArgs {
     fn from(value: HyperlinkClickEventArgs) -> Self {
@@ -8022,7 +7574,7 @@ pub struct IUnderline_abi(
 );
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Inline(::windows::runtime::IInspectable);
 impl Inline {
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
@@ -8451,46 +8003,6 @@ unsafe impl ::windows::runtime::Interface for Inline {
 impl ::windows::runtime::RuntimeName for Inline {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Inline";
 }
-impl ::std::convert::From<Inline> for ::windows::runtime::IUnknown {
-    fn from(value: Inline) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Inline> for ::windows::runtime::IUnknown {
-    fn from(value: &Inline) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Inline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Inline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Inline> for ::windows::runtime::IInspectable {
-    fn from(value: Inline) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Inline> for ::windows::runtime::IInspectable {
-    fn from(value: &Inline) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Inline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Inline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Inline> for TextElement {
     fn from(value: Inline) -> Self {
         ::std::convert::Into::<TextElement>::into(&value)
@@ -8536,7 +8048,7 @@ unsafe impl ::std::marker::Sync for Inline {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InlineCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl InlineCollection {
@@ -8651,54 +8163,6 @@ impl ::windows::runtime::RuntimeName for InlineCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.InlineCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<InlineCollection> for ::windows::runtime::IUnknown {
-    fn from(value: InlineCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&InlineCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &InlineCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InlineCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InlineCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<InlineCollection> for ::windows::runtime::IInspectable {
-    fn from(value: InlineCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&InlineCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &InlineCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InlineCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InlineCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<InlineCollection> for super::super::super::Foundation::Collections::IVector<Inline> {
     fn from(value: InlineCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8770,7 +8234,7 @@ impl ::std::iter::IntoIterator for &InlineCollection {
 }
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InlineUIContainer(::windows::runtime::IInspectable);
 impl InlineUIContainer {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -9219,46 +8683,6 @@ unsafe impl ::windows::runtime::Interface for InlineUIContainer {
 impl ::windows::runtime::RuntimeName for InlineUIContainer {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.InlineUIContainer";
 }
-impl ::std::convert::From<InlineUIContainer> for ::windows::runtime::IUnknown {
-    fn from(value: InlineUIContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InlineUIContainer> for ::windows::runtime::IUnknown {
-    fn from(value: &InlineUIContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InlineUIContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InlineUIContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InlineUIContainer> for ::windows::runtime::IInspectable {
-    fn from(value: InlineUIContainer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InlineUIContainer> for ::windows::runtime::IInspectable {
-    fn from(value: &InlineUIContainer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InlineUIContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InlineUIContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<InlineUIContainer> for Inline {
     fn from(value: InlineUIContainer) -> Self {
         ::std::convert::Into::<Inline>::into(&value)
@@ -9323,7 +8747,7 @@ unsafe impl ::std::marker::Send for InlineUIContainer {}
 unsafe impl ::std::marker::Sync for InlineUIContainer {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Italic(::windows::runtime::IInspectable);
 impl Italic {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -9774,46 +9198,6 @@ unsafe impl ::windows::runtime::Interface for Italic {
 impl ::windows::runtime::RuntimeName for Italic {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Italic";
 }
-impl ::std::convert::From<Italic> for ::windows::runtime::IUnknown {
-    fn from(value: Italic) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Italic> for ::windows::runtime::IUnknown {
-    fn from(value: &Italic) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Italic {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Italic {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Italic> for ::windows::runtime::IInspectable {
-    fn from(value: Italic) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Italic> for ::windows::runtime::IInspectable {
-    fn from(value: &Italic) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Italic {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Italic {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Italic> for Span {
     fn from(value: Italic) -> Self {
         ::std::convert::Into::<Span>::into(&value)
@@ -9898,7 +9282,7 @@ unsafe impl ::std::marker::Send for Italic {}
 unsafe impl ::std::marker::Sync for Italic {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LineBreak(::windows::runtime::IInspectable);
 impl LineBreak {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -10334,46 +9718,6 @@ unsafe impl ::windows::runtime::Interface for LineBreak {
 impl ::windows::runtime::RuntimeName for LineBreak {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.LineBreak";
 }
-impl ::std::convert::From<LineBreak> for ::windows::runtime::IUnknown {
-    fn from(value: LineBreak) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LineBreak> for ::windows::runtime::IUnknown {
-    fn from(value: &LineBreak) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LineBreak {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LineBreak {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LineBreak> for ::windows::runtime::IInspectable {
-    fn from(value: LineBreak) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LineBreak> for ::windows::runtime::IInspectable {
-    fn from(value: &LineBreak) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LineBreak {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LineBreak {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<LineBreak> for Inline {
     fn from(value: LineBreak) -> Self {
         ::std::convert::Into::<Inline>::into(&value)
@@ -10458,7 +9802,7 @@ unsafe impl ::windows::runtime::RuntimeType for LogicalDirection {
 }
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Paragraph(::windows::runtime::IInspectable);
 impl Paragraph {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -10992,46 +10336,6 @@ unsafe impl ::windows::runtime::Interface for Paragraph {
 impl ::windows::runtime::RuntimeName for Paragraph {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Paragraph";
 }
-impl ::std::convert::From<Paragraph> for ::windows::runtime::IUnknown {
-    fn from(value: Paragraph) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Paragraph> for ::windows::runtime::IUnknown {
-    fn from(value: &Paragraph) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Paragraph {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Paragraph {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Paragraph> for ::windows::runtime::IInspectable {
-    fn from(value: Paragraph) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Paragraph> for ::windows::runtime::IInspectable {
-    fn from(value: &Paragraph) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Paragraph {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Paragraph {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Paragraph> for Block {
     fn from(value: Paragraph) -> Self {
         ::std::convert::Into::<Block>::into(&value)
@@ -11096,7 +10400,7 @@ unsafe impl ::std::marker::Send for Paragraph {}
 unsafe impl ::std::marker::Sync for Paragraph {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PlaceContentLinkProvider(::windows::runtime::IInspectable);
 impl PlaceContentLinkProvider {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -11173,46 +10477,6 @@ unsafe impl ::windows::runtime::Interface for PlaceContentLinkProvider {
 impl ::windows::runtime::RuntimeName for PlaceContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.PlaceContentLinkProvider";
 }
-impl ::std::convert::From<PlaceContentLinkProvider> for ::windows::runtime::IUnknown {
-    fn from(value: PlaceContentLinkProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PlaceContentLinkProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &PlaceContentLinkProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlaceContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlaceContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PlaceContentLinkProvider> for ::windows::runtime::IInspectable {
-    fn from(value: PlaceContentLinkProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PlaceContentLinkProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &PlaceContentLinkProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlaceContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlaceContentLinkProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PlaceContentLinkProvider> for ContentLinkProvider {
     fn from(value: PlaceContentLinkProvider) -> Self {
         ::std::convert::Into::<ContentLinkProvider>::into(&value)
@@ -11257,7 +10521,7 @@ unsafe impl ::std::marker::Send for PlaceContentLinkProvider {}
 unsafe impl ::std::marker::Sync for PlaceContentLinkProvider {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Run(::windows::runtime::IInspectable);
 impl Run {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -11730,46 +10994,6 @@ unsafe impl ::windows::runtime::Interface for Run {
 impl ::windows::runtime::RuntimeName for Run {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Run";
 }
-impl ::std::convert::From<Run> for ::windows::runtime::IUnknown {
-    fn from(value: Run) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Run> for ::windows::runtime::IUnknown {
-    fn from(value: &Run) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Run {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Run {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Run> for ::windows::runtime::IInspectable {
-    fn from(value: Run) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Run> for ::windows::runtime::IInspectable {
-    fn from(value: &Run) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Run {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Run {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Run> for Inline {
     fn from(value: Run) -> Self {
         ::std::convert::Into::<Inline>::into(&value)
@@ -11834,7 +11058,7 @@ unsafe impl ::std::marker::Send for Run {}
 unsafe impl ::std::marker::Sync for Run {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Span(::windows::runtime::IInspectable);
 impl Span {
     #[cfg(feature = "Foundation_Collections")]
@@ -12289,46 +11513,6 @@ unsafe impl ::windows::runtime::Interface for Span {
 impl ::windows::runtime::RuntimeName for Span {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Span";
 }
-impl ::std::convert::From<Span> for ::windows::runtime::IUnknown {
-    fn from(value: Span) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Span> for ::windows::runtime::IUnknown {
-    fn from(value: &Span) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Span {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Span {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Span> for ::windows::runtime::IInspectable {
-    fn from(value: Span) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Span> for ::windows::runtime::IInspectable {
-    fn from(value: &Span) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Span {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Span {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<Span> for Inline {
     fn from(value: Span) -> Self {
         ::std::convert::Into::<Inline>::into(&value)
@@ -12393,7 +11577,7 @@ unsafe impl ::std::marker::Send for Span {}
 unsafe impl ::std::marker::Sync for Span {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TextElement(::windows::runtime::IInspectable);
 impl TextElement {
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
@@ -12964,46 +12148,6 @@ unsafe impl ::windows::runtime::Interface for TextElement {
 impl ::windows::runtime::RuntimeName for TextElement {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextElement";
 }
-impl ::std::convert::From<TextElement> for ::windows::runtime::IUnknown {
-    fn from(value: TextElement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TextElement> for ::windows::runtime::IUnknown {
-    fn from(value: &TextElement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TextElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TextElement> for ::windows::runtime::IInspectable {
-    fn from(value: TextElement) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TextElement> for ::windows::runtime::IInspectable {
-    fn from(value: &TextElement) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<TextElement> for super::DependencyObject {
     fn from(value: TextElement) -> Self {
         ::std::convert::Into::<super::DependencyObject>::into(&value)
@@ -13028,7 +12172,7 @@ unsafe impl ::std::marker::Send for TextElement {}
 unsafe impl ::std::marker::Sync for TextElement {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TextHighlighter(::windows::runtime::IInspectable);
 impl TextHighlighter {
     #[cfg(feature = "Foundation_Collections")]
@@ -13110,51 +12254,11 @@ unsafe impl ::windows::runtime::Interface for TextHighlighter {
 impl ::windows::runtime::RuntimeName for TextHighlighter {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextHighlighter";
 }
-impl ::std::convert::From<TextHighlighter> for ::windows::runtime::IUnknown {
-    fn from(value: TextHighlighter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TextHighlighter> for ::windows::runtime::IUnknown {
-    fn from(value: &TextHighlighter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextHighlighter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TextHighlighter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TextHighlighter> for ::windows::runtime::IInspectable {
-    fn from(value: TextHighlighter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TextHighlighter> for ::windows::runtime::IInspectable {
-    fn from(value: &TextHighlighter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextHighlighter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextHighlighter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for TextHighlighter {}
 unsafe impl ::std::marker::Sync for TextHighlighter {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TextHighlighterBase(::windows::runtime::IInspectable);
 impl TextHighlighterBase {
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
@@ -13224,46 +12328,6 @@ unsafe impl ::windows::runtime::Interface for TextHighlighterBase {
 impl ::windows::runtime::RuntimeName for TextHighlighterBase {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextHighlighterBase";
 }
-impl ::std::convert::From<TextHighlighterBase> for ::windows::runtime::IUnknown {
-    fn from(value: TextHighlighterBase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TextHighlighterBase> for ::windows::runtime::IUnknown {
-    fn from(value: &TextHighlighterBase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextHighlighterBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TextHighlighterBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TextHighlighterBase> for ::windows::runtime::IInspectable {
-    fn from(value: TextHighlighterBase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TextHighlighterBase> for ::windows::runtime::IInspectable {
-    fn from(value: &TextHighlighterBase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextHighlighterBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextHighlighterBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<TextHighlighterBase> for super::DependencyObject {
     fn from(value: TextHighlighterBase) -> Self {
         ::std::convert::Into::<super::DependencyObject>::into(&value)
@@ -13288,7 +12352,7 @@ unsafe impl ::std::marker::Send for TextHighlighterBase {}
 unsafe impl ::std::marker::Sync for TextHighlighterBase {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TextPointer(::windows::runtime::IInspectable);
 impl TextPointer {
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
@@ -13351,46 +12415,6 @@ unsafe impl ::windows::runtime::Interface for TextPointer {
 impl ::windows::runtime::RuntimeName for TextPointer {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextPointer";
 }
-impl ::std::convert::From<TextPointer> for ::windows::runtime::IUnknown {
-    fn from(value: TextPointer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TextPointer> for ::windows::runtime::IUnknown {
-    fn from(value: &TextPointer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextPointer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TextPointer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TextPointer> for ::windows::runtime::IInspectable {
-    fn from(value: TextPointer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TextPointer> for ::windows::runtime::IInspectable {
-    fn from(value: &TextPointer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextPointer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextPointer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for TextPointer {}
 unsafe impl ::std::marker::Sync for TextPointer {}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -13426,7 +12450,7 @@ unsafe impl ::windows::runtime::RuntimeType for TextRange {
 }
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Typography(::windows::runtime::IInspectable);
 impl Typography {
     #[doc = "*Required features: `UI_Xaml_Documents`*"]
@@ -14218,51 +13242,11 @@ unsafe impl ::windows::runtime::Interface for Typography {
 impl ::windows::runtime::RuntimeName for Typography {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Typography";
 }
-impl ::std::convert::From<Typography> for ::windows::runtime::IUnknown {
-    fn from(value: Typography) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Typography> for ::windows::runtime::IUnknown {
-    fn from(value: &Typography) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Typography {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Typography {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Typography> for ::windows::runtime::IInspectable {
-    fn from(value: Typography) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Typography> for ::windows::runtime::IInspectable {
-    fn from(value: &Typography) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Typography {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Typography {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Typography {}
 unsafe impl ::std::marker::Sync for Typography {}
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Underline(::windows::runtime::IInspectable);
 impl Underline {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -14712,46 +13696,6 @@ unsafe impl ::windows::runtime::Interface for Underline {
 }
 impl ::windows::runtime::RuntimeName for Underline {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Underline";
-}
-impl ::std::convert::From<Underline> for ::windows::runtime::IUnknown {
-    fn from(value: Underline) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Underline> for ::windows::runtime::IUnknown {
-    fn from(value: &Underline) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Underline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Underline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Underline> for ::windows::runtime::IInspectable {
-    fn from(value: Underline) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Underline> for ::windows::runtime::IInspectable {
-    fn from(value: &Underline) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Underline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Underline {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<Underline> for Span {
     fn from(value: Underline) -> Self {

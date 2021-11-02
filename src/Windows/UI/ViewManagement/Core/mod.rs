@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreFrameworkInputView(::windows::runtime::IInspectable);
 impl CoreFrameworkInputView {
     #[cfg(feature = "Foundation")]
@@ -63,51 +63,11 @@ unsafe impl ::windows::runtime::Interface for CoreFrameworkInputView {
 impl ::windows::runtime::RuntimeName for CoreFrameworkInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputView";
 }
-impl ::std::convert::From<CoreFrameworkInputView> for ::windows::runtime::IUnknown {
-    fn from(value: CoreFrameworkInputView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreFrameworkInputView> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreFrameworkInputView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreFrameworkInputView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreFrameworkInputView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreFrameworkInputView> for ::windows::runtime::IInspectable {
-    fn from(value: CoreFrameworkInputView) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreFrameworkInputView> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreFrameworkInputView) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreFrameworkInputView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreFrameworkInputView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreFrameworkInputView {}
 unsafe impl ::std::marker::Sync for CoreFrameworkInputView {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(::windows::runtime::IInspectable);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -147,51 +107,11 @@ unsafe impl ::windows::runtime::Interface for CoreFrameworkInputViewAnimationSta
 impl ::windows::runtime::RuntimeName for CoreFrameworkInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs";
 }
-impl ::std::convert::From<CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreFrameworkInputViewAnimationStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreFrameworkInputViewAnimationStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreFrameworkInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreFrameworkInputViewAnimationStartingEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreFrameworkInputViewAnimationStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreFrameworkInputViewAnimationStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
 unsafe impl ::std::marker::Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(::windows::runtime::IInspectable);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -222,51 +142,11 @@ unsafe impl ::windows::runtime::Interface for CoreFrameworkInputViewOcclusionsCh
 impl ::windows::runtime::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs";
 }
-impl ::std::convert::From<CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreFrameworkInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreFrameworkInputViewOcclusionsChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::std::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreInputView(::windows::runtime::IInspectable);
 impl CoreInputView {
     #[cfg(feature = "Foundation")]
@@ -473,51 +353,11 @@ unsafe impl ::windows::runtime::Interface for CoreInputView {
 impl ::windows::runtime::RuntimeName for CoreInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputView";
 }
-impl ::std::convert::From<CoreInputView> for ::windows::runtime::IUnknown {
-    fn from(value: CoreInputView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreInputView> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreInputView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInputView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInputView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreInputView> for ::windows::runtime::IInspectable {
-    fn from(value: CoreInputView) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreInputView> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreInputView) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInputView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInputView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreInputView {}
 unsafe impl ::std::marker::Sync for CoreInputView {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreInputViewAnimationStartingEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewAnimationStartingEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -562,51 +402,11 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewAnimationStartingEven
 impl ::windows::runtime::RuntimeName for CoreInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs";
 }
-impl ::std::convert::From<CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CoreInputViewAnimationStartingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreInputViewAnimationStartingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInputViewAnimationStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInputViewAnimationStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CoreInputViewAnimationStartingEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreInputViewAnimationStartingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreInputViewAnimationStartingEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInputViewAnimationStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInputViewAnimationStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreInputViewAnimationStartingEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewAnimationStartingEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreInputViewHidingEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewHidingEventArgs {
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
@@ -627,46 +427,6 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewHidingEventArgs {
 }
 impl ::windows::runtime::RuntimeName for CoreInputViewHidingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs";
-}
-impl ::std::convert::From<CoreInputViewHidingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CoreInputViewHidingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreInputViewHidingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreInputViewHidingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInputViewHidingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInputViewHidingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreInputViewHidingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CoreInputViewHidingEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreInputViewHidingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreInputViewHidingEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInputViewHidingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInputViewHidingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CoreInputViewHidingEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewHidingEventArgs {}
@@ -697,7 +457,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreInputViewKind {
 }
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreInputViewOcclusion(::windows::runtime::IInspectable);
 impl CoreInputViewOcclusion {
     #[cfg(feature = "Foundation")]
@@ -728,46 +488,6 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewOcclusion {
 impl ::windows::runtime::RuntimeName for CoreInputViewOcclusion {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusion";
 }
-impl ::std::convert::From<CoreInputViewOcclusion> for ::windows::runtime::IUnknown {
-    fn from(value: CoreInputViewOcclusion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreInputViewOcclusion> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreInputViewOcclusion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInputViewOcclusion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInputViewOcclusion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreInputViewOcclusion> for ::windows::runtime::IInspectable {
-    fn from(value: CoreInputViewOcclusion) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreInputViewOcclusion> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreInputViewOcclusion) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInputViewOcclusion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInputViewOcclusion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreInputViewOcclusion {}
 unsafe impl ::std::marker::Sync for CoreInputViewOcclusion {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
@@ -793,7 +513,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreInputViewOcclusionKind {
 }
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewOcclusionsChangedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
@@ -829,51 +549,11 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewOcclusionsChangedEven
 impl ::windows::runtime::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs";
 }
-impl ::std::convert::From<CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInputViewOcclusionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInputViewOcclusionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreInputViewOcclusionsChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreInputViewOcclusionsChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInputViewOcclusionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInputViewOcclusionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewOcclusionsChangedEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreInputViewShowingEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewShowingEventArgs {
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
@@ -895,51 +575,11 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewShowingEventArgs {
 impl ::windows::runtime::RuntimeName for CoreInputViewShowingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs";
 }
-impl ::std::convert::From<CoreInputViewShowingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CoreInputViewShowingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreInputViewShowingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreInputViewShowingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInputViewShowingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInputViewShowingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreInputViewShowingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CoreInputViewShowingEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreInputViewShowingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreInputViewShowingEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInputViewShowingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInputViewShowingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CoreInputViewShowingEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewShowingEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewTransferringXYFocusEventArgs {
     #[cfg(feature = "Foundation")]
@@ -995,46 +635,6 @@ unsafe impl ::windows::runtime::Interface for CoreInputViewTransferringXYFocusEv
 }
 impl ::windows::runtime::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs";
-}
-impl ::std::convert::From<CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreInputViewTransferringXYFocusEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CoreInputViewTransferringXYFocusEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CoreInputViewTransferringXYFocusEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CoreInputViewTransferringXYFocusEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreInputViewTransferringXYFocusEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreInputViewTransferringXYFocusEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CoreInputViewTransferringXYFocusEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
@@ -1491,7 +1091,7 @@ pub struct IUISettingsControllerStatics_abi(
 );
 #[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UISettingsController(::windows::runtime::IInspectable);
 impl UISettingsController {
     #[doc = "*Required features: `UI_ViewManagement_Core`*"]
@@ -1541,46 +1141,6 @@ unsafe impl ::windows::runtime::Interface for UISettingsController {
 }
 impl ::windows::runtime::RuntimeName for UISettingsController {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.UISettingsController";
-}
-impl ::std::convert::From<UISettingsController> for ::windows::runtime::IUnknown {
-    fn from(value: UISettingsController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UISettingsController> for ::windows::runtime::IUnknown {
-    fn from(value: &UISettingsController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UISettingsController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UISettingsController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UISettingsController> for ::windows::runtime::IInspectable {
-    fn from(value: UISettingsController) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UISettingsController> for ::windows::runtime::IInspectable {
-    fn from(value: &UISettingsController) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UISettingsController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UISettingsController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for UISettingsController {}
 unsafe impl ::std::marker::Sync for UISettingsController {}

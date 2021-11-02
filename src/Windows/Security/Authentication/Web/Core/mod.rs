@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct FindAllAccountsResult(::windows::runtime::IInspectable);
 impl FindAllAccountsResult {
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
@@ -39,46 +39,6 @@ unsafe impl ::windows::runtime::Interface for FindAllAccountsResult {
 }
 impl ::windows::runtime::RuntimeName for FindAllAccountsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.FindAllAccountsResult";
-}
-impl ::std::convert::From<FindAllAccountsResult> for ::windows::runtime::IUnknown {
-    fn from(value: FindAllAccountsResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&FindAllAccountsResult> for ::windows::runtime::IUnknown {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FindAllAccountsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &FindAllAccountsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<FindAllAccountsResult> for ::windows::runtime::IInspectable {
-    fn from(value: FindAllAccountsResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&FindAllAccountsResult> for ::windows::runtime::IInspectable {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FindAllAccountsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FindAllAccountsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for FindAllAccountsResult {}
 unsafe impl ::std::marker::Sync for FindAllAccountsResult {}
@@ -503,7 +463,7 @@ pub struct IWebTokenResponseFactory_abi(
 );
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebAccountEventArgs(::windows::runtime::IInspectable);
 impl WebAccountEventArgs {
     #[cfg(feature = "Security_Credentials")]
@@ -526,51 +486,11 @@ unsafe impl ::windows::runtime::Interface for WebAccountEventArgs {
 impl ::windows::runtime::RuntimeName for WebAccountEventArgs {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountEventArgs";
 }
-impl ::std::convert::From<WebAccountEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: WebAccountEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebAccountEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &WebAccountEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAccountEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebAccountEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebAccountEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: WebAccountEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebAccountEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &WebAccountEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAccountEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAccountEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for WebAccountEventArgs {}
 unsafe impl ::std::marker::Sync for WebAccountEventArgs {}
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebAccountMonitor(::windows::runtime::IInspectable);
 impl WebAccountMonitor {
     #[cfg(feature = "Foundation")]
@@ -643,46 +563,6 @@ unsafe impl ::windows::runtime::Interface for WebAccountMonitor {
 }
 impl ::windows::runtime::RuntimeName for WebAccountMonitor {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountMonitor";
-}
-impl ::std::convert::From<WebAccountMonitor> for ::windows::runtime::IUnknown {
-    fn from(value: WebAccountMonitor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebAccountMonitor> for ::windows::runtime::IUnknown {
-    fn from(value: &WebAccountMonitor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAccountMonitor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebAccountMonitor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebAccountMonitor> for ::windows::runtime::IInspectable {
-    fn from(value: WebAccountMonitor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebAccountMonitor> for ::windows::runtime::IInspectable {
-    fn from(value: &WebAccountMonitor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAccountMonitor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAccountMonitor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for WebAccountMonitor {}
 unsafe impl ::std::marker::Sync for WebAccountMonitor {}
@@ -823,7 +703,7 @@ impl ::windows::runtime::RuntimeName for WebAuthenticationCoreManager {
 }
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebProviderError(::windows::runtime::IInspectable);
 impl WebProviderError {
     #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
@@ -873,51 +753,11 @@ unsafe impl ::windows::runtime::Interface for WebProviderError {
 impl ::windows::runtime::RuntimeName for WebProviderError {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebProviderError";
 }
-impl ::std::convert::From<WebProviderError> for ::windows::runtime::IUnknown {
-    fn from(value: WebProviderError) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebProviderError> for ::windows::runtime::IUnknown {
-    fn from(value: &WebProviderError) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebProviderError {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebProviderError {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebProviderError> for ::windows::runtime::IInspectable {
-    fn from(value: WebProviderError) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebProviderError> for ::windows::runtime::IInspectable {
-    fn from(value: &WebProviderError) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebProviderError {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebProviderError {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for WebProviderError {}
 unsafe impl ::std::marker::Sync for WebProviderError {}
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebTokenRequest(::windows::runtime::IInspectable);
 impl WebTokenRequest {
     #[cfg(feature = "Security_Credentials")]
@@ -1031,46 +871,6 @@ unsafe impl ::windows::runtime::Interface for WebTokenRequest {
 impl ::windows::runtime::RuntimeName for WebTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequest";
 }
-impl ::std::convert::From<WebTokenRequest> for ::windows::runtime::IUnknown {
-    fn from(value: WebTokenRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebTokenRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &WebTokenRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebTokenRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebTokenRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebTokenRequest> for ::windows::runtime::IInspectable {
-    fn from(value: WebTokenRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebTokenRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &WebTokenRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebTokenRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebTokenRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for WebTokenRequest {}
 unsafe impl ::std::marker::Sync for WebTokenRequest {}
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
@@ -1095,7 +895,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebTokenRequestPromptType {
 }
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebTokenRequestResult(::windows::runtime::IInspectable);
 impl WebTokenRequestResult {
     #[cfg(feature = "Foundation_Collections")]
@@ -1143,46 +943,6 @@ unsafe impl ::windows::runtime::Interface for WebTokenRequestResult {
 impl ::windows::runtime::RuntimeName for WebTokenRequestResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequestResult";
 }
-impl ::std::convert::From<WebTokenRequestResult> for ::windows::runtime::IUnknown {
-    fn from(value: WebTokenRequestResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebTokenRequestResult> for ::windows::runtime::IUnknown {
-    fn from(value: &WebTokenRequestResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebTokenRequestResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebTokenRequestResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebTokenRequestResult> for ::windows::runtime::IInspectable {
-    fn from(value: WebTokenRequestResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebTokenRequestResult> for ::windows::runtime::IInspectable {
-    fn from(value: &WebTokenRequestResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebTokenRequestResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebTokenRequestResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for WebTokenRequestResult {}
 unsafe impl ::std::marker::Sync for WebTokenRequestResult {}
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
@@ -1211,7 +971,7 @@ unsafe impl ::windows::runtime::RuntimeType for WebTokenRequestStatus {
 }
 #[doc = "*Required features: `Security_Authentication_Web_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebTokenResponse(::windows::runtime::IInspectable);
 impl WebTokenResponse {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1292,46 +1052,6 @@ unsafe impl ::windows::runtime::Interface for WebTokenResponse {
 }
 impl ::windows::runtime::RuntimeName for WebTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenResponse";
-}
-impl ::std::convert::From<WebTokenResponse> for ::windows::runtime::IUnknown {
-    fn from(value: WebTokenResponse) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebTokenResponse> for ::windows::runtime::IUnknown {
-    fn from(value: &WebTokenResponse) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebTokenResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebTokenResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebTokenResponse> for ::windows::runtime::IInspectable {
-    fn from(value: WebTokenResponse) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebTokenResponse> for ::windows::runtime::IInspectable {
-    fn from(value: &WebTokenResponse) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebTokenResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebTokenResponse {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for WebTokenResponse {}
 unsafe impl ::std::marker::Sync for WebTokenResponse {}

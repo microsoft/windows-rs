@@ -220,7 +220,7 @@ unsafe impl ::windows::runtime::RuntimeType for ProviderI2cBusSpeed {
 }
 #[doc = "*Required features: `Devices_I2c_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProviderI2cConnectionSettings(::windows::runtime::IInspectable);
 impl ProviderI2cConnectionSettings {
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
@@ -272,46 +272,6 @@ unsafe impl ::windows::runtime::Interface for ProviderI2cConnectionSettings {
 }
 impl ::windows::runtime::RuntimeName for ProviderI2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings";
-}
-impl ::std::convert::From<ProviderI2cConnectionSettings> for ::windows::runtime::IUnknown {
-    fn from(value: ProviderI2cConnectionSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProviderI2cConnectionSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &ProviderI2cConnectionSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProviderI2cConnectionSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProviderI2cConnectionSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProviderI2cConnectionSettings> for ::windows::runtime::IInspectable {
-    fn from(value: ProviderI2cConnectionSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProviderI2cConnectionSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &ProviderI2cConnectionSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProviderI2cConnectionSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProviderI2cConnectionSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ProviderI2cConnectionSettings {}
 unsafe impl ::std::marker::Sync for ProviderI2cConnectionSettings {}

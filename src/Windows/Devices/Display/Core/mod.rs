@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayAdapter(::windows::runtime::IInspectable);
 impl DisplayAdapter {
     #[cfg(feature = "Graphics")]
@@ -93,46 +93,6 @@ unsafe impl ::windows::runtime::Interface for DisplayAdapter {
 impl ::windows::runtime::RuntimeName for DisplayAdapter {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayAdapter";
 }
-impl ::std::convert::From<DisplayAdapter> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayAdapter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayAdapter> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayAdapter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayAdapter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayAdapter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayAdapter> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayAdapter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayAdapter> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayAdapter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayAdapter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayAdapter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayAdapter {}
 unsafe impl ::std::marker::Sync for DisplayAdapter {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -190,7 +150,7 @@ impl ::std::ops::Not for DisplayBitsPerChannel {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayDevice(::windows::runtime::IInspectable);
 impl DisplayDevice {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -267,46 +227,6 @@ unsafe impl ::windows::runtime::Interface for DisplayDevice {
 impl ::windows::runtime::RuntimeName for DisplayDevice {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayDevice";
 }
-impl ::std::convert::From<DisplayDevice> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayDevice> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayDevice) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayDevice> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayDevice {}
 unsafe impl ::std::marker::Sync for DisplayDevice {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -330,7 +250,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayDeviceCapability {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayFence(::windows::runtime::IInspectable);
 impl DisplayFence {}
 unsafe impl ::windows::runtime::RuntimeType for DisplayFence {
@@ -343,51 +263,11 @@ unsafe impl ::windows::runtime::Interface for DisplayFence {
 impl ::windows::runtime::RuntimeName for DisplayFence {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayFence";
 }
-impl ::std::convert::From<DisplayFence> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayFence) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayFence> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayFence) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayFence {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayFence {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayFence> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayFence) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayFence> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayFence) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayFence {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayFence {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayFence {}
 unsafe impl ::std::marker::Sync for DisplayFence {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayManager(::windows::runtime::IInspectable);
 impl DisplayManager {
     #[cfg(feature = "Foundation")]
@@ -562,46 +442,6 @@ unsafe impl ::windows::runtime::Interface for DisplayManager {
 impl ::windows::runtime::RuntimeName for DisplayManager {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManager";
 }
-impl ::std::convert::From<DisplayManager> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayManager> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayManager> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayManager> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DisplayManager> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -632,7 +472,7 @@ unsafe impl ::std::marker::Send for DisplayManager {}
 unsafe impl ::std::marker::Sync for DisplayManager {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayManagerChangedEventArgs(::windows::runtime::IInspectable);
 impl DisplayManagerChangedEventArgs {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -668,51 +508,11 @@ unsafe impl ::windows::runtime::Interface for DisplayManagerChangedEventArgs {
 impl ::windows::runtime::RuntimeName for DisplayManagerChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerChangedEventArgs";
 }
-impl ::std::convert::From<DisplayManagerChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayManagerChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayManagerChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayManagerChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayManagerChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayManagerChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayManagerChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayManagerChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayManagerChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayManagerChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayManagerChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayManagerChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayManagerChangedEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayManagerChangedEventArgs {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayManagerDisabledEventArgs(::windows::runtime::IInspectable);
 impl DisplayManagerDisabledEventArgs {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -748,51 +548,11 @@ unsafe impl ::windows::runtime::Interface for DisplayManagerDisabledEventArgs {
 impl ::windows::runtime::RuntimeName for DisplayManagerDisabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs";
 }
-impl ::std::convert::From<DisplayManagerDisabledEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayManagerDisabledEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayManagerDisabledEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayManagerDisabledEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayManagerDisabledEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayManagerDisabledEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayManagerDisabledEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayManagerDisabledEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayManagerDisabledEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayManagerDisabledEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayManagerDisabledEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayManagerDisabledEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayManagerDisabledEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayManagerDisabledEventArgs {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayManagerEnabledEventArgs(::windows::runtime::IInspectable);
 impl DisplayManagerEnabledEventArgs {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -827,46 +587,6 @@ unsafe impl ::windows::runtime::Interface for DisplayManagerEnabledEventArgs {
 }
 impl ::windows::runtime::RuntimeName for DisplayManagerEnabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs";
-}
-impl ::std::convert::From<DisplayManagerEnabledEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayManagerEnabledEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayManagerEnabledEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayManagerEnabledEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayManagerEnabledEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayManagerEnabledEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayManagerEnabledEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayManagerEnabledEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayManagerEnabledEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayManagerEnabledEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayManagerEnabledEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayManagerEnabledEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayManagerEnabledEventArgs {}
@@ -921,7 +641,7 @@ impl ::std::ops::Not for DisplayManagerOptions {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(::windows::runtime::IInspectable);
 impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -957,46 +677,6 @@ unsafe impl ::windows::runtime::Interface for DisplayManagerPathsFailedOrInvalid
 impl ::windows::runtime::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs";
 }
-impl ::std::convert::From<DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -1024,7 +704,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayManagerResult {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayManagerResultWithState(::windows::runtime::IInspectable);
 impl DisplayManagerResultWithState {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -1062,51 +742,11 @@ unsafe impl ::windows::runtime::Interface for DisplayManagerResultWithState {
 impl ::windows::runtime::RuntimeName for DisplayManagerResultWithState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerResultWithState";
 }
-impl ::std::convert::From<DisplayManagerResultWithState> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayManagerResultWithState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayManagerResultWithState> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayManagerResultWithState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayManagerResultWithState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayManagerResultWithState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayManagerResultWithState> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayManagerResultWithState) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayManagerResultWithState> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayManagerResultWithState) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayManagerResultWithState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayManagerResultWithState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayManagerResultWithState {}
 unsafe impl ::std::marker::Sync for DisplayManagerResultWithState {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayModeInfo(::windows::runtime::IInspectable);
 impl DisplayModeInfo {
     #[cfg(feature = "Graphics")]
@@ -1206,46 +846,6 @@ unsafe impl ::windows::runtime::Interface for DisplayModeInfo {
 impl ::windows::runtime::RuntimeName for DisplayModeInfo {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayModeInfo";
 }
-impl ::std::convert::From<DisplayModeInfo> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayModeInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayModeInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayModeInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayModeInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayModeInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayModeInfo> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayModeInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayModeInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayModeInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayModeInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayModeInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayModeInfo {}
 unsafe impl ::std::marker::Sync for DisplayModeInfo {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -1298,7 +898,7 @@ impl ::std::ops::Not for DisplayModeQueryOptions {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayPath(::windows::runtime::IInspectable);
 impl DisplayPath {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -1501,46 +1101,6 @@ unsafe impl ::windows::runtime::Interface for DisplayPath {
 impl ::windows::runtime::RuntimeName for DisplayPath {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPath";
 }
-impl ::std::convert::From<DisplayPath> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayPath) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayPath> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayPath) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayPath> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayPath) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayPath> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayPath) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayPath {}
 unsafe impl ::std::marker::Sync for DisplayPath {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -1656,7 +1216,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayPresentationRate {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayPrimaryDescription(::windows::runtime::IInspectable);
 impl DisplayPrimaryDescription {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -1762,46 +1322,6 @@ unsafe impl ::windows::runtime::Interface for DisplayPrimaryDescription {
 impl ::windows::runtime::RuntimeName for DisplayPrimaryDescription {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPrimaryDescription";
 }
-impl ::std::convert::From<DisplayPrimaryDescription> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayPrimaryDescription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayPrimaryDescription> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayPrimaryDescription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayPrimaryDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayPrimaryDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayPrimaryDescription> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayPrimaryDescription) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayPrimaryDescription> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayPrimaryDescription) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayPrimaryDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayPrimaryDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::std::marker::Sync for DisplayPrimaryDescription {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -1828,7 +1348,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayRotation {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayScanout(::windows::runtime::IInspectable);
 impl DisplayScanout {}
 unsafe impl ::windows::runtime::RuntimeType for DisplayScanout {
@@ -1840,46 +1360,6 @@ unsafe impl ::windows::runtime::Interface for DisplayScanout {
 }
 impl ::windows::runtime::RuntimeName for DisplayScanout {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayScanout";
-}
-impl ::std::convert::From<DisplayScanout> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayScanout) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayScanout> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayScanout) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayScanout {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayScanout {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayScanout> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayScanout) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayScanout> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayScanout) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayScanout {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayScanout {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DisplayScanout {}
 unsafe impl ::std::marker::Sync for DisplayScanout {}
@@ -1933,7 +1413,7 @@ impl ::std::ops::Not for DisplayScanoutOptions {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplaySource(::windows::runtime::IInspectable);
 impl DisplaySource {
     #[cfg(feature = "Graphics")]
@@ -1996,46 +1476,6 @@ unsafe impl ::windows::runtime::Interface for DisplaySource {
 impl ::windows::runtime::RuntimeName for DisplaySource {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySource";
 }
-impl ::std::convert::From<DisplaySource> for ::windows::runtime::IUnknown {
-    fn from(value: DisplaySource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplaySource> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplaySource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplaySource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplaySource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplaySource> for ::windows::runtime::IInspectable {
-    fn from(value: DisplaySource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplaySource> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplaySource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplaySource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplaySource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplaySource {}
 unsafe impl ::std::marker::Sync for DisplaySource {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2063,7 +1503,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplaySourceStatus {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayState(::windows::runtime::IInspectable);
 impl DisplayState {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2189,46 +1629,6 @@ unsafe impl ::windows::runtime::Interface for DisplayState {
 impl ::windows::runtime::RuntimeName for DisplayState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayState";
 }
-impl ::std::convert::From<DisplayState> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayState> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayState> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayState) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayState> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayState) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayState {}
 unsafe impl ::std::marker::Sync for DisplayState {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2332,7 +1732,7 @@ impl ::std::ops::Not for DisplayStateFunctionalizeOptions {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayStateOperationResult(::windows::runtime::IInspectable);
 impl DisplayStateOperationResult {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2361,46 +1761,6 @@ unsafe impl ::windows::runtime::Interface for DisplayStateOperationResult {
 }
 impl ::windows::runtime::RuntimeName for DisplayStateOperationResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayStateOperationResult";
-}
-impl ::std::convert::From<DisplayStateOperationResult> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayStateOperationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayStateOperationResult> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayStateOperationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayStateOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayStateOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayStateOperationResult> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayStateOperationResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayStateOperationResult> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayStateOperationResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayStateOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayStateOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::std::marker::Sync for DisplayStateOperationResult {}
@@ -2432,7 +1792,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayStateOperationStatus {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplaySurface(::windows::runtime::IInspectable);
 impl DisplaySurface {}
 unsafe impl ::windows::runtime::RuntimeType for DisplaySurface {
@@ -2445,51 +1805,11 @@ unsafe impl ::windows::runtime::Interface for DisplaySurface {
 impl ::windows::runtime::RuntimeName for DisplaySurface {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySurface";
 }
-impl ::std::convert::From<DisplaySurface> for ::windows::runtime::IUnknown {
-    fn from(value: DisplaySurface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplaySurface> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplaySurface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplaySurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplaySurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplaySurface> for ::windows::runtime::IInspectable {
-    fn from(value: DisplaySurface) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplaySurface> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplaySurface) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplaySurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplaySurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplaySurface {}
 unsafe impl ::std::marker::Sync for DisplaySurface {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayTarget(::windows::runtime::IInspectable);
 impl DisplayTarget {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2616,46 +1936,6 @@ unsafe impl ::windows::runtime::Interface for DisplayTarget {
 impl ::windows::runtime::RuntimeName for DisplayTarget {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTarget";
 }
-impl ::std::convert::From<DisplayTarget> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayTarget> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayTarget> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayTarget) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayTarget> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayTarget) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayTarget {}
 unsafe impl ::std::marker::Sync for DisplayTarget {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2682,7 +1962,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayTargetPersistence {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayTask(::windows::runtime::IInspectable);
 impl DisplayTask {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2711,51 +1991,11 @@ unsafe impl ::windows::runtime::Interface for DisplayTask {
 impl ::windows::runtime::RuntimeName for DisplayTask {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTask";
 }
-impl ::std::convert::From<DisplayTask> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayTask) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayTask> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayTask) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayTask> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayTask) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayTask> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayTask) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayTask {}
 unsafe impl ::std::marker::Sync for DisplayTask {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayTaskPool(::windows::runtime::IInspectable);
 impl DisplayTaskPool {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2791,51 +2031,11 @@ unsafe impl ::windows::runtime::Interface for DisplayTaskPool {
 impl ::windows::runtime::RuntimeName for DisplayTaskPool {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskPool";
 }
-impl ::std::convert::From<DisplayTaskPool> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayTaskPool) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayTaskPool> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayTaskPool) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayTaskPool {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayTaskPool {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayTaskPool> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayTaskPool) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayTaskPool> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayTaskPool) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayTaskPool {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayTaskPool {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayTaskPool {}
 unsafe impl ::std::marker::Sync for DisplayTaskPool {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayTaskResult(::windows::runtime::IInspectable);
 impl DisplayTaskResult {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2873,46 +2073,6 @@ unsafe impl ::windows::runtime::Interface for DisplayTaskResult {
 impl ::windows::runtime::RuntimeName for DisplayTaskResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskResult";
 }
-impl ::std::convert::From<DisplayTaskResult> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayTaskResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayTaskResult> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayTaskResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayTaskResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayTaskResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayTaskResult> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayTaskResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayTaskResult> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayTaskResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayTaskResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayTaskResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayTaskResult {}
 unsafe impl ::std::marker::Sync for DisplayTaskResult {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -2937,7 +2097,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayTaskSignalKind {
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayView(::windows::runtime::IInspectable);
 impl DisplayView {
     #[cfg(feature = "Foundation_Collections")]
@@ -2989,51 +2149,11 @@ unsafe impl ::windows::runtime::Interface for DisplayView {
 impl ::windows::runtime::RuntimeName for DisplayView {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayView";
 }
-impl ::std::convert::From<DisplayView> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayView> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayView> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayView) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayView> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayView) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DisplayView {}
 unsafe impl ::std::marker::Sync for DisplayView {}
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DisplayWireFormat(::windows::runtime::IInspectable);
 impl DisplayWireFormat {
     #[doc = "*Required features: `Devices_Display_Core`*"]
@@ -3125,46 +2245,6 @@ unsafe impl ::windows::runtime::Interface for DisplayWireFormat {
 }
 impl ::windows::runtime::RuntimeName for DisplayWireFormat {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayWireFormat";
-}
-impl ::std::convert::From<DisplayWireFormat> for ::windows::runtime::IUnknown {
-    fn from(value: DisplayWireFormat) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DisplayWireFormat> for ::windows::runtime::IUnknown {
-    fn from(value: &DisplayWireFormat) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DisplayWireFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DisplayWireFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DisplayWireFormat> for ::windows::runtime::IInspectable {
-    fn from(value: DisplayWireFormat) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DisplayWireFormat> for ::windows::runtime::IInspectable {
-    fn from(value: &DisplayWireFormat) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DisplayWireFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DisplayWireFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DisplayWireFormat {}
 unsafe impl ::std::marker::Sync for DisplayWireFormat {}

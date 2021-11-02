@@ -573,7 +573,7 @@ unsafe impl ::windows::runtime::RuntimeType for DateTime {
 }
 #[doc = "*Required features: `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Deferral(::windows::runtime::IInspectable);
 impl Deferral {
     #[doc = "*Required features: `Foundation`*"]
@@ -607,46 +607,6 @@ unsafe impl ::windows::runtime::Interface for Deferral {
 }
 impl ::windows::runtime::RuntimeName for Deferral {
     const NAME: &'static str = "Windows.Foundation.Deferral";
-}
-impl ::std::convert::From<Deferral> for ::windows::runtime::IUnknown {
-    fn from(value: Deferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Deferral> for ::windows::runtime::IUnknown {
-    fn from(value: &Deferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Deferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Deferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Deferral> for ::windows::runtime::IInspectable {
-    fn from(value: Deferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Deferral> for ::windows::runtime::IInspectable {
-    fn from(value: &Deferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Deferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Deferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<Deferral> for IClosable {
     type Error = ::windows::runtime::Error;
@@ -3014,7 +2974,7 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_abi(
 );
 #[doc = "*Required features: `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MemoryBuffer(::windows::runtime::IInspectable);
 impl MemoryBuffer {
     #[doc = "*Required features: `Foundation`*"]
@@ -3051,46 +3011,6 @@ unsafe impl ::windows::runtime::Interface for MemoryBuffer {
 }
 impl ::windows::runtime::RuntimeName for MemoryBuffer {
     const NAME: &'static str = "Windows.Foundation.MemoryBuffer";
-}
-impl ::std::convert::From<MemoryBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: MemoryBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MemoryBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: &MemoryBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MemoryBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MemoryBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MemoryBuffer> for ::windows::runtime::IInspectable {
-    fn from(value: MemoryBuffer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MemoryBuffer> for ::windows::runtime::IInspectable {
-    fn from(value: &MemoryBuffer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MemoryBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MemoryBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<MemoryBuffer> for IMemoryBuffer {
     fn from(value: MemoryBuffer) -> Self {
@@ -3718,7 +3638,7 @@ impl<TSender: ::windows::runtime::RuntimeType + 'static, TResult: ::windows::run
 pub struct UniversalApiContract(pub u8);
 #[doc = "*Required features: `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Uri(::windows::runtime::IInspectable);
 impl Uri {
     #[doc = "*Required features: `Foundation`*"]
@@ -3928,46 +3848,6 @@ unsafe impl ::windows::runtime::Interface for Uri {
 impl ::windows::runtime::RuntimeName for Uri {
     const NAME: &'static str = "Windows.Foundation.Uri";
 }
-impl ::std::convert::From<Uri> for ::windows::runtime::IUnknown {
-    fn from(value: Uri) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Uri> for ::windows::runtime::IUnknown {
-    fn from(value: &Uri) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Uri {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Uri {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Uri> for ::windows::runtime::IInspectable {
-    fn from(value: Uri) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Uri> for ::windows::runtime::IInspectable {
-    fn from(value: &Uri) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Uri {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Uri {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<Uri> for IStringable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: Uri) -> ::windows::runtime::Result<Self> {
@@ -3994,7 +3874,7 @@ unsafe impl ::std::marker::Send for Uri {}
 unsafe impl ::std::marker::Sync for Uri {}
 #[doc = "*Required features: `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WwwFormUrlDecoder(::windows::runtime::IInspectable);
 impl WwwFormUrlDecoder {
     #[doc = "*Required features: `Foundation`*"]
@@ -4072,46 +3952,6 @@ unsafe impl ::windows::runtime::Interface for WwwFormUrlDecoder {
 impl ::windows::runtime::RuntimeName for WwwFormUrlDecoder {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
 }
-impl ::std::convert::From<WwwFormUrlDecoder> for ::windows::runtime::IUnknown {
-    fn from(value: WwwFormUrlDecoder) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WwwFormUrlDecoder> for ::windows::runtime::IUnknown {
-    fn from(value: &WwwFormUrlDecoder) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WwwFormUrlDecoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WwwFormUrlDecoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WwwFormUrlDecoder> for ::windows::runtime::IInspectable {
-    fn from(value: WwwFormUrlDecoder) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WwwFormUrlDecoder> for ::windows::runtime::IInspectable {
-    fn from(value: &WwwFormUrlDecoder) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WwwFormUrlDecoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WwwFormUrlDecoder {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<WwwFormUrlDecoder> for Collections::IIterable<IWwwFormUrlDecoderEntry> {
     type Error = ::windows::runtime::Error;
@@ -4184,7 +4024,7 @@ impl ::std::iter::IntoIterator for &WwwFormUrlDecoder {
 }
 #[doc = "*Required features: `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WwwFormUrlDecoderEntry(::windows::runtime::IInspectable);
 impl WwwFormUrlDecoderEntry {
     #[doc = "*Required features: `Foundation`*"]
@@ -4213,46 +4053,6 @@ unsafe impl ::windows::runtime::Interface for WwwFormUrlDecoderEntry {
 }
 impl ::windows::runtime::RuntimeName for WwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoderEntry";
-}
-impl ::std::convert::From<WwwFormUrlDecoderEntry> for ::windows::runtime::IUnknown {
-    fn from(value: WwwFormUrlDecoderEntry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WwwFormUrlDecoderEntry> for ::windows::runtime::IUnknown {
-    fn from(value: &WwwFormUrlDecoderEntry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WwwFormUrlDecoderEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WwwFormUrlDecoderEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WwwFormUrlDecoderEntry> for ::windows::runtime::IInspectable {
-    fn from(value: WwwFormUrlDecoderEntry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WwwFormUrlDecoderEntry> for ::windows::runtime::IInspectable {
-    fn from(value: &WwwFormUrlDecoderEntry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WwwFormUrlDecoderEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WwwFormUrlDecoderEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<WwwFormUrlDecoderEntry> for IWwwFormUrlDecoderEntry {
     fn from(value: WwwFormUrlDecoderEntry) -> Self {

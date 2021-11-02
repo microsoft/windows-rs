@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactDataProviderConnection(::windows::runtime::IInspectable);
 impl ContactDataProviderConnection {
     #[cfg(feature = "Foundation")]
@@ -80,51 +80,11 @@ unsafe impl ::windows::runtime::Interface for ContactDataProviderConnection {
 impl ::windows::runtime::RuntimeName for ContactDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection";
 }
-impl ::std::convert::From<ContactDataProviderConnection> for ::windows::runtime::IUnknown {
-    fn from(value: ContactDataProviderConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactDataProviderConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactDataProviderConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactDataProviderConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactDataProviderConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactDataProviderConnection> for ::windows::runtime::IInspectable {
-    fn from(value: ContactDataProviderConnection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactDataProviderConnection> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactDataProviderConnection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactDataProviderConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactDataProviderConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactDataProviderConnection {}
 unsafe impl ::std::marker::Sync for ContactDataProviderConnection {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactDataProviderTriggerDetails(::windows::runtime::IInspectable);
 impl ContactDataProviderTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -146,51 +106,11 @@ unsafe impl ::windows::runtime::Interface for ContactDataProviderTriggerDetails 
 impl ::windows::runtime::RuntimeName for ContactDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails";
 }
-impl ::std::convert::From<ContactDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: ContactDataProviderTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactDataProviderTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactDataProviderTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactDataProviderTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: ContactDataProviderTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactDataProviderTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactDataProviderTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactDataProviderTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactDataProviderTriggerDetails {}
 unsafe impl ::std::marker::Sync for ContactDataProviderTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactListCreateOrUpdateContactRequest(::windows::runtime::IInspectable);
 impl ContactListCreateOrUpdateContactRequest {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -238,51 +158,11 @@ unsafe impl ::windows::runtime::Interface for ContactListCreateOrUpdateContactRe
 impl ::windows::runtime::RuntimeName for ContactListCreateOrUpdateContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest";
 }
-impl ::std::convert::From<ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IUnknown {
-    fn from(value: ContactListCreateOrUpdateContactRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactListCreateOrUpdateContactRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactListCreateOrUpdateContactRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactListCreateOrUpdateContactRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IInspectable {
-    fn from(value: ContactListCreateOrUpdateContactRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactListCreateOrUpdateContactRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactListCreateOrUpdateContactRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactListCreateOrUpdateContactRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactListCreateOrUpdateContactRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactListCreateOrUpdateContactRequest {}
 unsafe impl ::std::marker::Sync for ContactListCreateOrUpdateContactRequest {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(::windows::runtime::IInspectable);
 impl ContactListCreateOrUpdateContactRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -313,51 +193,11 @@ unsafe impl ::windows::runtime::Interface for ContactListCreateOrUpdateContactRe
 impl ::windows::runtime::RuntimeName for ContactListCreateOrUpdateContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs";
 }
-impl ::std::convert::From<ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactListCreateOrUpdateContactRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactListCreateOrUpdateContactRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactListCreateOrUpdateContactRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactListCreateOrUpdateContactRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactListCreateOrUpdateContactRequestEventArgs {}
 unsafe impl ::std::marker::Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactListDeleteContactRequest(::windows::runtime::IInspectable);
 impl ContactListDeleteContactRequest {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -405,51 +245,11 @@ unsafe impl ::windows::runtime::Interface for ContactListDeleteContactRequest {
 impl ::windows::runtime::RuntimeName for ContactListDeleteContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest";
 }
-impl ::std::convert::From<ContactListDeleteContactRequest> for ::windows::runtime::IUnknown {
-    fn from(value: ContactListDeleteContactRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactListDeleteContactRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactListDeleteContactRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactListDeleteContactRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactListDeleteContactRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactListDeleteContactRequest> for ::windows::runtime::IInspectable {
-    fn from(value: ContactListDeleteContactRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactListDeleteContactRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactListDeleteContactRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactListDeleteContactRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactListDeleteContactRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactListDeleteContactRequest {}
 unsafe impl ::std::marker::Sync for ContactListDeleteContactRequest {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactListDeleteContactRequestEventArgs(::windows::runtime::IInspectable);
 impl ContactListDeleteContactRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -480,51 +280,11 @@ unsafe impl ::windows::runtime::Interface for ContactListDeleteContactRequestEve
 impl ::windows::runtime::RuntimeName for ContactListDeleteContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs";
 }
-impl ::std::convert::From<ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactListDeleteContactRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactListDeleteContactRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactListDeleteContactRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactListDeleteContactRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactListDeleteContactRequestEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactListDeleteContactRequestEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactListDeleteContactRequestEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactListDeleteContactRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactListDeleteContactRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactListDeleteContactRequestEventArgs {}
 unsafe impl ::std::marker::Sync for ContactListDeleteContactRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactListServerSearchReadBatchRequest(::windows::runtime::IInspectable);
 impl ContactListServerSearchReadBatchRequest {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -597,51 +357,11 @@ unsafe impl ::windows::runtime::Interface for ContactListServerSearchReadBatchRe
 impl ::windows::runtime::RuntimeName for ContactListServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest";
 }
-impl ::std::convert::From<ContactListServerSearchReadBatchRequest> for ::windows::runtime::IUnknown {
-    fn from(value: ContactListServerSearchReadBatchRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactListServerSearchReadBatchRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactListServerSearchReadBatchRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactListServerSearchReadBatchRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactListServerSearchReadBatchRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactListServerSearchReadBatchRequest> for ::windows::runtime::IInspectable {
-    fn from(value: ContactListServerSearchReadBatchRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactListServerSearchReadBatchRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactListServerSearchReadBatchRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactListServerSearchReadBatchRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactListServerSearchReadBatchRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactListServerSearchReadBatchRequest {}
 unsafe impl ::std::marker::Sync for ContactListServerSearchReadBatchRequest {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactListServerSearchReadBatchRequestEventArgs(::windows::runtime::IInspectable);
 impl ContactListServerSearchReadBatchRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -672,51 +392,11 @@ unsafe impl ::windows::runtime::Interface for ContactListServerSearchReadBatchRe
 impl ::windows::runtime::RuntimeName for ContactListServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs";
 }
-impl ::std::convert::From<ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactListServerSearchReadBatchRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactListServerSearchReadBatchRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactListServerSearchReadBatchRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactListServerSearchReadBatchRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactListServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::std::marker::Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactListSyncManagerSyncRequest(::windows::runtime::IInspectable);
 impl ContactListSyncManagerSyncRequest {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -756,51 +436,11 @@ unsafe impl ::windows::runtime::Interface for ContactListSyncManagerSyncRequest 
 impl ::windows::runtime::RuntimeName for ContactListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest";
 }
-impl ::std::convert::From<ContactListSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
-    fn from(value: ContactListSyncManagerSyncRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactListSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactListSyncManagerSyncRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactListSyncManagerSyncRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactListSyncManagerSyncRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactListSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
-    fn from(value: ContactListSyncManagerSyncRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactListSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactListSyncManagerSyncRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactListSyncManagerSyncRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactListSyncManagerSyncRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ContactListSyncManagerSyncRequest {}
 unsafe impl ::std::marker::Sync for ContactListSyncManagerSyncRequest {}
 #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactListSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
 impl ContactListSyncManagerSyncRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_DataProvider`*"]
@@ -830,46 +470,6 @@ unsafe impl ::windows::runtime::Interface for ContactListSyncManagerSyncRequestE
 }
 impl ::windows::runtime::RuntimeName for ContactListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs";
-}
-impl ::std::convert::From<ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactListSyncManagerSyncRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactListSyncManagerSyncRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactListSyncManagerSyncRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactListSyncManagerSyncRequestEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ContactListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::std::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}

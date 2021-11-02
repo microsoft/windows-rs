@@ -111,7 +111,6 @@ impl Class {
                 let guid = gen_type_guid(&default_interface.def, gen);
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
-                let object = gen_object(&name, &TokenStream::new(), &cfg);
                 let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
                 let new = if self.0.has_default_constructor() {
@@ -151,7 +150,7 @@ impl Class {
                     #cfg
                     #doc
                     #[repr(transparent)]
-                    #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                    #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug, ::windows::runtime::DeriveInterface)]
                     pub struct #name(::windows::runtime::IInspectable);
                     #cfg
                     impl #name {
@@ -174,7 +173,6 @@ impl Class {
                         const NAME: &'static str = #runtime_name;
                     }
                     #future
-                    #object
                     #(#conversions)*
                     #(#bases)*
                     #send_sync

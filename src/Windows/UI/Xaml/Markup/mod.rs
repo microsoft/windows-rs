@@ -873,7 +873,7 @@ pub struct IXamlType2_abi(
 );
 #[doc = "*Required features: `UI_Xaml_Markup`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MarkupExtension(::windows::runtime::IInspectable);
 impl MarkupExtension {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -906,51 +906,11 @@ unsafe impl ::windows::runtime::Interface for MarkupExtension {
 impl ::windows::runtime::RuntimeName for MarkupExtension {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.MarkupExtension";
 }
-impl ::std::convert::From<MarkupExtension> for ::windows::runtime::IUnknown {
-    fn from(value: MarkupExtension) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MarkupExtension> for ::windows::runtime::IUnknown {
-    fn from(value: &MarkupExtension) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MarkupExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MarkupExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MarkupExtension> for ::windows::runtime::IInspectable {
-    fn from(value: MarkupExtension) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MarkupExtension> for ::windows::runtime::IInspectable {
-    fn from(value: &MarkupExtension) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MarkupExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MarkupExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MarkupExtension {}
 unsafe impl ::std::marker::Sync for MarkupExtension {}
 #[doc = "*Required features: `UI_Xaml_Markup`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XamlBinaryWriter(::windows::runtime::IInspectable);
 impl XamlBinaryWriter {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -979,46 +939,6 @@ unsafe impl ::windows::runtime::Interface for XamlBinaryWriter {
 }
 impl ::windows::runtime::RuntimeName for XamlBinaryWriter {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlBinaryWriter";
-}
-impl ::std::convert::From<XamlBinaryWriter> for ::windows::runtime::IUnknown {
-    fn from(value: XamlBinaryWriter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XamlBinaryWriter> for ::windows::runtime::IUnknown {
-    fn from(value: &XamlBinaryWriter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlBinaryWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XamlBinaryWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XamlBinaryWriter> for ::windows::runtime::IInspectable {
-    fn from(value: XamlBinaryWriter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XamlBinaryWriter> for ::windows::runtime::IInspectable {
-    fn from(value: &XamlBinaryWriter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XamlBinaryWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XamlBinaryWriter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for XamlBinaryWriter {}
 unsafe impl ::std::marker::Sync for XamlBinaryWriter {}
@@ -1056,7 +976,7 @@ unsafe impl ::windows::runtime::RuntimeType for XamlBinaryWriterErrorInformation
 }
 #[doc = "*Required features: `UI_Xaml_Markup`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XamlBindingHelper(::windows::runtime::IInspectable);
 impl XamlBindingHelper {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -1182,51 +1102,11 @@ unsafe impl ::windows::runtime::Interface for XamlBindingHelper {
 impl ::windows::runtime::RuntimeName for XamlBindingHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlBindingHelper";
 }
-impl ::std::convert::From<XamlBindingHelper> for ::windows::runtime::IUnknown {
-    fn from(value: XamlBindingHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XamlBindingHelper> for ::windows::runtime::IUnknown {
-    fn from(value: &XamlBindingHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlBindingHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XamlBindingHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XamlBindingHelper> for ::windows::runtime::IInspectable {
-    fn from(value: XamlBindingHelper) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XamlBindingHelper> for ::windows::runtime::IInspectable {
-    fn from(value: &XamlBindingHelper) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XamlBindingHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XamlBindingHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for XamlBindingHelper {}
 unsafe impl ::std::marker::Sync for XamlBindingHelper {}
 #[doc = "*Required features: `UI_Xaml_Markup`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XamlMarkupHelper(::windows::runtime::IInspectable);
 impl XamlMarkupHelper {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -1248,51 +1128,11 @@ unsafe impl ::windows::runtime::Interface for XamlMarkupHelper {
 impl ::windows::runtime::RuntimeName for XamlMarkupHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlMarkupHelper";
 }
-impl ::std::convert::From<XamlMarkupHelper> for ::windows::runtime::IUnknown {
-    fn from(value: XamlMarkupHelper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XamlMarkupHelper> for ::windows::runtime::IUnknown {
-    fn from(value: &XamlMarkupHelper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlMarkupHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XamlMarkupHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XamlMarkupHelper> for ::windows::runtime::IInspectable {
-    fn from(value: XamlMarkupHelper) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XamlMarkupHelper> for ::windows::runtime::IInspectable {
-    fn from(value: &XamlMarkupHelper) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XamlMarkupHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XamlMarkupHelper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for XamlMarkupHelper {}
 unsafe impl ::std::marker::Sync for XamlMarkupHelper {}
 #[doc = "*Required features: `UI_Xaml_Markup`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XamlReader(::windows::runtime::IInspectable);
 impl XamlReader {
     #[doc = "*Required features: `UI_Xaml_Markup`*"]
@@ -1323,46 +1163,6 @@ unsafe impl ::windows::runtime::Interface for XamlReader {
 }
 impl ::windows::runtime::RuntimeName for XamlReader {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlReader";
-}
-impl ::std::convert::From<XamlReader> for ::windows::runtime::IUnknown {
-    fn from(value: XamlReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XamlReader> for ::windows::runtime::IUnknown {
-    fn from(value: &XamlReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XamlReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XamlReader> for ::windows::runtime::IInspectable {
-    fn from(value: XamlReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XamlReader> for ::windows::runtime::IInspectable {
-    fn from(value: &XamlReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XamlReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XamlReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for XamlReader {}
 unsafe impl ::std::marker::Sync for XamlReader {}

@@ -107,7 +107,7 @@ pub struct ISystemSupportInfoStatics2_abi(
 );
 #[doc = "*Required features: `System_Profile_SystemManufacturers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OemSupportInfo(::windows::runtime::IInspectable);
 impl OemSupportInfo {
     #[cfg(feature = "Foundation")]
@@ -147,46 +147,6 @@ unsafe impl ::windows::runtime::Interface for OemSupportInfo {
 impl ::windows::runtime::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
 }
-impl ::std::convert::From<OemSupportInfo> for ::windows::runtime::IUnknown {
-    fn from(value: OemSupportInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OemSupportInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &OemSupportInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OemSupportInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OemSupportInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OemSupportInfo> for ::windows::runtime::IInspectable {
-    fn from(value: OemSupportInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OemSupportInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &OemSupportInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OemSupportInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OemSupportInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OemSupportInfo {}
 unsafe impl ::std::marker::Sync for OemSupportInfo {}
 #[doc = "*Required features: `System_Profile_SystemManufacturers`*"]
@@ -212,7 +172,7 @@ impl ::windows::runtime::RuntimeName for SmbiosInformation {
 pub struct SystemManufacturersContract(pub u8);
 #[doc = "*Required features: `System_Profile_SystemManufacturers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SystemSupportDeviceInfo(::windows::runtime::IInspectable);
 impl SystemSupportDeviceInfo {
     #[doc = "*Required features: `System_Profile_SystemManufacturers`*"]
@@ -281,46 +241,6 @@ unsafe impl ::windows::runtime::Interface for SystemSupportDeviceInfo {
 }
 impl ::windows::runtime::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";
-}
-impl ::std::convert::From<SystemSupportDeviceInfo> for ::windows::runtime::IUnknown {
-    fn from(value: SystemSupportDeviceInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SystemSupportDeviceInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &SystemSupportDeviceInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SystemSupportDeviceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SystemSupportDeviceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SystemSupportDeviceInfo> for ::windows::runtime::IInspectable {
-    fn from(value: SystemSupportDeviceInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SystemSupportDeviceInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &SystemSupportDeviceInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SystemSupportDeviceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SystemSupportDeviceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for SystemSupportDeviceInfo {}
 unsafe impl ::std::marker::Sync for SystemSupportDeviceInfo {}

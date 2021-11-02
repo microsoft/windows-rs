@@ -61,7 +61,7 @@ impl ::windows::runtime::RuntimeName for CredentialPicker {
 }
 #[doc = "*Required features: `Security_Credentials_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CredentialPickerOptions(::windows::runtime::IInspectable);
 impl CredentialPickerOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -214,49 +214,9 @@ unsafe impl ::windows::runtime::Interface for CredentialPickerOptions {
 impl ::windows::runtime::RuntimeName for CredentialPickerOptions {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerOptions";
 }
-impl ::std::convert::From<CredentialPickerOptions> for ::windows::runtime::IUnknown {
-    fn from(value: CredentialPickerOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CredentialPickerOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &CredentialPickerOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CredentialPickerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CredentialPickerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CredentialPickerOptions> for ::windows::runtime::IInspectable {
-    fn from(value: CredentialPickerOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CredentialPickerOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &CredentialPickerOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CredentialPickerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CredentialPickerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `Security_Credentials_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CredentialPickerResults(::windows::runtime::IInspectable);
 impl CredentialPickerResults {
     #[doc = "*Required features: `Security_Credentials_UI`*"]
@@ -326,46 +286,6 @@ unsafe impl ::windows::runtime::Interface for CredentialPickerResults {
 }
 impl ::windows::runtime::RuntimeName for CredentialPickerResults {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerResults";
-}
-impl ::std::convert::From<CredentialPickerResults> for ::windows::runtime::IUnknown {
-    fn from(value: CredentialPickerResults) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CredentialPickerResults> for ::windows::runtime::IUnknown {
-    fn from(value: &CredentialPickerResults) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CredentialPickerResults {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CredentialPickerResults {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CredentialPickerResults> for ::windows::runtime::IInspectable {
-    fn from(value: CredentialPickerResults) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CredentialPickerResults> for ::windows::runtime::IInspectable {
-    fn from(value: &CredentialPickerResults) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CredentialPickerResults {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CredentialPickerResults {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[doc = "*Required features: `Security_Credentials_UI`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

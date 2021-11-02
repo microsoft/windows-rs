@@ -5,7 +5,7 @@ pub mod Background;
 pub mod Provider;
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CallAnswerEventArgs(::windows::runtime::IInspectable);
 impl CallAnswerEventArgs {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -27,51 +27,11 @@ unsafe impl ::windows::runtime::Interface for CallAnswerEventArgs {
 impl ::windows::runtime::RuntimeName for CallAnswerEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallAnswerEventArgs";
 }
-impl ::std::convert::From<CallAnswerEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CallAnswerEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CallAnswerEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CallAnswerEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CallAnswerEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CallAnswerEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CallAnswerEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CallAnswerEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CallAnswerEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CallAnswerEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CallAnswerEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CallAnswerEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CallAnswerEventArgs {}
 unsafe impl ::std::marker::Sync for CallAnswerEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CallRejectEventArgs(::windows::runtime::IInspectable);
 impl CallRejectEventArgs {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -93,51 +53,11 @@ unsafe impl ::windows::runtime::Interface for CallRejectEventArgs {
 impl ::windows::runtime::RuntimeName for CallRejectEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallRejectEventArgs";
 }
-impl ::std::convert::From<CallRejectEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CallRejectEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CallRejectEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CallRejectEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CallRejectEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CallRejectEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CallRejectEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CallRejectEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CallRejectEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CallRejectEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CallRejectEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CallRejectEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CallRejectEventArgs {}
 unsafe impl ::std::marker::Sync for CallRejectEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CallStateChangeEventArgs(::windows::runtime::IInspectable);
 impl CallStateChangeEventArgs {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -158,46 +78,6 @@ unsafe impl ::windows::runtime::Interface for CallStateChangeEventArgs {
 }
 impl ::windows::runtime::RuntimeName for CallStateChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
-}
-impl ::std::convert::From<CallStateChangeEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CallStateChangeEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CallStateChangeEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CallStateChangeEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CallStateChangeEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CallStateChangeEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CallStateChangeEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CallStateChangeEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CallStateChangeEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CallStateChangeEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CallStateChangeEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CallStateChangeEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CallStateChangeEventArgs {}
 unsafe impl ::std::marker::Sync for CallStateChangeEventArgs {}
@@ -1541,7 +1421,7 @@ pub struct IVoipPhoneCall3_abi(
 pub struct LockScreenCallContract(pub u8);
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LockScreenCallEndCallDeferral(::windows::runtime::IInspectable);
 impl LockScreenCallEndCallDeferral {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -1560,51 +1440,11 @@ unsafe impl ::windows::runtime::Interface for LockScreenCallEndCallDeferral {
 impl ::windows::runtime::RuntimeName for LockScreenCallEndCallDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
 }
-impl ::std::convert::From<LockScreenCallEndCallDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: LockScreenCallEndCallDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LockScreenCallEndCallDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &LockScreenCallEndCallDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenCallEndCallDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenCallEndCallDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LockScreenCallEndCallDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: LockScreenCallEndCallDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LockScreenCallEndCallDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &LockScreenCallEndCallDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LockScreenCallEndCallDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LockScreenCallEndCallDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for LockScreenCallEndCallDeferral {}
 unsafe impl ::std::marker::Sync for LockScreenCallEndCallDeferral {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LockScreenCallEndRequestedEventArgs(::windows::runtime::IInspectable);
 impl LockScreenCallEndRequestedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -1635,51 +1475,11 @@ unsafe impl ::windows::runtime::Interface for LockScreenCallEndRequestedEventArg
 impl ::windows::runtime::RuntimeName for LockScreenCallEndRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
 }
-impl ::std::convert::From<LockScreenCallEndRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: LockScreenCallEndRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LockScreenCallEndRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &LockScreenCallEndRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenCallEndRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenCallEndRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LockScreenCallEndRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: LockScreenCallEndRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LockScreenCallEndRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &LockScreenCallEndRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LockScreenCallEndRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LockScreenCallEndRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for LockScreenCallEndRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for LockScreenCallEndRequestedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LockScreenCallUI(::windows::runtime::IInspectable);
 impl LockScreenCallUI {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -1741,51 +1541,11 @@ unsafe impl ::windows::runtime::Interface for LockScreenCallUI {
 impl ::windows::runtime::RuntimeName for LockScreenCallUI {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallUI";
 }
-impl ::std::convert::From<LockScreenCallUI> for ::windows::runtime::IUnknown {
-    fn from(value: LockScreenCallUI) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LockScreenCallUI> for ::windows::runtime::IUnknown {
-    fn from(value: &LockScreenCallUI) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LockScreenCallUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LockScreenCallUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LockScreenCallUI> for ::windows::runtime::IInspectable {
-    fn from(value: LockScreenCallUI) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LockScreenCallUI> for ::windows::runtime::IInspectable {
-    fn from(value: &LockScreenCallUI) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LockScreenCallUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LockScreenCallUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for LockScreenCallUI {}
 unsafe impl ::std::marker::Sync for LockScreenCallUI {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MuteChangeEventArgs(::windows::runtime::IInspectable);
 impl MuteChangeEventArgs {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -1806,46 +1566,6 @@ unsafe impl ::windows::runtime::Interface for MuteChangeEventArgs {
 }
 impl ::windows::runtime::RuntimeName for MuteChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.MuteChangeEventArgs";
-}
-impl ::std::convert::From<MuteChangeEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: MuteChangeEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MuteChangeEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &MuteChangeEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MuteChangeEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MuteChangeEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MuteChangeEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: MuteChangeEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MuteChangeEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &MuteChangeEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MuteChangeEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MuteChangeEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for MuteChangeEventArgs {}
 unsafe impl ::std::marker::Sync for MuteChangeEventArgs {}
@@ -1872,7 +1592,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneAudioRoutingEndpoint {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCall(::windows::runtime::IInspectable);
 impl PhoneCall {
     #[cfg(feature = "Foundation")]
@@ -2144,46 +1864,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCall {
 impl ::windows::runtime::RuntimeName for PhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCall";
 }
-impl ::std::convert::From<PhoneCall> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCall) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCall> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCall) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCall> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCall) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCall> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCall) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneCall {}
 unsafe impl ::std::marker::Sync for PhoneCall {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -2271,7 +1951,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallDirection {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallHistoryEntry(::windows::runtime::IInspectable);
 impl PhoneCallHistoryEntry {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2520,51 +2200,11 @@ unsafe impl ::windows::runtime::Interface for PhoneCallHistoryEntry {
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
 }
-impl ::std::convert::From<PhoneCallHistoryEntry> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallHistoryEntry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryEntry> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallHistoryEntry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallHistoryEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallHistoryEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallHistoryEntry> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallHistoryEntry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryEntry> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallHistoryEntry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallHistoryEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallHistoryEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneCallHistoryEntry {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryEntry {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallHistoryEntryAddress(::windows::runtime::IInspectable);
 impl PhoneCallHistoryEntryAddress {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2647,46 +2287,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCallHistoryEntryAddress {
 }
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryEntryAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
-}
-impl ::std::convert::From<PhoneCallHistoryEntryAddress> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallHistoryEntryAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryEntryAddress> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallHistoryEntryAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallHistoryEntryAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallHistoryEntryAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallHistoryEntryAddress> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallHistoryEntryAddress) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryEntryAddress> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallHistoryEntryAddress) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallHistoryEntryAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallHistoryEntryAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhoneCallHistoryEntryAddress {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryEntryAddress {}
@@ -2782,7 +2382,7 @@ impl ::std::ops::Not for PhoneCallHistoryEntryQueryDesiredMedia {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallHistoryEntryQueryOptions(::windows::runtime::IInspectable);
 impl PhoneCallHistoryEntryQueryOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2825,46 +2425,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCallHistoryEntryQueryOptions 
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryEntryQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
 }
-impl ::std::convert::From<PhoneCallHistoryEntryQueryOptions> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallHistoryEntryQueryOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryEntryQueryOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallHistoryEntryQueryOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallHistoryEntryQueryOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallHistoryEntryQueryOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallHistoryEntryQueryOptions> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallHistoryEntryQueryOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryEntryQueryOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallHistoryEntryQueryOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallHistoryEntryQueryOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallHistoryEntryQueryOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -2889,7 +2449,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryRawAddressK
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallHistoryEntryReader(::windows::runtime::IInspectable);
 impl PhoneCallHistoryEntryReader {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -2911,46 +2471,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCallHistoryEntryReader {
 }
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryEntryReader {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
-}
-impl ::std::convert::From<PhoneCallHistoryEntryReader> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallHistoryEntryReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryEntryReader> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallHistoryEntryReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallHistoryEntryReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallHistoryEntryReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallHistoryEntryReader> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallHistoryEntryReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryEntryReader> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallHistoryEntryReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallHistoryEntryReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallHistoryEntryReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhoneCallHistoryEntryReader {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryEntryReader {}
@@ -2987,7 +2507,7 @@ impl ::windows::runtime::RuntimeName for PhoneCallHistoryManager {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallHistoryManagerForUser(::windows::runtime::IInspectable);
 impl PhoneCallHistoryManagerForUser {
     #[cfg(feature = "Foundation")]
@@ -3019,46 +2539,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCallHistoryManagerForUser {
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
 }
-impl ::std::convert::From<PhoneCallHistoryManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallHistoryManagerForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallHistoryManagerForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallHistoryManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallHistoryManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallHistoryManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallHistoryManagerForUser) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallHistoryManagerForUser) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallHistoryManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallHistoryManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneCallHistoryManagerForUser {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryManagerForUser {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -3083,7 +2563,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistorySourceIdKind {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallHistoryStore(::windows::runtime::IInspectable);
 impl PhoneCallHistoryStore {
     #[cfg(feature = "Foundation")]
@@ -3203,46 +2683,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCallHistoryStore {
 impl ::windows::runtime::RuntimeName for PhoneCallHistoryStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
 }
-impl ::std::convert::From<PhoneCallHistoryStore> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallHistoryStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryStore> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallHistoryStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallHistoryStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallHistoryStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallHistoryStore> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallHistoryStore) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallHistoryStore> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallHistoryStore) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallHistoryStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallHistoryStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneCallHistoryStore {}
 unsafe impl ::std::marker::Sync for PhoneCallHistoryStore {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -3268,7 +2708,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryStoreAccessType 
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallInfo(::windows::runtime::IInspectable);
 impl PhoneCallInfo {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -3330,46 +2770,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCallInfo {
 }
 impl ::windows::runtime::RuntimeName for PhoneCallInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallInfo";
-}
-impl ::std::convert::From<PhoneCallInfo> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallInfo> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhoneCallInfo {}
 unsafe impl ::std::marker::Sync for PhoneCallInfo {}
@@ -3501,7 +2901,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneCallStatus {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallStore(::windows::runtime::IInspectable);
 impl PhoneCallStore {
     #[cfg(feature = "Foundation")]
@@ -3541,51 +2941,11 @@ unsafe impl ::windows::runtime::Interface for PhoneCallStore {
 impl ::windows::runtime::RuntimeName for PhoneCallStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallStore";
 }
-impl ::std::convert::From<PhoneCallStore> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallStore> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallStore> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallStore) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallStore> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallStore) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneCallStore {}
 unsafe impl ::std::marker::Sync for PhoneCallStore {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallVideoCapabilities(::windows::runtime::IInspectable);
 impl PhoneCallVideoCapabilities {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -3606,46 +2966,6 @@ unsafe impl ::windows::runtime::Interface for PhoneCallVideoCapabilities {
 }
 impl ::windows::runtime::RuntimeName for PhoneCallVideoCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
-}
-impl ::std::convert::From<PhoneCallVideoCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallVideoCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallVideoCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallVideoCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallVideoCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallVideoCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallVideoCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallVideoCapabilities) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallVideoCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallVideoCapabilities) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallVideoCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallVideoCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhoneCallVideoCapabilities {}
 unsafe impl ::std::marker::Sync for PhoneCallVideoCapabilities {}
@@ -3670,7 +2990,7 @@ impl ::windows::runtime::RuntimeName for PhoneCallVideoCapabilitiesManager {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneCallsResult(::windows::runtime::IInspectable);
 impl PhoneCallsResult {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -3701,51 +3021,11 @@ unsafe impl ::windows::runtime::Interface for PhoneCallsResult {
 impl ::windows::runtime::RuntimeName for PhoneCallsResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallsResult";
 }
-impl ::std::convert::From<PhoneCallsResult> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneCallsResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneCallsResult> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneCallsResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneCallsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneCallsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneCallsResult> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneCallsResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneCallsResult> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneCallsResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneCallsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneCallsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneCallsResult {}
 unsafe impl ::std::marker::Sync for PhoneCallsResult {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneDialOptions(::windows::runtime::IInspectable);
 impl PhoneDialOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3848,51 +3128,11 @@ unsafe impl ::windows::runtime::Interface for PhoneDialOptions {
 impl ::windows::runtime::RuntimeName for PhoneDialOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneDialOptions";
 }
-impl ::std::convert::From<PhoneDialOptions> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneDialOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneDialOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneDialOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneDialOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneDialOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneDialOptions> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneDialOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneDialOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneDialOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneDialOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneDialOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneDialOptions {}
 unsafe impl ::std::marker::Sync for PhoneDialOptions {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneLine(::windows::runtime::IInspectable);
 impl PhoneLine {
     #[cfg(feature = "Foundation")]
@@ -4096,51 +3336,11 @@ unsafe impl ::windows::runtime::Interface for PhoneLine {
 impl ::windows::runtime::RuntimeName for PhoneLine {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLine";
 }
-impl ::std::convert::From<PhoneLine> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneLine) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneLine> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneLine) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLine {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneLine {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneLine> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneLine) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneLine> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneLine) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneLine {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneLine {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneLine {}
 unsafe impl ::std::marker::Sync for PhoneLine {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneLineCellularDetails(::windows::runtime::IInspectable);
 impl PhoneLineCellularDetails {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -4194,51 +3394,11 @@ unsafe impl ::windows::runtime::Interface for PhoneLineCellularDetails {
 impl ::windows::runtime::RuntimeName for PhoneLineCellularDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
 }
-impl ::std::convert::From<PhoneLineCellularDetails> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneLineCellularDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneLineCellularDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneLineCellularDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLineCellularDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneLineCellularDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneLineCellularDetails> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneLineCellularDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneLineCellularDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneLineCellularDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneLineCellularDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneLineCellularDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneLineCellularDetails {}
 unsafe impl ::std::marker::Sync for PhoneLineCellularDetails {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneLineConfiguration(::windows::runtime::IInspectable);
 impl PhoneLineConfiguration {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -4269,51 +3429,11 @@ unsafe impl ::windows::runtime::Interface for PhoneLineConfiguration {
 impl ::windows::runtime::RuntimeName for PhoneLineConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineConfiguration";
 }
-impl ::std::convert::From<PhoneLineConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneLineConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneLineConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneLineConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLineConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneLineConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneLineConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneLineConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneLineConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneLineConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneLineConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneLineConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneLineConfiguration {}
 unsafe impl ::std::marker::Sync for PhoneLineConfiguration {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneLineDialResult(::windows::runtime::IInspectable);
 impl PhoneLineDialResult {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -4342,46 +3462,6 @@ unsafe impl ::windows::runtime::Interface for PhoneLineDialResult {
 }
 impl ::windows::runtime::RuntimeName for PhoneLineDialResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineDialResult";
-}
-impl ::std::convert::From<PhoneLineDialResult> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneLineDialResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneLineDialResult> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneLineDialResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLineDialResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneLineDialResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneLineDialResult> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneLineDialResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneLineDialResult> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneLineDialResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneLineDialResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneLineDialResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhoneLineDialResult {}
 unsafe impl ::std::marker::Sync for PhoneLineDialResult {}
@@ -4453,7 +3533,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneLineTransport {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneLineTransportDevice(::windows::runtime::IInspectable);
 impl PhoneLineTransportDevice {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -4610,51 +3690,11 @@ unsafe impl ::windows::runtime::Interface for PhoneLineTransportDevice {
 impl ::windows::runtime::RuntimeName for PhoneLineTransportDevice {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
 }
-impl ::std::convert::From<PhoneLineTransportDevice> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneLineTransportDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneLineTransportDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneLineTransportDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLineTransportDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneLineTransportDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneLineTransportDevice> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneLineTransportDevice) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneLineTransportDevice> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneLineTransportDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneLineTransportDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneLineTransportDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneLineTransportDevice {}
 unsafe impl ::std::marker::Sync for PhoneLineTransportDevice {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneLineWatcher(::windows::runtime::IInspectable);
 impl PhoneLineWatcher {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -4761,51 +3801,11 @@ unsafe impl ::windows::runtime::Interface for PhoneLineWatcher {
 impl ::windows::runtime::RuntimeName for PhoneLineWatcher {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcher";
 }
-impl ::std::convert::From<PhoneLineWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneLineWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneLineWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneLineWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLineWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneLineWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneLineWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneLineWatcher) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneLineWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneLineWatcher) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneLineWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneLineWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhoneLineWatcher {}
 unsafe impl ::std::marker::Sync for PhoneLineWatcher {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneLineWatcherEventArgs(::windows::runtime::IInspectable);
 impl PhoneLineWatcherEventArgs {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -4826,46 +3826,6 @@ unsafe impl ::windows::runtime::Interface for PhoneLineWatcherEventArgs {
 }
 impl ::windows::runtime::RuntimeName for PhoneLineWatcherEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
-}
-impl ::std::convert::From<PhoneLineWatcherEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneLineWatcherEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneLineWatcherEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneLineWatcherEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneLineWatcherEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneLineWatcherEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneLineWatcherEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneLineWatcherEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneLineWatcherEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneLineWatcherEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneLineWatcherEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneLineWatcherEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhoneLineWatcherEventArgs {}
 unsafe impl ::std::marker::Sync for PhoneLineWatcherEventArgs {}
@@ -4945,7 +3905,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhoneSimState {
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhoneVoicemail(::windows::runtime::IInspectable);
 impl PhoneVoicemail {
     #[doc = "*Required features: `ApplicationModel_Calls`*"]
@@ -4991,46 +3951,6 @@ unsafe impl ::windows::runtime::Interface for PhoneVoicemail {
 }
 impl ::windows::runtime::RuntimeName for PhoneVoicemail {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneVoicemail";
-}
-impl ::std::convert::From<PhoneVoicemail> for ::windows::runtime::IUnknown {
-    fn from(value: PhoneVoicemail) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhoneVoicemail> for ::windows::runtime::IUnknown {
-    fn from(value: &PhoneVoicemail) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhoneVoicemail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhoneVoicemail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhoneVoicemail> for ::windows::runtime::IInspectable {
-    fn from(value: PhoneVoicemail) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhoneVoicemail> for ::windows::runtime::IInspectable {
-    fn from(value: &PhoneVoicemail) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhoneVoicemail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhoneVoicemail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhoneVoicemail {}
 unsafe impl ::std::marker::Sync for PhoneVoicemail {}
@@ -5078,7 +3998,7 @@ unsafe impl ::windows::runtime::RuntimeType for TransportDeviceAudioRoutingStatu
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VoipCallCoordinator(::windows::runtime::IInspectable);
 impl VoipCallCoordinator {
     #[cfg(feature = "Foundation")]
@@ -5327,51 +4247,11 @@ unsafe impl ::windows::runtime::Interface for VoipCallCoordinator {
 impl ::windows::runtime::RuntimeName for VoipCallCoordinator {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipCallCoordinator";
 }
-impl ::std::convert::From<VoipCallCoordinator> for ::windows::runtime::IUnknown {
-    fn from(value: VoipCallCoordinator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VoipCallCoordinator> for ::windows::runtime::IUnknown {
-    fn from(value: &VoipCallCoordinator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoipCallCoordinator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoipCallCoordinator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VoipCallCoordinator> for ::windows::runtime::IInspectable {
-    fn from(value: VoipCallCoordinator) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VoipCallCoordinator> for ::windows::runtime::IInspectable {
-    fn from(value: &VoipCallCoordinator) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VoipCallCoordinator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VoipCallCoordinator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VoipCallCoordinator {}
 unsafe impl ::std::marker::Sync for VoipCallCoordinator {}
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VoipPhoneCall(::windows::runtime::IInspectable);
 impl VoipPhoneCall {
     #[cfg(feature = "Foundation")]
@@ -5530,46 +4410,6 @@ unsafe impl ::windows::runtime::Interface for VoipPhoneCall {
 }
 impl ::windows::runtime::RuntimeName for VoipPhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipPhoneCall";
-}
-impl ::std::convert::From<VoipPhoneCall> for ::windows::runtime::IUnknown {
-    fn from(value: VoipPhoneCall) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VoipPhoneCall> for ::windows::runtime::IUnknown {
-    fn from(value: &VoipPhoneCall) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoipPhoneCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoipPhoneCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VoipPhoneCall> for ::windows::runtime::IInspectable {
-    fn from(value: VoipPhoneCall) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VoipPhoneCall> for ::windows::runtime::IInspectable {
-    fn from(value: &VoipPhoneCall) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VoipPhoneCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VoipPhoneCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for VoipPhoneCall {}
 unsafe impl ::std::marker::Sync for VoipPhoneCall {}

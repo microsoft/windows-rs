@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CurrentSessionChangedEventArgs(::windows::runtime::IInspectable);
 impl CurrentSessionChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for CurrentSessionChangedEventArgs {
@@ -14,51 +14,11 @@ unsafe impl ::windows::runtime::Interface for CurrentSessionChangedEventArgs {
 impl ::windows::runtime::RuntimeName for CurrentSessionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.CurrentSessionChangedEventArgs";
 }
-impl ::std::convert::From<CurrentSessionChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CurrentSessionChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CurrentSessionChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CurrentSessionChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CurrentSessionChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CurrentSessionChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CurrentSessionChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CurrentSessionChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CurrentSessionChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CurrentSessionChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CurrentSessionChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CurrentSessionChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CurrentSessionChangedEventArgs {}
 unsafe impl ::std::marker::Sync for CurrentSessionChangedEventArgs {}
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GlobalSystemMediaTransportControlsSession(::windows::runtime::IInspectable);
 impl GlobalSystemMediaTransportControlsSession {
     #[doc = "*Required features: `Media_Control`*"]
@@ -285,51 +245,11 @@ unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControls
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSession {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSession";
 }
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSession> for ::windows::runtime::IUnknown {
-    fn from(value: GlobalSystemMediaTransportControlsSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSession> for ::windows::runtime::IUnknown {
-    fn from(value: &GlobalSystemMediaTransportControlsSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GlobalSystemMediaTransportControlsSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GlobalSystemMediaTransportControlsSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSession> for ::windows::runtime::IInspectable {
-    fn from(value: GlobalSystemMediaTransportControlsSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSession> for ::windows::runtime::IInspectable {
-    fn from(value: &GlobalSystemMediaTransportControlsSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GlobalSystemMediaTransportControlsSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GlobalSystemMediaTransportControlsSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GlobalSystemMediaTransportControlsSession {}
 unsafe impl ::std::marker::Sync for GlobalSystemMediaTransportControlsSession {}
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(::windows::runtime::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionManager {
     #[doc = "*Required features: `Media_Control`*"]
@@ -402,51 +322,11 @@ unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControls
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionManager {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager";
 }
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionManager> for ::windows::runtime::IUnknown {
-    fn from(value: GlobalSystemMediaTransportControlsSessionManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionManager> for ::windows::runtime::IUnknown {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GlobalSystemMediaTransportControlsSessionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GlobalSystemMediaTransportControlsSessionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionManager> for ::windows::runtime::IInspectable {
-    fn from(value: GlobalSystemMediaTransportControlsSessionManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionManager> for ::windows::runtime::IInspectable {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GlobalSystemMediaTransportControlsSessionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GlobalSystemMediaTransportControlsSessionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GlobalSystemMediaTransportControlsSessionManager {}
 unsafe impl ::std::marker::Sync for GlobalSystemMediaTransportControlsSessionManager {}
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(::windows::runtime::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionMediaProperties {
     #[doc = "*Required features: `Media_Control`*"]
@@ -543,51 +423,11 @@ unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControls
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionMediaProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties";
 }
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionMediaProperties> for ::windows::runtime::IUnknown {
-    fn from(value: GlobalSystemMediaTransportControlsSessionMediaProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionMediaProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionMediaProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GlobalSystemMediaTransportControlsSessionMediaProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionMediaProperties> for ::windows::runtime::IInspectable {
-    fn from(value: GlobalSystemMediaTransportControlsSessionMediaProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionMediaProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionMediaProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GlobalSystemMediaTransportControlsSessionMediaProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 unsafe impl ::std::marker::Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(::windows::runtime::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
     #[doc = "*Required features: `Media_Control`*"]
@@ -721,51 +561,11 @@ unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControls
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls";
 }
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionPlaybackControls> for ::windows::runtime::IUnknown {
-    fn from(value: GlobalSystemMediaTransportControlsSessionPlaybackControls) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionPlaybackControls> for ::windows::runtime::IUnknown {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionPlaybackControls) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionPlaybackControls> for ::windows::runtime::IInspectable {
-    fn from(value: GlobalSystemMediaTransportControlsSessionPlaybackControls) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionPlaybackControls> for ::windows::runtime::IInspectable {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionPlaybackControls) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 unsafe impl ::std::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows::runtime::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     #[doc = "*Required features: `Media_Control`*"]
@@ -831,46 +631,6 @@ unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControls
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo";
 }
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionPlaybackInfo> for ::windows::runtime::IUnknown {
-    fn from(value: GlobalSystemMediaTransportControlsSessionPlaybackInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionPlaybackInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionPlaybackInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionPlaybackInfo> for ::windows::runtime::IInspectable {
-    fn from(value: GlobalSystemMediaTransportControlsSessionPlaybackInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionPlaybackInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionPlaybackInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 unsafe impl ::std::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[doc = "*Required features: `Media_Control`*"]
@@ -899,7 +659,7 @@ unsafe impl ::windows::runtime::RuntimeType for GlobalSystemMediaTransportContro
 }
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(::windows::runtime::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
     #[cfg(feature = "Foundation")]
@@ -966,46 +726,6 @@ unsafe impl ::windows::runtime::Interface for GlobalSystemMediaTransportControls
 }
 impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties";
-}
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionTimelineProperties> for ::windows::runtime::IUnknown {
-    fn from(value: GlobalSystemMediaTransportControlsSessionTimelineProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionTimelineProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionTimelineProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GlobalSystemMediaTransportControlsSessionTimelineProperties> for ::windows::runtime::IInspectable {
-    fn from(value: GlobalSystemMediaTransportControlsSessionTimelineProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GlobalSystemMediaTransportControlsSessionTimelineProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &GlobalSystemMediaTransportControlsSessionTimelineProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 unsafe impl ::std::marker::Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
@@ -1337,7 +1057,7 @@ pub struct ITimelinePropertiesChangedEventArgs_abi(
 );
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MediaPropertiesChangedEventArgs(::windows::runtime::IInspectable);
 impl MediaPropertiesChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for MediaPropertiesChangedEventArgs {
@@ -1350,51 +1070,11 @@ unsafe impl ::windows::runtime::Interface for MediaPropertiesChangedEventArgs {
 impl ::windows::runtime::RuntimeName for MediaPropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.MediaPropertiesChangedEventArgs";
 }
-impl ::std::convert::From<MediaPropertiesChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: MediaPropertiesChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MediaPropertiesChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &MediaPropertiesChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MediaPropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MediaPropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MediaPropertiesChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: MediaPropertiesChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MediaPropertiesChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &MediaPropertiesChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MediaPropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MediaPropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MediaPropertiesChangedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaPropertiesChangedEventArgs {}
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PlaybackInfoChangedEventArgs(::windows::runtime::IInspectable);
 impl PlaybackInfoChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for PlaybackInfoChangedEventArgs {
@@ -1407,51 +1087,11 @@ unsafe impl ::windows::runtime::Interface for PlaybackInfoChangedEventArgs {
 impl ::windows::runtime::RuntimeName for PlaybackInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.PlaybackInfoChangedEventArgs";
 }
-impl ::std::convert::From<PlaybackInfoChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PlaybackInfoChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PlaybackInfoChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PlaybackInfoChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PlaybackInfoChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PlaybackInfoChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PlaybackInfoChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PlaybackInfoChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PlaybackInfoChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PlaybackInfoChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PlaybackInfoChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PlaybackInfoChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PlaybackInfoChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PlaybackInfoChangedEventArgs {}
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SessionsChangedEventArgs(::windows::runtime::IInspectable);
 impl SessionsChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for SessionsChangedEventArgs {
@@ -1464,51 +1104,11 @@ unsafe impl ::windows::runtime::Interface for SessionsChangedEventArgs {
 impl ::windows::runtime::RuntimeName for SessionsChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.SessionsChangedEventArgs";
 }
-impl ::std::convert::From<SessionsChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: SessionsChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SessionsChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &SessionsChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SessionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SessionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SessionsChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: SessionsChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SessionsChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &SessionsChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SessionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SessionsChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SessionsChangedEventArgs {}
 unsafe impl ::std::marker::Sync for SessionsChangedEventArgs {}
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TimelinePropertiesChangedEventArgs(::windows::runtime::IInspectable);
 impl TimelinePropertiesChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for TimelinePropertiesChangedEventArgs {
@@ -1520,46 +1120,6 @@ unsafe impl ::windows::runtime::Interface for TimelinePropertiesChangedEventArgs
 }
 impl ::windows::runtime::RuntimeName for TimelinePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.TimelinePropertiesChangedEventArgs";
-}
-impl ::std::convert::From<TimelinePropertiesChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: TimelinePropertiesChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TimelinePropertiesChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &TimelinePropertiesChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TimelinePropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TimelinePropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TimelinePropertiesChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: TimelinePropertiesChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TimelinePropertiesChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &TimelinePropertiesChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TimelinePropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TimelinePropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for TimelinePropertiesChangedEventArgs {}
 unsafe impl ::std::marker::Sync for TimelinePropertiesChangedEventArgs {}

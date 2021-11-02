@@ -653,7 +653,7 @@ pub struct IRangeValueProvider_abi(
 );
 #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IRawElementProviderSimple(::windows::runtime::IInspectable);
 impl IRawElementProviderSimple {
     #[doc = "*Required features: `UI_Xaml_Automation_Provider`*"]
@@ -722,46 +722,6 @@ unsafe impl ::windows::runtime::Interface for IRawElementProviderSimple {
 }
 impl ::windows::runtime::RuntimeName for IRawElementProviderSimple {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple";
-}
-impl ::std::convert::From<IRawElementProviderSimple> for ::windows::runtime::IUnknown {
-    fn from(value: IRawElementProviderSimple) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IRawElementProviderSimple> for ::windows::runtime::IUnknown {
-    fn from(value: &IRawElementProviderSimple) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRawElementProviderSimple {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IRawElementProviderSimple {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IRawElementProviderSimple> for ::windows::runtime::IInspectable {
-    fn from(value: IRawElementProviderSimple) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IRawElementProviderSimple> for ::windows::runtime::IInspectable {
-    fn from(value: &IRawElementProviderSimple) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IRawElementProviderSimple {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IRawElementProviderSimple {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<IRawElementProviderSimple> for super::super::DependencyObject {
     fn from(value: IRawElementProviderSimple) -> Self {

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DevicePortalConnection(::windows::runtime::IInspectable);
 impl DevicePortalConnection {
     #[cfg(feature = "Foundation")]
@@ -110,51 +110,11 @@ unsafe impl ::windows::runtime::Interface for DevicePortalConnection {
 impl ::windows::runtime::RuntimeName for DevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
 }
-impl ::std::convert::From<DevicePortalConnection> for ::windows::runtime::IUnknown {
-    fn from(value: DevicePortalConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DevicePortalConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &DevicePortalConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DevicePortalConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DevicePortalConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DevicePortalConnection> for ::windows::runtime::IInspectable {
-    fn from(value: DevicePortalConnection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DevicePortalConnection> for ::windows::runtime::IInspectable {
-    fn from(value: &DevicePortalConnection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DevicePortalConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DevicePortalConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DevicePortalConnection {}
 unsafe impl ::std::marker::Sync for DevicePortalConnection {}
 #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DevicePortalConnectionClosedEventArgs(::windows::runtime::IInspectable);
 impl DevicePortalConnectionClosedEventArgs {
     #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
@@ -175,46 +135,6 @@ unsafe impl ::windows::runtime::Interface for DevicePortalConnectionClosedEventA
 }
 impl ::windows::runtime::RuntimeName for DevicePortalConnectionClosedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
-}
-impl ::std::convert::From<DevicePortalConnectionClosedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DevicePortalConnectionClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DevicePortalConnectionClosedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DevicePortalConnectionClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DevicePortalConnectionClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DevicePortalConnectionClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DevicePortalConnectionClosedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DevicePortalConnectionClosedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DevicePortalConnectionClosedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DevicePortalConnectionClosedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DevicePortalConnectionClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DevicePortalConnectionClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl ::std::marker::Sync for DevicePortalConnectionClosedEventArgs {}
@@ -244,7 +164,7 @@ unsafe impl ::windows::runtime::RuntimeType for DevicePortalConnectionClosedReas
 }
 #[doc = "*Required features: `System_Diagnostics_DevicePortal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(::windows::runtime::IInspectable);
 impl DevicePortalConnectionRequestReceivedEventArgs {
     #[cfg(feature = "Web_Http")]
@@ -301,46 +221,6 @@ unsafe impl ::windows::runtime::Interface for DevicePortalConnectionRequestRecei
 }
 impl ::windows::runtime::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";
-}
-impl ::std::convert::From<DevicePortalConnectionRequestReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DevicePortalConnectionRequestReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DevicePortalConnectionRequestReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DevicePortalConnectionRequestReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DevicePortalConnectionRequestReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DevicePortalConnectionRequestReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DevicePortalConnectionRequestReceivedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DevicePortalConnectionRequestReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DevicePortalConnectionRequestReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DevicePortalConnectionRequestReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for DevicePortalConnectionRequestReceivedEventArgs {}

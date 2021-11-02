@@ -649,7 +649,7 @@ pub struct IIsolatedWindowsHostMessengerStatics2_abi(
 );
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironment(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironment {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -854,46 +854,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironment {
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironment";
-}
-impl ::std::convert::From<IsolatedWindowsEnvironment> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironment> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironment> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironment> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironment {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironment {}
@@ -1102,7 +1062,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentCreate
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentCreateResult(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentCreateResult {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -1140,46 +1100,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentCreateRe
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentCreateResult> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentCreateResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentCreateResult> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentCreateResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentCreateResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentCreateResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentCreateResult> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentCreateResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentCreateResult> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentCreateResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentCreateResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentCreateResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -1205,7 +1125,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentCreate
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentFile(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentFile {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -1255,46 +1175,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentFile {
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentFile {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentFile> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentFile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentFile> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentFile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentFile> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentFile) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentFile> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentFile) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentFile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentFile {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentFile {}
@@ -1349,7 +1229,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentHostEr
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentLaunchFileResult {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -1387,46 +1267,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentLaunchFi
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentLaunchFileResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentLaunchFileResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentLaunchFileResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentLaunchFileResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -1455,7 +1295,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentLaunch
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentOptions(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1601,46 +1441,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentOptions 
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentOptions> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentOptions> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentOptions {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -1667,7 +1467,7 @@ impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistra
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1724,51 +1524,11 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentOwnerReg
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -1798,46 +1558,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentOwnerReg
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -1865,7 +1585,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentOwnerR
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentPostMessageResult {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -1895,46 +1615,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentPostMess
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentPostMessageResult> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentPostMessageResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentPostMessageResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentPostMessageResult> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentPostMessageResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentPostMessageResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentPostMessageResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentPostMessageResult {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -1960,7 +1640,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentPostMe
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentProcess(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentProcess {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -2009,46 +1689,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentProcess 
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentProcess> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentProcess) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentProcess> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentProcess) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentProcess {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentProcess {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentProcess> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentProcess) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentProcess> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentProcess) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentProcess {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentProcess {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentProcess {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -2095,7 +1735,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentProgre
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentShareFileRequestOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2129,51 +1769,11 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentShareFil
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentShareFileResult {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -2211,46 +1811,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentShareFil
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentShareFileResult> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentShareFileResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentShareFileResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentShareFileResult> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFileResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentShareFileResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentShareFileResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentShareFileResult {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -2279,7 +1839,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentShareF
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2313,51 +1873,11 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentShareFol
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentShareFolderResult {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -2387,46 +1907,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentShareFol
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentShareFolderResult> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentShareFolderResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentShareFolderResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentShareFolderResult> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentShareFolderResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentShareFolderResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentShareFolderResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentShareFolderResult {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -2454,7 +1934,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentShareF
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentStartProcessResult {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -2492,46 +1972,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentStartPro
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentStartProcessResult> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentStartProcessResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentStartProcessResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentStartProcessResult> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentStartProcessResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentStartProcessResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentStartProcessResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentStartProcessResult {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[doc = "*Required features: `Security_Isolation`*"]
@@ -2559,7 +1999,7 @@ unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentStartP
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentTelemetryParameters {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2593,51 +2033,11 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentTelemetr
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
 }
-impl ::std::convert::From<IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentTelemetryParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentTelemetryParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentTelemetryParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentTelemetryParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentTelemetryParameters {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IsolatedWindowsEnvironmentUserInfo(::windows::runtime::IInspectable);
 impl IsolatedWindowsEnvironmentUserInfo {
     #[doc = "*Required features: `Security_Isolation`*"]
@@ -2675,46 +2075,6 @@ unsafe impl ::windows::runtime::Interface for IsolatedWindowsEnvironmentUserInfo
 }
 impl ::windows::runtime::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentUserInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IsolatedWindowsEnvironmentUserInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentUserInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IsolatedWindowsEnvironmentUserInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IsolatedWindowsEnvironmentUserInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IsolatedWindowsEnvironmentUserInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IsolatedWindowsEnvironmentUserInfo> for ::windows::runtime::IInspectable {
-    fn from(value: IsolatedWindowsEnvironmentUserInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IsolatedWindowsEnvironmentUserInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &IsolatedWindowsEnvironmentUserInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IsolatedWindowsEnvironmentUserInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IsolatedWindowsEnvironmentUserInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for IsolatedWindowsEnvironmentUserInfo {}
 unsafe impl ::std::marker::Sync for IsolatedWindowsEnvironmentUserInfo {}

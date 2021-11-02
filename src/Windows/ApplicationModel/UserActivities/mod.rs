@@ -502,7 +502,7 @@ pub struct IUserActivityVisualElements2_abi(
 );
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivity(::windows::runtime::IInspectable);
 impl UserActivity {
     #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
@@ -687,51 +687,11 @@ unsafe impl ::windows::runtime::Interface for UserActivity {
 impl ::windows::runtime::RuntimeName for UserActivity {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivity";
 }
-impl ::std::convert::From<UserActivity> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivity> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivity> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivity) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivity> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivity) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserActivity {}
 unsafe impl ::std::marker::Sync for UserActivity {}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivityAttribution(::windows::runtime::IInspectable);
 impl UserActivityAttribution {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -805,51 +765,11 @@ unsafe impl ::windows::runtime::Interface for UserActivityAttribution {
 impl ::windows::runtime::RuntimeName for UserActivityAttribution {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityAttribution";
 }
-impl ::std::convert::From<UserActivityAttribution> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivityAttribution) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivityAttribution> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivityAttribution) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivityAttribution {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivityAttribution {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivityAttribution> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivityAttribution) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivityAttribution> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivityAttribution) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivityAttribution {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivityAttribution {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserActivityAttribution {}
 unsafe impl ::std::marker::Sync for UserActivityAttribution {}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivityChannel(::windows::runtime::IInspectable);
 impl UserActivityChannel {
     #[cfg(feature = "Foundation")]
@@ -947,51 +867,11 @@ unsafe impl ::windows::runtime::Interface for UserActivityChannel {
 impl ::windows::runtime::RuntimeName for UserActivityChannel {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityChannel";
 }
-impl ::std::convert::From<UserActivityChannel> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivityChannel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivityChannel> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivityChannel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivityChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivityChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivityChannel> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivityChannel) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivityChannel> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivityChannel) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivityChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivityChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserActivityChannel {}
 unsafe impl ::std::marker::Sync for UserActivityChannel {}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivityContentInfo(::windows::runtime::IInspectable);
 impl UserActivityContentInfo {
     #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
@@ -1024,46 +904,6 @@ unsafe impl ::windows::runtime::Interface for UserActivityContentInfo {
 impl ::windows::runtime::RuntimeName for UserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityContentInfo";
 }
-impl ::std::convert::From<UserActivityContentInfo> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivityContentInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivityContentInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivityContentInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivityContentInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivityContentInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivityContentInfo> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivityContentInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivityContentInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivityContentInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivityContentInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivityContentInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<UserActivityContentInfo> for IUserActivityContentInfo {
     fn from(value: UserActivityContentInfo) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1088,7 +928,7 @@ unsafe impl ::std::marker::Send for UserActivityContentInfo {}
 unsafe impl ::std::marker::Sync for UserActivityContentInfo {}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivityRequest(::windows::runtime::IInspectable);
 impl UserActivityRequest {
     #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
@@ -1107,51 +947,11 @@ unsafe impl ::windows::runtime::Interface for UserActivityRequest {
 impl ::windows::runtime::RuntimeName for UserActivityRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequest";
 }
-impl ::std::convert::From<UserActivityRequest> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivityRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivityRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivityRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivityRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivityRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivityRequest> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivityRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivityRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivityRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivityRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivityRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserActivityRequest {}
 unsafe impl ::std::marker::Sync for UserActivityRequest {}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivityRequestManager(::windows::runtime::IInspectable);
 impl UserActivityRequestManager {
     #[cfg(feature = "Foundation")]
@@ -1191,49 +991,9 @@ unsafe impl ::windows::runtime::Interface for UserActivityRequestManager {
 impl ::windows::runtime::RuntimeName for UserActivityRequestManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestManager";
 }
-impl ::std::convert::From<UserActivityRequestManager> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivityRequestManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivityRequestManager> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivityRequestManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivityRequestManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivityRequestManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivityRequestManager> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivityRequestManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivityRequestManager> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivityRequestManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivityRequestManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivityRequestManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivityRequestedEventArgs(::windows::runtime::IInspectable);
 impl UserActivityRequestedEventArgs {
     #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
@@ -1264,51 +1024,11 @@ unsafe impl ::windows::runtime::Interface for UserActivityRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for UserActivityRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs";
 }
-impl ::std::convert::From<UserActivityRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivityRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivityRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivityRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivityRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivityRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivityRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivityRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivityRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivityRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivityRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivityRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserActivityRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for UserActivityRequestedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivitySession(::windows::runtime::IInspectable);
 impl UserActivitySession {
     #[cfg(feature = "Foundation")]
@@ -1335,46 +1055,6 @@ unsafe impl ::windows::runtime::Interface for UserActivitySession {
 }
 impl ::windows::runtime::RuntimeName for UserActivitySession {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySession";
-}
-impl ::std::convert::From<UserActivitySession> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivitySession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivitySession> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivitySession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivitySession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivitySession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivitySession> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivitySession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivitySession> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivitySession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivitySession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivitySession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<UserActivitySession> for super::super::Foundation::IClosable {
@@ -1406,7 +1086,7 @@ unsafe impl ::std::marker::Send for UserActivitySession {}
 unsafe impl ::std::marker::Sync for UserActivitySession {}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivitySessionHistoryItem(::windows::runtime::IInspectable);
 impl UserActivitySessionHistoryItem {
     #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
@@ -1446,46 +1126,6 @@ unsafe impl ::windows::runtime::Interface for UserActivitySessionHistoryItem {
 impl ::windows::runtime::RuntimeName for UserActivitySessionHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem";
 }
-impl ::std::convert::From<UserActivitySessionHistoryItem> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivitySessionHistoryItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivitySessionHistoryItem> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivitySessionHistoryItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivitySessionHistoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivitySessionHistoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivitySessionHistoryItem> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivitySessionHistoryItem) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivitySessionHistoryItem> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivitySessionHistoryItem) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivitySessionHistoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivitySessionHistoryItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::std::marker::Sync for UserActivitySessionHistoryItem {}
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
@@ -1510,7 +1150,7 @@ unsafe impl ::windows::runtime::RuntimeType for UserActivityState {
 }
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserActivityVisualElements(::windows::runtime::IInspectable);
 impl UserActivityVisualElements {
     #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
@@ -1605,46 +1245,6 @@ unsafe impl ::windows::runtime::Interface for UserActivityVisualElements {
 }
 impl ::windows::runtime::RuntimeName for UserActivityVisualElements {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityVisualElements";
-}
-impl ::std::convert::From<UserActivityVisualElements> for ::windows::runtime::IUnknown {
-    fn from(value: UserActivityVisualElements) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserActivityVisualElements> for ::windows::runtime::IUnknown {
-    fn from(value: &UserActivityVisualElements) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserActivityVisualElements {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserActivityVisualElements {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserActivityVisualElements> for ::windows::runtime::IInspectable {
-    fn from(value: UserActivityVisualElements) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserActivityVisualElements> for ::windows::runtime::IInspectable {
-    fn from(value: &UserActivityVisualElements) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserActivityVisualElements {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserActivityVisualElements {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for UserActivityVisualElements {}
 unsafe impl ::std::marker::Sync for UserActivityVisualElements {}

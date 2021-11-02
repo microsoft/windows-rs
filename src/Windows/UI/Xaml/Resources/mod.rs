@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Xaml_Resources`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CustomXamlResourceLoader(::windows::runtime::IInspectable);
 impl CustomXamlResourceLoader {
     #[doc = "*Required features: `UI_Xaml_Resources`*"]
@@ -48,46 +48,6 @@ unsafe impl ::windows::runtime::Interface for CustomXamlResourceLoader {
 }
 impl ::windows::runtime::RuntimeName for CustomXamlResourceLoader {
     const NAME: &'static str = "Windows.UI.Xaml.Resources.CustomXamlResourceLoader";
-}
-impl ::std::convert::From<CustomXamlResourceLoader> for ::windows::runtime::IUnknown {
-    fn from(value: CustomXamlResourceLoader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CustomXamlResourceLoader> for ::windows::runtime::IUnknown {
-    fn from(value: &CustomXamlResourceLoader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CustomXamlResourceLoader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CustomXamlResourceLoader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CustomXamlResourceLoader> for ::windows::runtime::IInspectable {
-    fn from(value: CustomXamlResourceLoader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CustomXamlResourceLoader> for ::windows::runtime::IInspectable {
-    fn from(value: &CustomXamlResourceLoader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CustomXamlResourceLoader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CustomXamlResourceLoader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CustomXamlResourceLoader {}
 unsafe impl ::std::marker::Sync for CustomXamlResourceLoader {}

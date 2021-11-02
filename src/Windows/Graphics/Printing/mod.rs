@@ -947,7 +947,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintHolePunch {
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintManager(::windows::runtime::IInspectable);
 impl PrintManager {
     #[cfg(feature = "Foundation")]
@@ -1005,46 +1005,6 @@ unsafe impl ::windows::runtime::Interface for PrintManager {
 }
 impl ::windows::runtime::RuntimeName for PrintManager {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintManager";
-}
-impl ::std::convert::From<PrintManager> for ::windows::runtime::IUnknown {
-    fn from(value: PrintManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintManager> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintManager> for ::windows::runtime::IInspectable {
-    fn from(value: PrintManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintManager> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PrintManager {}
 unsafe impl ::std::marker::Sync for PrintManager {}
@@ -1357,7 +1317,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintPageDescription {
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintPageInfo(::windows::runtime::IInspectable);
 impl PrintPageInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1445,51 +1405,11 @@ unsafe impl ::windows::runtime::Interface for PrintPageInfo {
 impl ::windows::runtime::RuntimeName for PrintPageInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageInfo";
 }
-impl ::std::convert::From<PrintPageInfo> for ::windows::runtime::IUnknown {
-    fn from(value: PrintPageInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintPageInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintPageInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintPageInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintPageInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintPageInfo> for ::windows::runtime::IInspectable {
-    fn from(value: PrintPageInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintPageInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintPageInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintPageInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintPageInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintPageInfo {}
 unsafe impl ::std::marker::Sync for PrintPageInfo {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintPageRange(::windows::runtime::IInspectable);
 impl PrintPageRange {
     #[doc = "*Required features: `Graphics_Printing`*"]
@@ -1537,51 +1457,11 @@ unsafe impl ::windows::runtime::Interface for PrintPageRange {
 impl ::windows::runtime::RuntimeName for PrintPageRange {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRange";
 }
-impl ::std::convert::From<PrintPageRange> for ::windows::runtime::IUnknown {
-    fn from(value: PrintPageRange) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintPageRange> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintPageRange) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintPageRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintPageRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintPageRange> for ::windows::runtime::IInspectable {
-    fn from(value: PrintPageRange) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintPageRange> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintPageRange) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintPageRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintPageRange {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintPageRange {}
 unsafe impl ::std::marker::Sync for PrintPageRange {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintPageRangeOptions(::windows::runtime::IInspectable);
 impl PrintPageRangeOptions {
     #[doc = "*Required features: `Graphics_Printing`*"]
@@ -1633,46 +1513,6 @@ unsafe impl ::windows::runtime::Interface for PrintPageRangeOptions {
 }
 impl ::windows::runtime::RuntimeName for PrintPageRangeOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRangeOptions";
-}
-impl ::std::convert::From<PrintPageRangeOptions> for ::windows::runtime::IUnknown {
-    fn from(value: PrintPageRangeOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintPageRangeOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintPageRangeOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintPageRangeOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintPageRangeOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintPageRangeOptions> for ::windows::runtime::IInspectable {
-    fn from(value: PrintPageRangeOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintPageRangeOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintPageRangeOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintPageRangeOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintPageRangeOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PrintPageRangeOptions {}
 unsafe impl ::std::marker::Sync for PrintPageRangeOptions {}
@@ -1737,7 +1577,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintStaple {
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTask(::windows::runtime::IInspectable);
 impl PrintTask {
     #[cfg(feature = "ApplicationModel_DataTransfer")]
@@ -1875,51 +1715,11 @@ unsafe impl ::windows::runtime::Interface for PrintTask {
 impl ::windows::runtime::RuntimeName for PrintTask {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTask";
 }
-impl ::std::convert::From<PrintTask> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTask) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTask> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTask) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTask> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTask) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTask> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTask) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTask {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTask {}
 unsafe impl ::std::marker::Sync for PrintTask {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskCompletedEventArgs(::windows::runtime::IInspectable);
 impl PrintTaskCompletedEventArgs {
     #[doc = "*Required features: `Graphics_Printing`*"]
@@ -1940,46 +1740,6 @@ unsafe impl ::windows::runtime::Interface for PrintTaskCompletedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for PrintTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskCompletedEventArgs";
-}
-impl ::std::convert::From<PrintTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskCompletedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskCompletedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskCompletedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskCompletedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PrintTaskCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintTaskCompletedEventArgs {}
@@ -2007,7 +1767,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTaskCompletion {
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskOptions(::windows::runtime::IInspectable);
 impl PrintTaskOptions {
     #[cfg(feature = "Foundation")]
@@ -2237,46 +1997,6 @@ unsafe impl ::windows::runtime::Interface for PrintTaskOptions {
 impl ::windows::runtime::RuntimeName for PrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskOptions";
 }
-impl ::std::convert::From<PrintTaskOptions> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskOptions> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<PrintTaskOptions> for IPrintTaskOptionsCore {
     fn from(value: PrintTaskOptions) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2345,7 +2065,7 @@ unsafe impl ::std::marker::Send for PrintTaskOptions {}
 unsafe impl ::std::marker::Sync for PrintTaskOptions {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskProgressingEventArgs(::windows::runtime::IInspectable);
 impl PrintTaskProgressingEventArgs {
     #[doc = "*Required features: `Graphics_Printing`*"]
@@ -2367,51 +2087,11 @@ unsafe impl ::windows::runtime::Interface for PrintTaskProgressingEventArgs {
 impl ::windows::runtime::RuntimeName for PrintTaskProgressingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskProgressingEventArgs";
 }
-impl ::std::convert::From<PrintTaskProgressingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskProgressingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskProgressingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskProgressingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskProgressingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskProgressingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskProgressingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskProgressingEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskProgressingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskProgressingEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskProgressingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskProgressingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTaskProgressingEventArgs {}
 unsafe impl ::std::marker::Sync for PrintTaskProgressingEventArgs {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskRequest(::windows::runtime::IInspectable);
 impl PrintTaskRequest {
     #[cfg(feature = "Foundation")]
@@ -2450,51 +2130,11 @@ unsafe impl ::windows::runtime::Interface for PrintTaskRequest {
 impl ::windows::runtime::RuntimeName for PrintTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequest";
 }
-impl ::std::convert::From<PrintTaskRequest> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskRequest> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTaskRequest {}
 unsafe impl ::std::marker::Sync for PrintTaskRequest {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskRequestedDeferral(::windows::runtime::IInspectable);
 impl PrintTaskRequestedDeferral {
     #[doc = "*Required features: `Graphics_Printing`*"]
@@ -2513,51 +2153,11 @@ unsafe impl ::windows::runtime::Interface for PrintTaskRequestedDeferral {
 impl ::windows::runtime::RuntimeName for PrintTaskRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedDeferral";
 }
-impl ::std::convert::From<PrintTaskRequestedDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskRequestedDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskRequestedDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskRequestedDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskRequestedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskRequestedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskRequestedDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskRequestedDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskRequestedDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskRequestedDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskRequestedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskRequestedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTaskRequestedDeferral {}
 unsafe impl ::std::marker::Sync for PrintTaskRequestedDeferral {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskRequestedEventArgs(::windows::runtime::IInspectable);
 impl PrintTaskRequestedEventArgs {
     #[doc = "*Required features: `Graphics_Printing`*"]
@@ -2579,51 +2179,11 @@ unsafe impl ::windows::runtime::Interface for PrintTaskRequestedEventArgs {
 impl ::windows::runtime::RuntimeName for PrintTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedEventArgs";
 }
-impl ::std::convert::From<PrintTaskRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTaskRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintTaskRequestedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskSourceRequestedArgs(::windows::runtime::IInspectable);
 impl PrintTaskSourceRequestedArgs {
     #[cfg(feature = "Foundation")]
@@ -2659,51 +2219,11 @@ unsafe impl ::windows::runtime::Interface for PrintTaskSourceRequestedArgs {
 impl ::windows::runtime::RuntimeName for PrintTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedArgs";
 }
-impl ::std::convert::From<PrintTaskSourceRequestedArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskSourceRequestedArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskSourceRequestedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskSourceRequestedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskSourceRequestedArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskSourceRequestedArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskSourceRequestedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskSourceRequestedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTaskSourceRequestedArgs {}
 unsafe impl ::std::marker::Sync for PrintTaskSourceRequestedArgs {}
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTaskSourceRequestedDeferral(::windows::runtime::IInspectable);
 impl PrintTaskSourceRequestedDeferral {
     #[doc = "*Required features: `Graphics_Printing`*"]
@@ -2721,46 +2241,6 @@ unsafe impl ::windows::runtime::Interface for PrintTaskSourceRequestedDeferral {
 }
 impl ::windows::runtime::RuntimeName for PrintTaskSourceRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral";
-}
-impl ::std::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTaskSourceRequestedDeferral) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTaskSourceRequestedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTaskSourceRequestedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTaskSourceRequestedDeferral) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTaskSourceRequestedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTaskSourceRequestedDeferral {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PrintTaskSourceRequestedDeferral {}
 unsafe impl ::std::marker::Sync for PrintTaskSourceRequestedDeferral {}

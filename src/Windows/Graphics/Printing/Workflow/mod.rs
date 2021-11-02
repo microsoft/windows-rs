@@ -695,7 +695,7 @@ pub struct IPrintWorkflowXpsDataAvailableEventArgs_abi(
 );
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowBackgroundSession(::windows::runtime::IInspectable);
 impl PrintWorkflowBackgroundSession {
     #[cfg(feature = "Foundation")]
@@ -752,51 +752,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowBackgroundSession {
 impl ::windows::runtime::RuntimeName for PrintWorkflowBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession";
 }
-impl ::std::convert::From<PrintWorkflowBackgroundSession> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowBackgroundSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowBackgroundSession> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowBackgroundSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowBackgroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowBackgroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowBackgroundSession> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowBackgroundSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowBackgroundSession> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowBackgroundSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowBackgroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowBackgroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowBackgroundSession {}
 unsafe impl ::std::marker::Sync for PrintWorkflowBackgroundSession {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
@@ -841,51 +801,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowBackgroundSetupReques
 impl ::windows::runtime::RuntimeName for PrintWorkflowBackgroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs";
 }
-impl ::std::convert::From<PrintWorkflowBackgroundSetupRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowBackgroundSetupRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowBackgroundSetupRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowBackgroundSetupRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowBackgroundSetupRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowBackgroundSetupRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowBackgroundSetupRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowBackgroundSetupRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowConfiguration(::windows::runtime::IInspectable);
 impl PrintWorkflowConfiguration {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -928,51 +848,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowConfiguration {
 impl ::windows::runtime::RuntimeName for PrintWorkflowConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration";
 }
-impl ::std::convert::From<PrintWorkflowConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowConfiguration {}
 unsafe impl ::std::marker::Sync for PrintWorkflowConfiguration {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowForegroundSession(::windows::runtime::IInspectable);
 impl PrintWorkflowForegroundSession {
     #[cfg(feature = "Foundation")]
@@ -1029,51 +909,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowForegroundSession {
 impl ::windows::runtime::RuntimeName for PrintWorkflowForegroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession";
 }
-impl ::std::convert::From<PrintWorkflowForegroundSession> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowForegroundSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowForegroundSession> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowForegroundSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowForegroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowForegroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowForegroundSession> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowForegroundSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowForegroundSession> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowForegroundSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowForegroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowForegroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowForegroundSession {}
 unsafe impl ::std::marker::Sync for PrintWorkflowForegroundSession {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
@@ -1113,46 +953,6 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowForegroundSetupReques
 impl ::windows::runtime::RuntimeName for PrintWorkflowForegroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs";
 }
-impl ::std::convert::From<PrintWorkflowForegroundSetupRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowForegroundSetupRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowForegroundSetupRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowForegroundSetupRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowForegroundSetupRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowForegroundSetupRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowForegroundSetupRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowForegroundSetupRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -1177,7 +977,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintWorkflowJobAbortReason {
 }
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowJobActivatedEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowJobActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1235,46 +1035,6 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowJobActivatedEventArgs
 impl ::windows::runtime::RuntimeName for PrintWorkflowJobActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs";
 }
-impl ::std::convert::From<PrintWorkflowJobActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowJobActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowJobActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowJobActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowJobActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowJobActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowJobActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowJobActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowJobActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowJobActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::std::convert::TryFrom<PrintWorkflowJobActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -1331,7 +1091,7 @@ unsafe impl ::std::marker::Send for PrintWorkflowJobActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowJobActivatedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowJobBackgroundSession(::windows::runtime::IInspectable);
 impl PrintWorkflowJobBackgroundSession {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -1388,51 +1148,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowJobBackgroundSession 
 impl ::windows::runtime::RuntimeName for PrintWorkflowJobBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession";
 }
-impl ::std::convert::From<PrintWorkflowJobBackgroundSession> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowJobBackgroundSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobBackgroundSession> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowJobBackgroundSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowJobBackgroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowJobBackgroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowJobBackgroundSession> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowJobBackgroundSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobBackgroundSession> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowJobBackgroundSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowJobBackgroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowJobBackgroundSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowJobBackgroundSession {}
 unsafe impl ::std::marker::Sync for PrintWorkflowJobBackgroundSession {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowJobNotificationEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowJobNotificationEventArgs {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -1471,51 +1191,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowJobNotificationEventA
 impl ::windows::runtime::RuntimeName for PrintWorkflowJobNotificationEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs";
 }
-impl ::std::convert::From<PrintWorkflowJobNotificationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowJobNotificationEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobNotificationEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowJobNotificationEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowJobNotificationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowJobNotificationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowJobNotificationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowJobNotificationEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobNotificationEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowJobNotificationEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowJobNotificationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowJobNotificationEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowJobNotificationEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowJobNotificationEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowJobStartingEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowJobStartingEventArgs {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -1560,51 +1240,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowJobStartingEventArgs 
 impl ::windows::runtime::RuntimeName for PrintWorkflowJobStartingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs";
 }
-impl ::std::convert::From<PrintWorkflowJobStartingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowJobStartingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobStartingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowJobStartingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowJobStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowJobStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowJobStartingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowJobStartingEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobStartingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowJobStartingEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowJobStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowJobStartingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowJobStartingEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowJobStartingEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowJobTriggerDetails(::windows::runtime::IInspectable);
 impl PrintWorkflowJobTriggerDetails {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -1626,51 +1266,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowJobTriggerDetails {
 impl ::windows::runtime::RuntimeName for PrintWorkflowJobTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails";
 }
-impl ::std::convert::From<PrintWorkflowJobTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowJobTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowJobTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowJobTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowJobTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowJobTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowJobTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowJobTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowJobTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowJobTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowJobTriggerDetails {}
 unsafe impl ::std::marker::Sync for PrintWorkflowJobTriggerDetails {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowJobUISession(::windows::runtime::IInspectable);
 impl PrintWorkflowJobUISession {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -1727,51 +1327,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowJobUISession {
 impl ::windows::runtime::RuntimeName for PrintWorkflowJobUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession";
 }
-impl ::std::convert::From<PrintWorkflowJobUISession> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowJobUISession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobUISession> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowJobUISession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowJobUISession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowJobUISession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowJobUISession> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowJobUISession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowJobUISession> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowJobUISession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowJobUISession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowJobUISession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowJobUISession {}
 unsafe impl ::std::marker::Sync for PrintWorkflowJobUISession {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowObjectModelSourceFileContent(::windows::runtime::IInspectable);
 impl PrintWorkflowObjectModelSourceFileContent {
     #[cfg(feature = "Storage_Streams")]
@@ -1797,51 +1357,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowObjectModelSourceFile
 impl ::windows::runtime::RuntimeName for PrintWorkflowObjectModelSourceFileContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent";
 }
-impl ::std::convert::From<PrintWorkflowObjectModelSourceFileContent> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowObjectModelSourceFileContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowObjectModelSourceFileContent> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowObjectModelSourceFileContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowObjectModelSourceFileContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowObjectModelSourceFileContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowObjectModelSourceFileContent> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowObjectModelSourceFileContent) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowObjectModelSourceFileContent> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowObjectModelSourceFileContent) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowObjectModelSourceFileContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowObjectModelSourceFileContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowObjectModelSourceFileContent {}
 unsafe impl ::std::marker::Sync for PrintWorkflowObjectModelSourceFileContent {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowObjectModelTargetPackage(::windows::runtime::IInspectable);
 impl PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::windows::runtime::RuntimeType for PrintWorkflowObjectModelTargetPackage {
@@ -1853,46 +1373,6 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowObjectModelTargetPack
 }
 impl ::windows::runtime::RuntimeName for PrintWorkflowObjectModelTargetPackage {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage";
-}
-impl ::std::convert::From<PrintWorkflowObjectModelTargetPackage> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowObjectModelTargetPackage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowObjectModelTargetPackage> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowObjectModelTargetPackage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowObjectModelTargetPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowObjectModelTargetPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowObjectModelTargetPackage> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowObjectModelTargetPackage) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowObjectModelTargetPackage> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowObjectModelTargetPackage) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowObjectModelTargetPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowObjectModelTargetPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::std::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
@@ -1919,7 +1399,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintWorkflowPdlConversionType {
 }
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowPdlConverter(::windows::runtime::IInspectable);
 impl PrintWorkflowPdlConverter {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
@@ -1942,51 +1422,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowPdlConverter {
 impl ::windows::runtime::RuntimeName for PrintWorkflowPdlConverter {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter";
 }
-impl ::std::convert::From<PrintWorkflowPdlConverter> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowPdlConverter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlConverter> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowPdlConverter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowPdlConverter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowPdlConverter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowPdlConverter> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowPdlConverter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlConverter> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowPdlConverter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowPdlConverter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowPdlConverter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowPdlConverter {}
 unsafe impl ::std::marker::Sync for PrintWorkflowPdlConverter {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowPdlDataAvailableEventArgs {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2033,51 +1473,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowPdlDataAvailableEvent
 impl ::windows::runtime::RuntimeName for PrintWorkflowPdlDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs";
 }
-impl ::std::convert::From<PrintWorkflowPdlDataAvailableEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlDataAvailableEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowPdlDataAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowPdlDataAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowPdlDataAvailableEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlDataAvailableEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowPdlDataAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowPdlDataAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowPdlDataAvailableEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowPdlDataAvailableEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowPdlModificationRequestedEventArgs {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2166,51 +1566,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowPdlModificationReques
 impl ::windows::runtime::RuntimeName for PrintWorkflowPdlModificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs";
 }
-impl ::std::convert::From<PrintWorkflowPdlModificationRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlModificationRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowPdlModificationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowPdlModificationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowPdlModificationRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlModificationRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowPdlModificationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowPdlModificationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowPdlModificationRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowPdlSourceContent(::windows::runtime::IInspectable);
 impl PrintWorkflowPdlSourceContent {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2250,51 +1610,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowPdlSourceContent {
 impl ::windows::runtime::RuntimeName for PrintWorkflowPdlSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent";
 }
-impl ::std::convert::From<PrintWorkflowPdlSourceContent> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowPdlSourceContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlSourceContent> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowPdlSourceContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowPdlSourceContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowPdlSourceContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowPdlSourceContent> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowPdlSourceContent) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlSourceContent> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowPdlSourceContent) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowPdlSourceContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowPdlSourceContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowPdlSourceContent {}
 unsafe impl ::std::marker::Sync for PrintWorkflowPdlSourceContent {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowPdlTargetStream(::windows::runtime::IInspectable);
 impl PrintWorkflowPdlTargetStream {
     #[cfg(feature = "Storage_Streams")]
@@ -2322,51 +1642,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowPdlTargetStream {
 impl ::windows::runtime::RuntimeName for PrintWorkflowPdlTargetStream {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream";
 }
-impl ::std::convert::From<PrintWorkflowPdlTargetStream> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowPdlTargetStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlTargetStream> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowPdlTargetStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowPdlTargetStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowPdlTargetStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowPdlTargetStream> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowPdlTargetStream) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPdlTargetStream> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowPdlTargetStream) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowPdlTargetStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowPdlTargetStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowPdlTargetStream {}
 unsafe impl ::std::marker::Sync for PrintWorkflowPdlTargetStream {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowPrinterJob(::windows::runtime::IInspectable);
 impl PrintWorkflowPrinterJob {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2450,46 +1730,6 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowPrinterJob {
 impl ::windows::runtime::RuntimeName for PrintWorkflowPrinterJob {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob";
 }
-impl ::std::convert::From<PrintWorkflowPrinterJob> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowPrinterJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPrinterJob> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowPrinterJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowPrinterJob {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowPrinterJob {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowPrinterJob> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowPrinterJob) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowPrinterJob> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowPrinterJob) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowPrinterJob {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowPrinterJob {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::std::marker::Sync for PrintWorkflowPrinterJob {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2539,7 +1779,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintWorkflowSessionStatus {
 }
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowSourceContent(::windows::runtime::IInspectable);
 impl PrintWorkflowSourceContent {
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
@@ -2578,51 +1818,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowSourceContent {
 impl ::windows::runtime::RuntimeName for PrintWorkflowSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent";
 }
-impl ::std::convert::From<PrintWorkflowSourceContent> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowSourceContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowSourceContent> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowSourceContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowSourceContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowSourceContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowSourceContent> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowSourceContent) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowSourceContent> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowSourceContent) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowSourceContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowSourceContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowSourceContent {}
 unsafe impl ::std::marker::Sync for PrintWorkflowSourceContent {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowSpoolStreamContent(::windows::runtime::IInspectable);
 impl PrintWorkflowSpoolStreamContent {
     #[cfg(feature = "Storage_Streams")]
@@ -2645,51 +1845,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowSpoolStreamContent {
 impl ::windows::runtime::RuntimeName for PrintWorkflowSpoolStreamContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent";
 }
-impl ::std::convert::From<PrintWorkflowSpoolStreamContent> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowSpoolStreamContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowSpoolStreamContent> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowSpoolStreamContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowSpoolStreamContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowSpoolStreamContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowSpoolStreamContent> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowSpoolStreamContent) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowSpoolStreamContent> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowSpoolStreamContent) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowSpoolStreamContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowSpoolStreamContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowSpoolStreamContent {}
 unsafe impl ::std::marker::Sync for PrintWorkflowSpoolStreamContent {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowStreamTarget(::windows::runtime::IInspectable);
 impl PrintWorkflowStreamTarget {
     #[cfg(feature = "Storage_Streams")]
@@ -2712,51 +1872,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowStreamTarget {
 impl ::windows::runtime::RuntimeName for PrintWorkflowStreamTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget";
 }
-impl ::std::convert::From<PrintWorkflowStreamTarget> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowStreamTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowStreamTarget> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowStreamTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowStreamTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowStreamTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowStreamTarget> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowStreamTarget) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowStreamTarget> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowStreamTarget) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowStreamTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowStreamTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowStreamTarget {}
 unsafe impl ::std::marker::Sync for PrintWorkflowStreamTarget {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowSubmittedEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowSubmittedEventArgs {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2796,51 +1916,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowSubmittedEventArgs {
 impl ::windows::runtime::RuntimeName for PrintWorkflowSubmittedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs";
 }
-impl ::std::convert::From<PrintWorkflowSubmittedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowSubmittedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowSubmittedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowSubmittedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowSubmittedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowSubmittedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowSubmittedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowSubmittedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowSubmittedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowSubmittedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowSubmittedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowSubmittedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowSubmittedEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowSubmittedEventArgs {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowSubmittedOperation(::windows::runtime::IInspectable);
 impl PrintWorkflowSubmittedOperation {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2875,46 +1955,6 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowSubmittedOperation {
 impl ::windows::runtime::RuntimeName for PrintWorkflowSubmittedOperation {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation";
 }
-impl ::std::convert::From<PrintWorkflowSubmittedOperation> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowSubmittedOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowSubmittedOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowSubmittedOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowSubmittedOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowSubmittedOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowSubmittedOperation> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowSubmittedOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowSubmittedOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowSubmittedOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowSubmittedOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowSubmittedOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::std::marker::Sync for PrintWorkflowSubmittedOperation {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2940,7 +1980,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintWorkflowSubmittedStatus {
 }
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowTarget(::windows::runtime::IInspectable);
 impl PrintWorkflowTarget {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -2970,51 +2010,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowTarget {
 impl ::windows::runtime::RuntimeName for PrintWorkflowTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTarget";
 }
-impl ::std::convert::From<PrintWorkflowTarget> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowTarget> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowTarget> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowTarget) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowTarget> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowTarget) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowTarget {}
 unsafe impl ::std::marker::Sync for PrintWorkflowTarget {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowTriggerDetails(::windows::runtime::IInspectable);
 impl PrintWorkflowTriggerDetails {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -3036,51 +2036,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowTriggerDetails {
 impl ::windows::runtime::RuntimeName for PrintWorkflowTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails";
 }
-impl ::std::convert::From<PrintWorkflowTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowTriggerDetails {}
 unsafe impl ::std::marker::Sync for PrintWorkflowTriggerDetails {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowUIActivatedEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowUIActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3137,46 +2097,6 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowUIActivatedEventArgs 
 }
 impl ::windows::runtime::RuntimeName for PrintWorkflowUIActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs";
-}
-impl ::std::convert::From<PrintWorkflowUIActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowUIActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowUIActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowUIActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowUIActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowUIActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowUIActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowUIActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowUIActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowUIActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowUIActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowUIActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::std::convert::TryFrom<PrintWorkflowUIActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
@@ -3256,7 +2176,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintWorkflowUICompletionStatus 
 }
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowUILauncher(::windows::runtime::IInspectable);
 impl PrintWorkflowUILauncher {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -3287,51 +2207,11 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowUILauncher {
 impl ::windows::runtime::RuntimeName for PrintWorkflowUILauncher {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher";
 }
-impl ::std::convert::From<PrintWorkflowUILauncher> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowUILauncher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowUILauncher> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowUILauncher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowUILauncher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowUILauncher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowUILauncher> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowUILauncher) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowUILauncher> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowUILauncher) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowUILauncher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowUILauncher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintWorkflowUILauncher {}
 unsafe impl ::std::marker::Sync for PrintWorkflowUILauncher {}
 #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(::windows::runtime::IInspectable);
 impl PrintWorkflowXpsDataAvailableEventArgs {
     #[doc = "*Required features: `Graphics_Printing_Workflow`*"]
@@ -3361,46 +2241,6 @@ unsafe impl ::windows::runtime::Interface for PrintWorkflowXpsDataAvailableEvent
 }
 impl ::windows::runtime::RuntimeName for PrintWorkflowXpsDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs";
-}
-impl ::std::convert::From<PrintWorkflowXpsDataAvailableEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintWorkflowXpsDataAvailableEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintWorkflowXpsDataAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintWorkflowXpsDataAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintWorkflowXpsDataAvailableEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintWorkflowXpsDataAvailableEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintWorkflowXpsDataAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintWorkflowXpsDataAvailableEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PrintWorkflowXpsDataAvailableEventArgs {}
 unsafe impl ::std::marker::Sync for PrintWorkflowXpsDataAvailableEventArgs {}

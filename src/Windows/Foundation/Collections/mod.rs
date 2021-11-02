@@ -1446,7 +1446,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
 }
 #[doc = "*Required features: `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PropertySet(::windows::runtime::IInspectable);
 impl PropertySet {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1537,46 +1537,6 @@ unsafe impl ::windows::runtime::Interface for PropertySet {
 }
 impl ::windows::runtime::RuntimeName for PropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.PropertySet";
-}
-impl ::std::convert::From<PropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: PropertySet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: &PropertySet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: PropertySet) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: &PropertySet) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<PropertySet> for IPropertySet {
     fn from(value: PropertySet) -> Self {
@@ -1684,7 +1644,7 @@ impl ::std::iter::IntoIterator for &PropertySet {
 }
 #[doc = "*Required features: `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StringMap(::windows::runtime::IInspectable);
 impl StringMap {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1776,46 +1736,6 @@ unsafe impl ::windows::runtime::Interface for StringMap {
 impl ::windows::runtime::RuntimeName for StringMap {
     const NAME: &'static str = "Windows.Foundation.Collections.StringMap";
 }
-impl ::std::convert::From<StringMap> for ::windows::runtime::IUnknown {
-    fn from(value: StringMap) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StringMap> for ::windows::runtime::IUnknown {
-    fn from(value: &StringMap) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StringMap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StringMap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StringMap> for ::windows::runtime::IInspectable {
-    fn from(value: StringMap) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StringMap> for ::windows::runtime::IInspectable {
-    fn from(value: &StringMap) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StringMap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StringMap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<StringMap> for IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING> {
     fn from(value: StringMap) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1900,7 +1820,7 @@ impl ::std::iter::IntoIterator for &StringMap {
 }
 #[doc = "*Required features: `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ValueSet(::windows::runtime::IInspectable);
 impl ValueSet {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1991,46 +1911,6 @@ unsafe impl ::windows::runtime::Interface for ValueSet {
 }
 impl ::windows::runtime::RuntimeName for ValueSet {
     const NAME: &'static str = "Windows.Foundation.Collections.ValueSet";
-}
-impl ::std::convert::From<ValueSet> for ::windows::runtime::IUnknown {
-    fn from(value: ValueSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ValueSet> for ::windows::runtime::IUnknown {
-    fn from(value: &ValueSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ValueSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ValueSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ValueSet> for ::windows::runtime::IInspectable {
-    fn from(value: ValueSet) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ValueSet> for ::windows::runtime::IInspectable {
-    fn from(value: &ValueSet) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ValueSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ValueSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ValueSet> for IPropertySet {
     fn from(value: ValueSet) -> Self {

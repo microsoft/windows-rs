@@ -1651,7 +1651,7 @@ pub struct IVpnTrafficFilterFactory_abi(
 );
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnAppId(::windows::runtime::IInspectable);
 impl VpnAppId {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -1702,46 +1702,6 @@ unsafe impl ::windows::runtime::Interface for VpnAppId {
 impl ::windows::runtime::RuntimeName for VpnAppId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnAppId";
 }
-impl ::std::convert::From<VpnAppId> for ::windows::runtime::IUnknown {
-    fn from(value: VpnAppId) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnAppId> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnAppId) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnAppId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnAppId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnAppId> for ::windows::runtime::IInspectable {
-    fn from(value: VpnAppId) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnAppId> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnAppId) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnAppId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnAppId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnAppId {}
 unsafe impl ::std::marker::Sync for VpnAppId {}
 #[doc = "*Required features: `Networking_Vpn`*"]
@@ -1789,7 +1749,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnAuthenticationMethod {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnChannel(::windows::runtime::IInspectable);
 impl VpnChannel {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -2225,51 +2185,11 @@ unsafe impl ::windows::runtime::Interface for VpnChannel {
 impl ::windows::runtime::RuntimeName for VpnChannel {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannel";
 }
-impl ::std::convert::From<VpnChannel> for ::windows::runtime::IUnknown {
-    fn from(value: VpnChannel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnChannel> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnChannel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnChannel> for ::windows::runtime::IInspectable {
-    fn from(value: VpnChannel) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnChannel> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnChannel) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnChannel {}
 unsafe impl ::std::marker::Sync for VpnChannel {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnChannelActivityEventArgs(::windows::runtime::IInspectable);
 impl VpnChannelActivityEventArgs {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -2290,46 +2210,6 @@ unsafe impl ::windows::runtime::Interface for VpnChannelActivityEventArgs {
 }
 impl ::windows::runtime::RuntimeName for VpnChannelActivityEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityEventArgs";
-}
-impl ::std::convert::From<VpnChannelActivityEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: VpnChannelActivityEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnChannelActivityEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnChannelActivityEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnChannelActivityEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnChannelActivityEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnChannelActivityEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: VpnChannelActivityEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnChannelActivityEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnChannelActivityEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnChannelActivityEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnChannelActivityEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for VpnChannelActivityEventArgs {}
 unsafe impl ::std::marker::Sync for VpnChannelActivityEventArgs {}
@@ -2355,7 +2235,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnChannelActivityEventType {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnChannelActivityStateChangedArgs(::windows::runtime::IInspectable);
 impl VpnChannelActivityStateChangedArgs {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -2377,51 +2257,11 @@ unsafe impl ::windows::runtime::Interface for VpnChannelActivityStateChangedArgs
 impl ::windows::runtime::RuntimeName for VpnChannelActivityStateChangedArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
 }
-impl ::std::convert::From<VpnChannelActivityStateChangedArgs> for ::windows::runtime::IUnknown {
-    fn from(value: VpnChannelActivityStateChangedArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnChannelActivityStateChangedArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnChannelActivityStateChangedArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnChannelActivityStateChangedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnChannelActivityStateChangedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnChannelActivityStateChangedArgs> for ::windows::runtime::IInspectable {
-    fn from(value: VpnChannelActivityStateChangedArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnChannelActivityStateChangedArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnChannelActivityStateChangedArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnChannelActivityStateChangedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnChannelActivityStateChangedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnChannelActivityStateChangedArgs {}
 unsafe impl ::std::marker::Sync for VpnChannelActivityStateChangedArgs {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnChannelConfiguration(::windows::runtime::IInspectable);
 impl VpnChannelConfiguration {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -2468,46 +2308,6 @@ unsafe impl ::windows::runtime::Interface for VpnChannelConfiguration {
 }
 impl ::windows::runtime::RuntimeName for VpnChannelConfiguration {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelConfiguration";
-}
-impl ::std::convert::From<VpnChannelConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: VpnChannelConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnChannelConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnChannelConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnChannelConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnChannelConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnChannelConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: VpnChannelConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnChannelConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnChannelConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnChannelConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnChannelConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for VpnChannelConfiguration {}
 unsafe impl ::std::marker::Sync for VpnChannelConfiguration {}
@@ -2562,7 +2362,7 @@ impl ::std::ops::Not for VpnChannelRequestCredentialsOptions {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCredential(::windows::runtime::IInspectable);
 impl VpnCredential {
     #[cfg(feature = "Security_Credentials")]
@@ -2610,46 +2410,6 @@ unsafe impl ::windows::runtime::Interface for VpnCredential {
 }
 impl ::windows::runtime::RuntimeName for VpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCredential";
-}
-impl ::std::convert::From<VpnCredential> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCredential) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCredential> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCredential) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCredential> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCredential) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCredential> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCredential) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<VpnCredential> for IVpnCredential {
     fn from(value: VpnCredential) -> Self {
@@ -2700,7 +2460,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnCredentialType {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomCheckBox(::windows::runtime::IInspectable);
 impl VpnCustomCheckBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2781,46 +2541,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomCheckBox {
 impl ::windows::runtime::RuntimeName for VpnCustomCheckBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomCheckBox";
 }
-impl ::std::convert::From<VpnCustomCheckBox> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomCheckBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomCheckBox> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomCheckBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomCheckBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomCheckBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomCheckBox> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomCheckBox) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomCheckBox> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomCheckBox) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomCheckBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomCheckBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomCheckBox> for IVpnCustomPrompt {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomCheckBox) -> ::windows::runtime::Result<Self> {
@@ -2847,7 +2567,7 @@ unsafe impl ::std::marker::Send for VpnCustomCheckBox {}
 unsafe impl ::std::marker::Sync for VpnCustomCheckBox {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomComboBox(::windows::runtime::IInspectable);
 impl VpnCustomComboBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2930,46 +2650,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomComboBox {
 impl ::windows::runtime::RuntimeName for VpnCustomComboBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomComboBox";
 }
-impl ::std::convert::From<VpnCustomComboBox> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomComboBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomComboBox> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomComboBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomComboBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomComboBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomComboBox> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomComboBox) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomComboBox> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomComboBox) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomComboBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomComboBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomComboBox> for IVpnCustomPrompt {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomComboBox) -> ::windows::runtime::Result<Self> {
@@ -2996,7 +2676,7 @@ unsafe impl ::std::marker::Send for VpnCustomComboBox {}
 unsafe impl ::std::marker::Sync for VpnCustomComboBox {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomEditBox(::windows::runtime::IInspectable);
 impl VpnCustomEditBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3090,46 +2770,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomEditBox {
 impl ::windows::runtime::RuntimeName for VpnCustomEditBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomEditBox";
 }
-impl ::std::convert::From<VpnCustomEditBox> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomEditBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomEditBox> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomEditBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomEditBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomEditBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomEditBox> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomEditBox) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomEditBox> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomEditBox) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomEditBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomEditBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomEditBox> for IVpnCustomPrompt {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomEditBox) -> ::windows::runtime::Result<Self> {
@@ -3156,7 +2796,7 @@ unsafe impl ::std::marker::Send for VpnCustomEditBox {}
 unsafe impl ::std::marker::Sync for VpnCustomEditBox {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomErrorBox(::windows::runtime::IInspectable);
 impl VpnCustomErrorBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3216,46 +2856,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomErrorBox {
 impl ::windows::runtime::RuntimeName for VpnCustomErrorBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomErrorBox";
 }
-impl ::std::convert::From<VpnCustomErrorBox> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomErrorBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomErrorBox> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomErrorBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomErrorBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomErrorBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomErrorBox> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomErrorBox) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomErrorBox> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomErrorBox) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomErrorBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomErrorBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomErrorBox> for IVpnCustomPrompt {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomErrorBox) -> ::windows::runtime::Result<Self> {
@@ -3282,7 +2882,7 @@ unsafe impl ::std::marker::Send for VpnCustomErrorBox {}
 unsafe impl ::std::marker::Sync for VpnCustomErrorBox {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomPromptBooleanInput(::windows::runtime::IInspectable);
 impl VpnCustomPromptBooleanInput {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3363,46 +2963,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomPromptBooleanInput {
 impl ::windows::runtime::RuntimeName for VpnCustomPromptBooleanInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
 }
-impl ::std::convert::From<VpnCustomPromptBooleanInput> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomPromptBooleanInput) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomPromptBooleanInput> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomPromptBooleanInput) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomPromptBooleanInput {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomPromptBooleanInput {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomPromptBooleanInput> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomPromptBooleanInput) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomPromptBooleanInput> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomPromptBooleanInput) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomPromptBooleanInput {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomPromptBooleanInput {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomPromptBooleanInput> for IVpnCustomPromptElement {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomPromptBooleanInput) -> ::windows::runtime::Result<Self> {
@@ -3429,7 +2989,7 @@ unsafe impl ::std::marker::Send for VpnCustomPromptBooleanInput {}
 unsafe impl ::std::marker::Sync for VpnCustomPromptBooleanInput {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomPromptOptionSelector(::windows::runtime::IInspectable);
 impl VpnCustomPromptOptionSelector {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3506,46 +3066,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomPromptOptionSelector {
 impl ::windows::runtime::RuntimeName for VpnCustomPromptOptionSelector {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
 }
-impl ::std::convert::From<VpnCustomPromptOptionSelector> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomPromptOptionSelector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomPromptOptionSelector> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomPromptOptionSelector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomPromptOptionSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomPromptOptionSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomPromptOptionSelector> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomPromptOptionSelector) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomPromptOptionSelector> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomPromptOptionSelector) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomPromptOptionSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomPromptOptionSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomPromptOptionSelector> for IVpnCustomPromptElement {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomPromptOptionSelector) -> ::windows::runtime::Result<Self> {
@@ -3572,7 +3092,7 @@ unsafe impl ::std::marker::Send for VpnCustomPromptOptionSelector {}
 unsafe impl ::std::marker::Sync for VpnCustomPromptOptionSelector {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomPromptText(::windows::runtime::IInspectable);
 impl VpnCustomPromptText {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3645,46 +3165,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomPromptText {
 impl ::windows::runtime::RuntimeName for VpnCustomPromptText {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptText";
 }
-impl ::std::convert::From<VpnCustomPromptText> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomPromptText) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomPromptText> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomPromptText) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomPromptText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomPromptText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomPromptText> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomPromptText) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomPromptText> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomPromptText) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomPromptText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomPromptText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomPromptText> for IVpnCustomPromptElement {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomPromptText) -> ::windows::runtime::Result<Self> {
@@ -3711,7 +3191,7 @@ unsafe impl ::std::marker::Send for VpnCustomPromptText {}
 unsafe impl ::std::marker::Sync for VpnCustomPromptText {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomPromptTextInput(::windows::runtime::IInspectable);
 impl VpnCustomPromptTextInput {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3805,46 +3285,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomPromptTextInput {
 impl ::windows::runtime::RuntimeName for VpnCustomPromptTextInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptTextInput";
 }
-impl ::std::convert::From<VpnCustomPromptTextInput> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomPromptTextInput) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomPromptTextInput> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomPromptTextInput) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomPromptTextInput {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomPromptTextInput {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomPromptTextInput> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomPromptTextInput) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomPromptTextInput> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomPromptTextInput) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomPromptTextInput {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomPromptTextInput {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomPromptTextInput> for IVpnCustomPromptElement {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomPromptTextInput) -> ::windows::runtime::Result<Self> {
@@ -3871,7 +3311,7 @@ unsafe impl ::std::marker::Send for VpnCustomPromptTextInput {}
 unsafe impl ::std::marker::Sync for VpnCustomPromptTextInput {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnCustomTextBox(::windows::runtime::IInspectable);
 impl VpnCustomTextBox {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3944,46 +3384,6 @@ unsafe impl ::windows::runtime::Interface for VpnCustomTextBox {
 impl ::windows::runtime::RuntimeName for VpnCustomTextBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomTextBox";
 }
-impl ::std::convert::From<VpnCustomTextBox> for ::windows::runtime::IUnknown {
-    fn from(value: VpnCustomTextBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnCustomTextBox> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnCustomTextBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnCustomTextBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnCustomTextBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnCustomTextBox> for ::windows::runtime::IInspectable {
-    fn from(value: VpnCustomTextBox) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnCustomTextBox> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnCustomTextBox) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnCustomTextBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnCustomTextBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnCustomTextBox> for IVpnCustomPrompt {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnCustomTextBox) -> ::windows::runtime::Result<Self> {
@@ -4030,7 +3430,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnDataPathType {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnDomainNameAssignment(::windows::runtime::IInspectable);
 impl VpnDomainNameAssignment {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4075,51 +3475,11 @@ unsafe impl ::windows::runtime::Interface for VpnDomainNameAssignment {
 impl ::windows::runtime::RuntimeName for VpnDomainNameAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameAssignment";
 }
-impl ::std::convert::From<VpnDomainNameAssignment> for ::windows::runtime::IUnknown {
-    fn from(value: VpnDomainNameAssignment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnDomainNameAssignment> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnDomainNameAssignment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnDomainNameAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnDomainNameAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnDomainNameAssignment> for ::windows::runtime::IInspectable {
-    fn from(value: VpnDomainNameAssignment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnDomainNameAssignment> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnDomainNameAssignment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnDomainNameAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnDomainNameAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnDomainNameAssignment {}
 unsafe impl ::std::marker::Sync for VpnDomainNameAssignment {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnDomainNameInfo(::windows::runtime::IInspectable);
 impl VpnDomainNameInfo {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -4198,46 +3558,6 @@ unsafe impl ::windows::runtime::Interface for VpnDomainNameInfo {
 impl ::windows::runtime::RuntimeName for VpnDomainNameInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameInfo";
 }
-impl ::std::convert::From<VpnDomainNameInfo> for ::windows::runtime::IUnknown {
-    fn from(value: VpnDomainNameInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnDomainNameInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnDomainNameInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnDomainNameInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnDomainNameInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnDomainNameInfo> for ::windows::runtime::IInspectable {
-    fn from(value: VpnDomainNameInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnDomainNameInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnDomainNameInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnDomainNameInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnDomainNameInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnDomainNameInfo {}
 unsafe impl ::std::marker::Sync for VpnDomainNameInfo {}
 #[doc = "*Required features: `Networking_Vpn`*"]
@@ -4263,7 +3583,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnDomainNameType {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnForegroundActivatedEventArgs(::windows::runtime::IInspectable);
 impl VpnForegroundActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4338,46 +3658,6 @@ unsafe impl ::windows::runtime::Interface for VpnForegroundActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for VpnForegroundActivatedEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
 }
-impl ::std::convert::From<VpnForegroundActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: VpnForegroundActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnForegroundActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnForegroundActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnForegroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnForegroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnForegroundActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: VpnForegroundActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnForegroundActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnForegroundActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnForegroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnForegroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::std::convert::TryFrom<VpnForegroundActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::runtime::Error;
@@ -4434,7 +3714,7 @@ unsafe impl ::std::marker::Send for VpnForegroundActivatedEventArgs {}
 unsafe impl ::std::marker::Sync for VpnForegroundActivatedEventArgs {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnForegroundActivationOperation(::windows::runtime::IInspectable);
 impl VpnForegroundActivationOperation {
     #[cfg(feature = "Foundation_Collections")]
@@ -4453,46 +3733,6 @@ unsafe impl ::windows::runtime::Interface for VpnForegroundActivationOperation {
 }
 impl ::windows::runtime::RuntimeName for VpnForegroundActivationOperation {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivationOperation";
-}
-impl ::std::convert::From<VpnForegroundActivationOperation> for ::windows::runtime::IUnknown {
-    fn from(value: VpnForegroundActivationOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnForegroundActivationOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnForegroundActivationOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnForegroundActivationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnForegroundActivationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnForegroundActivationOperation> for ::windows::runtime::IInspectable {
-    fn from(value: VpnForegroundActivationOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnForegroundActivationOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnForegroundActivationOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnForegroundActivationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnForegroundActivationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for VpnForegroundActivationOperation {}
 unsafe impl ::std::marker::Sync for VpnForegroundActivationOperation {}
@@ -4523,7 +3763,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnIPProtocol {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnInterfaceId(::windows::runtime::IInspectable);
 impl VpnInterfaceId {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -4553,51 +3793,11 @@ unsafe impl ::windows::runtime::Interface for VpnInterfaceId {
 impl ::windows::runtime::RuntimeName for VpnInterfaceId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnInterfaceId";
 }
-impl ::std::convert::From<VpnInterfaceId> for ::windows::runtime::IUnknown {
-    fn from(value: VpnInterfaceId) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnInterfaceId> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnInterfaceId) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnInterfaceId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnInterfaceId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnInterfaceId> for ::windows::runtime::IInspectable {
-    fn from(value: VpnInterfaceId) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnInterfaceId> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnInterfaceId) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnInterfaceId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnInterfaceId {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnInterfaceId {}
 unsafe impl ::std::marker::Sync for VpnInterfaceId {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnManagementAgent(::windows::runtime::IInspectable);
 impl VpnManagementAgent {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4699,46 +3899,6 @@ unsafe impl ::windows::runtime::Interface for VpnManagementAgent {
 impl ::windows::runtime::RuntimeName for VpnManagementAgent {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnManagementAgent";
 }
-impl ::std::convert::From<VpnManagementAgent> for ::windows::runtime::IUnknown {
-    fn from(value: VpnManagementAgent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnManagementAgent> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnManagementAgent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnManagementAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnManagementAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnManagementAgent> for ::windows::runtime::IInspectable {
-    fn from(value: VpnManagementAgent) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnManagementAgent> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnManagementAgent) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnManagementAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnManagementAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnManagementAgent {}
 unsafe impl ::std::marker::Sync for VpnManagementAgent {}
 #[doc = "*Required features: `Networking_Vpn`*"]
@@ -4802,7 +3962,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnManagementErrorStatus {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnNamespaceAssignment(::windows::runtime::IInspectable);
 impl VpnNamespaceAssignment {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4853,51 +4013,11 @@ unsafe impl ::windows::runtime::Interface for VpnNamespaceAssignment {
 impl ::windows::runtime::RuntimeName for VpnNamespaceAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceAssignment";
 }
-impl ::std::convert::From<VpnNamespaceAssignment> for ::windows::runtime::IUnknown {
-    fn from(value: VpnNamespaceAssignment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnNamespaceAssignment> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnNamespaceAssignment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnNamespaceAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnNamespaceAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnNamespaceAssignment> for ::windows::runtime::IInspectable {
-    fn from(value: VpnNamespaceAssignment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnNamespaceAssignment> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnNamespaceAssignment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnNamespaceAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnNamespaceAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnNamespaceAssignment {}
 unsafe impl ::std::marker::Sync for VpnNamespaceAssignment {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnNamespaceInfo(::windows::runtime::IInspectable);
 impl VpnNamespaceInfo {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -4966,51 +4086,11 @@ unsafe impl ::windows::runtime::Interface for VpnNamespaceInfo {
 impl ::windows::runtime::RuntimeName for VpnNamespaceInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceInfo";
 }
-impl ::std::convert::From<VpnNamespaceInfo> for ::windows::runtime::IUnknown {
-    fn from(value: VpnNamespaceInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnNamespaceInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnNamespaceInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnNamespaceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnNamespaceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnNamespaceInfo> for ::windows::runtime::IInspectable {
-    fn from(value: VpnNamespaceInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnNamespaceInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnNamespaceInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnNamespaceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnNamespaceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnNamespaceInfo {}
 unsafe impl ::std::marker::Sync for VpnNamespaceInfo {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnNativeProfile(::windows::runtime::IInspectable);
 impl VpnNativeProfile {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5201,46 +4281,6 @@ unsafe impl ::windows::runtime::Interface for VpnNativeProfile {
 impl ::windows::runtime::RuntimeName for VpnNativeProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNativeProfile";
 }
-impl ::std::convert::From<VpnNativeProfile> for ::windows::runtime::IUnknown {
-    fn from(value: VpnNativeProfile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnNativeProfile> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnNativeProfile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnNativeProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnNativeProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnNativeProfile> for ::windows::runtime::IInspectable {
-    fn from(value: VpnNativeProfile) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnNativeProfile> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnNativeProfile) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnNativeProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnNativeProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnNativeProfile> for IVpnProfile {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnNativeProfile) -> ::windows::runtime::Result<Self> {
@@ -5288,7 +4328,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnNativeProtocolType {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnPacketBuffer(::windows::runtime::IInspectable);
 impl VpnPacketBuffer {
     #[cfg(feature = "Storage_Streams")]
@@ -5369,51 +4409,11 @@ unsafe impl ::windows::runtime::Interface for VpnPacketBuffer {
 impl ::windows::runtime::RuntimeName for VpnPacketBuffer {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBuffer";
 }
-impl ::std::convert::From<VpnPacketBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: VpnPacketBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnPacketBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnPacketBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnPacketBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnPacketBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnPacketBuffer> for ::windows::runtime::IInspectable {
-    fn from(value: VpnPacketBuffer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnPacketBuffer> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnPacketBuffer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnPacketBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnPacketBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnPacketBuffer {}
 unsafe impl ::std::marker::Sync for VpnPacketBuffer {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnPacketBufferList(::windows::runtime::IInspectable);
 impl VpnPacketBufferList {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -5488,46 +4488,6 @@ unsafe impl ::windows::runtime::Interface for VpnPacketBufferList {
 impl ::windows::runtime::RuntimeName for VpnPacketBufferList {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBufferList";
 }
-impl ::std::convert::From<VpnPacketBufferList> for ::windows::runtime::IUnknown {
-    fn from(value: VpnPacketBufferList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnPacketBufferList> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnPacketBufferList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnPacketBufferList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnPacketBufferList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnPacketBufferList> for ::windows::runtime::IInspectable {
-    fn from(value: VpnPacketBufferList) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnPacketBufferList> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnPacketBufferList) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnPacketBufferList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnPacketBufferList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<VpnPacketBufferList> for super::super::Foundation::Collections::IIterable<VpnPacketBuffer> {
     type Error = ::windows::runtime::Error;
@@ -5594,7 +4554,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnPacketBufferStatus {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnPickedCredential(::windows::runtime::IInspectable);
 impl VpnPickedCredential {
     #[cfg(feature = "Security_Credentials")]
@@ -5634,51 +4594,11 @@ unsafe impl ::windows::runtime::Interface for VpnPickedCredential {
 impl ::windows::runtime::RuntimeName for VpnPickedCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPickedCredential";
 }
-impl ::std::convert::From<VpnPickedCredential> for ::windows::runtime::IUnknown {
-    fn from(value: VpnPickedCredential) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnPickedCredential> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnPickedCredential) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnPickedCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnPickedCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnPickedCredential> for ::windows::runtime::IInspectable {
-    fn from(value: VpnPickedCredential) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnPickedCredential> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnPickedCredential) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnPickedCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnPickedCredential {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnPickedCredential {}
 unsafe impl ::std::marker::Sync for VpnPickedCredential {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnPlugInProfile(::windows::runtime::IInspectable);
 impl VpnPlugInProfile {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5830,46 +4750,6 @@ unsafe impl ::windows::runtime::Interface for VpnPlugInProfile {
 impl ::windows::runtime::RuntimeName for VpnPlugInProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPlugInProfile";
 }
-impl ::std::convert::From<VpnPlugInProfile> for ::windows::runtime::IUnknown {
-    fn from(value: VpnPlugInProfile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnPlugInProfile> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnPlugInProfile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnPlugInProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnPlugInProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnPlugInProfile> for ::windows::runtime::IInspectable {
-    fn from(value: VpnPlugInProfile) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnPlugInProfile> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnPlugInProfile) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnPlugInProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnPlugInProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<VpnPlugInProfile> for IVpnProfile {
     type Error = ::windows::runtime::Error;
     fn try_from(value: VpnPlugInProfile) -> ::windows::runtime::Result<Self> {
@@ -5896,7 +4776,7 @@ unsafe impl ::std::marker::Send for VpnPlugInProfile {}
 unsafe impl ::std::marker::Sync for VpnPlugInProfile {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnRoute(::windows::runtime::IInspectable);
 impl VpnRoute {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -5947,51 +4827,11 @@ unsafe impl ::windows::runtime::Interface for VpnRoute {
 impl ::windows::runtime::RuntimeName for VpnRoute {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRoute";
 }
-impl ::std::convert::From<VpnRoute> for ::windows::runtime::IUnknown {
-    fn from(value: VpnRoute) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnRoute> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnRoute) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnRoute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnRoute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnRoute> for ::windows::runtime::IInspectable {
-    fn from(value: VpnRoute) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnRoute> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnRoute) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnRoute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnRoute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnRoute {}
 unsafe impl ::std::marker::Sync for VpnRoute {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnRouteAssignment(::windows::runtime::IInspectable);
 impl VpnRouteAssignment {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6085,46 +4925,6 @@ unsafe impl ::windows::runtime::Interface for VpnRouteAssignment {
 impl ::windows::runtime::RuntimeName for VpnRouteAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRouteAssignment";
 }
-impl ::std::convert::From<VpnRouteAssignment> for ::windows::runtime::IUnknown {
-    fn from(value: VpnRouteAssignment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnRouteAssignment> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnRouteAssignment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnRouteAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnRouteAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnRouteAssignment> for ::windows::runtime::IInspectable {
-    fn from(value: VpnRouteAssignment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnRouteAssignment> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnRouteAssignment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnRouteAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnRouteAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnRouteAssignment {}
 unsafe impl ::std::marker::Sync for VpnRouteAssignment {}
 #[doc = "*Required features: `Networking_Vpn`*"]
@@ -6149,7 +4949,7 @@ unsafe impl ::windows::runtime::RuntimeType for VpnRoutingPolicyType {
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnSystemHealth(::windows::runtime::IInspectable);
 impl VpnSystemHealth {
     #[cfg(feature = "Storage_Streams")]
@@ -6172,51 +4972,11 @@ unsafe impl ::windows::runtime::Interface for VpnSystemHealth {
 impl ::windows::runtime::RuntimeName for VpnSystemHealth {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnSystemHealth";
 }
-impl ::std::convert::From<VpnSystemHealth> for ::windows::runtime::IUnknown {
-    fn from(value: VpnSystemHealth) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnSystemHealth> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnSystemHealth) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnSystemHealth {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnSystemHealth {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnSystemHealth> for ::windows::runtime::IInspectable {
-    fn from(value: VpnSystemHealth) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnSystemHealth> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnSystemHealth) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnSystemHealth {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnSystemHealth {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnSystemHealth {}
 unsafe impl ::std::marker::Sync for VpnSystemHealth {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnTrafficFilter(::windows::runtime::IInspectable);
 impl VpnTrafficFilter {
     #[doc = "*Required features: `Networking_Vpn`*"]
@@ -6325,51 +5085,11 @@ unsafe impl ::windows::runtime::Interface for VpnTrafficFilter {
 impl ::windows::runtime::RuntimeName for VpnTrafficFilter {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilter";
 }
-impl ::std::convert::From<VpnTrafficFilter> for ::windows::runtime::IUnknown {
-    fn from(value: VpnTrafficFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnTrafficFilter> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnTrafficFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnTrafficFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnTrafficFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnTrafficFilter> for ::windows::runtime::IInspectable {
-    fn from(value: VpnTrafficFilter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnTrafficFilter> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnTrafficFilter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnTrafficFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnTrafficFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for VpnTrafficFilter {}
 unsafe impl ::std::marker::Sync for VpnTrafficFilter {}
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VpnTrafficFilterAssignment(::windows::runtime::IInspectable);
 impl VpnTrafficFilterAssignment {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6424,46 +5144,6 @@ unsafe impl ::windows::runtime::Interface for VpnTrafficFilterAssignment {
 }
 impl ::windows::runtime::RuntimeName for VpnTrafficFilterAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilterAssignment";
-}
-impl ::std::convert::From<VpnTrafficFilterAssignment> for ::windows::runtime::IUnknown {
-    fn from(value: VpnTrafficFilterAssignment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VpnTrafficFilterAssignment> for ::windows::runtime::IUnknown {
-    fn from(value: &VpnTrafficFilterAssignment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VpnTrafficFilterAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VpnTrafficFilterAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VpnTrafficFilterAssignment> for ::windows::runtime::IInspectable {
-    fn from(value: VpnTrafficFilterAssignment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VpnTrafficFilterAssignment> for ::windows::runtime::IInspectable {
-    fn from(value: &VpnTrafficFilterAssignment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VpnTrafficFilterAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VpnTrafficFilterAssignment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for VpnTrafficFilterAssignment {}
 unsafe impl ::std::marker::Sync for VpnTrafficFilterAssignment {}

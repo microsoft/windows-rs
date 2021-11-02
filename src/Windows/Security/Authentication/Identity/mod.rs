@@ -5,7 +5,7 @@ pub mod Core;
 pub mod Provider;
 #[doc = "*Required features: `Security_Authentication_Identity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(::windows::runtime::IInspectable);
 impl EnterpriseKeyCredentialRegistrationInfo {
     #[doc = "*Required features: `Security_Authentication_Identity`*"]
@@ -59,51 +59,11 @@ unsafe impl ::windows::runtime::Interface for EnterpriseKeyCredentialRegistratio
 impl ::windows::runtime::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
 }
-impl ::std::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IUnknown {
-    fn from(value: EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EnterpriseKeyCredentialRegistrationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EnterpriseKeyCredentialRegistrationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IInspectable {
-    fn from(value: EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EnterpriseKeyCredentialRegistrationInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &EnterpriseKeyCredentialRegistrationInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EnterpriseKeyCredentialRegistrationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EnterpriseKeyCredentialRegistrationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl ::std::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[doc = "*Required features: `Security_Authentication_Identity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows::runtime::IInspectable);
 impl EnterpriseKeyCredentialRegistrationManager {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -136,46 +96,6 @@ unsafe impl ::windows::runtime::Interface for EnterpriseKeyCredentialRegistratio
 }
 impl ::windows::runtime::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
-}
-impl ::std::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IUnknown {
-    fn from(value: EnterpriseKeyCredentialRegistrationManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IUnknown {
-    fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EnterpriseKeyCredentialRegistrationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EnterpriseKeyCredentialRegistrationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IInspectable {
-    fn from(value: EnterpriseKeyCredentialRegistrationManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EnterpriseKeyCredentialRegistrationManager> for ::windows::runtime::IInspectable {
-    fn from(value: &EnterpriseKeyCredentialRegistrationManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EnterpriseKeyCredentialRegistrationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EnterpriseKeyCredentialRegistrationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for EnterpriseKeyCredentialRegistrationManager {}
 unsafe impl ::std::marker::Sync for EnterpriseKeyCredentialRegistrationManager {}
