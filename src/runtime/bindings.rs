@@ -308,7 +308,7 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut Rect) -> ::windows::runtime::HRESULT,
         );
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
         #[doc(hidden)]
         pub struct IPropertyValueStatics(::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValueStatics {
@@ -365,7 +365,7 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const Rect, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
         );
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
         pub struct IReference<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
         where
             T: ::windows::runtime::RuntimeType + 'static;

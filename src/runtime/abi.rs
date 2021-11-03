@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: remove Clone constraint
+
 #[doc(hidden)]
 pub unsafe trait Abi: Sized + Clone {
     type Abi;

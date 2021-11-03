@@ -79,11 +79,12 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             }
         };
 
-        // TODO: derive macro should figure this out
-        let derive = if constraints.is_empty() {
-            quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug, ::windows::runtime::DeriveInterface)] }
-        } else {
+        let derive = if is_exclusive {
+            // TODO: exclusive interfaces shouldn't need any of these
             quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)] }
+        }
+        else {
+            quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug, ::windows::runtime::DeriveInterface)] }
         };
 
         quote! {
