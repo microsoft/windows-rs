@@ -78,7 +78,7 @@ unsafe impl ::windows::runtime::Abi for ERROR_ADVISE_RESULT {
 }
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoAcquire(::windows::runtime::IUnknown);
 impl IPhotoAcquire {
     #[cfg(feature = "Win32_Foundation")]
@@ -110,26 +110,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoAcquire {
     type Vtable = IPhotoAcquire_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15872851, 58139, 18773, [168, 173, 202, 94, 191, 49, 226, 206]);
 }
-impl ::std::convert::From<IPhotoAcquire> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoAcquire) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoAcquire> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoAcquire) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoAcquire {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoAcquire {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquire_abi(
@@ -145,7 +125,7 @@ pub struct IPhotoAcquire_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoAcquireDeviceSelectionDialog(::windows::runtime::IUnknown);
 impl IPhotoAcquireDeviceSelectionDialog {
     #[cfg(feature = "Win32_Foundation")]
@@ -168,26 +148,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoAcquireDeviceSelectionDialog
     type Vtable = IPhotoAcquireDeviceSelectionDialog_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15894583, 21981, 20279, [170, 245, 104, 85, 169, 100, 4, 103]);
 }
-impl ::std::convert::From<IPhotoAcquireDeviceSelectionDialog> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoAcquireDeviceSelectionDialog) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoAcquireDeviceSelectionDialog> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoAcquireDeviceSelectionDialog) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoAcquireDeviceSelectionDialog {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoAcquireDeviceSelectionDialog {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireDeviceSelectionDialog_abi(
@@ -203,7 +163,7 @@ pub struct IPhotoAcquireDeviceSelectionDialog_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoAcquireItem(::windows::runtime::IUnknown);
 impl IPhotoAcquireItem {
     #[cfg(feature = "Win32_Foundation")]
@@ -260,26 +220,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoAcquireItem {
     type Vtable = IPhotoAcquireItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15867031, 10431, 19458, [184, 66, 94, 78, 144, 19, 154, 48]);
 }
-impl ::std::convert::From<IPhotoAcquireItem> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoAcquireItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoAcquireItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoAcquireItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoAcquireItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoAcquireItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireItem_abi(
@@ -304,7 +244,7 @@ pub struct IPhotoAcquireItem_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoAcquireOptionsDialog(::windows::runtime::IUnknown);
 impl IPhotoAcquireOptionsDialog {
     #[cfg(feature = "Win32_Foundation")]
@@ -336,26 +276,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoAcquireOptionsDialog {
     type Vtable = IPhotoAcquireOptionsDialog_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15905774, 48996, 18414, [137, 244, 77, 237, 215, 150, 67, 242]);
 }
-impl ::std::convert::From<IPhotoAcquireOptionsDialog> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoAcquireOptionsDialog) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoAcquireOptionsDialog> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoAcquireOptionsDialog) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoAcquireOptionsDialog {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoAcquireOptionsDialog {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireOptionsDialog_abi(
@@ -373,7 +293,7 @@ pub struct IPhotoAcquireOptionsDialog_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoAcquirePlugin(::windows::runtime::IUnknown);
 impl IPhotoAcquirePlugin {
     #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
@@ -406,26 +326,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoAcquirePlugin {
     type Vtable = IPhotoAcquirePlugin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15916267, 60600, 20343, [142, 71, 231, 169, 135, 200, 61, 208]);
 }
-impl ::std::convert::From<IPhotoAcquirePlugin> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoAcquirePlugin) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoAcquirePlugin> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoAcquirePlugin) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoAcquirePlugin {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoAcquirePlugin {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquirePlugin_abi(
@@ -441,7 +341,7 @@ pub struct IPhotoAcquirePlugin_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoAcquireProgressCB(::windows::runtime::IUnknown);
 impl IPhotoAcquireProgressCB {
     #[cfg(feature = "Win32_Foundation")]
@@ -534,26 +434,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoAcquireProgressCB {
     type Vtable = IPhotoAcquireProgressCB_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15912478, 37726, 16968, [137, 44, 19, 15, 50, 196, 92, 180]);
 }
-impl ::std::convert::From<IPhotoAcquireProgressCB> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoAcquireProgressCB) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoAcquireProgressCB> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoAcquireProgressCB) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoAcquireProgressCB {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoAcquireProgressCB {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireProgressCB_abi(
@@ -589,7 +469,7 @@ pub struct IPhotoAcquireProgressCB_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoAcquireSettings(::windows::runtime::IUnknown);
 impl IPhotoAcquireSettings {
     #[cfg(feature = "Win32_Foundation")]
@@ -664,26 +544,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoAcquireSettings {
     type Vtable = IPhotoAcquireSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15906920, 56679, 18556, [149, 83, 4, 146, 64, 118, 126, 145]);
 }
-impl ::std::convert::From<IPhotoAcquireSettings> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoAcquireSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoAcquireSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoAcquireSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoAcquireSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoAcquireSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireSettings_abi(
@@ -715,7 +575,7 @@ pub struct IPhotoAcquireSettings_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoAcquireSource(::windows::runtime::IUnknown);
 impl IPhotoAcquireSource {
     #[cfg(feature = "Win32_Foundation")]
@@ -764,26 +624,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoAcquireSource {
     type Vtable = IPhotoAcquireSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15910659, 34323, 17026, [165, 59, 110, 197, 156, 88, 131, 172]);
 }
-impl ::std::convert::From<IPhotoAcquireSource> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoAcquireSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoAcquireSource> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoAcquireSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoAcquireSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoAcquireSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoAcquireSource_abi(
@@ -805,7 +645,7 @@ pub struct IPhotoAcquireSource_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoProgressActionCB(::windows::runtime::IUnknown);
 impl IPhotoProgressActionCB {
     #[cfg(feature = "Win32_Foundation")]
@@ -818,26 +658,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoProgressActionCB {
     type Vtable = IPhotoProgressActionCB_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15876816, 45574, 20093, [180, 193, 71, 85, 188, 187, 156, 159]);
 }
-impl ::std::convert::From<IPhotoProgressActionCB> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoProgressActionCB) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoProgressActionCB> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoProgressActionCB) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoProgressActionCB {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoProgressActionCB {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoProgressActionCB_abi(
@@ -849,7 +669,7 @@ pub struct IPhotoProgressActionCB_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhotoProgressDialog(::windows::runtime::IUnknown);
 impl IPhotoProgressDialog {
     #[cfg(feature = "Win32_Foundation")]
@@ -947,26 +767,6 @@ unsafe impl ::windows::runtime::Interface for IPhotoProgressDialog {
     type Vtable = IPhotoProgressDialog_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15877881, 1872, 20232, [147, 129, 44, 216, 233, 6, 164, 174]);
 }
-impl ::std::convert::From<IPhotoProgressDialog> for ::windows::runtime::IUnknown {
-    fn from(value: IPhotoProgressDialog) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhotoProgressDialog> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhotoProgressDialog) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhotoProgressDialog {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhotoProgressDialog {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoProgressDialog_abi(
@@ -1010,7 +810,7 @@ pub struct IPhotoProgressDialog_abi(
 );
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUserInputString(::windows::runtime::IUnknown);
 impl IUserInputString {
     #[cfg(feature = "Win32_Foundation")]
@@ -1073,26 +873,6 @@ impl IUserInputString {
 unsafe impl ::windows::runtime::Interface for IUserInputString {
     type Vtable = IUserInputString_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15877025, 8283, 17850, [174, 38, 171, 188, 83, 170, 122, 111]);
-}
-impl ::std::convert::From<IUserInputString> for ::windows::runtime::IUnknown {
-    fn from(value: IUserInputString) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUserInputString> for ::windows::runtime::IUnknown {
-    fn from(value: &IUserInputString) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUserInputString {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUserInputString {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

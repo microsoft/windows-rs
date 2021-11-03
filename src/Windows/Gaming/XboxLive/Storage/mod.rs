@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveBlobGetResult(::windows::runtime::IInspectable);
 impl GameSaveBlobGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -32,51 +32,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveBlobGetResult {
 impl ::windows::runtime::RuntimeName for GameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
 }
-impl ::std::convert::From<GameSaveBlobGetResult> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveBlobGetResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveBlobGetResult> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveBlobGetResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveBlobGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveBlobGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveBlobGetResult> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveBlobGetResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveBlobGetResult> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveBlobGetResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveBlobGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveBlobGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveBlobGetResult {}
 unsafe impl ::std::marker::Sync for GameSaveBlobGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveBlobInfo(::windows::runtime::IInspectable);
 impl GameSaveBlobInfo {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -106,51 +66,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveBlobInfo {
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
 }
-impl ::std::convert::From<GameSaveBlobInfo> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveBlobInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveBlobInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveBlobInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveBlobInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveBlobInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveBlobInfo> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveBlobInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveBlobInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveBlobInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveBlobInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveBlobInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveBlobInfo {}
 unsafe impl ::std::marker::Sync for GameSaveBlobInfo {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveBlobInfoGetResult(::windows::runtime::IInspectable);
 impl GameSaveBlobInfoGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -181,51 +101,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveBlobInfoGetResult {
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
 }
-impl ::std::convert::From<GameSaveBlobInfoGetResult> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveBlobInfoGetResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveBlobInfoGetResult> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveBlobInfoGetResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveBlobInfoGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveBlobInfoGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveBlobInfoGetResult> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveBlobInfoGetResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveBlobInfoGetResult> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveBlobInfoGetResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveBlobInfoGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveBlobInfoGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveBlobInfoGetResult {}
 unsafe impl ::std::marker::Sync for GameSaveBlobInfoGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveBlobInfoQuery(::windows::runtime::IInspectable);
 impl GameSaveBlobInfoQuery {
     #[cfg(feature = "Foundation")]
@@ -266,51 +146,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveBlobInfoQuery {
 impl ::windows::runtime::RuntimeName for GameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
 }
-impl ::std::convert::From<GameSaveBlobInfoQuery> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveBlobInfoQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveBlobInfoQuery> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveBlobInfoQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveBlobInfoQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveBlobInfoQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveBlobInfoQuery> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveBlobInfoQuery) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveBlobInfoQuery> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveBlobInfoQuery) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveBlobInfoQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveBlobInfoQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveBlobInfoQuery {}
 unsafe impl ::std::marker::Sync for GameSaveBlobInfoQuery {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveContainer(::windows::runtime::IInspectable);
 impl GameSaveContainer {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -394,51 +234,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveContainer {
 impl ::windows::runtime::RuntimeName for GameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainer";
 }
-impl ::std::convert::From<GameSaveContainer> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveContainer> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveContainer> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveContainer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveContainer> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveContainer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveContainer {}
 unsafe impl ::std::marker::Sync for GameSaveContainer {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveContainerInfo(::windows::runtime::IInspectable);
 impl GameSaveContainerInfo {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -493,51 +293,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveContainerInfo {
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
 }
-impl ::std::convert::From<GameSaveContainerInfo> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveContainerInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveContainerInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveContainerInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveContainerInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveContainerInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveContainerInfo> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveContainerInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveContainerInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveContainerInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveContainerInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveContainerInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveContainerInfo {}
 unsafe impl ::std::marker::Sync for GameSaveContainerInfo {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveContainerInfoGetResult(::windows::runtime::IInspectable);
 impl GameSaveContainerInfoGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -568,51 +328,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveContainerInfoGetResult {
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
 }
-impl ::std::convert::From<GameSaveContainerInfoGetResult> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveContainerInfoGetResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveContainerInfoGetResult> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveContainerInfoGetResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveContainerInfoGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveContainerInfoGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveContainerInfoGetResult> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveContainerInfoGetResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveContainerInfoGetResult> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveContainerInfoGetResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveContainerInfoGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveContainerInfoGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveContainerInfoGetResult {}
 unsafe impl ::std::marker::Sync for GameSaveContainerInfoGetResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveContainerInfoQuery(::windows::runtime::IInspectable);
 impl GameSaveContainerInfoQuery {
     #[cfg(feature = "Foundation")]
@@ -653,46 +373,6 @@ unsafe impl ::windows::runtime::Interface for GameSaveContainerInfoQuery {
 impl ::windows::runtime::RuntimeName for GameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
 }
-impl ::std::convert::From<GameSaveContainerInfoQuery> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveContainerInfoQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveContainerInfoQuery> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveContainerInfoQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveContainerInfoQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveContainerInfoQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveContainerInfoQuery> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveContainerInfoQuery) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveContainerInfoQuery> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveContainerInfoQuery) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveContainerInfoQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveContainerInfoQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveContainerInfoQuery {}
 unsafe impl ::std::marker::Sync for GameSaveContainerInfoQuery {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -730,7 +410,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameSaveErrorStatus {
 }
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveOperationResult(::windows::runtime::IInspectable);
 impl GameSaveOperationResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -752,51 +432,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveOperationResult {
 impl ::windows::runtime::RuntimeName for GameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
 }
-impl ::std::convert::From<GameSaveOperationResult> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveOperationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveOperationResult> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveOperationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveOperationResult> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveOperationResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveOperationResult> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveOperationResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveOperationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveOperationResult {}
 unsafe impl ::std::marker::Sync for GameSaveOperationResult {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveProvider(::windows::runtime::IInspectable);
 impl GameSaveProvider {
     #[cfg(feature = "System")]
@@ -890,51 +530,11 @@ unsafe impl ::windows::runtime::Interface for GameSaveProvider {
 impl ::windows::runtime::RuntimeName for GameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProvider";
 }
-impl ::std::convert::From<GameSaveProvider> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveProvider> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GameSaveProvider {}
 unsafe impl ::std::marker::Sync for GameSaveProvider {}
 #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GameSaveProviderGetResult(::windows::runtime::IInspectable);
 impl GameSaveProviderGetResult {
     #[doc = "*Required features: `Gaming_XboxLive_Storage`*"]
@@ -963,46 +563,6 @@ unsafe impl ::windows::runtime::Interface for GameSaveProviderGetResult {
 }
 impl ::windows::runtime::RuntimeName for GameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";
-}
-impl ::std::convert::From<GameSaveProviderGetResult> for ::windows::runtime::IUnknown {
-    fn from(value: GameSaveProviderGetResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GameSaveProviderGetResult> for ::windows::runtime::IUnknown {
-    fn from(value: &GameSaveProviderGetResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GameSaveProviderGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GameSaveProviderGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GameSaveProviderGetResult> for ::windows::runtime::IInspectable {
-    fn from(value: GameSaveProviderGetResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GameSaveProviderGetResult> for ::windows::runtime::IInspectable {
-    fn from(value: &GameSaveProviderGetResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GameSaveProviderGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GameSaveProviderGetResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GameSaveProviderGetResult {}
 unsafe impl ::std::marker::Sync for GameSaveProviderGetResult {}

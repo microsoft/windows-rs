@@ -91,7 +91,7 @@ pub const FACILITY_WDSMCSERVER: u32 = 289u32;
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportCacheable(::windows::runtime::IUnknown);
 impl IWdsTransportCacheable {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -115,26 +115,6 @@ impl IWdsTransportCacheable {
 unsafe impl ::windows::runtime::Interface for IWdsTransportCacheable {
     type Vtable = IWdsTransportCacheable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1185777995, 2987, 18396, [132, 178, 123, 85, 63, 29, 143, 128]);
-}
-impl ::std::convert::From<IWdsTransportCacheable> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportCacheable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportCacheable> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportCacheable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportCacheable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportCacheable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportCacheable> for super::Ole::Automation::IDispatch {
@@ -181,7 +161,7 @@ pub struct IWdsTransportCacheable_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportClient(::windows::runtime::IUnknown);
 impl IWdsTransportClient {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -252,26 +232,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportClient {
     type Vtable = IWdsTransportClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051079994, 51902, 18122, [131, 127, 62, 68, 233, 60, 101, 69]);
 }
-impl ::std::convert::From<IWdsTransportClient> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportClient> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportClient {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportClient {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportClient> for super::Ole::Automation::IDispatch {
     fn from(value: IWdsTransportClient) -> Self {
@@ -329,7 +289,7 @@ pub struct IWdsTransportClient_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportCollection(::windows::runtime::IUnknown);
 impl IWdsTransportCollection {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -352,26 +312,6 @@ impl IWdsTransportCollection {
 unsafe impl ::windows::runtime::Interface for IWdsTransportCollection {
     type Vtable = IWdsTransportCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3099216666, 12276, 17323, [153, 108, 178, 177, 10, 145, 166, 235]);
-}
-impl ::std::convert::From<IWdsTransportCollection> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportCollection> for super::Ole::Automation::IDispatch {
@@ -418,7 +358,7 @@ pub struct IWdsTransportCollection_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportConfigurationManager(::windows::runtime::IUnknown);
 impl IWdsTransportConfigurationManager {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -464,26 +404,6 @@ impl IWdsTransportConfigurationManager {
 unsafe impl ::windows::runtime::Interface for IWdsTransportConfigurationManager {
     type Vtable = IWdsTransportConfigurationManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2227980153, 17117, 18322, [137, 30, 19, 33, 214, 215, 75, 68]);
-}
-impl ::std::convert::From<IWdsTransportConfigurationManager> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportConfigurationManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportConfigurationManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportConfigurationManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportConfigurationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportConfigurationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportConfigurationManager> for super::Ole::Automation::IDispatch {
@@ -535,7 +455,7 @@ pub struct IWdsTransportConfigurationManager_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportConfigurationManager2(::windows::runtime::IUnknown);
 impl IWdsTransportConfigurationManager2 {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -608,26 +528,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportConfigurationManager2
     type Vtable = IWdsTransportConfigurationManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3503840431, 41299, 20253, [169, 221, 150, 244, 49, 197, 7, 23]);
 }
-impl ::std::convert::From<IWdsTransportConfigurationManager2> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportConfigurationManager2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportConfigurationManager2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportConfigurationManager2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportConfigurationManager2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportConfigurationManager2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IWdsTransportConfigurationManager2> for IWdsTransportConfigurationManager {
     fn from(value: IWdsTransportConfigurationManager2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -699,7 +599,7 @@ pub struct IWdsTransportConfigurationManager2_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportContent(::windows::runtime::IUnknown);
 impl IWdsTransportContent {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -731,26 +631,6 @@ impl IWdsTransportContent {
 unsafe impl ::windows::runtime::Interface for IWdsTransportContent {
     type Vtable = IWdsTransportContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557152529, 662, 19124, [168, 96, 172, 125, 50, 230, 87, 152]);
-}
-impl ::std::convert::From<IWdsTransportContent> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportContent> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportContent> for super::Ole::Automation::IDispatch {
@@ -799,7 +679,7 @@ pub struct IWdsTransportContent_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportContentProvider(::windows::runtime::IUnknown);
 impl IWdsTransportContentProvider {
     #[cfg(feature = "Win32_Foundation")]
@@ -830,26 +710,6 @@ impl IWdsTransportContentProvider {
 unsafe impl ::windows::runtime::Interface for IWdsTransportContentProvider {
     type Vtable = IWdsTransportContentProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108544292, 61977, 19151, [170, 215, 38, 92, 124, 8, 166, 174]);
-}
-impl ::std::convert::From<IWdsTransportContentProvider> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportContentProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportContentProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportContentProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportContentProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportContentProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportContentProvider> for super::Ole::Automation::IDispatch {
@@ -900,7 +760,7 @@ pub struct IWdsTransportContentProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportDiagnosticsPolicy(::windows::runtime::IUnknown);
 impl IWdsTransportDiagnosticsPolicy {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -963,26 +823,6 @@ impl IWdsTransportDiagnosticsPolicy {
 unsafe impl ::windows::runtime::Interface for IWdsTransportDiagnosticsPolicy {
     type Vtable = IWdsTransportDiagnosticsPolicy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(330514172, 30806, 20321, [154, 89, 141, 230, 123, 107, 135, 182]);
-}
-impl ::std::convert::From<IWdsTransportDiagnosticsPolicy> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportDiagnosticsPolicy> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportDiagnosticsPolicy) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportDiagnosticsPolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportDiagnosticsPolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IWdsTransportDiagnosticsPolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
@@ -1053,7 +893,7 @@ pub struct IWdsTransportDiagnosticsPolicy_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportManager(::windows::runtime::IUnknown);
 impl IWdsTransportManager {
     #[cfg(feature = "Win32_Foundation")]
@@ -1066,26 +906,6 @@ impl IWdsTransportManager {
 unsafe impl ::windows::runtime::Interface for IWdsTransportManager {
     type Vtable = IWdsTransportManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1527592437, 6931, 19197, [184, 120, 101, 38, 220, 52, 11, 93]);
-}
-impl ::std::convert::From<IWdsTransportManager> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportManager> for super::Ole::Automation::IDispatch {
@@ -1130,7 +950,7 @@ pub struct IWdsTransportManager_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportMulticastSessionPolicy(::windows::runtime::IUnknown);
 impl IWdsTransportMulticastSessionPolicy {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -1212,26 +1032,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportMulticastSessionPolic
     type Vtable = IWdsTransportMulticastSessionPolicy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314345935, 26860, 17668, [169, 81, 74, 0, 50, 102, 96, 107]);
 }
-impl ::std::convert::From<IWdsTransportMulticastSessionPolicy> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportMulticastSessionPolicy> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportMulticastSessionPolicy) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportMulticastSessionPolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportMulticastSessionPolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IWdsTransportMulticastSessionPolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1305,7 +1105,7 @@ pub struct IWdsTransportMulticastSessionPolicy_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportNamespace(::windows::runtime::IUnknown);
 impl IWdsTransportNamespace {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -1420,26 +1220,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportNamespace {
     type Vtable = IWdsTransportNamespace_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199948119, 64495, 20179, [176, 86, 18, 124, 177, 179, 59, 132]);
 }
-impl ::std::convert::From<IWdsTransportNamespace> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportNamespace) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportNamespace> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportNamespace) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportNamespace {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportNamespace {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportNamespace> for super::Ole::Automation::IDispatch {
     fn from(value: IWdsTransportNamespace) -> Self {
@@ -1512,7 +1292,7 @@ pub struct IWdsTransportNamespace_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportNamespaceAutoCast(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceAutoCast {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -1648,26 +1428,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceAutoCast {
     type Vtable = IWdsTransportNamespaceAutoCast_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2912098930, 50365, 19521, [143, 188, 89, 201, 199, 72, 223, 158]);
 }
-impl ::std::convert::From<IWdsTransportNamespaceAutoCast> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportNamespaceAutoCast> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportNamespaceAutoCast) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportNamespaceAutoCast {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportNamespaceAutoCast {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IWdsTransportNamespaceAutoCast> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1760,7 +1520,7 @@ pub struct IWdsTransportNamespaceAutoCast_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportNamespaceManager(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceManager {
     #[cfg(feature = "Win32_Foundation")]
@@ -1785,26 +1545,6 @@ impl IWdsTransportNamespaceManager {
 unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceManager {
     type Vtable = IWdsTransportNamespaceManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1042471414, 14199, 19864, [131, 225, 249, 134, 150, 113, 123, 163]);
-}
-impl ::std::convert::From<IWdsTransportNamespaceManager> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportNamespaceManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportNamespaceManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportNamespaceManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportNamespaceManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportNamespaceManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportNamespaceManager> for super::Ole::Automation::IDispatch {
@@ -1853,7 +1593,7 @@ pub struct IWdsTransportNamespaceManager_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportNamespaceScheduledCast(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceScheduledCast {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -1993,26 +1733,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceScheduledCas
     type Vtable = IWdsTransportNamespaceScheduledCast_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943771343, 55148, 16750, [164, 204, 49, 199, 65, 210, 135, 75]);
 }
-impl ::std::convert::From<IWdsTransportNamespaceScheduledCast> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportNamespaceScheduledCast> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportNamespaceScheduledCast) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportNamespaceScheduledCast {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportNamespaceScheduledCast {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2106,7 +1826,7 @@ pub struct IWdsTransportNamespaceScheduledCast_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStart(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceScheduledCastAutoStart {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -2264,26 +1984,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceScheduledCas
     type Vtable = IWdsTransportNamespaceScheduledCastAutoStart_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3590762301, 60060, 16921, [150, 30, 116, 145, 214, 24, 217, 185]);
 }
-impl ::std::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2401,7 +2101,7 @@ pub struct IWdsTransportNamespaceScheduledCastAutoStart_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportNamespaceScheduledCastManualStart(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceScheduledCastManualStart {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -2541,26 +2241,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportNamespaceScheduledCas
     type Vtable = IWdsTransportNamespaceScheduledCastManualStart_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(20868684, 59047, 20405, [183, 255, 217, 245, 218, 128, 92, 49]);
 }
-impl ::std::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2674,7 +2354,7 @@ pub struct IWdsTransportNamespaceScheduledCastManualStart_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportServer(::windows::runtime::IUnknown);
 impl IWdsTransportServer {
     #[cfg(feature = "Win32_Foundation")]
@@ -2706,26 +2386,6 @@ impl IWdsTransportServer {
 unsafe impl ::windows::runtime::Interface for IWdsTransportServer {
     type Vtable = IWdsTransportServer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164417683, 33549, 17220, [163, 10, 115, 174, 142, 143, 202, 144]);
-}
-impl ::std::convert::From<IWdsTransportServer> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportServer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportServer> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportServer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportServer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportServer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportServer> for super::Ole::Automation::IDispatch {
@@ -2774,7 +2434,7 @@ pub struct IWdsTransportServer_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportServer2(::windows::runtime::IUnknown);
 impl IWdsTransportServer2 {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -2832,26 +2492,6 @@ impl IWdsTransportServer2 {
 unsafe impl ::windows::runtime::Interface for IWdsTransportServer2 {
     type Vtable = IWdsTransportServer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(628005279, 28148, 17720, [129, 185, 133, 123, 154, 184, 251, 71]);
-}
-impl ::std::convert::From<IWdsTransportServer2> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportServer2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportServer2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportServer2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportServer2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportServer2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IWdsTransportServer2> for IWdsTransportServer {
     fn from(value: IWdsTransportServer2) -> Self {
@@ -2921,7 +2561,7 @@ pub struct IWdsTransportServer2_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportServicePolicy(::windows::runtime::IUnknown);
 impl IWdsTransportServicePolicy {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -3025,26 +2665,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportServicePolicy {
     type Vtable = IWdsTransportServicePolicy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3108406648, 40747, 18636, [178, 122, 166, 7, 153, 194, 117, 12]);
 }
-impl ::std::convert::From<IWdsTransportServicePolicy> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportServicePolicy) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportServicePolicy> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportServicePolicy) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportServicePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportServicePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IWdsTransportServicePolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportServicePolicy) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3126,7 +2746,7 @@ pub struct IWdsTransportServicePolicy_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportServicePolicy2(::windows::runtime::IUnknown);
 impl IWdsTransportServicePolicy2 {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -3257,26 +2877,6 @@ unsafe impl ::windows::runtime::Interface for IWdsTransportServicePolicy2 {
     type Vtable = IWdsTransportServicePolicy2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1707187804, 43646, 19345, [137, 68, 145, 224, 229, 87, 39, 151]);
 }
-impl ::std::convert::From<IWdsTransportServicePolicy2> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportServicePolicy2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportServicePolicy2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportServicePolicy2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IWdsTransportServicePolicy2> for IWdsTransportServicePolicy {
     fn from(value: IWdsTransportServicePolicy2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3384,7 +2984,7 @@ pub struct IWdsTransportServicePolicy2_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportSession(::windows::runtime::IUnknown);
 impl IWdsTransportSession {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -3432,26 +3032,6 @@ impl IWdsTransportSession {
 unsafe impl ::windows::runtime::Interface for IWdsTransportSession {
     type Vtable = IWdsTransportSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4109363848, 26033, 20272, [164, 185, 39, 147, 152, 119, 150, 251]);
-}
-impl ::std::convert::From<IWdsTransportSession> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportSession> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportSession> for super::Ole::Automation::IDispatch {
@@ -3504,7 +3084,7 @@ pub struct IWdsTransportSession_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportSetupManager(::windows::runtime::IUnknown);
 impl IWdsTransportSetupManager {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -3536,26 +3116,6 @@ impl IWdsTransportSetupManager {
 unsafe impl ::windows::runtime::Interface for IWdsTransportSetupManager {
     type Vtable = IWdsTransportSetupManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146299941, 61352, 16548, [174, 249, 201, 141, 150, 156, 11, 117]);
-}
-impl ::std::convert::From<IWdsTransportSetupManager> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportSetupManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportSetupManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportSetupManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportSetupManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportSetupManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportSetupManager> for super::Ole::Automation::IDispatch {
@@ -3605,7 +3165,7 @@ pub struct IWdsTransportSetupManager_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportSetupManager2(::windows::runtime::IUnknown);
 impl IWdsTransportSetupManager2 {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -3668,26 +3228,6 @@ impl IWdsTransportSetupManager2 {
 unsafe impl ::windows::runtime::Interface for IWdsTransportSetupManager2 {
     type Vtable = IWdsTransportSetupManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(46037466, 32414, 17254, [139, 110, 42, 169, 169, 27, 228, 127]);
-}
-impl ::std::convert::From<IWdsTransportSetupManager2> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportSetupManager2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportSetupManager2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportSetupManager2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportSetupManager2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportSetupManager2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IWdsTransportSetupManager2> for IWdsTransportSetupManager {
     fn from(value: IWdsTransportSetupManager2) -> Self {
@@ -3759,7 +3299,7 @@ pub struct IWdsTransportSetupManager2_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportTftpClient(::windows::runtime::IUnknown);
 impl IWdsTransportTftpClient {
     #[cfg(feature = "Win32_Foundation")]
@@ -3803,26 +3343,6 @@ impl IWdsTransportTftpClient {
 unsafe impl ::windows::runtime::Interface for IWdsTransportTftpClient {
     type Vtable = IWdsTransportTftpClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955072430, 34893, 19845, [177, 70, 83, 50, 14, 118, 239, 98]);
-}
-impl ::std::convert::From<IWdsTransportTftpClient> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportTftpClient) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportTftpClient> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportTftpClient) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportTftpClient {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportTftpClient {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportTftpClient> for super::Ole::Automation::IDispatch {
@@ -3874,7 +3394,7 @@ pub struct IWdsTransportTftpClient_abi(
 );
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWdsTransportTftpManager(::windows::runtime::IUnknown);
 impl IWdsTransportTftpManager {
     #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
@@ -3886,26 +3406,6 @@ impl IWdsTransportTftpManager {
 unsafe impl ::windows::runtime::Interface for IWdsTransportTftpManager {
     type Vtable = IWdsTransportTftpManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(321365960, 44682, 20403, [129, 80, 19, 98, 39, 195, 126, 154]);
-}
-impl ::std::convert::From<IWdsTransportTftpManager> for ::windows::runtime::IUnknown {
-    fn from(value: IWdsTransportTftpManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWdsTransportTftpManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IWdsTransportTftpManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWdsTransportTftpManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWdsTransportTftpManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWdsTransportTftpManager> for super::Ole::Automation::IDispatch {

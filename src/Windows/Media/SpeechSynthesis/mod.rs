@@ -236,7 +236,7 @@ unsafe impl ::windows::runtime::RuntimeType for SpeechPunctuationSilence {
 }
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpeechSynthesisStream(::windows::runtime::IInspectable);
 impl SpeechSynthesisStream {
     #[cfg(feature = "Foundation_Collections")]
@@ -384,46 +384,6 @@ unsafe impl ::windows::runtime::Interface for SpeechSynthesisStream {
 }
 impl ::windows::runtime::RuntimeName for SpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
-}
-impl ::std::convert::From<SpeechSynthesisStream> for ::windows::runtime::IUnknown {
-    fn from(value: SpeechSynthesisStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpeechSynthesisStream> for ::windows::runtime::IUnknown {
-    fn from(value: &SpeechSynthesisStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpeechSynthesisStream> for ::windows::runtime::IInspectable {
-    fn from(value: SpeechSynthesisStream) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpeechSynthesisStream> for ::windows::runtime::IInspectable {
-    fn from(value: &SpeechSynthesisStream) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SpeechSynthesisStream> for super::super::Foundation::IClosable {
@@ -611,7 +571,7 @@ unsafe impl ::std::marker::Send for SpeechSynthesisStream {}
 unsafe impl ::std::marker::Sync for SpeechSynthesisStream {}
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpeechSynthesizer(::windows::runtime::IInspectable);
 impl SpeechSynthesizer {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -708,46 +668,6 @@ unsafe impl ::windows::runtime::Interface for SpeechSynthesizer {
 impl ::windows::runtime::RuntimeName for SpeechSynthesizer {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizer";
 }
-impl ::std::convert::From<SpeechSynthesizer> for ::windows::runtime::IUnknown {
-    fn from(value: SpeechSynthesizer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpeechSynthesizer> for ::windows::runtime::IUnknown {
-    fn from(value: &SpeechSynthesizer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpeechSynthesizer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpeechSynthesizer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpeechSynthesizer> for ::windows::runtime::IInspectable {
-    fn from(value: SpeechSynthesizer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpeechSynthesizer> for ::windows::runtime::IInspectable {
-    fn from(value: &SpeechSynthesizer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpeechSynthesizer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpeechSynthesizer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SpeechSynthesizer> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -778,7 +698,7 @@ unsafe impl ::std::marker::Send for SpeechSynthesizer {}
 unsafe impl ::std::marker::Sync for SpeechSynthesizer {}
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpeechSynthesizerOptions(::windows::runtime::IInspectable);
 impl SpeechSynthesizerOptions {
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
@@ -883,46 +803,6 @@ unsafe impl ::windows::runtime::Interface for SpeechSynthesizerOptions {
 impl ::windows::runtime::RuntimeName for SpeechSynthesizerOptions {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions";
 }
-impl ::std::convert::From<SpeechSynthesizerOptions> for ::windows::runtime::IUnknown {
-    fn from(value: SpeechSynthesizerOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpeechSynthesizerOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &SpeechSynthesizerOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpeechSynthesizerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpeechSynthesizerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpeechSynthesizerOptions> for ::windows::runtime::IInspectable {
-    fn from(value: SpeechSynthesizerOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpeechSynthesizerOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &SpeechSynthesizerOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpeechSynthesizerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpeechSynthesizerOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SpeechSynthesizerOptions {}
 unsafe impl ::std::marker::Sync for SpeechSynthesizerOptions {}
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
@@ -947,7 +827,7 @@ unsafe impl ::windows::runtime::RuntimeType for VoiceGender {
 }
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VoiceInformation(::windows::runtime::IInspectable);
 impl VoiceInformation {
     #[doc = "*Required features: `Media_SpeechSynthesis`*"]
@@ -1000,46 +880,6 @@ unsafe impl ::windows::runtime::Interface for VoiceInformation {
 }
 impl ::windows::runtime::RuntimeName for VoiceInformation {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.VoiceInformation";
-}
-impl ::std::convert::From<VoiceInformation> for ::windows::runtime::IUnknown {
-    fn from(value: VoiceInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VoiceInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &VoiceInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VoiceInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VoiceInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VoiceInformation> for ::windows::runtime::IInspectable {
-    fn from(value: VoiceInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VoiceInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &VoiceInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VoiceInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VoiceInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for VoiceInformation {}
 unsafe impl ::std::marker::Sync for VoiceInformation {}

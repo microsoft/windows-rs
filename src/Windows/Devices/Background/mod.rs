@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DeviceServicingDetails(::windows::runtime::IInspectable);
 impl DeviceServicingDetails {
     #[doc = "*Required features: `Devices_Background`*"]
@@ -40,51 +40,11 @@ unsafe impl ::windows::runtime::Interface for DeviceServicingDetails {
 impl ::windows::runtime::RuntimeName for DeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceServicingDetails";
 }
-impl ::std::convert::From<DeviceServicingDetails> for ::windows::runtime::IUnknown {
-    fn from(value: DeviceServicingDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DeviceServicingDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &DeviceServicingDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceServicingDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceServicingDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DeviceServicingDetails> for ::windows::runtime::IInspectable {
-    fn from(value: DeviceServicingDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DeviceServicingDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &DeviceServicingDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeviceServicingDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeviceServicingDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DeviceServicingDetails {}
 unsafe impl ::std::marker::Sync for DeviceServicingDetails {}
 #[doc = "*Required features: `Devices_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DeviceUseDetails(::windows::runtime::IInspectable);
 impl DeviceUseDetails {
     #[doc = "*Required features: `Devices_Background`*"]
@@ -113,46 +73,6 @@ unsafe impl ::windows::runtime::Interface for DeviceUseDetails {
 }
 impl ::windows::runtime::RuntimeName for DeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceUseDetails";
-}
-impl ::std::convert::From<DeviceUseDetails> for ::windows::runtime::IUnknown {
-    fn from(value: DeviceUseDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DeviceUseDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &DeviceUseDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DeviceUseDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DeviceUseDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DeviceUseDetails> for ::windows::runtime::IInspectable {
-    fn from(value: DeviceUseDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DeviceUseDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &DeviceUseDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DeviceUseDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DeviceUseDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DeviceUseDetails {}
 unsafe impl ::std::marker::Sync for DeviceUseDetails {}

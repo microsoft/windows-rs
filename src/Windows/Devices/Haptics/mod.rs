@@ -272,7 +272,7 @@ impl ::windows::runtime::RuntimeName for KnownSimpleHapticsControllerWaveforms {
 }
 #[doc = "*Required features: `Devices_Haptics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SimpleHapticsController(::windows::runtime::IInspectable);
 impl SimpleHapticsController {
     #[doc = "*Required features: `Devices_Haptics`*"]
@@ -362,51 +362,11 @@ unsafe impl ::windows::runtime::Interface for SimpleHapticsController {
 impl ::windows::runtime::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
 }
-impl ::std::convert::From<SimpleHapticsController> for ::windows::runtime::IUnknown {
-    fn from(value: SimpleHapticsController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SimpleHapticsController> for ::windows::runtime::IUnknown {
-    fn from(value: &SimpleHapticsController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SimpleHapticsController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SimpleHapticsController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SimpleHapticsController> for ::windows::runtime::IInspectable {
-    fn from(value: SimpleHapticsController) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SimpleHapticsController> for ::windows::runtime::IInspectable {
-    fn from(value: &SimpleHapticsController) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SimpleHapticsController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SimpleHapticsController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SimpleHapticsController {}
 unsafe impl ::std::marker::Sync for SimpleHapticsController {}
 #[doc = "*Required features: `Devices_Haptics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SimpleHapticsControllerFeedback(::windows::runtime::IInspectable);
 impl SimpleHapticsControllerFeedback {
     #[doc = "*Required features: `Devices_Haptics`*"]
@@ -437,46 +397,6 @@ unsafe impl ::windows::runtime::Interface for SimpleHapticsControllerFeedback {
 impl ::windows::runtime::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
 }
-impl ::std::convert::From<SimpleHapticsControllerFeedback> for ::windows::runtime::IUnknown {
-    fn from(value: SimpleHapticsControllerFeedback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SimpleHapticsControllerFeedback> for ::windows::runtime::IUnknown {
-    fn from(value: &SimpleHapticsControllerFeedback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SimpleHapticsControllerFeedback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SimpleHapticsControllerFeedback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SimpleHapticsControllerFeedback> for ::windows::runtime::IInspectable {
-    fn from(value: SimpleHapticsControllerFeedback) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SimpleHapticsControllerFeedback> for ::windows::runtime::IInspectable {
-    fn from(value: &SimpleHapticsControllerFeedback) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SimpleHapticsControllerFeedback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SimpleHapticsControllerFeedback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::std::marker::Sync for SimpleHapticsControllerFeedback {}
 #[doc = "*Required features: `Devices_Haptics`*"]
@@ -503,7 +423,7 @@ unsafe impl ::windows::runtime::RuntimeType for VibrationAccessStatus {
 }
 #[doc = "*Required features: `Devices_Haptics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VibrationDevice(::windows::runtime::IInspectable);
 impl VibrationDevice {
     #[doc = "*Required features: `Devices_Haptics`*"]
@@ -575,46 +495,6 @@ unsafe impl ::windows::runtime::Interface for VibrationDevice {
 }
 impl ::windows::runtime::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";
-}
-impl ::std::convert::From<VibrationDevice> for ::windows::runtime::IUnknown {
-    fn from(value: VibrationDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VibrationDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &VibrationDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VibrationDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VibrationDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VibrationDevice> for ::windows::runtime::IInspectable {
-    fn from(value: VibrationDevice) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VibrationDevice> for ::windows::runtime::IInspectable {
-    fn from(value: &VibrationDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VibrationDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VibrationDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for VibrationDevice {}
 unsafe impl ::std::marker::Sync for VibrationDevice {}

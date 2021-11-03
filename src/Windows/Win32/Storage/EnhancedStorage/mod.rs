@@ -281,7 +281,7 @@ pub const FLAGSTATUS_NOTFLAGGED: i32 = 0i32;
 pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(949483172, 64821, 19400, [160, 183, 93, 187, 163, 106, 218, 250]);
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnhancedStorageACT(::windows::runtime::IUnknown);
 impl IEnhancedStorageACT {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -318,26 +318,6 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT {
     type Vtable = IEnhancedStorageACT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1853325812, 57586, 16953, [185, 118, 160, 26, 186, 181, 41, 48]);
 }
-impl ::std::convert::From<IEnhancedStorageACT> for ::windows::runtime::IUnknown {
-    fn from(value: IEnhancedStorageACT) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnhancedStorageACT> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnhancedStorageACT) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT_abi(
@@ -355,7 +335,7 @@ pub struct IEnhancedStorageACT_abi(
 );
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnhancedStorageACT2(::windows::runtime::IUnknown);
 impl IEnhancedStorageACT2 {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -404,26 +384,6 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT2 {
     type Vtable = IEnhancedStorageACT2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1302691118, 36531, 16886, [160, 126, 152, 181, 43, 136, 36, 43]);
 }
-impl ::std::convert::From<IEnhancedStorageACT2> for ::windows::runtime::IUnknown {
-    fn from(value: IEnhancedStorageACT2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnhancedStorageACT2> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnhancedStorageACT2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IEnhancedStorageACT2> for IEnhancedStorageACT {
     fn from(value: IEnhancedStorageACT2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -465,7 +425,7 @@ pub struct IEnhancedStorageACT2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnhancedStorageACT3(::windows::runtime::IUnknown);
 impl IEnhancedStorageACT3 {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -529,26 +489,6 @@ impl IEnhancedStorageACT3 {
 unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT3 {
     type Vtable = IEnhancedStorageACT3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(35737761, 4413, 4575, [187, 97, 0, 26, 160, 27, 188, 88]);
-}
-impl ::std::convert::From<IEnhancedStorageACT3> for ::windows::runtime::IUnknown {
-    fn from(value: IEnhancedStorageACT3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnhancedStorageACT3> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnhancedStorageACT3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IEnhancedStorageACT3> for IEnhancedStorageACT2 {
     fn from(value: IEnhancedStorageACT3) -> Self {
@@ -616,7 +556,7 @@ pub struct IEnhancedStorageACT3_abi(
 );
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnhancedStorageSilo(::windows::runtime::IUnknown);
 impl IEnhancedStorageSilo {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -649,26 +589,6 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageSilo {
     type Vtable = IEnhancedStorageSilo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1525643462, 8770, 18179, [191, 73, 68, 178, 147, 87, 163, 89]);
 }
-impl ::std::convert::From<IEnhancedStorageSilo> for ::windows::runtime::IUnknown {
-    fn from(value: IEnhancedStorageSilo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnhancedStorageSilo> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnhancedStorageSilo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageSilo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageSilo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSilo_abi(
@@ -685,7 +605,7 @@ pub struct IEnhancedStorageSilo_abi(
 );
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnhancedStorageSiloAction(::windows::runtime::IUnknown);
 impl IEnhancedStorageSiloAction {
     #[cfg(feature = "Win32_Foundation")]
@@ -709,26 +629,6 @@ unsafe impl ::windows::runtime::Interface for IEnhancedStorageSiloAction {
     type Vtable = IEnhancedStorageSiloAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3069702929, 8303, 20472, [156, 75, 39, 239, 238, 119, 168, 111]);
 }
-impl ::std::convert::From<IEnhancedStorageSiloAction> for ::windows::runtime::IUnknown {
-    fn from(value: IEnhancedStorageSiloAction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnhancedStorageSiloAction> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnhancedStorageSiloAction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageSiloAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageSiloAction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSiloAction_abi(
@@ -743,7 +643,7 @@ pub struct IEnhancedStorageSiloAction_abi(
 );
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumEnhancedStorageACT(::windows::runtime::IUnknown);
 impl IEnumEnhancedStorageACT {
     #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
@@ -760,26 +660,6 @@ impl IEnumEnhancedStorageACT {
 unsafe impl ::windows::runtime::Interface for IEnumEnhancedStorageACT {
     type Vtable = IEnumEnhancedStorageACT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(162669757, 4917, 17969, [167, 255, 207, 211, 169, 38, 70, 215]);
-}
-impl ::std::convert::From<IEnumEnhancedStorageACT> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumEnhancedStorageACT) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumEnhancedStorageACT> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumEnhancedStorageACT) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumEnhancedStorageACT {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumEnhancedStorageACT {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INotificationActivationCallback(::windows::runtime::IUnknown);
 impl INotificationActivationCallback {
     #[cfg(feature = "Win32_Foundation")]
@@ -13,26 +13,6 @@ impl INotificationActivationCallback {
 unsafe impl ::windows::runtime::Interface for INotificationActivationCallback {
     type Vtable = INotificationActivationCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1407391799, 26112, 19073, [147, 149, 117, 207, 254, 116, 111, 148]);
-}
-impl ::std::convert::From<INotificationActivationCallback> for ::windows::runtime::IUnknown {
-    fn from(value: INotificationActivationCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INotificationActivationCallback> for ::windows::runtime::IUnknown {
-    fn from(value: &INotificationActivationCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INotificationActivationCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INotificationActivationCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

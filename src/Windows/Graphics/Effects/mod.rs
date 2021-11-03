@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Graphics_Effects`*"]
 pub struct IGraphicsEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsEffect {
@@ -24,46 +24,6 @@ impl IGraphicsEffect {
 }
 unsafe impl ::windows::runtime::RuntimeType for IGraphicsEffect {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
-}
-impl ::std::convert::From<IGraphicsEffect> for ::windows::runtime::IUnknown {
-    fn from(value: IGraphicsEffect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IGraphicsEffect> for ::windows::runtime::IUnknown {
-    fn from(value: &IGraphicsEffect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGraphicsEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGraphicsEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IGraphicsEffect> for ::windows::runtime::IInspectable {
-    fn from(value: IGraphicsEffect) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IGraphicsEffect> for ::windows::runtime::IInspectable {
-    fn from(value: &IGraphicsEffect) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGraphicsEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGraphicsEffect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IGraphicsEffect> for IGraphicsEffectSource {
     type Error = ::windows::runtime::Error;
@@ -100,7 +60,7 @@ pub struct IGraphicsEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Graphics_Effects`*"]
 pub struct IGraphicsEffectSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsEffectSource {
@@ -110,46 +70,6 @@ unsafe impl ::windows::runtime::Interface for IGraphicsEffectSource {
 impl IGraphicsEffectSource {}
 unsafe impl ::windows::runtime::RuntimeType for IGraphicsEffectSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
-}
-impl ::std::convert::From<IGraphicsEffectSource> for ::windows::runtime::IUnknown {
-    fn from(value: IGraphicsEffectSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IGraphicsEffectSource> for ::windows::runtime::IUnknown {
-    fn from(value: &IGraphicsEffectSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGraphicsEffectSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGraphicsEffectSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IGraphicsEffectSource> for ::windows::runtime::IInspectable {
-    fn from(value: IGraphicsEffectSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IGraphicsEffectSource> for ::windows::runtime::IInspectable {
-    fn from(value: &IGraphicsEffectSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IGraphicsEffectSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IGraphicsEffectSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

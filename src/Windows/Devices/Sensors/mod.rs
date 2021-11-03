@@ -3,7 +3,7 @@
 pub mod Custom;
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Accelerometer(::windows::runtime::IInspectable);
 impl Accelerometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -177,51 +177,11 @@ unsafe impl ::windows::runtime::Interface for Accelerometer {
 impl ::windows::runtime::RuntimeName for Accelerometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Accelerometer";
 }
-impl ::std::convert::From<Accelerometer> for ::windows::runtime::IUnknown {
-    fn from(value: Accelerometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Accelerometer> for ::windows::runtime::IUnknown {
-    fn from(value: &Accelerometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Accelerometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Accelerometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Accelerometer> for ::windows::runtime::IInspectable {
-    fn from(value: Accelerometer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Accelerometer> for ::windows::runtime::IInspectable {
-    fn from(value: &Accelerometer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Accelerometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Accelerometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Accelerometer {}
 unsafe impl ::std::marker::Sync for Accelerometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AccelerometerDataThreshold(::windows::runtime::IInspectable);
 impl AccelerometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -274,51 +234,11 @@ unsafe impl ::windows::runtime::Interface for AccelerometerDataThreshold {
 impl ::windows::runtime::RuntimeName for AccelerometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerDataThreshold";
 }
-impl ::std::convert::From<AccelerometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: AccelerometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AccelerometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccelerometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccelerometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AccelerometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: AccelerometerDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AccelerometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccelerometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccelerometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AccelerometerDataThreshold {}
 unsafe impl ::std::marker::Sync for AccelerometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AccelerometerReading(::windows::runtime::IInspectable);
 impl AccelerometerReading {
     #[cfg(feature = "Foundation")]
@@ -383,51 +303,11 @@ unsafe impl ::windows::runtime::Interface for AccelerometerReading {
 impl ::windows::runtime::RuntimeName for AccelerometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReading";
 }
-impl ::std::convert::From<AccelerometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: AccelerometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AccelerometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: &AccelerometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccelerometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccelerometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AccelerometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: AccelerometerReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AccelerometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: &AccelerometerReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccelerometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccelerometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AccelerometerReading {}
 unsafe impl ::std::marker::Sync for AccelerometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AccelerometerReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl AccelerometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -448,46 +328,6 @@ unsafe impl ::windows::runtime::Interface for AccelerometerReadingChangedEventAr
 }
 impl ::windows::runtime::RuntimeName for AccelerometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs";
-}
-impl ::std::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccelerometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccelerometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccelerometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccelerometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for AccelerometerReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for AccelerometerReadingChangedEventArgs {}
@@ -514,7 +354,7 @@ unsafe impl ::windows::runtime::RuntimeType for AccelerometerReadingType {
 }
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AccelerometerShakenEventArgs(::windows::runtime::IInspectable);
 impl AccelerometerShakenEventArgs {
     #[cfg(feature = "Foundation")]
@@ -537,51 +377,11 @@ unsafe impl ::windows::runtime::Interface for AccelerometerShakenEventArgs {
 impl ::windows::runtime::RuntimeName for AccelerometerShakenEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerShakenEventArgs";
 }
-impl ::std::convert::From<AccelerometerShakenEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AccelerometerShakenEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccelerometerShakenEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AccelerometerShakenEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AccelerometerShakenEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AccelerometerShakenEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AccelerometerShakenEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccelerometerShakenEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccelerometerShakenEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AccelerometerShakenEventArgs {}
 unsafe impl ::std::marker::Sync for AccelerometerShakenEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ActivitySensor(::windows::runtime::IInspectable);
 impl ActivitySensor {
     #[cfg(feature = "Foundation")]
@@ -704,51 +504,11 @@ unsafe impl ::windows::runtime::Interface for ActivitySensor {
 impl ::windows::runtime::RuntimeName for ActivitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensor";
 }
-impl ::std::convert::From<ActivitySensor> for ::windows::runtime::IUnknown {
-    fn from(value: ActivitySensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ActivitySensor> for ::windows::runtime::IUnknown {
-    fn from(value: &ActivitySensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ActivitySensor> for ::windows::runtime::IInspectable {
-    fn from(value: ActivitySensor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ActivitySensor> for ::windows::runtime::IInspectable {
-    fn from(value: &ActivitySensor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivitySensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivitySensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ActivitySensor {}
 unsafe impl ::std::marker::Sync for ActivitySensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ActivitySensorReading(::windows::runtime::IInspectable);
 impl ActivitySensorReading {
     #[cfg(feature = "Foundation")]
@@ -787,51 +547,11 @@ unsafe impl ::windows::runtime::Interface for ActivitySensorReading {
 impl ::windows::runtime::RuntimeName for ActivitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReading";
 }
-impl ::std::convert::From<ActivitySensorReading> for ::windows::runtime::IUnknown {
-    fn from(value: ActivitySensorReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ActivitySensorReading> for ::windows::runtime::IUnknown {
-    fn from(value: &ActivitySensorReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ActivitySensorReading> for ::windows::runtime::IInspectable {
-    fn from(value: ActivitySensorReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ActivitySensorReading> for ::windows::runtime::IInspectable {
-    fn from(value: &ActivitySensorReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivitySensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivitySensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ActivitySensorReading {}
 unsafe impl ::std::marker::Sync for ActivitySensorReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ActivitySensorReadingChangeReport(::windows::runtime::IInspectable);
 impl ActivitySensorReadingChangeReport {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -853,51 +573,11 @@ unsafe impl ::windows::runtime::Interface for ActivitySensorReadingChangeReport 
 impl ::windows::runtime::RuntimeName for ActivitySensorReadingChangeReport {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangeReport";
 }
-impl ::std::convert::From<ActivitySensorReadingChangeReport> for ::windows::runtime::IUnknown {
-    fn from(value: ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ActivitySensorReadingChangeReport> for ::windows::runtime::IUnknown {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorReadingChangeReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorReadingChangeReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ActivitySensorReadingChangeReport> for ::windows::runtime::IInspectable {
-    fn from(value: ActivitySensorReadingChangeReport) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ActivitySensorReadingChangeReport> for ::windows::runtime::IInspectable {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivitySensorReadingChangeReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivitySensorReadingChangeReport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ActivitySensorReadingChangeReport {}
 unsafe impl ::std::marker::Sync for ActivitySensorReadingChangeReport {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ActivitySensorReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl ActivitySensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -918,46 +598,6 @@ unsafe impl ::windows::runtime::Interface for ActivitySensorReadingChangedEventA
 }
 impl ::windows::runtime::RuntimeName for ActivitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs";
-}
-impl ::std::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivitySensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivitySensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ActivitySensorReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for ActivitySensorReadingChangedEventArgs {}
@@ -983,7 +623,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivitySensorReadingConfidence 
 }
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ActivitySensorTriggerDetails(::windows::runtime::IInspectable);
 impl ActivitySensorTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
@@ -1005,46 +645,6 @@ unsafe impl ::windows::runtime::Interface for ActivitySensorTriggerDetails {
 }
 impl ::windows::runtime::RuntimeName for ActivitySensorTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorTriggerDetails";
-}
-impl ::std::convert::From<ActivitySensorTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ActivitySensorTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivitySensorTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivitySensorTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ActivitySensorTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: ActivitySensorTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ActivitySensorTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivitySensorTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivitySensorTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ActivitySensorTriggerDetails {}
 unsafe impl ::std::marker::Sync for ActivitySensorTriggerDetails {}
@@ -1076,7 +676,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivityType {
 }
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Altimeter(::windows::runtime::IInspectable);
 impl Altimeter {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -1174,51 +774,11 @@ unsafe impl ::windows::runtime::Interface for Altimeter {
 impl ::windows::runtime::RuntimeName for Altimeter {
     const NAME: &'static str = "Windows.Devices.Sensors.Altimeter";
 }
-impl ::std::convert::From<Altimeter> for ::windows::runtime::IUnknown {
-    fn from(value: Altimeter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Altimeter> for ::windows::runtime::IUnknown {
-    fn from(value: &Altimeter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Altimeter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Altimeter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Altimeter> for ::windows::runtime::IInspectable {
-    fn from(value: Altimeter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Altimeter> for ::windows::runtime::IInspectable {
-    fn from(value: &Altimeter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Altimeter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Altimeter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Altimeter {}
 unsafe impl ::std::marker::Sync for Altimeter {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AltimeterReading(::windows::runtime::IInspectable);
 impl AltimeterReading {
     #[cfg(feature = "Foundation")]
@@ -1267,51 +827,11 @@ unsafe impl ::windows::runtime::Interface for AltimeterReading {
 impl ::windows::runtime::RuntimeName for AltimeterReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReading";
 }
-impl ::std::convert::From<AltimeterReading> for ::windows::runtime::IUnknown {
-    fn from(value: AltimeterReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AltimeterReading> for ::windows::runtime::IUnknown {
-    fn from(value: &AltimeterReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AltimeterReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AltimeterReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AltimeterReading> for ::windows::runtime::IInspectable {
-    fn from(value: AltimeterReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AltimeterReading> for ::windows::runtime::IInspectable {
-    fn from(value: &AltimeterReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AltimeterReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AltimeterReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AltimeterReading {}
 unsafe impl ::std::marker::Sync for AltimeterReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AltimeterReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl AltimeterReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -1333,51 +853,11 @@ unsafe impl ::windows::runtime::Interface for AltimeterReadingChangedEventArgs {
 impl ::windows::runtime::RuntimeName for AltimeterReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReadingChangedEventArgs";
 }
-impl ::std::convert::From<AltimeterReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AltimeterReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AltimeterReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AltimeterReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AltimeterReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AltimeterReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AltimeterReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AltimeterReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for AltimeterReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Barometer(::windows::runtime::IInspectable);
 impl Barometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -1502,51 +982,11 @@ unsafe impl ::windows::runtime::Interface for Barometer {
 impl ::windows::runtime::RuntimeName for Barometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Barometer";
 }
-impl ::std::convert::From<Barometer> for ::windows::runtime::IUnknown {
-    fn from(value: Barometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Barometer> for ::windows::runtime::IUnknown {
-    fn from(value: &Barometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Barometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Barometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Barometer> for ::windows::runtime::IInspectable {
-    fn from(value: Barometer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Barometer> for ::windows::runtime::IInspectable {
-    fn from(value: &Barometer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Barometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Barometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Barometer {}
 unsafe impl ::std::marker::Sync for Barometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BarometerDataThreshold(::windows::runtime::IInspectable);
 impl BarometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -1573,51 +1013,11 @@ unsafe impl ::windows::runtime::Interface for BarometerDataThreshold {
 impl ::windows::runtime::RuntimeName for BarometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerDataThreshold";
 }
-impl ::std::convert::From<BarometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: BarometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BarometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BarometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: BarometerDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BarometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BarometerDataThreshold {}
 unsafe impl ::std::marker::Sync for BarometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BarometerReading(::windows::runtime::IInspectable);
 impl BarometerReading {
     #[cfg(feature = "Foundation")]
@@ -1666,51 +1066,11 @@ unsafe impl ::windows::runtime::Interface for BarometerReading {
 impl ::windows::runtime::RuntimeName for BarometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReading";
 }
-impl ::std::convert::From<BarometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: BarometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BarometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: &BarometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BarometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: BarometerReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BarometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: &BarometerReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BarometerReading {}
 unsafe impl ::std::marker::Sync for BarometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BarometerReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl BarometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -1732,51 +1092,11 @@ unsafe impl ::windows::runtime::Interface for BarometerReadingChangedEventArgs {
 impl ::windows::runtime::RuntimeName for BarometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReadingChangedEventArgs";
 }
-impl ::std::convert::From<BarometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BarometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BarometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BarometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: BarometerReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BarometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BarometerReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for BarometerReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Compass(::windows::runtime::IInspectable);
 impl Compass {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -1916,51 +1236,11 @@ unsafe impl ::windows::runtime::Interface for Compass {
 impl ::windows::runtime::RuntimeName for Compass {
     const NAME: &'static str = "Windows.Devices.Sensors.Compass";
 }
-impl ::std::convert::From<Compass> for ::windows::runtime::IUnknown {
-    fn from(value: Compass) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Compass> for ::windows::runtime::IUnknown {
-    fn from(value: &Compass) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Compass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Compass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Compass> for ::windows::runtime::IInspectable {
-    fn from(value: Compass) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Compass> for ::windows::runtime::IInspectable {
-    fn from(value: &Compass) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Compass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Compass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Compass {}
 unsafe impl ::std::marker::Sync for Compass {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompassDataThreshold(::windows::runtime::IInspectable);
 impl CompassDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -1987,51 +1267,11 @@ unsafe impl ::windows::runtime::Interface for CompassDataThreshold {
 impl ::windows::runtime::RuntimeName for CompassDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassDataThreshold";
 }
-impl ::std::convert::From<CompassDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: CompassDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompassDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &CompassDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompassDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompassDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompassDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: CompassDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompassDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &CompassDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompassDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompassDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CompassDataThreshold {}
 unsafe impl ::std::marker::Sync for CompassDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompassReading(::windows::runtime::IInspectable);
 impl CompassReading {
     #[cfg(feature = "Foundation")]
@@ -2097,51 +1337,11 @@ unsafe impl ::windows::runtime::Interface for CompassReading {
 impl ::windows::runtime::RuntimeName for CompassReading {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReading";
 }
-impl ::std::convert::From<CompassReading> for ::windows::runtime::IUnknown {
-    fn from(value: CompassReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompassReading> for ::windows::runtime::IUnknown {
-    fn from(value: &CompassReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompassReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompassReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompassReading> for ::windows::runtime::IInspectable {
-    fn from(value: CompassReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompassReading> for ::windows::runtime::IInspectable {
-    fn from(value: &CompassReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompassReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompassReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CompassReading {}
 unsafe impl ::std::marker::Sync for CompassReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompassReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl CompassReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -2163,51 +1363,11 @@ unsafe impl ::windows::runtime::Interface for CompassReadingChangedEventArgs {
 impl ::windows::runtime::RuntimeName for CompassReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReadingChangedEventArgs";
 }
-impl ::std::convert::From<CompassReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompassReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompassReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompassReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompassReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CompassReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompassReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompassReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompassReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CompassReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for CompassReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Gyrometer(::windows::runtime::IInspectable);
 impl Gyrometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -2347,51 +1507,11 @@ unsafe impl ::windows::runtime::Interface for Gyrometer {
 impl ::windows::runtime::RuntimeName for Gyrometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Gyrometer";
 }
-impl ::std::convert::From<Gyrometer> for ::windows::runtime::IUnknown {
-    fn from(value: Gyrometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Gyrometer> for ::windows::runtime::IUnknown {
-    fn from(value: &Gyrometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Gyrometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Gyrometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Gyrometer> for ::windows::runtime::IInspectable {
-    fn from(value: Gyrometer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Gyrometer> for ::windows::runtime::IInspectable {
-    fn from(value: &Gyrometer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Gyrometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Gyrometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Gyrometer {}
 unsafe impl ::std::marker::Sync for Gyrometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GyrometerDataThreshold(::windows::runtime::IInspectable);
 impl GyrometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -2444,51 +1564,11 @@ unsafe impl ::windows::runtime::Interface for GyrometerDataThreshold {
 impl ::windows::runtime::RuntimeName for GyrometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerDataThreshold";
 }
-impl ::std::convert::From<GyrometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: GyrometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GyrometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GyrometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GyrometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GyrometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: GyrometerDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GyrometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GyrometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GyrometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GyrometerDataThreshold {}
 unsafe impl ::std::marker::Sync for GyrometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GyrometerReading(::windows::runtime::IInspectable);
 impl GyrometerReading {
     #[cfg(feature = "Foundation")]
@@ -2553,51 +1633,11 @@ unsafe impl ::windows::runtime::Interface for GyrometerReading {
 impl ::windows::runtime::RuntimeName for GyrometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReading";
 }
-impl ::std::convert::From<GyrometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: GyrometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GyrometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: &GyrometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GyrometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GyrometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GyrometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: GyrometerReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GyrometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: &GyrometerReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GyrometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GyrometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GyrometerReading {}
 unsafe impl ::std::marker::Sync for GyrometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GyrometerReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl GyrometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -2619,51 +1659,11 @@ unsafe impl ::windows::runtime::Interface for GyrometerReadingChangedEventArgs {
 impl ::windows::runtime::RuntimeName for GyrometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReadingChangedEventArgs";
 }
-impl ::std::convert::From<GyrometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GyrometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GyrometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GyrometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: GyrometerReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GyrometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GyrometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for GyrometerReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for GyrometerReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HingeAngleReading(::windows::runtime::IInspectable);
 impl HingeAngleReading {
     #[cfg(feature = "Foundation")]
@@ -2703,51 +1703,11 @@ unsafe impl ::windows::runtime::Interface for HingeAngleReading {
 impl ::windows::runtime::RuntimeName for HingeAngleReading {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleReading";
 }
-impl ::std::convert::From<HingeAngleReading> for ::windows::runtime::IUnknown {
-    fn from(value: HingeAngleReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HingeAngleReading> for ::windows::runtime::IUnknown {
-    fn from(value: &HingeAngleReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HingeAngleReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HingeAngleReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HingeAngleReading> for ::windows::runtime::IInspectable {
-    fn from(value: HingeAngleReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HingeAngleReading> for ::windows::runtime::IInspectable {
-    fn from(value: &HingeAngleReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HingeAngleReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HingeAngleReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for HingeAngleReading {}
 unsafe impl ::std::marker::Sync for HingeAngleReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HingeAngleSensor(::windows::runtime::IInspectable);
 impl HingeAngleSensor {
     #[cfg(feature = "Foundation")]
@@ -2849,51 +1809,11 @@ unsafe impl ::windows::runtime::Interface for HingeAngleSensor {
 impl ::windows::runtime::RuntimeName for HingeAngleSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensor";
 }
-impl ::std::convert::From<HingeAngleSensor> for ::windows::runtime::IUnknown {
-    fn from(value: HingeAngleSensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HingeAngleSensor> for ::windows::runtime::IUnknown {
-    fn from(value: &HingeAngleSensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HingeAngleSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HingeAngleSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HingeAngleSensor> for ::windows::runtime::IInspectable {
-    fn from(value: HingeAngleSensor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HingeAngleSensor> for ::windows::runtime::IInspectable {
-    fn from(value: &HingeAngleSensor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HingeAngleSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HingeAngleSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for HingeAngleSensor {}
 unsafe impl ::std::marker::Sync for HingeAngleSensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HingeAngleSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl HingeAngleSensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -2914,46 +1834,6 @@ unsafe impl ::windows::runtime::Interface for HingeAngleSensorReadingChangedEven
 }
 impl ::windows::runtime::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs";
-}
-impl ::std::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HingeAngleSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HingeAngleSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HingeAngleSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HingeAngleSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for HingeAngleSensorReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for HingeAngleSensorReadingChangedEventArgs {}
@@ -5567,7 +4447,7 @@ pub struct IProximitySensorStatics2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Sensors`*"]
 pub struct ISensorDataThreshold(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThreshold {
@@ -5577,46 +4457,6 @@ unsafe impl ::windows::runtime::Interface for ISensorDataThreshold {
 impl ISensorDataThreshold {}
 unsafe impl ::windows::runtime::RuntimeType for ISensorDataThreshold {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{54daec61-fe4b-4e07-b260-3a4cdfbe396e}");
-}
-impl ::std::convert::From<ISensorDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: ISensorDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISensorDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &ISensorDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISensorDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: ISensorDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISensorDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &ISensorDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5824,7 +4664,7 @@ pub struct ISimpleOrientationSensorStatics2_abi(
 );
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Inclinometer(::windows::runtime::IInspectable);
 impl Inclinometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -5994,51 +4834,11 @@ unsafe impl ::windows::runtime::Interface for Inclinometer {
 impl ::windows::runtime::RuntimeName for Inclinometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Inclinometer";
 }
-impl ::std::convert::From<Inclinometer> for ::windows::runtime::IUnknown {
-    fn from(value: Inclinometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Inclinometer> for ::windows::runtime::IUnknown {
-    fn from(value: &Inclinometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Inclinometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Inclinometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Inclinometer> for ::windows::runtime::IInspectable {
-    fn from(value: Inclinometer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Inclinometer> for ::windows::runtime::IInspectable {
-    fn from(value: &Inclinometer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Inclinometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Inclinometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Inclinometer {}
 unsafe impl ::std::marker::Sync for Inclinometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InclinometerDataThreshold(::windows::runtime::IInspectable);
 impl InclinometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -6091,51 +4891,11 @@ unsafe impl ::windows::runtime::Interface for InclinometerDataThreshold {
 impl ::windows::runtime::RuntimeName for InclinometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerDataThreshold";
 }
-impl ::std::convert::From<InclinometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: InclinometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InclinometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &InclinometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InclinometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InclinometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InclinometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: InclinometerDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InclinometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &InclinometerDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InclinometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InclinometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InclinometerDataThreshold {}
 unsafe impl ::std::marker::Sync for InclinometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InclinometerReading(::windows::runtime::IInspectable);
 impl InclinometerReading {
     #[cfg(feature = "Foundation")]
@@ -6208,51 +4968,11 @@ unsafe impl ::windows::runtime::Interface for InclinometerReading {
 impl ::windows::runtime::RuntimeName for InclinometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReading";
 }
-impl ::std::convert::From<InclinometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: InclinometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InclinometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: &InclinometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InclinometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InclinometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InclinometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: InclinometerReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InclinometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: &InclinometerReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InclinometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InclinometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InclinometerReading {}
 unsafe impl ::std::marker::Sync for InclinometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InclinometerReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl InclinometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -6274,51 +4994,11 @@ unsafe impl ::windows::runtime::Interface for InclinometerReadingChangedEventArg
 impl ::windows::runtime::RuntimeName for InclinometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReadingChangedEventArgs";
 }
-impl ::std::convert::From<InclinometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: InclinometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InclinometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &InclinometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InclinometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InclinometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InclinometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: InclinometerReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InclinometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &InclinometerReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InclinometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InclinometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InclinometerReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for InclinometerReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LightSensor(::windows::runtime::IInspectable);
 impl LightSensor {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -6443,51 +5123,11 @@ unsafe impl ::windows::runtime::Interface for LightSensor {
 impl ::windows::runtime::RuntimeName for LightSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensor";
 }
-impl ::std::convert::From<LightSensor> for ::windows::runtime::IUnknown {
-    fn from(value: LightSensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LightSensor> for ::windows::runtime::IUnknown {
-    fn from(value: &LightSensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LightSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LightSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LightSensor> for ::windows::runtime::IInspectable {
-    fn from(value: LightSensor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LightSensor> for ::windows::runtime::IInspectable {
-    fn from(value: &LightSensor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LightSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LightSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for LightSensor {}
 unsafe impl ::std::marker::Sync for LightSensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LightSensorDataThreshold(::windows::runtime::IInspectable);
 impl LightSensorDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -6527,51 +5167,11 @@ unsafe impl ::windows::runtime::Interface for LightSensorDataThreshold {
 impl ::windows::runtime::RuntimeName for LightSensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorDataThreshold";
 }
-impl ::std::convert::From<LightSensorDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: LightSensorDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LightSensorDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &LightSensorDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LightSensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LightSensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LightSensorDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: LightSensorDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LightSensorDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &LightSensorDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LightSensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LightSensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for LightSensorDataThreshold {}
 unsafe impl ::std::marker::Sync for LightSensorDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LightSensorReading(::windows::runtime::IInspectable);
 impl LightSensorReading {
     #[cfg(feature = "Foundation")]
@@ -6620,51 +5220,11 @@ unsafe impl ::windows::runtime::Interface for LightSensorReading {
 impl ::windows::runtime::RuntimeName for LightSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReading";
 }
-impl ::std::convert::From<LightSensorReading> for ::windows::runtime::IUnknown {
-    fn from(value: LightSensorReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LightSensorReading> for ::windows::runtime::IUnknown {
-    fn from(value: &LightSensorReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LightSensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LightSensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LightSensorReading> for ::windows::runtime::IInspectable {
-    fn from(value: LightSensorReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LightSensorReading> for ::windows::runtime::IInspectable {
-    fn from(value: &LightSensorReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LightSensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LightSensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for LightSensorReading {}
 unsafe impl ::std::marker::Sync for LightSensorReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LightSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl LightSensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -6686,51 +5246,11 @@ unsafe impl ::windows::runtime::Interface for LightSensorReadingChangedEventArgs
 impl ::windows::runtime::RuntimeName for LightSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReadingChangedEventArgs";
 }
-impl ::std::convert::From<LightSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: LightSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LightSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &LightSensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LightSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LightSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LightSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: LightSensorReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LightSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &LightSensorReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LightSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LightSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for LightSensorReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for LightSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Magnetometer(::windows::runtime::IInspectable);
 impl Magnetometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -6870,46 +5390,6 @@ unsafe impl ::windows::runtime::Interface for Magnetometer {
 impl ::windows::runtime::RuntimeName for Magnetometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Magnetometer";
 }
-impl ::std::convert::From<Magnetometer> for ::windows::runtime::IUnknown {
-    fn from(value: Magnetometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Magnetometer> for ::windows::runtime::IUnknown {
-    fn from(value: &Magnetometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Magnetometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Magnetometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Magnetometer> for ::windows::runtime::IInspectable {
-    fn from(value: Magnetometer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Magnetometer> for ::windows::runtime::IInspectable {
-    fn from(value: &Magnetometer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Magnetometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Magnetometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Magnetometer {}
 unsafe impl ::std::marker::Sync for Magnetometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
@@ -6936,7 +5416,7 @@ unsafe impl ::windows::runtime::RuntimeType for MagnetometerAccuracy {
 }
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MagnetometerDataThreshold(::windows::runtime::IInspectable);
 impl MagnetometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -6989,51 +5469,11 @@ unsafe impl ::windows::runtime::Interface for MagnetometerDataThreshold {
 impl ::windows::runtime::RuntimeName for MagnetometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerDataThreshold";
 }
-impl ::std::convert::From<MagnetometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: MagnetometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MagnetometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &MagnetometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagnetometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagnetometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MagnetometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: MagnetometerDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MagnetometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &MagnetometerDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MagnetometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MagnetometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MagnetometerDataThreshold {}
 unsafe impl ::std::marker::Sync for MagnetometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MagnetometerReading(::windows::runtime::IInspectable);
 impl MagnetometerReading {
     #[cfg(feature = "Foundation")]
@@ -7106,51 +5546,11 @@ unsafe impl ::windows::runtime::Interface for MagnetometerReading {
 impl ::windows::runtime::RuntimeName for MagnetometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReading";
 }
-impl ::std::convert::From<MagnetometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: MagnetometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MagnetometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: &MagnetometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagnetometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagnetometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MagnetometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: MagnetometerReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MagnetometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: &MagnetometerReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MagnetometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MagnetometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MagnetometerReading {}
 unsafe impl ::std::marker::Sync for MagnetometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MagnetometerReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl MagnetometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -7172,51 +5572,11 @@ unsafe impl ::windows::runtime::Interface for MagnetometerReadingChangedEventArg
 impl ::windows::runtime::RuntimeName for MagnetometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs";
 }
-impl ::std::convert::From<MagnetometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: MagnetometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MagnetometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &MagnetometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MagnetometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MagnetometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MagnetometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: MagnetometerReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MagnetometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &MagnetometerReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MagnetometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MagnetometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MagnetometerReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for MagnetometerReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OrientationSensor(::windows::runtime::IInspectable);
 impl OrientationSensor {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -7392,51 +5752,11 @@ unsafe impl ::windows::runtime::Interface for OrientationSensor {
 impl ::windows::runtime::RuntimeName for OrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensor";
 }
-impl ::std::convert::From<OrientationSensor> for ::windows::runtime::IUnknown {
-    fn from(value: OrientationSensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OrientationSensor> for ::windows::runtime::IUnknown {
-    fn from(value: &OrientationSensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OrientationSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OrientationSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OrientationSensor> for ::windows::runtime::IInspectable {
-    fn from(value: OrientationSensor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OrientationSensor> for ::windows::runtime::IInspectable {
-    fn from(value: &OrientationSensor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OrientationSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OrientationSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OrientationSensor {}
 unsafe impl ::std::marker::Sync for OrientationSensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OrientationSensorReading(::windows::runtime::IInspectable);
 impl OrientationSensorReading {
     #[cfg(feature = "Foundation")]
@@ -7501,51 +5821,11 @@ unsafe impl ::windows::runtime::Interface for OrientationSensorReading {
 impl ::windows::runtime::RuntimeName for OrientationSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReading";
 }
-impl ::std::convert::From<OrientationSensorReading> for ::windows::runtime::IUnknown {
-    fn from(value: OrientationSensorReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OrientationSensorReading> for ::windows::runtime::IUnknown {
-    fn from(value: &OrientationSensorReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OrientationSensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OrientationSensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OrientationSensorReading> for ::windows::runtime::IInspectable {
-    fn from(value: OrientationSensorReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OrientationSensorReading> for ::windows::runtime::IInspectable {
-    fn from(value: &OrientationSensorReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OrientationSensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OrientationSensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OrientationSensorReading {}
 unsafe impl ::std::marker::Sync for OrientationSensorReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OrientationSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl OrientationSensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -7567,51 +5847,11 @@ unsafe impl ::windows::runtime::Interface for OrientationSensorReadingChangedEve
 impl ::windows::runtime::RuntimeName for OrientationSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs";
 }
-impl ::std::convert::From<OrientationSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: OrientationSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OrientationSensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &OrientationSensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OrientationSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OrientationSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OrientationSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: OrientationSensorReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OrientationSensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &OrientationSensorReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OrientationSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OrientationSensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OrientationSensorReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for OrientationSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Pedometer(::windows::runtime::IInspectable);
 impl Pedometer {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -7741,51 +5981,11 @@ unsafe impl ::windows::runtime::Interface for Pedometer {
 impl ::windows::runtime::RuntimeName for Pedometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Pedometer";
 }
-impl ::std::convert::From<Pedometer> for ::windows::runtime::IUnknown {
-    fn from(value: Pedometer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Pedometer> for ::windows::runtime::IUnknown {
-    fn from(value: &Pedometer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Pedometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Pedometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Pedometer> for ::windows::runtime::IInspectable {
-    fn from(value: Pedometer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Pedometer> for ::windows::runtime::IInspectable {
-    fn from(value: &Pedometer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Pedometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Pedometer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Pedometer {}
 unsafe impl ::std::marker::Sync for Pedometer {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PedometerDataThreshold(::windows::runtime::IInspectable);
 impl PedometerDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -7809,46 +6009,6 @@ unsafe impl ::windows::runtime::Interface for PedometerDataThreshold {
 }
 impl ::windows::runtime::RuntimeName for PedometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerDataThreshold";
-}
-impl ::std::convert::From<PedometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: PedometerDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PedometerDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &PedometerDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PedometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PedometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PedometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: PedometerDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PedometerDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &PedometerDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PedometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PedometerDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<PedometerDataThreshold> for ISensorDataThreshold {
     fn from(value: PedometerDataThreshold) -> Self {
@@ -7874,7 +6034,7 @@ unsafe impl ::std::marker::Send for PedometerDataThreshold {}
 unsafe impl ::std::marker::Sync for PedometerDataThreshold {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PedometerReading(::windows::runtime::IInspectable);
 impl PedometerReading {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -7922,51 +6082,11 @@ unsafe impl ::windows::runtime::Interface for PedometerReading {
 impl ::windows::runtime::RuntimeName for PedometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReading";
 }
-impl ::std::convert::From<PedometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: PedometerReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PedometerReading> for ::windows::runtime::IUnknown {
-    fn from(value: &PedometerReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PedometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PedometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PedometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: PedometerReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PedometerReading> for ::windows::runtime::IInspectable {
-    fn from(value: &PedometerReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PedometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PedometerReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PedometerReading {}
 unsafe impl ::std::marker::Sync for PedometerReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PedometerReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl PedometerReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -7987,46 +6107,6 @@ unsafe impl ::windows::runtime::Interface for PedometerReadingChangedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for PedometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReadingChangedEventArgs";
-}
-impl ::std::convert::From<PedometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PedometerReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PedometerReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PedometerReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PedometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PedometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PedometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PedometerReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PedometerReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PedometerReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PedometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PedometerReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PedometerReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PedometerReadingChangedEventArgs {}
@@ -8053,7 +6133,7 @@ unsafe impl ::windows::runtime::RuntimeType for PedometerStepKind {
 }
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProximitySensor(::windows::runtime::IInspectable);
 impl ProximitySensor {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8155,51 +6235,11 @@ unsafe impl ::windows::runtime::Interface for ProximitySensor {
 impl ::windows::runtime::RuntimeName for ProximitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensor";
 }
-impl ::std::convert::From<ProximitySensor> for ::windows::runtime::IUnknown {
-    fn from(value: ProximitySensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProximitySensor> for ::windows::runtime::IUnknown {
-    fn from(value: &ProximitySensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProximitySensor> for ::windows::runtime::IInspectable {
-    fn from(value: ProximitySensor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProximitySensor> for ::windows::runtime::IInspectable {
-    fn from(value: &ProximitySensor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProximitySensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProximitySensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ProximitySensor {}
 unsafe impl ::std::marker::Sync for ProximitySensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProximitySensorDataThreshold(::windows::runtime::IInspectable);
 impl ProximitySensorDataThreshold {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8223,46 +6263,6 @@ unsafe impl ::windows::runtime::Interface for ProximitySensorDataThreshold {
 }
 impl ::windows::runtime::RuntimeName for ProximitySensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDataThreshold";
-}
-impl ::std::convert::From<ProximitySensorDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: ProximitySensorDataThreshold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProximitySensorDataThreshold> for ::windows::runtime::IUnknown {
-    fn from(value: &ProximitySensorDataThreshold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProximitySensorDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: ProximitySensorDataThreshold) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProximitySensorDataThreshold> for ::windows::runtime::IInspectable {
-    fn from(value: &ProximitySensorDataThreshold) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProximitySensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProximitySensorDataThreshold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<ProximitySensorDataThreshold> for ISensorDataThreshold {
     fn from(value: ProximitySensorDataThreshold) -> Self {
@@ -8289,7 +6289,7 @@ unsafe impl ::std::marker::Sync for ProximitySensorDataThreshold {}
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Sensors`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProximitySensorDisplayOnOffController(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ProximitySensorDisplayOnOffController {
@@ -8312,54 +6312,6 @@ unsafe impl ::windows::runtime::Interface for ProximitySensorDisplayOnOffControl
 #[cfg(feature = "Foundation")]
 impl ::windows::runtime::RuntimeName for ProximitySensorDisplayOnOffController {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDisplayOnOffController";
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<ProximitySensorDisplayOnOffController> for ::windows::runtime::IUnknown {
-    fn from(value: ProximitySensorDisplayOnOffController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<&ProximitySensorDisplayOnOffController> for ::windows::runtime::IUnknown {
-    fn from(value: &ProximitySensorDisplayOnOffController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensorDisplayOnOffController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensorDisplayOnOffController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<ProximitySensorDisplayOnOffController> for ::windows::runtime::IInspectable {
-    fn from(value: ProximitySensorDisplayOnOffController) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<&ProximitySensorDisplayOnOffController> for ::windows::runtime::IInspectable {
-    fn from(value: &ProximitySensorDisplayOnOffController) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProximitySensorDisplayOnOffController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProximitySensorDisplayOnOffController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::From<ProximitySensorDisplayOnOffController> for super::super::Foundation::IClosable {
@@ -8391,7 +6343,7 @@ unsafe impl ::std::marker::Send for ProximitySensorDisplayOnOffController {}
 unsafe impl ::std::marker::Sync for ProximitySensorDisplayOnOffController {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProximitySensorReading(::windows::runtime::IInspectable);
 impl ProximitySensorReading {
     #[cfg(feature = "Foundation")]
@@ -8431,51 +6383,11 @@ unsafe impl ::windows::runtime::Interface for ProximitySensorReading {
 impl ::windows::runtime::RuntimeName for ProximitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReading";
 }
-impl ::std::convert::From<ProximitySensorReading> for ::windows::runtime::IUnknown {
-    fn from(value: ProximitySensorReading) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProximitySensorReading> for ::windows::runtime::IUnknown {
-    fn from(value: &ProximitySensorReading) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProximitySensorReading> for ::windows::runtime::IInspectable {
-    fn from(value: ProximitySensorReading) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProximitySensorReading> for ::windows::runtime::IInspectable {
-    fn from(value: &ProximitySensorReading) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProximitySensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProximitySensorReading {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ProximitySensorReading {}
 unsafe impl ::std::marker::Sync for ProximitySensorReading {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProximitySensorReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl ProximitySensorReadingChangedEventArgs {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8497,51 +6409,11 @@ unsafe impl ::windows::runtime::Interface for ProximitySensorReadingChangedEvent
 impl ::windows::runtime::RuntimeName for ProximitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs";
 }
-impl ::std::convert::From<ProximitySensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ProximitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProximitySensorReadingChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ProximitySensorReadingChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximitySensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximitySensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProximitySensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ProximitySensorReadingChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProximitySensorReadingChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ProximitySensorReadingChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProximitySensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProximitySensorReadingChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ProximitySensorReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for ProximitySensorReadingChangedEventArgs {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SensorDataThresholdTriggerDetails(::windows::runtime::IInspectable);
 impl SensorDataThresholdTriggerDetails {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8571,46 +6443,6 @@ unsafe impl ::windows::runtime::Interface for SensorDataThresholdTriggerDetails 
 impl ::windows::runtime::RuntimeName for SensorDataThresholdTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorDataThresholdTriggerDetails";
 }
-impl ::std::convert::From<SensorDataThresholdTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: SensorDataThresholdTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SensorDataThresholdTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &SensorDataThresholdTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SensorDataThresholdTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SensorDataThresholdTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SensorDataThresholdTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: SensorDataThresholdTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SensorDataThresholdTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &SensorDataThresholdTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SensorDataThresholdTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SensorDataThresholdTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SensorDataThresholdTriggerDetails {}
 unsafe impl ::std::marker::Sync for SensorDataThresholdTriggerDetails {}
 #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8635,7 +6467,7 @@ unsafe impl ::windows::runtime::RuntimeType for SensorOptimizationGoal {
 }
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SensorQuaternion(::windows::runtime::IInspectable);
 impl SensorQuaternion {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8681,46 +6513,6 @@ unsafe impl ::windows::runtime::Interface for SensorQuaternion {
 impl ::windows::runtime::RuntimeName for SensorQuaternion {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorQuaternion";
 }
-impl ::std::convert::From<SensorQuaternion> for ::windows::runtime::IUnknown {
-    fn from(value: SensorQuaternion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SensorQuaternion> for ::windows::runtime::IUnknown {
-    fn from(value: &SensorQuaternion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SensorQuaternion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SensorQuaternion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SensorQuaternion> for ::windows::runtime::IInspectable {
-    fn from(value: SensorQuaternion) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SensorQuaternion> for ::windows::runtime::IInspectable {
-    fn from(value: &SensorQuaternion) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SensorQuaternion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SensorQuaternion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SensorQuaternion {}
 unsafe impl ::std::marker::Sync for SensorQuaternion {}
 #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8745,7 +6537,7 @@ unsafe impl ::windows::runtime::RuntimeType for SensorReadingType {
 }
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SensorRotationMatrix(::windows::runtime::IInspectable);
 impl SensorRotationMatrix {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8831,46 +6623,6 @@ unsafe impl ::windows::runtime::Interface for SensorRotationMatrix {
 impl ::windows::runtime::RuntimeName for SensorRotationMatrix {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorRotationMatrix";
 }
-impl ::std::convert::From<SensorRotationMatrix> for ::windows::runtime::IUnknown {
-    fn from(value: SensorRotationMatrix) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SensorRotationMatrix> for ::windows::runtime::IUnknown {
-    fn from(value: &SensorRotationMatrix) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SensorRotationMatrix {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SensorRotationMatrix {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SensorRotationMatrix> for ::windows::runtime::IInspectable {
-    fn from(value: SensorRotationMatrix) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SensorRotationMatrix> for ::windows::runtime::IInspectable {
-    fn from(value: &SensorRotationMatrix) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SensorRotationMatrix {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SensorRotationMatrix {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SensorRotationMatrix {}
 unsafe impl ::std::marker::Sync for SensorRotationMatrix {}
 #[doc = "*Required features: `Devices_Sensors`*"]
@@ -8931,7 +6683,7 @@ unsafe impl ::windows::runtime::RuntimeType for SimpleOrientation {
 }
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SimpleOrientationSensor(::windows::runtime::IInspectable);
 impl SimpleOrientationSensor {
     #[doc = "*Required features: `Devices_Sensors`*"]
@@ -9021,51 +6773,11 @@ unsafe impl ::windows::runtime::Interface for SimpleOrientationSensor {
 impl ::windows::runtime::RuntimeName for SimpleOrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensor";
 }
-impl ::std::convert::From<SimpleOrientationSensor> for ::windows::runtime::IUnknown {
-    fn from(value: SimpleOrientationSensor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SimpleOrientationSensor> for ::windows::runtime::IUnknown {
-    fn from(value: &SimpleOrientationSensor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SimpleOrientationSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SimpleOrientationSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SimpleOrientationSensor> for ::windows::runtime::IInspectable {
-    fn from(value: SimpleOrientationSensor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SimpleOrientationSensor> for ::windows::runtime::IInspectable {
-    fn from(value: &SimpleOrientationSensor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SimpleOrientationSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SimpleOrientationSensor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SimpleOrientationSensor {}
 unsafe impl ::std::marker::Sync for SimpleOrientationSensor {}
 #[doc = "*Required features: `Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SimpleOrientationSensorOrientationChangedEventArgs(::windows::runtime::IInspectable);
 impl SimpleOrientationSensorOrientationChangedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -9095,46 +6807,6 @@ unsafe impl ::windows::runtime::Interface for SimpleOrientationSensorOrientation
 }
 impl ::windows::runtime::RuntimeName for SimpleOrientationSensorOrientationChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs";
-}
-impl ::std::convert::From<SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SimpleOrientationSensorOrientationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SimpleOrientationSensorOrientationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SimpleOrientationSensorOrientationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SimpleOrientationSensorOrientationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for SimpleOrientationSensorOrientationChangedEventArgs {}
 unsafe impl ::std::marker::Sync for SimpleOrientationSensorOrientationChangedEventArgs {}

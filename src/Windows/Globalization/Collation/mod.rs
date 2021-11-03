@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Globalization_Collation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CharacterGrouping(::windows::runtime::IInspectable);
 impl CharacterGrouping {
     #[doc = "*Required features: `Globalization_Collation`*"]
@@ -31,51 +31,11 @@ unsafe impl ::windows::runtime::Interface for CharacterGrouping {
 impl ::windows::runtime::RuntimeName for CharacterGrouping {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGrouping";
 }
-impl ::std::convert::From<CharacterGrouping> for ::windows::runtime::IUnknown {
-    fn from(value: CharacterGrouping) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CharacterGrouping> for ::windows::runtime::IUnknown {
-    fn from(value: &CharacterGrouping) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CharacterGrouping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CharacterGrouping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CharacterGrouping> for ::windows::runtime::IInspectable {
-    fn from(value: CharacterGrouping) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CharacterGrouping> for ::windows::runtime::IInspectable {
-    fn from(value: &CharacterGrouping) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CharacterGrouping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CharacterGrouping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CharacterGrouping {}
 unsafe impl ::std::marker::Sync for CharacterGrouping {}
 #[doc = "*Required features: `Globalization_Collation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CharacterGroupings(::windows::runtime::IInspectable);
 impl CharacterGroupings {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -159,46 +119,6 @@ unsafe impl ::windows::runtime::Interface for CharacterGroupings {
 }
 impl ::windows::runtime::RuntimeName for CharacterGroupings {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGroupings";
-}
-impl ::std::convert::From<CharacterGroupings> for ::windows::runtime::IUnknown {
-    fn from(value: CharacterGroupings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CharacterGroupings> for ::windows::runtime::IUnknown {
-    fn from(value: &CharacterGroupings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CharacterGroupings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CharacterGroupings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CharacterGroupings> for ::windows::runtime::IInspectable {
-    fn from(value: CharacterGroupings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CharacterGroupings> for ::windows::runtime::IInspectable {
-    fn from(value: &CharacterGroupings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CharacterGroupings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CharacterGroupings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<CharacterGroupings> for super::super::Foundation::Collections::IIterable<CharacterGrouping> {

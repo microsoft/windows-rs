@@ -35,7 +35,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundDownloadProgress {
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackgroundDownloader(::windows::runtime::IInspectable);
 impl BackgroundDownloader {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -297,46 +297,6 @@ unsafe impl ::windows::runtime::Interface for BackgroundDownloader {
 impl ::windows::runtime::RuntimeName for BackgroundDownloader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundDownloader";
 }
-impl ::std::convert::From<BackgroundDownloader> for ::windows::runtime::IUnknown {
-    fn from(value: BackgroundDownloader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackgroundDownloader> for ::windows::runtime::IUnknown {
-    fn from(value: &BackgroundDownloader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundDownloader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundDownloader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackgroundDownloader> for ::windows::runtime::IInspectable {
-    fn from(value: BackgroundDownloader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackgroundDownloader> for ::windows::runtime::IInspectable {
-    fn from(value: &BackgroundDownloader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundDownloader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundDownloader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<BackgroundDownloader> for IBackgroundTransferBase {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BackgroundDownloader) -> ::windows::runtime::Result<Self> {
@@ -383,7 +343,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferBehavior {
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackgroundTransferCompletionGroup(::windows::runtime::IInspectable);
 impl BackgroundTransferCompletionGroup {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -426,51 +386,11 @@ unsafe impl ::windows::runtime::Interface for BackgroundTransferCompletionGroup 
 impl ::windows::runtime::RuntimeName for BackgroundTransferCompletionGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup";
 }
-impl ::std::convert::From<BackgroundTransferCompletionGroup> for ::windows::runtime::IUnknown {
-    fn from(value: BackgroundTransferCompletionGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackgroundTransferCompletionGroup> for ::windows::runtime::IUnknown {
-    fn from(value: &BackgroundTransferCompletionGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTransferCompletionGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTransferCompletionGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackgroundTransferCompletionGroup> for ::windows::runtime::IInspectable {
-    fn from(value: BackgroundTransferCompletionGroup) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackgroundTransferCompletionGroup> for ::windows::runtime::IInspectable {
-    fn from(value: &BackgroundTransferCompletionGroup) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTransferCompletionGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTransferCompletionGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BackgroundTransferCompletionGroup {}
 unsafe impl ::std::marker::Sync for BackgroundTransferCompletionGroup {}
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(::windows::runtime::IInspectable);
 impl BackgroundTransferCompletionGroupTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
@@ -502,51 +422,11 @@ unsafe impl ::windows::runtime::Interface for BackgroundTransferCompletionGroupT
 impl ::windows::runtime::RuntimeName for BackgroundTransferCompletionGroupTriggerDetails {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails";
 }
-impl ::std::convert::From<BackgroundTransferCompletionGroupTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackgroundTransferCompletionGroupTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTransferCompletionGroupTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTransferCompletionGroupTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackgroundTransferCompletionGroupTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackgroundTransferCompletionGroupTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &BackgroundTransferCompletionGroupTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTransferCompletionGroupTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTransferCompletionGroupTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BackgroundTransferCompletionGroupTriggerDetails {}
 unsafe impl ::std::marker::Sync for BackgroundTransferCompletionGroupTriggerDetails {}
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackgroundTransferContentPart(::windows::runtime::IInspectable);
 impl BackgroundTransferContentPart {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -600,46 +480,6 @@ unsafe impl ::windows::runtime::Interface for BackgroundTransferContentPart {
 }
 impl ::windows::runtime::RuntimeName for BackgroundTransferContentPart {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart";
-}
-impl ::std::convert::From<BackgroundTransferContentPart> for ::windows::runtime::IUnknown {
-    fn from(value: BackgroundTransferContentPart) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackgroundTransferContentPart> for ::windows::runtime::IUnknown {
-    fn from(value: &BackgroundTransferContentPart) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTransferContentPart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTransferContentPart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackgroundTransferContentPart> for ::windows::runtime::IInspectable {
-    fn from(value: BackgroundTransferContentPart) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackgroundTransferContentPart> for ::windows::runtime::IInspectable {
-    fn from(value: &BackgroundTransferContentPart) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTransferContentPart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTransferContentPart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for BackgroundTransferContentPart {}
 unsafe impl ::std::marker::Sync for BackgroundTransferContentPart {}
@@ -716,7 +556,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferFileRange {
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackgroundTransferGroup(::windows::runtime::IInspectable);
 impl BackgroundTransferGroup {
     #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
@@ -762,46 +602,6 @@ unsafe impl ::windows::runtime::Interface for BackgroundTransferGroup {
 impl ::windows::runtime::RuntimeName for BackgroundTransferGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup";
 }
-impl ::std::convert::From<BackgroundTransferGroup> for ::windows::runtime::IUnknown {
-    fn from(value: BackgroundTransferGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackgroundTransferGroup> for ::windows::runtime::IUnknown {
-    fn from(value: &BackgroundTransferGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTransferGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTransferGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackgroundTransferGroup> for ::windows::runtime::IInspectable {
-    fn from(value: BackgroundTransferGroup) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackgroundTransferGroup> for ::windows::runtime::IInspectable {
-    fn from(value: &BackgroundTransferGroup) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTransferGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTransferGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BackgroundTransferGroup {}
 unsafe impl ::std::marker::Sync for BackgroundTransferGroup {}
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
@@ -827,7 +627,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferPriority {
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(::windows::runtime::IInspectable);
 impl BackgroundTransferRangesDownloadedEventArgs {
     #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
@@ -866,46 +666,6 @@ unsafe impl ::windows::runtime::Interface for BackgroundTransferRangesDownloaded
 }
 impl ::windows::runtime::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs";
-}
-impl ::std::convert::From<BackgroundTransferRangesDownloadedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackgroundTransferRangesDownloadedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundTransferRangesDownloadedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundTransferRangesDownloadedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackgroundTransferRangesDownloadedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackgroundTransferRangesDownloadedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &BackgroundTransferRangesDownloadedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundTransferRangesDownloadedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundTransferRangesDownloadedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for BackgroundTransferRangesDownloadedEventArgs {}
 unsafe impl ::std::marker::Sync for BackgroundTransferRangesDownloadedEventArgs {}
@@ -983,7 +743,7 @@ unsafe impl ::windows::runtime::RuntimeType for BackgroundUploadProgress {
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackgroundUploader(::windows::runtime::IInspectable);
 impl BackgroundUploader {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1269,46 +1029,6 @@ unsafe impl ::windows::runtime::Interface for BackgroundUploader {
 impl ::windows::runtime::RuntimeName for BackgroundUploader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundUploader";
 }
-impl ::std::convert::From<BackgroundUploader> for ::windows::runtime::IUnknown {
-    fn from(value: BackgroundUploader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackgroundUploader> for ::windows::runtime::IUnknown {
-    fn from(value: &BackgroundUploader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackgroundUploader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackgroundUploader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackgroundUploader> for ::windows::runtime::IInspectable {
-    fn from(value: BackgroundUploader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackgroundUploader> for ::windows::runtime::IInspectable {
-    fn from(value: &BackgroundUploader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackgroundUploader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackgroundUploader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<BackgroundUploader> for IBackgroundTransferBase {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BackgroundUploader) -> ::windows::runtime::Result<Self> {
@@ -1379,7 +1099,7 @@ impl ::windows::runtime::RuntimeName for ContentPrefetcher {
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DownloadOperation(::windows::runtime::IInspectable);
 impl DownloadOperation {
     #[cfg(feature = "Storage")]
@@ -1608,46 +1328,6 @@ unsafe impl ::windows::runtime::Interface for DownloadOperation {
 impl ::windows::runtime::RuntimeName for DownloadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.DownloadOperation";
 }
-impl ::std::convert::From<DownloadOperation> for ::windows::runtime::IUnknown {
-    fn from(value: DownloadOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DownloadOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &DownloadOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DownloadOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DownloadOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DownloadOperation> for ::windows::runtime::IInspectable {
-    fn from(value: DownloadOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DownloadOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &DownloadOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DownloadOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DownloadOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<DownloadOperation> for IBackgroundTransferOperation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DownloadOperation) -> ::windows::runtime::Result<Self> {
@@ -1855,7 +1535,7 @@ pub struct IBackgroundDownloaderUserConsent_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 pub struct IBackgroundTransferBase(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferBase {
@@ -1942,46 +1622,6 @@ impl IBackgroundTransferBase {
 }
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTransferBase {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{2a9da250-c769-458c-afe8-feb8d4d3b2ef}");
-}
-impl ::std::convert::From<IBackgroundTransferBase> for ::windows::runtime::IUnknown {
-    fn from(value: IBackgroundTransferBase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBackgroundTransferBase> for ::windows::runtime::IUnknown {
-    fn from(value: &IBackgroundTransferBase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTransferBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTransferBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IBackgroundTransferBase> for ::windows::runtime::IInspectable {
-    fn from(value: IBackgroundTransferBase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IBackgroundTransferBase> for ::windows::runtime::IInspectable {
-    fn from(value: &IBackgroundTransferBase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTransferBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTransferBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2075,7 +1715,7 @@ pub struct IBackgroundTransferContentPart_abi(
     #[cfg(not(feature = "Storage"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 pub struct IBackgroundTransferContentPartFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferContentPartFactory {
@@ -2102,46 +1742,6 @@ impl IBackgroundTransferContentPartFactory {
 }
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTransferContentPartFactory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{90ef98a9-7a01-4a0b-9f80-a0b0bb370f8d}");
-}
-impl ::std::convert::From<IBackgroundTransferContentPartFactory> for ::windows::runtime::IUnknown {
-    fn from(value: IBackgroundTransferContentPartFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBackgroundTransferContentPartFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &IBackgroundTransferContentPartFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTransferContentPartFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTransferContentPartFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IBackgroundTransferContentPartFactory> for ::windows::runtime::IInspectable {
-    fn from(value: IBackgroundTransferContentPartFactory) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IBackgroundTransferContentPartFactory> for ::windows::runtime::IInspectable {
-    fn from(value: &IBackgroundTransferContentPartFactory) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTransferContentPartFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTransferContentPartFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2216,7 +1816,7 @@ pub struct IBackgroundTransferGroupStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 pub struct IBackgroundTransferOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferOperation {
@@ -2292,46 +1892,6 @@ impl IBackgroundTransferOperation {
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTransferOperation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ded06846-90ca-44fb-8fb1-124154c0d539}");
 }
-impl ::std::convert::From<IBackgroundTransferOperation> for ::windows::runtime::IUnknown {
-    fn from(value: IBackgroundTransferOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBackgroundTransferOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &IBackgroundTransferOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTransferOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTransferOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IBackgroundTransferOperation> for ::windows::runtime::IInspectable {
-    fn from(value: IBackgroundTransferOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IBackgroundTransferOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &IBackgroundTransferOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTransferOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTransferOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundTransferOperation_abi(
@@ -2353,7 +1913,7 @@ pub struct IBackgroundTransferOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 pub struct IBackgroundTransferOperationPriority(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferOperationPriority {
@@ -2377,46 +1937,6 @@ impl IBackgroundTransferOperationPriority {
 }
 unsafe impl ::windows::runtime::RuntimeType for IBackgroundTransferOperationPriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{04854327-5254-4b3a-915e-0aa49275c0f9}");
-}
-impl ::std::convert::From<IBackgroundTransferOperationPriority> for ::windows::runtime::IUnknown {
-    fn from(value: IBackgroundTransferOperationPriority) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IBackgroundTransferOperationPriority> for ::windows::runtime::IUnknown {
-    fn from(value: &IBackgroundTransferOperationPriority) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IBackgroundTransferOperationPriority {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IBackgroundTransferOperationPriority {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IBackgroundTransferOperationPriority> for ::windows::runtime::IInspectable {
-    fn from(value: IBackgroundTransferOperationPriority) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IBackgroundTransferOperationPriority> for ::windows::runtime::IInspectable {
-    fn from(value: &IBackgroundTransferOperationPriority) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IBackgroundTransferOperationPriority {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IBackgroundTransferOperationPriority {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2908,7 +2428,7 @@ pub struct IUploadOperation4_abi(
 );
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ResponseInformation(::windows::runtime::IInspectable);
 impl ResponseInformation {
     #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
@@ -2956,51 +2476,11 @@ unsafe impl ::windows::runtime::Interface for ResponseInformation {
 impl ::windows::runtime::RuntimeName for ResponseInformation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ResponseInformation";
 }
-impl ::std::convert::From<ResponseInformation> for ::windows::runtime::IUnknown {
-    fn from(value: ResponseInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ResponseInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &ResponseInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResponseInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ResponseInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ResponseInformation> for ::windows::runtime::IInspectable {
-    fn from(value: ResponseInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ResponseInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &ResponseInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ResponseInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ResponseInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ResponseInformation {}
 unsafe impl ::std::marker::Sync for ResponseInformation {}
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UnconstrainedTransferRequestResult(::windows::runtime::IInspectable);
 impl UnconstrainedTransferRequestResult {
     #[cfg(feature = "deprecated")]
@@ -3023,51 +2503,11 @@ unsafe impl ::windows::runtime::Interface for UnconstrainedTransferRequestResult
 impl ::windows::runtime::RuntimeName for UnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult";
 }
-impl ::std::convert::From<UnconstrainedTransferRequestResult> for ::windows::runtime::IUnknown {
-    fn from(value: UnconstrainedTransferRequestResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UnconstrainedTransferRequestResult> for ::windows::runtime::IUnknown {
-    fn from(value: &UnconstrainedTransferRequestResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UnconstrainedTransferRequestResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UnconstrainedTransferRequestResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UnconstrainedTransferRequestResult> for ::windows::runtime::IInspectable {
-    fn from(value: UnconstrainedTransferRequestResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UnconstrainedTransferRequestResult> for ::windows::runtime::IInspectable {
-    fn from(value: &UnconstrainedTransferRequestResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UnconstrainedTransferRequestResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UnconstrainedTransferRequestResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UnconstrainedTransferRequestResult {}
 unsafe impl ::std::marker::Sync for UnconstrainedTransferRequestResult {}
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UploadOperation(::windows::runtime::IInspectable);
 impl UploadOperation {
     #[cfg(feature = "Storage")]
@@ -3215,46 +2655,6 @@ unsafe impl ::windows::runtime::Interface for UploadOperation {
 }
 impl ::windows::runtime::RuntimeName for UploadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UploadOperation";
-}
-impl ::std::convert::From<UploadOperation> for ::windows::runtime::IUnknown {
-    fn from(value: UploadOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UploadOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &UploadOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UploadOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UploadOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UploadOperation> for ::windows::runtime::IInspectable {
-    fn from(value: UploadOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UploadOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &UploadOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UploadOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UploadOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<UploadOperation> for IBackgroundTransferOperation {
     type Error = ::windows::runtime::Error;

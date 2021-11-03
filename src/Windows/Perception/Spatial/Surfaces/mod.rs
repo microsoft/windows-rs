@@ -199,7 +199,7 @@ pub struct ISpatialSurfaceObserverStatics2_abi(
 );
 #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpatialSurfaceInfo(::windows::runtime::IInspectable);
 impl SpatialSurfaceInfo {
     #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
@@ -257,51 +257,11 @@ unsafe impl ::windows::runtime::Interface for SpatialSurfaceInfo {
 impl ::windows::runtime::RuntimeName for SpatialSurfaceInfo {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo";
 }
-impl ::std::convert::From<SpatialSurfaceInfo> for ::windows::runtime::IUnknown {
-    fn from(value: SpatialSurfaceInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &SpatialSurfaceInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialSurfaceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialSurfaceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpatialSurfaceInfo> for ::windows::runtime::IInspectable {
-    fn from(value: SpatialSurfaceInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &SpatialSurfaceInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpatialSurfaceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpatialSurfaceInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SpatialSurfaceInfo {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceInfo {}
 #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpatialSurfaceMesh(::windows::runtime::IInspectable);
 impl SpatialSurfaceMesh {
     #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
@@ -364,51 +324,11 @@ unsafe impl ::windows::runtime::Interface for SpatialSurfaceMesh {
 impl ::windows::runtime::RuntimeName for SpatialSurfaceMesh {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh";
 }
-impl ::std::convert::From<SpatialSurfaceMesh> for ::windows::runtime::IUnknown {
-    fn from(value: SpatialSurfaceMesh) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceMesh> for ::windows::runtime::IUnknown {
-    fn from(value: &SpatialSurfaceMesh) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialSurfaceMesh {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialSurfaceMesh {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpatialSurfaceMesh> for ::windows::runtime::IInspectable {
-    fn from(value: SpatialSurfaceMesh) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceMesh> for ::windows::runtime::IInspectable {
-    fn from(value: &SpatialSurfaceMesh) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpatialSurfaceMesh {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpatialSurfaceMesh {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SpatialSurfaceMesh {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceMesh {}
 #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpatialSurfaceMeshBuffer(::windows::runtime::IInspectable);
 impl SpatialSurfaceMeshBuffer {
     #[cfg(feature = "Graphics_DirectX")]
@@ -456,51 +376,11 @@ unsafe impl ::windows::runtime::Interface for SpatialSurfaceMeshBuffer {
 impl ::windows::runtime::RuntimeName for SpatialSurfaceMeshBuffer {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer";
 }
-impl ::std::convert::From<SpatialSurfaceMeshBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: SpatialSurfaceMeshBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceMeshBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: &SpatialSurfaceMeshBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialSurfaceMeshBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialSurfaceMeshBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpatialSurfaceMeshBuffer> for ::windows::runtime::IInspectable {
-    fn from(value: SpatialSurfaceMeshBuffer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceMeshBuffer> for ::windows::runtime::IInspectable {
-    fn from(value: &SpatialSurfaceMeshBuffer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpatialSurfaceMeshBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpatialSurfaceMeshBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SpatialSurfaceMeshBuffer {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceMeshBuffer {}
 #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpatialSurfaceMeshOptions(::windows::runtime::IInspectable);
 impl SpatialSurfaceMeshOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -607,51 +487,11 @@ unsafe impl ::windows::runtime::Interface for SpatialSurfaceMeshOptions {
 impl ::windows::runtime::RuntimeName for SpatialSurfaceMeshOptions {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions";
 }
-impl ::std::convert::From<SpatialSurfaceMeshOptions> for ::windows::runtime::IUnknown {
-    fn from(value: SpatialSurfaceMeshOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceMeshOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &SpatialSurfaceMeshOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialSurfaceMeshOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialSurfaceMeshOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpatialSurfaceMeshOptions> for ::windows::runtime::IInspectable {
-    fn from(value: SpatialSurfaceMeshOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceMeshOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &SpatialSurfaceMeshOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpatialSurfaceMeshOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpatialSurfaceMeshOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SpatialSurfaceMeshOptions {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceMeshOptions {}
 #[doc = "*Required features: `Perception_Spatial_Surfaces`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpatialSurfaceObserver(::windows::runtime::IInspectable);
 impl SpatialSurfaceObserver {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -729,46 +569,6 @@ unsafe impl ::windows::runtime::Interface for SpatialSurfaceObserver {
 }
 impl ::windows::runtime::RuntimeName for SpatialSurfaceObserver {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver";
-}
-impl ::std::convert::From<SpatialSurfaceObserver> for ::windows::runtime::IUnknown {
-    fn from(value: SpatialSurfaceObserver) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceObserver> for ::windows::runtime::IUnknown {
-    fn from(value: &SpatialSurfaceObserver) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialSurfaceObserver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialSurfaceObserver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpatialSurfaceObserver> for ::windows::runtime::IInspectable {
-    fn from(value: SpatialSurfaceObserver) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpatialSurfaceObserver> for ::windows::runtime::IInspectable {
-    fn from(value: &SpatialSurfaceObserver) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpatialSurfaceObserver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpatialSurfaceObserver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for SpatialSurfaceObserver {}
 unsafe impl ::std::marker::Sync for SpatialSurfaceObserver {}

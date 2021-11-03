@@ -22,7 +22,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdaptiveNotificationContentKind 
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AdaptiveNotificationText(::windows::runtime::IInspectable);
 impl AdaptiveNotificationText {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -86,46 +86,6 @@ unsafe impl ::windows::runtime::Interface for AdaptiveNotificationText {
 impl ::windows::runtime::RuntimeName for AdaptiveNotificationText {
     const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
 }
-impl ::std::convert::From<AdaptiveNotificationText> for ::windows::runtime::IUnknown {
-    fn from(value: AdaptiveNotificationText) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AdaptiveNotificationText> for ::windows::runtime::IUnknown {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AdaptiveNotificationText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AdaptiveNotificationText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AdaptiveNotificationText> for ::windows::runtime::IInspectable {
-    fn from(value: AdaptiveNotificationText) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AdaptiveNotificationText> for ::windows::runtime::IInspectable {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AdaptiveNotificationText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AdaptiveNotificationText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<AdaptiveNotificationText> for IAdaptiveNotificationContent {
     type Error = ::windows::runtime::Error;
     fn try_from(value: AdaptiveNotificationText) -> ::windows::runtime::Result<Self> {
@@ -152,7 +112,7 @@ unsafe impl ::std::marker::Send for AdaptiveNotificationText {}
 unsafe impl ::std::marker::Sync for AdaptiveNotificationText {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BadgeNotification(::windows::runtime::IInspectable);
 impl BadgeNotification {
     #[cfg(feature = "Data_Xml_Dom")]
@@ -201,46 +161,6 @@ unsafe impl ::windows::runtime::Interface for BadgeNotification {
 }
 impl ::windows::runtime::RuntimeName for BadgeNotification {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
-}
-impl ::std::convert::From<BadgeNotification> for ::windows::runtime::IUnknown {
-    fn from(value: BadgeNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BadgeNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &BadgeNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BadgeNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BadgeNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BadgeNotification> for ::windows::runtime::IInspectable {
-    fn from(value: BadgeNotification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BadgeNotification> for ::windows::runtime::IInspectable {
-    fn from(value: &BadgeNotification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BadgeNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BadgeNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for BadgeNotification {}
 unsafe impl ::std::marker::Sync for BadgeNotification {}
@@ -318,7 +238,7 @@ impl ::windows::runtime::RuntimeName for BadgeUpdateManager {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BadgeUpdateManagerForUser(::windows::runtime::IInspectable);
 impl BadgeUpdateManagerForUser {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -365,51 +285,11 @@ unsafe impl ::windows::runtime::Interface for BadgeUpdateManagerForUser {
 impl ::windows::runtime::RuntimeName for BadgeUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
 }
-impl ::std::convert::From<BadgeUpdateManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BadgeUpdateManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BadgeUpdateManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BadgeUpdateManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BadgeUpdateManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: BadgeUpdateManagerForUser) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BadgeUpdateManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BadgeUpdateManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BadgeUpdateManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BadgeUpdateManagerForUser {}
 unsafe impl ::std::marker::Sync for BadgeUpdateManagerForUser {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BadgeUpdater(::windows::runtime::IInspectable);
 impl BadgeUpdater {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -450,50 +330,10 @@ unsafe impl ::windows::runtime::Interface for BadgeUpdater {
 impl ::windows::runtime::RuntimeName for BadgeUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
 }
-impl ::std::convert::From<BadgeUpdater> for ::windows::runtime::IUnknown {
-    fn from(value: BadgeUpdater) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BadgeUpdater> for ::windows::runtime::IUnknown {
-    fn from(value: &BadgeUpdater) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BadgeUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BadgeUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BadgeUpdater> for ::windows::runtime::IInspectable {
-    fn from(value: BadgeUpdater) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BadgeUpdater> for ::windows::runtime::IInspectable {
-    fn from(value: &BadgeUpdater) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BadgeUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BadgeUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BadgeUpdater {}
 unsafe impl ::std::marker::Sync for BadgeUpdater {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Notifications`*"]
 pub struct IAdaptiveNotificationContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveNotificationContent {
@@ -521,46 +361,6 @@ impl IAdaptiveNotificationContent {
 }
 unsafe impl ::windows::runtime::RuntimeType for IAdaptiveNotificationContent {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{eb0dbe66-7448-448d-9db8-d78acd2abba9}");
-}
-impl ::std::convert::From<IAdaptiveNotificationContent> for ::windows::runtime::IUnknown {
-    fn from(value: IAdaptiveNotificationContent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAdaptiveNotificationContent> for ::windows::runtime::IUnknown {
-    fn from(value: &IAdaptiveNotificationContent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdaptiveNotificationContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAdaptiveNotificationContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IAdaptiveNotificationContent> for ::windows::runtime::IInspectable {
-    fn from(value: IAdaptiveNotificationContent) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IAdaptiveNotificationContent> for ::windows::runtime::IInspectable {
-    fn from(value: &IAdaptiveNotificationContent) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAdaptiveNotificationContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAdaptiveNotificationContent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2260,7 +2060,7 @@ impl ::windows::runtime::RuntimeName for KnownNotificationBindings {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Notification(::windows::runtime::IInspectable);
 impl Notification {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2309,51 +2109,11 @@ unsafe impl ::windows::runtime::Interface for Notification {
 impl ::windows::runtime::RuntimeName for Notification {
     const NAME: &'static str = "Windows.UI.Notifications.Notification";
 }
-impl ::std::convert::From<Notification> for ::windows::runtime::IUnknown {
-    fn from(value: Notification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Notification> for ::windows::runtime::IUnknown {
-    fn from(value: &Notification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Notification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Notification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Notification> for ::windows::runtime::IInspectable {
-    fn from(value: Notification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Notification> for ::windows::runtime::IInspectable {
-    fn from(value: &Notification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Notification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Notification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Notification {}
 unsafe impl ::std::marker::Sync for Notification {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NotificationBinding(::windows::runtime::IInspectable);
 impl NotificationBinding {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -2411,51 +2171,11 @@ unsafe impl ::windows::runtime::Interface for NotificationBinding {
 impl ::windows::runtime::RuntimeName for NotificationBinding {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationBinding";
 }
-impl ::std::convert::From<NotificationBinding> for ::windows::runtime::IUnknown {
-    fn from(value: NotificationBinding) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NotificationBinding> for ::windows::runtime::IUnknown {
-    fn from(value: &NotificationBinding) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NotificationBinding {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NotificationBinding {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NotificationBinding> for ::windows::runtime::IInspectable {
-    fn from(value: NotificationBinding) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NotificationBinding> for ::windows::runtime::IInspectable {
-    fn from(value: &NotificationBinding) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NotificationBinding {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NotificationBinding {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for NotificationBinding {}
 unsafe impl ::std::marker::Sync for NotificationBinding {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NotificationData(::windows::runtime::IInspectable);
 impl NotificationData {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2517,46 +2237,6 @@ unsafe impl ::windows::runtime::Interface for NotificationData {
 }
 impl ::windows::runtime::RuntimeName for NotificationData {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationData";
-}
-impl ::std::convert::From<NotificationData> for ::windows::runtime::IUnknown {
-    fn from(value: NotificationData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NotificationData> for ::windows::runtime::IUnknown {
-    fn from(value: &NotificationData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NotificationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NotificationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NotificationData> for ::windows::runtime::IInspectable {
-    fn from(value: NotificationData) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NotificationData> for ::windows::runtime::IInspectable {
-    fn from(value: &NotificationData) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NotificationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NotificationData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for NotificationData {}
 unsafe impl ::std::marker::Sync for NotificationData {}
@@ -2674,7 +2354,7 @@ unsafe impl ::windows::runtime::RuntimeType for NotificationUpdateResult {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NotificationVisual(::windows::runtime::IInspectable);
 impl NotificationVisual {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -2718,46 +2398,6 @@ unsafe impl ::windows::runtime::Interface for NotificationVisual {
 impl ::windows::runtime::RuntimeName for NotificationVisual {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationVisual";
 }
-impl ::std::convert::From<NotificationVisual> for ::windows::runtime::IUnknown {
-    fn from(value: NotificationVisual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NotificationVisual> for ::windows::runtime::IUnknown {
-    fn from(value: &NotificationVisual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NotificationVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NotificationVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NotificationVisual> for ::windows::runtime::IInspectable {
-    fn from(value: NotificationVisual) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NotificationVisual> for ::windows::runtime::IInspectable {
-    fn from(value: &NotificationVisual) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NotificationVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NotificationVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for NotificationVisual {}
 unsafe impl ::std::marker::Sync for NotificationVisual {}
 #[doc = "*Required features: `UI_Notifications`*"]
@@ -2785,7 +2425,7 @@ unsafe impl ::windows::runtime::RuntimeType for PeriodicUpdateRecurrence {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ScheduledTileNotification(::windows::runtime::IInspectable);
 impl ScheduledTileNotification {
     #[cfg(feature = "Data_Xml_Dom")]
@@ -2870,51 +2510,11 @@ unsafe impl ::windows::runtime::Interface for ScheduledTileNotification {
 impl ::windows::runtime::RuntimeName for ScheduledTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledTileNotification";
 }
-impl ::std::convert::From<ScheduledTileNotification> for ::windows::runtime::IUnknown {
-    fn from(value: ScheduledTileNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ScheduledTileNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &ScheduledTileNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScheduledTileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScheduledTileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ScheduledTileNotification> for ::windows::runtime::IInspectable {
-    fn from(value: ScheduledTileNotification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ScheduledTileNotification> for ::windows::runtime::IInspectable {
-    fn from(value: &ScheduledTileNotification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ScheduledTileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ScheduledTileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ScheduledTileNotification {}
 unsafe impl ::std::marker::Sync for ScheduledTileNotification {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ScheduledToastNotification(::windows::runtime::IInspectable);
 impl ScheduledToastNotification {
     #[cfg(feature = "Data_Xml_Dom")]
@@ -3076,51 +2676,11 @@ unsafe impl ::windows::runtime::Interface for ScheduledToastNotification {
 impl ::windows::runtime::RuntimeName for ScheduledToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotification";
 }
-impl ::std::convert::From<ScheduledToastNotification> for ::windows::runtime::IUnknown {
-    fn from(value: ScheduledToastNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ScheduledToastNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &ScheduledToastNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScheduledToastNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScheduledToastNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ScheduledToastNotification> for ::windows::runtime::IInspectable {
-    fn from(value: ScheduledToastNotification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ScheduledToastNotification> for ::windows::runtime::IInspectable {
-    fn from(value: &ScheduledToastNotification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ScheduledToastNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ScheduledToastNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ScheduledToastNotification {}
 unsafe impl ::std::marker::Sync for ScheduledToastNotification {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ScheduledToastNotificationShowingEventArgs(::windows::runtime::IInspectable);
 impl ScheduledToastNotificationShowingEventArgs {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -3164,51 +2724,11 @@ unsafe impl ::windows::runtime::Interface for ScheduledToastNotificationShowingE
 impl ::windows::runtime::RuntimeName for ScheduledToastNotificationShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs";
 }
-impl ::std::convert::From<ScheduledToastNotificationShowingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ScheduledToastNotificationShowingEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ScheduledToastNotificationShowingEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ScheduledToastNotificationShowingEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScheduledToastNotificationShowingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScheduledToastNotificationShowingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ScheduledToastNotificationShowingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ScheduledToastNotificationShowingEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ScheduledToastNotificationShowingEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ScheduledToastNotificationShowingEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ScheduledToastNotificationShowingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ScheduledToastNotificationShowingEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ScheduledToastNotificationShowingEventArgs {}
 unsafe impl ::std::marker::Sync for ScheduledToastNotificationShowingEventArgs {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShownTileNotification(::windows::runtime::IInspectable);
 impl ShownTileNotification {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -3230,51 +2750,11 @@ unsafe impl ::windows::runtime::Interface for ShownTileNotification {
 impl ::windows::runtime::RuntimeName for ShownTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ShownTileNotification";
 }
-impl ::std::convert::From<ShownTileNotification> for ::windows::runtime::IUnknown {
-    fn from(value: ShownTileNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShownTileNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &ShownTileNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShownTileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShownTileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShownTileNotification> for ::windows::runtime::IInspectable {
-    fn from(value: ShownTileNotification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShownTileNotification> for ::windows::runtime::IInspectable {
-    fn from(value: &ShownTileNotification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShownTileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShownTileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ShownTileNotification {}
 unsafe impl ::std::marker::Sync for ShownTileNotification {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TileFlyoutNotification(::windows::runtime::IInspectable);
 impl TileFlyoutNotification {
     #[cfg(feature = "Data_Xml_Dom")]
@@ -3323,46 +2803,6 @@ unsafe impl ::windows::runtime::Interface for TileFlyoutNotification {
 }
 impl ::windows::runtime::RuntimeName for TileFlyoutNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutNotification";
-}
-impl ::std::convert::From<TileFlyoutNotification> for ::windows::runtime::IUnknown {
-    fn from(value: TileFlyoutNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TileFlyoutNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &TileFlyoutNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TileFlyoutNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TileFlyoutNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TileFlyoutNotification> for ::windows::runtime::IInspectable {
-    fn from(value: TileFlyoutNotification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TileFlyoutNotification> for ::windows::runtime::IInspectable {
-    fn from(value: &TileFlyoutNotification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TileFlyoutNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TileFlyoutNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for TileFlyoutNotification {}
 unsafe impl ::std::marker::Sync for TileFlyoutNotification {}
@@ -3427,7 +2867,7 @@ impl ::windows::runtime::RuntimeName for TileFlyoutUpdateManager {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TileFlyoutUpdater(::windows::runtime::IInspectable);
 impl TileFlyoutUpdater {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -3476,49 +2916,9 @@ unsafe impl ::windows::runtime::Interface for TileFlyoutUpdater {
 impl ::windows::runtime::RuntimeName for TileFlyoutUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutUpdater";
 }
-impl ::std::convert::From<TileFlyoutUpdater> for ::windows::runtime::IUnknown {
-    fn from(value: TileFlyoutUpdater) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TileFlyoutUpdater> for ::windows::runtime::IUnknown {
-    fn from(value: &TileFlyoutUpdater) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TileFlyoutUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TileFlyoutUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TileFlyoutUpdater> for ::windows::runtime::IInspectable {
-    fn from(value: TileFlyoutUpdater) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TileFlyoutUpdater> for ::windows::runtime::IInspectable {
-    fn from(value: &TileFlyoutUpdater) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TileFlyoutUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TileFlyoutUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TileNotification(::windows::runtime::IInspectable);
 impl TileNotification {
     #[cfg(feature = "Data_Xml_Dom")]
@@ -3580,46 +2980,6 @@ unsafe impl ::windows::runtime::Interface for TileNotification {
 }
 impl ::windows::runtime::RuntimeName for TileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileNotification";
-}
-impl ::std::convert::From<TileNotification> for ::windows::runtime::IUnknown {
-    fn from(value: TileNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TileNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &TileNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TileNotification> for ::windows::runtime::IInspectable {
-    fn from(value: TileNotification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TileNotification> for ::windows::runtime::IInspectable {
-    fn from(value: &TileNotification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TileNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for TileNotification {}
 unsafe impl ::std::marker::Sync for TileNotification {}
@@ -3821,7 +3181,7 @@ impl ::windows::runtime::RuntimeName for TileUpdateManager {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TileUpdateManagerForUser(::windows::runtime::IInspectable);
 impl TileUpdateManagerForUser {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -3868,51 +3228,11 @@ unsafe impl ::windows::runtime::Interface for TileUpdateManagerForUser {
 impl ::windows::runtime::RuntimeName for TileUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManagerForUser";
 }
-impl ::std::convert::From<TileUpdateManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: TileUpdateManagerForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TileUpdateManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: &TileUpdateManagerForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TileUpdateManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TileUpdateManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TileUpdateManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: TileUpdateManagerForUser) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TileUpdateManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: &TileUpdateManagerForUser) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TileUpdateManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TileUpdateManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for TileUpdateManagerForUser {}
 unsafe impl ::std::marker::Sync for TileUpdateManagerForUser {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TileUpdater(::windows::runtime::IInspectable);
 impl TileUpdater {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -4012,51 +3332,11 @@ unsafe impl ::windows::runtime::Interface for TileUpdater {
 impl ::windows::runtime::RuntimeName for TileUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdater";
 }
-impl ::std::convert::From<TileUpdater> for ::windows::runtime::IUnknown {
-    fn from(value: TileUpdater) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TileUpdater> for ::windows::runtime::IUnknown {
-    fn from(value: &TileUpdater) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TileUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TileUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TileUpdater> for ::windows::runtime::IInspectable {
-    fn from(value: TileUpdater) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TileUpdater> for ::windows::runtime::IInspectable {
-    fn from(value: &TileUpdater) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TileUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TileUpdater {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for TileUpdater {}
 unsafe impl ::std::marker::Sync for TileUpdater {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastActivatedEventArgs(::windows::runtime::IInspectable);
 impl ToastActivatedEventArgs {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -4087,49 +3367,9 @@ unsafe impl ::windows::runtime::Interface for ToastActivatedEventArgs {
 impl ::windows::runtime::RuntimeName for ToastActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastActivatedEventArgs";
 }
-impl ::std::convert::From<ToastActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ToastActivatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastActivatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastActivatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ToastActivatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastActivatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastActivatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastActivatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastCollection(::windows::runtime::IInspectable);
 impl ToastCollection {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -4204,51 +3444,11 @@ unsafe impl ::windows::runtime::Interface for ToastCollection {
 impl ::windows::runtime::RuntimeName for ToastCollection {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollection";
 }
-impl ::std::convert::From<ToastCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ToastCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastCollection> for ::windows::runtime::IInspectable {
-    fn from(value: ToastCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ToastCollection {}
 unsafe impl ::std::marker::Sync for ToastCollection {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastCollectionManager(::windows::runtime::IInspectable);
 impl ToastCollectionManager {
     #[cfg(feature = "Foundation")]
@@ -4324,46 +3524,6 @@ unsafe impl ::windows::runtime::Interface for ToastCollectionManager {
 impl ::windows::runtime::RuntimeName for ToastCollectionManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollectionManager";
 }
-impl ::std::convert::From<ToastCollectionManager> for ::windows::runtime::IUnknown {
-    fn from(value: ToastCollectionManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastCollectionManager> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastCollectionManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastCollectionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastCollectionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastCollectionManager> for ::windows::runtime::IInspectable {
-    fn from(value: ToastCollectionManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastCollectionManager> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastCollectionManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastCollectionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastCollectionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ToastCollectionManager {}
 unsafe impl ::std::marker::Sync for ToastCollectionManager {}
 #[doc = "*Required features: `UI_Notifications`*"]
@@ -4389,7 +3549,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastDismissalReason {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastDismissedEventArgs(::windows::runtime::IInspectable);
 impl ToastDismissedEventArgs {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -4411,51 +3571,11 @@ unsafe impl ::windows::runtime::Interface for ToastDismissedEventArgs {
 impl ::windows::runtime::RuntimeName for ToastDismissedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastDismissedEventArgs";
 }
-impl ::std::convert::From<ToastDismissedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ToastDismissedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastDismissedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastDismissedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastDismissedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastDismissedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastDismissedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ToastDismissedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastDismissedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastDismissedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastDismissedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastDismissedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ToastDismissedEventArgs {}
 unsafe impl ::std::marker::Sync for ToastDismissedEventArgs {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastFailedEventArgs(::windows::runtime::IInspectable);
 impl ToastFailedEventArgs {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -4476,46 +3596,6 @@ unsafe impl ::windows::runtime::Interface for ToastFailedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ToastFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastFailedEventArgs";
-}
-impl ::std::convert::From<ToastFailedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ToastFailedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastFailedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastFailedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastFailedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastFailedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastFailedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ToastFailedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastFailedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastFailedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastFailedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastFailedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::std::marker::Sync for ToastFailedEventArgs {}
@@ -4543,7 +3623,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastHistoryChangedType {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastNotification(::windows::runtime::IInspectable);
 impl ToastNotification {
     #[cfg(feature = "Data_Xml_Dom")]
@@ -4742,51 +3822,11 @@ unsafe impl ::windows::runtime::Interface for ToastNotification {
 impl ::windows::runtime::RuntimeName for ToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotification";
 }
-impl ::std::convert::From<ToastNotification> for ::windows::runtime::IUnknown {
-    fn from(value: ToastNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastNotification> for ::windows::runtime::IInspectable {
-    fn from(value: ToastNotification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastNotification> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastNotification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ToastNotification {}
 unsafe impl ::std::marker::Sync for ToastNotification {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastNotificationActionTriggerDetail(::windows::runtime::IInspectable);
 impl ToastNotificationActionTriggerDetail {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -4817,49 +3857,9 @@ unsafe impl ::windows::runtime::Interface for ToastNotificationActionTriggerDeta
 impl ::windows::runtime::RuntimeName for ToastNotificationActionTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationActionTriggerDetail";
 }
-impl ::std::convert::From<ToastNotificationActionTriggerDetail> for ::windows::runtime::IUnknown {
-    fn from(value: ToastNotificationActionTriggerDetail) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastNotificationActionTriggerDetail> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastNotificationActionTriggerDetail) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotificationActionTriggerDetail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotificationActionTriggerDetail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastNotificationActionTriggerDetail> for ::windows::runtime::IInspectable {
-    fn from(value: ToastNotificationActionTriggerDetail) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastNotificationActionTriggerDetail> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastNotificationActionTriggerDetail) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotificationActionTriggerDetail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotificationActionTriggerDetail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastNotificationHistory(::windows::runtime::IInspectable);
 impl ToastNotificationHistory {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -4926,49 +3926,9 @@ unsafe impl ::windows::runtime::Interface for ToastNotificationHistory {
 impl ::windows::runtime::RuntimeName for ToastNotificationHistory {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistory";
 }
-impl ::std::convert::From<ToastNotificationHistory> for ::windows::runtime::IUnknown {
-    fn from(value: ToastNotificationHistory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastNotificationHistory> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastNotificationHistory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotificationHistory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotificationHistory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastNotificationHistory> for ::windows::runtime::IInspectable {
-    fn from(value: ToastNotificationHistory) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastNotificationHistory> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastNotificationHistory) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotificationHistory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotificationHistory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastNotificationHistoryChangedTriggerDetail(::windows::runtime::IInspectable);
 impl ToastNotificationHistoryChangedTriggerDetail {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -4997,46 +3957,6 @@ unsafe impl ::windows::runtime::Interface for ToastNotificationHistoryChangedTri
 }
 impl ::windows::runtime::RuntimeName for ToastNotificationHistoryChangedTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail";
-}
-impl ::std::convert::From<ToastNotificationHistoryChangedTriggerDetail> for ::windows::runtime::IUnknown {
-    fn from(value: ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastNotificationHistoryChangedTriggerDetail> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotificationHistoryChangedTriggerDetail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotificationHistoryChangedTriggerDetail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastNotificationHistoryChangedTriggerDetail> for ::windows::runtime::IInspectable {
-    fn from(value: ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastNotificationHistoryChangedTriggerDetail> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotificationHistoryChangedTriggerDetail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotificationHistoryChangedTriggerDetail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 pub struct ToastNotificationManager {}
@@ -5111,7 +4031,7 @@ impl ::windows::runtime::RuntimeName for ToastNotificationManager {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastNotificationManagerForUser(::windows::runtime::IInspectable);
 impl ToastNotificationManagerForUser {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -5192,46 +4112,6 @@ unsafe impl ::windows::runtime::Interface for ToastNotificationManagerForUser {
 impl ::windows::runtime::RuntimeName for ToastNotificationManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManagerForUser";
 }
-impl ::std::convert::From<ToastNotificationManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: ToastNotificationManagerForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastNotificationManagerForUser> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastNotificationManagerForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotificationManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotificationManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastNotificationManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: ToastNotificationManagerForUser) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastNotificationManagerForUser> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastNotificationManagerForUser) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotificationManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotificationManagerForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::std::marker::Sync for ToastNotificationManagerForUser {}
 #[doc = "*Required features: `UI_Notifications`*"]
@@ -5256,7 +4136,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastNotificationPriority {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ToastNotifier(::windows::runtime::IInspectable);
 impl ToastNotifier {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -5338,46 +4218,6 @@ unsafe impl ::windows::runtime::Interface for ToastNotifier {
 impl ::windows::runtime::RuntimeName for ToastNotifier {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotifier";
 }
-impl ::std::convert::From<ToastNotifier> for ::windows::runtime::IUnknown {
-    fn from(value: ToastNotifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ToastNotifier> for ::windows::runtime::IUnknown {
-    fn from(value: &ToastNotifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ToastNotifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ToastNotifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ToastNotifier> for ::windows::runtime::IInspectable {
-    fn from(value: ToastNotifier) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ToastNotifier> for ::windows::runtime::IInspectable {
-    fn from(value: &ToastNotifier) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ToastNotifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ToastNotifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ToastNotifier {}
 unsafe impl ::std::marker::Sync for ToastNotifier {}
 #[doc = "*Required features: `UI_Notifications`*"]
@@ -5408,7 +4248,7 @@ unsafe impl ::windows::runtime::RuntimeType for ToastTemplateType {
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserNotification(::windows::runtime::IInspectable);
 impl UserNotification {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -5456,51 +4296,11 @@ unsafe impl ::windows::runtime::Interface for UserNotification {
 impl ::windows::runtime::RuntimeName for UserNotification {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotification";
 }
-impl ::std::convert::From<UserNotification> for ::windows::runtime::IUnknown {
-    fn from(value: UserNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &UserNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserNotification> for ::windows::runtime::IInspectable {
-    fn from(value: UserNotification) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserNotification> for ::windows::runtime::IInspectable {
-    fn from(value: &UserNotification) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserNotification {}
 unsafe impl ::std::marker::Sync for UserNotification {}
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserNotificationChangedEventArgs(::windows::runtime::IInspectable);
 impl UserNotificationChangedEventArgs {
     #[doc = "*Required features: `UI_Notifications`*"]
@@ -5529,46 +4329,6 @@ unsafe impl ::windows::runtime::Interface for UserNotificationChangedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for UserNotificationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotificationChangedEventArgs";
-}
-impl ::std::convert::From<UserNotificationChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: UserNotificationChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserNotificationChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &UserNotificationChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserNotificationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserNotificationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserNotificationChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: UserNotificationChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserNotificationChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &UserNotificationChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserNotificationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserNotificationChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::std::marker::Sync for UserNotificationChangedEventArgs {}

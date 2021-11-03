@@ -323,7 +323,7 @@ pub const FRONT_ONLY: u32 = 32u32;
 pub const GUID_DEVINTERFACE_IMAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1809653702, 33039, 4560, [190, 199, 8, 0, 43, 226, 9, 47]);
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumWIA_DEV_CAPS(::windows::runtime::IUnknown);
 impl IEnumWIA_DEV_CAPS {
     #[cfg(feature = "Win32_Foundation")]
@@ -354,26 +354,6 @@ unsafe impl ::windows::runtime::Interface for IEnumWIA_DEV_CAPS {
     type Vtable = IEnumWIA_DEV_CAPS_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(533480071, 44198, 4562, [160, 147, 0, 192, 79, 114, 220, 60]);
 }
-impl ::std::convert::From<IEnumWIA_DEV_CAPS> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumWIA_DEV_CAPS) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumWIA_DEV_CAPS> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumWIA_DEV_CAPS) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumWIA_DEV_CAPS {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumWIA_DEV_CAPS {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWIA_DEV_CAPS_abi(
@@ -389,7 +369,7 @@ pub struct IEnumWIA_DEV_CAPS_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumWIA_DEV_INFO(::windows::runtime::IUnknown);
 impl IEnumWIA_DEV_INFO {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -419,26 +399,6 @@ unsafe impl ::windows::runtime::Interface for IEnumWIA_DEV_INFO {
     type Vtable = IEnumWIA_DEV_INFO_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1580775484, 36081, 4561, [191, 146, 0, 96, 8, 30, 216, 17]);
 }
-impl ::std::convert::From<IEnumWIA_DEV_INFO> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumWIA_DEV_INFO) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumWIA_DEV_INFO> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumWIA_DEV_INFO) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumWIA_DEV_INFO {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumWIA_DEV_INFO {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWIA_DEV_INFO_abi(
@@ -453,7 +413,7 @@ pub struct IEnumWIA_DEV_INFO_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumWIA_FORMAT_INFO(::windows::runtime::IUnknown);
 impl IEnumWIA_FORMAT_INFO {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -483,26 +443,6 @@ unsafe impl ::windows::runtime::Interface for IEnumWIA_FORMAT_INFO {
     type Vtable = IEnumWIA_FORMAT_INFO_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176777307, 25965, 17649, [178, 76, 212, 29, 81, 180, 220, 129]);
 }
-impl ::std::convert::From<IEnumWIA_FORMAT_INFO> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumWIA_FORMAT_INFO) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumWIA_FORMAT_INFO> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumWIA_FORMAT_INFO) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumWIA_FORMAT_INFO {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumWIA_FORMAT_INFO {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWIA_FORMAT_INFO_abi(
@@ -517,7 +457,7 @@ pub struct IEnumWIA_FORMAT_INFO_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumWiaItem(::windows::runtime::IUnknown);
 impl IEnumWiaItem {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -547,26 +487,6 @@ unsafe impl ::windows::runtime::Interface for IEnumWiaItem {
     type Vtable = IEnumWiaItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1585677308, 13201, 4562, [154, 51, 0, 192, 79, 163, 97, 69]);
 }
-impl ::std::convert::From<IEnumWiaItem> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumWiaItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumWiaItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumWiaItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumWiaItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumWiaItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWiaItem_abi(
@@ -581,7 +501,7 @@ pub struct IEnumWiaItem_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumWiaItem2(::windows::runtime::IUnknown);
 impl IEnumWiaItem2 {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -610,26 +530,6 @@ impl IEnumWiaItem2 {
 unsafe impl ::windows::runtime::Interface for IEnumWiaItem2 {
     type Vtable = IEnumWiaItem2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1503070964, 52493, 17625, [171, 36, 82, 41, 86, 48, 229, 130]);
-}
-impl ::std::convert::From<IEnumWiaItem2> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumWiaItem2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumWiaItem2> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumWiaItem2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumWiaItem2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumWiaItem2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -671,7 +571,7 @@ pub const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1u32;
 pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaAppErrorHandler(::windows::runtime::IUnknown);
 impl IWiaAppErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -689,26 +589,6 @@ unsafe impl ::windows::runtime::Interface for IWiaAppErrorHandler {
     type Vtable = IWiaAppErrorHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1813387372, 53414, 16396, [128, 244, 210, 105, 134, 160, 231, 52]);
 }
-impl ::std::convert::From<IWiaAppErrorHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaAppErrorHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaAppErrorHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaAppErrorHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaAppErrorHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaAppErrorHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaAppErrorHandler_abi(
@@ -721,7 +601,7 @@ pub struct IWiaAppErrorHandler_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaDataCallback(::windows::runtime::IUnknown);
 impl IWiaDataCallback {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -744,26 +624,6 @@ unsafe impl ::windows::runtime::Interface for IWiaDataCallback {
     type Vtable = IWiaDataCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2774050918, 42416, 4562, [160, 143, 0, 192, 79, 114, 220, 60]);
 }
-impl ::std::convert::From<IWiaDataCallback> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaDataCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaDataCallback> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaDataCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaDataCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaDataCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDataCallback_abi(
@@ -774,7 +634,7 @@ pub struct IWiaDataCallback_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaDataTransfer(::windows::runtime::IUnknown);
 impl IWiaDataTransfer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -806,26 +666,6 @@ unsafe impl ::windows::runtime::Interface for IWiaDataTransfer {
     type Vtable = IWiaDataTransfer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2798582168, 42416, 4562, [160, 143, 0, 192, 79, 114, 220, 60]);
 }
-impl ::std::convert::From<IWiaDataTransfer> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaDataTransfer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaDataTransfer> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaDataTransfer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaDataTransfer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaDataTransfer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDataTransfer_abi(
@@ -842,7 +682,7 @@ pub struct IWiaDataTransfer_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaDevMgr(::windows::runtime::IUnknown);
 impl IWiaDevMgr {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -915,26 +755,6 @@ unsafe impl ::windows::runtime::Interface for IWiaDevMgr {
     type Vtable = IWiaDevMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1588744234, 36081, 4561, [191, 146, 0, 96, 8, 30, 216, 17]);
 }
-impl ::std::convert::From<IWiaDevMgr> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaDevMgr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaDevMgr> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaDevMgr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaDevMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaDevMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDevMgr_abi(
@@ -972,7 +792,7 @@ pub struct IWiaDevMgr_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaDevMgr2(::windows::runtime::IUnknown);
 impl IWiaDevMgr2 {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -1070,26 +890,6 @@ unsafe impl ::windows::runtime::Interface for IWiaDevMgr2 {
     type Vtable = IWiaDevMgr2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042658033, 52189, 16878, [142, 195, 240, 0, 128, 202, 218, 122]);
 }
-impl ::std::convert::From<IWiaDevMgr2> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaDevMgr2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaDevMgr2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaDevMgr2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaDevMgr2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaDevMgr2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDevMgr2_abi(
@@ -1137,7 +937,7 @@ pub struct IWiaDevMgr2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaDrvItem(::windows::runtime::IUnknown);
 impl IWiaDrvItem {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -1212,26 +1012,6 @@ unsafe impl ::windows::runtime::Interface for IWiaDrvItem {
     type Vtable = IWiaDrvItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520271301, 45068, 4562, [160, 148, 0, 192, 79, 114, 220, 60]);
 }
-impl ::std::convert::From<IWiaDrvItem> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaDrvItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaDrvItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaDrvItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaDrvItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaDrvItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDrvItem_abi(
@@ -1259,7 +1039,7 @@ pub struct IWiaDrvItem_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaErrorHandler(::windows::runtime::IUnknown);
 impl IWiaErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -1278,26 +1058,6 @@ unsafe impl ::windows::runtime::Interface for IWiaErrorHandler {
     type Vtable = IWiaErrorHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239751601, 48159, 17469, [168, 53, 114, 232, 144, 117, 158, 243]);
 }
-impl ::std::convert::From<IWiaErrorHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaErrorHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaErrorHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaErrorHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaErrorHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaErrorHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaErrorHandler_abi(
@@ -1311,7 +1071,7 @@ pub struct IWiaErrorHandler_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaEventCallback(::windows::runtime::IUnknown);
 impl IWiaEventCallback {
     #[cfg(feature = "Win32_Foundation")]
@@ -1345,26 +1105,6 @@ unsafe impl ::windows::runtime::Interface for IWiaEventCallback {
     type Vtable = IWiaEventCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2925692848, 132, 4562, [151, 59, 0, 160, 201, 6, 143, 46]);
 }
-impl ::std::convert::From<IWiaEventCallback> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaEventCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaEventCallback> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaEventCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaEventCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaEventCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaEventCallback_abi(
@@ -1387,7 +1127,7 @@ pub struct IWiaEventCallback_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaImageFilter(::windows::runtime::IUnknown);
 impl IWiaImageFilter {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -1412,26 +1152,6 @@ unsafe impl ::windows::runtime::Interface for IWiaImageFilter {
     type Vtable = IWiaImageFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2829557754, 17675, 16881, [143, 135, 132, 156, 205, 148, 235, 246]);
 }
-impl ::std::convert::From<IWiaImageFilter> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaImageFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaImageFilter> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaImageFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaImageFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaImageFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaImageFilter_abi(
@@ -1446,7 +1166,7 @@ pub struct IWiaImageFilter_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaItem(::windows::runtime::IUnknown);
 impl IWiaItem {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -1530,26 +1250,6 @@ unsafe impl ::windows::runtime::Interface for IWiaItem {
     type Vtable = IWiaItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1303489808, 13201, 4562, [154, 51, 0, 192, 79, 163, 97, 69]);
 }
-impl ::std::convert::From<IWiaItem> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaItem> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaItem_abi(
@@ -1580,7 +1280,7 @@ pub struct IWiaItem_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaItem2(::windows::runtime::IUnknown);
 impl IWiaItem2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -1676,26 +1376,6 @@ unsafe impl ::windows::runtime::Interface for IWiaItem2 {
     type Vtable = IWiaItem2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1824129141, 4743, 16509, [155, 119, 207, 14, 3, 4, 53, 204]);
 }
-impl ::std::convert::From<IWiaItem2> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaItem2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaItem2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaItem2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaItem2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaItem2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaItem2_abi(
@@ -1726,7 +1406,7 @@ pub struct IWiaItem2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaItemExtras(::windows::runtime::IUnknown);
 impl IWiaItemExtras {
     #[cfg(feature = "Win32_Foundation")]
@@ -1748,26 +1428,6 @@ unsafe impl ::windows::runtime::Interface for IWiaItemExtras {
     type Vtable = IWiaItemExtras_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1653731116, 14063, 17714, [135, 106, 142, 19, 37, 147, 119, 141]);
 }
-impl ::std::convert::From<IWiaItemExtras> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaItemExtras) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaItemExtras> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaItemExtras) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaItemExtras {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaItemExtras {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaItemExtras_abi(
@@ -1781,7 +1441,7 @@ pub struct IWiaItemExtras_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaLog(::windows::runtime::IUnknown);
 impl IWiaLog {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -1802,26 +1462,6 @@ unsafe impl ::windows::runtime::Interface for IWiaLog {
     type Vtable = IWiaLog_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2685145270, 33441, 17711, [139, 108, 134, 6, 42, 173, 104, 144]);
 }
-impl ::std::convert::From<IWiaLog> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaLog) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaLog> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaLog) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaLog {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaLog {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaLog_abi(
@@ -1835,7 +1475,7 @@ pub struct IWiaLog_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaLogEx(::windows::runtime::IUnknown);
 impl IWiaLogEx {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -1865,26 +1505,6 @@ unsafe impl ::windows::runtime::Interface for IWiaLogEx {
     type Vtable = IWiaLogEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2938053292, 31296, 18311, [180, 33, 174, 180, 122, 31, 189, 11]);
 }
-impl ::std::convert::From<IWiaLogEx> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaLogEx) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaLogEx> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaLogEx) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaLogEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaLogEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaLogEx_abi(
@@ -1901,7 +1521,7 @@ pub struct IWiaLogEx_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaMiniDrv(::windows::runtime::IUnknown);
 impl IWiaMiniDrv {
     #[cfg(feature = "Win32_Foundation")]
@@ -2016,26 +1636,6 @@ unsafe impl ::windows::runtime::Interface for IWiaMiniDrv {
     type Vtable = IWiaMiniDrv_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3637374484, 15468, 4562, [154, 53, 0, 192, 79, 163, 97, 69]);
 }
-impl ::std::convert::From<IWiaMiniDrv> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaMiniDrv) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaMiniDrv> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaMiniDrv) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaMiniDrv {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaMiniDrv {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaMiniDrv_abi(
@@ -2082,7 +1682,7 @@ pub struct IWiaMiniDrv_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaMiniDrvCallBack(::windows::runtime::IUnknown);
 impl IWiaMiniDrvCallBack {
     #[cfg(feature = "Win32_Foundation")]
@@ -2095,26 +1695,6 @@ unsafe impl ::windows::runtime::Interface for IWiaMiniDrvCallBack {
     type Vtable = IWiaMiniDrvCallBack_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866483546, 15848, 4562, [154, 54, 0, 192, 79, 163, 97, 69]);
 }
-impl ::std::convert::From<IWiaMiniDrvCallBack> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaMiniDrvCallBack) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaMiniDrvCallBack> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaMiniDrvCallBack) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaMiniDrvCallBack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaMiniDrvCallBack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaMiniDrvCallBack_abi(
@@ -2126,7 +1706,7 @@ pub struct IWiaMiniDrvCallBack_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaMiniDrvTransferCallback(::windows::runtime::IUnknown);
 impl IWiaMiniDrvTransferCallback {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2144,26 +1724,6 @@ unsafe impl ::windows::runtime::Interface for IWiaMiniDrvTransferCallback {
     type Vtable = IWiaMiniDrvTransferCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2849173129, 11493, 20464, [138, 219, 201, 97, 209, 215, 116, 202]);
 }
-impl ::std::convert::From<IWiaMiniDrvTransferCallback> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaMiniDrvTransferCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaMiniDrvTransferCallback> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaMiniDrvTransferCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaMiniDrvTransferCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaMiniDrvTransferCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaMiniDrvTransferCallback_abi(
@@ -2176,7 +1736,7 @@ pub struct IWiaMiniDrvTransferCallback_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaNotifyDevMgr(::windows::runtime::IUnknown);
 impl IWiaNotifyDevMgr {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -2188,26 +1748,6 @@ unsafe impl ::windows::runtime::Interface for IWiaNotifyDevMgr {
     type Vtable = IWiaNotifyDevMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1885871776, 59327, 17041, [159, 177, 78, 136, 19, 163, 247, 142]);
 }
-impl ::std::convert::From<IWiaNotifyDevMgr> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaNotifyDevMgr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaNotifyDevMgr> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaNotifyDevMgr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaNotifyDevMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaNotifyDevMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaNotifyDevMgr_abi(
@@ -2218,7 +1758,7 @@ pub struct IWiaNotifyDevMgr_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaPreview(::windows::runtime::IUnknown);
 impl IWiaPreview {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -2242,26 +1782,6 @@ unsafe impl ::windows::runtime::Interface for IWiaPreview {
     type Vtable = IWiaPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2512565501, 13298, 19846, [173, 64, 148, 49, 240, 223, 8, 247]);
 }
-impl ::std::convert::From<IWiaPreview> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaPreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaPreview> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaPreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaPreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaPreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaPreview_abi(
@@ -2275,7 +1795,7 @@ pub struct IWiaPreview_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaPropertyStorage(::windows::runtime::IUnknown);
 impl IWiaPropertyStorage {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
@@ -2361,26 +1881,6 @@ unsafe impl ::windows::runtime::Interface for IWiaPropertyStorage {
     type Vtable = IWiaPropertyStorage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2562058400, 10700, 18714, [170, 192, 230, 219, 79, 220, 206, 182]);
 }
-impl ::std::convert::From<IWiaPropertyStorage> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaPropertyStorage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaPropertyStorage> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaPropertyStorage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaPropertyStorage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaPropertyStorage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaPropertyStorage_abi(
@@ -2417,7 +1917,7 @@ pub struct IWiaPropertyStorage_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaSegmentationFilter(::windows::runtime::IUnknown);
 impl IWiaSegmentationFilter {
     #[cfg(feature = "Win32_System_Com")]
@@ -2430,26 +1930,6 @@ unsafe impl ::windows::runtime::Interface for IWiaSegmentationFilter {
     type Vtable = IWiaSegmentationFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3964053143, 44036, 17479, [143, 101, 255, 99, 213, 21, 75, 33]);
 }
-impl ::std::convert::From<IWiaSegmentationFilter> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaSegmentationFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaSegmentationFilter> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaSegmentationFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaSegmentationFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaSegmentationFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaSegmentationFilter_abi(
@@ -2461,7 +1941,7 @@ pub struct IWiaSegmentationFilter_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaTransfer(::windows::runtime::IUnknown);
 impl IWiaTransfer {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -2487,26 +1967,6 @@ unsafe impl ::windows::runtime::Interface for IWiaTransfer {
     type Vtable = IWiaTransfer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3281873218, 12110, 19716, [146, 254, 78, 244, 211, 161, 222, 90]);
 }
-impl ::std::convert::From<IWiaTransfer> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaTransfer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaTransfer> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaTransfer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaTransfer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaTransfer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaTransfer_abi(
@@ -2521,7 +1981,7 @@ pub struct IWiaTransfer_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaTransferCallback(::windows::runtime::IUnknown);
 impl IWiaTransferCallback {
     #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
@@ -2539,26 +1999,6 @@ unsafe impl ::windows::runtime::Interface for IWiaTransferCallback {
     type Vtable = IWiaTransferCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(668265135, 10406, 19621, [154, 171, 230, 120, 22, 139, 149, 39]);
 }
-impl ::std::convert::From<IWiaTransferCallback> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaTransferCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaTransferCallback> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaTransferCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaTransferCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaTransferCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaTransferCallback_abi(
@@ -2571,7 +2011,7 @@ pub struct IWiaTransferCallback_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaUIExtension(::windows::runtime::IUnknown);
 impl IWiaUIExtension {
     #[cfg(feature = "Win32_Foundation")]
@@ -2594,26 +2034,6 @@ unsafe impl ::windows::runtime::Interface for IWiaUIExtension {
     type Vtable = IWiaUIExtension_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3660681491, 20718, 19584, [180, 96, 87, 208, 5, 212, 74, 44]);
 }
-impl ::std::convert::From<IWiaUIExtension> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaUIExtension) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaUIExtension> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaUIExtension) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaUIExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaUIExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaUIExtension_abi(
@@ -2629,7 +2049,7 @@ pub struct IWiaUIExtension_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaUIExtension2(::windows::runtime::IUnknown);
 impl IWiaUIExtension2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -2647,26 +2067,6 @@ unsafe impl ::windows::runtime::Interface for IWiaUIExtension2 {
     type Vtable = IWiaUIExtension2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810942679, 20616, 18135, [154, 21, 183, 123, 9, 205, 186, 122]);
 }
-impl ::std::convert::From<IWiaUIExtension2> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaUIExtension2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaUIExtension2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaUIExtension2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaUIExtension2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaUIExtension2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaUIExtension2_abi(
@@ -2680,7 +2080,7 @@ pub struct IWiaUIExtension2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IWiaVideo(::windows::runtime::IUnknown);
 impl IWiaVideo {
     #[cfg(feature = "Win32_Foundation")]
@@ -2752,26 +2152,6 @@ impl IWiaVideo {
 unsafe impl ::windows::runtime::Interface for IWiaVideo {
     type Vtable = IWiaVideo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3576242346, 56200, 16880, [148, 108, 224, 13, 192, 161, 156, 250]);
-}
-impl ::std::convert::From<IWiaVideo> for ::windows::runtime::IUnknown {
-    fn from(value: IWiaVideo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWiaVideo> for ::windows::runtime::IUnknown {
-    fn from(value: &IWiaVideo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWiaVideo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWiaVideo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

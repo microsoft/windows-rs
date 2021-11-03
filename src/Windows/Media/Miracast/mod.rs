@@ -471,7 +471,7 @@ pub struct IMiracastTransmitter_abi(
 );
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiver(::windows::runtime::IInspectable);
 impl MiracastReceiver {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -594,51 +594,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiver {
 impl ::windows::runtime::RuntimeName for MiracastReceiver {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiver";
 }
-impl ::std::convert::From<MiracastReceiver> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiver) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiver> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiver) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiver> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiver) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiver> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiver) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiver {}
 unsafe impl ::std::marker::Sync for MiracastReceiver {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverApplySettingsResult(::windows::runtime::IInspectable);
 impl MiracastReceiverApplySettingsResult {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -667,46 +627,6 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverApplySettingsResul
 }
 impl ::windows::runtime::RuntimeName for MiracastReceiverApplySettingsResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverApplySettingsResult";
-}
-impl ::std::convert::From<MiracastReceiverApplySettingsResult> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverApplySettingsResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverApplySettingsResult> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverApplySettingsResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverApplySettingsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverApplySettingsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverApplySettingsResult> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverApplySettingsResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverApplySettingsResult> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverApplySettingsResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverApplySettingsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverApplySettingsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for MiracastReceiverApplySettingsResult {}
 unsafe impl ::std::marker::Sync for MiracastReceiverApplySettingsResult {}
@@ -760,7 +680,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverAuthorizationMet
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverConnection(::windows::runtime::IInspectable);
 impl MiracastReceiverConnection {
     #[cfg(feature = "Foundation")]
@@ -850,46 +770,6 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverConnection {
 impl ::windows::runtime::RuntimeName for MiracastReceiverConnection {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnection";
 }
-impl ::std::convert::From<MiracastReceiverConnection> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverConnection> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverConnection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverConnection> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverConnection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<MiracastReceiverConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -920,7 +800,7 @@ unsafe impl ::std::marker::Send for MiracastReceiverConnection {}
 unsafe impl ::std::marker::Sync for MiracastReceiverConnection {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverConnectionCreatedEventArgs(::windows::runtime::IInspectable);
 impl MiracastReceiverConnectionCreatedEventArgs {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -959,51 +839,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverConnectionCreatedE
 impl ::windows::runtime::RuntimeName for MiracastReceiverConnectionCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs";
 }
-impl ::std::convert::From<MiracastReceiverConnectionCreatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverConnectionCreatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverConnectionCreatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverConnectionCreatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverConnectionCreatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverConnectionCreatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverConnectionCreatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverConnectionCreatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverConnectionCreatedEventArgs {}
 unsafe impl ::std::marker::Sync for MiracastReceiverConnectionCreatedEventArgs {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverCursorImageChannel(::windows::runtime::IInspectable);
 impl MiracastReceiverCursorImageChannel {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -1082,51 +922,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverCursorImageChannel
 impl ::windows::runtime::RuntimeName for MiracastReceiverCursorImageChannel {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannel";
 }
-impl ::std::convert::From<MiracastReceiverCursorImageChannel> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverCursorImageChannel) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverCursorImageChannel> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverCursorImageChannel) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverCursorImageChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverCursorImageChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverCursorImageChannel> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverCursorImageChannel) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverCursorImageChannel> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverCursorImageChannel) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverCursorImageChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverCursorImageChannel {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverCursorImageChannel {}
 unsafe impl ::std::marker::Sync for MiracastReceiverCursorImageChannel {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverCursorImageChannelSettings(::windows::runtime::IInspectable);
 impl MiracastReceiverCursorImageChannelSettings {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -1168,46 +968,6 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverCursorImageChannel
 impl ::windows::runtime::RuntimeName for MiracastReceiverCursorImageChannelSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings";
 }
-impl ::std::convert::From<MiracastReceiverCursorImageChannelSettings> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverCursorImageChannelSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverCursorImageChannelSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverCursorImageChannelSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverCursorImageChannelSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverCursorImageChannelSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverCursorImageChannelSettings> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverCursorImageChannelSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverCursorImageChannelSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverCursorImageChannelSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverCursorImageChannelSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverCursorImageChannelSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverCursorImageChannelSettings {}
 unsafe impl ::std::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
 #[doc = "*Required features: `Media_Miracast`*"]
@@ -1238,7 +998,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverDisconnectReason
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverDisconnectedEventArgs(::windows::runtime::IInspectable);
 impl MiracastReceiverDisconnectedEventArgs {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -1260,51 +1020,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverDisconnectedEventA
 impl ::windows::runtime::RuntimeName for MiracastReceiverDisconnectedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs";
 }
-impl ::std::convert::From<MiracastReceiverDisconnectedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverDisconnectedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverDisconnectedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverDisconnectedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverDisconnectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverDisconnectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverDisconnectedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverDisconnectedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverDisconnectedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverDisconnectedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverDisconnectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverDisconnectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverDisconnectedEventArgs {}
 unsafe impl ::std::marker::Sync for MiracastReceiverDisconnectedEventArgs {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverGameControllerDevice(::windows::runtime::IInspectable);
 impl MiracastReceiverGameControllerDevice {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -1375,46 +1095,6 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverGameControllerDevi
 impl ::windows::runtime::RuntimeName for MiracastReceiverGameControllerDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverGameControllerDevice";
 }
-impl ::std::convert::From<MiracastReceiverGameControllerDevice> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverGameControllerDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverGameControllerDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverGameControllerDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverGameControllerDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverGameControllerDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverGameControllerDevice> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverGameControllerDevice) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverGameControllerDevice> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverGameControllerDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverGameControllerDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverGameControllerDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverGameControllerDevice {}
 unsafe impl ::std::marker::Sync for MiracastReceiverGameControllerDevice {}
 #[doc = "*Required features: `Media_Miracast`*"]
@@ -1439,7 +1119,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverGameControllerDe
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverInputDevices(::windows::runtime::IInspectable);
 impl MiracastReceiverInputDevices {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -1469,51 +1149,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverInputDevices {
 impl ::windows::runtime::RuntimeName for MiracastReceiverInputDevices {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverInputDevices";
 }
-impl ::std::convert::From<MiracastReceiverInputDevices> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverInputDevices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverInputDevices> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverInputDevices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverInputDevices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverInputDevices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverInputDevices> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverInputDevices) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverInputDevices> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverInputDevices) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverInputDevices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverInputDevices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverInputDevices {}
 unsafe impl ::std::marker::Sync for MiracastReceiverInputDevices {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverKeyboardDevice(::windows::runtime::IInspectable);
 impl MiracastReceiverKeyboardDevice {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -1571,46 +1211,6 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverKeyboardDevice {
 impl ::windows::runtime::RuntimeName for MiracastReceiverKeyboardDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverKeyboardDevice";
 }
-impl ::std::convert::From<MiracastReceiverKeyboardDevice> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverKeyboardDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverKeyboardDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverKeyboardDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverKeyboardDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverKeyboardDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverKeyboardDevice> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverKeyboardDevice) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverKeyboardDevice> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverKeyboardDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverKeyboardDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverKeyboardDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverKeyboardDevice {}
 unsafe impl ::std::marker::Sync for MiracastReceiverKeyboardDevice {}
 #[doc = "*Required features: `Media_Miracast`*"]
@@ -1639,7 +1239,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverListeningStatus 
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(::windows::runtime::IInspectable);
 impl MiracastReceiverMediaSourceCreatedEventArgs {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -1687,51 +1287,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverMediaSourceCreated
 impl ::windows::runtime::RuntimeName for MiracastReceiverMediaSourceCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs";
 }
-impl ::std::convert::From<MiracastReceiverMediaSourceCreatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverMediaSourceCreatedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverMediaSourceCreatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverMediaSourceCreatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverMediaSourceCreatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverMediaSourceCreatedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverMediaSourceCreatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverMediaSourceCreatedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverMediaSourceCreatedEventArgs {}
 unsafe impl ::std::marker::Sync for MiracastReceiverMediaSourceCreatedEventArgs {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverSession(::windows::runtime::IInspectable);
 impl MiracastReceiverSession {
     #[cfg(feature = "Foundation")]
@@ -1839,46 +1399,6 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverSession {
 impl ::windows::runtime::RuntimeName for MiracastReceiverSession {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSession";
 }
-impl ::std::convert::From<MiracastReceiverSession> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverSession> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverSession> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverSession> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<MiracastReceiverSession> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1909,7 +1429,7 @@ unsafe impl ::std::marker::Send for MiracastReceiverSession {}
 unsafe impl ::std::marker::Sync for MiracastReceiverSession {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverSessionStartResult(::windows::runtime::IInspectable);
 impl MiracastReceiverSessionStartResult {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -1939,46 +1459,6 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverSessionStartResult
 impl ::windows::runtime::RuntimeName for MiracastReceiverSessionStartResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSessionStartResult";
 }
-impl ::std::convert::From<MiracastReceiverSessionStartResult> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverSessionStartResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverSessionStartResult> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverSessionStartResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverSessionStartResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverSessionStartResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverSessionStartResult> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverSessionStartResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverSessionStartResult> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverSessionStartResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverSessionStartResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverSessionStartResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverSessionStartResult {}
 unsafe impl ::std::marker::Sync for MiracastReceiverSessionStartResult {}
 #[doc = "*Required features: `Media_Miracast`*"]
@@ -2005,7 +1485,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverSessionStartStat
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverSettings(::windows::runtime::IInspectable);
 impl MiracastReceiverSettings {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -2084,51 +1564,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverSettings {
 impl ::windows::runtime::RuntimeName for MiracastReceiverSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSettings";
 }
-impl ::std::convert::From<MiracastReceiverSettings> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverSettings> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverSettings {}
 unsafe impl ::std::marker::Sync for MiracastReceiverSettings {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverStatus(::windows::runtime::IInspectable);
 impl MiracastReceiverStatus {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -2183,51 +1623,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverStatus {
 impl ::windows::runtime::RuntimeName for MiracastReceiverStatus {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStatus";
 }
-impl ::std::convert::From<MiracastReceiverStatus> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverStatus> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverStatus> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverStatus) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverStatus> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverStatus) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverStatus {}
 unsafe impl ::std::marker::Sync for MiracastReceiverStatus {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverStreamControl(::windows::runtime::IInspectable);
 impl MiracastReceiverStreamControl {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -2285,51 +1685,11 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverStreamControl {
 impl ::windows::runtime::RuntimeName for MiracastReceiverStreamControl {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStreamControl";
 }
-impl ::std::convert::From<MiracastReceiverStreamControl> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverStreamControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverStreamControl> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverStreamControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverStreamControl> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverStreamControl) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverStreamControl> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverStreamControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverStreamControl {}
 unsafe impl ::std::marker::Sync for MiracastReceiverStreamControl {}
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastReceiverVideoStreamSettings(::windows::runtime::IInspectable);
 impl MiracastReceiverVideoStreamSettings {
     #[cfg(feature = "Graphics")]
@@ -2371,46 +1731,6 @@ unsafe impl ::windows::runtime::Interface for MiracastReceiverVideoStreamSetting
 impl ::windows::runtime::RuntimeName for MiracastReceiverVideoStreamSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverVideoStreamSettings";
 }
-impl ::std::convert::From<MiracastReceiverVideoStreamSettings> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastReceiverVideoStreamSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastReceiverVideoStreamSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastReceiverVideoStreamSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastReceiverVideoStreamSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastReceiverVideoStreamSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastReceiverVideoStreamSettings> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastReceiverVideoStreamSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastReceiverVideoStreamSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastReceiverVideoStreamSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastReceiverVideoStreamSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastReceiverVideoStreamSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for MiracastReceiverVideoStreamSettings {}
 unsafe impl ::std::marker::Sync for MiracastReceiverVideoStreamSettings {}
 #[doc = "*Required features: `Media_Miracast`*"]
@@ -2437,7 +1757,7 @@ unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverWiFiStatus {
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MiracastTransmitter(::windows::runtime::IInspectable);
 impl MiracastTransmitter {
     #[doc = "*Required features: `Media_Miracast`*"]
@@ -2502,46 +1822,6 @@ unsafe impl ::windows::runtime::Interface for MiracastTransmitter {
 }
 impl ::windows::runtime::RuntimeName for MiracastTransmitter {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastTransmitter";
-}
-impl ::std::convert::From<MiracastTransmitter> for ::windows::runtime::IUnknown {
-    fn from(value: MiracastTransmitter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MiracastTransmitter> for ::windows::runtime::IUnknown {
-    fn from(value: &MiracastTransmitter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MiracastTransmitter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MiracastTransmitter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MiracastTransmitter> for ::windows::runtime::IInspectable {
-    fn from(value: MiracastTransmitter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MiracastTransmitter> for ::windows::runtime::IInspectable {
-    fn from(value: &MiracastTransmitter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MiracastTransmitter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MiracastTransmitter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for MiracastTransmitter {}
 unsafe impl ::std::marker::Sync for MiracastTransmitter {}

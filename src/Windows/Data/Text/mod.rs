@@ -24,7 +24,7 @@ unsafe impl ::windows::runtime::RuntimeType for AlternateNormalizationFormat {
 }
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AlternateWordForm(::windows::runtime::IInspectable);
 impl AlternateWordForm {
     #[doc = "*Required features: `Data_Text`*"]
@@ -61,46 +61,6 @@ unsafe impl ::windows::runtime::Interface for AlternateWordForm {
 }
 impl ::windows::runtime::RuntimeName for AlternateWordForm {
     const NAME: &'static str = "Windows.Data.Text.AlternateWordForm";
-}
-impl ::std::convert::From<AlternateWordForm> for ::windows::runtime::IUnknown {
-    fn from(value: AlternateWordForm) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AlternateWordForm> for ::windows::runtime::IUnknown {
-    fn from(value: &AlternateWordForm) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AlternateWordForm {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AlternateWordForm {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AlternateWordForm> for ::windows::runtime::IInspectable {
-    fn from(value: AlternateWordForm) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AlternateWordForm> for ::windows::runtime::IInspectable {
-    fn from(value: &AlternateWordForm) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AlternateWordForm {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AlternateWordForm {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for AlternateWordForm {}
 unsafe impl ::std::marker::Sync for AlternateWordForm {}
@@ -525,7 +485,7 @@ pub struct IWordsSegmenterFactory_abi(
 );
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SelectableWordSegment(::windows::runtime::IInspectable);
 impl SelectableWordSegment {
     #[doc = "*Required features: `Data_Text`*"]
@@ -554,46 +514,6 @@ unsafe impl ::windows::runtime::Interface for SelectableWordSegment {
 }
 impl ::windows::runtime::RuntimeName for SelectableWordSegment {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordSegment";
-}
-impl ::std::convert::From<SelectableWordSegment> for ::windows::runtime::IUnknown {
-    fn from(value: SelectableWordSegment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SelectableWordSegment> for ::windows::runtime::IUnknown {
-    fn from(value: &SelectableWordSegment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SelectableWordSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SelectableWordSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SelectableWordSegment> for ::windows::runtime::IInspectable {
-    fn from(value: SelectableWordSegment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SelectableWordSegment> for ::windows::runtime::IInspectable {
-    fn from(value: &SelectableWordSegment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SelectableWordSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SelectableWordSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for SelectableWordSegment {}
 unsafe impl ::std::marker::Sync for SelectableWordSegment {}
@@ -684,7 +604,7 @@ impl<F: FnMut(&::std::option::Option<super::super::Foundation::Collections::IIte
 }
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SelectableWordsSegmenter(::windows::runtime::IInspectable);
 impl SelectableWordsSegmenter {
     #[doc = "*Required features: `Data_Text`*"]
@@ -740,51 +660,11 @@ unsafe impl ::windows::runtime::Interface for SelectableWordsSegmenter {
 impl ::windows::runtime::RuntimeName for SelectableWordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordsSegmenter";
 }
-impl ::std::convert::From<SelectableWordsSegmenter> for ::windows::runtime::IUnknown {
-    fn from(value: SelectableWordsSegmenter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SelectableWordsSegmenter> for ::windows::runtime::IUnknown {
-    fn from(value: &SelectableWordsSegmenter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SelectableWordsSegmenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SelectableWordsSegmenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SelectableWordsSegmenter> for ::windows::runtime::IInspectable {
-    fn from(value: SelectableWordsSegmenter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SelectableWordsSegmenter> for ::windows::runtime::IInspectable {
-    fn from(value: &SelectableWordsSegmenter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SelectableWordsSegmenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SelectableWordsSegmenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SelectableWordsSegmenter {}
 unsafe impl ::std::marker::Sync for SelectableWordsSegmenter {}
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SemanticTextQuery(::windows::runtime::IInspectable);
 impl SemanticTextQuery {
     #[cfg(feature = "Foundation_Collections")]
@@ -834,51 +714,11 @@ unsafe impl ::windows::runtime::Interface for SemanticTextQuery {
 impl ::windows::runtime::RuntimeName for SemanticTextQuery {
     const NAME: &'static str = "Windows.Data.Text.SemanticTextQuery";
 }
-impl ::std::convert::From<SemanticTextQuery> for ::windows::runtime::IUnknown {
-    fn from(value: SemanticTextQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SemanticTextQuery> for ::windows::runtime::IUnknown {
-    fn from(value: &SemanticTextQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SemanticTextQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SemanticTextQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SemanticTextQuery> for ::windows::runtime::IInspectable {
-    fn from(value: SemanticTextQuery) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SemanticTextQuery> for ::windows::runtime::IInspectable {
-    fn from(value: &SemanticTextQuery) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SemanticTextQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SemanticTextQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SemanticTextQuery {}
 unsafe impl ::std::marker::Sync for SemanticTextQuery {}
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TextConversionGenerator(::windows::runtime::IInspectable);
 impl TextConversionGenerator {
     #[doc = "*Required features: `Data_Text`*"]
@@ -937,51 +777,11 @@ unsafe impl ::windows::runtime::Interface for TextConversionGenerator {
 impl ::windows::runtime::RuntimeName for TextConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextConversionGenerator";
 }
-impl ::std::convert::From<TextConversionGenerator> for ::windows::runtime::IUnknown {
-    fn from(value: TextConversionGenerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TextConversionGenerator> for ::windows::runtime::IUnknown {
-    fn from(value: &TextConversionGenerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextConversionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TextConversionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TextConversionGenerator> for ::windows::runtime::IInspectable {
-    fn from(value: TextConversionGenerator) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TextConversionGenerator> for ::windows::runtime::IInspectable {
-    fn from(value: &TextConversionGenerator) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextConversionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextConversionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for TextConversionGenerator {}
 unsafe impl ::std::marker::Sync for TextConversionGenerator {}
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TextPhoneme(::windows::runtime::IInspectable);
 impl TextPhoneme {
     #[doc = "*Required features: `Data_Text`*"]
@@ -1011,51 +811,11 @@ unsafe impl ::windows::runtime::Interface for TextPhoneme {
 impl ::windows::runtime::RuntimeName for TextPhoneme {
     const NAME: &'static str = "Windows.Data.Text.TextPhoneme";
 }
-impl ::std::convert::From<TextPhoneme> for ::windows::runtime::IUnknown {
-    fn from(value: TextPhoneme) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TextPhoneme> for ::windows::runtime::IUnknown {
-    fn from(value: &TextPhoneme) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextPhoneme {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TextPhoneme {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TextPhoneme> for ::windows::runtime::IInspectable {
-    fn from(value: TextPhoneme) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TextPhoneme> for ::windows::runtime::IInspectable {
-    fn from(value: &TextPhoneme) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextPhoneme {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextPhoneme {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for TextPhoneme {}
 unsafe impl ::std::marker::Sync for TextPhoneme {}
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TextPredictionGenerator(::windows::runtime::IInspectable);
 impl TextPredictionGenerator {
     #[doc = "*Required features: `Data_Text`*"]
@@ -1153,46 +913,6 @@ unsafe impl ::windows::runtime::Interface for TextPredictionGenerator {
 impl ::windows::runtime::RuntimeName for TextPredictionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextPredictionGenerator";
 }
-impl ::std::convert::From<TextPredictionGenerator> for ::windows::runtime::IUnknown {
-    fn from(value: TextPredictionGenerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TextPredictionGenerator> for ::windows::runtime::IUnknown {
-    fn from(value: &TextPredictionGenerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextPredictionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TextPredictionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TextPredictionGenerator> for ::windows::runtime::IInspectable {
-    fn from(value: TextPredictionGenerator) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TextPredictionGenerator> for ::windows::runtime::IInspectable {
-    fn from(value: &TextPredictionGenerator) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextPredictionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextPredictionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for TextPredictionGenerator {}
 unsafe impl ::std::marker::Sync for TextPredictionGenerator {}
 #[doc = "*Required features: `Data_Text`*"]
@@ -1246,7 +966,7 @@ impl ::std::ops::Not for TextPredictionOptions {
 }
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TextReverseConversionGenerator(::windows::runtime::IInspectable);
 impl TextReverseConversionGenerator {
     #[doc = "*Required features: `Data_Text`*"]
@@ -1304,46 +1024,6 @@ unsafe impl ::windows::runtime::Interface for TextReverseConversionGenerator {
 }
 impl ::windows::runtime::RuntimeName for TextReverseConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextReverseConversionGenerator";
-}
-impl ::std::convert::From<TextReverseConversionGenerator> for ::windows::runtime::IUnknown {
-    fn from(value: TextReverseConversionGenerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TextReverseConversionGenerator> for ::windows::runtime::IUnknown {
-    fn from(value: &TextReverseConversionGenerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TextReverseConversionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TextReverseConversionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TextReverseConversionGenerator> for ::windows::runtime::IInspectable {
-    fn from(value: TextReverseConversionGenerator) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TextReverseConversionGenerator> for ::windows::runtime::IInspectable {
-    fn from(value: &TextReverseConversionGenerator) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TextReverseConversionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TextReverseConversionGenerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for TextReverseConversionGenerator {}
 unsafe impl ::std::marker::Sync for TextReverseConversionGenerator {}
@@ -1577,7 +1257,7 @@ unsafe impl ::windows::runtime::RuntimeType for UnicodeNumericType {
 }
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WordSegment(::windows::runtime::IInspectable);
 impl WordSegment {
     #[doc = "*Required features: `Data_Text`*"]
@@ -1615,46 +1295,6 @@ unsafe impl ::windows::runtime::Interface for WordSegment {
 }
 impl ::windows::runtime::RuntimeName for WordSegment {
     const NAME: &'static str = "Windows.Data.Text.WordSegment";
-}
-impl ::std::convert::From<WordSegment> for ::windows::runtime::IUnknown {
-    fn from(value: WordSegment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WordSegment> for ::windows::runtime::IUnknown {
-    fn from(value: &WordSegment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WordSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WordSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WordSegment> for ::windows::runtime::IInspectable {
-    fn from(value: WordSegment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WordSegment> for ::windows::runtime::IInspectable {
-    fn from(value: &WordSegment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WordSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WordSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for WordSegment {}
 unsafe impl ::std::marker::Sync for WordSegment {}
@@ -1745,7 +1385,7 @@ impl<F: FnMut(&::std::option::Option<super::super::Foundation::Collections::IIte
 }
 #[doc = "*Required features: `Data_Text`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WordsSegmenter(::windows::runtime::IInspectable);
 impl WordsSegmenter {
     #[doc = "*Required features: `Data_Text`*"]
@@ -1800,46 +1440,6 @@ unsafe impl ::windows::runtime::Interface for WordsSegmenter {
 }
 impl ::windows::runtime::RuntimeName for WordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.WordsSegmenter";
-}
-impl ::std::convert::From<WordsSegmenter> for ::windows::runtime::IUnknown {
-    fn from(value: WordsSegmenter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WordsSegmenter> for ::windows::runtime::IUnknown {
-    fn from(value: &WordsSegmenter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WordsSegmenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WordsSegmenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WordsSegmenter> for ::windows::runtime::IInspectable {
-    fn from(value: WordsSegmenter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WordsSegmenter> for ::windows::runtime::IInspectable {
-    fn from(value: &WordsSegmenter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WordsSegmenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WordsSegmenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for WordsSegmenter {}
 unsafe impl ::std::marker::Sync for WordsSegmenter {}

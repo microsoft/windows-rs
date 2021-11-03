@@ -338,7 +338,7 @@ unsafe impl ::windows::runtime::Abi for HistogramHeader {
 }
 #[doc = "*Required features: `Win32_Media_Streaming`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMFDeviceTransform(::windows::runtime::IUnknown);
 impl IMFDeviceTransform {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -450,26 +450,6 @@ unsafe impl ::windows::runtime::Interface for IMFDeviceTransform {
     type Vtable = IMFDeviceTransform_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3625515992, 64582, 17138, [135, 172, 30, 162, 209, 249, 191, 50]);
 }
-impl ::std::convert::From<IMFDeviceTransform> for ::windows::runtime::IUnknown {
-    fn from(value: IMFDeviceTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMFDeviceTransform> for ::windows::runtime::IUnknown {
-    fn from(value: &IMFDeviceTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMFDeviceTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMFDeviceTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFDeviceTransform_abi(
@@ -515,7 +495,7 @@ pub struct IMFDeviceTransform_abi(
 );
 #[doc = "*Required features: `Win32_Media_Streaming`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMFDeviceTransformCallback(::windows::runtime::IUnknown);
 impl IMFDeviceTransformCallback {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -527,26 +507,6 @@ impl IMFDeviceTransformCallback {
 unsafe impl ::windows::runtime::Interface for IMFDeviceTransformCallback {
     type Vtable = IMFDeviceTransformCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1834792518, 10732, 16891, [129, 121, 140, 76, 109, 117, 8, 17]);
-}
-impl ::std::convert::From<IMFDeviceTransformCallback> for ::windows::runtime::IUnknown {
-    fn from(value: IMFDeviceTransformCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMFDeviceTransformCallback> for ::windows::runtime::IUnknown {
-    fn from(value: &IMFDeviceTransformCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMFDeviceTransformCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMFDeviceTransformCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

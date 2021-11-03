@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Certificate(::windows::runtime::IInspectable);
 impl Certificate {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
@@ -222,51 +222,11 @@ unsafe impl ::windows::runtime::Interface for Certificate {
 impl ::windows::runtime::RuntimeName for Certificate {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.Certificate";
 }
-impl ::std::convert::From<Certificate> for ::windows::runtime::IUnknown {
-    fn from(value: Certificate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Certificate> for ::windows::runtime::IUnknown {
-    fn from(value: &Certificate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Certificate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Certificate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Certificate> for ::windows::runtime::IInspectable {
-    fn from(value: Certificate) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Certificate> for ::windows::runtime::IInspectable {
-    fn from(value: &Certificate) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Certificate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Certificate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for Certificate {}
 unsafe impl ::std::marker::Sync for Certificate {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CertificateChain(::windows::runtime::IInspectable);
 impl CertificateChain {
     #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
@@ -304,46 +264,6 @@ unsafe impl ::windows::runtime::Interface for CertificateChain {
 }
 impl ::windows::runtime::RuntimeName for CertificateChain {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateChain";
-}
-impl ::std::convert::From<CertificateChain> for ::windows::runtime::IUnknown {
-    fn from(value: CertificateChain) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CertificateChain> for ::windows::runtime::IUnknown {
-    fn from(value: &CertificateChain) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CertificateChain {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CertificateChain {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CertificateChain> for ::windows::runtime::IInspectable {
-    fn from(value: CertificateChain) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CertificateChain> for ::windows::runtime::IInspectable {
-    fn from(value: &CertificateChain) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CertificateChain {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CertificateChain {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CertificateChain {}
 unsafe impl ::std::marker::Sync for CertificateChain {}
@@ -445,7 +365,7 @@ impl ::windows::runtime::RuntimeName for CertificateEnrollmentManager {
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CertificateExtension(::windows::runtime::IInspectable);
 impl CertificateExtension {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -510,51 +430,11 @@ unsafe impl ::windows::runtime::Interface for CertificateExtension {
 impl ::windows::runtime::RuntimeName for CertificateExtension {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateExtension";
 }
-impl ::std::convert::From<CertificateExtension> for ::windows::runtime::IUnknown {
-    fn from(value: CertificateExtension) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CertificateExtension> for ::windows::runtime::IUnknown {
-    fn from(value: &CertificateExtension) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CertificateExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CertificateExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CertificateExtension> for ::windows::runtime::IInspectable {
-    fn from(value: CertificateExtension) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CertificateExtension> for ::windows::runtime::IInspectable {
-    fn from(value: &CertificateExtension) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CertificateExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CertificateExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CertificateExtension {}
 unsafe impl ::std::marker::Sync for CertificateExtension {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CertificateKeyUsages(::windows::runtime::IInspectable);
 impl CertificateKeyUsages {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -679,51 +559,11 @@ unsafe impl ::windows::runtime::Interface for CertificateKeyUsages {
 impl ::windows::runtime::RuntimeName for CertificateKeyUsages {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateKeyUsages";
 }
-impl ::std::convert::From<CertificateKeyUsages> for ::windows::runtime::IUnknown {
-    fn from(value: CertificateKeyUsages) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CertificateKeyUsages> for ::windows::runtime::IUnknown {
-    fn from(value: &CertificateKeyUsages) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CertificateKeyUsages {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CertificateKeyUsages {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CertificateKeyUsages> for ::windows::runtime::IInspectable {
-    fn from(value: CertificateKeyUsages) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CertificateKeyUsages> for ::windows::runtime::IInspectable {
-    fn from(value: &CertificateKeyUsages) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CertificateKeyUsages {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CertificateKeyUsages {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CertificateKeyUsages {}
 unsafe impl ::std::marker::Sync for CertificateKeyUsages {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CertificateQuery(::windows::runtime::IInspectable);
 impl CertificateQuery {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -844,51 +684,11 @@ unsafe impl ::windows::runtime::Interface for CertificateQuery {
 impl ::windows::runtime::RuntimeName for CertificateQuery {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateQuery";
 }
-impl ::std::convert::From<CertificateQuery> for ::windows::runtime::IUnknown {
-    fn from(value: CertificateQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CertificateQuery> for ::windows::runtime::IUnknown {
-    fn from(value: &CertificateQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CertificateQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CertificateQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CertificateQuery> for ::windows::runtime::IInspectable {
-    fn from(value: CertificateQuery) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CertificateQuery> for ::windows::runtime::IInspectable {
-    fn from(value: &CertificateQuery) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CertificateQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CertificateQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CertificateQuery {}
 unsafe impl ::std::marker::Sync for CertificateQuery {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CertificateRequestProperties(::windows::runtime::IInspectable);
 impl CertificateRequestProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1156,51 +956,11 @@ unsafe impl ::windows::runtime::Interface for CertificateRequestProperties {
 impl ::windows::runtime::RuntimeName for CertificateRequestProperties {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateRequestProperties";
 }
-impl ::std::convert::From<CertificateRequestProperties> for ::windows::runtime::IUnknown {
-    fn from(value: CertificateRequestProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CertificateRequestProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &CertificateRequestProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CertificateRequestProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CertificateRequestProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CertificateRequestProperties> for ::windows::runtime::IInspectable {
-    fn from(value: CertificateRequestProperties) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CertificateRequestProperties> for ::windows::runtime::IInspectable {
-    fn from(value: &CertificateRequestProperties) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CertificateRequestProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CertificateRequestProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CertificateRequestProperties {}
 unsafe impl ::std::marker::Sync for CertificateRequestProperties {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CertificateStore(::windows::runtime::IInspectable);
 impl CertificateStore {
     #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
@@ -1231,46 +991,6 @@ unsafe impl ::windows::runtime::Interface for CertificateStore {
 }
 impl ::windows::runtime::RuntimeName for CertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStore";
-}
-impl ::std::convert::From<CertificateStore> for ::windows::runtime::IUnknown {
-    fn from(value: CertificateStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CertificateStore> for ::windows::runtime::IUnknown {
-    fn from(value: &CertificateStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CertificateStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CertificateStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CertificateStore> for ::windows::runtime::IInspectable {
-    fn from(value: CertificateStore) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CertificateStore> for ::windows::runtime::IInspectable {
-    fn from(value: &CertificateStore) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CertificateStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CertificateStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CertificateStore {}
 unsafe impl ::std::marker::Sync for CertificateStore {}
@@ -1335,7 +1055,7 @@ impl ::windows::runtime::RuntimeName for CertificateStores {
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChainBuildingParameters(::windows::runtime::IInspectable);
 impl ChainBuildingParameters {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1441,51 +1161,11 @@ unsafe impl ::windows::runtime::Interface for ChainBuildingParameters {
 impl ::windows::runtime::RuntimeName for ChainBuildingParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainBuildingParameters";
 }
-impl ::std::convert::From<ChainBuildingParameters> for ::windows::runtime::IUnknown {
-    fn from(value: ChainBuildingParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChainBuildingParameters> for ::windows::runtime::IUnknown {
-    fn from(value: &ChainBuildingParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChainBuildingParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChainBuildingParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChainBuildingParameters> for ::windows::runtime::IInspectable {
-    fn from(value: ChainBuildingParameters) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChainBuildingParameters> for ::windows::runtime::IInspectable {
-    fn from(value: &ChainBuildingParameters) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChainBuildingParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChainBuildingParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChainBuildingParameters {}
 unsafe impl ::std::marker::Sync for ChainBuildingParameters {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ChainValidationParameters(::windows::runtime::IInspectable);
 impl ChainValidationParameters {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1534,46 +1214,6 @@ unsafe impl ::windows::runtime::Interface for ChainValidationParameters {
 impl ::windows::runtime::RuntimeName for ChainValidationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainValidationParameters";
 }
-impl ::std::convert::From<ChainValidationParameters> for ::windows::runtime::IUnknown {
-    fn from(value: ChainValidationParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ChainValidationParameters> for ::windows::runtime::IUnknown {
-    fn from(value: &ChainValidationParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ChainValidationParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ChainValidationParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ChainValidationParameters> for ::windows::runtime::IInspectable {
-    fn from(value: ChainValidationParameters) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ChainValidationParameters> for ::windows::runtime::IInspectable {
-    fn from(value: &ChainValidationParameters) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ChainValidationParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ChainValidationParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ChainValidationParameters {}
 unsafe impl ::std::marker::Sync for ChainValidationParameters {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
@@ -1610,7 +1250,7 @@ unsafe impl ::windows::runtime::RuntimeType for ChainValidationResult {
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CmsAttachedSignature(::windows::runtime::IInspectable);
 impl CmsAttachedSignature {
     #[cfg(feature = "Foundation_Collections")]
@@ -1686,51 +1326,11 @@ unsafe impl ::windows::runtime::Interface for CmsAttachedSignature {
 impl ::windows::runtime::RuntimeName for CmsAttachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsAttachedSignature";
 }
-impl ::std::convert::From<CmsAttachedSignature> for ::windows::runtime::IUnknown {
-    fn from(value: CmsAttachedSignature) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CmsAttachedSignature> for ::windows::runtime::IUnknown {
-    fn from(value: &CmsAttachedSignature) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CmsAttachedSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CmsAttachedSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CmsAttachedSignature> for ::windows::runtime::IInspectable {
-    fn from(value: CmsAttachedSignature) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CmsAttachedSignature> for ::windows::runtime::IInspectable {
-    fn from(value: &CmsAttachedSignature) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CmsAttachedSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CmsAttachedSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CmsAttachedSignature {}
 unsafe impl ::std::marker::Sync for CmsAttachedSignature {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CmsDetachedSignature(::windows::runtime::IInspectable);
 impl CmsDetachedSignature {
     #[cfg(feature = "Foundation_Collections")]
@@ -1799,51 +1399,11 @@ unsafe impl ::windows::runtime::Interface for CmsDetachedSignature {
 impl ::windows::runtime::RuntimeName for CmsDetachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsDetachedSignature";
 }
-impl ::std::convert::From<CmsDetachedSignature> for ::windows::runtime::IUnknown {
-    fn from(value: CmsDetachedSignature) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CmsDetachedSignature> for ::windows::runtime::IUnknown {
-    fn from(value: &CmsDetachedSignature) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CmsDetachedSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CmsDetachedSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CmsDetachedSignature> for ::windows::runtime::IInspectable {
-    fn from(value: CmsDetachedSignature) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CmsDetachedSignature> for ::windows::runtime::IInspectable {
-    fn from(value: &CmsDetachedSignature) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CmsDetachedSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CmsDetachedSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CmsDetachedSignature {}
 unsafe impl ::std::marker::Sync for CmsDetachedSignature {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CmsSignerInfo(::windows::runtime::IInspectable);
 impl CmsSignerInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1898,51 +1458,11 @@ unsafe impl ::windows::runtime::Interface for CmsSignerInfo {
 impl ::windows::runtime::RuntimeName for CmsSignerInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsSignerInfo";
 }
-impl ::std::convert::From<CmsSignerInfo> for ::windows::runtime::IUnknown {
-    fn from(value: CmsSignerInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CmsSignerInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &CmsSignerInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CmsSignerInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CmsSignerInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CmsSignerInfo> for ::windows::runtime::IInspectable {
-    fn from(value: CmsSignerInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CmsSignerInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &CmsSignerInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CmsSignerInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CmsSignerInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CmsSignerInfo {}
 unsafe impl ::std::marker::Sync for CmsSignerInfo {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CmsTimestampInfo(::windows::runtime::IInspectable);
 impl CmsTimestampInfo {
     #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
@@ -1981,46 +1501,6 @@ unsafe impl ::windows::runtime::Interface for CmsTimestampInfo {
 }
 impl ::windows::runtime::RuntimeName for CmsTimestampInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsTimestampInfo";
-}
-impl ::std::convert::From<CmsTimestampInfo> for ::windows::runtime::IUnknown {
-    fn from(value: CmsTimestampInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CmsTimestampInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &CmsTimestampInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CmsTimestampInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CmsTimestampInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CmsTimestampInfo> for ::windows::runtime::IInspectable {
-    fn from(value: CmsTimestampInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CmsTimestampInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &CmsTimestampInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CmsTimestampInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CmsTimestampInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CmsTimestampInfo {}
 unsafe impl ::std::marker::Sync for CmsTimestampInfo {}
@@ -3414,7 +2894,7 @@ impl ::windows::runtime::RuntimeName for KeyStorageProviderNames {
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PfxImportParameters(::windows::runtime::IInspectable);
 impl PfxImportParameters {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3526,46 +3006,6 @@ unsafe impl ::windows::runtime::Interface for PfxImportParameters {
 impl ::windows::runtime::RuntimeName for PfxImportParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.PfxImportParameters";
 }
-impl ::std::convert::From<PfxImportParameters> for ::windows::runtime::IUnknown {
-    fn from(value: PfxImportParameters) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PfxImportParameters> for ::windows::runtime::IUnknown {
-    fn from(value: &PfxImportParameters) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PfxImportParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PfxImportParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PfxImportParameters> for ::windows::runtime::IInspectable {
-    fn from(value: PfxImportParameters) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PfxImportParameters> for ::windows::runtime::IInspectable {
-    fn from(value: &PfxImportParameters) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PfxImportParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PfxImportParameters {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PfxImportParameters {}
 unsafe impl ::std::marker::Sync for PfxImportParameters {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
@@ -3625,7 +3065,7 @@ impl ::windows::runtime::RuntimeName for StandardCertificateStoreNames {
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SubjectAlternativeNameInfo(::windows::runtime::IInspectable);
 impl SubjectAlternativeNameInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3762,51 +3202,11 @@ unsafe impl ::windows::runtime::Interface for SubjectAlternativeNameInfo {
 impl ::windows::runtime::RuntimeName for SubjectAlternativeNameInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo";
 }
-impl ::std::convert::From<SubjectAlternativeNameInfo> for ::windows::runtime::IUnknown {
-    fn from(value: SubjectAlternativeNameInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SubjectAlternativeNameInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &SubjectAlternativeNameInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SubjectAlternativeNameInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SubjectAlternativeNameInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SubjectAlternativeNameInfo> for ::windows::runtime::IInspectable {
-    fn from(value: SubjectAlternativeNameInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SubjectAlternativeNameInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &SubjectAlternativeNameInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SubjectAlternativeNameInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SubjectAlternativeNameInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SubjectAlternativeNameInfo {}
 unsafe impl ::std::marker::Sync for SubjectAlternativeNameInfo {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserCertificateEnrollmentManager(::windows::runtime::IInspectable);
 impl UserCertificateEnrollmentManager {
     #[cfg(feature = "Foundation")]
@@ -3874,51 +3274,11 @@ unsafe impl ::windows::runtime::Interface for UserCertificateEnrollmentManager {
 impl ::windows::runtime::RuntimeName for UserCertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager";
 }
-impl ::std::convert::From<UserCertificateEnrollmentManager> for ::windows::runtime::IUnknown {
-    fn from(value: UserCertificateEnrollmentManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserCertificateEnrollmentManager> for ::windows::runtime::IUnknown {
-    fn from(value: &UserCertificateEnrollmentManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserCertificateEnrollmentManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserCertificateEnrollmentManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserCertificateEnrollmentManager> for ::windows::runtime::IInspectable {
-    fn from(value: UserCertificateEnrollmentManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserCertificateEnrollmentManager> for ::windows::runtime::IInspectable {
-    fn from(value: &UserCertificateEnrollmentManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserCertificateEnrollmentManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserCertificateEnrollmentManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for UserCertificateEnrollmentManager {}
 unsafe impl ::std::marker::Sync for UserCertificateEnrollmentManager {}
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserCertificateStore(::windows::runtime::IInspectable);
 impl UserCertificateStore {
     #[cfg(feature = "Foundation")]
@@ -3957,46 +3317,6 @@ unsafe impl ::windows::runtime::Interface for UserCertificateStore {
 }
 impl ::windows::runtime::RuntimeName for UserCertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateStore";
-}
-impl ::std::convert::From<UserCertificateStore> for ::windows::runtime::IUnknown {
-    fn from(value: UserCertificateStore) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserCertificateStore> for ::windows::runtime::IUnknown {
-    fn from(value: &UserCertificateStore) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserCertificateStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserCertificateStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserCertificateStore> for ::windows::runtime::IInspectable {
-    fn from(value: UserCertificateStore) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserCertificateStore> for ::windows::runtime::IInspectable {
-    fn from(value: &UserCertificateStore) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserCertificateStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserCertificateStore {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for UserCertificateStore {}
 unsafe impl ::std::marker::Sync for UserCertificateStore {}

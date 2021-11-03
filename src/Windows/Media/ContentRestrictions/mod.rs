@@ -23,7 +23,7 @@ unsafe impl ::windows::runtime::RuntimeType for ContentAccessRestrictionLevel {
 }
 #[doc = "*Required features: `Media_ContentRestrictions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContentRestrictionsBrowsePolicy(::windows::runtime::IInspectable);
 impl ContentRestrictionsBrowsePolicy {
     #[doc = "*Required features: `Media_ContentRestrictions`*"]
@@ -62,46 +62,6 @@ unsafe impl ::windows::runtime::Interface for ContentRestrictionsBrowsePolicy {
 }
 impl ::windows::runtime::RuntimeName for ContentRestrictionsBrowsePolicy {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
-}
-impl ::std::convert::From<ContentRestrictionsBrowsePolicy> for ::windows::runtime::IUnknown {
-    fn from(value: ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContentRestrictionsBrowsePolicy> for ::windows::runtime::IUnknown {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContentRestrictionsBrowsePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContentRestrictionsBrowsePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContentRestrictionsBrowsePolicy> for ::windows::runtime::IInspectable {
-    fn from(value: ContentRestrictionsBrowsePolicy) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContentRestrictionsBrowsePolicy> for ::windows::runtime::IInspectable {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContentRestrictionsBrowsePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContentRestrictionsBrowsePolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl ::std::marker::Sync for ContentRestrictionsBrowsePolicy {}
@@ -252,7 +212,7 @@ unsafe impl ::windows::runtime::RuntimeType for RatedContentCategory {
 }
 #[doc = "*Required features: `Media_ContentRestrictions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RatedContentDescription(::windows::runtime::IInspectable);
 impl RatedContentDescription {
     #[doc = "*Required features: `Media_ContentRestrictions`*"]
@@ -346,51 +306,11 @@ unsafe impl ::windows::runtime::Interface for RatedContentDescription {
 impl ::windows::runtime::RuntimeName for RatedContentDescription {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentDescription";
 }
-impl ::std::convert::From<RatedContentDescription> for ::windows::runtime::IUnknown {
-    fn from(value: RatedContentDescription) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RatedContentDescription> for ::windows::runtime::IUnknown {
-    fn from(value: &RatedContentDescription) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RatedContentDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RatedContentDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RatedContentDescription> for ::windows::runtime::IInspectable {
-    fn from(value: RatedContentDescription) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RatedContentDescription> for ::windows::runtime::IInspectable {
-    fn from(value: &RatedContentDescription) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RatedContentDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RatedContentDescription {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RatedContentDescription {}
 unsafe impl ::std::marker::Sync for RatedContentDescription {}
 #[doc = "*Required features: `Media_ContentRestrictions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RatedContentRestrictions(::windows::runtime::IInspectable);
 impl RatedContentRestrictions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -463,46 +383,6 @@ unsafe impl ::windows::runtime::Interface for RatedContentRestrictions {
 }
 impl ::windows::runtime::RuntimeName for RatedContentRestrictions {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentRestrictions";
-}
-impl ::std::convert::From<RatedContentRestrictions> for ::windows::runtime::IUnknown {
-    fn from(value: RatedContentRestrictions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RatedContentRestrictions> for ::windows::runtime::IUnknown {
-    fn from(value: &RatedContentRestrictions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RatedContentRestrictions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RatedContentRestrictions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RatedContentRestrictions> for ::windows::runtime::IInspectable {
-    fn from(value: RatedContentRestrictions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RatedContentRestrictions> for ::windows::runtime::IInspectable {
-    fn from(value: &RatedContentRestrictions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RatedContentRestrictions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RatedContentRestrictions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for RatedContentRestrictions {}
 unsafe impl ::std::marker::Sync for RatedContentRestrictions {}

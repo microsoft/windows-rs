@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConnectionRequestedEventArgs(::windows::runtime::IInspectable);
 impl ConnectionRequestedEventArgs {
     #[doc = "*Required features: `Networking_Proximity`*"]
@@ -22,46 +22,6 @@ unsafe impl ::windows::runtime::Interface for ConnectionRequestedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ConnectionRequestedEventArgs";
-}
-impl ::std::convert::From<ConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ConnectionRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConnectionRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ConnectionRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConnectionRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConnectionRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ConnectionRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConnectionRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ConnectionRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConnectionRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConnectionRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ConnectionRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for ConnectionRequestedEventArgs {}
@@ -864,7 +824,7 @@ impl ::windows::runtime::RuntimeName for PeerFinder {
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PeerInformation(::windows::runtime::IInspectable);
 impl PeerInformation {
     #[doc = "*Required features: `Networking_Proximity`*"]
@@ -919,46 +879,6 @@ unsafe impl ::windows::runtime::Interface for PeerInformation {
 impl ::windows::runtime::RuntimeName for PeerInformation {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerInformation";
 }
-impl ::std::convert::From<PeerInformation> for ::windows::runtime::IUnknown {
-    fn from(value: PeerInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PeerInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &PeerInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PeerInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PeerInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PeerInformation> for ::windows::runtime::IInspectable {
-    fn from(value: PeerInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PeerInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &PeerInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PeerInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PeerInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PeerInformation {}
 unsafe impl ::std::marker::Sync for PeerInformation {}
 #[doc = "*Required features: `Networking_Proximity`*"]
@@ -984,7 +904,7 @@ unsafe impl ::windows::runtime::RuntimeType for PeerRole {
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PeerWatcher(::windows::runtime::IInspectable);
 impl PeerWatcher {
     #[cfg(feature = "Foundation")]
@@ -1091,46 +1011,6 @@ unsafe impl ::windows::runtime::Interface for PeerWatcher {
 impl ::windows::runtime::RuntimeName for PeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerWatcher";
 }
-impl ::std::convert::From<PeerWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: PeerWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PeerWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: &PeerWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PeerWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PeerWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PeerWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: PeerWatcher) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PeerWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: &PeerWatcher) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PeerWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PeerWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PeerWatcher {}
 unsafe impl ::std::marker::Sync for PeerWatcher {}
 #[doc = "*Required features: `Networking_Proximity`*"]
@@ -1159,7 +1039,7 @@ unsafe impl ::windows::runtime::RuntimeType for PeerWatcherStatus {
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProximityDevice(::windows::runtime::IInspectable);
 impl ProximityDevice {
     #[doc = "*Required features: `Networking_Proximity`*"]
@@ -1322,51 +1202,11 @@ unsafe impl ::windows::runtime::Interface for ProximityDevice {
 impl ::windows::runtime::RuntimeName for ProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityDevice";
 }
-impl ::std::convert::From<ProximityDevice> for ::windows::runtime::IUnknown {
-    fn from(value: ProximityDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProximityDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &ProximityDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximityDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximityDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProximityDevice> for ::windows::runtime::IInspectable {
-    fn from(value: ProximityDevice) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProximityDevice> for ::windows::runtime::IInspectable {
-    fn from(value: &ProximityDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProximityDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProximityDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ProximityDevice {}
 unsafe impl ::std::marker::Sync for ProximityDevice {}
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProximityMessage(::windows::runtime::IInspectable);
 impl ProximityMessage {
     #[doc = "*Required features: `Networking_Proximity`*"]
@@ -1413,46 +1253,6 @@ unsafe impl ::windows::runtime::Interface for ProximityMessage {
 impl ::windows::runtime::RuntimeName for ProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityMessage";
 }
-impl ::std::convert::From<ProximityMessage> for ::windows::runtime::IUnknown {
-    fn from(value: ProximityMessage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProximityMessage> for ::windows::runtime::IUnknown {
-    fn from(value: &ProximityMessage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProximityMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProximityMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProximityMessage> for ::windows::runtime::IInspectable {
-    fn from(value: ProximityMessage) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProximityMessage> for ::windows::runtime::IInspectable {
-    fn from(value: &ProximityMessage) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProximityMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProximityMessage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ProximityMessage {}
 unsafe impl ::std::marker::Sync for ProximityMessage {}
 #[doc = "*Required features: `Networking_Proximity`*"]
@@ -1481,7 +1281,7 @@ unsafe impl ::windows::runtime::RuntimeType for TriggeredConnectState {
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct TriggeredConnectionStateChangedEventArgs(::windows::runtime::IInspectable);
 impl TriggeredConnectionStateChangedEventArgs {
     #[doc = "*Required features: `Networking_Proximity`*"]
@@ -1519,46 +1319,6 @@ unsafe impl ::windows::runtime::Interface for TriggeredConnectionStateChangedEve
 }
 impl ::windows::runtime::RuntimeName for TriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";
-}
-impl ::std::convert::From<TriggeredConnectionStateChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: TriggeredConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&TriggeredConnectionStateChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &TriggeredConnectionStateChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TriggeredConnectionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TriggeredConnectionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<TriggeredConnectionStateChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: TriggeredConnectionStateChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&TriggeredConnectionStateChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &TriggeredConnectionStateChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TriggeredConnectionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TriggeredConnectionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for TriggeredConnectionStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for TriggeredConnectionStateChangedEventArgs {}

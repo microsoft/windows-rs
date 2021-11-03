@@ -13,7 +13,7 @@ pub mod Interactions;
 pub mod Scenes;
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AmbientLight(::windows::runtime::IInspectable);
 impl AmbientLight {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -181,46 +181,6 @@ unsafe impl ::windows::runtime::Interface for AmbientLight {
 impl ::windows::runtime::RuntimeName for AmbientLight {
     const NAME: &'static str = "Windows.UI.Composition.AmbientLight";
 }
-impl ::std::convert::From<AmbientLight> for ::windows::runtime::IUnknown {
-    fn from(value: AmbientLight) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AmbientLight> for ::windows::runtime::IUnknown {
-    fn from(value: &AmbientLight) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AmbientLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AmbientLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AmbientLight> for ::windows::runtime::IInspectable {
-    fn from(value: AmbientLight) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AmbientLight> for ::windows::runtime::IInspectable {
-    fn from(value: &AmbientLight) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AmbientLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AmbientLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<AmbientLight> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -313,7 +273,7 @@ unsafe impl ::std::marker::Send for AmbientLight {}
 unsafe impl ::std::marker::Sync for AmbientLight {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AnimationController(::windows::runtime::IInspectable);
 impl AnimationController {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -493,46 +453,6 @@ unsafe impl ::windows::runtime::Interface for AnimationController {
 impl ::windows::runtime::RuntimeName for AnimationController {
     const NAME: &'static str = "Windows.UI.Composition.AnimationController";
 }
-impl ::std::convert::From<AnimationController> for ::windows::runtime::IUnknown {
-    fn from(value: AnimationController) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AnimationController> for ::windows::runtime::IUnknown {
-    fn from(value: &AnimationController) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AnimationController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AnimationController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AnimationController> for ::windows::runtime::IInspectable {
-    fn from(value: AnimationController) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AnimationController> for ::windows::runtime::IInspectable {
-    fn from(value: &AnimationController) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AnimationController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AnimationController {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<AnimationController> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -709,7 +629,7 @@ unsafe impl ::windows::runtime::RuntimeType for AnimationPropertyAccessMode {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AnimationPropertyInfo(::windows::runtime::IInspectable);
 impl AnimationPropertyInfo {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -851,46 +771,6 @@ unsafe impl ::windows::runtime::Interface for AnimationPropertyInfo {
 impl ::windows::runtime::RuntimeName for AnimationPropertyInfo {
     const NAME: &'static str = "Windows.UI.Composition.AnimationPropertyInfo";
 }
-impl ::std::convert::From<AnimationPropertyInfo> for ::windows::runtime::IUnknown {
-    fn from(value: AnimationPropertyInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AnimationPropertyInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &AnimationPropertyInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AnimationPropertyInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AnimationPropertyInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AnimationPropertyInfo> for ::windows::runtime::IInspectable {
-    fn from(value: AnimationPropertyInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AnimationPropertyInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &AnimationPropertyInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AnimationPropertyInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AnimationPropertyInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<AnimationPropertyInfo> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -984,7 +864,7 @@ unsafe impl ::windows::runtime::RuntimeType for AnimationStopBehavior {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackEasingFunction(::windows::runtime::IInspectable);
 impl BackEasingFunction {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -1113,46 +993,6 @@ unsafe impl ::windows::runtime::Interface for BackEasingFunction {
 impl ::windows::runtime::RuntimeName for BackEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BackEasingFunction";
 }
-impl ::std::convert::From<BackEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: BackEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &BackEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: BackEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &BackEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BackEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1245,7 +1085,7 @@ unsafe impl ::std::marker::Send for BackEasingFunction {}
 unsafe impl ::std::marker::Sync for BackEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BooleanKeyFrameAnimation(::windows::runtime::IInspectable);
 impl BooleanKeyFrameAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -1569,46 +1409,6 @@ unsafe impl ::windows::runtime::Interface for BooleanKeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for BooleanKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BooleanKeyFrameAnimation";
 }
-impl ::std::convert::From<BooleanKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: BooleanKeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BooleanKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &BooleanKeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BooleanKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BooleanKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BooleanKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: BooleanKeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BooleanKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &BooleanKeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BooleanKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BooleanKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BooleanKeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1743,7 +1543,7 @@ unsafe impl ::std::marker::Send for BooleanKeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for BooleanKeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BounceEasingFunction(::windows::runtime::IInspectable);
 impl BounceEasingFunction {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -1880,46 +1680,6 @@ unsafe impl ::windows::runtime::Interface for BounceEasingFunction {
 impl ::windows::runtime::RuntimeName for BounceEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BounceEasingFunction";
 }
-impl ::std::convert::From<BounceEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: BounceEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BounceEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &BounceEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BounceEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BounceEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BounceEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: BounceEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BounceEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &BounceEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BounceEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BounceEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BounceEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2012,7 +1772,7 @@ unsafe impl ::std::marker::Send for BounceEasingFunction {}
 unsafe impl ::std::marker::Sync for BounceEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BounceScalarNaturalMotionAnimation(::windows::runtime::IInspectable);
 impl BounceScalarNaturalMotionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -2328,46 +2088,6 @@ unsafe impl ::windows::runtime::Interface for BounceScalarNaturalMotionAnimation
 impl ::windows::runtime::RuntimeName for BounceScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceScalarNaturalMotionAnimation";
 }
-impl ::std::convert::From<BounceScalarNaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: BounceScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BounceScalarNaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BounceScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BounceScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BounceScalarNaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: BounceScalarNaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BounceScalarNaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &BounceScalarNaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BounceScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BounceScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BounceScalarNaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2522,7 +2242,7 @@ unsafe impl ::std::marker::Send for BounceScalarNaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for BounceScalarNaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BounceVector2NaturalMotionAnimation(::windows::runtime::IInspectable);
 impl BounceVector2NaturalMotionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -2840,46 +2560,6 @@ unsafe impl ::windows::runtime::Interface for BounceVector2NaturalMotionAnimatio
 impl ::windows::runtime::RuntimeName for BounceVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector2NaturalMotionAnimation";
 }
-impl ::std::convert::From<BounceVector2NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: BounceVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BounceVector2NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BounceVector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BounceVector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BounceVector2NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: BounceVector2NaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BounceVector2NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &BounceVector2NaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BounceVector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BounceVector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BounceVector2NaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3034,7 +2714,7 @@ unsafe impl ::std::marker::Send for BounceVector2NaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for BounceVector2NaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BounceVector3NaturalMotionAnimation(::windows::runtime::IInspectable);
 impl BounceVector3NaturalMotionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -3352,46 +3032,6 @@ unsafe impl ::windows::runtime::Interface for BounceVector3NaturalMotionAnimatio
 impl ::windows::runtime::RuntimeName for BounceVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
 }
-impl ::std::convert::From<BounceVector3NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: BounceVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BounceVector3NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BounceVector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BounceVector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BounceVector3NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: BounceVector3NaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BounceVector3NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &BounceVector3NaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BounceVector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BounceVector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BounceVector3NaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3546,7 +3186,7 @@ unsafe impl ::std::marker::Send for BounceVector3NaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for BounceVector3NaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CircleEasingFunction(::windows::runtime::IInspectable);
 impl CircleEasingFunction {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -3667,46 +3307,6 @@ unsafe impl ::windows::runtime::Interface for CircleEasingFunction {
 impl ::windows::runtime::RuntimeName for CircleEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CircleEasingFunction";
 }
-impl ::std::convert::From<CircleEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: CircleEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CircleEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &CircleEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CircleEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CircleEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CircleEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: CircleEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CircleEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &CircleEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CircleEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CircleEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CircleEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3799,7 +3399,7 @@ unsafe impl ::std::marker::Send for CircleEasingFunction {}
 unsafe impl ::std::marker::Sync for CircleEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ColorKeyFrameAnimation(::windows::runtime::IInspectable);
 impl ColorKeyFrameAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -4141,46 +3741,6 @@ unsafe impl ::windows::runtime::Interface for ColorKeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for ColorKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ColorKeyFrameAnimation";
 }
-impl ::std::convert::From<ColorKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: ColorKeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ColorKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &ColorKeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ColorKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ColorKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ColorKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: ColorKeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ColorKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &ColorKeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ColorKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ColorKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ColorKeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4315,7 +3875,7 @@ unsafe impl ::std::marker::Send for ColorKeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for ColorKeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionAnimation(::windows::runtime::IInspectable);
 impl CompositionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -4521,46 +4081,6 @@ unsafe impl ::windows::runtime::Interface for CompositionAnimation {
 impl ::windows::runtime::RuntimeName for CompositionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimation";
 }
-impl ::std::convert::From<CompositionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<CompositionAnimation> for ICompositionAnimationBase {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CompositionAnimation) -> ::windows::runtime::Result<Self> {
@@ -4655,7 +4175,7 @@ unsafe impl ::std::marker::Send for CompositionAnimation {}
 unsafe impl ::std::marker::Sync for CompositionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionAnimationGroup(::windows::runtime::IInspectable);
 impl CompositionAnimationGroup {
     #[cfg(feature = "Foundation_Collections")]
@@ -4800,46 +4320,6 @@ unsafe impl ::windows::runtime::Interface for CompositionAnimationGroup {
 impl ::windows::runtime::RuntimeName for CompositionAnimationGroup {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimationGroup";
 }
-impl ::std::convert::From<CompositionAnimationGroup> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionAnimationGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionAnimationGroup> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionAnimationGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionAnimationGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionAnimationGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionAnimationGroup> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionAnimationGroup) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionAnimationGroup> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionAnimationGroup) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionAnimationGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionAnimationGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<CompositionAnimationGroup> for super::super::Foundation::Collections::IIterable<CompositionAnimation> {
     type Error = ::windows::runtime::Error;
@@ -4976,7 +4456,7 @@ impl ::std::iter::IntoIterator for &CompositionAnimationGroup {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionBackdropBrush(::windows::runtime::IInspectable);
 impl CompositionBackdropBrush {
     #[cfg(feature = "Foundation")]
@@ -5088,46 +4568,6 @@ unsafe impl ::windows::runtime::Interface for CompositionBackdropBrush {
 }
 impl ::windows::runtime::RuntimeName for CompositionBackdropBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBackdropBrush";
-}
-impl ::std::convert::From<CompositionBackdropBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionBackdropBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionBackdropBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionBackdropBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionBackdropBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionBackdropBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionBackdropBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionBackdropBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionBackdropBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionBackdropBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionBackdropBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionBackdropBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionBackdropBrush> for super::super::Foundation::IClosable {
@@ -5242,7 +4682,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionBackfaceVisibility {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionBatchCompletedEventArgs(::windows::runtime::IInspectable);
 impl CompositionBatchCompletedEventArgs {
     #[cfg(feature = "Foundation")]
@@ -5354,46 +4794,6 @@ unsafe impl ::windows::runtime::Interface for CompositionBatchCompletedEventArgs
 }
 impl ::windows::runtime::RuntimeName for CompositionBatchCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBatchCompletedEventArgs";
-}
-impl ::std::convert::From<CompositionBatchCompletedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionBatchCompletedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionBatchCompletedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionBatchCompletedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionBatchCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionBatchCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionBatchCompletedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionBatchCompletedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionBatchCompletedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionBatchCompletedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionBatchCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionBatchCompletedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionBatchCompletedEventArgs> for super::super::Foundation::IClosable {
@@ -5567,7 +4967,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionBorderMode {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionBrush(::windows::runtime::IInspectable);
 impl CompositionBrush {
     #[cfg(feature = "Foundation")]
@@ -5680,46 +5080,6 @@ unsafe impl ::windows::runtime::Interface for CompositionBrush {
 impl ::windows::runtime::RuntimeName for CompositionBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBrush";
 }
-impl ::std::convert::From<CompositionBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -5792,7 +5152,7 @@ unsafe impl ::std::marker::Send for CompositionBrush {}
 unsafe impl ::std::marker::Sync for CompositionBrush {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionCapabilities(::windows::runtime::IInspectable);
 impl CompositionCapabilities {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -5848,51 +5208,11 @@ unsafe impl ::windows::runtime::Interface for CompositionCapabilities {
 impl ::windows::runtime::RuntimeName for CompositionCapabilities {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCapabilities";
 }
-impl ::std::convert::From<CompositionCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionCapabilities) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionCapabilities) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for CompositionCapabilities {}
 unsafe impl ::std::marker::Sync for CompositionCapabilities {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionClip(::windows::runtime::IInspectable);
 impl CompositionClip {
     #[cfg(feature = "Foundation_Numerics")]
@@ -6106,46 +5426,6 @@ unsafe impl ::windows::runtime::Interface for CompositionClip {
 impl ::windows::runtime::RuntimeName for CompositionClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionClip";
 }
-impl ::std::convert::From<CompositionClip> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionClip) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionClip> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionClip) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionClip> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionClip) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionClip> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionClip) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionClip> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -6218,7 +5498,7 @@ unsafe impl ::std::marker::Send for CompositionClip {}
 unsafe impl ::std::marker::Sync for CompositionClip {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionColorBrush(::windows::runtime::IInspectable);
 impl CompositionColorBrush {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -6344,46 +5624,6 @@ unsafe impl ::windows::runtime::Interface for CompositionColorBrush {
 impl ::windows::runtime::RuntimeName for CompositionColorBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorBrush";
 }
-impl ::std::convert::From<CompositionColorBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionColorBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionColorBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionColorBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionColorBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionColorBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionColorBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionColorBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionColorBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionColorBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionColorBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionColorBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionColorBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -6476,7 +5716,7 @@ unsafe impl ::std::marker::Send for CompositionColorBrush {}
 unsafe impl ::std::marker::Sync for CompositionColorBrush {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionColorGradientStop(::windows::runtime::IInspectable);
 impl CompositionColorGradientStop {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -6615,46 +5855,6 @@ unsafe impl ::windows::runtime::Interface for CompositionColorGradientStop {
 impl ::windows::runtime::RuntimeName for CompositionColorGradientStop {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStop";
 }
-impl ::std::convert::From<CompositionColorGradientStop> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionColorGradientStop) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionColorGradientStop> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionColorGradientStop) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionColorGradientStop {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionColorGradientStop {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionColorGradientStop> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionColorGradientStop) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionColorGradientStop> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionColorGradientStop) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionColorGradientStop {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionColorGradientStop {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionColorGradientStop> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -6727,7 +5927,7 @@ unsafe impl ::std::marker::Send for CompositionColorGradientStop {}
 unsafe impl ::std::marker::Sync for CompositionColorGradientStop {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionColorGradientStopCollection(::windows::runtime::IInspectable);
 impl CompositionColorGradientStopCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -6837,46 +6037,6 @@ unsafe impl ::windows::runtime::Interface for CompositionColorGradientStopCollec
 impl ::windows::runtime::RuntimeName for CompositionColorGradientStopCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStopCollection";
 }
-impl ::std::convert::From<CompositionColorGradientStopCollection> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionColorGradientStopCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionColorGradientStopCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionColorGradientStopCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionColorGradientStopCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionColorGradientStopCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionColorGradientStopCollection> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionColorGradientStopCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionColorGradientStopCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionColorGradientStopCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionColorGradientStopCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionColorGradientStopCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<CompositionColorGradientStopCollection> for super::super::Foundation::Collections::IIterable<CompositionColorGradientStop> {
     type Error = ::windows::runtime::Error;
@@ -6972,7 +6132,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionColorSpace {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionCommitBatch(::windows::runtime::IInspectable);
 impl CompositionCommitBatch {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -7116,46 +6276,6 @@ unsafe impl ::windows::runtime::Interface for CompositionCommitBatch {
 impl ::windows::runtime::RuntimeName for CompositionCommitBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCommitBatch";
 }
-impl ::std::convert::From<CompositionCommitBatch> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionCommitBatch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionCommitBatch> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionCommitBatch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionCommitBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionCommitBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionCommitBatch> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionCommitBatch) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionCommitBatch> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionCommitBatch) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionCommitBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionCommitBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionCommitBatch> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -7250,7 +6370,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionCompositeMode {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionContainerShape(::windows::runtime::IInspectable);
 impl CompositionContainerShape {
     #[cfg(feature = "Foundation_Collections")]
@@ -7458,46 +6578,6 @@ unsafe impl ::windows::runtime::Interface for CompositionContainerShape {
 impl ::windows::runtime::RuntimeName for CompositionContainerShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionContainerShape";
 }
-impl ::std::convert::From<CompositionContainerShape> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionContainerShape) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionContainerShape> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionContainerShape) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionContainerShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionContainerShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionContainerShape> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionContainerShape) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionContainerShape> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionContainerShape) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionContainerShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionContainerShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionContainerShape> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -7590,7 +6670,7 @@ unsafe impl ::std::marker::Send for CompositionContainerShape {}
 unsafe impl ::std::marker::Sync for CompositionContainerShape {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionDrawingSurface(::windows::runtime::IInspectable);
 impl CompositionDrawingSurface {
     #[cfg(feature = "Graphics_DirectX")]
@@ -7769,46 +6849,6 @@ unsafe impl ::windows::runtime::Interface for CompositionDrawingSurface {
 impl ::windows::runtime::RuntimeName for CompositionDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionDrawingSurface";
 }
-impl ::std::convert::From<CompositionDrawingSurface> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionDrawingSurface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionDrawingSurface> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionDrawingSurface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionDrawingSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionDrawingSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionDrawingSurface> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionDrawingSurface) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionDrawingSurface> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionDrawingSurface) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionDrawingSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionDrawingSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<CompositionDrawingSurface> for ICompositionSurface {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CompositionDrawingSurface) -> ::windows::runtime::Result<Self> {
@@ -7923,7 +6963,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionDropShadowSourcePolic
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionEasingFunction(::windows::runtime::IInspectable);
 impl CompositionEasingFunction {
     #[cfg(feature = "Foundation_Numerics")]
@@ -8118,46 +7158,6 @@ unsafe impl ::windows::runtime::Interface for CompositionEasingFunction {
 impl ::windows::runtime::RuntimeName for CompositionEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEasingFunction";
 }
-impl ::std::convert::From<CompositionEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -8251,7 +7251,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionEasingFunctionMode {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionEffectBrush(::windows::runtime::IInspectable);
 impl CompositionEffectBrush {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -8377,46 +7377,6 @@ unsafe impl ::windows::runtime::Interface for CompositionEffectBrush {
 impl ::windows::runtime::RuntimeName for CompositionEffectBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectBrush";
 }
-impl ::std::convert::From<CompositionEffectBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionEffectBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionEffectBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionEffectBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionEffectBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionEffectBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionEffectBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionEffectBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionEffectBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionEffectBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionEffectBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionEffectBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionEffectBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -8509,7 +7469,7 @@ unsafe impl ::std::marker::Send for CompositionEffectBrush {}
 unsafe impl ::std::marker::Sync for CompositionEffectBrush {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionEffectFactory(::windows::runtime::IInspectable);
 impl CompositionEffectFactory {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -8646,46 +7606,6 @@ unsafe impl ::windows::runtime::Interface for CompositionEffectFactory {
 impl ::windows::runtime::RuntimeName for CompositionEffectFactory {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectFactory";
 }
-impl ::std::convert::From<CompositionEffectFactory> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionEffectFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionEffectFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionEffectFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionEffectFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionEffectFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionEffectFactory> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionEffectFactory) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionEffectFactory> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionEffectFactory) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionEffectFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionEffectFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionEffectFactory> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -8780,7 +7700,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionEffectFactoryLoadStat
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionEffectSourceParameter(::windows::runtime::IInspectable);
 impl CompositionEffectSourceParameter {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -8813,46 +7733,6 @@ unsafe impl ::windows::runtime::Interface for CompositionEffectSourceParameter {
 impl ::windows::runtime::RuntimeName for CompositionEffectSourceParameter {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectSourceParameter";
 }
-impl ::std::convert::From<CompositionEffectSourceParameter> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionEffectSourceParameter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionEffectSourceParameter> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionEffectSourceParameter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionEffectSourceParameter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionEffectSourceParameter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionEffectSourceParameter> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionEffectSourceParameter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionEffectSourceParameter> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionEffectSourceParameter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionEffectSourceParameter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionEffectSourceParameter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Graphics_Effects")]
 impl ::std::convert::TryFrom<CompositionEffectSourceParameter> for super::super::Graphics::Effects::IGraphicsEffectSource {
     type Error = ::windows::runtime::Error;
@@ -8883,7 +7763,7 @@ unsafe impl ::std::marker::Send for CompositionEffectSourceParameter {}
 unsafe impl ::std::marker::Sync for CompositionEffectSourceParameter {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionEllipseGeometry(::windows::runtime::IInspectable);
 impl CompositionEllipseGeometry {
     #[cfg(feature = "Foundation_Numerics")]
@@ -9065,46 +7945,6 @@ unsafe impl ::windows::runtime::Interface for CompositionEllipseGeometry {
 impl ::windows::runtime::RuntimeName for CompositionEllipseGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEllipseGeometry";
 }
-impl ::std::convert::From<CompositionEllipseGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionEllipseGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionEllipseGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionEllipseGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionEllipseGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionEllipseGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionEllipseGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionEllipseGeometry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionEllipseGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionEllipseGeometry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionEllipseGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionEllipseGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionEllipseGeometry> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -9197,7 +8037,7 @@ unsafe impl ::std::marker::Send for CompositionEllipseGeometry {}
 unsafe impl ::std::marker::Sync for CompositionEllipseGeometry {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionGeometricClip(::windows::runtime::IInspectable);
 impl CompositionGeometricClip {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -9437,46 +8277,6 @@ unsafe impl ::windows::runtime::Interface for CompositionGeometricClip {
 impl ::windows::runtime::RuntimeName for CompositionGeometricClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometricClip";
 }
-impl ::std::convert::From<CompositionGeometricClip> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionGeometricClip) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionGeometricClip> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionGeometricClip) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionGeometricClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionGeometricClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionGeometricClip> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionGeometricClip) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionGeometricClip> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionGeometricClip) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionGeometricClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionGeometricClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionGeometricClip> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -9569,7 +8369,7 @@ unsafe impl ::std::marker::Send for CompositionGeometricClip {}
 unsafe impl ::std::marker::Sync for CompositionGeometricClip {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionGeometry(::windows::runtime::IInspectable);
 impl CompositionGeometry {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -9721,46 +8521,6 @@ unsafe impl ::windows::runtime::Interface for CompositionGeometry {
 impl ::windows::runtime::RuntimeName for CompositionGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometry";
 }
-impl ::std::convert::From<CompositionGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionGeometry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionGeometry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionGeometry> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -9854,7 +8614,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionGetValueStatus {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionGradientBrush(::windows::runtime::IInspectable);
 impl CompositionGradientBrush {
     #[cfg(feature = "Foundation_Numerics")]
@@ -10115,46 +8875,6 @@ unsafe impl ::windows::runtime::Interface for CompositionGradientBrush {
 impl ::windows::runtime::RuntimeName for CompositionGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGradientBrush";
 }
-impl ::std::convert::From<CompositionGradientBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionGradientBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionGradientBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionGradientBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionGradientBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionGradientBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionGradientBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionGradientBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionGradientBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -10268,7 +8988,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionGradientExtendMode {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionGraphicsDevice(::windows::runtime::IInspectable);
 impl CompositionGraphicsDevice {
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
@@ -10446,46 +9166,6 @@ unsafe impl ::windows::runtime::Interface for CompositionGraphicsDevice {
 impl ::windows::runtime::RuntimeName for CompositionGraphicsDevice {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGraphicsDevice";
 }
-impl ::std::convert::From<CompositionGraphicsDevice> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionGraphicsDevice) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionGraphicsDevice> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionGraphicsDevice) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionGraphicsDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionGraphicsDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionGraphicsDevice> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionGraphicsDevice) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionGraphicsDevice> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionGraphicsDevice) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionGraphicsDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionGraphicsDevice {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionGraphicsDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -10558,7 +9238,7 @@ unsafe impl ::std::marker::Send for CompositionGraphicsDevice {}
 unsafe impl ::std::marker::Sync for CompositionGraphicsDevice {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionLight(::windows::runtime::IInspectable);
 impl CompositionLight {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -10700,46 +9380,6 @@ unsafe impl ::windows::runtime::Interface for CompositionLight {
 impl ::windows::runtime::RuntimeName for CompositionLight {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLight";
 }
-impl ::std::convert::From<CompositionLight> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionLight) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionLight> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionLight) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionLight> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionLight) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionLight> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionLight) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionLight> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -10812,7 +9452,7 @@ unsafe impl ::std::marker::Send for CompositionLight {}
 unsafe impl ::std::marker::Sync for CompositionLight {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionLineGeometry(::windows::runtime::IInspectable);
 impl CompositionLineGeometry {
     #[cfg(feature = "Foundation_Numerics")]
@@ -10994,46 +9634,6 @@ unsafe impl ::windows::runtime::Interface for CompositionLineGeometry {
 impl ::windows::runtime::RuntimeName for CompositionLineGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLineGeometry";
 }
-impl ::std::convert::From<CompositionLineGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionLineGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionLineGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionLineGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionLineGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionLineGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionLineGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionLineGeometry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionLineGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionLineGeometry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionLineGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionLineGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionLineGeometry> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -11126,7 +9726,7 @@ unsafe impl ::std::marker::Send for CompositionLineGeometry {}
 unsafe impl ::std::marker::Sync for CompositionLineGeometry {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionLinearGradientBrush(::windows::runtime::IInspectable);
 impl CompositionLinearGradientBrush {
     #[cfg(feature = "Foundation_Numerics")]
@@ -11417,46 +10017,6 @@ unsafe impl ::windows::runtime::Interface for CompositionLinearGradientBrush {
 impl ::windows::runtime::RuntimeName for CompositionLinearGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLinearGradientBrush";
 }
-impl ::std::convert::From<CompositionLinearGradientBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionLinearGradientBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionLinearGradientBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionLinearGradientBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionLinearGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionLinearGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionLinearGradientBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionLinearGradientBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionLinearGradientBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionLinearGradientBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionLinearGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionLinearGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionLinearGradientBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -11589,7 +10149,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionMappingMode {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionMaskBrush(::windows::runtime::IInspectable);
 impl CompositionMaskBrush {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -11728,46 +10288,6 @@ unsafe impl ::windows::runtime::Interface for CompositionMaskBrush {
 impl ::windows::runtime::RuntimeName for CompositionMaskBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMaskBrush";
 }
-impl ::std::convert::From<CompositionMaskBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionMaskBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionMaskBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionMaskBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionMaskBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionMaskBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionMaskBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionMaskBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionMaskBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionMaskBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionMaskBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionMaskBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionMaskBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -11860,7 +10380,7 @@ unsafe impl ::std::marker::Send for CompositionMaskBrush {}
 unsafe impl ::std::marker::Sync for CompositionMaskBrush {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionMipmapSurface(::windows::runtime::IInspectable);
 impl CompositionMipmapSurface {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -12016,46 +10536,6 @@ unsafe impl ::windows::runtime::Interface for CompositionMipmapSurface {
 impl ::windows::runtime::RuntimeName for CompositionMipmapSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMipmapSurface";
 }
-impl ::std::convert::From<CompositionMipmapSurface> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionMipmapSurface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionMipmapSurface> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionMipmapSurface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionMipmapSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionMipmapSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionMipmapSurface> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionMipmapSurface) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionMipmapSurface> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionMipmapSurface) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionMipmapSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionMipmapSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<CompositionMipmapSurface> for ICompositionSurface {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CompositionMipmapSurface) -> ::windows::runtime::Result<Self> {
@@ -12150,7 +10630,7 @@ unsafe impl ::std::marker::Send for CompositionMipmapSurface {}
 unsafe impl ::std::marker::Sync for CompositionMipmapSurface {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionNineGridBrush(::windows::runtime::IInspectable);
 impl CompositionNineGridBrush {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -12413,46 +10893,6 @@ unsafe impl ::windows::runtime::Interface for CompositionNineGridBrush {
 impl ::windows::runtime::RuntimeName for CompositionNineGridBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionNineGridBrush";
 }
-impl ::std::convert::From<CompositionNineGridBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionNineGridBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionNineGridBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionNineGridBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionNineGridBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionNineGridBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionNineGridBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionNineGridBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionNineGridBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionNineGridBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionNineGridBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionNineGridBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionNineGridBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -12545,7 +10985,7 @@ unsafe impl ::std::marker::Send for CompositionNineGridBrush {}
 unsafe impl ::std::marker::Sync for CompositionNineGridBrush {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionObject(::windows::runtime::IInspectable);
 impl CompositionObject {
     #[cfg(feature = "Foundation")]
@@ -12670,46 +11110,6 @@ unsafe impl ::windows::runtime::Interface for CompositionObject {
 impl ::windows::runtime::RuntimeName for CompositionObject {
     const NAME: &'static str = "Windows.UI.Composition.CompositionObject";
 }
-impl ::std::convert::From<CompositionObject> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionObject> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionObject> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionObject) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionObject> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionObject) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionObject> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -12762,7 +11162,7 @@ unsafe impl ::std::marker::Send for CompositionObject {}
 unsafe impl ::std::marker::Sync for CompositionObject {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionPath(::windows::runtime::IInspectable);
 impl CompositionPath {
     #[cfg(feature = "Graphics")]
@@ -12787,46 +11187,6 @@ unsafe impl ::windows::runtime::Interface for CompositionPath {
 }
 impl ::windows::runtime::RuntimeName for CompositionPath {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPath";
-}
-impl ::std::convert::From<CompositionPath> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionPath) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionPath> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionPath) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionPath> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionPath) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionPath> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionPath) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Graphics")]
 impl ::std::convert::TryFrom<CompositionPath> for super::super::Graphics::IGeometrySource2D {
@@ -12858,7 +11218,7 @@ unsafe impl ::std::marker::Send for CompositionPath {}
 unsafe impl ::std::marker::Sync for CompositionPath {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionPathGeometry(::windows::runtime::IInspectable);
 impl CompositionPathGeometry {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -13023,46 +11383,6 @@ unsafe impl ::windows::runtime::Interface for CompositionPathGeometry {
 impl ::windows::runtime::RuntimeName for CompositionPathGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPathGeometry";
 }
-impl ::std::convert::From<CompositionPathGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionPathGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionPathGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionPathGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionPathGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionPathGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionPathGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionPathGeometry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionPathGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionPathGeometry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionPathGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionPathGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionPathGeometry> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -13155,7 +11475,7 @@ unsafe impl ::std::marker::Send for CompositionPathGeometry {}
 unsafe impl ::std::marker::Sync for CompositionPathGeometry {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionProjectedShadow(::windows::runtime::IInspectable);
 impl CompositionProjectedShadow {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -13336,46 +11656,6 @@ unsafe impl ::windows::runtime::Interface for CompositionProjectedShadow {
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadow";
 }
-impl ::std::convert::From<CompositionProjectedShadow> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionProjectedShadow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadow> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionProjectedShadow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionProjectedShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionProjectedShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionProjectedShadow> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionProjectedShadow) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadow> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionProjectedShadow) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionProjectedShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionProjectedShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionProjectedShadow> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -13448,7 +11728,7 @@ unsafe impl ::std::marker::Send for CompositionProjectedShadow {}
 unsafe impl ::std::marker::Sync for CompositionProjectedShadow {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionProjectedShadowCaster(::windows::runtime::IInspectable);
 impl CompositionProjectedShadowCaster {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -13587,46 +11867,6 @@ unsafe impl ::windows::runtime::Interface for CompositionProjectedShadowCaster {
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadowCaster {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCaster";
 }
-impl ::std::convert::From<CompositionProjectedShadowCaster> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionProjectedShadowCaster) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadowCaster> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionProjectedShadowCaster) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionProjectedShadowCaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionProjectedShadowCaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionProjectedShadowCaster> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionProjectedShadowCaster) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadowCaster> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionProjectedShadowCaster) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionProjectedShadowCaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionProjectedShadowCaster {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionProjectedShadowCaster> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -13699,7 +11939,7 @@ unsafe impl ::std::marker::Send for CompositionProjectedShadowCaster {}
 unsafe impl ::std::marker::Sync for CompositionProjectedShadowCaster {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionProjectedShadowCasterCollection(::windows::runtime::IInspectable);
 impl CompositionProjectedShadowCasterCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -13870,46 +12110,6 @@ unsafe impl ::windows::runtime::Interface for CompositionProjectedShadowCasterCo
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadowCasterCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCasterCollection";
 }
-impl ::std::convert::From<CompositionProjectedShadowCasterCollection> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionProjectedShadowCasterCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadowCasterCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionProjectedShadowCasterCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionProjectedShadowCasterCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionProjectedShadowCasterCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionProjectedShadowCasterCollection> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionProjectedShadowCasterCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadowCasterCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionProjectedShadowCasterCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionProjectedShadowCasterCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionProjectedShadowCasterCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<CompositionProjectedShadowCasterCollection> for super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster> {
     type Error = ::windows::runtime::Error;
@@ -14024,7 +12224,7 @@ impl ::std::iter::IntoIterator for &CompositionProjectedShadowCasterCollection {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionProjectedShadowReceiver(::windows::runtime::IInspectable);
 impl CompositionProjectedShadowReceiver {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -14150,46 +12350,6 @@ unsafe impl ::windows::runtime::Interface for CompositionProjectedShadowReceiver
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadowReceiver {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiver";
 }
-impl ::std::convert::From<CompositionProjectedShadowReceiver> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionProjectedShadowReceiver) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadowReceiver> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionProjectedShadowReceiver) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionProjectedShadowReceiver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionProjectedShadowReceiver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionProjectedShadowReceiver> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionProjectedShadowReceiver) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadowReceiver> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionProjectedShadowReceiver) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionProjectedShadowReceiver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionProjectedShadowReceiver {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionProjectedShadowReceiver> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -14262,7 +12422,7 @@ unsafe impl ::std::marker::Send for CompositionProjectedShadowReceiver {}
 unsafe impl ::std::marker::Sync for CompositionProjectedShadowReceiver {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionProjectedShadowReceiverUnorderedCollection(::windows::runtime::IInspectable);
 impl CompositionProjectedShadowReceiverUnorderedCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -14407,46 +12567,6 @@ unsafe impl ::windows::runtime::Interface for CompositionProjectedShadowReceiver
 impl ::windows::runtime::RuntimeName for CompositionProjectedShadowReceiverUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection";
 }
-impl ::std::convert::From<CompositionProjectedShadowReceiverUnorderedCollection> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadowReceiverUnorderedCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionProjectedShadowReceiverUnorderedCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionProjectedShadowReceiverUnorderedCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionProjectedShadowReceiverUnorderedCollection> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionProjectedShadowReceiverUnorderedCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionProjectedShadowReceiverUnorderedCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionProjectedShadowReceiverUnorderedCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionProjectedShadowReceiverUnorderedCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<CompositionProjectedShadowReceiverUnorderedCollection> for super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver> {
     type Error = ::windows::runtime::Error;
@@ -14561,7 +12681,7 @@ impl ::std::iter::IntoIterator for &CompositionProjectedShadowReceiverUnorderedC
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionPropertySet(::windows::runtime::IInspectable);
 impl CompositionPropertySet {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -14803,46 +12923,6 @@ unsafe impl ::windows::runtime::Interface for CompositionPropertySet {
 impl ::windows::runtime::RuntimeName for CompositionPropertySet {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPropertySet";
 }
-impl ::std::convert::From<CompositionPropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionPropertySet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionPropertySet> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionPropertySet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionPropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionPropertySet) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionPropertySet> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionPropertySet) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionPropertySet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionPropertySet> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -14915,7 +12995,7 @@ unsafe impl ::std::marker::Send for CompositionPropertySet {}
 unsafe impl ::std::marker::Sync for CompositionPropertySet {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionRadialGradientBrush(::windows::runtime::IInspectable);
 impl CompositionRadialGradientBrush {
     #[cfg(feature = "Foundation_Numerics")]
@@ -15221,46 +13301,6 @@ unsafe impl ::windows::runtime::Interface for CompositionRadialGradientBrush {
 impl ::windows::runtime::RuntimeName for CompositionRadialGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRadialGradientBrush";
 }
-impl ::std::convert::From<CompositionRadialGradientBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionRadialGradientBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionRadialGradientBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionRadialGradientBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionRadialGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionRadialGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionRadialGradientBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionRadialGradientBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionRadialGradientBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionRadialGradientBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionRadialGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionRadialGradientBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionRadialGradientBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -15373,7 +13413,7 @@ unsafe impl ::std::marker::Send for CompositionRadialGradientBrush {}
 unsafe impl ::std::marker::Sync for CompositionRadialGradientBrush {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionRectangleGeometry(::windows::runtime::IInspectable);
 impl CompositionRectangleGeometry {
     #[cfg(feature = "Foundation_Numerics")]
@@ -15555,46 +13595,6 @@ unsafe impl ::windows::runtime::Interface for CompositionRectangleGeometry {
 impl ::windows::runtime::RuntimeName for CompositionRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRectangleGeometry";
 }
-impl ::std::convert::From<CompositionRectangleGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionRectangleGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionRectangleGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionRectangleGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionRectangleGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionRectangleGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionRectangleGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionRectangleGeometry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionRectangleGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionRectangleGeometry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionRectangleGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionRectangleGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionRectangleGeometry> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -15687,7 +13687,7 @@ unsafe impl ::std::marker::Send for CompositionRectangleGeometry {}
 unsafe impl ::std::marker::Sync for CompositionRectangleGeometry {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionRoundedRectangleGeometry(::windows::runtime::IInspectable);
 impl CompositionRoundedRectangleGeometry {
     #[cfg(feature = "Foundation_Numerics")]
@@ -15884,46 +13884,6 @@ unsafe impl ::windows::runtime::Interface for CompositionRoundedRectangleGeometr
 impl ::windows::runtime::RuntimeName for CompositionRoundedRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRoundedRectangleGeometry";
 }
-impl ::std::convert::From<CompositionRoundedRectangleGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionRoundedRectangleGeometry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionRoundedRectangleGeometry> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionRoundedRectangleGeometry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionRoundedRectangleGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionRoundedRectangleGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionRoundedRectangleGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionRoundedRectangleGeometry) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionRoundedRectangleGeometry> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionRoundedRectangleGeometry) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionRoundedRectangleGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionRoundedRectangleGeometry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionRoundedRectangleGeometry> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -16016,7 +13976,7 @@ unsafe impl ::std::marker::Send for CompositionRoundedRectangleGeometry {}
 unsafe impl ::std::marker::Sync for CompositionRoundedRectangleGeometry {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionScopedBatch(::windows::runtime::IInspectable);
 impl CompositionScopedBatch {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -16175,46 +14135,6 @@ unsafe impl ::windows::runtime::Interface for CompositionScopedBatch {
 impl ::windows::runtime::RuntimeName for CompositionScopedBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionScopedBatch";
 }
-impl ::std::convert::From<CompositionScopedBatch> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionScopedBatch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionScopedBatch> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionScopedBatch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionScopedBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionScopedBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionScopedBatch> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionScopedBatch) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionScopedBatch> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionScopedBatch) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionScopedBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionScopedBatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionScopedBatch> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -16287,7 +14207,7 @@ unsafe impl ::std::marker::Send for CompositionScopedBatch {}
 unsafe impl ::std::marker::Sync for CompositionScopedBatch {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionShadow(::windows::runtime::IInspectable);
 impl CompositionShadow {
     #[cfg(feature = "Foundation")]
@@ -16400,46 +14320,6 @@ unsafe impl ::windows::runtime::Interface for CompositionShadow {
 impl ::windows::runtime::RuntimeName for CompositionShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShadow";
 }
-impl ::std::convert::From<CompositionShadow> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionShadow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionShadow> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionShadow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionShadow> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionShadow) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionShadow> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionShadow) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionShadow> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -16512,7 +14392,7 @@ unsafe impl ::std::marker::Send for CompositionShadow {}
 unsafe impl ::std::marker::Sync for CompositionShadow {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionShape(::windows::runtime::IInspectable);
 impl CompositionShape {
     #[cfg(feature = "Foundation_Numerics")]
@@ -16711,46 +14591,6 @@ unsafe impl ::windows::runtime::Interface for CompositionShape {
 impl ::windows::runtime::RuntimeName for CompositionShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShape";
 }
-impl ::std::convert::From<CompositionShape> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionShape) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionShape> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionShape) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionShape> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionShape) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionShape> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionShape) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionShape> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -16824,7 +14664,7 @@ unsafe impl ::std::marker::Sync for CompositionShape {}
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionShapeCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionShapeCollection {
@@ -17038,54 +14878,6 @@ impl ::windows::runtime::RuntimeName for CompositionShapeCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShapeCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<CompositionShapeCollection> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionShapeCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&CompositionShapeCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionShapeCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionShapeCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionShapeCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<CompositionShapeCollection> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionShapeCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&CompositionShapeCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionShapeCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionShapeCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionShapeCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<CompositionShapeCollection> for super::super::Foundation::Collections::IVector<CompositionShape> {
     fn from(value: CompositionShapeCollection) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17233,7 +15025,7 @@ impl ::std::iter::IntoIterator for &CompositionShapeCollection {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionSpriteShape(::windows::runtime::IInspectable);
 impl CompositionSpriteShape {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -17584,46 +15376,6 @@ unsafe impl ::windows::runtime::Interface for CompositionSpriteShape {
 impl ::windows::runtime::RuntimeName for CompositionSpriteShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSpriteShape";
 }
-impl ::std::convert::From<CompositionSpriteShape> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionSpriteShape) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionSpriteShape> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionSpriteShape) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionSpriteShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionSpriteShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionSpriteShape> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionSpriteShape) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionSpriteShape> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionSpriteShape) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionSpriteShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionSpriteShape {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionSpriteShape> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -17761,7 +15513,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionStrokeCap {
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionStrokeDashArray(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionStrokeDashArray {
@@ -17975,54 +15727,6 @@ impl ::windows::runtime::RuntimeName for CompositionStrokeDashArray {
     const NAME: &'static str = "Windows.UI.Composition.CompositionStrokeDashArray";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<CompositionStrokeDashArray> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionStrokeDashArray) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&CompositionStrokeDashArray> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionStrokeDashArray) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionStrokeDashArray {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionStrokeDashArray {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<CompositionStrokeDashArray> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionStrokeDashArray) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&CompositionStrokeDashArray> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionStrokeDashArray) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionStrokeDashArray {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionStrokeDashArray {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<CompositionStrokeDashArray> for super::super::Foundation::Collections::IVector<f32> {
     fn from(value: CompositionStrokeDashArray) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -18192,7 +15896,7 @@ unsafe impl ::windows::runtime::RuntimeType for CompositionStrokeLineJoin {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionSurfaceBrush(::windows::runtime::IInspectable);
 impl CompositionSurfaceBrush {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -18484,46 +16188,6 @@ unsafe impl ::windows::runtime::Interface for CompositionSurfaceBrush {
 impl ::windows::runtime::RuntimeName for CompositionSurfaceBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSurfaceBrush";
 }
-impl ::std::convert::From<CompositionSurfaceBrush> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionSurfaceBrush) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionSurfaceBrush> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionSurfaceBrush) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionSurfaceBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionSurfaceBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionSurfaceBrush> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionSurfaceBrush) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionSurfaceBrush> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionSurfaceBrush) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionSurfaceBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionSurfaceBrush {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionSurfaceBrush> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -18616,7 +16280,7 @@ unsafe impl ::std::marker::Send for CompositionSurfaceBrush {}
 unsafe impl ::std::marker::Sync for CompositionSurfaceBrush {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionTarget(::windows::runtime::IInspectable);
 impl CompositionTarget {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -18742,46 +16406,6 @@ unsafe impl ::windows::runtime::Interface for CompositionTarget {
 impl ::windows::runtime::RuntimeName for CompositionTarget {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTarget";
 }
-impl ::std::convert::From<CompositionTarget> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionTarget> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionTarget> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionTarget) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionTarget> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionTarget) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionTarget> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -18854,7 +16478,7 @@ unsafe impl ::std::marker::Send for CompositionTarget {}
 unsafe impl ::std::marker::Sync for CompositionTarget {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionTransform(::windows::runtime::IInspectable);
 impl CompositionTransform {
     #[cfg(feature = "Foundation")]
@@ -18967,46 +16591,6 @@ unsafe impl ::windows::runtime::Interface for CompositionTransform {
 impl ::windows::runtime::RuntimeName for CompositionTransform {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTransform";
 }
-impl ::std::convert::From<CompositionTransform> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionTransform) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionTransform> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionTransform) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionTransform> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionTransform) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionTransform> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionTransform) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionTransform {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionTransform> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -19079,7 +16663,7 @@ unsafe impl ::std::marker::Send for CompositionTransform {}
 unsafe impl ::std::marker::Sync for CompositionTransform {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionViewBox(::windows::runtime::IInspectable);
 impl CompositionViewBox {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -19261,46 +16845,6 @@ unsafe impl ::windows::runtime::Interface for CompositionViewBox {
 impl ::windows::runtime::RuntimeName for CompositionViewBox {
     const NAME: &'static str = "Windows.UI.Composition.CompositionViewBox";
 }
-impl ::std::convert::From<CompositionViewBox> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionViewBox) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionViewBox> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionViewBox) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionViewBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionViewBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionViewBox> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionViewBox) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionViewBox> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionViewBox) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionViewBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionViewBox {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionViewBox> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -19373,7 +16917,7 @@ unsafe impl ::std::marker::Send for CompositionViewBox {}
 unsafe impl ::std::marker::Sync for CompositionViewBox {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionVirtualDrawingSurface(::windows::runtime::IInspectable);
 impl CompositionVirtualDrawingSurface {
     #[cfg(feature = "Graphics")]
@@ -19558,46 +17102,6 @@ unsafe impl ::windows::runtime::Interface for CompositionVirtualDrawingSurface {
 impl ::windows::runtime::RuntimeName for CompositionVirtualDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVirtualDrawingSurface";
 }
-impl ::std::convert::From<CompositionVirtualDrawingSurface> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionVirtualDrawingSurface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionVirtualDrawingSurface> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionVirtualDrawingSurface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionVirtualDrawingSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionVirtualDrawingSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionVirtualDrawingSurface> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionVirtualDrawingSurface) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionVirtualDrawingSurface> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionVirtualDrawingSurface) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionVirtualDrawingSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionVirtualDrawingSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionVirtualDrawingSurface> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -19712,7 +17216,7 @@ unsafe impl ::std::marker::Send for CompositionVirtualDrawingSurface {}
 unsafe impl ::std::marker::Sync for CompositionVirtualDrawingSurface {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionVisualSurface(::windows::runtime::IInspectable);
 impl CompositionVisualSurface {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -19868,46 +17372,6 @@ unsafe impl ::windows::runtime::Interface for CompositionVisualSurface {
 impl ::windows::runtime::RuntimeName for CompositionVisualSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVisualSurface";
 }
-impl ::std::convert::From<CompositionVisualSurface> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionVisualSurface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionVisualSurface> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionVisualSurface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionVisualSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionVisualSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionVisualSurface> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionVisualSurface) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionVisualSurface> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionVisualSurface) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionVisualSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionVisualSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<CompositionVisualSurface> for ICompositionSurface {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CompositionVisualSurface) -> ::windows::runtime::Result<Self> {
@@ -20002,7 +17466,7 @@ unsafe impl ::std::marker::Send for CompositionVisualSurface {}
 unsafe impl ::std::marker::Sync for CompositionVisualSurface {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Compositor(::windows::runtime::IInspectable);
 impl Compositor {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -20697,46 +18161,6 @@ unsafe impl ::windows::runtime::Interface for Compositor {
 impl ::windows::runtime::RuntimeName for Compositor {
     const NAME: &'static str = "Windows.UI.Composition.Compositor";
 }
-impl ::std::convert::From<Compositor> for ::windows::runtime::IUnknown {
-    fn from(value: Compositor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Compositor> for ::windows::runtime::IUnknown {
-    fn from(value: &Compositor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Compositor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Compositor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Compositor> for ::windows::runtime::IInspectable {
-    fn from(value: Compositor) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Compositor> for ::windows::runtime::IInspectable {
-    fn from(value: &Compositor) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Compositor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Compositor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Compositor> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -20767,7 +18191,7 @@ unsafe impl ::std::marker::Send for Compositor {}
 unsafe impl ::std::marker::Sync for Compositor {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContainerVisual(::windows::runtime::IInspectable);
 impl ContainerVisual {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -21189,46 +18613,6 @@ unsafe impl ::windows::runtime::Interface for ContainerVisual {
 impl ::windows::runtime::RuntimeName for ContainerVisual {
     const NAME: &'static str = "Windows.UI.Composition.ContainerVisual";
 }
-impl ::std::convert::From<ContainerVisual> for ::windows::runtime::IUnknown {
-    fn from(value: ContainerVisual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContainerVisual> for ::windows::runtime::IUnknown {
-    fn from(value: &ContainerVisual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContainerVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContainerVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContainerVisual> for ::windows::runtime::IInspectable {
-    fn from(value: ContainerVisual) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContainerVisual> for ::windows::runtime::IInspectable {
-    fn from(value: &ContainerVisual) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContainerVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContainerVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ContainerVisual> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -21321,7 +18705,7 @@ unsafe impl ::std::marker::Send for ContainerVisual {}
 unsafe impl ::std::marker::Sync for ContainerVisual {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CubicBezierEasingFunction(::windows::runtime::IInspectable);
 impl CubicBezierEasingFunction {
     #[cfg(feature = "Foundation_Numerics")]
@@ -21452,46 +18836,6 @@ unsafe impl ::windows::runtime::Interface for CubicBezierEasingFunction {
 impl ::windows::runtime::RuntimeName for CubicBezierEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CubicBezierEasingFunction";
 }
-impl ::std::convert::From<CubicBezierEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: CubicBezierEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CubicBezierEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &CubicBezierEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CubicBezierEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CubicBezierEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CubicBezierEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: CubicBezierEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CubicBezierEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &CubicBezierEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CubicBezierEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CubicBezierEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CubicBezierEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -21584,7 +18928,7 @@ unsafe impl ::std::marker::Send for CubicBezierEasingFunction {}
 unsafe impl ::std::marker::Sync for CubicBezierEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DelegatedInkTrailVisual(::windows::runtime::IInspectable);
 impl DelegatedInkTrailVisual {
     #[cfg(feature = "Foundation")]
@@ -22044,46 +19388,6 @@ unsafe impl ::windows::runtime::Interface for DelegatedInkTrailVisual {
 impl ::windows::runtime::RuntimeName for DelegatedInkTrailVisual {
     const NAME: &'static str = "Windows.UI.Composition.DelegatedInkTrailVisual";
 }
-impl ::std::convert::From<DelegatedInkTrailVisual> for ::windows::runtime::IUnknown {
-    fn from(value: DelegatedInkTrailVisual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DelegatedInkTrailVisual> for ::windows::runtime::IUnknown {
-    fn from(value: &DelegatedInkTrailVisual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DelegatedInkTrailVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DelegatedInkTrailVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DelegatedInkTrailVisual> for ::windows::runtime::IInspectable {
-    fn from(value: DelegatedInkTrailVisual) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DelegatedInkTrailVisual> for ::windows::runtime::IInspectable {
-    fn from(value: &DelegatedInkTrailVisual) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DelegatedInkTrailVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DelegatedInkTrailVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DelegatedInkTrailVisual> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -22176,7 +19480,7 @@ unsafe impl ::std::marker::Send for DelegatedInkTrailVisual {}
 unsafe impl ::std::marker::Sync for DelegatedInkTrailVisual {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DistantLight(::windows::runtime::IInspectable);
 impl DistantLight {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -22372,46 +19676,6 @@ unsafe impl ::windows::runtime::Interface for DistantLight {
 impl ::windows::runtime::RuntimeName for DistantLight {
     const NAME: &'static str = "Windows.UI.Composition.DistantLight";
 }
-impl ::std::convert::From<DistantLight> for ::windows::runtime::IUnknown {
-    fn from(value: DistantLight) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DistantLight> for ::windows::runtime::IUnknown {
-    fn from(value: &DistantLight) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DistantLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DistantLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DistantLight> for ::windows::runtime::IInspectable {
-    fn from(value: DistantLight) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DistantLight> for ::windows::runtime::IInspectable {
-    fn from(value: &DistantLight) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DistantLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DistantLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DistantLight> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -22504,7 +19768,7 @@ unsafe impl ::std::marker::Send for DistantLight {}
 unsafe impl ::std::marker::Sync for DistantLight {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DropShadow(::windows::runtime::IInspectable);
 impl DropShadow {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -22697,46 +19961,6 @@ unsafe impl ::windows::runtime::Interface for DropShadow {
 impl ::windows::runtime::RuntimeName for DropShadow {
     const NAME: &'static str = "Windows.UI.Composition.DropShadow";
 }
-impl ::std::convert::From<DropShadow> for ::windows::runtime::IUnknown {
-    fn from(value: DropShadow) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DropShadow> for ::windows::runtime::IUnknown {
-    fn from(value: &DropShadow) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DropShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DropShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DropShadow> for ::windows::runtime::IInspectable {
-    fn from(value: DropShadow) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DropShadow> for ::windows::runtime::IInspectable {
-    fn from(value: &DropShadow) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DropShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DropShadow {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DropShadow> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -22829,7 +20053,7 @@ unsafe impl ::std::marker::Send for DropShadow {}
 unsafe impl ::std::marker::Sync for DropShadow {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ElasticEasingFunction(::windows::runtime::IInspectable);
 impl ElasticEasingFunction {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -22966,46 +20190,6 @@ unsafe impl ::windows::runtime::Interface for ElasticEasingFunction {
 impl ::windows::runtime::RuntimeName for ElasticEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ElasticEasingFunction";
 }
-impl ::std::convert::From<ElasticEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: ElasticEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ElasticEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &ElasticEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ElasticEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ElasticEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ElasticEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: ElasticEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ElasticEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &ElasticEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ElasticEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ElasticEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ElasticEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -23098,7 +20282,7 @@ unsafe impl ::std::marker::Send for ElasticEasingFunction {}
 unsafe impl ::std::marker::Sync for ElasticEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ExponentialEasingFunction(::windows::runtime::IInspectable);
 impl ExponentialEasingFunction {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -23227,46 +20411,6 @@ unsafe impl ::windows::runtime::Interface for ExponentialEasingFunction {
 impl ::windows::runtime::RuntimeName for ExponentialEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ExponentialEasingFunction";
 }
-impl ::std::convert::From<ExponentialEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: ExponentialEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ExponentialEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &ExponentialEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ExponentialEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ExponentialEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ExponentialEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: ExponentialEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ExponentialEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &ExponentialEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ExponentialEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ExponentialEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ExponentialEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -23359,7 +20503,7 @@ unsafe impl ::std::marker::Send for ExponentialEasingFunction {}
 unsafe impl ::std::marker::Sync for ExponentialEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ExpressionAnimation(::windows::runtime::IInspectable);
 impl ExpressionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -23578,46 +20722,6 @@ unsafe impl ::windows::runtime::Interface for ExpressionAnimation {
 impl ::windows::runtime::RuntimeName for ExpressionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ExpressionAnimation";
 }
-impl ::std::convert::From<ExpressionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: ExpressionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ExpressionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &ExpressionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ExpressionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ExpressionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ExpressionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: ExpressionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ExpressionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &ExpressionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ExpressionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ExpressionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ExpressionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -23817,7 +20921,7 @@ pub struct IAnimationControllerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition`*"]
 pub struct IAnimationObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationObject {
@@ -23833,46 +20937,6 @@ impl IAnimationObject {
 }
 unsafe impl ::windows::runtime::RuntimeType for IAnimationObject {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e7141e0a-04b8-4fc5-a4dc-195392e57807}");
-}
-impl ::std::convert::From<IAnimationObject> for ::windows::runtime::IUnknown {
-    fn from(value: IAnimationObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IAnimationObject> for ::windows::runtime::IUnknown {
-    fn from(value: &IAnimationObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAnimationObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAnimationObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IAnimationObject> for ::windows::runtime::IInspectable {
-    fn from(value: IAnimationObject) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IAnimationObject> for ::windows::runtime::IInspectable {
-    fn from(value: &IAnimationObject) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAnimationObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAnimationObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24188,7 +21252,7 @@ pub struct ICompositionAnimation4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parametername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, source: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition`*"]
 pub struct ICompositionAnimationBase(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimationBase {
@@ -24198,46 +21262,6 @@ unsafe impl ::windows::runtime::Interface for ICompositionAnimationBase {
 impl ICompositionAnimationBase {}
 unsafe impl ::windows::runtime::RuntimeType for ICompositionAnimationBase {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1c2c2999-e818-48d3-a6dd-d78c82f8ace9}");
-}
-impl ::std::convert::From<ICompositionAnimationBase> for ::windows::runtime::IUnknown {
-    fn from(value: ICompositionAnimationBase) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICompositionAnimationBase> for ::windows::runtime::IUnknown {
-    fn from(value: &ICompositionAnimationBase) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICompositionAnimationBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICompositionAnimationBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ICompositionAnimationBase> for ::windows::runtime::IInspectable {
-    fn from(value: ICompositionAnimationBase) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ICompositionAnimationBase> for ::windows::runtime::IInspectable {
-    fn from(value: &ICompositionAnimationBase) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICompositionAnimationBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICompositionAnimationBase {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25916,7 +22940,7 @@ pub struct ICompositionSpriteShape_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition`*"]
 pub struct ICompositionSupportsSystemBackdrop(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSupportsSystemBackdrop {
@@ -25941,46 +22965,6 @@ impl ICompositionSupportsSystemBackdrop {
 unsafe impl ::windows::runtime::RuntimeType for ICompositionSupportsSystemBackdrop {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{397dafe4-b6c2-5bb9-951d-f5707de8b7bc}");
 }
-impl ::std::convert::From<ICompositionSupportsSystemBackdrop> for ::windows::runtime::IUnknown {
-    fn from(value: ICompositionSupportsSystemBackdrop) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICompositionSupportsSystemBackdrop> for ::windows::runtime::IUnknown {
-    fn from(value: &ICompositionSupportsSystemBackdrop) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICompositionSupportsSystemBackdrop {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICompositionSupportsSystemBackdrop {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ICompositionSupportsSystemBackdrop> for ::windows::runtime::IInspectable {
-    fn from(value: ICompositionSupportsSystemBackdrop) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ICompositionSupportsSystemBackdrop> for ::windows::runtime::IInspectable {
-    fn from(value: &ICompositionSupportsSystemBackdrop) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICompositionSupportsSystemBackdrop {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICompositionSupportsSystemBackdrop {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionSupportsSystemBackdrop_abi(
@@ -25994,7 +22978,7 @@ pub struct ICompositionSupportsSystemBackdrop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition`*"]
 pub struct ICompositionSurface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurface {
@@ -26004,46 +22988,6 @@ unsafe impl ::windows::runtime::Interface for ICompositionSurface {
 impl ICompositionSurface {}
 unsafe impl ::windows::runtime::RuntimeType for ICompositionSurface {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1527540d-42c7-47a6-a408-668f79a90dfb}");
-}
-impl ::std::convert::From<ICompositionSurface> for ::windows::runtime::IUnknown {
-    fn from(value: ICompositionSurface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICompositionSurface> for ::windows::runtime::IUnknown {
-    fn from(value: &ICompositionSurface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICompositionSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICompositionSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ICompositionSurface> for ::windows::runtime::IInspectable {
-    fn from(value: ICompositionSurface) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ICompositionSurface> for ::windows::runtime::IInspectable {
-    fn from(value: &ICompositionSurface) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICompositionSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICompositionSurface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -26146,7 +23090,7 @@ pub struct ICompositionSurfaceBrush3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition`*"]
 pub struct ICompositionSurfaceFacade(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurfaceFacade {
@@ -26165,46 +23109,6 @@ impl ICompositionSurfaceFacade {
 }
 unsafe impl ::windows::runtime::RuntimeType for ICompositionSurfaceFacade {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e01622c8-2332-55c7-8868-a7312c5c229d}");
-}
-impl ::std::convert::From<ICompositionSurfaceFacade> for ::windows::runtime::IUnknown {
-    fn from(value: ICompositionSurfaceFacade) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICompositionSurfaceFacade> for ::windows::runtime::IUnknown {
-    fn from(value: &ICompositionSurfaceFacade) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICompositionSurfaceFacade {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICompositionSurfaceFacade {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ICompositionSurfaceFacade> for ::windows::runtime::IInspectable {
-    fn from(value: ICompositionSurfaceFacade) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ICompositionSurfaceFacade> for ::windows::runtime::IInspectable {
-    fn from(value: &ICompositionSurfaceFacade) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICompositionSurfaceFacade {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICompositionSurfaceFacade {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28069,7 +24973,7 @@ pub struct IVisualCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition`*"]
 pub struct IVisualElement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElement {
@@ -28079,46 +24983,6 @@ unsafe impl ::windows::runtime::Interface for IVisualElement {
 impl IVisualElement {}
 unsafe impl ::windows::runtime::RuntimeType for IVisualElement {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{01e64612-1d82-42f4-8e3f-a722ded33fc7}");
-}
-impl ::std::convert::From<IVisualElement> for ::windows::runtime::IUnknown {
-    fn from(value: IVisualElement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IVisualElement> for ::windows::runtime::IUnknown {
-    fn from(value: &IVisualElement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVisualElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVisualElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IVisualElement> for ::windows::runtime::IInspectable {
-    fn from(value: IVisualElement) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IVisualElement> for ::windows::runtime::IInspectable {
-    fn from(value: &IVisualElement) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IVisualElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IVisualElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28131,7 +24995,7 @@ pub struct IVisualElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition`*"]
 pub struct IVisualElement2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualElement2 {
@@ -28150,46 +25014,6 @@ impl IVisualElement2 {
 }
 unsafe impl ::windows::runtime::RuntimeType for IVisualElement2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{993ae8a0-6057-5e40-918c-e06e0b7e7c64}");
-}
-impl ::std::convert::From<IVisualElement2> for ::windows::runtime::IUnknown {
-    fn from(value: IVisualElement2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IVisualElement2> for ::windows::runtime::IUnknown {
-    fn from(value: &IVisualElement2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVisualElement2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IVisualElement2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IVisualElement2> for ::windows::runtime::IInspectable {
-    fn from(value: IVisualElement2) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IVisualElement2> for ::windows::runtime::IInspectable {
-    fn from(value: &IVisualElement2) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IVisualElement2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IVisualElement2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28244,7 +25068,7 @@ pub struct IVisualUnorderedCollection_abi(
 );
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ImplicitAnimationCollection(::windows::runtime::IInspectable);
 impl ImplicitAnimationCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -28423,46 +25247,6 @@ unsafe impl ::windows::runtime::Interface for ImplicitAnimationCollection {
 impl ::windows::runtime::RuntimeName for ImplicitAnimationCollection {
     const NAME: &'static str = "Windows.UI.Composition.ImplicitAnimationCollection";
 }
-impl ::std::convert::From<ImplicitAnimationCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ImplicitAnimationCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ImplicitAnimationCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ImplicitAnimationCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImplicitAnimationCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ImplicitAnimationCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ImplicitAnimationCollection> for ::windows::runtime::IInspectable {
-    fn from(value: ImplicitAnimationCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ImplicitAnimationCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &ImplicitAnimationCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ImplicitAnimationCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ImplicitAnimationCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<ImplicitAnimationCollection> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ICompositionAnimationBase>> {
     type Error = ::windows::runtime::Error;
@@ -28604,7 +25388,7 @@ impl ::std::iter::IntoIterator for &ImplicitAnimationCollection {
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InitialValueExpressionCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl InitialValueExpressionCollection {
@@ -28786,54 +25570,6 @@ unsafe impl ::windows::runtime::Interface for InitialValueExpressionCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::runtime::RuntimeName for InitialValueExpressionCollection {
     const NAME: &'static str = "Windows.UI.Composition.InitialValueExpressionCollection";
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<InitialValueExpressionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: InitialValueExpressionCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&InitialValueExpressionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &InitialValueExpressionCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InitialValueExpressionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InitialValueExpressionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<InitialValueExpressionCollection> for ::windows::runtime::IInspectable {
-    fn from(value: InitialValueExpressionCollection) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::std::convert::From<&InitialValueExpressionCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &InitialValueExpressionCollection) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InitialValueExpressionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InitialValueExpressionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<InitialValueExpressionCollection> for super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING> {
@@ -29022,7 +25758,7 @@ unsafe impl ::windows::runtime::RuntimeType for InkTrailPoint {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InsetClip(::windows::runtime::IInspectable);
 impl InsetClip {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -29288,46 +26024,6 @@ unsafe impl ::windows::runtime::Interface for InsetClip {
 impl ::windows::runtime::RuntimeName for InsetClip {
     const NAME: &'static str = "Windows.UI.Composition.InsetClip";
 }
-impl ::std::convert::From<InsetClip> for ::windows::runtime::IUnknown {
-    fn from(value: InsetClip) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InsetClip> for ::windows::runtime::IUnknown {
-    fn from(value: &InsetClip) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InsetClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InsetClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InsetClip> for ::windows::runtime::IInspectable {
-    fn from(value: InsetClip) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InsetClip> for ::windows::runtime::IInspectable {
-    fn from(value: &InsetClip) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InsetClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InsetClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InsetClip> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -29420,7 +26116,7 @@ unsafe impl ::std::marker::Send for InsetClip {}
 unsafe impl ::std::marker::Sync for InsetClip {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct KeyFrameAnimation(::windows::runtime::IInspectable);
 impl KeyFrameAnimation {
     #[cfg(feature = "Foundation")]
@@ -29739,46 +26435,6 @@ unsafe impl ::windows::runtime::Interface for KeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.KeyFrameAnimation";
 }
-impl ::std::convert::From<KeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: KeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&KeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &KeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<KeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: KeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&KeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &KeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<KeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -29893,7 +26549,7 @@ unsafe impl ::std::marker::Send for KeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for KeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LayerVisual(::windows::runtime::IInspectable);
 impl LayerVisual {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -30341,46 +26997,6 @@ unsafe impl ::windows::runtime::Interface for LayerVisual {
 impl ::windows::runtime::RuntimeName for LayerVisual {
     const NAME: &'static str = "Windows.UI.Composition.LayerVisual";
 }
-impl ::std::convert::From<LayerVisual> for ::windows::runtime::IUnknown {
-    fn from(value: LayerVisual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LayerVisual> for ::windows::runtime::IUnknown {
-    fn from(value: &LayerVisual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LayerVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LayerVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LayerVisual> for ::windows::runtime::IInspectable {
-    fn from(value: LayerVisual) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LayerVisual> for ::windows::runtime::IInspectable {
-    fn from(value: &LayerVisual) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LayerVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LayerVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<LayerVisual> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -30493,7 +27109,7 @@ unsafe impl ::std::marker::Send for LayerVisual {}
 unsafe impl ::std::marker::Sync for LayerVisual {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct LinearEasingFunction(::windows::runtime::IInspectable);
 impl LinearEasingFunction {
     #[cfg(feature = "Foundation")]
@@ -30606,46 +27222,6 @@ unsafe impl ::windows::runtime::Interface for LinearEasingFunction {
 impl ::windows::runtime::RuntimeName for LinearEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.LinearEasingFunction";
 }
-impl ::std::convert::From<LinearEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: LinearEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&LinearEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &LinearEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LinearEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &LinearEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<LinearEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: LinearEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&LinearEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &LinearEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LinearEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LinearEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<LinearEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -30738,7 +27314,7 @@ unsafe impl ::std::marker::Send for LinearEasingFunction {}
 unsafe impl ::std::marker::Sync for LinearEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct NaturalMotionAnimation(::windows::runtime::IInspectable);
 impl NaturalMotionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -30985,46 +27561,6 @@ unsafe impl ::windows::runtime::Interface for NaturalMotionAnimation {
 impl ::windows::runtime::RuntimeName for NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.NaturalMotionAnimation";
 }
-impl ::std::convert::From<NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: NaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &NaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: NaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &NaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<NaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -31139,7 +27675,7 @@ unsafe impl ::std::marker::Send for NaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for NaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PathKeyFrameAnimation(::windows::runtime::IInspectable);
 impl PathKeyFrameAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -31468,46 +28004,6 @@ unsafe impl ::windows::runtime::Interface for PathKeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for PathKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.PathKeyFrameAnimation";
 }
-impl ::std::convert::From<PathKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: PathKeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PathKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &PathKeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PathKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PathKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PathKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: PathKeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PathKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &PathKeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PathKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PathKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PathKeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -31642,7 +28138,7 @@ unsafe impl ::std::marker::Send for PathKeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for PathKeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PointLight(::windows::runtime::IInspectable);
 impl PointLight {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -31903,46 +28399,6 @@ unsafe impl ::windows::runtime::Interface for PointLight {
 impl ::windows::runtime::RuntimeName for PointLight {
     const NAME: &'static str = "Windows.UI.Composition.PointLight";
 }
-impl ::std::convert::From<PointLight> for ::windows::runtime::IUnknown {
-    fn from(value: PointLight) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PointLight> for ::windows::runtime::IUnknown {
-    fn from(value: &PointLight) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PointLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PointLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PointLight> for ::windows::runtime::IInspectable {
-    fn from(value: PointLight) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PointLight> for ::windows::runtime::IInspectable {
-    fn from(value: &PointLight) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PointLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PointLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PointLight> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -32035,7 +28491,7 @@ unsafe impl ::std::marker::Send for PointLight {}
 unsafe impl ::std::marker::Sync for PointLight {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PowerEasingFunction(::windows::runtime::IInspectable);
 impl PowerEasingFunction {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -32164,46 +28620,6 @@ unsafe impl ::windows::runtime::Interface for PowerEasingFunction {
 impl ::windows::runtime::RuntimeName for PowerEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.PowerEasingFunction";
 }
-impl ::std::convert::From<PowerEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: PowerEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PowerEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &PowerEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PowerEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PowerEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PowerEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: PowerEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PowerEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &PowerEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PowerEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PowerEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PowerEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -32296,7 +28712,7 @@ unsafe impl ::std::marker::Send for PowerEasingFunction {}
 unsafe impl ::std::marker::Sync for PowerEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct QuaternionKeyFrameAnimation(::windows::runtime::IInspectable);
 impl QuaternionKeyFrameAnimation {
     #[cfg(feature = "Foundation_Numerics")]
@@ -32627,46 +29043,6 @@ unsafe impl ::windows::runtime::Interface for QuaternionKeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for QuaternionKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.QuaternionKeyFrameAnimation";
 }
-impl ::std::convert::From<QuaternionKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: QuaternionKeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&QuaternionKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for QuaternionKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &QuaternionKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<QuaternionKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: QuaternionKeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&QuaternionKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &QuaternionKeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for QuaternionKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a QuaternionKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<QuaternionKeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -32801,7 +29177,7 @@ unsafe impl ::std::marker::Send for QuaternionKeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for QuaternionKeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RectangleClip(::windows::runtime::IInspectable);
 impl RectangleClip {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -33127,46 +29503,6 @@ unsafe impl ::windows::runtime::Interface for RectangleClip {
 impl ::windows::runtime::RuntimeName for RectangleClip {
     const NAME: &'static str = "Windows.UI.Composition.RectangleClip";
 }
-impl ::std::convert::From<RectangleClip> for ::windows::runtime::IUnknown {
-    fn from(value: RectangleClip) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RectangleClip> for ::windows::runtime::IUnknown {
-    fn from(value: &RectangleClip) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RectangleClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RectangleClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RectangleClip> for ::windows::runtime::IInspectable {
-    fn from(value: RectangleClip) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RectangleClip> for ::windows::runtime::IInspectable {
-    fn from(value: &RectangleClip) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RectangleClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RectangleClip {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<RectangleClip> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -33259,7 +29595,7 @@ unsafe impl ::std::marker::Send for RectangleClip {}
 unsafe impl ::std::marker::Sync for RectangleClip {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RedirectVisual(::windows::runtime::IInspectable);
 impl RedirectVisual {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -33694,46 +30030,6 @@ unsafe impl ::windows::runtime::Interface for RedirectVisual {
 impl ::windows::runtime::RuntimeName for RedirectVisual {
     const NAME: &'static str = "Windows.UI.Composition.RedirectVisual";
 }
-impl ::std::convert::From<RedirectVisual> for ::windows::runtime::IUnknown {
-    fn from(value: RedirectVisual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RedirectVisual> for ::windows::runtime::IUnknown {
-    fn from(value: &RedirectVisual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RedirectVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RedirectVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RedirectVisual> for ::windows::runtime::IInspectable {
-    fn from(value: RedirectVisual) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RedirectVisual> for ::windows::runtime::IInspectable {
-    fn from(value: &RedirectVisual) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RedirectVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RedirectVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<RedirectVisual> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -33846,7 +30142,7 @@ unsafe impl ::std::marker::Send for RedirectVisual {}
 unsafe impl ::std::marker::Sync for RedirectVisual {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RenderingDeviceReplacedEventArgs(::windows::runtime::IInspectable);
 impl RenderingDeviceReplacedEventArgs {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -33967,46 +30263,6 @@ unsafe impl ::windows::runtime::Interface for RenderingDeviceReplacedEventArgs {
 impl ::windows::runtime::RuntimeName for RenderingDeviceReplacedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.RenderingDeviceReplacedEventArgs";
 }
-impl ::std::convert::From<RenderingDeviceReplacedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: RenderingDeviceReplacedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RenderingDeviceReplacedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &RenderingDeviceReplacedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RenderingDeviceReplacedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RenderingDeviceReplacedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RenderingDeviceReplacedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: RenderingDeviceReplacedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RenderingDeviceReplacedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &RenderingDeviceReplacedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RenderingDeviceReplacedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RenderingDeviceReplacedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<RenderingDeviceReplacedEventArgs> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -34079,7 +30335,7 @@ unsafe impl ::std::marker::Send for RenderingDeviceReplacedEventArgs {}
 unsafe impl ::std::marker::Sync for RenderingDeviceReplacedEventArgs {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ScalarKeyFrameAnimation(::windows::runtime::IInspectable);
 impl ScalarKeyFrameAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -34408,46 +30664,6 @@ unsafe impl ::windows::runtime::Interface for ScalarKeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for ScalarKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarKeyFrameAnimation";
 }
-impl ::std::convert::From<ScalarKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: ScalarKeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ScalarKeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &ScalarKeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScalarKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScalarKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ScalarKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: ScalarKeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ScalarKeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &ScalarKeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ScalarKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ScalarKeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ScalarKeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -34582,7 +30798,7 @@ unsafe impl ::std::marker::Send for ScalarKeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for ScalarKeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ScalarNaturalMotionAnimation(::windows::runtime::IInspectable);
 impl ScalarNaturalMotionAnimation {
     #[cfg(feature = "Foundation")]
@@ -34872,46 +31088,6 @@ unsafe impl ::windows::runtime::Interface for ScalarNaturalMotionAnimation {
 impl ::windows::runtime::RuntimeName for ScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarNaturalMotionAnimation";
 }
-impl ::std::convert::From<ScalarNaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: ScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ScalarNaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ScalarNaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: ScalarNaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ScalarNaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &ScalarNaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ScalarNaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -35046,7 +31222,7 @@ unsafe impl ::std::marker::Send for ScalarNaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for ScalarNaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ShapeVisual(::windows::runtime::IInspectable);
 impl ShapeVisual {
     #[cfg(feature = "Foundation_Collections")]
@@ -35490,46 +31666,6 @@ unsafe impl ::windows::runtime::Interface for ShapeVisual {
 impl ::windows::runtime::RuntimeName for ShapeVisual {
     const NAME: &'static str = "Windows.UI.Composition.ShapeVisual";
 }
-impl ::std::convert::From<ShapeVisual> for ::windows::runtime::IUnknown {
-    fn from(value: ShapeVisual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ShapeVisual> for ::windows::runtime::IUnknown {
-    fn from(value: &ShapeVisual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ShapeVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ShapeVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ShapeVisual> for ::windows::runtime::IInspectable {
-    fn from(value: ShapeVisual) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ShapeVisual> for ::windows::runtime::IInspectable {
-    fn from(value: &ShapeVisual) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ShapeVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ShapeVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ShapeVisual> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -35642,7 +31778,7 @@ unsafe impl ::std::marker::Send for ShapeVisual {}
 unsafe impl ::std::marker::Sync for ShapeVisual {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SineEasingFunction(::windows::runtime::IInspectable);
 impl SineEasingFunction {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -35763,46 +31899,6 @@ unsafe impl ::windows::runtime::Interface for SineEasingFunction {
 impl ::windows::runtime::RuntimeName for SineEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.SineEasingFunction";
 }
-impl ::std::convert::From<SineEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: SineEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SineEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &SineEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SineEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SineEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SineEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: SineEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SineEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &SineEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SineEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SineEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SineEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -35895,7 +31991,7 @@ unsafe impl ::std::marker::Send for SineEasingFunction {}
 unsafe impl ::std::marker::Sync for SineEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpotLight(::windows::runtime::IInspectable);
 impl SpotLight {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -36249,46 +32345,6 @@ unsafe impl ::windows::runtime::Interface for SpotLight {
 impl ::windows::runtime::RuntimeName for SpotLight {
     const NAME: &'static str = "Windows.UI.Composition.SpotLight";
 }
-impl ::std::convert::From<SpotLight> for ::windows::runtime::IUnknown {
-    fn from(value: SpotLight) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpotLight> for ::windows::runtime::IUnknown {
-    fn from(value: &SpotLight) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpotLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpotLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpotLight> for ::windows::runtime::IInspectable {
-    fn from(value: SpotLight) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpotLight> for ::windows::runtime::IInspectable {
-    fn from(value: &SpotLight) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpotLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpotLight {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SpotLight> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -36381,7 +32437,7 @@ unsafe impl ::std::marker::Send for SpotLight {}
 unsafe impl ::std::marker::Sync for SpotLight {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpringScalarNaturalMotionAnimation(::windows::runtime::IInspectable);
 impl SpringScalarNaturalMotionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -36699,46 +32755,6 @@ unsafe impl ::windows::runtime::Interface for SpringScalarNaturalMotionAnimation
 impl ::windows::runtime::RuntimeName for SpringScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringScalarNaturalMotionAnimation";
 }
-impl ::std::convert::From<SpringScalarNaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: SpringScalarNaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpringScalarNaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpringScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpringScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpringScalarNaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: SpringScalarNaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpringScalarNaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &SpringScalarNaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpringScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpringScalarNaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SpringScalarNaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -36893,7 +32909,7 @@ unsafe impl ::std::marker::Send for SpringScalarNaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for SpringScalarNaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpringVector2NaturalMotionAnimation(::windows::runtime::IInspectable);
 impl SpringVector2NaturalMotionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -37213,46 +33229,6 @@ unsafe impl ::windows::runtime::Interface for SpringVector2NaturalMotionAnimatio
 impl ::windows::runtime::RuntimeName for SpringVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector2NaturalMotionAnimation";
 }
-impl ::std::convert::From<SpringVector2NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: SpringVector2NaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpringVector2NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpringVector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpringVector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpringVector2NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: SpringVector2NaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpringVector2NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &SpringVector2NaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpringVector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpringVector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SpringVector2NaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -37407,7 +33383,7 @@ unsafe impl ::std::marker::Send for SpringVector2NaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for SpringVector2NaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpringVector3NaturalMotionAnimation(::windows::runtime::IInspectable);
 impl SpringVector3NaturalMotionAnimation {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -37727,46 +33703,6 @@ unsafe impl ::windows::runtime::Interface for SpringVector3NaturalMotionAnimatio
 impl ::windows::runtime::RuntimeName for SpringVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector3NaturalMotionAnimation";
 }
-impl ::std::convert::From<SpringVector3NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: SpringVector3NaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpringVector3NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpringVector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpringVector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpringVector3NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: SpringVector3NaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpringVector3NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &SpringVector3NaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpringVector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpringVector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SpringVector3NaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -37921,7 +33857,7 @@ unsafe impl ::std::marker::Send for SpringVector3NaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for SpringVector3NaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpriteVisual(::windows::runtime::IInspectable);
 impl SpriteVisual {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -38369,46 +34305,6 @@ unsafe impl ::windows::runtime::Interface for SpriteVisual {
 impl ::windows::runtime::RuntimeName for SpriteVisual {
     const NAME: &'static str = "Windows.UI.Composition.SpriteVisual";
 }
-impl ::std::convert::From<SpriteVisual> for ::windows::runtime::IUnknown {
-    fn from(value: SpriteVisual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpriteVisual> for ::windows::runtime::IUnknown {
-    fn from(value: &SpriteVisual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpriteVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpriteVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpriteVisual> for ::windows::runtime::IInspectable {
-    fn from(value: SpriteVisual) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpriteVisual> for ::windows::runtime::IInspectable {
-    fn from(value: &SpriteVisual) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpriteVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpriteVisual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SpriteVisual> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -38521,7 +34417,7 @@ unsafe impl ::std::marker::Send for SpriteVisual {}
 unsafe impl ::std::marker::Sync for SpriteVisual {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StepEasingFunction(::windows::runtime::IInspectable);
 impl StepEasingFunction {
     #[doc = "*Required features: `UI_Composition`*"]
@@ -38699,46 +34595,6 @@ unsafe impl ::windows::runtime::Interface for StepEasingFunction {
 impl ::windows::runtime::RuntimeName for StepEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.StepEasingFunction";
 }
-impl ::std::convert::From<StepEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: StepEasingFunction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StepEasingFunction> for ::windows::runtime::IUnknown {
-    fn from(value: &StepEasingFunction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StepEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StepEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StepEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: StepEasingFunction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StepEasingFunction> for ::windows::runtime::IInspectable {
-    fn from(value: &StepEasingFunction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StepEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StepEasingFunction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<StepEasingFunction> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -38831,7 +34687,7 @@ unsafe impl ::std::marker::Send for StepEasingFunction {}
 unsafe impl ::std::marker::Sync for StepEasingFunction {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Vector2KeyFrameAnimation(::windows::runtime::IInspectable);
 impl Vector2KeyFrameAnimation {
     #[cfg(feature = "Foundation_Numerics")]
@@ -39162,46 +35018,6 @@ unsafe impl ::windows::runtime::Interface for Vector2KeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for Vector2KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2KeyFrameAnimation";
 }
-impl ::std::convert::From<Vector2KeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: Vector2KeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Vector2KeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &Vector2KeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Vector2KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Vector2KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Vector2KeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: Vector2KeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Vector2KeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &Vector2KeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Vector2KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Vector2KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Vector2KeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -39336,7 +35152,7 @@ unsafe impl ::std::marker::Send for Vector2KeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for Vector2KeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Vector2NaturalMotionAnimation(::windows::runtime::IInspectable);
 impl Vector2NaturalMotionAnimation {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
@@ -39628,46 +35444,6 @@ unsafe impl ::windows::runtime::Interface for Vector2NaturalMotionAnimation {
 impl ::windows::runtime::RuntimeName for Vector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2NaturalMotionAnimation";
 }
-impl ::std::convert::From<Vector2NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: Vector2NaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Vector2NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Vector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Vector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Vector2NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: Vector2NaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Vector2NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &Vector2NaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Vector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Vector2NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Vector2NaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -39802,7 +35578,7 @@ unsafe impl ::std::marker::Send for Vector2NaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for Vector2NaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Vector3KeyFrameAnimation(::windows::runtime::IInspectable);
 impl Vector3KeyFrameAnimation {
     #[cfg(feature = "Foundation_Numerics")]
@@ -40133,46 +35909,6 @@ unsafe impl ::windows::runtime::Interface for Vector3KeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for Vector3KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3KeyFrameAnimation";
 }
-impl ::std::convert::From<Vector3KeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: Vector3KeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Vector3KeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &Vector3KeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Vector3KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Vector3KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Vector3KeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: Vector3KeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Vector3KeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &Vector3KeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Vector3KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Vector3KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Vector3KeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -40307,7 +36043,7 @@ unsafe impl ::std::marker::Send for Vector3KeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for Vector3KeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Vector3NaturalMotionAnimation(::windows::runtime::IInspectable);
 impl Vector3NaturalMotionAnimation {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
@@ -40599,46 +36335,6 @@ unsafe impl ::windows::runtime::Interface for Vector3NaturalMotionAnimation {
 impl ::windows::runtime::RuntimeName for Vector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3NaturalMotionAnimation";
 }
-impl ::std::convert::From<Vector3NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: Vector3NaturalMotionAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Vector3NaturalMotionAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Vector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Vector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Vector3NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: Vector3NaturalMotionAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Vector3NaturalMotionAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &Vector3NaturalMotionAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Vector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Vector3NaturalMotionAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Vector3NaturalMotionAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -40773,7 +36469,7 @@ unsafe impl ::std::marker::Send for Vector3NaturalMotionAnimation {}
 unsafe impl ::std::marker::Sync for Vector3NaturalMotionAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Vector4KeyFrameAnimation(::windows::runtime::IInspectable);
 impl Vector4KeyFrameAnimation {
     #[cfg(feature = "Foundation_Numerics")]
@@ -41104,46 +36800,6 @@ unsafe impl ::windows::runtime::Interface for Vector4KeyFrameAnimation {
 impl ::windows::runtime::RuntimeName for Vector4KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector4KeyFrameAnimation";
 }
-impl ::std::convert::From<Vector4KeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: Vector4KeyFrameAnimation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Vector4KeyFrameAnimation> for ::windows::runtime::IUnknown {
-    fn from(value: &Vector4KeyFrameAnimation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Vector4KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Vector4KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Vector4KeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: Vector4KeyFrameAnimation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Vector4KeyFrameAnimation> for ::windows::runtime::IInspectable {
-    fn from(value: &Vector4KeyFrameAnimation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Vector4KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Vector4KeyFrameAnimation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Vector4KeyFrameAnimation> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -41278,7 +36934,7 @@ unsafe impl ::std::marker::Send for Vector4KeyFrameAnimation {}
 unsafe impl ::std::marker::Sync for Vector4KeyFrameAnimation {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Visual(::windows::runtime::IInspectable);
 impl Visual {
     #[cfg(feature = "Foundation_Numerics")]
@@ -41692,46 +37348,6 @@ unsafe impl ::windows::runtime::Interface for Visual {
 impl ::windows::runtime::RuntimeName for Visual {
     const NAME: &'static str = "Windows.UI.Composition.Visual";
 }
-impl ::std::convert::From<Visual> for ::windows::runtime::IUnknown {
-    fn from(value: Visual) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Visual> for ::windows::runtime::IUnknown {
-    fn from(value: &Visual) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Visual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Visual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Visual> for ::windows::runtime::IInspectable {
-    fn from(value: Visual) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Visual> for ::windows::runtime::IInspectable {
-    fn from(value: &Visual) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Visual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Visual {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<Visual> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -41804,7 +37420,7 @@ unsafe impl ::std::marker::Send for Visual {}
 unsafe impl ::std::marker::Sync for Visual {}
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VisualCollection(::windows::runtime::IInspectable);
 impl VisualCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -41964,46 +37580,6 @@ unsafe impl ::windows::runtime::Interface for VisualCollection {
 impl ::windows::runtime::RuntimeName for VisualCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualCollection";
 }
-impl ::std::convert::From<VisualCollection> for ::windows::runtime::IUnknown {
-    fn from(value: VisualCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VisualCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &VisualCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VisualCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VisualCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VisualCollection> for ::windows::runtime::IInspectable {
-    fn from(value: VisualCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VisualCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &VisualCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VisualCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VisualCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<VisualCollection> for super::super::Foundation::Collections::IIterable<Visual> {
     type Error = ::windows::runtime::Error;
@@ -42118,7 +37694,7 @@ impl ::std::iter::IntoIterator for &VisualCollection {
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VisualUnorderedCollection(::windows::runtime::IInspectable);
 impl VisualUnorderedCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -42262,46 +37838,6 @@ unsafe impl ::windows::runtime::Interface for VisualUnorderedCollection {
 }
 impl ::windows::runtime::RuntimeName for VisualUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualUnorderedCollection";
-}
-impl ::std::convert::From<VisualUnorderedCollection> for ::windows::runtime::IUnknown {
-    fn from(value: VisualUnorderedCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VisualUnorderedCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &VisualUnorderedCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VisualUnorderedCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VisualUnorderedCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VisualUnorderedCollection> for ::windows::runtime::IInspectable {
-    fn from(value: VisualUnorderedCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VisualUnorderedCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &VisualUnorderedCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VisualUnorderedCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VisualUnorderedCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<VisualUnorderedCollection> for super::super::Foundation::Collections::IIterable<Visual> {

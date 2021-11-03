@@ -224,7 +224,7 @@ pub struct IUserIdentity_abi(
 );
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OnlineIdAuthenticator(::windows::runtime::IInspectable);
 impl OnlineIdAuthenticator {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -301,51 +301,11 @@ unsafe impl ::windows::runtime::Interface for OnlineIdAuthenticator {
 impl ::windows::runtime::RuntimeName for OnlineIdAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator";
 }
-impl ::std::convert::From<OnlineIdAuthenticator> for ::windows::runtime::IUnknown {
-    fn from(value: OnlineIdAuthenticator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OnlineIdAuthenticator> for ::windows::runtime::IUnknown {
-    fn from(value: &OnlineIdAuthenticator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OnlineIdAuthenticator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OnlineIdAuthenticator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OnlineIdAuthenticator> for ::windows::runtime::IInspectable {
-    fn from(value: OnlineIdAuthenticator) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OnlineIdAuthenticator> for ::windows::runtime::IInspectable {
-    fn from(value: &OnlineIdAuthenticator) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OnlineIdAuthenticator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OnlineIdAuthenticator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OnlineIdAuthenticator {}
 unsafe impl ::std::marker::Sync for OnlineIdAuthenticator {}
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OnlineIdServiceTicket(::windows::runtime::IInspectable);
 impl OnlineIdServiceTicket {
     #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
@@ -383,51 +343,11 @@ unsafe impl ::windows::runtime::Interface for OnlineIdServiceTicket {
 impl ::windows::runtime::RuntimeName for OnlineIdServiceTicket {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket";
 }
-impl ::std::convert::From<OnlineIdServiceTicket> for ::windows::runtime::IUnknown {
-    fn from(value: OnlineIdServiceTicket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OnlineIdServiceTicket> for ::windows::runtime::IUnknown {
-    fn from(value: &OnlineIdServiceTicket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OnlineIdServiceTicket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OnlineIdServiceTicket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OnlineIdServiceTicket> for ::windows::runtime::IInspectable {
-    fn from(value: OnlineIdServiceTicket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OnlineIdServiceTicket> for ::windows::runtime::IInspectable {
-    fn from(value: &OnlineIdServiceTicket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OnlineIdServiceTicket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OnlineIdServiceTicket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OnlineIdServiceTicket {}
 unsafe impl ::std::marker::Sync for OnlineIdServiceTicket {}
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OnlineIdServiceTicketRequest(::windows::runtime::IInspectable);
 impl OnlineIdServiceTicketRequest {
     #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
@@ -475,46 +395,6 @@ unsafe impl ::windows::runtime::Interface for OnlineIdServiceTicketRequest {
 impl ::windows::runtime::RuntimeName for OnlineIdServiceTicketRequest {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest";
 }
-impl ::std::convert::From<OnlineIdServiceTicketRequest> for ::windows::runtime::IUnknown {
-    fn from(value: OnlineIdServiceTicketRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OnlineIdServiceTicketRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &OnlineIdServiceTicketRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OnlineIdServiceTicketRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OnlineIdServiceTicketRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OnlineIdServiceTicketRequest> for ::windows::runtime::IInspectable {
-    fn from(value: OnlineIdServiceTicketRequest) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OnlineIdServiceTicketRequest> for ::windows::runtime::IInspectable {
-    fn from(value: &OnlineIdServiceTicketRequest) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OnlineIdServiceTicketRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OnlineIdServiceTicketRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OnlineIdServiceTicketRequest {}
 unsafe impl ::std::marker::Sync for OnlineIdServiceTicketRequest {}
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
@@ -545,7 +425,7 @@ impl ::windows::runtime::RuntimeName for OnlineIdSystemAuthenticator {
 }
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OnlineIdSystemAuthenticatorForUser(::windows::runtime::IInspectable);
 impl OnlineIdSystemAuthenticatorForUser {
     #[cfg(feature = "Foundation")]
@@ -590,51 +470,11 @@ unsafe impl ::windows::runtime::Interface for OnlineIdSystemAuthenticatorForUser
 impl ::windows::runtime::RuntimeName for OnlineIdSystemAuthenticatorForUser {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser";
 }
-impl ::std::convert::From<OnlineIdSystemAuthenticatorForUser> for ::windows::runtime::IUnknown {
-    fn from(value: OnlineIdSystemAuthenticatorForUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OnlineIdSystemAuthenticatorForUser> for ::windows::runtime::IUnknown {
-    fn from(value: &OnlineIdSystemAuthenticatorForUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OnlineIdSystemAuthenticatorForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OnlineIdSystemAuthenticatorForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OnlineIdSystemAuthenticatorForUser> for ::windows::runtime::IInspectable {
-    fn from(value: OnlineIdSystemAuthenticatorForUser) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OnlineIdSystemAuthenticatorForUser> for ::windows::runtime::IInspectable {
-    fn from(value: &OnlineIdSystemAuthenticatorForUser) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OnlineIdSystemAuthenticatorForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OnlineIdSystemAuthenticatorForUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OnlineIdSystemAuthenticatorForUser {}
 unsafe impl ::std::marker::Sync for OnlineIdSystemAuthenticatorForUser {}
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OnlineIdSystemIdentity(::windows::runtime::IInspectable);
 impl OnlineIdSystemIdentity {
     #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
@@ -664,51 +504,11 @@ unsafe impl ::windows::runtime::Interface for OnlineIdSystemIdentity {
 impl ::windows::runtime::RuntimeName for OnlineIdSystemIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity";
 }
-impl ::std::convert::From<OnlineIdSystemIdentity> for ::windows::runtime::IUnknown {
-    fn from(value: OnlineIdSystemIdentity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OnlineIdSystemIdentity> for ::windows::runtime::IUnknown {
-    fn from(value: &OnlineIdSystemIdentity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OnlineIdSystemIdentity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OnlineIdSystemIdentity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OnlineIdSystemIdentity> for ::windows::runtime::IInspectable {
-    fn from(value: OnlineIdSystemIdentity) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OnlineIdSystemIdentity> for ::windows::runtime::IInspectable {
-    fn from(value: &OnlineIdSystemIdentity) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OnlineIdSystemIdentity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OnlineIdSystemIdentity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OnlineIdSystemIdentity {}
 unsafe impl ::std::marker::Sync for OnlineIdSystemIdentity {}
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct OnlineIdSystemTicketResult(::windows::runtime::IInspectable);
 impl OnlineIdSystemTicketResult {
     #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
@@ -746,46 +546,6 @@ unsafe impl ::windows::runtime::Interface for OnlineIdSystemTicketResult {
 impl ::windows::runtime::RuntimeName for OnlineIdSystemTicketResult {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult";
 }
-impl ::std::convert::From<OnlineIdSystemTicketResult> for ::windows::runtime::IUnknown {
-    fn from(value: OnlineIdSystemTicketResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&OnlineIdSystemTicketResult> for ::windows::runtime::IUnknown {
-    fn from(value: &OnlineIdSystemTicketResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OnlineIdSystemTicketResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OnlineIdSystemTicketResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<OnlineIdSystemTicketResult> for ::windows::runtime::IInspectable {
-    fn from(value: OnlineIdSystemTicketResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&OnlineIdSystemTicketResult> for ::windows::runtime::IInspectable {
-    fn from(value: &OnlineIdSystemTicketResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for OnlineIdSystemTicketResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OnlineIdSystemTicketResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::std::marker::Sync for OnlineIdSystemTicketResult {}
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
@@ -812,7 +572,7 @@ unsafe impl ::windows::runtime::RuntimeType for OnlineIdSystemTicketStatus {
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SignOutUserOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl SignOutUserOperation {
@@ -918,54 +678,6 @@ impl ::std::future::Future for SignOutUserOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::From<SignOutUserOperation> for ::windows::runtime::IUnknown {
-    fn from(value: SignOutUserOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<&SignOutUserOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &SignOutUserOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SignOutUserOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SignOutUserOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<SignOutUserOperation> for ::windows::runtime::IInspectable {
-    fn from(value: SignOutUserOperation) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<&SignOutUserOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &SignOutUserOperation) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SignOutUserOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SignOutUserOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation")]
 impl ::std::convert::From<SignOutUserOperation> for super::super::super::Foundation::IAsyncAction {
     fn from(value: SignOutUserOperation) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1022,7 +734,7 @@ unsafe impl ::std::marker::Sync for SignOutUserOperation {}
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserAuthenticationOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl UserAuthenticationOperation {
@@ -1131,54 +843,6 @@ impl ::std::future::Future for UserAuthenticationOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::std::convert::From<UserAuthenticationOperation> for ::windows::runtime::IUnknown {
-    fn from(value: UserAuthenticationOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<&UserAuthenticationOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &UserAuthenticationOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<UserAuthenticationOperation> for ::windows::runtime::IInspectable {
-    fn from(value: UserAuthenticationOperation) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::std::convert::From<&UserAuthenticationOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &UserAuthenticationOperation) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "Foundation")]
 impl ::std::convert::From<UserAuthenticationOperation> for super::super::super::Foundation::IAsyncOperation<UserIdentity> {
     fn from(value: UserAuthenticationOperation) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1234,7 +898,7 @@ unsafe impl ::std::marker::Send for UserAuthenticationOperation {}
 unsafe impl ::std::marker::Sync for UserAuthenticationOperation {}
 #[doc = "*Required features: `Security_Authentication_OnlineId`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct UserIdentity(::windows::runtime::IInspectable);
 impl UserIdentity {
     #[cfg(feature = "Foundation_Collections")]
@@ -1312,46 +976,6 @@ unsafe impl ::windows::runtime::Interface for UserIdentity {
 }
 impl ::windows::runtime::RuntimeName for UserIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserIdentity";
-}
-impl ::std::convert::From<UserIdentity> for ::windows::runtime::IUnknown {
-    fn from(value: UserIdentity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&UserIdentity> for ::windows::runtime::IUnknown {
-    fn from(value: &UserIdentity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserIdentity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &UserIdentity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<UserIdentity> for ::windows::runtime::IInspectable {
-    fn from(value: UserIdentity) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&UserIdentity> for ::windows::runtime::IInspectable {
-    fn from(value: &UserIdentity) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserIdentity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserIdentity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for UserIdentity {}
 unsafe impl ::std::marker::Sync for UserIdentity {}

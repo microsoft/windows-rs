@@ -43,7 +43,7 @@ unsafe impl ::windows::runtime::RuntimeType for BandwidthStatistics {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ControlChannelTrigger(::windows::runtime::IInspectable);
 impl ControlChannelTrigger {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -167,46 +167,6 @@ unsafe impl ::windows::runtime::Interface for ControlChannelTrigger {
 impl ::windows::runtime::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
 }
-impl ::std::convert::From<ControlChannelTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: ControlChannelTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ControlChannelTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ControlChannelTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ControlChannelTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ControlChannelTrigger> for ::windows::runtime::IInspectable {
-    fn from(value: ControlChannelTrigger) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ControlChannelTrigger> for ::windows::runtime::IInspectable {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ControlChannelTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ControlChannelTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ControlChannelTrigger> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -307,7 +267,7 @@ unsafe impl ::windows::runtime::RuntimeType for ControlChannelTriggerStatus {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DatagramSocket(::windows::runtime::IInspectable);
 impl DatagramSocket {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -497,46 +457,6 @@ unsafe impl ::windows::runtime::Interface for DatagramSocket {
 impl ::windows::runtime::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
 }
-impl ::std::convert::From<DatagramSocket> for ::windows::runtime::IUnknown {
-    fn from(value: DatagramSocket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DatagramSocket> for ::windows::runtime::IUnknown {
-    fn from(value: &DatagramSocket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DatagramSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DatagramSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DatagramSocket> for ::windows::runtime::IInspectable {
-    fn from(value: DatagramSocket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DatagramSocket> for ::windows::runtime::IInspectable {
-    fn from(value: &DatagramSocket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DatagramSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DatagramSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DatagramSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -567,7 +487,7 @@ unsafe impl ::std::marker::Send for DatagramSocket {}
 unsafe impl ::std::marker::Sync for DatagramSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DatagramSocketControl(::windows::runtime::IInspectable);
 impl DatagramSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -646,51 +566,11 @@ unsafe impl ::windows::runtime::Interface for DatagramSocketControl {
 impl ::windows::runtime::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
 }
-impl ::std::convert::From<DatagramSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: DatagramSocketControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DatagramSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: &DatagramSocketControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DatagramSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DatagramSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DatagramSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: DatagramSocketControl) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DatagramSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: &DatagramSocketControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DatagramSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DatagramSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DatagramSocketControl {}
 unsafe impl ::std::marker::Sync for DatagramSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DatagramSocketInformation(::windows::runtime::IInspectable);
 impl DatagramSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -736,51 +616,11 @@ unsafe impl ::windows::runtime::Interface for DatagramSocketInformation {
 impl ::windows::runtime::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
 }
-impl ::std::convert::From<DatagramSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: DatagramSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DatagramSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DatagramSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DatagramSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DatagramSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: DatagramSocketInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DatagramSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DatagramSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DatagramSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DatagramSocketInformation {}
 unsafe impl ::std::marker::Sync for DatagramSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DatagramSocketMessageReceivedEventArgs(::windows::runtime::IInspectable);
 impl DatagramSocketMessageReceivedEventArgs {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -836,46 +676,6 @@ unsafe impl ::windows::runtime::Interface for DatagramSocketMessageReceivedEvent
 impl ::windows::runtime::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
 }
-impl ::std::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DatagramSocketMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DatagramSocketMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DatagramSocketMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DatagramSocketMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DatagramSocketMessageReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
@@ -929,7 +729,7 @@ pub struct IControlChannelTrigger2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IControlChannelTriggerEventDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTriggerEventDetails {
@@ -948,46 +748,6 @@ impl IControlChannelTriggerEventDetails {
 }
 unsafe impl ::windows::runtime::RuntimeType for IControlChannelTriggerEventDetails {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
-}
-impl ::std::convert::From<IControlChannelTriggerEventDetails> for ::windows::runtime::IUnknown {
-    fn from(value: IControlChannelTriggerEventDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IControlChannelTriggerEventDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &IControlChannelTriggerEventDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IControlChannelTriggerEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IControlChannelTriggerEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IControlChannelTriggerEventDetails> for ::windows::runtime::IInspectable {
-    fn from(value: IControlChannelTriggerEventDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IControlChannelTriggerEventDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &IControlChannelTriggerEventDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IControlChannelTriggerEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IControlChannelTriggerEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1021,7 +781,7 @@ pub struct IControlChannelTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channelid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IControlChannelTriggerResetEventDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTriggerResetEventDetails {
@@ -1056,46 +816,6 @@ impl IControlChannelTriggerResetEventDetails {
 }
 unsafe impl ::windows::runtime::RuntimeType for IControlChannelTriggerResetEventDetails {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
-}
-impl ::std::convert::From<IControlChannelTriggerResetEventDetails> for ::windows::runtime::IUnknown {
-    fn from(value: IControlChannelTriggerResetEventDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IControlChannelTriggerResetEventDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &IControlChannelTriggerResetEventDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IControlChannelTriggerResetEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IControlChannelTriggerResetEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IControlChannelTriggerResetEventDetails> for ::windows::runtime::IInspectable {
-    fn from(value: IControlChannelTriggerResetEventDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IControlChannelTriggerResetEventDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &IControlChannelTriggerResetEventDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IControlChannelTriggerResetEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IControlChannelTriggerResetEventDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2234,7 +1954,7 @@ pub struct IStreamWebSocketControl2_abi(
     #[cfg(not(feature = "Security_Cryptography_Certificates"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocket {
@@ -2294,46 +2014,6 @@ impl IWebSocket {
 }
 unsafe impl ::windows::runtime::RuntimeType for IWebSocket {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
-}
-impl ::std::convert::From<IWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: IWebSocket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebSocket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: IWebSocket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebSocket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<IWebSocket> for super::super::Foundation::IClosable {
@@ -2402,7 +2082,7 @@ pub struct IWebSocketClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocketControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketControl {
@@ -2466,46 +2146,6 @@ impl IWebSocketControl {
 unsafe impl ::windows::runtime::RuntimeType for IWebSocketControl {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
 }
-impl ::std::convert::From<IWebSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: IWebSocketControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebSocketControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: IWebSocketControl) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebSocketControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebSocketControl_abi(
@@ -2529,7 +2169,7 @@ pub struct IWebSocketControl_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocketControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketControl2 {
@@ -2602,46 +2242,6 @@ impl IWebSocketControl2 {
 unsafe impl ::windows::runtime::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
 }
-impl ::std::convert::From<IWebSocketControl2> for ::windows::runtime::IUnknown {
-    fn from(value: IWebSocketControl2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebSocketControl2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebSocketControl2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebSocketControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebSocketControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebSocketControl2> for ::windows::runtime::IInspectable {
-    fn from(value: IWebSocketControl2) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebSocketControl2> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebSocketControl2) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebSocketControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebSocketControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<IWebSocketControl2> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IWebSocketControl2) -> ::windows::runtime::Result<Self> {
@@ -2697,7 +2297,7 @@ pub struct IWebSocketErrorStatics_abi(
     #[cfg(not(feature = "Web"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocketInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketInformation {
@@ -2733,46 +2333,6 @@ impl IWebSocketInformation {
 unsafe impl ::windows::runtime::RuntimeType for IWebSocketInformation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
 }
-impl ::std::convert::From<IWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: IWebSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: IWebSocketInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebSocketInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebSocketInformation_abi(
@@ -2787,7 +2347,7 @@ pub struct IWebSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct IWebSocketInformation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketInformation2 {
@@ -2858,46 +2418,6 @@ impl IWebSocketInformation2 {
 unsafe impl ::windows::runtime::RuntimeType for IWebSocketInformation2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
 }
-impl ::std::convert::From<IWebSocketInformation2> for ::windows::runtime::IUnknown {
-    fn from(value: IWebSocketInformation2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IWebSocketInformation2> for ::windows::runtime::IUnknown {
-    fn from(value: &IWebSocketInformation2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWebSocketInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWebSocketInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IWebSocketInformation2> for ::windows::runtime::IInspectable {
-    fn from(value: IWebSocketInformation2) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IWebSocketInformation2> for ::windows::runtime::IInspectable {
-    fn from(value: &IWebSocketInformation2) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IWebSocketInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IWebSocketInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<IWebSocketInformation2> for IWebSocketInformation {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IWebSocketInformation2) -> ::windows::runtime::Result<Self> {
@@ -2967,7 +2487,7 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgs_abi(
 );
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MessageWebSocket(::windows::runtime::IInspectable);
 impl MessageWebSocket {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -3101,46 +2621,6 @@ unsafe impl ::windows::runtime::Interface for MessageWebSocket {
 impl ::windows::runtime::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
 }
-impl ::std::convert::From<MessageWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: MessageWebSocket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MessageWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: &MessageWebSocket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MessageWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MessageWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MessageWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: MessageWebSocket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MessageWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: &MessageWebSocket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MessageWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MessageWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<MessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3193,7 +2673,7 @@ unsafe impl ::std::marker::Send for MessageWebSocket {}
 unsafe impl ::std::marker::Sync for MessageWebSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MessageWebSocketControl(::windows::runtime::IInspectable);
 impl MessageWebSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -3346,46 +2826,6 @@ unsafe impl ::windows::runtime::Interface for MessageWebSocketControl {
 impl ::windows::runtime::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
 }
-impl ::std::convert::From<MessageWebSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: MessageWebSocketControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MessageWebSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: &MessageWebSocketControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MessageWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MessageWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MessageWebSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: MessageWebSocketControl) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MessageWebSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: &MessageWebSocketControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MessageWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MessageWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<MessageWebSocketControl> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MessageWebSocketControl) -> ::windows::runtime::Result<Self> {
@@ -3434,7 +2874,7 @@ unsafe impl ::std::marker::Send for MessageWebSocketControl {}
 unsafe impl ::std::marker::Sync for MessageWebSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MessageWebSocketInformation(::windows::runtime::IInspectable);
 impl MessageWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -3507,46 +2947,6 @@ unsafe impl ::windows::runtime::Interface for MessageWebSocketInformation {
 impl ::windows::runtime::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
 }
-impl ::std::convert::From<MessageWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: MessageWebSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MessageWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &MessageWebSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MessageWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MessageWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MessageWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: MessageWebSocketInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MessageWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &MessageWebSocketInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MessageWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MessageWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<MessageWebSocketInformation> for IWebSocketInformation {
     fn from(value: MessageWebSocketInformation) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3593,7 +2993,7 @@ unsafe impl ::std::marker::Send for MessageWebSocketInformation {}
 unsafe impl ::std::marker::Sync for MessageWebSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct MessageWebSocketMessageReceivedEventArgs(::windows::runtime::IInspectable);
 impl MessageWebSocketMessageReceivedEventArgs {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -3640,46 +3040,6 @@ unsafe impl ::windows::runtime::Interface for MessageWebSocketMessageReceivedEve
 }
 impl ::windows::runtime::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
-}
-impl ::std::convert::From<MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: MessageWebSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &MessageWebSocketMessageReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MessageWebSocketMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &MessageWebSocketMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: MessageWebSocketMessageReceivedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&MessageWebSocketMessageReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &MessageWebSocketMessageReceivedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MessageWebSocketMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MessageWebSocketMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
@@ -3738,7 +3098,7 @@ unsafe impl ::windows::runtime::RuntimeType for RoundTripTimeStatistics {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ServerMessageWebSocket(::windows::runtime::IInspectable);
 impl ServerMessageWebSocket {
     #[cfg(feature = "Foundation")]
@@ -3818,46 +3178,6 @@ unsafe impl ::windows::runtime::Interface for ServerMessageWebSocket {
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
 }
-impl ::std::convert::From<ServerMessageWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: ServerMessageWebSocket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ServerMessageWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: &ServerMessageWebSocket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ServerMessageWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ServerMessageWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ServerMessageWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: ServerMessageWebSocket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ServerMessageWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: &ServerMessageWebSocket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ServerMessageWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ServerMessageWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ServerMessageWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3888,7 +3208,7 @@ unsafe impl ::std::marker::Send for ServerMessageWebSocket {}
 unsafe impl ::std::marker::Sync for ServerMessageWebSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ServerMessageWebSocketControl(::windows::runtime::IInspectable);
 impl ServerMessageWebSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -3915,51 +3235,11 @@ unsafe impl ::windows::runtime::Interface for ServerMessageWebSocketControl {
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
 }
-impl ::std::convert::From<ServerMessageWebSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: ServerMessageWebSocketControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ServerMessageWebSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: &ServerMessageWebSocketControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ServerMessageWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ServerMessageWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ServerMessageWebSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: ServerMessageWebSocketControl) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ServerMessageWebSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: &ServerMessageWebSocketControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ServerMessageWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ServerMessageWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ServerMessageWebSocketControl {}
 unsafe impl ::std::marker::Sync for ServerMessageWebSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ServerMessageWebSocketInformation(::windows::runtime::IInspectable);
 impl ServerMessageWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -3997,51 +3277,11 @@ unsafe impl ::windows::runtime::Interface for ServerMessageWebSocketInformation 
 impl ::windows::runtime::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
 }
-impl ::std::convert::From<ServerMessageWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: ServerMessageWebSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ServerMessageWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &ServerMessageWebSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ServerMessageWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ServerMessageWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ServerMessageWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: ServerMessageWebSocketInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ServerMessageWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &ServerMessageWebSocketInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ServerMessageWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ServerMessageWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ServerMessageWebSocketInformation {}
 unsafe impl ::std::marker::Sync for ServerMessageWebSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ServerStreamWebSocket(::windows::runtime::IInspectable);
 impl ServerStreamWebSocket {
     #[cfg(feature = "Foundation")]
@@ -4107,46 +3347,6 @@ unsafe impl ::windows::runtime::Interface for ServerStreamWebSocket {
 impl ::windows::runtime::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
 }
-impl ::std::convert::From<ServerStreamWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: ServerStreamWebSocket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ServerStreamWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: &ServerStreamWebSocket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ServerStreamWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ServerStreamWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ServerStreamWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: ServerStreamWebSocket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ServerStreamWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: &ServerStreamWebSocket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ServerStreamWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ServerStreamWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ServerStreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4177,7 +3377,7 @@ unsafe impl ::std::marker::Send for ServerStreamWebSocket {}
 unsafe impl ::std::marker::Sync for ServerStreamWebSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ServerStreamWebSocketInformation(::windows::runtime::IInspectable);
 impl ServerStreamWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -4215,46 +3415,6 @@ unsafe impl ::windows::runtime::Interface for ServerStreamWebSocketInformation {
 impl ::windows::runtime::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
 }
-impl ::std::convert::From<ServerStreamWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: ServerStreamWebSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ServerStreamWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &ServerStreamWebSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ServerStreamWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ServerStreamWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ServerStreamWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: ServerStreamWebSocketInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ServerStreamWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &ServerStreamWebSocketInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ServerStreamWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ServerStreamWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ServerStreamWebSocketInformation {}
 unsafe impl ::std::marker::Sync for ServerStreamWebSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
@@ -4279,7 +3439,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocketActivityConnectedStandbyAc
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SocketActivityContext(::windows::runtime::IInspectable);
 impl SocketActivityContext {
     #[cfg(feature = "Storage_Streams")]
@@ -4314,51 +3474,11 @@ unsafe impl ::windows::runtime::Interface for SocketActivityContext {
 impl ::windows::runtime::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
 }
-impl ::std::convert::From<SocketActivityContext> for ::windows::runtime::IUnknown {
-    fn from(value: SocketActivityContext) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SocketActivityContext> for ::windows::runtime::IUnknown {
-    fn from(value: &SocketActivityContext) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocketActivityContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocketActivityContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SocketActivityContext> for ::windows::runtime::IInspectable {
-    fn from(value: SocketActivityContext) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SocketActivityContext> for ::windows::runtime::IInspectable {
-    fn from(value: &SocketActivityContext) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocketActivityContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocketActivityContext {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SocketActivityContext {}
 unsafe impl ::std::marker::Sync for SocketActivityContext {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SocketActivityInformation(::windows::runtime::IInspectable);
 impl SocketActivityInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -4440,46 +3560,6 @@ unsafe impl ::windows::runtime::Interface for SocketActivityInformation {
 impl ::windows::runtime::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
 }
-impl ::std::convert::From<SocketActivityInformation> for ::windows::runtime::IUnknown {
-    fn from(value: SocketActivityInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SocketActivityInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &SocketActivityInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocketActivityInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocketActivityInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SocketActivityInformation> for ::windows::runtime::IInspectable {
-    fn from(value: SocketActivityInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SocketActivityInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &SocketActivityInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocketActivityInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocketActivityInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for SocketActivityInformation {}
 unsafe impl ::std::marker::Sync for SocketActivityInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
@@ -4506,7 +3586,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocketActivityKind {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SocketActivityTriggerDetails(::windows::runtime::IInspectable);
 impl SocketActivityTriggerDetails {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -4535,46 +3615,6 @@ unsafe impl ::windows::runtime::Interface for SocketActivityTriggerDetails {
 }
 impl ::windows::runtime::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
-}
-impl ::std::convert::From<SocketActivityTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: SocketActivityTriggerDetails) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SocketActivityTriggerDetails> for ::windows::runtime::IUnknown {
-    fn from(value: &SocketActivityTriggerDetails) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SocketActivityTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SocketActivityTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SocketActivityTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: SocketActivityTriggerDetails) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SocketActivityTriggerDetails> for ::windows::runtime::IInspectable {
-    fn from(value: &SocketActivityTriggerDetails) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SocketActivityTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SocketActivityTriggerDetails {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for SocketActivityTriggerDetails {}
 unsafe impl ::std::marker::Sync for SocketActivityTriggerDetails {}
@@ -4759,7 +3799,7 @@ unsafe impl ::windows::runtime::RuntimeType for SocketSslErrorSeverity {
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamSocket(::windows::runtime::IInspectable);
 impl StreamSocket {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4929,46 +3969,6 @@ unsafe impl ::windows::runtime::Interface for StreamSocket {
 impl ::windows::runtime::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
 }
-impl ::std::convert::From<StreamSocket> for ::windows::runtime::IUnknown {
-    fn from(value: StreamSocket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamSocket> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamSocket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamSocket> for ::windows::runtime::IInspectable {
-    fn from(value: StreamSocket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamSocket> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamSocket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<StreamSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4999,7 +3999,7 @@ unsafe impl ::std::marker::Send for StreamSocket {}
 unsafe impl ::std::marker::Sync for StreamSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamSocketControl(::windows::runtime::IInspectable);
 impl StreamSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -5128,51 +4128,11 @@ unsafe impl ::windows::runtime::Interface for StreamSocketControl {
 impl ::windows::runtime::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
 }
-impl ::std::convert::From<StreamSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: StreamSocketControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamSocketControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: StreamSocketControl) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamSocketControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StreamSocketControl {}
 unsafe impl ::std::marker::Sync for StreamSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamSocketInformation(::windows::runtime::IInspectable);
 impl StreamSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -5302,51 +4262,11 @@ unsafe impl ::windows::runtime::Interface for StreamSocketInformation {
 impl ::windows::runtime::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
 }
-impl ::std::convert::From<StreamSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: StreamSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: StreamSocketInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamSocketInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StreamSocketInformation {}
 unsafe impl ::std::marker::Sync for StreamSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamSocketListener(::windows::runtime::IInspectable);
 impl StreamSocketListener {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5469,46 +4389,6 @@ unsafe impl ::windows::runtime::Interface for StreamSocketListener {
 impl ::windows::runtime::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
 }
-impl ::std::convert::From<StreamSocketListener> for ::windows::runtime::IUnknown {
-    fn from(value: StreamSocketListener) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamSocketListener> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamSocketListener) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamSocketListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamSocketListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamSocketListener> for ::windows::runtime::IInspectable {
-    fn from(value: StreamSocketListener) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamSocketListener> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamSocketListener) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamSocketListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamSocketListener {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<StreamSocketListener> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -5539,7 +4419,7 @@ unsafe impl ::std::marker::Send for StreamSocketListener {}
 unsafe impl ::std::marker::Sync for StreamSocketListener {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamSocketListenerConnectionReceivedEventArgs(::windows::runtime::IInspectable);
 impl StreamSocketListenerConnectionReceivedEventArgs {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -5561,51 +4441,11 @@ unsafe impl ::windows::runtime::Interface for StreamSocketListenerConnectionRece
 impl ::windows::runtime::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
 }
-impl ::std::convert::From<StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamSocketListenerConnectionReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamSocketListenerConnectionReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamSocketListenerConnectionReceivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamSocketListenerConnectionReceivedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamSocketListenerConnectionReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamSocketListenerConnectionReceivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StreamSocketListenerConnectionReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for StreamSocketListenerConnectionReceivedEventArgs {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamSocketListenerControl(::windows::runtime::IInspectable);
 impl StreamSocketListenerControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -5684,51 +4524,11 @@ unsafe impl ::windows::runtime::Interface for StreamSocketListenerControl {
 impl ::windows::runtime::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
 }
-impl ::std::convert::From<StreamSocketListenerControl> for ::windows::runtime::IUnknown {
-    fn from(value: StreamSocketListenerControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamSocketListenerControl> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamSocketListenerControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamSocketListenerControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamSocketListenerControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamSocketListenerControl> for ::windows::runtime::IInspectable {
-    fn from(value: StreamSocketListenerControl) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamSocketListenerControl> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamSocketListenerControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamSocketListenerControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamSocketListenerControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StreamSocketListenerControl {}
 unsafe impl ::std::marker::Sync for StreamSocketListenerControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamSocketListenerInformation(::windows::runtime::IInspectable);
 impl StreamSocketListenerInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -5750,51 +4550,11 @@ unsafe impl ::windows::runtime::Interface for StreamSocketListenerInformation {
 impl ::windows::runtime::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
 }
-impl ::std::convert::From<StreamSocketListenerInformation> for ::windows::runtime::IUnknown {
-    fn from(value: StreamSocketListenerInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamSocketListenerInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamSocketListenerInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamSocketListenerInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamSocketListenerInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamSocketListenerInformation> for ::windows::runtime::IInspectable {
-    fn from(value: StreamSocketListenerInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamSocketListenerInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamSocketListenerInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamSocketListenerInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamSocketListenerInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for StreamSocketListenerInformation {}
 unsafe impl ::std::marker::Sync for StreamSocketListenerInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamWebSocket(::windows::runtime::IInspectable);
 impl StreamWebSocket {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -5904,46 +4664,6 @@ unsafe impl ::windows::runtime::Interface for StreamWebSocket {
 impl ::windows::runtime::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
 }
-impl ::std::convert::From<StreamWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: StreamWebSocket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamWebSocket> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamWebSocket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: StreamWebSocket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamWebSocket> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamWebSocket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamWebSocket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<StreamWebSocket> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -5996,7 +4716,7 @@ unsafe impl ::std::marker::Send for StreamWebSocket {}
 unsafe impl ::std::marker::Sync for StreamWebSocket {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamWebSocketControl(::windows::runtime::IInspectable);
 impl StreamWebSocketControl {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -6123,46 +4843,6 @@ unsafe impl ::windows::runtime::Interface for StreamWebSocketControl {
 impl ::windows::runtime::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
 }
-impl ::std::convert::From<StreamWebSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: StreamWebSocketControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamWebSocketControl> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamWebSocketControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamWebSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: StreamWebSocketControl) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamWebSocketControl> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamWebSocketControl) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamWebSocketControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<StreamWebSocketControl> for IWebSocketControl {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StreamWebSocketControl) -> ::windows::runtime::Result<Self> {
@@ -6211,7 +4891,7 @@ unsafe impl ::std::marker::Send for StreamWebSocketControl {}
 unsafe impl ::std::marker::Sync for StreamWebSocketControl {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct StreamWebSocketInformation(::windows::runtime::IInspectable);
 impl StreamWebSocketInformation {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -6284,46 +4964,6 @@ unsafe impl ::windows::runtime::Interface for StreamWebSocketInformation {
 impl ::windows::runtime::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
 }
-impl ::std::convert::From<StreamWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: StreamWebSocketInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&StreamWebSocketInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &StreamWebSocketInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StreamWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &StreamWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<StreamWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: StreamWebSocketInformation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&StreamWebSocketInformation> for ::windows::runtime::IInspectable {
-    fn from(value: &StreamWebSocketInformation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StreamWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StreamWebSocketInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::From<StreamWebSocketInformation> for IWebSocketInformation {
     fn from(value: StreamWebSocketInformation) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6370,7 +5010,7 @@ unsafe impl ::std::marker::Send for StreamWebSocketInformation {}
 unsafe impl ::std::marker::Sync for StreamWebSocketInformation {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebSocketClosedEventArgs(::windows::runtime::IInspectable);
 impl WebSocketClosedEventArgs {
     #[doc = "*Required features: `Networking_Sockets`*"]
@@ -6400,46 +5040,6 @@ unsafe impl ::windows::runtime::Interface for WebSocketClosedEventArgs {
 impl ::windows::runtime::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
 }
-impl ::std::convert::From<WebSocketClosedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: WebSocketClosedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebSocketClosedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &WebSocketClosedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebSocketClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebSocketClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebSocketClosedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: WebSocketClosedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebSocketClosedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &WebSocketClosedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebSocketClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebSocketClosedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for WebSocketClosedEventArgs {}
 unsafe impl ::std::marker::Sync for WebSocketClosedEventArgs {}
 #[doc = "*Required features: `Networking_Sockets`*"]
@@ -6464,7 +5064,7 @@ impl ::windows::runtime::RuntimeName for WebSocketError {
 #[cfg(feature = "ApplicationModel_Background")]
 #[doc = "*Required features: `Networking_Sockets`, `ApplicationModel_Background`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebSocketKeepAlive(::windows::runtime::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
 impl WebSocketKeepAlive {
@@ -6496,54 +5096,6 @@ impl ::windows::runtime::RuntimeName for WebSocketKeepAlive {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketKeepAlive";
 }
 #[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<WebSocketKeepAlive> for ::windows::runtime::IUnknown {
-    fn from(value: WebSocketKeepAlive) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<&WebSocketKeepAlive> for ::windows::runtime::IUnknown {
-    fn from(value: &WebSocketKeepAlive) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebSocketKeepAlive {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebSocketKeepAlive {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<WebSocketKeepAlive> for ::windows::runtime::IInspectable {
-    fn from(value: WebSocketKeepAlive) -> Self {
-        value.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::std::convert::From<&WebSocketKeepAlive> for ::windows::runtime::IInspectable {
-    fn from(value: &WebSocketKeepAlive) -> Self {
-        value.0.clone()
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebSocketKeepAlive {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebSocketKeepAlive {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
 impl ::std::convert::From<WebSocketKeepAlive> for super::super::ApplicationModel::Background::IBackgroundTask {
     fn from(value: WebSocketKeepAlive) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6573,7 +5125,7 @@ unsafe impl ::std::marker::Send for WebSocketKeepAlive {}
 unsafe impl ::std::marker::Sync for WebSocketKeepAlive {}
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WebSocketServerCustomValidationRequestedEventArgs(::windows::runtime::IInspectable);
 impl WebSocketServerCustomValidationRequestedEventArgs {
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -6635,46 +5187,6 @@ unsafe impl ::windows::runtime::Interface for WebSocketServerCustomValidationReq
 }
 impl ::windows::runtime::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";
-}
-impl ::std::convert::From<WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebSocketServerCustomValidationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WebSocketServerCustomValidationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &WebSocketServerCustomValidationRequestedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebSocketServerCustomValidationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebSocketServerCustomValidationRequestedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for WebSocketServerCustomValidationRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for WebSocketServerCustomValidationRequestedEventArgs {}

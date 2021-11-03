@@ -564,7 +564,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportContentTypeFilter {
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(::windows::runtime::IInspectable);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
     #[doc = "*Required features: `Media_Import`*"]
@@ -683,51 +683,11 @@ unsafe impl ::windows::runtime::Interface for PhotoImportDeleteImportedItemsFrom
 impl ::windows::runtime::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult";
 }
-impl ::std::convert::From<PhotoImportDeleteImportedItemsFromSourceResult> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportDeleteImportedItemsFromSourceResult> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportDeleteImportedItemsFromSourceResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportDeleteImportedItemsFromSourceResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportDeleteImportedItemsFromSourceResult> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportDeleteImportedItemsFromSourceResult> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportDeleteImportedItemsFromSourceResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportDeleteImportedItemsFromSourceResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhotoImportDeleteImportedItemsFromSourceResult {}
 unsafe impl ::std::marker::Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportFindItemsResult(::windows::runtime::IInspectable);
 impl PhotoImportFindItemsResult {
     #[doc = "*Required features: `Media_Import`*"]
@@ -1003,51 +963,11 @@ unsafe impl ::windows::runtime::Interface for PhotoImportFindItemsResult {
 impl ::windows::runtime::RuntimeName for PhotoImportFindItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportFindItemsResult";
 }
-impl ::std::convert::From<PhotoImportFindItemsResult> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportFindItemsResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportFindItemsResult> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportFindItemsResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportFindItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportFindItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportFindItemsResult> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportFindItemsResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportFindItemsResult> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportFindItemsResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportFindItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportFindItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhotoImportFindItemsResult {}
 unsafe impl ::std::marker::Sync for PhotoImportFindItemsResult {}
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportImportItemsResult(::windows::runtime::IInspectable);
 impl PhotoImportImportItemsResult {
     #[doc = "*Required features: `Media_Import`*"]
@@ -1175,46 +1095,6 @@ unsafe impl ::windows::runtime::Interface for PhotoImportImportItemsResult {
 impl ::windows::runtime::RuntimeName for PhotoImportImportItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportImportItemsResult";
 }
-impl ::std::convert::From<PhotoImportImportItemsResult> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportImportItemsResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportImportItemsResult> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportImportItemsResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportImportItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportImportItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportImportItemsResult> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportImportItemsResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportImportItemsResult> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportImportItemsResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportImportItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportImportItemsResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::std::marker::Sync for PhotoImportImportItemsResult {}
 #[doc = "*Required features: `Media_Import`*"]
@@ -1241,7 +1121,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportImportMode {
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportItem(::windows::runtime::IInspectable);
 impl PhotoImportItem {
     #[doc = "*Required features: `Media_Import`*"]
@@ -1370,51 +1250,11 @@ unsafe impl ::windows::runtime::Interface for PhotoImportItem {
 impl ::windows::runtime::RuntimeName for PhotoImportItem {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItem";
 }
-impl ::std::convert::From<PhotoImportItem> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportItem> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportItem> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportItem) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportItem> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportItem) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhotoImportItem {}
 unsafe impl ::std::marker::Sync for PhotoImportItem {}
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportItemImportedEventArgs(::windows::runtime::IInspectable);
 impl PhotoImportItemImportedEventArgs {
     #[doc = "*Required features: `Media_Import`*"]
@@ -1435,46 +1275,6 @@ unsafe impl ::windows::runtime::Interface for PhotoImportItemImportedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for PhotoImportItemImportedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItemImportedEventArgs";
-}
-impl ::std::convert::From<PhotoImportItemImportedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportItemImportedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportItemImportedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportItemImportedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportItemImportedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportItemImportedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportItemImportedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportItemImportedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportItemImportedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportItemImportedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportItemImportedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportItemImportedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::std::marker::Sync for PhotoImportItemImportedEventArgs {}
@@ -1536,7 +1336,7 @@ impl ::windows::runtime::RuntimeName for PhotoImportManager {
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportOperation(::windows::runtime::IInspectable);
 impl PhotoImportOperation {
     #[doc = "*Required features: `Media_Import`*"]
@@ -1592,46 +1392,6 @@ unsafe impl ::windows::runtime::Interface for PhotoImportOperation {
 }
 impl ::windows::runtime::RuntimeName for PhotoImportOperation {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportOperation";
-}
-impl ::std::convert::From<PhotoImportOperation> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportOperation> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhotoImportOperation {}
 unsafe impl ::std::marker::Sync for PhotoImportOperation {}
@@ -1692,7 +1452,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportProgress {
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportSelectionChangedEventArgs(::windows::runtime::IInspectable);
 impl PhotoImportSelectionChangedEventArgs {
     #[doc = "*Required features: `Media_Import`*"]
@@ -1714,51 +1474,11 @@ unsafe impl ::windows::runtime::Interface for PhotoImportSelectionChangedEventAr
 impl ::windows::runtime::RuntimeName for PhotoImportSelectionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSelectionChangedEventArgs";
 }
-impl ::std::convert::From<PhotoImportSelectionChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportSelectionChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportSelectionChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportSelectionChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportSelectionChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportSelectionChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportSelectionChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportSelectionChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportSelectionChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportSelectionChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportSelectionChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportSelectionChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhotoImportSelectionChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PhotoImportSelectionChangedEventArgs {}
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportSession(::windows::runtime::IInspectable);
 impl PhotoImportSession {
     #[doc = "*Required features: `Media_Import`*"]
@@ -1883,46 +1603,6 @@ unsafe impl ::windows::runtime::Interface for PhotoImportSession {
 impl ::windows::runtime::RuntimeName for PhotoImportSession {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSession";
 }
-impl ::std::convert::From<PhotoImportSession> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportSession> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportSession> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportSession> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PhotoImportSession> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1953,7 +1633,7 @@ unsafe impl ::std::marker::Send for PhotoImportSession {}
 unsafe impl ::std::marker::Sync for PhotoImportSession {}
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportSidecar(::windows::runtime::IInspectable);
 impl PhotoImportSidecar {
     #[doc = "*Required features: `Media_Import`*"]
@@ -1992,51 +1672,11 @@ unsafe impl ::windows::runtime::Interface for PhotoImportSidecar {
 impl ::windows::runtime::RuntimeName for PhotoImportSidecar {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSidecar";
 }
-impl ::std::convert::From<PhotoImportSidecar> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportSidecar) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportSidecar> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportSidecar) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportSidecar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportSidecar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportSidecar> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportSidecar) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportSidecar> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportSidecar) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportSidecar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportSidecar {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhotoImportSidecar {}
 unsafe impl ::std::marker::Sync for PhotoImportSidecar {}
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportSource(::windows::runtime::IInspectable);
 impl PhotoImportSource {
     #[doc = "*Required features: `Media_Import`*"]
@@ -2211,46 +1851,6 @@ unsafe impl ::windows::runtime::Interface for PhotoImportSource {
 impl ::windows::runtime::RuntimeName for PhotoImportSource {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSource";
 }
-impl ::std::convert::From<PhotoImportSource> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportSource> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportSource> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportSource> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhotoImportSource {}
 unsafe impl ::std::marker::Sync for PhotoImportSource {}
 #[doc = "*Required features: `Media_Import`*"]
@@ -2302,7 +1902,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportStage {
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportStorageMedium(::windows::runtime::IInspectable);
 impl PhotoImportStorageMedium {
     #[doc = "*Required features: `Media_Import`*"]
@@ -2377,46 +1977,6 @@ unsafe impl ::windows::runtime::Interface for PhotoImportStorageMedium {
 impl ::windows::runtime::RuntimeName for PhotoImportStorageMedium {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportStorageMedium";
 }
-impl ::std::convert::From<PhotoImportStorageMedium> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportStorageMedium) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportStorageMedium> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportStorageMedium) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportStorageMedium {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportStorageMedium {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportStorageMedium> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportStorageMedium) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportStorageMedium> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportStorageMedium) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportStorageMedium {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportStorageMedium {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::std::marker::Sync for PhotoImportStorageMedium {}
 #[doc = "*Required features: `Media_Import`*"]
@@ -2485,7 +2045,7 @@ unsafe impl ::windows::runtime::RuntimeType for PhotoImportSubfolderDateFormat {
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PhotoImportVideoSegment(::windows::runtime::IInspectable);
 impl PhotoImportVideoSegment {
     #[doc = "*Required features: `Media_Import`*"]
@@ -2540,46 +2100,6 @@ unsafe impl ::windows::runtime::Interface for PhotoImportVideoSegment {
 }
 impl ::windows::runtime::RuntimeName for PhotoImportVideoSegment {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportVideoSegment";
-}
-impl ::std::convert::From<PhotoImportVideoSegment> for ::windows::runtime::IUnknown {
-    fn from(value: PhotoImportVideoSegment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PhotoImportVideoSegment> for ::windows::runtime::IUnknown {
-    fn from(value: &PhotoImportVideoSegment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PhotoImportVideoSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PhotoImportVideoSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PhotoImportVideoSegment> for ::windows::runtime::IInspectable {
-    fn from(value: PhotoImportVideoSegment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PhotoImportVideoSegment> for ::windows::runtime::IInspectable {
-    fn from(value: &PhotoImportVideoSegment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PhotoImportVideoSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PhotoImportVideoSegment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PhotoImportVideoSegment {}
 unsafe impl ::std::marker::Sync for PhotoImportVideoSegment {}

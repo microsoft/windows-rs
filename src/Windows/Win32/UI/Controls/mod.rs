@@ -5298,7 +5298,7 @@ pub const IDC_MANAGE_LINK: u32 = 1592u32;
 pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IImageList(::windows::runtime::IUnknown);
 impl IImageList {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5445,26 +5445,6 @@ unsafe impl ::windows::runtime::Interface for IImageList {
     type Vtable = IImageList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1189828902, 22574, 16407, [159, 223, 232, 153, 141, 170, 9, 80]);
 }
-impl ::std::convert::From<IImageList> for ::windows::runtime::IUnknown {
-    fn from(value: IImageList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IImageList> for ::windows::runtime::IUnknown {
-    fn from(value: &IImageList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IImageList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IImageList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageList_abi(
@@ -5515,7 +5495,7 @@ pub struct IImageList_abi(
 );
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IImageList2(::windows::runtime::IUnknown);
 impl IImageList2 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5711,26 +5691,6 @@ impl IImageList2 {
 unsafe impl ::windows::runtime::Interface for IImageList2 {
     type Vtable = IImageList2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(422288771, 20732, 17787, [144, 160, 43, 130, 168, 181, 218, 225]);
-}
-impl ::std::convert::From<IImageList2> for ::windows::runtime::IUnknown {
-    fn from(value: IImageList2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IImageList2> for ::windows::runtime::IUnknown {
-    fn from(value: &IImageList2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IImageList2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IImageList2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IImageList2> for IImageList {
     fn from(value: IImageList2) -> Self {

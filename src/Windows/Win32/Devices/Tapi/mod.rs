@@ -916,7 +916,7 @@ pub const IDISPTAPI: u32 = 65536u32;
 pub const IDISPTAPICALLCENTER: u32 = 131072u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumACDGroup(::windows::runtime::IUnknown);
 impl IEnumACDGroup {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -941,26 +941,6 @@ unsafe impl ::windows::runtime::Interface for IEnumACDGroup {
     type Vtable = IEnumACDGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477143, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<IEnumACDGroup> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumACDGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumACDGroup> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumACDGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumACDGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumACDGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumACDGroup_abi(
@@ -974,7 +954,7 @@ pub struct IEnumACDGroup_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumAddress(::windows::runtime::IUnknown);
 impl IEnumAddress {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -999,26 +979,6 @@ unsafe impl ::windows::runtime::Interface for IEnumAddress {
     type Vtable = IEnumAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(375848097, 37731, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
 }
-impl ::std::convert::From<IEnumAddress> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumAddress> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAddress_abi(
@@ -1032,7 +992,7 @@ pub struct IEnumAddress_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumAgent(::windows::runtime::IUnknown);
 impl IEnumAgent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1057,26 +1017,6 @@ unsafe impl ::windows::runtime::Interface for IEnumAgent {
     type Vtable = IEnumAgent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477133, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<IEnumAgent> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumAgent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumAgent> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumAgent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAgent_abi(
@@ -1090,7 +1030,7 @@ pub struct IEnumAgent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumAgentHandler(::windows::runtime::IUnknown);
 impl IEnumAgentHandler {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1115,26 +1055,6 @@ unsafe impl ::windows::runtime::Interface for IEnumAgentHandler {
     type Vtable = IEnumAgentHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1484688424, 38914, 4561, [160, 164, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<IEnumAgentHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumAgentHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumAgentHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumAgentHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumAgentHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumAgentHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAgentHandler_abi(
@@ -1148,7 +1068,7 @@ pub struct IEnumAgentHandler_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumAgentSession(::windows::runtime::IUnknown);
 impl IEnumAgentSession {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1173,26 +1093,6 @@ unsafe impl ::windows::runtime::Interface for IEnumAgentSession {
     type Vtable = IEnumAgentSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477134, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<IEnumAgentSession> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumAgentSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumAgentSession> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumAgentSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAgentSession_abi(
@@ -1206,7 +1106,7 @@ pub struct IEnumAgentSession_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumBstr(::windows::runtime::IUnknown);
 impl IEnumBstr {
     #[cfg(feature = "Win32_Foundation")]
@@ -1232,26 +1132,6 @@ unsafe impl ::windows::runtime::Interface for IEnumBstr {
     type Vtable = IEnumBstr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(892805193, 3014, 4562, [160, 51, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<IEnumBstr> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumBstr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumBstr> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumBstr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumBstr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumBstr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBstr_abi(
@@ -1266,7 +1146,7 @@ pub struct IEnumBstr_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumCall(::windows::runtime::IUnknown);
 impl IEnumCall {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1291,26 +1171,6 @@ unsafe impl ::windows::runtime::Interface for IEnumCall {
     type Vtable = IEnumCall_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921766134, 37726, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
 }
-impl ::std::convert::From<IEnumCall> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumCall) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumCall> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumCall) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumCall {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCall_abi(
@@ -1324,7 +1184,7 @@ pub struct IEnumCall_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumCallHub(::windows::runtime::IUnknown);
 impl IEnumCallHub {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1349,26 +1209,6 @@ unsafe impl ::windows::runtime::Interface for IEnumCallHub {
     type Vtable = IEnumCallHub_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2747356240, 23442, 4561, [143, 78, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<IEnumCallHub> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumCallHub) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumCallHub> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumCallHub) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumCallHub {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumCallHub {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCallHub_abi(
@@ -1382,7 +1222,7 @@ pub struct IEnumCallHub_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumCallingCard(::windows::runtime::IUnknown);
 impl IEnumCallingCard {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1407,26 +1247,6 @@ unsafe impl ::windows::runtime::Interface for IEnumCallingCard {
     type Vtable = IEnumCallingCard_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(206409474, 36315, 4561, [160, 158, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<IEnumCallingCard> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumCallingCard) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumCallingCard> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumCallingCard) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumCallingCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumCallingCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCallingCard_abi(
@@ -1440,7 +1260,7 @@ pub struct IEnumCallingCard_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumDialableAddrs(::windows::runtime::IUnknown);
 impl IEnumDialableAddrs {
     #[cfg(feature = "Win32_Foundation")]
@@ -1466,26 +1286,6 @@ unsafe impl ::windows::runtime::Interface for IEnumDialableAddrs {
     type Vtable = IEnumDialableAddrs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878845296, 27903, 4561, [175, 247, 0, 192, 79, 195, 31, 238]);
 }
-impl ::std::convert::From<IEnumDialableAddrs> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumDialableAddrs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumDialableAddrs> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumDialableAddrs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDialableAddrs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDialableAddrs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDialableAddrs_abi(
@@ -1500,7 +1300,7 @@ pub struct IEnumDialableAddrs_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumDirectory(::windows::runtime::IUnknown);
 impl IEnumDirectory {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1525,26 +1325,6 @@ unsafe impl ::windows::runtime::Interface for IEnumDirectory {
     type Vtable = IEnumDirectory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878845293, 27903, 4561, [175, 247, 0, 192, 79, 195, 31, 238]);
 }
-impl ::std::convert::From<IEnumDirectory> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumDirectory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumDirectory> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumDirectory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDirectory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDirectory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDirectory_abi(
@@ -1558,7 +1338,7 @@ pub struct IEnumDirectory_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumDirectoryObject(::windows::runtime::IUnknown);
 impl IEnumDirectoryObject {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1583,26 +1363,6 @@ unsafe impl ::windows::runtime::Interface for IEnumDirectoryObject {
     type Vtable = IEnumDirectoryObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(113882698, 12397, 4561, [151, 116, 0, 192, 79, 217, 26, 192]);
 }
-impl ::std::convert::From<IEnumDirectoryObject> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumDirectoryObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumDirectoryObject> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumDirectoryObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDirectoryObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDirectoryObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDirectoryObject_abi(
@@ -1616,7 +1376,7 @@ pub struct IEnumDirectoryObject_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumLocation(::windows::runtime::IUnknown);
 impl IEnumLocation {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1641,26 +1401,6 @@ unsafe impl ::windows::runtime::Interface for IEnumLocation {
     type Vtable = IEnumLocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(206409473, 36315, 4561, [160, 158, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<IEnumLocation> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumLocation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumLocation> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumLocation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumLocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumLocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumLocation_abi(
@@ -1674,7 +1414,7 @@ pub struct IEnumLocation_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumMcastScope(::windows::runtime::IUnknown);
 impl IEnumMcastScope {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1699,26 +1439,6 @@ unsafe impl ::windows::runtime::Interface for IEnumMcastScope {
     type Vtable = IEnumMcastScope_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742215945, 41609, 4561, [134, 151, 0, 96, 8, 176, 229, 210]);
 }
-impl ::std::convert::From<IEnumMcastScope> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumMcastScope) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumMcastScope> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumMcastScope) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumMcastScope {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumMcastScope {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumMcastScope_abi(
@@ -1732,7 +1452,7 @@ pub struct IEnumMcastScope_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumPhone(::windows::runtime::IUnknown);
 impl IEnumPhone {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1757,26 +1477,6 @@ unsafe impl ::windows::runtime::Interface for IEnumPhone {
     type Vtable = IEnumPhone_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4049303145, 18304, 17813, [140, 137, 251, 54, 156, 140, 247, 170]);
 }
-impl ::std::convert::From<IEnumPhone> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumPhone) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumPhone> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumPhone) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumPhone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumPhone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPhone_abi(
@@ -1790,7 +1490,7 @@ pub struct IEnumPhone_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumPluggableSuperclassInfo(::windows::runtime::IUnknown);
 impl IEnumPluggableSuperclassInfo {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1815,26 +1515,6 @@ unsafe impl ::windows::runtime::Interface for IEnumPluggableSuperclassInfo {
     type Vtable = IEnumPluggableSuperclassInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3914885760, 35302, 19711, [147, 29, 71, 141, 87, 81, 244, 192]);
 }
-impl ::std::convert::From<IEnumPluggableSuperclassInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumPluggableSuperclassInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumPluggableSuperclassInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumPluggableSuperclassInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumPluggableSuperclassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumPluggableSuperclassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPluggableSuperclassInfo_abi(
@@ -1848,7 +1528,7 @@ pub struct IEnumPluggableSuperclassInfo_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumPluggableTerminalClassInfo(::windows::runtime::IUnknown);
 impl IEnumPluggableTerminalClassInfo {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1873,26 +1553,6 @@ unsafe impl ::windows::runtime::Interface for IEnumPluggableTerminalClassInfo {
     type Vtable = IEnumPluggableTerminalClassInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164395788, 56302, 20031, [170, 245, 55, 191, 158, 191, 94, 41]);
 }
-impl ::std::convert::From<IEnumPluggableTerminalClassInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumPluggableTerminalClassInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumPluggableTerminalClassInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumPluggableTerminalClassInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumPluggableTerminalClassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumPluggableTerminalClassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPluggableTerminalClassInfo_abi(
@@ -1906,7 +1566,7 @@ pub struct IEnumPluggableTerminalClassInfo_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumQueue(::windows::runtime::IUnknown);
 impl IEnumQueue {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1931,26 +1591,6 @@ unsafe impl ::windows::runtime::Interface for IEnumQueue {
     type Vtable = IEnumQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477144, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<IEnumQueue> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumQueue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumQueue> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumQueue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumQueue_abi(
@@ -1964,7 +1604,7 @@ pub struct IEnumQueue_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumStream(::windows::runtime::IUnknown);
 impl IEnumStream {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -1989,26 +1629,6 @@ unsafe impl ::windows::runtime::Interface for IEnumStream {
     type Vtable = IEnumStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996898822, 14440, 4562, [160, 69, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<IEnumStream> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumStream> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumStream_abi(
@@ -2022,7 +1642,7 @@ pub struct IEnumStream_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumSubStream(::windows::runtime::IUnknown);
 impl IEnumSubStream {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2047,26 +1667,6 @@ unsafe impl ::windows::runtime::Interface for IEnumSubStream {
     type Vtable = IEnumSubStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996898825, 14440, 4562, [160, 69, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<IEnumSubStream> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumSubStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumSubStream> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumSubStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSubStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumSubStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSubStream_abi(
@@ -2080,7 +1680,7 @@ pub struct IEnumSubStream_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumTerminal(::windows::runtime::IUnknown);
 impl IEnumTerminal {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2105,26 +1705,6 @@ unsafe impl ::windows::runtime::Interface for IEnumTerminal {
     type Vtable = IEnumTerminal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921766132, 37726, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
 }
-impl ::std::convert::From<IEnumTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumTerminal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumTerminal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTerminal_abi(
@@ -2138,7 +1718,7 @@ pub struct IEnumTerminal_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumTerminalClass(::windows::runtime::IUnknown);
 impl IEnumTerminalClass {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2163,26 +1743,6 @@ unsafe impl ::windows::runtime::Interface for IEnumTerminalClass {
     type Vtable = IEnumTerminalClass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921766133, 37726, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
 }
-impl ::std::convert::From<IEnumTerminalClass> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumTerminalClass) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumTerminalClass> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumTerminalClass) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumTerminalClass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumTerminalClass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTerminalClass_abi(
@@ -2196,7 +1756,7 @@ pub struct IEnumTerminalClass_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMcastAddressAllocation(::windows::runtime::IUnknown);
 impl IMcastAddressAllocation {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -2240,26 +1800,6 @@ impl IMcastAddressAllocation {
 unsafe impl ::windows::runtime::Interface for IMcastAddressAllocation {
     type Vtable = IMcastAddressAllocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742215921, 41609, 4561, [134, 151, 0, 96, 8, 176, 229, 210]);
-}
-impl ::std::convert::From<IMcastAddressAllocation> for ::windows::runtime::IUnknown {
-    fn from(value: IMcastAddressAllocation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMcastAddressAllocation> for ::windows::runtime::IUnknown {
-    fn from(value: &IMcastAddressAllocation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMcastAddressAllocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMcastAddressAllocation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMcastAddressAllocation> for super::super::System::Ole::Automation::IDispatch {
@@ -2313,7 +1853,7 @@ pub struct IMcastAddressAllocation_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMcastLeaseInfo(::windows::runtime::IUnknown);
 impl IMcastLeaseInfo {
     #[cfg(feature = "Win32_Foundation")]
@@ -2372,26 +1912,6 @@ unsafe impl ::windows::runtime::Interface for IMcastLeaseInfo {
     type Vtable = IMcastLeaseInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742215933, 41609, 4561, [134, 151, 0, 96, 8, 176, 229, 210]);
 }
-impl ::std::convert::From<IMcastLeaseInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IMcastLeaseInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMcastLeaseInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IMcastLeaseInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMcastLeaseInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMcastLeaseInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMcastLeaseInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IMcastLeaseInfo) -> Self {
@@ -2446,7 +1966,7 @@ pub struct IMcastLeaseInfo_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IMcastScope(::windows::runtime::IUnknown);
 impl IMcastScope {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2479,26 +1999,6 @@ impl IMcastScope {
 unsafe impl ::windows::runtime::Interface for IMcastScope {
     type Vtable = IMcastScope_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742215924, 41609, 4561, [134, 151, 0, 96, 8, 176, 229, 210]);
-}
-impl ::std::convert::From<IMcastScope> for ::windows::runtime::IUnknown {
-    fn from(value: IMcastScope) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IMcastScope> for ::windows::runtime::IUnknown {
-    fn from(value: &IMcastScope) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMcastScope {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMcastScope {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IMcastScope> for super::super::System::Ole::Automation::IDispatch {
@@ -2551,7 +2051,7 @@ pub const INITIALIZE_NEGOTIATION: u32 = 4294967295u32;
 pub const INTERFACEMASK: u32 = 16711680u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITACDGroup(::windows::runtime::IUnknown);
 impl ITACDGroup {
     #[cfg(feature = "Win32_Foundation")]
@@ -2575,26 +2075,6 @@ impl ITACDGroup {
 unsafe impl ::windows::runtime::Interface for ITACDGroup {
     type Vtable = ITACDGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477128, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITACDGroup> for ::windows::runtime::IUnknown {
-    fn from(value: ITACDGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITACDGroup> for ::windows::runtime::IUnknown {
-    fn from(value: &ITACDGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITACDGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITACDGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITACDGroup> for super::super::System::Ole::Automation::IDispatch {
@@ -2642,7 +2122,7 @@ pub struct ITACDGroup_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITACDGroupEvent(::windows::runtime::IUnknown);
 impl ITACDGroupEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2659,26 +2139,6 @@ impl ITACDGroupEvent {
 unsafe impl ::windows::runtime::Interface for ITACDGroupEvent {
     type Vtable = ITACDGroupEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(696201266, 48401, 4561, [160, 167, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITACDGroupEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITACDGroupEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITACDGroupEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITACDGroupEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITACDGroupEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITACDGroupEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITACDGroupEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -2723,7 +2183,7 @@ pub struct ITACDGroupEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAMMediaFormat(::windows::runtime::IUnknown);
 impl ITAMMediaFormat {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
@@ -2742,26 +2202,6 @@ unsafe impl ::windows::runtime::Interface for ITAMMediaFormat {
     type Vtable = ITAMMediaFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56945408, 19063, 4561, [166, 113, 0, 96, 151, 201, 162, 232]);
 }
-impl ::std::convert::From<ITAMMediaFormat> for ::windows::runtime::IUnknown {
-    fn from(value: ITAMMediaFormat) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAMMediaFormat> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAMMediaFormat) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAMMediaFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAMMediaFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAMMediaFormat_abi(
@@ -2775,7 +2215,7 @@ pub struct ITAMMediaFormat_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITASRTerminalEvent(::windows::runtime::IUnknown);
 impl ITASRTerminalEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2797,26 +2237,6 @@ impl ITASRTerminalEvent {
 unsafe impl ::windows::runtime::Interface for ITASRTerminalEvent {
     type Vtable = ITASRTerminalEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3993070082, 20393, 18044, [147, 63, 90, 21, 177, 35, 119, 215]);
-}
-impl ::std::convert::From<ITASRTerminalEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITASRTerminalEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITASRTerminalEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITASRTerminalEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITASRTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITASRTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITASRTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -2862,7 +2282,7 @@ pub struct ITASRTerminalEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAddress(::windows::runtime::IUnknown);
 impl ITAddress {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -2947,26 +2367,6 @@ unsafe impl ::windows::runtime::Interface for ITAddress {
     type Vtable = ITAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985280390, 37717, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
 }
-impl ::std::convert::From<ITAddress> for ::windows::runtime::IUnknown {
-    fn from(value: ITAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAddress> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAddress> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITAddress) -> Self {
@@ -3028,7 +2428,7 @@ pub struct ITAddress_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAddress2(::windows::runtime::IUnknown);
 impl ITAddress2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -3184,26 +2584,6 @@ unsafe impl ::windows::runtime::Interface for ITAddress2 {
     type Vtable = ITAddress2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2964217243, 48721, 18121, [176, 247, 223, 168, 162, 42, 139, 196]);
 }
-impl ::std::convert::From<ITAddress2> for ::windows::runtime::IUnknown {
-    fn from(value: ITAddress2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAddress2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAddress2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAddress2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAddress2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITAddress2> for ITAddress {
     fn from(value: ITAddress2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3298,7 +2678,7 @@ pub struct ITAddress2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAddressCapabilities(::windows::runtime::IUnknown);
 impl ITAddressCapabilities {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -3349,26 +2729,6 @@ impl ITAddressCapabilities {
 unsafe impl ::windows::runtime::Interface for ITAddressCapabilities {
     type Vtable = ITAddressCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2381460213, 33307, 4561, [187, 92, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITAddressCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: ITAddressCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAddressCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAddressCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAddressCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAddressCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAddressCapabilities> for super::super::System::Ole::Automation::IDispatch {
@@ -3423,7 +2783,7 @@ pub struct ITAddressCapabilities_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAddressDeviceSpecificEvent(::windows::runtime::IUnknown);
 impl ITAddressDeviceSpecificEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -3455,26 +2815,6 @@ impl ITAddressDeviceSpecificEvent {
 unsafe impl ::windows::runtime::Interface for ITAddressDeviceSpecificEvent {
     type Vtable = ITAddressDeviceSpecificEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(986390891, 16573, 18554, [134, 114, 92, 231, 123, 215, 227, 163]);
-}
-impl ::std::convert::From<ITAddressDeviceSpecificEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITAddressDeviceSpecificEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAddressDeviceSpecificEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAddressDeviceSpecificEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAddressDeviceSpecificEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAddressDeviceSpecificEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAddressDeviceSpecificEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -3522,7 +2862,7 @@ pub struct ITAddressDeviceSpecificEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAddressEvent(::windows::runtime::IUnknown);
 impl ITAddressEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -3544,26 +2884,6 @@ impl ITAddressEvent {
 unsafe impl ::windows::runtime::Interface for ITAddressEvent {
     type Vtable = ITAddressEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2199708369, 33717, 4561, [187, 92, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITAddressEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITAddressEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAddressEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAddressEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAddressEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAddressEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAddressEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -3609,7 +2929,7 @@ pub struct ITAddressEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAddressTranslation(::windows::runtime::IUnknown);
 impl ITAddressTranslation {
     #[cfg(feature = "Win32_Foundation")]
@@ -3649,26 +2969,6 @@ impl ITAddressTranslation {
 unsafe impl ::windows::runtime::Interface for ITAddressTranslation {
     type Vtable = ITAddressTranslation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(206409475, 36315, 4561, [160, 158, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITAddressTranslation> for ::windows::runtime::IUnknown {
-    fn from(value: ITAddressTranslation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAddressTranslation> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAddressTranslation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAddressTranslation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAddressTranslation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAddressTranslation> for super::super::System::Ole::Automation::IDispatch {
@@ -3721,7 +3021,7 @@ pub struct ITAddressTranslation_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAddressTranslationInfo(::windows::runtime::IUnknown);
 impl ITAddressTranslationInfo {
     #[cfg(feature = "Win32_Foundation")]
@@ -3755,26 +3055,6 @@ impl ITAddressTranslationInfo {
 unsafe impl ::windows::runtime::Interface for ITAddressTranslationInfo {
     type Vtable = ITAddressTranslationInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2948684101, 36160, 4561, [160, 158, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITAddressTranslationInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ITAddressTranslationInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAddressTranslationInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAddressTranslationInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAddressTranslationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAddressTranslationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAddressTranslationInfo> for super::super::System::Ole::Automation::IDispatch {
@@ -3824,7 +3104,7 @@ pub struct ITAddressTranslationInfo_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAgent(::windows::runtime::IUnknown);
 impl ITAgent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -3920,26 +3200,6 @@ unsafe impl ::windows::runtime::Interface for ITAgent {
     type Vtable = ITAgent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1467018469, 19239, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<ITAgent> for ::windows::runtime::IUnknown {
-    fn from(value: ITAgent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAgent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAgent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAgent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAgent> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITAgent) -> Self {
@@ -4003,7 +3263,7 @@ pub struct ITAgent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAgentEvent(::windows::runtime::IUnknown);
 impl ITAgentEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -4020,26 +3280,6 @@ impl ITAgentEvent {
 unsafe impl ::windows::runtime::Interface for ITAgentEvent {
     type Vtable = ITAgentEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477130, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITAgentEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITAgentEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAgentEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAgentEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAgentEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAgentEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAgentEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -4084,7 +3324,7 @@ pub struct ITAgentEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAgentHandler(::windows::runtime::IUnknown);
 impl ITAgentHandler {
     #[cfg(feature = "Win32_Foundation")]
@@ -4130,26 +3370,6 @@ impl ITAgentHandler {
 unsafe impl ::windows::runtime::Interface for ITAgentHandler {
     type Vtable = ITAgentHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1484688418, 38914, 4561, [160, 164, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITAgentHandler> for ::windows::runtime::IUnknown {
-    fn from(value: ITAgentHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAgentHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAgentHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAgentHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAgentHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAgentHandler> for super::super::System::Ole::Automation::IDispatch {
@@ -4203,7 +3423,7 @@ pub struct ITAgentHandler_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAgentHandlerEvent(::windows::runtime::IUnknown);
 impl ITAgentHandlerEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -4220,26 +3440,6 @@ impl ITAgentHandlerEvent {
 unsafe impl ::windows::runtime::Interface for ITAgentHandlerEvent {
     type Vtable = ITAgentHandlerEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(696201268, 48401, 4561, [160, 167, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITAgentHandlerEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITAgentHandlerEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAgentHandlerEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAgentHandlerEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAgentHandlerEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAgentHandlerEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAgentHandlerEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -4284,7 +3484,7 @@ pub struct ITAgentHandlerEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAgentSession(::windows::runtime::IUnknown);
 impl ITAgentSession {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -4377,26 +3577,6 @@ unsafe impl ::windows::runtime::Interface for ITAgentSession {
     type Vtable = ITAgentSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477127, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<ITAgentSession> for ::windows::runtime::IUnknown {
-    fn from(value: ITAgentSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAgentSession> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAgentSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAgentSession> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITAgentSession) -> Self {
@@ -4456,7 +3636,7 @@ pub struct ITAgentSession_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAgentSessionEvent(::windows::runtime::IUnknown);
 impl ITAgentSessionEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -4473,26 +3653,6 @@ impl ITAgentSessionEvent {
 unsafe impl ::windows::runtime::Interface for ITAgentSessionEvent {
     type Vtable = ITAgentSessionEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477131, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITAgentSessionEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITAgentSessionEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAgentSessionEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAgentSessionEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAgentSessionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAgentSessionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAgentSessionEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -4537,7 +3697,7 @@ pub struct ITAgentSessionEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAllocatorProperties(::windows::runtime::IUnknown);
 impl ITAllocatorProperties {
     #[cfg(feature = "Win32_Graphics_DirectShow")]
@@ -4576,26 +3736,6 @@ unsafe impl ::windows::runtime::Interface for ITAllocatorProperties {
     type Vtable = ITAllocatorProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3250338960, 48382, 4561, [151, 69, 0, 192, 79, 217, 26, 192]);
 }
-impl ::std::convert::From<ITAllocatorProperties> for ::windows::runtime::IUnknown {
-    fn from(value: ITAllocatorProperties) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAllocatorProperties> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAllocatorProperties) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAllocatorProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAllocatorProperties {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAllocatorProperties_abi(
@@ -4615,7 +3755,7 @@ pub struct ITAllocatorProperties_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITAutomatedPhoneControl(::windows::runtime::IUnknown);
 impl ITAutomatedPhoneControl {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -4767,26 +3907,6 @@ unsafe impl ::windows::runtime::Interface for ITAutomatedPhoneControl {
     type Vtable = ITAutomatedPhoneControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518106894, 24921, 19041, [183, 155, 106, 75, 163, 252, 157, 252]);
 }
-impl ::std::convert::From<ITAutomatedPhoneControl> for ::windows::runtime::IUnknown {
-    fn from(value: ITAutomatedPhoneControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITAutomatedPhoneControl> for ::windows::runtime::IUnknown {
-    fn from(value: &ITAutomatedPhoneControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITAutomatedPhoneControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITAutomatedPhoneControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITAutomatedPhoneControl> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITAutomatedPhoneControl) -> Self {
@@ -4861,7 +3981,7 @@ pub struct ITAutomatedPhoneControl_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITBasicAudioTerminal(::windows::runtime::IUnknown);
 impl ITBasicAudioTerminal {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -4886,26 +4006,6 @@ impl ITBasicAudioTerminal {
 unsafe impl ::windows::runtime::Interface for ITBasicAudioTerminal {
     type Vtable = ITBasicAudioTerminal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985280397, 37717, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
-}
-impl ::std::convert::From<ITBasicAudioTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: ITBasicAudioTerminal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITBasicAudioTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: &ITBasicAudioTerminal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITBasicAudioTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITBasicAudioTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITBasicAudioTerminal> for super::super::System::Ole::Automation::IDispatch {
@@ -4952,7 +4052,7 @@ pub struct ITBasicAudioTerminal_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITBasicCallControl(::windows::runtime::IUnknown);
 impl ITBasicCallControl {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -5039,26 +4139,6 @@ unsafe impl ::windows::runtime::Interface for ITBasicCallControl {
     type Vtable = ITBasicCallControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985280393, 37717, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
 }
-impl ::std::convert::From<ITBasicCallControl> for ::windows::runtime::IUnknown {
-    fn from(value: ITBasicCallControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITBasicCallControl> for ::windows::runtime::IUnknown {
-    fn from(value: &ITBasicCallControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITBasicCallControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITBasicCallControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITBasicCallControl> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITBasicCallControl) -> Self {
@@ -5124,7 +4204,7 @@ pub struct ITBasicCallControl_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITBasicCallControl2(::windows::runtime::IUnknown);
 impl ITBasicCallControl2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -5246,26 +4326,6 @@ unsafe impl ::windows::runtime::Interface for ITBasicCallControl2 {
     type Vtable = ITBasicCallControl2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(370821718, 7833, 19263, [164, 106, 22, 143, 56, 165, 238, 76]);
 }
-impl ::std::convert::From<ITBasicCallControl2> for ::windows::runtime::IUnknown {
-    fn from(value: ITBasicCallControl2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITBasicCallControl2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITBasicCallControl2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITBasicCallControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITBasicCallControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITBasicCallControl2> for ITBasicCallControl {
     fn from(value: ITBasicCallControl2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5355,7 +4415,7 @@ pub struct ITBasicCallControl2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallHub(::windows::runtime::IUnknown);
 impl ITCallHub {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -5387,26 +4447,6 @@ impl ITCallHub {
 unsafe impl ::windows::runtime::Interface for ITCallHub {
     type Vtable = ITCallHub_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2747356238, 23442, 4561, [143, 78, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITCallHub> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallHub) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallHub> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallHub) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallHub {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallHub {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCallHub> for super::super::System::Ole::Automation::IDispatch {
@@ -5455,7 +4495,7 @@ pub struct ITCallHub_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallHubEvent(::windows::runtime::IUnknown);
 impl ITCallHubEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -5477,26 +4517,6 @@ impl ITCallHubEvent {
 unsafe impl ::windows::runtime::Interface for ITCallHubEvent {
     type Vtable = ITCallHubEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2747356241, 23442, 4561, [143, 78, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITCallHubEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallHubEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallHubEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallHubEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallHubEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallHubEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCallHubEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -5542,7 +4562,7 @@ pub struct ITCallHubEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallInfo(::windows::runtime::IUnknown);
 impl ITCallInfo {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -5613,26 +4633,6 @@ unsafe impl ::windows::runtime::Interface for ITCallInfo {
     type Vtable = ITCallInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(890209745, 4647, 4563, [131, 212, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<ITCallInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCallInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITCallInfo) -> Self {
@@ -5691,7 +4691,7 @@ pub struct ITCallInfo_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallInfo2(::windows::runtime::IUnknown);
 impl ITCallInfo2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -5792,26 +4792,6 @@ unsafe impl ::windows::runtime::Interface for ITCallInfo2 {
     type Vtable = ITCallInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2497121446, 31408, 19882, [129, 202, 184, 248, 100, 63, 174, 193]);
 }
-impl ::std::convert::From<ITCallInfo2> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallInfo2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallInfo2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallInfo2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallInfo2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallInfo2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITCallInfo2> for ITCallInfo {
     fn from(value: ITCallInfo2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5892,7 +4872,7 @@ pub struct ITCallInfo2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallInfoChangeEvent(::windows::runtime::IUnknown);
 impl ITCallInfoChangeEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -5914,26 +4894,6 @@ impl ITCallInfoChangeEvent {
 unsafe impl ::windows::runtime::Interface for ITCallInfoChangeEvent {
     type Vtable = ITCallInfoChangeEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565222393, 58652, 4561, [160, 47, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITCallInfoChangeEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallInfoChangeEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallInfoChangeEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallInfoChangeEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallInfoChangeEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallInfoChangeEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCallInfoChangeEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -5979,7 +4939,7 @@ pub struct ITCallInfoChangeEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallMediaEvent(::windows::runtime::IUnknown);
 impl ITCallMediaEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6016,26 +4976,6 @@ impl ITCallMediaEvent {
 unsafe impl ::windows::runtime::Interface for ITCallMediaEvent {
     type Vtable = ITCallMediaEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4281776255, 60474, 4560, [142, 228, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITCallMediaEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallMediaEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallMediaEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallMediaEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallMediaEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallMediaEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCallMediaEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -6084,7 +5024,7 @@ pub struct ITCallMediaEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallNotificationEvent(::windows::runtime::IUnknown);
 impl ITCallNotificationEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6106,26 +5046,6 @@ impl ITCallNotificationEvent {
 unsafe impl ::windows::runtime::Interface for ITCallNotificationEvent {
     type Vtable = ITCallNotificationEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2304246239, 15830, 4561, [143, 48, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITCallNotificationEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallNotificationEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallNotificationEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallNotificationEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallNotificationEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallNotificationEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCallNotificationEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -6171,7 +5091,7 @@ pub struct ITCallNotificationEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallStateEvent(::windows::runtime::IUnknown);
 impl ITCallStateEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6198,26 +5118,6 @@ impl ITCallStateEvent {
 unsafe impl ::windows::runtime::Interface for ITCallStateEvent {
     type Vtable = ITCallStateEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1660186775, 38345, 4560, [131, 93, 0, 170, 0, 60, 202, 189]);
-}
-impl ::std::convert::From<ITCallStateEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallStateEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallStateEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallStateEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallStateEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallStateEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCallStateEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -6264,7 +5164,7 @@ pub struct ITCallStateEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCallingCard(::windows::runtime::IUnknown);
 impl ITCallingCard {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6310,26 +5210,6 @@ impl ITCallingCard {
 unsafe impl ::windows::runtime::Interface for ITCallingCard {
     type Vtable = ITCallingCard_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(206409472, 36315, 4561, [160, 158, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITCallingCard> for ::windows::runtime::IUnknown {
-    fn from(value: ITCallingCard) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCallingCard> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCallingCard) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCallingCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCallingCard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCallingCard> for super::super::System::Ole::Automation::IDispatch {
@@ -6383,7 +5263,7 @@ pub struct ITCallingCard_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCollection(::windows::runtime::IUnknown);
 impl ITCollection {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6406,26 +5286,6 @@ impl ITCollection {
 unsafe impl ::windows::runtime::Interface for ITCollection {
     type Vtable = ITCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1590013170, 39938, 4560, [131, 98, 0, 170, 0, 60, 202, 189]);
-}
-impl ::std::convert::From<ITCollection> for ::windows::runtime::IUnknown {
-    fn from(value: ITCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -6472,7 +5332,7 @@ pub struct ITCollection_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCollection2(::windows::runtime::IUnknown);
 impl ITCollection2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6525,26 +5385,6 @@ impl ITCollection2 {
 unsafe impl ::windows::runtime::Interface for ITCollection2 {
     type Vtable = ITCollection2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3873299877, 42707, 18687, [135, 55, 211, 47, 196, 217, 84, 119]);
-}
-impl ::std::convert::From<ITCollection2> for ::windows::runtime::IUnknown {
-    fn from(value: ITCollection2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCollection2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCollection2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCollection2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCollection2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ITCollection2> for ITCollection {
     fn from(value: ITCollection2) -> Self {
@@ -6614,7 +5454,7 @@ pub struct ITCollection2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITCustomTone(::windows::runtime::IUnknown);
 impl ITCustomTone {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6657,26 +5497,6 @@ impl ITCustomTone {
 unsafe impl ::windows::runtime::Interface for ITCustomTone {
     type Vtable = ITCustomTone_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(897242980, 46022, 19242, [143, 165, 7, 34, 130, 122, 146, 84]);
-}
-impl ::std::convert::From<ITCustomTone> for ::windows::runtime::IUnknown {
-    fn from(value: ITCustomTone) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITCustomTone> for ::windows::runtime::IUnknown {
-    fn from(value: &ITCustomTone) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITCustomTone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITCustomTone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITCustomTone> for super::super::System::Ole::Automation::IDispatch {
@@ -6727,7 +5547,7 @@ pub struct ITCustomTone_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDetectTone(::windows::runtime::IUnknown);
 impl ITDetectTone {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6761,26 +5581,6 @@ impl ITDetectTone {
 unsafe impl ::windows::runtime::Interface for ITDetectTone {
     type Vtable = ITDetectTone_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518645181, 12439, 18911, [161, 214, 144, 155, 119, 232, 156, 160]);
-}
-impl ::std::convert::From<ITDetectTone> for ::windows::runtime::IUnknown {
-    fn from(value: ITDetectTone) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDetectTone> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDetectTone) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDetectTone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDetectTone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDetectTone> for super::super::System::Ole::Automation::IDispatch {
@@ -6829,7 +5629,7 @@ pub struct ITDetectTone_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDigitDetectionEvent(::windows::runtime::IUnknown);
 impl ITDigitDetectionEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6861,26 +5661,6 @@ impl ITDigitDetectionEvent {
 unsafe impl ::windows::runtime::Interface for ITDigitDetectionEvent {
     type Vtable = ITDigitDetectionEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2161360812, 22489, 4562, [160, 74, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITDigitDetectionEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITDigitDetectionEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDigitDetectionEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDigitDetectionEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDigitDetectionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDigitDetectionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDigitDetectionEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -6928,7 +5708,7 @@ pub struct ITDigitDetectionEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDigitGenerationEvent(::windows::runtime::IUnknown);
 impl ITDigitGenerationEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -6955,26 +5735,6 @@ impl ITDigitGenerationEvent {
 unsafe impl ::windows::runtime::Interface for ITDigitGenerationEvent {
     type Vtable = ITDigitGenerationEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2161360813, 22489, 4562, [160, 74, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITDigitGenerationEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITDigitGenerationEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDigitGenerationEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDigitGenerationEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDigitGenerationEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDigitGenerationEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDigitGenerationEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -7021,7 +5781,7 @@ pub struct ITDigitGenerationEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDigitsGatheredEvent(::windows::runtime::IUnknown);
 impl ITDigitsGatheredEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -7054,26 +5814,6 @@ impl ITDigitsGatheredEvent {
 unsafe impl ::windows::runtime::Interface for ITDigitsGatheredEvent {
     type Vtable = ITDigitsGatheredEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3845047489, 52131, 17434, [158, 106, 147, 203, 144, 158, 151, 36]);
-}
-impl ::std::convert::From<ITDigitsGatheredEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITDigitsGatheredEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDigitsGatheredEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDigitsGatheredEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDigitsGatheredEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDigitsGatheredEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDigitsGatheredEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -7122,7 +5862,7 @@ pub struct ITDigitsGatheredEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDirectory(::windows::runtime::IUnknown);
 impl ITDirectory {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -7196,26 +5936,6 @@ unsafe impl ::windows::runtime::Interface for ITDirectory {
     type Vtable = ITDirectory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878845292, 27903, 4561, [175, 247, 0, 192, 79, 195, 31, 238]);
 }
-impl ::std::convert::From<ITDirectory> for ::windows::runtime::IUnknown {
-    fn from(value: ITDirectory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDirectory> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDirectory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDirectory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDirectory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDirectory> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITDirectory) -> Self {
@@ -7275,7 +5995,7 @@ pub struct ITDirectory_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDirectoryObject(::windows::runtime::IUnknown);
 impl ITDirectoryObject {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -7320,26 +6040,6 @@ impl ITDirectoryObject {
 unsafe impl ::windows::runtime::Interface for ITDirectoryObject {
     type Vtable = ITDirectoryObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878845294, 27903, 4561, [175, 247, 0, 192, 79, 195, 31, 238]);
-}
-impl ::std::convert::From<ITDirectoryObject> for ::windows::runtime::IUnknown {
-    fn from(value: ITDirectoryObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDirectoryObject> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDirectoryObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDirectoryObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDirectoryObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDirectoryObject> for super::super::System::Ole::Automation::IDispatch {
@@ -7394,7 +6094,7 @@ pub struct ITDirectoryObject_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDirectoryObjectConference(::windows::runtime::IUnknown);
 impl ITDirectoryObjectConference {
     #[cfg(feature = "Win32_Foundation")]
@@ -7477,26 +6177,6 @@ unsafe impl ::windows::runtime::Interface for ITDirectoryObjectConference {
     type Vtable = ITDirectoryObjectConference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4043480669, 52059, 4560, [141, 89, 0, 192, 79, 217, 26, 192]);
 }
-impl ::std::convert::From<ITDirectoryObjectConference> for ::windows::runtime::IUnknown {
-    fn from(value: ITDirectoryObjectConference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDirectoryObjectConference> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDirectoryObjectConference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDirectoryObjectConference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDirectoryObjectConference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDirectoryObjectConference> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITDirectoryObjectConference) -> Self {
@@ -7560,7 +6240,7 @@ pub struct ITDirectoryObjectConference_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDirectoryObjectUser(::windows::runtime::IUnknown);
 impl ITDirectoryObjectUser {
     #[cfg(feature = "Win32_Foundation")]
@@ -7578,26 +6258,6 @@ impl ITDirectoryObjectUser {
 unsafe impl ::windows::runtime::Interface for ITDirectoryObjectUser {
     type Vtable = ITDirectoryObjectUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878845295, 27903, 4561, [175, 247, 0, 192, 79, 195, 31, 238]);
-}
-impl ::std::convert::From<ITDirectoryObjectUser> for ::windows::runtime::IUnknown {
-    fn from(value: ITDirectoryObjectUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDirectoryObjectUser> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDirectoryObjectUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDirectoryObjectUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDirectoryObjectUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDirectoryObjectUser> for super::super::System::Ole::Automation::IDispatch {
@@ -7644,7 +6304,7 @@ pub struct ITDirectoryObjectUser_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITDispatchMapper(::windows::runtime::IUnknown);
 impl ITDispatchMapper {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
@@ -7657,26 +6317,6 @@ impl ITDispatchMapper {
 unsafe impl ::windows::runtime::Interface for ITDispatchMapper {
     type Vtable = ITDispatchMapper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3911340693, 51033, 4561, [160, 43, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITDispatchMapper> for ::windows::runtime::IUnknown {
-    fn from(value: ITDispatchMapper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITDispatchMapper> for ::windows::runtime::IUnknown {
-    fn from(value: &ITDispatchMapper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITDispatchMapper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITDispatchMapper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITDispatchMapper> for super::super::System::Ole::Automation::IDispatch {
@@ -7721,7 +6361,7 @@ pub struct ITDispatchMapper_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITFileTerminalEvent(::windows::runtime::IUnknown);
 impl ITFileTerminalEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -7758,26 +6398,6 @@ impl ITFileTerminalEvent {
 unsafe impl ::windows::runtime::Interface for ITFileTerminalEvent {
     type Vtable = ITFileTerminalEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3836214188, 35863, 17447, [159, 85, 159, 88, 154, 200, 175, 0]);
-}
-impl ::std::convert::From<ITFileTerminalEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITFileTerminalEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITFileTerminalEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITFileTerminalEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITFileTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITFileTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITFileTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -7826,7 +6446,7 @@ pub struct ITFileTerminalEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITFileTrack(::windows::runtime::IUnknown);
 impl ITFileTrack {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
@@ -7863,26 +6483,6 @@ impl ITFileTrack {
 unsafe impl ::windows::runtime::Interface for ITFileTrack {
     type Vtable = ITFileTrack_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(835350185, 49290, 19434, [136, 17, 142, 156, 27, 163, 234, 58]);
-}
-impl ::std::convert::From<ITFileTrack> for ::windows::runtime::IUnknown {
-    fn from(value: ITFileTrack) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITFileTrack> for ::windows::runtime::IUnknown {
-    fn from(value: &ITFileTrack) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITFileTrack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITFileTrack {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITFileTrack> for super::super::System::Ole::Automation::IDispatch {
@@ -7933,7 +6533,7 @@ pub struct ITFileTrack_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITForwardInformation(::windows::runtime::IUnknown);
 impl ITForwardInformation {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -7975,26 +6575,6 @@ impl ITForwardInformation {
 unsafe impl ::windows::runtime::Interface for ITForwardInformation {
     type Vtable = ITForwardInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1151296926, 34979, 4561, [187, 93, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITForwardInformation> for ::windows::runtime::IUnknown {
-    fn from(value: ITForwardInformation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITForwardInformation> for ::windows::runtime::IUnknown {
-    fn from(value: &ITForwardInformation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITForwardInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITForwardInformation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITForwardInformation> for super::super::System::Ole::Automation::IDispatch {
@@ -8048,7 +6628,7 @@ pub struct ITForwardInformation_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITForwardInformation2(::windows::runtime::IUnknown);
 impl ITForwardInformation2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -8132,26 +6712,6 @@ unsafe impl ::windows::runtime::Interface for ITForwardInformation2 {
     type Vtable = ITForwardInformation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378465005, 45664, 17282, [142, 26, 93, 243, 168, 164, 204, 192]);
 }
-impl ::std::convert::From<ITForwardInformation2> for ::windows::runtime::IUnknown {
-    fn from(value: ITForwardInformation2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITForwardInformation2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITForwardInformation2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITForwardInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITForwardInformation2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITForwardInformation2> for ITForwardInformation {
     fn from(value: ITForwardInformation2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8230,7 +6790,7 @@ pub struct ITForwardInformation2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITILSConfig(::windows::runtime::IUnknown);
 impl ITILSConfig {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -8246,26 +6806,6 @@ impl ITILSConfig {
 unsafe impl ::windows::runtime::Interface for ITILSConfig {
     type Vtable = ITILSConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878845298, 27903, 4561, [175, 247, 0, 192, 79, 195, 31, 238]);
-}
-impl ::std::convert::From<ITILSConfig> for ::windows::runtime::IUnknown {
-    fn from(value: ITILSConfig) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITILSConfig> for ::windows::runtime::IUnknown {
-    fn from(value: &ITILSConfig) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITILSConfig {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITILSConfig {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITILSConfig> for super::super::System::Ole::Automation::IDispatch {
@@ -8310,7 +6850,7 @@ pub struct ITILSConfig_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITLegacyAddressMediaControl(::windows::runtime::IUnknown);
 impl ITLegacyAddressMediaControl {
     #[cfg(feature = "Win32_Foundation")]
@@ -8333,26 +6873,6 @@ unsafe impl ::windows::runtime::Interface for ITLegacyAddressMediaControl {
     type Vtable = ITLegacyAddressMediaControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2873701952, 19467, 4562, [160, 70, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<ITLegacyAddressMediaControl> for ::windows::runtime::IUnknown {
-    fn from(value: ITLegacyAddressMediaControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITLegacyAddressMediaControl> for ::windows::runtime::IUnknown {
-    fn from(value: &ITLegacyAddressMediaControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITLegacyAddressMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITLegacyAddressMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITLegacyAddressMediaControl_abi(
@@ -8368,7 +6888,7 @@ pub struct ITLegacyAddressMediaControl_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITLegacyAddressMediaControl2(::windows::runtime::IUnknown);
 impl ITLegacyAddressMediaControl2 {
     #[cfg(feature = "Win32_Foundation")]
@@ -8400,26 +6920,6 @@ impl ITLegacyAddressMediaControl2 {
 unsafe impl ::windows::runtime::Interface for ITLegacyAddressMediaControl2 {
     type Vtable = ITLegacyAddressMediaControl2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2968408363, 42289, 16542, [157, 217, 64, 153, 254, 134, 199, 56]);
-}
-impl ::std::convert::From<ITLegacyAddressMediaControl2> for ::windows::runtime::IUnknown {
-    fn from(value: ITLegacyAddressMediaControl2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITLegacyAddressMediaControl2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITLegacyAddressMediaControl2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITLegacyAddressMediaControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITLegacyAddressMediaControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ITLegacyAddressMediaControl2> for ITLegacyAddressMediaControl {
     fn from(value: ITLegacyAddressMediaControl2) -> Self {
@@ -8460,7 +6960,7 @@ pub struct ITLegacyAddressMediaControl2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITLegacyCallMediaControl(::windows::runtime::IUnknown);
 impl ITLegacyCallMediaControl {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -8489,26 +6989,6 @@ impl ITLegacyCallMediaControl {
 unsafe impl ::windows::runtime::Interface for ITLegacyCallMediaControl {
     type Vtable = ITLegacyCallMediaControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592706095, 52259, 17462, [184, 165, 71, 198, 37, 200, 4, 93]);
-}
-impl ::std::convert::From<ITLegacyCallMediaControl> for ::windows::runtime::IUnknown {
-    fn from(value: ITLegacyCallMediaControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITLegacyCallMediaControl> for ::windows::runtime::IUnknown {
-    fn from(value: &ITLegacyCallMediaControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITLegacyCallMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITLegacyCallMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITLegacyCallMediaControl> for super::super::System::Ole::Automation::IDispatch {
@@ -8558,7 +7038,7 @@ pub struct ITLegacyCallMediaControl_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITLegacyCallMediaControl2(::windows::runtime::IUnknown);
 impl ITLegacyCallMediaControl2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -8655,26 +7135,6 @@ unsafe impl ::windows::runtime::Interface for ITLegacyCallMediaControl2 {
     type Vtable = ITLegacyCallMediaControl2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1472869165, 31682, 17649, [166, 12, 147, 111, 232, 215, 206, 115]);
 }
-impl ::std::convert::From<ITLegacyCallMediaControl2> for ::windows::runtime::IUnknown {
-    fn from(value: ITLegacyCallMediaControl2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITLegacyCallMediaControl2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITLegacyCallMediaControl2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITLegacyCallMediaControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITLegacyCallMediaControl2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITLegacyCallMediaControl2> for ITLegacyCallMediaControl {
     fn from(value: ITLegacyCallMediaControl2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8756,7 +7216,7 @@ pub struct ITLegacyCallMediaControl2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITLegacyWaveSupport(::windows::runtime::IUnknown);
 impl ITLegacyWaveSupport {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -8768,26 +7228,6 @@ impl ITLegacyWaveSupport {
 unsafe impl ::windows::runtime::Interface for ITLegacyWaveSupport {
     type Vtable = ITLegacyWaveSupport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544744426, 57938, 4562, [183, 126, 0, 128, 199, 19, 83, 129]);
-}
-impl ::std::convert::From<ITLegacyWaveSupport> for ::windows::runtime::IUnknown {
-    fn from(value: ITLegacyWaveSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITLegacyWaveSupport> for ::windows::runtime::IUnknown {
-    fn from(value: &ITLegacyWaveSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITLegacyWaveSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITLegacyWaveSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITLegacyWaveSupport> for super::super::System::Ole::Automation::IDispatch {
@@ -8831,7 +7271,7 @@ pub struct ITLegacyWaveSupport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITLocationInfo(::windows::runtime::IUnknown);
 impl ITLocationInfo {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -8900,26 +7340,6 @@ unsafe impl ::windows::runtime::Interface for ITLocationInfo {
     type Vtable = ITLocationInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(206409471, 36315, 4561, [160, 158, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<ITLocationInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ITLocationInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITLocationInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ITLocationInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITLocationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITLocationInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITLocationInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITLocationInfo) -> Self {
@@ -8978,7 +7398,7 @@ pub struct ITLocationInfo_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITMSPAddress(::windows::runtime::IUnknown);
 impl ITMSPAddress {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -9011,26 +7431,6 @@ unsafe impl ::windows::runtime::Interface for ITMSPAddress {
     type Vtable = ITMSPAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996898816, 14440, 4562, [160, 69, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<ITMSPAddress> for ::windows::runtime::IUnknown {
-    fn from(value: ITMSPAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITMSPAddress> for ::windows::runtime::IUnknown {
-    fn from(value: &ITMSPAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITMSPAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITMSPAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITMSPAddress_abi(
@@ -9046,7 +7446,7 @@ pub struct ITMSPAddress_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITMediaControl(::windows::runtime::IUnknown);
 impl ITMediaControl {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -9070,26 +7470,6 @@ impl ITMediaControl {
 unsafe impl ::windows::runtime::Interface for ITMediaControl {
     type Vtable = ITMediaControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3292913128, 20889, 19399, [152, 7, 95, 251, 146, 228, 46, 9]);
-}
-impl ::std::convert::From<ITMediaControl> for ::windows::runtime::IUnknown {
-    fn from(value: ITMediaControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITMediaControl> for ::windows::runtime::IUnknown {
-    fn from(value: &ITMediaControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITMediaControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITMediaControl> for super::super::System::Ole::Automation::IDispatch {
@@ -9136,7 +7516,7 @@ pub struct ITMediaControl_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITMediaPlayback(::windows::runtime::IUnknown);
 impl ITMediaPlayback {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -9154,26 +7534,6 @@ impl ITMediaPlayback {
 unsafe impl ::windows::runtime::Interface for ITMediaPlayback {
     type Vtable = ITMediaPlayback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1652460262, 44620, 19049, [187, 99, 42, 214, 37, 64, 75, 119]);
-}
-impl ::std::convert::From<ITMediaPlayback> for ::windows::runtime::IUnknown {
-    fn from(value: ITMediaPlayback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITMediaPlayback> for ::windows::runtime::IUnknown {
-    fn from(value: &ITMediaPlayback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITMediaPlayback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITMediaPlayback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITMediaPlayback> for super::super::System::Ole::Automation::IDispatch {
@@ -9220,7 +7580,7 @@ pub struct ITMediaPlayback_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITMediaRecord(::windows::runtime::IUnknown);
 impl ITMediaRecord {
     #[cfg(feature = "Win32_Foundation")]
@@ -9238,26 +7598,6 @@ impl ITMediaRecord {
 unsafe impl ::windows::runtime::Interface for ITMediaRecord {
     type Vtable = ITMediaRecord_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4124919186, 21622, 19649, [157, 77, 250, 211, 238, 254, 125, 178]);
-}
-impl ::std::convert::From<ITMediaRecord> for ::windows::runtime::IUnknown {
-    fn from(value: ITMediaRecord) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITMediaRecord> for ::windows::runtime::IUnknown {
-    fn from(value: &ITMediaRecord) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITMediaRecord {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITMediaRecord {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITMediaRecord> for super::super::System::Ole::Automation::IDispatch {
@@ -9304,7 +7644,7 @@ pub struct ITMediaRecord_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITMediaSupport(::windows::runtime::IUnknown);
 impl ITMediaSupport {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -9321,26 +7661,6 @@ impl ITMediaSupport {
 unsafe impl ::windows::runtime::Interface for ITMediaSupport {
     type Vtable = ITMediaSupport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985280388, 37717, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
-}
-impl ::std::convert::From<ITMediaSupport> for ::windows::runtime::IUnknown {
-    fn from(value: ITMediaSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITMediaSupport> for ::windows::runtime::IUnknown {
-    fn from(value: &ITMediaSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITMediaSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITMediaSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITMediaSupport> for super::super::System::Ole::Automation::IDispatch {
@@ -9385,7 +7705,7 @@ pub struct ITMediaSupport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITMultiTrackTerminal(::windows::runtime::IUnknown);
 impl ITMultiTrackTerminal {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -9422,26 +7742,6 @@ impl ITMultiTrackTerminal {
 unsafe impl ::windows::runtime::Interface for ITMultiTrackTerminal {
     type Vtable = ITMultiTrackTerminal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4261675153, 44520, 16498, [149, 201, 191, 125, 232, 197, 75, 68]);
-}
-impl ::std::convert::From<ITMultiTrackTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: ITMultiTrackTerminal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITMultiTrackTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: &ITMultiTrackTerminal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITMultiTrackTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITMultiTrackTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITMultiTrackTerminal> for super::super::System::Ole::Automation::IDispatch {
@@ -9491,7 +7791,7 @@ pub struct ITMultiTrackTerminal_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITPhone(::windows::runtime::IUnknown);
 impl ITPhone {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -9661,26 +7961,6 @@ unsafe impl ::windows::runtime::Interface for ITPhone {
     type Vtable = ITPhone_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(164924852, 4300, 17288, [157, 231, 168, 70, 86, 24, 151, 90]);
 }
-impl ::std::convert::From<ITPhone> for ::windows::runtime::IUnknown {
-    fn from(value: ITPhone) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITPhone> for ::windows::runtime::IUnknown {
-    fn from(value: &ITPhone) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITPhone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITPhone {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITPhone> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITPhone) -> Self {
@@ -9765,7 +8045,7 @@ pub struct ITPhone_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITPhoneDeviceSpecificEvent(::windows::runtime::IUnknown);
 impl ITPhoneDeviceSpecificEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -9792,26 +8072,6 @@ impl ITPhoneDeviceSpecificEvent {
 unsafe impl ::windows::runtime::Interface for ITPhoneDeviceSpecificEvent {
     type Vtable = ITPhoneDeviceSpecificEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677701798, 34603, 19667, [165, 1, 50, 110, 143, 180, 10, 247]);
-}
-impl ::std::convert::From<ITPhoneDeviceSpecificEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITPhoneDeviceSpecificEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITPhoneDeviceSpecificEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITPhoneDeviceSpecificEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITPhoneDeviceSpecificEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITPhoneDeviceSpecificEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITPhoneDeviceSpecificEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -9858,7 +8118,7 @@ pub struct ITPhoneDeviceSpecificEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITPhoneEvent(::windows::runtime::IUnknown);
 impl ITPhoneEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -9912,26 +8172,6 @@ unsafe impl ::windows::runtime::Interface for ITPhoneEvent {
     type Vtable = ITPhoneEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2408852952, 25837, 19119, [167, 125, 178, 61, 176, 131, 126, 173]);
 }
-impl ::std::convert::From<ITPhoneEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITPhoneEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITPhoneEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITPhoneEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITPhoneEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITPhoneEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITPhoneEvent> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITPhoneEvent) -> Self {
@@ -9983,7 +8223,7 @@ pub struct ITPhoneEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITPluggableTerminalClassInfo(::windows::runtime::IUnknown);
 impl ITPluggableTerminalClassInfo {
     #[cfg(feature = "Win32_Foundation")]
@@ -10030,26 +8270,6 @@ impl ITPluggableTerminalClassInfo {
 unsafe impl ::windows::runtime::Interface for ITPluggableTerminalClassInfo {
     type Vtable = ITPluggableTerminalClassInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1098219338, 53001, 19252, [188, 150, 10, 121, 210, 57, 0, 118]);
-}
-impl ::std::convert::From<ITPluggableTerminalClassInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ITPluggableTerminalClassInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITPluggableTerminalClassInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ITPluggableTerminalClassInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITPluggableTerminalClassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITPluggableTerminalClassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITPluggableTerminalClassInfo> for super::super::System::Ole::Automation::IDispatch {
@@ -10104,7 +8324,7 @@ pub struct ITPluggableTerminalClassInfo_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITPluggableTerminalEventSink(::windows::runtime::IUnknown);
 impl ITPluggableTerminalEventSink {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10117,26 +8337,6 @@ unsafe impl ::windows::runtime::Interface for ITPluggableTerminalEventSink {
     type Vtable = ITPluggableTerminalEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1846052798, 47642, 18734, [189, 16, 64, 32, 236, 94, 51, 224]);
 }
-impl ::std::convert::From<ITPluggableTerminalEventSink> for ::windows::runtime::IUnknown {
-    fn from(value: ITPluggableTerminalEventSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITPluggableTerminalEventSink> for ::windows::runtime::IUnknown {
-    fn from(value: &ITPluggableTerminalEventSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITPluggableTerminalEventSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITPluggableTerminalEventSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPluggableTerminalEventSink_abi(
@@ -10148,7 +8348,7 @@ pub struct ITPluggableTerminalEventSink_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITPluggableTerminalEventSinkRegistration(::windows::runtime::IUnknown);
 impl ITPluggableTerminalEventSinkRegistration {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -10164,26 +8364,6 @@ unsafe impl ::windows::runtime::Interface for ITPluggableTerminalEventSinkRegist
     type Vtable = ITPluggableTerminalEventSinkRegistration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4145108745, 41494, 18775, [167, 89, 6, 10, 179, 42, 144, 209]);
 }
-impl ::std::convert::From<ITPluggableTerminalEventSinkRegistration> for ::windows::runtime::IUnknown {
-    fn from(value: ITPluggableTerminalEventSinkRegistration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITPluggableTerminalEventSinkRegistration> for ::windows::runtime::IUnknown {
-    fn from(value: &ITPluggableTerminalEventSinkRegistration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITPluggableTerminalEventSinkRegistration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITPluggableTerminalEventSinkRegistration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPluggableTerminalEventSinkRegistration_abi(
@@ -10195,7 +8375,7 @@ pub struct ITPluggableTerminalEventSinkRegistration_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITPluggableTerminalSuperclassInfo(::windows::runtime::IUnknown);
 impl ITPluggableTerminalSuperclassInfo {
     #[cfg(feature = "Win32_Foundation")]
@@ -10214,26 +8394,6 @@ impl ITPluggableTerminalSuperclassInfo {
 unsafe impl ::windows::runtime::Interface for ITPluggableTerminalSuperclassInfo {
     type Vtable = ITPluggableTerminalSuperclassInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1834279980, 17957, 17241, [166, 247, 99, 25, 153, 16, 126, 5]);
-}
-impl ::std::convert::From<ITPluggableTerminalSuperclassInfo> for ::windows::runtime::IUnknown {
-    fn from(value: ITPluggableTerminalSuperclassInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITPluggableTerminalSuperclassInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &ITPluggableTerminalSuperclassInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITPluggableTerminalSuperclassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITPluggableTerminalSuperclassInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITPluggableTerminalSuperclassInfo> for super::super::System::Ole::Automation::IDispatch {
@@ -10280,7 +8440,7 @@ pub struct ITPluggableTerminalSuperclassInfo_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITPrivateEvent(::windows::runtime::IUnknown);
 impl ITPrivateEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -10313,26 +8473,6 @@ impl ITPrivateEvent {
 unsafe impl ::windows::runtime::Interface for ITPrivateEvent {
     type Vtable = ITPrivateEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(237411536, 4308, 16673, [156, 34, 156, 133, 214, 37, 101, 13]);
-}
-impl ::std::convert::From<ITPrivateEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITPrivateEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITPrivateEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITPrivateEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITPrivateEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITPrivateEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITPrivateEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -10381,7 +8521,7 @@ pub struct ITPrivateEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITQOSEvent(::windows::runtime::IUnknown);
 impl ITQOSEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -10403,26 +8543,6 @@ impl ITQOSEvent {
 unsafe impl ::windows::runtime::Interface for ITQOSEvent {
     type Vtable = ITQOSEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483579772, 44407, 4561, [187, 104, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITQOSEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITQOSEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITQOSEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITQOSEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITQOSEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITQOSEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITQOSEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -10468,7 +8588,7 @@ pub struct ITQOSEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITQueue(::windows::runtime::IUnknown);
 impl ITQueue {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -10536,26 +8656,6 @@ unsafe impl ::windows::runtime::Interface for ITQueue {
     type Vtable = ITQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477129, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
 }
-impl ::std::convert::From<ITQueue> for ::windows::runtime::IUnknown {
-    fn from(value: ITQueue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITQueue> for ::windows::runtime::IUnknown {
-    fn from(value: &ITQueue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITQueue> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITQueue) -> Self {
@@ -10610,7 +8710,7 @@ pub struct ITQueue_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITQueueEvent(::windows::runtime::IUnknown);
 impl ITQueueEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -10627,26 +8727,6 @@ impl ITQueueEvent {
 unsafe impl ::windows::runtime::Interface for ITQueueEvent {
     type Vtable = ITQueueEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(696201267, 48401, 4561, [160, 167, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITQueueEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITQueueEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITQueueEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITQueueEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITQueueEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITQueueEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITQueueEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -10691,7 +8771,7 @@ pub struct ITQueueEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITRendezvous(::windows::runtime::IUnknown);
 impl ITRendezvous {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -10721,26 +8801,6 @@ impl ITRendezvous {
 unsafe impl ::windows::runtime::Interface for ITRendezvous {
     type Vtable = ITRendezvous_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(878845291, 27903, 4561, [175, 247, 0, 192, 79, 195, 31, 238]);
-}
-impl ::std::convert::From<ITRendezvous> for ::windows::runtime::IUnknown {
-    fn from(value: ITRendezvous) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITRendezvous> for ::windows::runtime::IUnknown {
-    fn from(value: &ITRendezvous) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITRendezvous {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITRendezvous {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITRendezvous> for super::super::System::Ole::Automation::IDispatch {
@@ -10790,7 +8850,7 @@ pub struct ITRendezvous_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITRequest(::windows::runtime::IUnknown);
 impl ITRequest {
     #[cfg(feature = "Win32_Foundation")]
@@ -10802,26 +8862,6 @@ impl ITRequest {
 unsafe impl ::windows::runtime::Interface for ITRequest {
     type Vtable = ITRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2890465247, 63684, 4561, [160, 48, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITRequest> for ::windows::runtime::IUnknown {
-    fn from(value: ITRequest) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITRequest> for ::windows::runtime::IUnknown {
-    fn from(value: &ITRequest) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITRequest {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITRequest> for super::super::System::Ole::Automation::IDispatch {
@@ -10866,7 +8906,7 @@ pub struct ITRequest_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITRequestEvent(::windows::runtime::IUnknown);
 impl ITRequestEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -10907,26 +8947,6 @@ impl ITRequestEvent {
 unsafe impl ::windows::runtime::Interface for ITRequestEvent {
     type Vtable = ITRequestEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2890465246, 63684, 4561, [160, 48, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITRequestEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITRequestEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITRequestEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITRequestEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITRequestEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITRequestEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITRequestEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -10979,7 +8999,7 @@ pub struct ITRequestEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITScriptableAudioFormat(::windows::runtime::IUnknown);
 impl ITScriptableAudioFormat {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11041,26 +9061,6 @@ unsafe impl ::windows::runtime::Interface for ITScriptableAudioFormat {
     type Vtable = ITScriptableAudioFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3094763709, 15449, 20324, [190, 116, 174, 222, 62, 134, 168, 30]);
 }
-impl ::std::convert::From<ITScriptableAudioFormat> for ::windows::runtime::IUnknown {
-    fn from(value: ITScriptableAudioFormat) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITScriptableAudioFormat> for ::windows::runtime::IUnknown {
-    fn from(value: &ITScriptableAudioFormat) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITScriptableAudioFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITScriptableAudioFormat {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITScriptableAudioFormat> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITScriptableAudioFormat) -> Self {
@@ -11114,7 +9114,7 @@ pub struct ITScriptableAudioFormat_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITStaticAudioTerminal(::windows::runtime::IUnknown);
 impl ITStaticAudioTerminal {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11126,26 +9126,6 @@ impl ITStaticAudioTerminal {
 unsafe impl ::windows::runtime::Interface for ITStaticAudioTerminal {
     type Vtable = ITStaticAudioTerminal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2825615473, 53580, 18662, [146, 46, 168, 209, 95, 152, 72, 0]);
-}
-impl ::std::convert::From<ITStaticAudioTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: ITStaticAudioTerminal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITStaticAudioTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: &ITStaticAudioTerminal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITStaticAudioTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITStaticAudioTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITStaticAudioTerminal> for super::super::System::Ole::Automation::IDispatch {
@@ -11189,7 +9169,7 @@ pub struct ITStaticAudioTerminal_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITStream(::windows::runtime::IUnknown);
 impl ITStream {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11244,26 +9224,6 @@ unsafe impl ::windows::runtime::Interface for ITStream {
     type Vtable = ITStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996898821, 14440, 4562, [160, 69, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<ITStream> for ::windows::runtime::IUnknown {
-    fn from(value: ITStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITStream> for ::windows::runtime::IUnknown {
-    fn from(value: &ITStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITStream> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITStream) -> Self {
@@ -11317,7 +9277,7 @@ pub struct ITStream_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITStreamControl(::windows::runtime::IUnknown);
 impl ITStreamControl {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11344,26 +9304,6 @@ impl ITStreamControl {
 unsafe impl ::windows::runtime::Interface for ITStreamControl {
     type Vtable = ITStreamControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996898820, 14440, 4562, [160, 69, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITStreamControl> for ::windows::runtime::IUnknown {
-    fn from(value: ITStreamControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITStreamControl> for ::windows::runtime::IUnknown {
-    fn from(value: &ITStreamControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITStreamControl> for super::super::System::Ole::Automation::IDispatch {
@@ -11411,7 +9351,7 @@ pub struct ITStreamControl_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITSubStream(::windows::runtime::IUnknown);
 impl ITSubStream {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11454,26 +9394,6 @@ impl ITSubStream {
 unsafe impl ::windows::runtime::Interface for ITSubStream {
     type Vtable = ITSubStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996898824, 14440, 4562, [160, 69, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITSubStream> for ::windows::runtime::IUnknown {
-    fn from(value: ITSubStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITSubStream> for ::windows::runtime::IUnknown {
-    fn from(value: &ITSubStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITSubStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITSubStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITSubStream> for super::super::System::Ole::Automation::IDispatch {
@@ -11525,7 +9445,7 @@ pub struct ITSubStream_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITSubStreamControl(::windows::runtime::IUnknown);
 impl ITSubStreamControl {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11552,26 +9472,6 @@ impl ITSubStreamControl {
 unsafe impl ::windows::runtime::Interface for ITSubStreamControl {
     type Vtable = ITSubStreamControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3996898823, 14440, 4562, [160, 69, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITSubStreamControl> for ::windows::runtime::IUnknown {
-    fn from(value: ITSubStreamControl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITSubStreamControl> for ::windows::runtime::IUnknown {
-    fn from(value: &ITSubStreamControl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITSubStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITSubStreamControl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITSubStreamControl> for super::super::System::Ole::Automation::IDispatch {
@@ -11619,7 +9519,7 @@ pub struct ITSubStreamControl_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTAPI(::windows::runtime::IUnknown);
 impl ITTAPI {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11706,26 +9606,6 @@ unsafe impl ::windows::runtime::Interface for ITTAPI {
     type Vtable = ITTAPI_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985280386, 37717, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
 }
-impl ::std::convert::From<ITTAPI> for ::windows::runtime::IUnknown {
-    fn from(value: ITTAPI) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTAPI> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTAPI) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTAPI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTAPI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITTAPI> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ITTAPI) -> Self {
@@ -11790,7 +9670,7 @@ pub struct ITTAPI_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTAPI2(::windows::runtime::IUnknown);
 impl ITTAPI2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -11914,26 +9794,6 @@ unsafe impl ::windows::runtime::Interface for ITTAPI2 {
     type Vtable = ITTAPI2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1425792140, 55567, 19885, [150, 149, 179, 115, 9, 127, 9, 75]);
 }
-impl ::std::convert::From<ITTAPI2> for ::windows::runtime::IUnknown {
-    fn from(value: ITTAPI2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTAPI2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTAPI2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTAPI2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTAPI2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITTAPI2> for ITTAPI {
     fn from(value: ITTAPI2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12022,7 +9882,7 @@ pub struct ITTAPI2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTAPICallCenter(::windows::runtime::IUnknown);
 impl ITTAPICallCenter {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -12040,26 +9900,6 @@ impl ITTAPICallCenter {
 unsafe impl ::windows::runtime::Interface for ITTAPICallCenter {
     type Vtable = ITTAPICallCenter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1526477140, 19404, 4561, [191, 128, 0, 128, 95, 193, 71, 211]);
-}
-impl ::std::convert::From<ITTAPICallCenter> for ::windows::runtime::IUnknown {
-    fn from(value: ITTAPICallCenter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTAPICallCenter> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTAPICallCenter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTAPICallCenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTAPICallCenter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITTAPICallCenter> for super::super::System::Ole::Automation::IDispatch {
@@ -12105,32 +9945,12 @@ pub struct ITTAPICallCenter_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTAPIDispatchEventNotification(::windows::runtime::IUnknown);
 impl ITTAPIDispatchEventNotification {}
 unsafe impl ::windows::runtime::Interface for ITTAPIDispatchEventNotification {
     type Vtable = ITTAPIDispatchEventNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2670998107, 32354, 4562, [148, 87, 0, 192, 79, 142, 200, 136]);
-}
-impl ::std::convert::From<ITTAPIDispatchEventNotification> for ::windows::runtime::IUnknown {
-    fn from(value: ITTAPIDispatchEventNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTAPIDispatchEventNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTAPIDispatchEventNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTAPIDispatchEventNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTAPIDispatchEventNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITTAPIDispatchEventNotification> for super::super::System::Ole::Automation::IDispatch {
@@ -12173,7 +9993,7 @@ pub struct ITTAPIDispatchEventNotification_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTAPIEventNotification(::windows::runtime::IUnknown);
 impl ITTAPIEventNotification {
     #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12186,26 +10006,6 @@ unsafe impl ::windows::runtime::Interface for ITTAPIEventNotification {
     type Vtable = ITTAPIEventNotification_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3990590502, 15249, 4561, [143, 48, 0, 192, 79, 182, 128, 159]);
 }
-impl ::std::convert::From<ITTAPIEventNotification> for ::windows::runtime::IUnknown {
-    fn from(value: ITTAPIEventNotification) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTAPIEventNotification> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTAPIEventNotification) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTAPIEventNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTAPIEventNotification {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITTAPIEventNotification_abi(
@@ -12217,7 +10017,7 @@ pub struct ITTAPIEventNotification_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTAPIObjectEvent(::windows::runtime::IUnknown);
 impl ITTAPIObjectEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -12244,26 +10044,6 @@ impl ITTAPIObjectEvent {
 unsafe impl ::windows::runtime::Interface for ITTAPIObjectEvent {
     type Vtable = ITTAPIObjectEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4102376776, 37754, 4561, [187, 88, 0, 192, 79, 182, 128, 159]);
-}
-impl ::std::convert::From<ITTAPIObjectEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITTAPIObjectEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTAPIObjectEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTAPIObjectEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTAPIObjectEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTAPIObjectEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITTAPIObjectEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -12310,7 +10090,7 @@ pub struct ITTAPIObjectEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTAPIObjectEvent2(::windows::runtime::IUnknown);
 impl ITTAPIObjectEvent2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -12363,26 +10143,6 @@ impl ITTAPIObjectEvent2 {
 unsafe impl ::windows::runtime::Interface for ITTAPIObjectEvent2 {
     type Vtable = ITTAPIObjectEvent2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899537518, 26830, 17283, [191, 11, 22, 145, 51, 196, 27, 70]);
-}
-impl ::std::convert::From<ITTAPIObjectEvent2> for ::windows::runtime::IUnknown {
-    fn from(value: ITTAPIObjectEvent2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTAPIObjectEvent2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTAPIObjectEvent2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTAPIObjectEvent2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTAPIObjectEvent2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ITTAPIObjectEvent2> for ITTAPIObjectEvent {
     fn from(value: ITTAPIObjectEvent2) -> Self {
@@ -12450,7 +10210,7 @@ pub struct ITTAPIObjectEvent2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTTSTerminalEvent(::windows::runtime::IUnknown);
 impl ITTTSTerminalEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -12472,26 +10232,6 @@ impl ITTTSTerminalEvent {
 unsafe impl ::windows::runtime::Interface for ITTTSTerminalEvent {
     type Vtable = ITTTSTerminalEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3647240335, 38309, 17949, [171, 12, 185, 144, 10, 108, 39, 19]);
-}
-impl ::std::convert::From<ITTTSTerminalEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITTTSTerminalEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTTSTerminalEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTTSTerminalEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTTSTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTTSTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITTTSTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -12537,7 +10277,7 @@ pub struct ITTTSTerminalEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTerminal(::windows::runtime::IUnknown);
 impl ITTerminal {
     #[cfg(feature = "Win32_Foundation")]
@@ -12576,26 +10316,6 @@ impl ITTerminal {
 unsafe impl ::windows::runtime::Interface for ITTerminal {
     type Vtable = ITTerminal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985280394, 37717, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
-}
-impl ::std::convert::From<ITTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: ITTerminal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTerminal> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTerminal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTerminal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITTerminal> for super::super::System::Ole::Automation::IDispatch {
@@ -12646,7 +10366,7 @@ pub struct ITTerminal_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTerminalSupport(::windows::runtime::IUnknown);
 impl ITTerminalSupport {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -12686,26 +10406,6 @@ impl ITTerminalSupport {
 unsafe impl ::windows::runtime::Interface for ITTerminalSupport {
     type Vtable = ITTerminalSupport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2985280389, 37717, 4560, [131, 92, 0, 170, 0, 60, 202, 189]);
-}
-impl ::std::convert::From<ITTerminalSupport> for ::windows::runtime::IUnknown {
-    fn from(value: ITTerminalSupport) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTerminalSupport> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTerminalSupport) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTerminalSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTerminalSupport {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITTerminalSupport> for super::super::System::Ole::Automation::IDispatch {
@@ -12757,7 +10457,7 @@ pub struct ITTerminalSupport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITTerminalSupport2(::windows::runtime::IUnknown);
 impl ITTerminalSupport2 {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -12841,26 +10541,6 @@ unsafe impl ::windows::runtime::Interface for ITTerminalSupport2 {
     type Vtable = ITTerminalSupport2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4092279228, 6943, 20121, [160, 192, 86, 48, 92, 77, 213, 145]);
 }
-impl ::std::convert::From<ITTerminalSupport2> for ::windows::runtime::IUnknown {
-    fn from(value: ITTerminalSupport2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITTerminalSupport2> for ::windows::runtime::IUnknown {
-    fn from(value: &ITTerminalSupport2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITTerminalSupport2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITTerminalSupport2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ITTerminalSupport2> for ITTerminalSupport {
     fn from(value: ITTerminalSupport2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12937,7 +10617,7 @@ pub struct ITTerminalSupport2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITToneDetectionEvent(::windows::runtime::IUnknown);
 impl ITToneDetectionEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -12964,26 +10644,6 @@ impl ITToneDetectionEvent {
 unsafe impl ::windows::runtime::Interface for ITToneDetectionEvent {
     type Vtable = ITToneDetectionEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1082003375, 53319, 18259, [176, 198, 142, 6, 3, 115, 254, 205]);
-}
-impl ::std::convert::From<ITToneDetectionEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITToneDetectionEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITToneDetectionEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITToneDetectionEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITToneDetectionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITToneDetectionEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITToneDetectionEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -13030,7 +10690,7 @@ pub struct ITToneDetectionEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITToneTerminalEvent(::windows::runtime::IUnknown);
 impl ITToneTerminalEvent {
     #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -13052,26 +10712,6 @@ impl ITToneTerminalEvent {
 unsafe impl ::windows::runtime::Interface for ITToneTerminalEvent {
     type Vtable = ITToneTerminalEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3874840585, 24863, 18757, [187, 210, 45, 12, 229, 97, 32, 86]);
-}
-impl ::std::convert::From<ITToneTerminalEvent> for ::windows::runtime::IUnknown {
-    fn from(value: ITToneTerminalEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITToneTerminalEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &ITToneTerminalEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITToneTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITToneTerminalEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ITToneTerminalEvent> for super::super::System::Ole::Automation::IDispatch {
@@ -13117,7 +10757,7 @@ pub struct ITToneTerminalEvent_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ITnef(::windows::runtime::IUnknown);
 impl ITnef {
     #[cfg(feature = "Win32_System_AddressBook")]
@@ -13159,26 +10799,6 @@ impl ITnef {
 unsafe impl ::windows::runtime::Interface for ITnef {
     type Vtable = ITnef_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
-}
-impl ::std::convert::From<ITnef> for ::windows::runtime::IUnknown {
-    fn from(value: ITnef) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ITnef> for ::windows::runtime::IUnknown {
-    fn from(value: &ITnef) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITnef {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITnef {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

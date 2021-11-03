@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ActivationSignalDetectionConfiguration(::windows::runtime::IInspectable);
 impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Foundation")]
@@ -253,46 +253,6 @@ unsafe impl ::windows::runtime::Interface for ActivationSignalDetectionConfigura
 impl ::windows::runtime::RuntimeName for ActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration";
 }
-impl ::std::convert::From<ActivationSignalDetectionConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: ActivationSignalDetectionConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ActivationSignalDetectionConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: ActivationSignalDetectionConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ActivationSignalDetectionConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &ActivationSignalDetectionConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivationSignalDetectionConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ActivationSignalDetectionConfiguration> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -323,7 +283,7 @@ unsafe impl ::std::marker::Send for ActivationSignalDetectionConfiguration {}
 unsafe impl ::std::marker::Sync for ActivationSignalDetectionConfiguration {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ActivationSignalDetectionConfigurationCreationResult(::windows::runtime::IInspectable);
 impl ActivationSignalDetectionConfigurationCreationResult {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -352,46 +312,6 @@ unsafe impl ::windows::runtime::Interface for ActivationSignalDetectionConfigura
 }
 impl ::windows::runtime::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult";
-}
-impl ::std::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IUnknown {
-    fn from(value: ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IUnknown {
-    fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetectionConfigurationCreationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivationSignalDetectionConfigurationCreationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IInspectable {
-    fn from(value: ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ActivationSignalDetectionConfigurationCreationResult> for ::windows::runtime::IInspectable {
-    fn from(value: &ActivationSignalDetectionConfigurationCreationResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivationSignalDetectionConfigurationCreationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivationSignalDetectionConfigurationCreationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ActivationSignalDetectionConfigurationCreationResult {}
 unsafe impl ::std::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
@@ -521,7 +441,7 @@ unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionTrainin
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ActivationSignalDetector(::windows::runtime::IInspectable);
 impl ActivationSignalDetector {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -727,46 +647,6 @@ unsafe impl ::windows::runtime::Interface for ActivationSignalDetector {
 impl ::windows::runtime::RuntimeName for ActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector";
 }
-impl ::std::convert::From<ActivationSignalDetector> for ::windows::runtime::IUnknown {
-    fn from(value: ActivationSignalDetector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ActivationSignalDetector> for ::windows::runtime::IUnknown {
-    fn from(value: &ActivationSignalDetector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationSignalDetector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ActivationSignalDetector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ActivationSignalDetector> for ::windows::runtime::IInspectable {
-    fn from(value: ActivationSignalDetector) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ActivationSignalDetector> for ::windows::runtime::IInspectable {
-    fn from(value: &ActivationSignalDetector) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivationSignalDetector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivationSignalDetector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ActivationSignalDetector {}
 unsafe impl ::std::marker::Sync for ActivationSignalDetector {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -855,7 +735,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentActivationRes
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConversationalAgentDetectorManager(::windows::runtime::IInspectable);
 impl ConversationalAgentDetectorManager {
     #[cfg(feature = "Foundation_Collections")]
@@ -933,51 +813,11 @@ unsafe impl ::windows::runtime::Interface for ConversationalAgentDetectorManager
 impl ::windows::runtime::RuntimeName for ConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager";
 }
-impl ::std::convert::From<ConversationalAgentDetectorManager> for ::windows::runtime::IUnknown {
-    fn from(value: ConversationalAgentDetectorManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConversationalAgentDetectorManager> for ::windows::runtime::IUnknown {
-    fn from(value: &ConversationalAgentDetectorManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentDetectorManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentDetectorManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConversationalAgentDetectorManager> for ::windows::runtime::IInspectable {
-    fn from(value: ConversationalAgentDetectorManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConversationalAgentDetectorManager> for ::windows::runtime::IInspectable {
-    fn from(value: &ConversationalAgentDetectorManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentDetectorManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentDetectorManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ConversationalAgentDetectorManager {}
 unsafe impl ::std::marker::Sync for ConversationalAgentDetectorManager {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConversationalAgentSession(::windows::runtime::IInspectable);
 impl ConversationalAgentSession {
     #[cfg(feature = "Foundation")]
@@ -1346,46 +1186,6 @@ unsafe impl ::windows::runtime::Interface for ConversationalAgentSession {
 impl ::windows::runtime::RuntimeName for ConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession";
 }
-impl ::std::convert::From<ConversationalAgentSession> for ::windows::runtime::IUnknown {
-    fn from(value: ConversationalAgentSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSession> for ::windows::runtime::IUnknown {
-    fn from(value: &ConversationalAgentSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConversationalAgentSession> for ::windows::runtime::IInspectable {
-    fn from(value: ConversationalAgentSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSession> for ::windows::runtime::IInspectable {
-    fn from(value: &ConversationalAgentSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ConversationalAgentSession> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1416,7 +1216,7 @@ unsafe impl ::std::marker::Send for ConversationalAgentSession {}
 unsafe impl ::std::marker::Sync for ConversationalAgentSession {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(::windows::runtime::IInspectable);
 impl ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
@@ -1428,46 +1228,6 @@ unsafe impl ::windows::runtime::Interface for ConversationalAgentSessionInterrup
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs";
-}
-impl ::std::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSessionInterruptedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSessionInterruptedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSessionInterruptedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ConversationalAgentSessionInterruptedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSessionInterruptedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSessionInterruptedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl ::std::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
@@ -1493,7 +1253,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSessionUpdate
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConversationalAgentSignal(::windows::runtime::IInspectable);
 impl ConversationalAgentSignal {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -1605,51 +1365,11 @@ unsafe impl ::windows::runtime::Interface for ConversationalAgentSignal {
 impl ::windows::runtime::RuntimeName for ConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal";
 }
-impl ::std::convert::From<ConversationalAgentSignal> for ::windows::runtime::IUnknown {
-    fn from(value: ConversationalAgentSignal) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSignal> for ::windows::runtime::IUnknown {
-    fn from(value: &ConversationalAgentSignal) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSignal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSignal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConversationalAgentSignal> for ::windows::runtime::IInspectable {
-    fn from(value: ConversationalAgentSignal) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSignal> for ::windows::runtime::IInspectable {
-    fn from(value: &ConversationalAgentSignal) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSignal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSignal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for ConversationalAgentSignal {}
 unsafe impl ::std::marker::Sync for ConversationalAgentSignal {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConversationalAgentSignalDetectedEventArgs(::windows::runtime::IInspectable);
 impl ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
@@ -1661,46 +1381,6 @@ unsafe impl ::windows::runtime::Interface for ConversationalAgentSignalDetectedE
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs";
-}
-impl ::std::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ConversationalAgentSignalDetectedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSignalDetectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSignalDetectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ConversationalAgentSignalDetectedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSignalDetectedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ConversationalAgentSignalDetectedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSignalDetectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSignalDetectedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl ::std::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
@@ -1752,7 +1432,7 @@ unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSystemStateCh
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(::windows::runtime::IInspectable);
 impl ConversationalAgentSystemStateChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -1773,46 +1453,6 @@ unsafe impl ::windows::runtime::Interface for ConversationalAgentSystemStateChan
 }
 impl ::windows::runtime::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs";
-}
-impl ::std::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ConversationalAgentSystemStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ConversationalAgentSystemStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ConversationalAgentSystemStateChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ConversationalAgentSystemStateChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ConversationalAgentSystemStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ConversationalAgentSystemStateChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ConversationalAgentSystemStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
@@ -1863,7 +1503,7 @@ unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationAvailabili
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
 impl DetectionConfigurationAvailabilityChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -1885,51 +1525,11 @@ unsafe impl ::windows::runtime::Interface for DetectionConfigurationAvailability
 impl ::windows::runtime::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs";
 }
-impl ::std::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DetectionConfigurationAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DetectionConfigurationAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DetectionConfigurationAvailabilityChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &DetectionConfigurationAvailabilityChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DetectionConfigurationAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DetectionConfigurationAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for DetectionConfigurationAvailabilityChangedEventArgs {}
 unsafe impl ::std::marker::Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DetectionConfigurationAvailabilityInfo(::windows::runtime::IInspectable);
 impl DetectionConfigurationAvailabilityInfo {
     #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
@@ -1983,46 +1583,6 @@ unsafe impl ::windows::runtime::Interface for DetectionConfigurationAvailability
 }
 impl ::windows::runtime::RuntimeName for DetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo";
-}
-impl ::std::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IUnknown {
-    fn from(value: DetectionConfigurationAvailabilityInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DetectionConfigurationAvailabilityInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DetectionConfigurationAvailabilityInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IInspectable {
-    fn from(value: DetectionConfigurationAvailabilityInfo) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DetectionConfigurationAvailabilityInfo> for ::windows::runtime::IInspectable {
-    fn from(value: &DetectionConfigurationAvailabilityInfo) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DetectionConfigurationAvailabilityInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DetectionConfigurationAvailabilityInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DetectionConfigurationAvailabilityInfo {}
 unsafe impl ::std::marker::Sync for DetectionConfigurationAvailabilityInfo {}

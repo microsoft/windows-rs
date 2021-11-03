@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationInterpolator(::windows::runtime::IUnknown);
 impl IUIAnimationInterpolator {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -41,26 +41,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationInterpolator {
     type Vtable = IUIAnimationInterpolator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2014694330, 56823, 18316, [164, 108, 123, 108, 115, 139, 121, 120]);
 }
-impl ::std::convert::From<IUIAnimationInterpolator> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationInterpolator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationInterpolator> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationInterpolator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationInterpolator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationInterpolator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationInterpolator_abi(
@@ -77,7 +57,7 @@ pub struct IUIAnimationInterpolator_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationInterpolator2(::windows::runtime::IUnknown);
 impl IUIAnimationInterpolator2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -123,26 +103,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationInterpolator2 {
     type Vtable = IUIAnimationInterpolator2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3933646840, 59938, 18979, [160, 239, 166, 169, 102, 112, 53, 24]);
 }
-impl ::std::convert::From<IUIAnimationInterpolator2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationInterpolator2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationInterpolator2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationInterpolator2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationInterpolator2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationInterpolator2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationInterpolator2_abi(
@@ -161,7 +121,7 @@ pub struct IUIAnimationInterpolator2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationLoopIterationChangeHandler2(::windows::runtime::IUnknown);
 impl IUIAnimationLoopIterationChangeHandler2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -173,26 +133,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationLoopIterationChangeHan
     type Vtable = IUIAnimationLoopIterationChangeHandler2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758846884, 18274, 18347, [160, 48, 178, 50, 33, 223, 58, 224]);
 }
-impl ::std::convert::From<IUIAnimationLoopIterationChangeHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationLoopIterationChangeHandler2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationLoopIterationChangeHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationLoopIterationChangeHandler2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationLoopIterationChangeHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationLoopIterationChangeHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationLoopIterationChangeHandler2_abi(
@@ -203,7 +143,7 @@ pub struct IUIAnimationLoopIterationChangeHandler2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationManager(::windows::runtime::IUnknown);
 impl IUIAnimationManager {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -293,26 +233,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationManager {
     type Vtable = IUIAnimationManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2439612780, 44173, 20093, [148, 229, 103, 250, 77, 194, 242, 232]);
 }
-impl ::std::convert::From<IUIAnimationManager> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationManager_abi(
@@ -341,7 +261,7 @@ pub struct IUIAnimationManager_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationManager2(::windows::runtime::IUnknown);
 impl IUIAnimationManager2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -442,26 +362,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationManager2 {
     type Vtable = IUIAnimationManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3635869652, 16649, 19775, [172, 238, 135, 153, 38, 150, 140, 177]);
 }
-impl ::std::convert::From<IUIAnimationManager2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationManager2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationManager2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationManager2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationManager2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationManager2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationManager2_abi(
@@ -493,7 +393,7 @@ pub struct IUIAnimationManager2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationManagerEventHandler(::windows::runtime::IUnknown);
 impl IUIAnimationManagerEventHandler {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -505,26 +405,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationManagerEventHandler {
     type Vtable = IUIAnimationManagerEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2016616941, 30883, 17254, [181, 116, 106, 246, 7, 166, 71, 136]);
 }
-impl ::std::convert::From<IUIAnimationManagerEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationManagerEventHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationManagerEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationManagerEventHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationManagerEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationManagerEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationManagerEventHandler_abi(
@@ -535,7 +415,7 @@ pub struct IUIAnimationManagerEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationManagerEventHandler2(::windows::runtime::IUnknown);
 impl IUIAnimationManagerEventHandler2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -547,26 +427,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationManagerEventHandler2 {
     type Vtable = IUIAnimationManagerEventHandler2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4141884090, 49139, 17132, [144, 51, 224, 115, 243, 62, 131, 195]);
 }
-impl ::std::convert::From<IUIAnimationManagerEventHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationManagerEventHandler2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationManagerEventHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationManagerEventHandler2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationManagerEventHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationManagerEventHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationManagerEventHandler2_abi(
@@ -577,7 +437,7 @@ pub struct IUIAnimationManagerEventHandler2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationPrimitiveInterpolation(::windows::runtime::IUnknown);
 impl IUIAnimationPrimitiveInterpolation {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -593,26 +453,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationPrimitiveInterpolation
     type Vtable = IUIAnimationPrimitiveInterpolation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3132231011, 17249, 17882, [162, 79, 171, 133, 8, 132, 107, 91]);
 }
-impl ::std::convert::From<IUIAnimationPrimitiveInterpolation> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationPrimitiveInterpolation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationPrimitiveInterpolation> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationPrimitiveInterpolation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationPrimitiveInterpolation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationPrimitiveInterpolation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationPrimitiveInterpolation_abi(
@@ -624,7 +464,7 @@ pub struct IUIAnimationPrimitiveInterpolation_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationPriorityComparison(::windows::runtime::IUnknown);
 impl IUIAnimationPriorityComparison {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -636,26 +476,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationPriorityComparison {
     type Vtable = IUIAnimationPriorityComparison_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2214239092, 24454, 17944, [188, 106, 162, 250, 193, 155, 63, 68]);
 }
-impl ::std::convert::From<IUIAnimationPriorityComparison> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationPriorityComparison) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationPriorityComparison> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationPriorityComparison) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationPriorityComparison {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationPriorityComparison {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationPriorityComparison_abi(
@@ -666,7 +486,7 @@ pub struct IUIAnimationPriorityComparison_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationPriorityComparison2(::windows::runtime::IUnknown);
 impl IUIAnimationPriorityComparison2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -678,26 +498,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationPriorityComparison2 {
     type Vtable = IUIAnimationPriorityComparison2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1533901367, 17953, 18044, [139, 5, 112, 19, 29, 230, 45, 219]);
 }
-impl ::std::convert::From<IUIAnimationPriorityComparison2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationPriorityComparison2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationPriorityComparison2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationPriorityComparison2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationPriorityComparison2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationPriorityComparison2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationPriorityComparison2_abi(
@@ -708,7 +508,7 @@ pub struct IUIAnimationPriorityComparison2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationStoryboard(::windows::runtime::IUnknown);
 impl IUIAnimationStoryboard {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -789,26 +589,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationStoryboard {
     type Vtable = IUIAnimationStoryboard_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2835288719, 39929, 19185, [158, 103, 229, 228, 16, 222, 251, 132]);
 }
-impl ::std::convert::From<IUIAnimationStoryboard> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationStoryboard) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationStoryboard> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationStoryboard) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationStoryboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationStoryboard {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationStoryboard_abi(
@@ -835,7 +615,7 @@ pub struct IUIAnimationStoryboard_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationStoryboard2(::windows::runtime::IUnknown);
 impl IUIAnimationStoryboard2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -931,26 +711,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationStoryboard2 {
     type Vtable = IUIAnimationStoryboard2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921897170, 4820, 18757, [148, 25, 158, 65, 190, 3, 77, 242]);
 }
-impl ::std::convert::From<IUIAnimationStoryboard2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationStoryboard2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationStoryboard2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationStoryboard2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationStoryboard2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationStoryboard2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationStoryboard2_abi(
@@ -980,7 +740,7 @@ pub struct IUIAnimationStoryboard2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationStoryboardEventHandler(::windows::runtime::IUnknown);
 impl IUIAnimationStoryboardEventHandler {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -996,26 +756,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationStoryboardEventHandler
     type Vtable = IUIAnimationStoryboardEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029476360, 60540, 17252, [159, 138, 154, 243, 197, 140, 186, 230]);
 }
-impl ::std::convert::From<IUIAnimationStoryboardEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationStoryboardEventHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationStoryboardEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationStoryboardEventHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationStoryboardEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationStoryboardEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationStoryboardEventHandler_abi(
@@ -1027,7 +767,7 @@ pub struct IUIAnimationStoryboardEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationStoryboardEventHandler2(::windows::runtime::IUnknown);
 impl IUIAnimationStoryboardEventHandler2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1043,26 +783,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationStoryboardEventHandler
     type Vtable = IUIAnimationStoryboardEventHandler2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3133535578, 47740, 16716, [181, 153, 251, 248, 80, 245, 83, 198]);
 }
-impl ::std::convert::From<IUIAnimationStoryboardEventHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationStoryboardEventHandler2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationStoryboardEventHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationStoryboardEventHandler2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationStoryboardEventHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationStoryboardEventHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationStoryboardEventHandler2_abi(
@@ -1074,7 +794,7 @@ pub struct IUIAnimationStoryboardEventHandler2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTimer(::windows::runtime::IUnknown);
 impl IUIAnimationTimer {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1111,26 +831,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTimer {
     type Vtable = IUIAnimationTimer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796143825, 41043, 16854, [144, 133, 51, 166, 137, 20, 70, 101]);
 }
-impl ::std::convert::From<IUIAnimationTimer> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTimer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTimer> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTimer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTimer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTimer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTimer_abi(
@@ -1147,7 +847,7 @@ pub struct IUIAnimationTimer_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTimerClientEventHandler(::windows::runtime::IUnknown);
 impl IUIAnimationTimerClientEventHandler {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1159,26 +859,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTimerClientEventHandle
     type Vtable = IUIAnimationTimerClientEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202043318, 38138, 19451, [164, 127, 239, 45, 158, 64, 140, 37]);
 }
-impl ::std::convert::From<IUIAnimationTimerClientEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTimerClientEventHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTimerClientEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTimerClientEventHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTimerClientEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTimerClientEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTimerClientEventHandler_abi(
@@ -1189,7 +869,7 @@ pub struct IUIAnimationTimerClientEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTimerEventHandler(::windows::runtime::IUnknown);
 impl IUIAnimationTimerEventHandler {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1209,26 +889,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTimerEventHandler {
     type Vtable = IUIAnimationTimerEventHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(659193322, 55153, 16533, [171, 189, 141, 247, 171, 210, 60, 227]);
 }
-impl ::std::convert::From<IUIAnimationTimerEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTimerEventHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTimerEventHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTimerEventHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTimerEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTimerEventHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTimerEventHandler_abi(
@@ -1241,7 +901,7 @@ pub struct IUIAnimationTimerEventHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTimerUpdateHandler(::windows::runtime::IUnknown);
 impl IUIAnimationTimerUpdateHandler {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1262,26 +922,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTimerUpdateHandler {
     type Vtable = IUIAnimationTimerUpdateHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(425003447, 23902, 20030, [178, 120, 238, 55, 89, 179, 103, 173]);
 }
-impl ::std::convert::From<IUIAnimationTimerUpdateHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTimerUpdateHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTimerUpdateHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTimerUpdateHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTimerUpdateHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTimerUpdateHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTimerUpdateHandler_abi(
@@ -1294,7 +934,7 @@ pub struct IUIAnimationTimerUpdateHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTransition(::windows::runtime::IUnknown);
 impl IUIAnimationTransition {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1319,26 +959,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTransition {
     type Vtable = IUIAnimationTransition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3698123346, 63281, 16847, [182, 16, 97, 75, 108, 160, 73, 173]);
 }
-impl ::std::convert::From<IUIAnimationTransition> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTransition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTransition> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTransition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTransition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransition_abi(
@@ -1352,7 +972,7 @@ pub struct IUIAnimationTransition_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTransition2(::windows::runtime::IUnknown);
 impl IUIAnimationTransition2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1390,26 +1010,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTransition2 {
     type Vtable = IUIAnimationTransition2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1660916003, 43098, 20123, [162, 24, 67, 90, 147, 226, 104, 253]);
 }
-impl ::std::convert::From<IUIAnimationTransition2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTransition2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTransition2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTransition2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTransition2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTransition2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransition2_abi(
@@ -1426,7 +1026,7 @@ pub struct IUIAnimationTransition2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTransitionFactory(::windows::runtime::IUnknown);
 impl IUIAnimationTransitionFactory {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1439,26 +1039,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTransitionFactory {
     type Vtable = IUIAnimationTransitionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4242087427, 15931, 17837, [187, 177, 109, 252, 129, 83, 116, 61]);
 }
-impl ::std::convert::From<IUIAnimationTransitionFactory> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTransitionFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTransitionFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTransitionFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTransitionFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTransitionFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransitionFactory_abi(
@@ -1469,7 +1049,7 @@ pub struct IUIAnimationTransitionFactory_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTransitionFactory2(::windows::runtime::IUnknown);
 impl IUIAnimationTransitionFactory2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1482,26 +1062,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTransitionFactory2 {
     type Vtable = IUIAnimationTransitionFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2474461462, 49574, 17109, [136, 216, 48, 52, 77, 110, 254, 49]);
 }
-impl ::std::convert::From<IUIAnimationTransitionFactory2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTransitionFactory2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTransitionFactory2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTransitionFactory2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTransitionFactory2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTransitionFactory2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransitionFactory2_abi(
@@ -1512,7 +1072,7 @@ pub struct IUIAnimationTransitionFactory2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTransitionLibrary(::windows::runtime::IUnknown);
 impl IUIAnimationTransitionLibrary {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1580,26 +1140,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTransitionLibrary {
     type Vtable = IUIAnimationTransitionLibrary_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3394901169, 53839, 18616, [143, 228, 199, 129, 105, 186, 149, 78]);
 }
-impl ::std::convert::From<IUIAnimationTransitionLibrary> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTransitionLibrary) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTransitionLibrary> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTransitionLibrary) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTransitionLibrary {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTransitionLibrary {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransitionLibrary_abi(
@@ -1621,7 +1161,7 @@ pub struct IUIAnimationTransitionLibrary_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationTransitionLibrary2(::windows::runtime::IUnknown);
 impl IUIAnimationTransitionLibrary2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1724,26 +1264,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationTransitionLibrary2 {
     type Vtable = IUIAnimationTransitionLibrary2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63942227, 38272, 20195, [179, 99, 46, 206, 81, 180, 175, 106]);
 }
-impl ::std::convert::From<IUIAnimationTransitionLibrary2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationTransitionLibrary2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationTransitionLibrary2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationTransitionLibrary2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationTransitionLibrary2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationTransitionLibrary2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransitionLibrary2_abi(
@@ -1772,7 +1292,7 @@ pub struct IUIAnimationTransitionLibrary2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationVariable(::windows::runtime::IUnknown);
 impl IUIAnimationVariable {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -1843,26 +1363,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationVariable {
     type Vtable = IUIAnimationVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2364453205, 10313, 19685, [148, 72, 145, 255, 112, 225, 228, 217]);
 }
-impl ::std::convert::From<IUIAnimationVariable> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariable_abi(
@@ -1886,7 +1386,7 @@ pub struct IUIAnimationVariable_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationVariable2(::windows::runtime::IUnknown);
 impl IUIAnimationVariable2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -2010,26 +1510,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationVariable2 {
     type Vtable = IUIAnimationVariable2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1226093316, 38571, 17625, [158, 119, 213, 16, 155, 126, 116, 102]);
 }
-impl ::std::convert::From<IUIAnimationVariable2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationVariable2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationVariable2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationVariable2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationVariable2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationVariable2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariable2_abi(
@@ -2069,7 +1549,7 @@ pub struct IUIAnimationVariable2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationVariableChangeHandler(::windows::runtime::IUnknown);
 impl IUIAnimationVariableChangeHandler {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -2081,26 +1561,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationVariableChangeHandler 
     type Vtable = IUIAnimationVariableChangeHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1666758586, 34770, 17109, [191, 113, 130, 233, 25, 221, 88, 98]);
 }
-impl ::std::convert::From<IUIAnimationVariableChangeHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationVariableChangeHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationVariableChangeHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationVariableChangeHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationVariableChangeHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationVariableChangeHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariableChangeHandler_abi(
@@ -2111,7 +1571,7 @@ pub struct IUIAnimationVariableChangeHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationVariableChangeHandler2(::windows::runtime::IUnknown);
 impl IUIAnimationVariableChangeHandler2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -2123,26 +1583,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationVariableChangeHandler2
     type Vtable = IUIAnimationVariableChangeHandler2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1672267986, 28334, 19376, [184, 121, 88, 109, 216, 207, 190, 66]);
 }
-impl ::std::convert::From<IUIAnimationVariableChangeHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationVariableChangeHandler2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationVariableChangeHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationVariableChangeHandler2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationVariableChangeHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationVariableChangeHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariableChangeHandler2_abi(
@@ -2153,7 +1593,7 @@ pub struct IUIAnimationVariableChangeHandler2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationVariableCurveChangeHandler2(::windows::runtime::IUnknown);
 impl IUIAnimationVariableCurveChangeHandler2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -2165,26 +1605,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationVariableCurveChangeHan
     type Vtable = IUIAnimationVariableCurveChangeHandler2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921605265, 325, 19489, [145, 146, 90, 171, 64, 237, 223, 128]);
 }
-impl ::std::convert::From<IUIAnimationVariableCurveChangeHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationVariableCurveChangeHandler2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationVariableCurveChangeHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationVariableCurveChangeHandler2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationVariableCurveChangeHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationVariableCurveChangeHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariableCurveChangeHandler2_abi(
@@ -2195,7 +1615,7 @@ pub struct IUIAnimationVariableCurveChangeHandler2_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationVariableIntegerChangeHandler(::windows::runtime::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -2207,26 +1627,6 @@ unsafe impl ::windows::runtime::Interface for IUIAnimationVariableIntegerChangeH
     type Vtable = IUIAnimationVariableIntegerChangeHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3141408080, 13678, 17584, [153, 218, 133, 172, 96, 23, 134, 94]);
 }
-impl ::std::convert::From<IUIAnimationVariableIntegerChangeHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationVariableIntegerChangeHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationVariableIntegerChangeHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationVariableIntegerChangeHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationVariableIntegerChangeHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationVariableIntegerChangeHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariableIntegerChangeHandler_abi(
@@ -2237,7 +1637,7 @@ pub struct IUIAnimationVariableIntegerChangeHandler_abi(
 );
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUIAnimationVariableIntegerChangeHandler2(::windows::runtime::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler2 {
     #[doc = "*Required features: `Win32_UI_Animation`*"]
@@ -2248,26 +1648,6 @@ impl IUIAnimationVariableIntegerChangeHandler2 {
 unsafe impl ::windows::runtime::Interface for IUIAnimationVariableIntegerChangeHandler2 {
     type Vtable = IUIAnimationVariableIntegerChangeHandler2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2191224049, 20282, 17426, [174, 9, 178, 67, 235, 76, 107, 88]);
-}
-impl ::std::convert::From<IUIAnimationVariableIntegerChangeHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: IUIAnimationVariableIntegerChangeHandler2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUIAnimationVariableIntegerChangeHandler2> for ::windows::runtime::IUnknown {
-    fn from(value: &IUIAnimationVariableIntegerChangeHandler2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUIAnimationVariableIntegerChangeHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUIAnimationVariableIntegerChangeHandler2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

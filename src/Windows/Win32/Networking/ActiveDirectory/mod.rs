@@ -8787,7 +8787,7 @@ unsafe impl ::windows::runtime::Abi for GetDcContextHandle {
 pub const Hold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014475283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADs(::windows::runtime::IUnknown);
 impl IADs {
     #[cfg(feature = "Win32_Foundation")]
@@ -8866,26 +8866,6 @@ unsafe impl ::windows::runtime::Interface for IADs {
     type Vtable = IADs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4253177552, 64789, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
 }
-impl ::std::convert::From<IADs> for ::windows::runtime::IUnknown {
-    fn from(value: IADs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADs> for ::windows::runtime::IUnknown {
-    fn from(value: &IADs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADs> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADs) -> Self {
@@ -8951,7 +8931,7 @@ pub struct IADs_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsADSystemInfo(::windows::runtime::IUnknown);
 impl IADsADSystemInfo {
     #[cfg(feature = "Win32_Foundation")]
@@ -9034,26 +9014,6 @@ unsafe impl ::windows::runtime::Interface for IADsADSystemInfo {
     type Vtable = IADsADSystemInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1538332969, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
 }
-impl ::std::convert::From<IADsADSystemInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IADsADSystemInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsADSystemInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsADSystemInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsADSystemInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsADSystemInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsADSystemInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsADSystemInfo) -> Self {
@@ -9119,7 +9079,7 @@ pub struct IADsADSystemInfo_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsAccessControlEntry(::windows::runtime::IUnknown);
 impl IADsAccessControlEntry {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -9196,26 +9156,6 @@ unsafe impl ::windows::runtime::Interface for IADsAccessControlEntry {
     type Vtable = IADsAccessControlEntry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3035865420, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IADsAccessControlEntry> for ::windows::runtime::IUnknown {
-    fn from(value: IADsAccessControlEntry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsAccessControlEntry> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsAccessControlEntry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAccessControlEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsAccessControlEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsAccessControlEntry> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsAccessControlEntry) -> Self {
@@ -9277,7 +9217,7 @@ pub struct IADsAccessControlEntry_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsAccessControlList(::windows::runtime::IUnknown);
 impl IADsAccessControlList {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -9323,26 +9263,6 @@ impl IADsAccessControlList {
 unsafe impl ::windows::runtime::Interface for IADsAccessControlList {
     type Vtable = IADsAccessControlList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085865420, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
-}
-impl ::std::convert::From<IADsAccessControlList> for ::windows::runtime::IUnknown {
-    fn from(value: IADsAccessControlList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsAccessControlList> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsAccessControlList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAccessControlList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsAccessControlList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsAccessControlList> for super::super::System::Ole::Automation::IDispatch {
@@ -9396,7 +9316,7 @@ pub struct IADsAccessControlList_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsAcl(::windows::runtime::IUnknown);
 impl IADsAcl {
     #[cfg(feature = "Win32_Foundation")]
@@ -9440,26 +9360,6 @@ impl IADsAcl {
 unsafe impl ::windows::runtime::Interface for IADsAcl {
     type Vtable = IADsAcl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2220020651, 2153, 4561, [163, 119, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsAcl> for ::windows::runtime::IUnknown {
-    fn from(value: IADsAcl) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsAcl> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsAcl) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAcl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsAcl {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsAcl> for super::super::System::Ole::Automation::IDispatch {
@@ -9514,7 +9414,7 @@ pub struct IADsAcl_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsAggregatee(::windows::runtime::IUnknown);
 impl IADsAggregatee {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -9538,26 +9438,6 @@ unsafe impl ::windows::runtime::Interface for IADsAggregatee {
     type Vtable = IADsAggregatee_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(323407500, 36921, 4560, [133, 40, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IADsAggregatee> for ::windows::runtime::IUnknown {
-    fn from(value: IADsAggregatee) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsAggregatee> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsAggregatee) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAggregatee {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsAggregatee {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregatee_abi(
@@ -9571,7 +9451,7 @@ pub struct IADsAggregatee_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsAggregator(::windows::runtime::IUnknown);
 impl IADsAggregator {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -9587,26 +9467,6 @@ unsafe impl ::windows::runtime::Interface for IADsAggregator {
     type Vtable = IADsAggregator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1390108592, 37919, 4560, [133, 41, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IADsAggregator> for ::windows::runtime::IUnknown {
-    fn from(value: IADsAggregator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsAggregator> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsAggregator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsAggregator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsAggregator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregator_abi(
@@ -9618,7 +9478,7 @@ pub struct IADsAggregator_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsBackLink(::windows::runtime::IUnknown);
 impl IADsBackLink {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -9645,26 +9505,6 @@ impl IADsBackLink {
 unsafe impl ::windows::runtime::Interface for IADsBackLink {
     type Vtable = IADsBackLink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4245881533, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsBackLink> for ::windows::runtime::IUnknown {
-    fn from(value: IADsBackLink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsBackLink> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsBackLink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsBackLink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsBackLink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsBackLink> for super::super::System::Ole::Automation::IDispatch {
@@ -9713,7 +9553,7 @@ pub struct IADsBackLink_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsCaseIgnoreList(::windows::runtime::IUnknown);
 impl IADsCaseIgnoreList {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -9731,26 +9571,6 @@ impl IADsCaseIgnoreList {
 unsafe impl ::windows::runtime::Interface for IADsCaseIgnoreList {
     type Vtable = IADsCaseIgnoreList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2070328627, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsCaseIgnoreList> for ::windows::runtime::IUnknown {
-    fn from(value: IADsCaseIgnoreList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsCaseIgnoreList> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsCaseIgnoreList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsCaseIgnoreList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsCaseIgnoreList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsCaseIgnoreList> for super::super::System::Ole::Automation::IDispatch {
@@ -9797,7 +9617,7 @@ pub struct IADsCaseIgnoreList_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsClass(::windows::runtime::IUnknown);
 impl IADsClass {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -10054,26 +9874,6 @@ unsafe impl ::windows::runtime::Interface for IADsClass {
     type Vtable = IADsClass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777488, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
 }
-impl ::std::convert::From<IADsClass> for ::windows::runtime::IUnknown {
-    fn from(value: IADsClass) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsClass> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsClass) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsClass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsClass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsClass> for IADs {
     fn from(value: IADsClass) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10210,7 +10010,7 @@ pub struct IADsClass_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsCollection(::windows::runtime::IUnknown);
 impl IADsCollection {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -10238,26 +10038,6 @@ impl IADsCollection {
 unsafe impl ::windows::runtime::Interface for IADsCollection {
     type Vtable = IADsCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1924744672, 9531, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
-}
-impl ::std::convert::From<IADsCollection> for ::windows::runtime::IUnknown {
-    fn from(value: IADsCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -10307,7 +10087,7 @@ pub struct IADsCollection_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsComputer(::windows::runtime::IUnknown);
 impl IADsComputer {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -10584,26 +10364,6 @@ unsafe impl ::windows::runtime::Interface for IADsComputer {
     type Vtable = IADsComputer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4024683632, 7583, 4559, [177, 243, 2, 96, 140, 158, 117, 83]);
 }
-impl ::std::convert::From<IADsComputer> for ::windows::runtime::IUnknown {
-    fn from(value: IADsComputer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsComputer> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsComputer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsComputer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsComputer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsComputer> for IADs {
     fn from(value: IADsComputer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10753,7 +10513,7 @@ pub struct IADsComputer_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsComputerOperations(::windows::runtime::IUnknown);
 impl IADsComputerOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -10863,26 +10623,6 @@ unsafe impl ::windows::runtime::Interface for IADsComputerOperations {
     type Vtable = IADsComputerOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4014569088, 7583, 4559, [177, 243, 2, 96, 140, 158, 117, 83]);
 }
-impl ::std::convert::From<IADsComputerOperations> for ::windows::runtime::IUnknown {
-    fn from(value: IADsComputerOperations) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsComputerOperations> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsComputerOperations) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsComputerOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsComputerOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsComputerOperations> for IADs {
     fn from(value: IADsComputerOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10971,7 +10711,7 @@ pub struct IADsComputerOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsContainer(::windows::runtime::IUnknown);
 impl IADsContainer {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -11040,26 +10780,6 @@ unsafe impl ::windows::runtime::Interface for IADsContainer {
     type Vtable = IADsContainer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1472464, 64790, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
 }
-impl ::std::convert::From<IADsContainer> for ::windows::runtime::IUnknown {
-    fn from(value: IADsContainer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsContainer> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsContainer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsContainer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsContainer> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsContainer) -> Self {
@@ -11121,7 +10841,7 @@ pub struct IADsContainer_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsDNWithBinary(::windows::runtime::IUnknown);
 impl IADsDNWithBinary {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -11150,26 +10870,6 @@ impl IADsDNWithBinary {
 unsafe impl ::windows::runtime::Interface for IADsDNWithBinary {
     type Vtable = IADsDNWithBinary_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124005538, 63797, 4562, [186, 150, 0, 192, 79, 182, 208, 209]);
-}
-impl ::std::convert::From<IADsDNWithBinary> for ::windows::runtime::IUnknown {
-    fn from(value: IADsDNWithBinary) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsDNWithBinary> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsDNWithBinary) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsDNWithBinary {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsDNWithBinary {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsDNWithBinary> for super::super::System::Ole::Automation::IDispatch {
@@ -11220,7 +10920,7 @@ pub struct IADsDNWithBinary_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsDNWithString(::windows::runtime::IUnknown);
 impl IADsDNWithString {
     #[cfg(feature = "Win32_Foundation")]
@@ -11249,26 +10949,6 @@ impl IADsDNWithString {
 unsafe impl ::windows::runtime::Interface for IADsDNWithString {
     type Vtable = IADsDNWithString_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(923660334, 63796, 4562, [186, 150, 0, 192, 79, 182, 208, 209]);
-}
-impl ::std::convert::From<IADsDNWithString> for ::windows::runtime::IUnknown {
-    fn from(value: IADsDNWithString) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsDNWithString> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsDNWithString) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsDNWithString {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsDNWithString {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsDNWithString> for super::super::System::Ole::Automation::IDispatch {
@@ -11319,7 +10999,7 @@ pub struct IADsDNWithString_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsDeleteOps(::windows::runtime::IUnknown);
 impl IADsDeleteOps {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -11330,26 +11010,6 @@ impl IADsDeleteOps {
 unsafe impl ::windows::runtime::Interface for IADsDeleteOps {
     type Vtable = IADsDeleteOps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2998733058, 34936, 4561, [140, 33, 0, 192, 79, 216, 213, 3]);
-}
-impl ::std::convert::From<IADsDeleteOps> for ::windows::runtime::IUnknown {
-    fn from(value: IADsDeleteOps) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsDeleteOps> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsDeleteOps) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsDeleteOps {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsDeleteOps {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsDeleteOps> for super::super::System::Ole::Automation::IDispatch {
@@ -11393,7 +11053,7 @@ pub struct IADsDeleteOps_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsDomain(::windows::runtime::IUnknown);
 impl IADsDomain {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -11570,26 +11230,6 @@ unsafe impl ::windows::runtime::Interface for IADsDomain {
     type Vtable = IADsDomain_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14991904, 64790, 4558, [171, 196, 2, 96, 140, 158, 117, 83]);
 }
-impl ::std::convert::From<IADsDomain> for ::windows::runtime::IUnknown {
-    fn from(value: IADsDomain) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsDomain> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsDomain) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsDomain {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsDomain {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsDomain> for IADs {
     fn from(value: IADsDomain) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11692,7 +11332,7 @@ pub struct IADsDomain_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsEmail(::windows::runtime::IUnknown);
 impl IADsEmail {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -11719,26 +11359,6 @@ impl IADsEmail {
 unsafe impl ::windows::runtime::Interface for IADsEmail {
     type Vtable = IADsEmail_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2544828698, 18318, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsEmail> for ::windows::runtime::IUnknown {
-    fn from(value: IADsEmail) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsEmail> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsEmail) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsEmail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsEmail {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsEmail> for super::super::System::Ole::Automation::IDispatch {
@@ -11787,7 +11407,7 @@ pub struct IADsEmail_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsExtension(::windows::runtime::IUnknown);
 impl IADsExtension {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -11810,26 +11430,6 @@ unsafe impl ::windows::runtime::Interface for IADsExtension {
     type Vtable = IADsExtension_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1026905404, 53936, 4561, [177, 123, 0, 0, 248, 117, 147, 160]);
 }
-impl ::std::convert::From<IADsExtension> for ::windows::runtime::IUnknown {
-    fn from(value: IADsExtension) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsExtension> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsExtension) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsExtension {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsExtension_abi(
@@ -11845,7 +11445,7 @@ pub struct IADsExtension_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsFaxNumber(::windows::runtime::IUnknown);
 impl IADsFaxNumber {
     #[cfg(feature = "Win32_Foundation")]
@@ -11874,26 +11474,6 @@ impl IADsFaxNumber {
 unsafe impl ::windows::runtime::Interface for IADsFaxNumber {
     type Vtable = IADsFaxNumber_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2836455081, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsFaxNumber> for ::windows::runtime::IUnknown {
-    fn from(value: IADsFaxNumber) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsFaxNumber> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsFaxNumber) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsFaxNumber {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsFaxNumber {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsFaxNumber> for super::super::System::Ole::Automation::IDispatch {
@@ -11944,7 +11524,7 @@ pub struct IADsFaxNumber_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsFileService(::windows::runtime::IUnknown);
 impl IADsFileService {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -12190,26 +11770,6 @@ unsafe impl ::windows::runtime::Interface for IADsFileService {
     type Vtable = IADsFileService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2828867840, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsFileService> for ::windows::runtime::IUnknown {
-    fn from(value: IADsFileService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsFileService> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsFileService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsFileService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsFileService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsFileService> for IADsService {
     fn from(value: IADsFileService) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12363,7 +11923,7 @@ pub struct IADsFileService_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsFileServiceOperations(::windows::runtime::IUnknown);
 impl IADsFileServiceOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -12499,26 +12059,6 @@ unsafe impl ::windows::runtime::Interface for IADsFileServiceOperations {
     type Vtable = IADsFileServiceOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687364368, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsFileServiceOperations> for ::windows::runtime::IUnknown {
-    fn from(value: IADsFileServiceOperations) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsFileServiceOperations> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsFileServiceOperations) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsFileServiceOperations> for IADsServiceOperations {
     fn from(value: IADsFileServiceOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12633,7 +12173,7 @@ pub struct IADsFileServiceOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsFileShare(::windows::runtime::IUnknown);
 impl IADsFileShare {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -12780,26 +12320,6 @@ unsafe impl ::windows::runtime::Interface for IADsFileShare {
     type Vtable = IADsFileShare_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3949841136, 19331, 4559, [169, 149, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsFileShare> for ::windows::runtime::IUnknown {
-    fn from(value: IADsFileShare) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsFileShare> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsFileShare) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsFileShare {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsFileShare {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsFileShare> for IADs {
     fn from(value: IADsFileShare) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -12900,7 +12420,7 @@ pub struct IADsFileShare_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsGroup(::windows::runtime::IUnknown);
 impl IADsGroup {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -13032,26 +12552,6 @@ unsafe impl ::windows::runtime::Interface for IADsGroup {
     type Vtable = IADsGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660826880, 16655, 4559, [177, 255, 2, 96, 140, 158, 117, 83]);
 }
-impl ::std::convert::From<IADsGroup> for ::windows::runtime::IUnknown {
-    fn from(value: IADsGroup) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsGroup> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsGroup) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsGroup {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsGroup> for IADs {
     fn from(value: IADsGroup) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13148,7 +12648,7 @@ pub struct IADsGroup_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsHold(::windows::runtime::IUnknown);
 impl IADsHold {
     #[cfg(feature = "Win32_Foundation")]
@@ -13175,26 +12675,6 @@ impl IADsHold {
 unsafe impl ::windows::runtime::Interface for IADsHold {
     type Vtable = IADsHold_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3018537783, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsHold> for ::windows::runtime::IUnknown {
-    fn from(value: IADsHold) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsHold> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsHold) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsHold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsHold {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsHold> for super::super::System::Ole::Automation::IDispatch {
@@ -13243,7 +12723,7 @@ pub struct IADsHold_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsLargeInteger(::windows::runtime::IUnknown);
 impl IADsLargeInteger {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -13268,26 +12748,6 @@ impl IADsLargeInteger {
 unsafe impl ::windows::runtime::Interface for IADsLargeInteger {
     type Vtable = IADsLargeInteger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2422744843, 2361, 4561, [139, 225, 0, 192, 79, 216, 213, 3]);
-}
-impl ::std::convert::From<IADsLargeInteger> for ::windows::runtime::IUnknown {
-    fn from(value: IADsLargeInteger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsLargeInteger> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsLargeInteger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsLargeInteger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsLargeInteger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsLargeInteger> for super::super::System::Ole::Automation::IDispatch {
@@ -13334,7 +12794,7 @@ pub struct IADsLargeInteger_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsLocality(::windows::runtime::IUnknown);
 impl IADsLocality {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -13478,26 +12938,6 @@ unsafe impl ::windows::runtime::Interface for IADsLocality {
     type Vtable = IADsLocality_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2690515874, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IADsLocality> for ::windows::runtime::IUnknown {
-    fn from(value: IADsLocality) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsLocality> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsLocality) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsLocality {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsLocality {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsLocality> for IADs {
     fn from(value: IADsLocality) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -13599,7 +13039,7 @@ pub struct IADsLocality_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsMembers(::windows::runtime::IUnknown);
 impl IADsMembers {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -13627,26 +13067,6 @@ impl IADsMembers {
 unsafe impl ::windows::runtime::Interface for IADsMembers {
     type Vtable = IADsMembers_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1159331888, 29420, 4559, [176, 59, 0, 170, 0, 110, 9, 117]);
-}
-impl ::std::convert::From<IADsMembers> for ::windows::runtime::IUnknown {
-    fn from(value: IADsMembers) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsMembers> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsMembers) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsMembers {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsMembers {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsMembers> for super::super::System::Ole::Automation::IDispatch {
@@ -13695,7 +13115,7 @@ pub struct IADsMembers_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsNameTranslate(::windows::runtime::IUnknown);
 impl IADsNameTranslate {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -13738,26 +13158,6 @@ impl IADsNameTranslate {
 unsafe impl ::windows::runtime::Interface for IADsNameTranslate {
     type Vtable = IADsNameTranslate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2981261987, 13861, 4561, [163, 164, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsNameTranslate> for ::windows::runtime::IUnknown {
-    fn from(value: IADsNameTranslate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsNameTranslate> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsNameTranslate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsNameTranslate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsNameTranslate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsNameTranslate> for super::super::System::Ole::Automation::IDispatch {
@@ -13813,7 +13213,7 @@ pub struct IADsNameTranslate_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsNamespaces(::windows::runtime::IUnknown);
 impl IADsNamespaces {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -13924,26 +13324,6 @@ unsafe impl ::windows::runtime::Interface for IADsNamespaces {
     type Vtable = IADsNamespaces_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(683240352, 45872, 4559, [169, 173, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsNamespaces> for ::windows::runtime::IUnknown {
-    fn from(value: IADsNamespaces) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsNamespaces> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsNamespaces) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsNamespaces {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsNamespaces {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsNamespaces> for IADs {
     fn from(value: IADsNamespaces) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14033,7 +13413,7 @@ pub struct IADsNamespaces_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsNetAddress(::windows::runtime::IUnknown);
 impl IADsNetAddress {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -14060,26 +13440,6 @@ impl IADsNetAddress {
 unsafe impl ::windows::runtime::Interface for IADsNetAddress {
     type Vtable = IADsNetAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988069033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsNetAddress> for ::windows::runtime::IUnknown {
-    fn from(value: IADsNetAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsNetAddress> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsNetAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsNetAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsNetAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsNetAddress> for super::super::System::Ole::Automation::IDispatch {
@@ -14128,7 +13488,7 @@ pub struct IADsNetAddress_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsO(::windows::runtime::IUnknown);
 impl IADsO {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -14294,26 +13654,6 @@ unsafe impl ::windows::runtime::Interface for IADsO {
     type Vtable = IADsO_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2714578374, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IADsO> for ::windows::runtime::IUnknown {
-    fn from(value: IADsO) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsO> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsO) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsO {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsO {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsO> for IADs {
     fn from(value: IADsO) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14423,7 +13763,7 @@ pub struct IADsO_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsOU(::windows::runtime::IUnknown);
 impl IADsOU {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -14600,26 +13940,6 @@ unsafe impl ::windows::runtime::Interface for IADsOU {
     type Vtable = IADsOU_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2734109624, 61438, 4559, [138, 188, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IADsOU> for ::windows::runtime::IUnknown {
-    fn from(value: IADsOU) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsOU> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsOU) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsOU {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsOU {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsOU> for IADs {
     fn from(value: IADsOU) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -14733,7 +14053,7 @@ pub struct IADsOU_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsObjectOptions(::windows::runtime::IUnknown);
 impl IADsObjectOptions {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -14751,26 +14071,6 @@ impl IADsObjectOptions {
 unsafe impl ::windows::runtime::Interface for IADsObjectOptions {
     type Vtable = IADsObjectOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1190219738, 9003, 4561, [168, 8, 0, 192, 79, 216, 213, 168]);
-}
-impl ::std::convert::From<IADsObjectOptions> for ::windows::runtime::IUnknown {
-    fn from(value: IADsObjectOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsObjectOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsObjectOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsObjectOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsObjectOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsObjectOptions> for super::super::System::Ole::Automation::IDispatch {
@@ -14817,7 +14117,7 @@ pub struct IADsObjectOptions_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsOctetList(::windows::runtime::IUnknown);
 impl IADsOctetList {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -14835,26 +14135,6 @@ impl IADsOctetList {
 unsafe impl ::windows::runtime::Interface for IADsOctetList {
     type Vtable = IADsOctetList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2066266127, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsOctetList> for ::windows::runtime::IUnknown {
-    fn from(value: IADsOctetList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsOctetList> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsOctetList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsOctetList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsOctetList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsOctetList> for super::super::System::Ole::Automation::IDispatch {
@@ -14901,7 +14181,7 @@ pub struct IADsOctetList_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsOpenDSObject(::windows::runtime::IUnknown);
 impl IADsOpenDSObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
@@ -14914,26 +14194,6 @@ impl IADsOpenDSObject {
 unsafe impl ::windows::runtime::Interface for IADsOpenDSObject {
     type Vtable = IADsOpenDSObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723659550, 3996, 4560, [138, 212, 0, 192, 79, 216, 213, 3]);
-}
-impl ::std::convert::From<IADsOpenDSObject> for ::windows::runtime::IUnknown {
-    fn from(value: IADsOpenDSObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsOpenDSObject> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsOpenDSObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsOpenDSObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsOpenDSObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsOpenDSObject> for super::super::System::Ole::Automation::IDispatch {
@@ -14978,7 +14238,7 @@ pub struct IADsOpenDSObject_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPath(::windows::runtime::IUnknown);
 impl IADsPath {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -15016,26 +14276,6 @@ impl IADsPath {
 unsafe impl ::windows::runtime::Interface for IADsPath {
     type Vtable = IADsPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2995256533, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsPath> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPath) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPath> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPath) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPath {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPath> for super::super::System::Ole::Automation::IDispatch {
@@ -15088,7 +14328,7 @@ pub struct IADsPath_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPathname(::windows::runtime::IUnknown);
 impl IADsPathname {
     #[cfg(feature = "Win32_Foundation")]
@@ -15152,26 +14392,6 @@ unsafe impl ::windows::runtime::Interface for IADsPathname {
     type Vtable = IADsPathname_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583160020, 62496, 4560, [163, 110, 0, 192, 79, 185, 80, 220]);
 }
-impl ::std::convert::From<IADsPathname> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPathname) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPathname> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPathname) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPathname {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPathname {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPathname> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPathname) -> Self {
@@ -15230,7 +14450,7 @@ pub struct IADsPathname_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPostalAddress(::windows::runtime::IUnknown);
 impl IADsPostalAddress {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -15248,26 +14468,6 @@ impl IADsPostalAddress {
 unsafe impl ::windows::runtime::Interface for IADsPostalAddress {
     type Vtable = IADsPostalAddress_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061422377, 18048, 4561, [163, 180, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsPostalAddress> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPostalAddress) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPostalAddress> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPostalAddress) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPostalAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPostalAddress {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPostalAddress> for super::super::System::Ole::Automation::IDispatch {
@@ -15314,7 +14514,7 @@ pub struct IADsPostalAddress_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPrintJob(::windows::runtime::IUnknown);
 impl IADsPrintJob {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -15507,26 +14707,6 @@ unsafe impl ::windows::runtime::Interface for IADsPrintJob {
     type Vtable = IADsPrintJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(855336832, 7888, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsPrintJob> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPrintJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPrintJob> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPrintJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPrintJob {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPrintJob {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsPrintJob> for IADs {
     fn from(value: IADsPrintJob) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15639,7 +14819,7 @@ pub struct IADsPrintJob_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPrintJobOperations(::windows::runtime::IUnknown);
 impl IADsPrintJobOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -15771,26 +14951,6 @@ unsafe impl ::windows::runtime::Interface for IADsPrintJobOperations {
     type Vtable = IADsPrintJobOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589121328, 7887, 4559, [169, 136, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsPrintJobOperations> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPrintJobOperations) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPrintJobOperations> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPrintJobOperations) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPrintJobOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPrintJobOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsPrintJobOperations> for IADs {
     fn from(value: IADsPrintJobOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -15883,7 +15043,7 @@ pub struct IADsPrintJobOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPrintQueue(::windows::runtime::IUnknown);
 impl IADsPrintQueue {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -16118,26 +15278,6 @@ unsafe impl ::windows::runtime::Interface for IADsPrintQueue {
     type Vtable = IADsPrintQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2974900432, 4646, 4559, [169, 133, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsPrintQueue> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPrintQueue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPrintQueue> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPrintQueue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPrintQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPrintQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsPrintQueue> for IADs {
     fn from(value: IADsPrintQueue) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16267,7 +15407,7 @@ pub struct IADsPrintQueue_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPrintQueueOperations(::windows::runtime::IUnknown);
 impl IADsPrintQueueOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -16389,26 +15529,6 @@ unsafe impl ::windows::runtime::Interface for IADsPrintQueueOperations {
     type Vtable = IADsPrintQueueOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(306963904, 5486, 4559, [169, 134, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsPrintQueueOperations> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPrintQueueOperations) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPrintQueueOperations> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPrintQueueOperations) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPrintQueueOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPrintQueueOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsPrintQueueOperations> for IADs {
     fn from(value: IADsPrintQueueOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16499,7 +15619,7 @@ pub struct IADsPrintQueueOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsProperty(::windows::runtime::IUnknown);
 impl IADsProperty {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -16653,26 +15773,6 @@ unsafe impl ::windows::runtime::Interface for IADsProperty {
     type Vtable = IADsProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777491, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
 }
-impl ::std::convert::From<IADsProperty> for ::windows::runtime::IUnknown {
-    fn from(value: IADsProperty) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsProperty> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsProperty) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsProperty {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsProperty {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsProperty> for IADs {
     fn from(value: IADsProperty) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -16773,7 +15873,7 @@ pub struct IADsProperty_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPropertyEntry(::windows::runtime::IUnknown);
 impl IADsPropertyEntry {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -16824,26 +15924,6 @@ impl IADsPropertyEntry {
 unsafe impl ::windows::runtime::Interface for IADsPropertyEntry {
     type Vtable = IADsPropertyEntry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(91827342, 37919, 4560, [133, 41, 0, 192, 79, 216, 213, 3]);
-}
-impl ::std::convert::From<IADsPropertyEntry> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPropertyEntry) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPropertyEntry> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPropertyEntry) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPropertyEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPropertyEntry {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPropertyEntry> for super::super::System::Ole::Automation::IDispatch {
@@ -16899,7 +15979,7 @@ pub struct IADsPropertyEntry_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPropertyList(::windows::runtime::IUnknown);
 impl IADsPropertyList {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -16951,26 +16031,6 @@ impl IADsPropertyList {
 unsafe impl ::windows::runtime::Interface for IADsPropertyList {
     type Vtable = IADsPropertyList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3338011318, 36713, 4560, [133, 40, 0, 192, 79, 216, 213, 3]);
-}
-impl ::std::convert::From<IADsPropertyList> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPropertyList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPropertyList> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPropertyList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPropertyList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPropertyList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPropertyList> for super::super::System::Ole::Automation::IDispatch {
@@ -17027,7 +16087,7 @@ pub struct IADsPropertyList_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPropertyValue(::windows::runtime::IUnknown);
 impl IADsPropertyValue {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -17163,26 +16223,6 @@ unsafe impl ::windows::runtime::Interface for IADsPropertyValue {
     type Vtable = IADsPropertyValue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046466768, 43388, 4560, [133, 52, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IADsPropertyValue> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPropertyValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPropertyValue> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPropertyValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPropertyValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPropertyValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPropertyValue> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsPropertyValue) -> Self {
@@ -17265,7 +16305,7 @@ pub struct IADsPropertyValue_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsPropertyValue2(::windows::runtime::IUnknown);
 impl IADsPropertyValue2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -17282,26 +16322,6 @@ impl IADsPropertyValue2 {
 unsafe impl ::windows::runtime::Interface for IADsPropertyValue2 {
     type Vtable = IADsPropertyValue2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(812548892, 23495, 4561, [163, 184, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsPropertyValue2> for ::windows::runtime::IUnknown {
-    fn from(value: IADsPropertyValue2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsPropertyValue2> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsPropertyValue2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsPropertyValue2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsPropertyValue2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsPropertyValue2> for super::super::System::Ole::Automation::IDispatch {
@@ -17348,7 +16368,7 @@ pub struct IADsPropertyValue2_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsReplicaPointer(::windows::runtime::IUnknown);
 impl IADsReplicaPointer {
     #[cfg(feature = "Win32_Foundation")]
@@ -17405,26 +16425,6 @@ unsafe impl ::windows::runtime::Interface for IADsReplicaPointer {
     type Vtable = IADsReplicaPointer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128225283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 }
-impl ::std::convert::From<IADsReplicaPointer> for ::windows::runtime::IUnknown {
-    fn from(value: IADsReplicaPointer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsReplicaPointer> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsReplicaPointer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsReplicaPointer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsReplicaPointer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsReplicaPointer> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsReplicaPointer) -> Self {
@@ -17480,7 +16480,7 @@ pub struct IADsReplicaPointer_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsResource(::windows::runtime::IUnknown);
 impl IADsResource {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -17603,26 +16603,6 @@ unsafe impl ::windows::runtime::Interface for IADsResource {
     type Vtable = IADsResource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882924320, 19115, 4559, [174, 44, 0, 170, 0, 110, 191, 185]);
 }
-impl ::std::convert::From<IADsResource> for ::windows::runtime::IUnknown {
-    fn from(value: IADsResource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsResource> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsResource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsResource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsResource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsResource> for IADs {
     fn from(value: IADsResource) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -17715,7 +16695,7 @@ pub struct IADsResource_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsSecurityDescriptor(::windows::runtime::IUnknown);
 impl IADsSecurityDescriptor {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -17827,26 +16807,6 @@ unsafe impl ::windows::runtime::Interface for IADsSecurityDescriptor {
     type Vtable = IADsSecurityDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3100084170, 39901, 4560, [133, 44, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IADsSecurityDescriptor> for ::windows::runtime::IUnknown {
-    fn from(value: IADsSecurityDescriptor) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsSecurityDescriptor> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsSecurityDescriptor) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsSecurityDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsSecurityDescriptor {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsSecurityDescriptor> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IADsSecurityDescriptor) -> Self {
@@ -17918,7 +16878,7 @@ pub struct IADsSecurityDescriptor_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsSecurityUtility(::windows::runtime::IUnknown);
 impl IADsSecurityUtility {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -17951,26 +16911,6 @@ impl IADsSecurityUtility {
 unsafe impl ::windows::runtime::Interface for IADsSecurityUtility {
     type Vtable = IADsSecurityUtility_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2788315570, 24353, 18251, [171, 82, 74, 142, 250, 209, 8, 149]);
-}
-impl ::std::convert::From<IADsSecurityUtility> for ::windows::runtime::IUnknown {
-    fn from(value: IADsSecurityUtility) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsSecurityUtility> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsSecurityUtility) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsSecurityUtility {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsSecurityUtility {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsSecurityUtility> for super::super::System::Ole::Automation::IDispatch {
@@ -18021,7 +16961,7 @@ pub struct IADsSecurityUtility_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsService(::windows::runtime::IUnknown);
 impl IADsService {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -18247,26 +17187,6 @@ unsafe impl ::windows::runtime::Interface for IADsService {
     type Vtable = IADsService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1756325600, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsService> for ::windows::runtime::IUnknown {
-    fn from(value: IADsService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsService> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsService> for IADs {
     fn from(value: IADsService) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -18394,7 +17314,7 @@ pub struct IADsService_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsServiceOperations(::windows::runtime::IUnknown);
 impl IADsServiceOperations {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -18520,26 +17440,6 @@ unsafe impl ::windows::runtime::Interface for IADsServiceOperations {
     type Vtable = IADsServiceOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1568355312, 12746, 4559, [169, 138, 0, 170, 0, 107, 193, 73]);
 }
-impl ::std::convert::From<IADsServiceOperations> for ::windows::runtime::IUnknown {
-    fn from(value: IADsServiceOperations) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsServiceOperations> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsServiceOperations) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsServiceOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsServiceOperations {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsServiceOperations> for IADs {
     fn from(value: IADsServiceOperations) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -18632,7 +17532,7 @@ pub struct IADsServiceOperations_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsSession(::windows::runtime::IUnknown);
 impl IADsSession {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -18766,26 +17666,6 @@ unsafe impl ::windows::runtime::Interface for IADsSession {
     type Vtable = IADsSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(965442976, 19115, 4559, [174, 44, 0, 170, 0, 110, 191, 185]);
 }
-impl ::std::convert::From<IADsSession> for ::windows::runtime::IUnknown {
-    fn from(value: IADsSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsSession> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsSession> for IADs {
     fn from(value: IADsSession) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -18881,7 +17761,7 @@ pub struct IADsSession_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsSyntax(::windows::runtime::IUnknown);
 impl IADsSyntax {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -18990,26 +17870,6 @@ unsafe impl ::windows::runtime::Interface for IADsSyntax {
     type Vtable = IADsSyntax_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3371777490, 19168, 4559, [158, 115, 0, 170, 0, 74, 86, 145]);
 }
-impl ::std::convert::From<IADsSyntax> for ::windows::runtime::IUnknown {
-    fn from(value: IADsSyntax) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsSyntax> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsSyntax) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsSyntax {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsSyntax {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsSyntax> for IADs {
     fn from(value: IADsSyntax) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -19097,7 +17957,7 @@ pub struct IADsSyntax_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsTimestamp(::windows::runtime::IUnknown);
 impl IADsTimestamp {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -19122,26 +17982,6 @@ impl IADsTimestamp {
 unsafe impl ::windows::runtime::Interface for IADsTimestamp {
     type Vtable = IADsTimestamp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002444033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsTimestamp> for ::windows::runtime::IUnknown {
-    fn from(value: IADsTimestamp) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsTimestamp> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsTimestamp) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsTimestamp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsTimestamp {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsTimestamp> for super::super::System::Ole::Automation::IDispatch {
@@ -19188,7 +18028,7 @@ pub struct IADsTimestamp_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsTypedName(::windows::runtime::IUnknown);
 impl IADsTypedName {
     #[cfg(feature = "Win32_Foundation")]
@@ -19224,26 +18064,6 @@ impl IADsTypedName {
 unsafe impl ::windows::runtime::Interface for IADsTypedName {
     type Vtable = IADsTypedName_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3010569033, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
-}
-impl ::std::convert::From<IADsTypedName> for ::windows::runtime::IUnknown {
-    fn from(value: IADsTypedName) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsTypedName> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsTypedName) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsTypedName {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsTypedName {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsTypedName> for super::super::System::Ole::Automation::IDispatch {
@@ -19294,7 +18114,7 @@ pub struct IADsTypedName_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsUser(::windows::runtime::IUnknown);
 impl IADsUser {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -19869,26 +18689,6 @@ unsafe impl ::windows::runtime::Interface for IADsUser {
     type Vtable = IADsUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1043850016, 6114, 4559, [171, 196, 2, 96, 140, 158, 117, 83]);
 }
-impl ::std::convert::From<IADsUser> for ::windows::runtime::IUnknown {
-    fn from(value: IADsUser) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsUser> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsUser) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsUser {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IADsUser> for IADs {
     fn from(value: IADsUser) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -20128,7 +18928,7 @@ pub struct IADsUser_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IADsWinNTSystemInfo(::windows::runtime::IUnknown);
 impl IADsWinNTSystemInfo {
     #[cfg(feature = "Win32_Foundation")]
@@ -20159,26 +18959,6 @@ impl IADsWinNTSystemInfo {
 unsafe impl ::windows::runtime::Interface for IADsWinNTSystemInfo {
     type Vtable = IADsWinNTSystemInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1819108828, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
-}
-impl ::std::convert::From<IADsWinNTSystemInfo> for ::windows::runtime::IUnknown {
-    fn from(value: IADsWinNTSystemInfo) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IADsWinNTSystemInfo> for ::windows::runtime::IUnknown {
-    fn from(value: &IADsWinNTSystemInfo) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IADsWinNTSystemInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IADsWinNTSystemInfo {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IADsWinNTSystemInfo> for super::super::System::Ole::Automation::IDispatch {
@@ -20229,7 +19009,7 @@ pub struct IADsWinNTSystemInfo_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ICommonQuery(::windows::runtime::IUnknown);
 impl ICommonQuery {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -20242,26 +19022,6 @@ unsafe impl ::windows::runtime::Interface for ICommonQuery {
     type Vtable = ICommonQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2874203840, 28445, 4560, [161, 196, 0, 170, 0, 193, 110, 101]);
 }
-impl ::std::convert::From<ICommonQuery> for ::windows::runtime::IUnknown {
-    fn from(value: ICommonQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICommonQuery> for ::windows::runtime::IUnknown {
-    fn from(value: &ICommonQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICommonQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICommonQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonQuery_abi(
@@ -20273,7 +19033,7 @@ pub struct ICommonQuery_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDirectoryObject(::windows::runtime::IUnknown);
 impl IDirectoryObject {
     #[cfg(feature = "Win32_Foundation")]
@@ -20309,26 +19069,6 @@ unsafe impl ::windows::runtime::Interface for IDirectoryObject {
     type Vtable = IDirectoryObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3885555244, 8932, 4560, [132, 254, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IDirectoryObject> for ::windows::runtime::IUnknown {
-    fn from(value: IDirectoryObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDirectoryObject> for ::windows::runtime::IUnknown {
-    fn from(value: &IDirectoryObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectoryObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectoryObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectoryObject_abi(
@@ -20348,7 +19088,7 @@ pub struct IDirectoryObject_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDirectorySchemaMgmt(::windows::runtime::IUnknown);
 impl IDirectorySchemaMgmt {
     #[cfg(feature = "Win32_Foundation")]
@@ -20396,26 +19136,6 @@ unsafe impl ::windows::runtime::Interface for IDirectorySchemaMgmt {
     type Vtable = IDirectorySchemaMgmt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1977301916, 42200, 4560, [167, 156, 0, 192, 79, 216, 213, 168]);
 }
-impl ::std::convert::From<IDirectorySchemaMgmt> for ::windows::runtime::IUnknown {
-    fn from(value: IDirectorySchemaMgmt) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDirectorySchemaMgmt> for ::windows::runtime::IUnknown {
-    fn from(value: &IDirectorySchemaMgmt) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectorySchemaMgmt {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectorySchemaMgmt {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySchemaMgmt_abi(
@@ -20441,7 +19161,7 @@ pub struct IDirectorySchemaMgmt_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDirectorySearch(::windows::runtime::IUnknown);
 impl IDirectorySearch {
     #[cfg(feature = "Win32_Foundation")]
@@ -20497,26 +19217,6 @@ unsafe impl ::windows::runtime::Interface for IDirectorySearch {
     type Vtable = IDirectorySearch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(278636780, 37616, 4560, [167, 144, 0, 192, 79, 216, 213, 168]);
 }
-impl ::std::convert::From<IDirectorySearch> for ::windows::runtime::IUnknown {
-    fn from(value: IDirectorySearch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDirectorySearch> for ::windows::runtime::IUnknown {
-    fn from(value: &IDirectorySearch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectorySearch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectorySearch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySearch_abi(
@@ -20541,7 +19241,7 @@ pub struct IDirectorySearch_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsAdminCreateObj(::windows::runtime::IUnknown);
 impl IDsAdminCreateObj {
     #[cfg(feature = "Win32_Foundation")]
@@ -20560,26 +19260,6 @@ unsafe impl ::windows::runtime::Interface for IDsAdminCreateObj {
     type Vtable = IDsAdminCreateObj_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398098488, 63746, 4562, [130, 185, 0, 192, 79, 104, 146, 139]);
 }
-impl ::std::convert::From<IDsAdminCreateObj> for ::windows::runtime::IUnknown {
-    fn from(value: IDsAdminCreateObj) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsAdminCreateObj> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsAdminCreateObj) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminCreateObj {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsAdminCreateObj {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminCreateObj_abi(
@@ -20593,7 +19273,7 @@ pub struct IDsAdminCreateObj_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsAdminNewObj(::windows::runtime::IUnknown);
 impl IDsAdminNewObj {
     #[cfg(feature = "Win32_Foundation")]
@@ -20610,26 +19290,6 @@ unsafe impl ::windows::runtime::Interface for IDsAdminNewObj {
     type Vtable = IDsAdminNewObj_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4065801607, 59132, 4562, [130, 175, 0, 192, 79, 104, 146, 139]);
 }
-impl ::std::convert::From<IDsAdminNewObj> for ::windows::runtime::IUnknown {
-    fn from(value: IDsAdminNewObj) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsAdminNewObj> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsAdminNewObj) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminNewObj {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsAdminNewObj {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObj_abi(
@@ -20642,7 +19302,7 @@ pub struct IDsAdminNewObj_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsAdminNewObjExt(::windows::runtime::IUnknown);
 impl IDsAdminNewObjExt {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -20679,26 +19339,6 @@ unsafe impl ::windows::runtime::Interface for IDsAdminNewObjExt {
     type Vtable = IDsAdminNewObjExt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619585762, 59327, 4562, [130, 175, 0, 192, 79, 104, 146, 139]);
 }
-impl ::std::convert::From<IDsAdminNewObjExt> for ::windows::runtime::IUnknown {
-    fn from(value: IDsAdminNewObjExt) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsAdminNewObjExt> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsAdminNewObjExt) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminNewObjExt {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsAdminNewObjExt {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjExt_abi(
@@ -20719,7 +19359,7 @@ pub struct IDsAdminNewObjExt_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsAdminNewObjPrimarySite(::windows::runtime::IUnknown);
 impl IDsAdminNewObjPrimarySite {
     #[cfg(feature = "Win32_Foundation")]
@@ -20736,26 +19376,6 @@ unsafe impl ::windows::runtime::Interface for IDsAdminNewObjPrimarySite {
     type Vtable = IDsAdminNewObjPrimarySite_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3190507646, 63748, 4562, [130, 185, 0, 192, 79, 104, 146, 139]);
 }
-impl ::std::convert::From<IDsAdminNewObjPrimarySite> for ::windows::runtime::IUnknown {
-    fn from(value: IDsAdminNewObjPrimarySite) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsAdminNewObjPrimarySite> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsAdminNewObjPrimarySite) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminNewObjPrimarySite {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsAdminNewObjPrimarySite {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjPrimarySite_abi(
@@ -20768,7 +19388,7 @@ pub struct IDsAdminNewObjPrimarySite_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsAdminNotifyHandler(::windows::runtime::IUnknown);
 impl IDsAdminNotifyHandler {
     #[cfg(feature = "Win32_System_Com")]
@@ -20794,26 +19414,6 @@ unsafe impl ::windows::runtime::Interface for IDsAdminNotifyHandler {
     type Vtable = IDsAdminNotifyHandler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3835869363, 23064, 4562, [151, 193, 0, 160, 201, 160, 109, 45]);
 }
-impl ::std::convert::From<IDsAdminNotifyHandler> for ::windows::runtime::IUnknown {
-    fn from(value: IDsAdminNotifyHandler) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsAdminNotifyHandler> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsAdminNotifyHandler) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsAdminNotifyHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsAdminNotifyHandler {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNotifyHandler_abi(
@@ -20829,7 +19429,7 @@ pub struct IDsAdminNotifyHandler_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsBrowseDomainTree(::windows::runtime::IUnknown);
 impl IDsBrowseDomainTree {
     #[cfg(feature = "Win32_Foundation")]
@@ -20861,26 +19461,6 @@ unsafe impl ::windows::runtime::Interface for IDsBrowseDomainTree {
     type Vtable = IDsBrowseDomainTree_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091634462, 30965, 4562, [150, 12, 0, 192, 79, 163, 26, 134]);
 }
-impl ::std::convert::From<IDsBrowseDomainTree> for ::windows::runtime::IUnknown {
-    fn from(value: IDsBrowseDomainTree) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsBrowseDomainTree> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsBrowseDomainTree) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsBrowseDomainTree {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsBrowseDomainTree {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsBrowseDomainTree_abi(
@@ -20899,7 +19479,7 @@ pub struct IDsBrowseDomainTree_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsDisplaySpecifier(::windows::runtime::IUnknown);
 impl IDsDisplaySpecifier {
     #[cfg(feature = "Win32_Foundation")]
@@ -20961,26 +19541,6 @@ unsafe impl ::windows::runtime::Interface for IDsDisplaySpecifier {
     type Vtable = IDsDisplaySpecifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(448047296, 27147, 4562, [173, 73, 0, 192, 79, 163, 26, 134]);
 }
-impl ::std::convert::From<IDsDisplaySpecifier> for ::windows::runtime::IUnknown {
-    fn from(value: IDsDisplaySpecifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsDisplaySpecifier> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsDisplaySpecifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsDisplaySpecifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsDisplaySpecifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsDisplaySpecifier_abi(
@@ -21011,7 +19571,7 @@ pub struct IDsDisplaySpecifier_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsObjectPicker(::windows::runtime::IUnknown);
 impl IDsObjectPicker {
     #[cfg(feature = "Win32_Foundation")]
@@ -21030,26 +19590,6 @@ unsafe impl ::windows::runtime::Interface for IDsObjectPicker {
     type Vtable = IDsObjectPicker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(210232910, 15226, 4562, [185, 224, 0, 192, 79, 216, 219, 247]);
 }
-impl ::std::convert::From<IDsObjectPicker> for ::windows::runtime::IUnknown {
-    fn from(value: IDsObjectPicker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsObjectPicker> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsObjectPicker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsObjectPicker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsObjectPicker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsObjectPicker_abi(
@@ -21063,7 +19603,7 @@ pub struct IDsObjectPicker_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDsObjectPickerCredentials(::windows::runtime::IUnknown);
 impl IDsObjectPickerCredentials {
     #[cfg(feature = "Win32_Foundation")]
@@ -21086,26 +19626,6 @@ impl IDsObjectPickerCredentials {
 unsafe impl ::windows::runtime::Interface for IDsObjectPickerCredentials {
     type Vtable = IDsObjectPickerCredentials_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805539483, 53313, 17498, [143, 22, 71, 72, 222, 143, 177, 207]);
-}
-impl ::std::convert::From<IDsObjectPickerCredentials> for ::windows::runtime::IUnknown {
-    fn from(value: IDsObjectPickerCredentials) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDsObjectPickerCredentials> for ::windows::runtime::IUnknown {
-    fn from(value: &IDsObjectPickerCredentials) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDsObjectPickerCredentials {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDsObjectPickerCredentials {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<IDsObjectPickerCredentials> for IDsObjectPicker {
     fn from(value: IDsObjectPickerCredentials) -> Self {
@@ -21142,7 +19662,7 @@ pub struct IDsObjectPickerCredentials_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPersistQuery(::windows::runtime::IUnknown);
 impl IPersistQuery {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -21188,26 +19708,6 @@ impl IPersistQuery {
 unsafe impl ::windows::runtime::Interface for IPersistQuery {
     type Vtable = IPersistQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(439424184, 42542, 4560, [166, 197, 0, 160, 201, 6, 175, 69]);
-}
-impl ::std::convert::From<IPersistQuery> for ::windows::runtime::IUnknown {
-    fn from(value: IPersistQuery) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPersistQuery> for ::windows::runtime::IUnknown {
-    fn from(value: &IPersistQuery) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPersistQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPersistQuery {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IPersistQuery> for super::super::System::Com::IPersist {
@@ -21256,7 +19756,7 @@ pub struct IPersistQuery_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPrivateDispatch(::windows::runtime::IUnknown);
 impl IPrivateDispatch {
     #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -21289,26 +19789,6 @@ unsafe impl ::windows::runtime::Interface for IPrivateDispatch {
     type Vtable = IPrivateDispatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2259372990, 26102, 4561, [140, 19, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IPrivateDispatch> for ::windows::runtime::IUnknown {
-    fn from(value: IPrivateDispatch) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPrivateDispatch> for ::windows::runtime::IUnknown {
-    fn from(value: &IPrivateDispatch) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrivateDispatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrivateDispatch {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateDispatch_abi(
@@ -21326,7 +19806,7 @@ pub struct IPrivateDispatch_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPrivateUnknown(::windows::runtime::IUnknown);
 impl IPrivateUnknown {
     #[cfg(feature = "Win32_Foundation")]
@@ -21343,26 +19823,6 @@ unsafe impl ::windows::runtime::Interface for IPrivateUnknown {
     type Vtable = IPrivateUnknown_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299685803, 28333, 4561, [140, 24, 0, 192, 79, 216, 213, 3]);
 }
-impl ::std::convert::From<IPrivateUnknown> for ::windows::runtime::IUnknown {
-    fn from(value: IPrivateUnknown) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPrivateUnknown> for ::windows::runtime::IUnknown {
-    fn from(value: &IPrivateUnknown) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrivateUnknown {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrivateUnknown {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateUnknown_abi(
@@ -21375,7 +19835,7 @@ pub struct IPrivateUnknown_abi(
 );
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IQueryForm(::windows::runtime::IUnknown);
 impl IQueryForm {
     #[cfg(feature = "Win32_System_Registry")]
@@ -21397,26 +19857,6 @@ impl IQueryForm {
 unsafe impl ::windows::runtime::Interface for IQueryForm {
     type Vtable = IQueryForm_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2365386288, 14781, 4560, [184, 209, 0, 160, 36, 171, 45, 187]);
-}
-impl ::std::convert::From<IQueryForm> for ::windows::runtime::IUnknown {
-    fn from(value: IQueryForm) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IQueryForm> for ::windows::runtime::IUnknown {
-    fn from(value: &IQueryForm) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IQueryForm {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IQueryForm {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

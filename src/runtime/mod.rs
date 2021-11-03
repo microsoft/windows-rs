@@ -86,8 +86,8 @@ pub type RawPtr = *mut std::ffi::c_void;
 #[cfg(feature = "build")]
 pub use windows_macros::{build, generate, implement, include_bindings};
 
-// TODO: this will need to be in a separate derive crate and not the macros crate
-//pub use windows_macros::StructDerive;
+#[doc(hidden)]
+pub use windows_derive::DeriveInterface;
 
 // TODO: remove this
 #[cfg(feature = "build")]

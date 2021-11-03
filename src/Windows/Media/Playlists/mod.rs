@@ -47,7 +47,7 @@ pub struct IPlaylistStatics_abi(
 );
 #[doc = "*Required features: `Media_Playlists`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct Playlist(::windows::runtime::IInspectable);
 impl Playlist {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -115,46 +115,6 @@ unsafe impl ::windows::runtime::Interface for Playlist {
 }
 impl ::windows::runtime::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";
-}
-impl ::std::convert::From<Playlist> for ::windows::runtime::IUnknown {
-    fn from(value: Playlist) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&Playlist> for ::windows::runtime::IUnknown {
-    fn from(value: &Playlist) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Playlist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Playlist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<Playlist> for ::windows::runtime::IInspectable {
-    fn from(value: Playlist) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&Playlist> for ::windows::runtime::IInspectable {
-    fn from(value: &Playlist) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Playlist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Playlist {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[doc = "*Required features: `Media_Playlists`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

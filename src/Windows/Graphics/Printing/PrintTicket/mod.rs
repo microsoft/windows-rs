@@ -236,7 +236,7 @@ pub struct IWorkflowPrintTicketValidationResult_abi(
 );
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTicketCapabilities(::windows::runtime::IInspectable);
 impl PrintTicketCapabilities {
     #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -411,51 +411,11 @@ unsafe impl ::windows::runtime::Interface for PrintTicketCapabilities {
 impl ::windows::runtime::RuntimeName for PrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities";
 }
-impl ::std::convert::From<PrintTicketCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTicketCapabilities) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTicketCapabilities> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTicketCapabilities) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTicketCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTicketCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTicketCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTicketCapabilities) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTicketCapabilities> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTicketCapabilities) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTicketCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTicketCapabilities {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTicketCapabilities {}
 unsafe impl ::std::marker::Sync for PrintTicketCapabilities {}
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTicketFeature(::windows::runtime::IInspectable);
 impl PrintTicketFeature {
     #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -540,46 +500,6 @@ unsafe impl ::windows::runtime::Interface for PrintTicketFeature {
 impl ::windows::runtime::RuntimeName for PrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketFeature";
 }
-impl ::std::convert::From<PrintTicketFeature> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTicketFeature) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTicketFeature> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTicketFeature) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTicketFeature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTicketFeature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTicketFeature> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTicketFeature) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTicketFeature> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTicketFeature) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTicketFeature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTicketFeature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTicketFeature {}
 unsafe impl ::std::marker::Sync for PrintTicketFeature {}
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -604,7 +524,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketFeatureSelectionType 
 }
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTicketOption(::windows::runtime::IInspectable);
 impl PrintTicketOption {
     #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -685,46 +605,6 @@ unsafe impl ::windows::runtime::Interface for PrintTicketOption {
 impl ::windows::runtime::RuntimeName for PrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketOption";
 }
-impl ::std::convert::From<PrintTicketOption> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTicketOption) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTicketOption> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTicketOption) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTicketOption {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTicketOption {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTicketOption> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTicketOption) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTicketOption> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTicketOption) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTicketOption {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTicketOption {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTicketOption {}
 unsafe impl ::std::marker::Sync for PrintTicketOption {}
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -750,7 +630,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketParameterDataType {
 }
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTicketParameterDefinition(::windows::runtime::IInspectable);
 impl PrintTicketParameterDefinition {
     #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -821,51 +701,11 @@ unsafe impl ::windows::runtime::Interface for PrintTicketParameterDefinition {
 impl ::windows::runtime::RuntimeName for PrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition";
 }
-impl ::std::convert::From<PrintTicketParameterDefinition> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTicketParameterDefinition) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTicketParameterDefinition> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTicketParameterDefinition) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTicketParameterDefinition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTicketParameterDefinition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTicketParameterDefinition> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTicketParameterDefinition) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTicketParameterDefinition> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTicketParameterDefinition) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTicketParameterDefinition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTicketParameterDefinition {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTicketParameterDefinition {}
 unsafe impl ::std::marker::Sync for PrintTicketParameterDefinition {}
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTicketParameterInitializer(::windows::runtime::IInspectable);
 impl PrintTicketParameterInitializer {
     #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -917,51 +757,11 @@ unsafe impl ::windows::runtime::Interface for PrintTicketParameterInitializer {
 impl ::windows::runtime::RuntimeName for PrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer";
 }
-impl ::std::convert::From<PrintTicketParameterInitializer> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTicketParameterInitializer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTicketParameterInitializer> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTicketParameterInitializer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTicketParameterInitializer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTicketParameterInitializer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTicketParameterInitializer> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTicketParameterInitializer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTicketParameterInitializer> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTicketParameterInitializer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTicketParameterInitializer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTicketParameterInitializer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTicketParameterInitializer {}
 unsafe impl ::std::marker::Sync for PrintTicketParameterInitializer {}
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PrintTicketValue(::windows::runtime::IInspectable);
 impl PrintTicketValue {
     #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -999,46 +799,6 @@ unsafe impl ::windows::runtime::Interface for PrintTicketValue {
 impl ::windows::runtime::RuntimeName for PrintTicketValue {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketValue";
 }
-impl ::std::convert::From<PrintTicketValue> for ::windows::runtime::IUnknown {
-    fn from(value: PrintTicketValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PrintTicketValue> for ::windows::runtime::IUnknown {
-    fn from(value: &PrintTicketValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PrintTicketValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PrintTicketValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PrintTicketValue> for ::windows::runtime::IInspectable {
-    fn from(value: PrintTicketValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PrintTicketValue> for ::windows::runtime::IInspectable {
-    fn from(value: &PrintTicketValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PrintTicketValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PrintTicketValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PrintTicketValue {}
 unsafe impl ::std::marker::Sync for PrintTicketValue {}
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -1064,7 +824,7 @@ unsafe impl ::windows::runtime::RuntimeType for PrintTicketValueType {
 }
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WorkflowPrintTicket(::windows::runtime::IInspectable);
 impl WorkflowPrintTicket {
     #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -1289,51 +1049,11 @@ unsafe impl ::windows::runtime::Interface for WorkflowPrintTicket {
 impl ::windows::runtime::RuntimeName for WorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket";
 }
-impl ::std::convert::From<WorkflowPrintTicket> for ::windows::runtime::IUnknown {
-    fn from(value: WorkflowPrintTicket) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WorkflowPrintTicket> for ::windows::runtime::IUnknown {
-    fn from(value: &WorkflowPrintTicket) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WorkflowPrintTicket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WorkflowPrintTicket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WorkflowPrintTicket> for ::windows::runtime::IInspectable {
-    fn from(value: WorkflowPrintTicket) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WorkflowPrintTicket> for ::windows::runtime::IInspectable {
-    fn from(value: &WorkflowPrintTicket) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WorkflowPrintTicket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WorkflowPrintTicket {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for WorkflowPrintTicket {}
 unsafe impl ::std::marker::Sync for WorkflowPrintTicket {}
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct WorkflowPrintTicketValidationResult(::windows::runtime::IInspectable);
 impl WorkflowPrintTicketValidationResult {
     #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
@@ -1362,46 +1082,6 @@ unsafe impl ::windows::runtime::Interface for WorkflowPrintTicketValidationResul
 }
 impl ::windows::runtime::RuntimeName for WorkflowPrintTicketValidationResult {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult";
-}
-impl ::std::convert::From<WorkflowPrintTicketValidationResult> for ::windows::runtime::IUnknown {
-    fn from(value: WorkflowPrintTicketValidationResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&WorkflowPrintTicketValidationResult> for ::windows::runtime::IUnknown {
-    fn from(value: &WorkflowPrintTicketValidationResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WorkflowPrintTicketValidationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WorkflowPrintTicketValidationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<WorkflowPrintTicketValidationResult> for ::windows::runtime::IInspectable {
-    fn from(value: WorkflowPrintTicketValidationResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&WorkflowPrintTicketValidationResult> for ::windows::runtime::IInspectable {
-    fn from(value: &WorkflowPrintTicketValidationResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WorkflowPrintTicketValidationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WorkflowPrintTicketValidationResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for WorkflowPrintTicketValidationResult {}
 unsafe impl ::std::marker::Sync for WorkflowPrintTicketValidationResult {}

@@ -10084,7 +10084,7 @@ pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: ::windows::runtime::GUID = ::windo
 pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1134239919, 35157, 16475, [153, 240, 166, 42, 240, 198, 141, 67]);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDot11AdHocInterface(::windows::runtime::IUnknown);
 impl IDot11AdHocInterface {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10133,26 +10133,6 @@ unsafe impl ::windows::runtime::Interface for IDot11AdHocInterface {
     type Vtable = IDot11AdHocInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242731, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IDot11AdHocInterface> for ::windows::runtime::IUnknown {
-    fn from(value: IDot11AdHocInterface) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDot11AdHocInterface> for ::windows::runtime::IUnknown {
-    fn from(value: &IDot11AdHocInterface) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocInterface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDot11AdHocInterface {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocInterface_abi(
@@ -10172,7 +10152,7 @@ pub struct IDot11AdHocInterface_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDot11AdHocInterfaceNotificationSink(::windows::runtime::IUnknown);
 impl IDot11AdHocInterfaceNotificationSink {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10184,26 +10164,6 @@ unsafe impl ::windows::runtime::Interface for IDot11AdHocInterfaceNotificationSi
     type Vtable = IDot11AdHocInterfaceNotificationSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242735, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IDot11AdHocInterfaceNotificationSink> for ::windows::runtime::IUnknown {
-    fn from(value: IDot11AdHocInterfaceNotificationSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDot11AdHocInterfaceNotificationSink> for ::windows::runtime::IUnknown {
-    fn from(value: &IDot11AdHocInterfaceNotificationSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocInterfaceNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDot11AdHocInterfaceNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocInterfaceNotificationSink_abi(
@@ -10214,7 +10174,7 @@ pub struct IDot11AdHocInterfaceNotificationSink_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDot11AdHocManager(::windows::runtime::IUnknown);
 impl IDot11AdHocManager {
     #[cfg(feature = "Win32_Foundation")]
@@ -10256,26 +10216,6 @@ unsafe impl ::windows::runtime::Interface for IDot11AdHocManager {
     type Vtable = IDot11AdHocManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242726, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IDot11AdHocManager> for ::windows::runtime::IUnknown {
-    fn from(value: IDot11AdHocManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDot11AdHocManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IDot11AdHocManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDot11AdHocManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocManager_abi(
@@ -10292,7 +10232,7 @@ pub struct IDot11AdHocManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDot11AdHocManagerNotificationSink(::windows::runtime::IUnknown);
 impl IDot11AdHocManagerNotificationSink {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10316,26 +10256,6 @@ unsafe impl ::windows::runtime::Interface for IDot11AdHocManagerNotificationSink
     type Vtable = IDot11AdHocManagerNotificationSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242727, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IDot11AdHocManagerNotificationSink> for ::windows::runtime::IUnknown {
-    fn from(value: IDot11AdHocManagerNotificationSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDot11AdHocManagerNotificationSink> for ::windows::runtime::IUnknown {
-    fn from(value: &IDot11AdHocManagerNotificationSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocManagerNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDot11AdHocManagerNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocManagerNotificationSink_abi(
@@ -10349,7 +10269,7 @@ pub struct IDot11AdHocManagerNotificationSink_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDot11AdHocNetwork(::windows::runtime::IUnknown);
 impl IDot11AdHocNetwork {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10412,26 +10332,6 @@ unsafe impl ::windows::runtime::Interface for IDot11AdHocNetwork {
     type Vtable = IDot11AdHocNetwork_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242729, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IDot11AdHocNetwork> for ::windows::runtime::IUnknown {
-    fn from(value: IDot11AdHocNetwork) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDot11AdHocNetwork> for ::windows::runtime::IUnknown {
-    fn from(value: &IDot11AdHocNetwork) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocNetwork {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDot11AdHocNetwork {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocNetwork_abi(
@@ -10456,7 +10356,7 @@ pub struct IDot11AdHocNetwork_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDot11AdHocNetworkNotificationSink(::windows::runtime::IUnknown);
 impl IDot11AdHocNetworkNotificationSink {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10472,26 +10372,6 @@ unsafe impl ::windows::runtime::Interface for IDot11AdHocNetworkNotificationSink
     type Vtable = IDot11AdHocNetworkNotificationSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242730, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IDot11AdHocNetworkNotificationSink> for ::windows::runtime::IUnknown {
-    fn from(value: IDot11AdHocNetworkNotificationSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDot11AdHocNetworkNotificationSink> for ::windows::runtime::IUnknown {
-    fn from(value: &IDot11AdHocNetworkNotificationSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocNetworkNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDot11AdHocNetworkNotificationSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocNetworkNotificationSink_abi(
@@ -10503,7 +10383,7 @@ pub struct IDot11AdHocNetworkNotificationSink_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDot11AdHocSecuritySettings(::windows::runtime::IUnknown);
 impl IDot11AdHocSecuritySettings {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10519,26 +10399,6 @@ unsafe impl ::windows::runtime::Interface for IDot11AdHocSecuritySettings {
     type Vtable = IDot11AdHocSecuritySettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242734, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
-    fn from(value: IDot11AdHocSecuritySettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
-    fn from(value: &IDot11AdHocSecuritySettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDot11AdHocSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDot11AdHocSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDot11AdHocSecuritySettings_abi(
@@ -10550,7 +10410,7 @@ pub struct IDot11AdHocSecuritySettings_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumDot11AdHocInterfaces(::windows::runtime::IUnknown);
 impl IEnumDot11AdHocInterfaces {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10575,26 +10435,6 @@ unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocInterfaces {
     type Vtable = IEnumDot11AdHocInterfaces_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242732, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IEnumDot11AdHocInterfaces> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumDot11AdHocInterfaces) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumDot11AdHocInterfaces> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumDot11AdHocInterfaces) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDot11AdHocInterfaces {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDot11AdHocInterfaces {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDot11AdHocInterfaces_abi(
@@ -10608,7 +10448,7 @@ pub struct IEnumDot11AdHocInterfaces_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumDot11AdHocNetworks(::windows::runtime::IUnknown);
 impl IEnumDot11AdHocNetworks {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10633,26 +10473,6 @@ unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocNetworks {
     type Vtable = IEnumDot11AdHocNetworks_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242728, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
 }
-impl ::std::convert::From<IEnumDot11AdHocNetworks> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumDot11AdHocNetworks) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumDot11AdHocNetworks> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumDot11AdHocNetworks) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDot11AdHocNetworks {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDot11AdHocNetworks {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDot11AdHocNetworks_abi(
@@ -10666,7 +10486,7 @@ pub struct IEnumDot11AdHocNetworks_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumDot11AdHocSecuritySettings(::windows::runtime::IUnknown);
 impl IEnumDot11AdHocSecuritySettings {
     #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -10690,26 +10510,6 @@ impl IEnumDot11AdHocSecuritySettings {
 unsafe impl ::windows::runtime::Interface for IEnumDot11AdHocSecuritySettings {
     type Vtable = IEnumDot11AdHocSecuritySettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400242733, 53005, 17056, [172, 190, 226, 222, 112, 7, 56, 77]);
-}
-impl ::std::convert::From<IEnumDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumDot11AdHocSecuritySettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumDot11AdHocSecuritySettings> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumDot11AdHocSecuritySettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumDot11AdHocSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumDot11AdHocSecuritySettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

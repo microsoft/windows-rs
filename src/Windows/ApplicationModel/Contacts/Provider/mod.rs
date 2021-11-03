@@ -22,7 +22,7 @@ unsafe impl ::windows::runtime::RuntimeType for AddContactResult {
 }
 #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactPickerUI(::windows::runtime::IInspectable);
 impl ContactPickerUI {
     #[cfg(feature = "deprecated")]
@@ -108,49 +108,9 @@ unsafe impl ::windows::runtime::Interface for ContactPickerUI {
 impl ::windows::runtime::RuntimeName for ContactPickerUI {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI";
 }
-impl ::std::convert::From<ContactPickerUI> for ::windows::runtime::IUnknown {
-    fn from(value: ContactPickerUI) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactPickerUI> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactPickerUI) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactPickerUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactPickerUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactPickerUI> for ::windows::runtime::IInspectable {
-    fn from(value: ContactPickerUI) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactPickerUI> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactPickerUI) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactPickerUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactPickerUI {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ContactRemovedEventArgs(::windows::runtime::IInspectable);
 impl ContactRemovedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
@@ -171,46 +131,6 @@ unsafe impl ::windows::runtime::Interface for ContactRemovedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ContactRemovedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";
-}
-impl ::std::convert::From<ContactRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: ContactRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ContactRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &ContactRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ContactRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ContactRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ContactRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: ContactRemovedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ContactRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &ContactRemovedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ContactRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ContactRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]

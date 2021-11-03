@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Phone_UI_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct BackPressedEventArgs(::windows::runtime::IInspectable);
 impl BackPressedEventArgs {
     #[doc = "*Required features: `Phone_UI_Input`*"]
@@ -28,51 +28,11 @@ unsafe impl ::windows::runtime::Interface for BackPressedEventArgs {
 impl ::windows::runtime::RuntimeName for BackPressedEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.BackPressedEventArgs";
 }
-impl ::std::convert::From<BackPressedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: BackPressedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&BackPressedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &BackPressedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BackPressedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &BackPressedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<BackPressedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: BackPressedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&BackPressedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &BackPressedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BackPressedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BackPressedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for BackPressedEventArgs {}
 unsafe impl ::std::marker::Sync for BackPressedEventArgs {}
 #[doc = "*Required features: `Phone_UI_Input`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CameraEventArgs(::windows::runtime::IInspectable);
 impl CameraEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for CameraEventArgs {
@@ -84,46 +44,6 @@ unsafe impl ::windows::runtime::Interface for CameraEventArgs {
 }
 impl ::windows::runtime::RuntimeName for CameraEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.CameraEventArgs";
-}
-impl ::std::convert::From<CameraEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: CameraEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CameraEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &CameraEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CameraEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CameraEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CameraEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: CameraEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CameraEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &CameraEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CameraEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CameraEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for CameraEventArgs {}
 unsafe impl ::std::marker::Sync for CameraEventArgs {}

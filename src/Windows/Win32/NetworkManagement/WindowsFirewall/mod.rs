@@ -16,7 +16,7 @@ unsafe impl ::windows::runtime::Abi for ICS_TARGETTYPE {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDynamicPortMapping(::windows::runtime::IUnknown);
 impl IDynamicPortMapping {
     #[cfg(feature = "Win32_Foundation")]
@@ -97,26 +97,6 @@ unsafe impl ::windows::runtime::Interface for IDynamicPortMapping {
     type Vtable = IDynamicPortMapping_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1338507906, 9142, 17272, [154, 39, 205, 143, 23, 201, 64, 12]);
 }
-impl ::std::convert::From<IDynamicPortMapping> for ::windows::runtime::IUnknown {
-    fn from(value: IDynamicPortMapping) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDynamicPortMapping> for ::windows::runtime::IUnknown {
-    fn from(value: &IDynamicPortMapping) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDynamicPortMapping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDynamicPortMapping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDynamicPortMapping> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IDynamicPortMapping) -> Self {
@@ -179,7 +159,7 @@ pub struct IDynamicPortMapping_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IDynamicPortMappingCollection(::windows::runtime::IUnknown);
 impl IDynamicPortMappingCollection {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -235,26 +215,6 @@ impl IDynamicPortMappingCollection {
 unsafe impl ::windows::runtime::Interface for IDynamicPortMappingCollection {
     type Vtable = IDynamicPortMappingCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3054362639, 5486, 20109, [158, 193, 58, 35, 66, 193, 8, 153]);
-}
-impl ::std::convert::From<IDynamicPortMappingCollection> for ::windows::runtime::IUnknown {
-    fn from(value: IDynamicPortMappingCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IDynamicPortMappingCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &IDynamicPortMappingCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDynamicPortMappingCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDynamicPortMappingCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IDynamicPortMappingCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -317,7 +277,7 @@ pub struct IDynamicPortMappingCollection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumNetConnection(::windows::runtime::IUnknown);
 impl IEnumNetConnection {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -342,26 +302,6 @@ unsafe impl ::windows::runtime::Interface for IEnumNetConnection {
     type Vtable = IEnumNetConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226080, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<IEnumNetConnection> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumNetConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumNetConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumNetConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumNetConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetConnection_abi(
@@ -375,7 +315,7 @@ pub struct IEnumNetConnection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumNetSharingEveryConnection(::windows::runtime::IUnknown);
 impl IEnumNetSharingEveryConnection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -401,26 +341,6 @@ unsafe impl ::windows::runtime::Interface for IEnumNetSharingEveryConnection {
     type Vtable = IEnumNetSharingEveryConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226104, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<IEnumNetSharingEveryConnection> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumNetSharingEveryConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumNetSharingEveryConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumNetSharingEveryConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetSharingEveryConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumNetSharingEveryConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingEveryConnection_abi(
@@ -435,7 +355,7 @@ pub struct IEnumNetSharingEveryConnection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumNetSharingPortMapping(::windows::runtime::IUnknown);
 impl IEnumNetSharingPortMapping {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -461,26 +381,6 @@ unsafe impl ::windows::runtime::Interface for IEnumNetSharingPortMapping {
     type Vtable = IEnumNetSharingPortMapping_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226096, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<IEnumNetSharingPortMapping> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumNetSharingPortMapping) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumNetSharingPortMapping> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumNetSharingPortMapping) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetSharingPortMapping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumNetSharingPortMapping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingPortMapping_abi(
@@ -495,7 +395,7 @@ pub struct IEnumNetSharingPortMapping_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumNetSharingPrivateConnection(::windows::runtime::IUnknown);
 impl IEnumNetSharingPrivateConnection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -521,26 +421,6 @@ unsafe impl ::windows::runtime::Interface for IEnumNetSharingPrivateConnection {
     type Vtable = IEnumNetSharingPrivateConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226101, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<IEnumNetSharingPrivateConnection> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumNetSharingPrivateConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumNetSharingPrivateConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumNetSharingPrivateConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetSharingPrivateConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumNetSharingPrivateConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingPrivateConnection_abi(
@@ -555,7 +435,7 @@ pub struct IEnumNetSharingPrivateConnection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IEnumNetSharingPublicConnection(::windows::runtime::IUnknown);
 impl IEnumNetSharingPublicConnection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -581,26 +461,6 @@ unsafe impl ::windows::runtime::Interface for IEnumNetSharingPublicConnection {
     type Vtable = IEnumNetSharingPublicConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226100, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<IEnumNetSharingPublicConnection> for ::windows::runtime::IUnknown {
-    fn from(value: IEnumNetSharingPublicConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IEnumNetSharingPublicConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &IEnumNetSharingPublicConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetSharingPublicConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumNetSharingPublicConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingPublicConnection_abi(
@@ -615,7 +475,7 @@ pub struct IEnumNetSharingPublicConnection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INATEventManager(::windows::runtime::IUnknown);
 impl INATEventManager {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -630,26 +490,6 @@ impl INATEventManager {
 unsafe impl ::windows::runtime::Interface for INATEventManager {
     type Vtable = INATEventManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649137032, 36960, 16649, [176, 176, 26, 219, 188, 172, 50, 223]);
-}
-impl ::std::convert::From<INATEventManager> for ::windows::runtime::IUnknown {
-    fn from(value: INATEventManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INATEventManager> for ::windows::runtime::IUnknown {
-    fn from(value: &INATEventManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INATEventManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INATEventManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INATEventManager> for super::super::System::Ole::Automation::IDispatch {
@@ -694,7 +534,7 @@ pub struct INATEventManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INATExternalIPAddressCallback(::windows::runtime::IUnknown);
 impl INATExternalIPAddressCallback {
     #[cfg(feature = "Win32_Foundation")]
@@ -707,26 +547,6 @@ unsafe impl ::windows::runtime::Interface for INATExternalIPAddressCallback {
     type Vtable = INATExternalIPAddressCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2621531968, 41806, 17519, [186, 6, 171, 208, 76, 49, 73, 174]);
 }
-impl ::std::convert::From<INATExternalIPAddressCallback> for ::windows::runtime::IUnknown {
-    fn from(value: INATExternalIPAddressCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INATExternalIPAddressCallback> for ::windows::runtime::IUnknown {
-    fn from(value: &INATExternalIPAddressCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INATExternalIPAddressCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INATExternalIPAddressCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INATExternalIPAddressCallback_abi(
@@ -738,7 +558,7 @@ pub struct INATExternalIPAddressCallback_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INATNumberOfEntriesCallback(::windows::runtime::IUnknown);
 impl INATNumberOfEntriesCallback {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -749,26 +569,6 @@ impl INATNumberOfEntriesCallback {
 unsafe impl ::windows::runtime::Interface for INATNumberOfEntriesCallback {
     type Vtable = INATNumberOfEntriesCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3359246964, 37358, 16822, [182, 122, 103, 224, 240, 11, 189, 120]);
-}
-impl ::std::convert::From<INATNumberOfEntriesCallback> for ::windows::runtime::IUnknown {
-    fn from(value: INATNumberOfEntriesCallback) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INATNumberOfEntriesCallback> for ::windows::runtime::IUnknown {
-    fn from(value: &INATNumberOfEntriesCallback) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INATNumberOfEntriesCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INATNumberOfEntriesCallback {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -998,7 +798,7 @@ unsafe impl ::windows::runtime::Abi for INET_FIREWALL_APP_CONTAINER {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetConnection(::windows::runtime::IUnknown);
 impl INetConnection {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -1040,26 +840,6 @@ unsafe impl ::windows::runtime::Interface for INetConnection {
     type Vtable = INetConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226081, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetConnection> for ::windows::runtime::IUnknown {
-    fn from(value: INetConnection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetConnection> for ::windows::runtime::IUnknown {
-    fn from(value: &INetConnection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetConnection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnection_abi(
@@ -1079,7 +859,7 @@ pub struct INetConnection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetConnectionConnectUi(::windows::runtime::IUnknown);
 impl INetConnectionConnectUi {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -1101,26 +881,6 @@ unsafe impl ::windows::runtime::Interface for INetConnectionConnectUi {
     type Vtable = INetConnectionConnectUi_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226083, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetConnectionConnectUi> for ::windows::runtime::IUnknown {
-    fn from(value: INetConnectionConnectUi) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetConnectionConnectUi> for ::windows::runtime::IUnknown {
-    fn from(value: &INetConnectionConnectUi) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetConnectionConnectUi {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetConnectionConnectUi {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnectionConnectUi_abi(
@@ -1135,7 +895,7 @@ pub struct INetConnectionConnectUi_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetConnectionManager(::windows::runtime::IUnknown);
 impl INetConnectionManager {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -1148,26 +908,6 @@ unsafe impl ::windows::runtime::Interface for INetConnectionManager {
     type Vtable = INetConnectionManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226082, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetConnectionManager> for ::windows::runtime::IUnknown {
-    fn from(value: INetConnectionManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetConnectionManager> for ::windows::runtime::IUnknown {
-    fn from(value: &INetConnectionManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetConnectionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetConnectionManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnectionManager_abi(
@@ -1178,7 +918,7 @@ pub struct INetConnectionManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetConnectionProps(::windows::runtime::IUnknown);
 impl INetConnectionProps {
     #[cfg(feature = "Win32_Foundation")]
@@ -1218,26 +958,6 @@ impl INetConnectionProps {
 unsafe impl ::windows::runtime::Interface for INetConnectionProps {
     type Vtable = INetConnectionProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4096228501, 52827, 17981, [129, 103, 86, 98, 217, 188, 170, 114]);
-}
-impl ::std::convert::From<INetConnectionProps> for ::windows::runtime::IUnknown {
-    fn from(value: INetConnectionProps) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetConnectionProps> for ::windows::runtime::IUnknown {
-    fn from(value: &INetConnectionProps) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetConnectionProps {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetConnectionProps {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetConnectionProps> for super::super::System::Ole::Automation::IDispatch {
@@ -1289,7 +1009,7 @@ pub struct INetConnectionProps_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwAuthorizedApplication(::windows::runtime::IUnknown);
 impl INetFwAuthorizedApplication {
     #[cfg(feature = "Win32_Foundation")]
@@ -1357,26 +1077,6 @@ unsafe impl ::windows::runtime::Interface for INetFwAuthorizedApplication {
     type Vtable = INetFwAuthorizedApplication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3051769850, 49861, 17486, [163, 1, 251, 94, 0, 1, 128, 80]);
 }
-impl ::std::convert::From<INetFwAuthorizedApplication> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwAuthorizedApplication) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwAuthorizedApplication> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwAuthorizedApplication) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwAuthorizedApplication {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwAuthorizedApplication {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwAuthorizedApplication> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetFwAuthorizedApplication) -> Self {
@@ -1436,7 +1136,7 @@ pub struct INetFwAuthorizedApplication_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwAuthorizedApplications(::windows::runtime::IUnknown);
 impl INetFwAuthorizedApplications {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -1468,26 +1168,6 @@ impl INetFwAuthorizedApplications {
 unsafe impl ::windows::runtime::Interface for INetFwAuthorizedApplications {
     type Vtable = INetFwAuthorizedApplications_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1682898258, 52473, 18540, [151, 162, 57, 243, 82, 87, 11, 48]);
-}
-impl ::std::convert::From<INetFwAuthorizedApplications> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwAuthorizedApplications) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwAuthorizedApplications> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwAuthorizedApplications) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwAuthorizedApplications {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwAuthorizedApplications {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwAuthorizedApplications> for super::super::System::Ole::Automation::IDispatch {
@@ -1537,7 +1217,7 @@ pub struct INetFwAuthorizedApplications_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwIcmpSettings(::windows::runtime::IUnknown);
 impl INetFwIcmpSettings {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -1635,26 +1315,6 @@ unsafe impl ::windows::runtime::Interface for INetFwIcmpSettings {
     type Vtable = INetFwIcmpSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2787146542, 31965, 17002, [149, 30, 94, 28, 188, 90, 254, 173]);
 }
-impl ::std::convert::From<INetFwIcmpSettings> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwIcmpSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwIcmpSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwIcmpSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwIcmpSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwIcmpSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwIcmpSettings> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetFwIcmpSettings) -> Self {
@@ -1716,7 +1376,7 @@ pub struct INetFwIcmpSettings_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwMgr(::windows::runtime::IUnknown);
 impl INetFwMgr {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -1747,26 +1407,6 @@ impl INetFwMgr {
 unsafe impl ::windows::runtime::Interface for INetFwMgr {
     type Vtable = INetFwMgr_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4152986357, 51908, 17970, [162, 236, 218, 6, 229, 17, 26, 242]);
-}
-impl ::std::convert::From<INetFwMgr> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwMgr) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwMgr> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwMgr) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwMgr {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwMgr> for super::super::System::Ole::Automation::IDispatch {
@@ -1817,7 +1457,7 @@ pub struct INetFwMgr_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwOpenPort(::windows::runtime::IUnknown);
 impl INetFwOpenPort {
     #[cfg(feature = "Win32_Foundation")]
@@ -1897,26 +1537,6 @@ unsafe impl ::windows::runtime::Interface for INetFwOpenPort {
     type Vtable = INetFwOpenPort_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3762830240, 18431, 19868, [166, 214, 119, 65, 208, 177, 149, 247]);
 }
-impl ::std::convert::From<INetFwOpenPort> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwOpenPort) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwOpenPort> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwOpenPort) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwOpenPort {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwOpenPort {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwOpenPort> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetFwOpenPort) -> Self {
@@ -1977,7 +1597,7 @@ pub struct INetFwOpenPort_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwOpenPorts(::windows::runtime::IUnknown);
 impl INetFwOpenPorts {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -2007,26 +1627,6 @@ impl INetFwOpenPorts {
 unsafe impl ::windows::runtime::Interface for INetFwOpenPorts {
     type Vtable = INetFwOpenPorts_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236550650, 57470, 17162, [177, 154, 9, 12, 232, 45, 146, 226]);
-}
-impl ::std::convert::From<INetFwOpenPorts> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwOpenPorts) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwOpenPorts> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwOpenPorts) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwOpenPorts {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwOpenPorts {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwOpenPorts> for super::super::System::Ole::Automation::IDispatch {
@@ -2074,7 +1674,7 @@ pub struct INetFwOpenPorts_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwPolicy(::windows::runtime::IUnknown);
 impl INetFwPolicy {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -2091,26 +1691,6 @@ impl INetFwPolicy {
 unsafe impl ::windows::runtime::Interface for INetFwPolicy {
     type Vtable = INetFwPolicy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3563922552, 39625, 16392, [157, 199, 85, 99, 206, 85, 54, 204]);
-}
-impl ::std::convert::From<INetFwPolicy> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwPolicy) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwPolicy> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwPolicy) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwPolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwPolicy {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwPolicy> for super::super::System::Ole::Automation::IDispatch {
@@ -2155,7 +1735,7 @@ pub struct INetFwPolicy_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwPolicy2(::windows::runtime::IUnknown);
 impl INetFwPolicy2 {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -2269,26 +1849,6 @@ unsafe impl ::windows::runtime::Interface for INetFwPolicy2 {
     type Vtable = INetFwPolicy2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2553434183, 50801, 16756, [141, 129, 222, 252, 211, 240, 49, 134]);
 }
-impl ::std::convert::From<INetFwPolicy2> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwPolicy2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwPolicy2> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwPolicy2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwPolicy2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwPolicy2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwPolicy2> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetFwPolicy2) -> Self {
@@ -2357,7 +1917,7 @@ pub struct INetFwPolicy2_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwProduct(::windows::runtime::IUnknown);
 impl INetFwProduct {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -2392,26 +1952,6 @@ impl INetFwProduct {
 unsafe impl ::windows::runtime::Interface for INetFwProduct {
     type Vtable = INetFwProduct_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1904744089, 6388, 17803, [184, 146, 63, 252, 229, 224, 127, 117]);
-}
-impl ::std::convert::From<INetFwProduct> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwProduct) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwProduct> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwProduct) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwProduct {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwProduct {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwProduct> for super::super::System::Ole::Automation::IDispatch {
@@ -2464,7 +2004,7 @@ pub struct INetFwProduct_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwProducts(::windows::runtime::IUnknown);
 impl INetFwProducts {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -2491,26 +2031,6 @@ impl INetFwProducts {
 unsafe impl ::windows::runtime::Interface for INetFwProducts {
     type Vtable = INetFwProducts_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(971716320, 8343, 16573, [138, 242, 99, 161, 59, 82, 83, 98]);
-}
-impl ::std::convert::From<INetFwProducts> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwProducts) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwProducts> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwProducts) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwProducts {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwProducts {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwProducts> for super::super::System::Ole::Automation::IDispatch {
@@ -2557,7 +2077,7 @@ pub struct INetFwProducts_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwProfile(::windows::runtime::IUnknown);
 impl INetFwProfile {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -2631,26 +2151,6 @@ unsafe impl ::windows::runtime::Interface for INetFwProfile {
     type Vtable = INetFwProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(390729178, 59897, 17565, [153, 59, 33, 171, 102, 124, 164, 86]);
 }
-impl ::std::convert::From<INetFwProfile> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwProfile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwProfile> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwProfile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwProfile> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetFwProfile) -> Self {
@@ -2706,7 +2206,7 @@ pub struct INetFwProfile_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwRemoteAdminSettings(::windows::runtime::IUnknown);
 impl INetFwRemoteAdminSettings {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -2751,26 +2251,6 @@ impl INetFwRemoteAdminSettings {
 unsafe impl ::windows::runtime::Interface for INetFwRemoteAdminSettings {
     type Vtable = INetFwRemoteAdminSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3569274335, 28531, 19075, [184, 50, 156, 102, 135, 76, 210, 14]);
-}
-impl ::std::convert::From<INetFwRemoteAdminSettings> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwRemoteAdminSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwRemoteAdminSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwRemoteAdminSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwRemoteAdminSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwRemoteAdminSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwRemoteAdminSettings> for super::super::System::Ole::Automation::IDispatch {
@@ -2823,7 +2303,7 @@ pub struct INetFwRemoteAdminSettings_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwRule(::windows::runtime::IUnknown);
 impl INetFwRule {
     #[cfg(feature = "Win32_Foundation")]
@@ -3017,26 +2497,6 @@ unsafe impl ::windows::runtime::Interface for INetFwRule {
     type Vtable = INetFwRule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2938309927, 47802, 20034, [172, 237, 245, 36, 242, 44, 252, 226]);
 }
-impl ::std::convert::From<INetFwRule> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwRule) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwRule> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwRule) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwRule {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwRule {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwRule> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetFwRule) -> Self {
@@ -3138,7 +2598,7 @@ pub struct INetFwRule_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwRule2(::windows::runtime::IUnknown);
 impl INetFwRule2 {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -3362,26 +2822,6 @@ unsafe impl ::windows::runtime::Interface for INetFwRule2 {
     type Vtable = INetFwRule2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619853018, 6299, 19934, [137, 247, 139, 57, 163, 22, 120, 44]);
 }
-impl ::std::convert::From<INetFwRule2> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwRule2) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwRule2> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwRule2) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwRule2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwRule2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<INetFwRule2> for INetFwRule {
     fn from(value: INetFwRule2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3505,7 +2945,7 @@ pub struct INetFwRule2_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwRule3(::windows::runtime::IUnknown);
 impl INetFwRule3 {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -3793,26 +3233,6 @@ unsafe impl ::windows::runtime::Interface for INetFwRule3 {
     type Vtable = INetFwRule3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2987746303, 54934, 16930, [171, 70, 78, 137, 183, 58, 179, 74]);
 }
-impl ::std::convert::From<INetFwRule3> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwRule3) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwRule3> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwRule3) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwRule3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwRule3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<INetFwRule3> for INetFwRule2 {
     fn from(value: INetFwRule3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3978,7 +3398,7 @@ pub struct INetFwRule3_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwRules(::windows::runtime::IUnknown);
 impl INetFwRules {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -4010,26 +3430,6 @@ impl INetFwRules {
 unsafe impl ::windows::runtime::Interface for INetFwRules {
     type Vtable = INetFwRules_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2622251639, 20519, 17438, [175, 174, 202, 31, 84, 45, 160, 9]);
-}
-impl ::std::convert::From<INetFwRules> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwRules) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwRules> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwRules) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwRules {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwRules {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwRules> for super::super::System::Ole::Automation::IDispatch {
@@ -4079,7 +3479,7 @@ pub struct INetFwRules_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwService(::windows::runtime::IUnknown);
 impl INetFwService {
     #[cfg(feature = "Win32_Foundation")]
@@ -4146,26 +3546,6 @@ unsafe impl ::windows::runtime::Interface for INetFwService {
     type Vtable = INetFwService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046646216, 37006, 18998, [152, 136, 213, 179, 240, 164, 68, 207]);
 }
-impl ::std::convert::From<INetFwService> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwService) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwService> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwService) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwService {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwService> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetFwService) -> Self {
@@ -4222,7 +3602,7 @@ pub struct INetFwService_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwServiceRestriction(::windows::runtime::IUnknown);
 impl INetFwServiceRestriction {
     #[cfg(feature = "Win32_Foundation")]
@@ -4245,26 +3625,6 @@ impl INetFwServiceRestriction {
 unsafe impl ::windows::runtime::Interface for INetFwServiceRestriction {
     type Vtable = INetFwServiceRestriction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2187836387, 63632, 18716, [183, 182, 45, 177, 239, 14, 93, 43]);
-}
-impl ::std::convert::From<INetFwServiceRestriction> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwServiceRestriction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwServiceRestriction> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwServiceRestriction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwServiceRestriction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwServiceRestriction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwServiceRestriction> for super::super::System::Ole::Automation::IDispatch {
@@ -4312,7 +3672,7 @@ pub struct INetFwServiceRestriction_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetFwServices(::windows::runtime::IUnknown);
 impl INetFwServices {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -4334,26 +3694,6 @@ impl INetFwServices {
 unsafe impl ::windows::runtime::Interface for INetFwServices {
     type Vtable = INetFwServices_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036636596, 36926, 16923, [148, 201, 121, 132, 142, 121, 246, 238]);
-}
-impl ::std::convert::From<INetFwServices> for ::windows::runtime::IUnknown {
-    fn from(value: INetFwServices) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetFwServices> for ::windows::runtime::IUnknown {
-    fn from(value: &INetFwServices) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetFwServices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetFwServices {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetFwServices> for super::super::System::Ole::Automation::IDispatch {
@@ -4399,7 +3739,7 @@ pub struct INetFwServices_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetSharingConfiguration(::windows::runtime::IUnknown);
 impl INetSharingConfiguration {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -4464,26 +3804,6 @@ unsafe impl ::windows::runtime::Interface for INetSharingConfiguration {
     type Vtable = INetSharingConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226102, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
-impl ::std::convert::From<INetSharingConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: INetSharingConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetSharingConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &INetSharingConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetSharingConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetSharingConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetSharingConfiguration> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: INetSharingConfiguration) -> Self {
@@ -4536,7 +3856,7 @@ pub struct INetSharingConfiguration_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetSharingEveryConnectionCollection(::windows::runtime::IUnknown);
 impl INetSharingEveryConnectionCollection {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -4553,26 +3873,6 @@ impl INetSharingEveryConnectionCollection {
 unsafe impl ::windows::runtime::Interface for INetSharingEveryConnectionCollection {
     type Vtable = INetSharingEveryConnectionCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(868508732, 30737, 18170, [168, 154, 118, 133, 151, 189, 114, 35]);
-}
-impl ::std::convert::From<INetSharingEveryConnectionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: INetSharingEveryConnectionCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetSharingEveryConnectionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &INetSharingEveryConnectionCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetSharingEveryConnectionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetSharingEveryConnectionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetSharingEveryConnectionCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -4617,7 +3917,7 @@ pub struct INetSharingEveryConnectionCollection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetSharingManager(::windows::runtime::IUnknown);
 impl INetSharingManager {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -4654,26 +3954,6 @@ impl INetSharingManager {
 unsafe impl ::windows::runtime::Interface for INetSharingManager {
     type Vtable = INetSharingManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226103, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
-}
-impl ::std::convert::From<INetSharingManager> for ::windows::runtime::IUnknown {
-    fn from(value: INetSharingManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetSharingManager> for ::windows::runtime::IUnknown {
-    fn from(value: &INetSharingManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetSharingManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetSharingManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetSharingManager> for super::super::System::Ole::Automation::IDispatch {
@@ -4722,7 +4002,7 @@ pub struct INetSharingManager_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetSharingPortMapping(::windows::runtime::IUnknown);
 impl INetSharingPortMapping {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -4746,26 +4026,6 @@ impl INetSharingPortMapping {
 unsafe impl ::windows::runtime::Interface for INetSharingPortMapping {
     type Vtable = INetSharingPortMapping_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226097, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
-}
-impl ::std::convert::From<INetSharingPortMapping> for ::windows::runtime::IUnknown {
-    fn from(value: INetSharingPortMapping) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetSharingPortMapping> for ::windows::runtime::IUnknown {
-    fn from(value: &INetSharingPortMapping) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetSharingPortMapping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetSharingPortMapping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetSharingPortMapping> for super::super::System::Ole::Automation::IDispatch {
@@ -4812,7 +4072,7 @@ pub struct INetSharingPortMapping_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetSharingPortMappingCollection(::windows::runtime::IUnknown);
 impl INetSharingPortMappingCollection {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -4829,26 +4089,6 @@ impl INetSharingPortMappingCollection {
 unsafe impl ::windows::runtime::Interface for INetSharingPortMappingCollection {
     type Vtable = INetSharingPortMappingCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(48538334, 55840, 20020, [137, 200, 172, 34, 39, 90, 1, 11]);
-}
-impl ::std::convert::From<INetSharingPortMappingCollection> for ::windows::runtime::IUnknown {
-    fn from(value: INetSharingPortMappingCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetSharingPortMappingCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &INetSharingPortMappingCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetSharingPortMappingCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetSharingPortMappingCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetSharingPortMappingCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -4893,7 +4133,7 @@ pub struct INetSharingPortMappingCollection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetSharingPortMappingProps(::windows::runtime::IUnknown);
 impl INetSharingPortMappingProps {
     #[cfg(feature = "Win32_Foundation")]
@@ -4943,26 +4183,6 @@ impl INetSharingPortMappingProps {
 unsafe impl ::windows::runtime::Interface for INetSharingPortMappingProps {
     type Vtable = INetSharingPortMappingProps_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(616032693, 58255, 18053, [133, 27, 0, 137, 44, 245, 249, 64]);
-}
-impl ::std::convert::From<INetSharingPortMappingProps> for ::windows::runtime::IUnknown {
-    fn from(value: INetSharingPortMappingProps) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetSharingPortMappingProps> for ::windows::runtime::IUnknown {
-    fn from(value: &INetSharingPortMappingProps) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetSharingPortMappingProps {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetSharingPortMappingProps {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetSharingPortMappingProps> for super::super::System::Ole::Automation::IDispatch {
@@ -5016,7 +4236,7 @@ pub struct INetSharingPortMappingProps_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetSharingPrivateConnectionCollection(::windows::runtime::IUnknown);
 impl INetSharingPrivateConnectionCollection {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -5033,26 +4253,6 @@ impl INetSharingPrivateConnectionCollection {
 unsafe impl ::windows::runtime::Interface for INetSharingPrivateConnectionCollection {
     type Vtable = INetSharingPrivateConnectionCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(950954464, 17417, 16426, [162, 203, 233, 101, 199, 39, 248, 64]);
-}
-impl ::std::convert::From<INetSharingPrivateConnectionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: INetSharingPrivateConnectionCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetSharingPrivateConnectionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &INetSharingPrivateConnectionCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetSharingPrivateConnectionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetSharingPrivateConnectionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetSharingPrivateConnectionCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -5097,7 +4297,7 @@ pub struct INetSharingPrivateConnectionCollection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct INetSharingPublicConnectionCollection(::windows::runtime::IUnknown);
 impl INetSharingPublicConnectionCollection {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -5114,26 +4314,6 @@ impl INetSharingPublicConnectionCollection {
 unsafe impl ::windows::runtime::Interface for INetSharingPublicConnectionCollection {
     type Vtable = INetSharingPublicConnectionCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2105172821, 62322, 18801, [161, 73, 191, 201, 39, 190, 118, 42]);
-}
-impl ::std::convert::From<INetSharingPublicConnectionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: INetSharingPublicConnectionCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&INetSharingPublicConnectionCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &INetSharingPublicConnectionCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetSharingPublicConnectionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &INetSharingPublicConnectionCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<INetSharingPublicConnectionCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -5178,7 +4358,7 @@ pub struct INetSharingPublicConnectionCollection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IStaticPortMapping(::windows::runtime::IUnknown);
 impl IStaticPortMapping {
     #[cfg(feature = "Win32_Foundation")]
@@ -5243,26 +4423,6 @@ unsafe impl ::windows::runtime::Interface for IStaticPortMapping {
     type Vtable = IStaticPortMapping_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1863348511, 29339, 16869, [147, 184, 242, 29, 15, 129, 141, 241]);
 }
-impl ::std::convert::From<IStaticPortMapping> for ::windows::runtime::IUnknown {
-    fn from(value: IStaticPortMapping) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IStaticPortMapping> for ::windows::runtime::IUnknown {
-    fn from(value: &IStaticPortMapping) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStaticPortMapping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStaticPortMapping {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IStaticPortMapping> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IStaticPortMapping) -> Self {
@@ -5321,7 +4481,7 @@ pub struct IStaticPortMapping_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IStaticPortMappingCollection(::windows::runtime::IUnknown);
 impl IStaticPortMappingCollection {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -5355,26 +4515,6 @@ impl IStaticPortMappingCollection {
 unsafe impl ::windows::runtime::Interface for IStaticPortMappingCollection {
     type Vtable = IStaticPortMappingCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3441376887, 26326, 18020, [130, 199, 54, 219, 182, 65, 208, 241]);
-}
-impl ::std::convert::From<IStaticPortMappingCollection> for ::windows::runtime::IUnknown {
-    fn from(value: IStaticPortMappingCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IStaticPortMappingCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &IStaticPortMappingCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStaticPortMappingCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStaticPortMappingCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IStaticPortMappingCollection> for super::super::System::Ole::Automation::IDispatch {
@@ -5425,7 +4565,7 @@ pub struct IStaticPortMappingCollection_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IUPnPNAT(::windows::runtime::IUnknown);
 impl IUPnPNAT {
     #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
@@ -5447,26 +4587,6 @@ impl IUPnPNAT {
 unsafe impl ::windows::runtime::Interface for IUPnPNAT {
     type Vtable = IUPnPNAT_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977024018, 52342, 18522, [148, 216, 182, 179, 162, 121, 78, 153]);
-}
-impl ::std::convert::From<IUPnPNAT> for ::windows::runtime::IUnknown {
-    fn from(value: IUPnPNAT) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IUPnPNAT> for ::windows::runtime::IUnknown {
-    fn from(value: &IUPnPNAT) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUPnPNAT {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IUPnPNAT {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IUPnPNAT> for super::super::System::Ole::Automation::IDispatch {

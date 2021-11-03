@@ -1,6 +1,8 @@
 use super::*;
 use bindings::Windows::Win32::System::WinRT::IWeakReferenceSource;
 
+// TODO: remove PartialEq requirement
+
 /// Provides low-level access to a COM interface.
 ///
 /// This trait is automatically used by the generated bindings and should not be

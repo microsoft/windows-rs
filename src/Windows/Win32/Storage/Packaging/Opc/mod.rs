@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcCertificateEnumerator(::windows::runtime::IUnknown);
 impl IOpcCertificateEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -29,26 +29,6 @@ unsafe impl ::windows::runtime::Interface for IOpcCertificateEnumerator {
     type Vtable = IOpcCertificateEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2232621367, 36644, 16927, [180, 57, 89, 171, 36, 209, 64, 184]);
 }
-impl ::std::convert::From<IOpcCertificateEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcCertificateEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcCertificateEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcCertificateEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcCertificateEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcCertificateEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcCertificateEnumerator_abi(
@@ -65,7 +45,7 @@ pub struct IOpcCertificateEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcCertificateSet(::windows::runtime::IUnknown);
 impl IOpcCertificateSet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -88,26 +68,6 @@ unsafe impl ::windows::runtime::Interface for IOpcCertificateSet {
     type Vtable = IOpcCertificateSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1458193189, 36397, 16743, [177, 164, 228, 134, 210, 76, 143, 167]);
 }
-impl ::std::convert::From<IOpcCertificateSet> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcCertificateSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcCertificateSet> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcCertificateSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcCertificateSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcCertificateSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcCertificateSet_abi(
@@ -122,7 +82,7 @@ pub struct IOpcCertificateSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcDigitalSignature(::windows::runtime::IUnknown);
 impl IOpcDigitalSignature {
     #[cfg(feature = "Win32_Foundation")]
@@ -204,26 +164,6 @@ unsafe impl ::windows::runtime::Interface for IOpcDigitalSignature {
     type Vtable = IOpcDigitalSignature_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1386947037, 7376, 18761, [188, 128, 12, 18, 50, 208, 12, 180]);
 }
-impl ::std::convert::From<IOpcDigitalSignature> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcDigitalSignature) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcDigitalSignature> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcDigitalSignature) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcDigitalSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcDigitalSignature {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcDigitalSignature_abi(
@@ -252,7 +192,7 @@ pub struct IOpcDigitalSignature_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcDigitalSignatureEnumerator(::windows::runtime::IUnknown);
 impl IOpcDigitalSignatureEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -282,26 +222,6 @@ unsafe impl ::windows::runtime::Interface for IOpcDigitalSignatureEnumerator {
     type Vtable = IOpcDigitalSignatureEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2524670082, 2979, 17240, [185, 231, 182, 76, 117, 6, 60, 94]);
 }
-impl ::std::convert::From<IOpcDigitalSignatureEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcDigitalSignatureEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcDigitalSignatureEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcDigitalSignatureEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcDigitalSignatureEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcDigitalSignatureEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcDigitalSignatureEnumerator_abi(
@@ -317,7 +237,7 @@ pub struct IOpcDigitalSignatureEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcDigitalSignatureManager(::windows::runtime::IUnknown);
 impl IOpcDigitalSignatureManager {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -364,26 +284,6 @@ unsafe impl ::windows::runtime::Interface for IOpcDigitalSignatureManager {
     type Vtable = IOpcDigitalSignatureManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3588631051, 26989, 17967, [148, 223, 114, 227, 60, 239, 38, 89]);
 }
-impl ::std::convert::From<IOpcDigitalSignatureManager> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcDigitalSignatureManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcDigitalSignatureManager> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcDigitalSignatureManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcDigitalSignatureManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcDigitalSignatureManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcDigitalSignatureManager_abi(
@@ -403,7 +303,7 @@ pub struct IOpcDigitalSignatureManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcFactory(::windows::runtime::IUnknown);
 impl IOpcFactory {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -449,26 +349,6 @@ unsafe impl ::windows::runtime::Interface for IOpcFactory {
     type Vtable = IOpcFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1829454918, 52595, 19123, [148, 244, 140, 205, 246, 17, 97, 84]);
 }
-impl ::std::convert::From<IOpcFactory> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcFactory_abi(
@@ -489,7 +369,7 @@ pub struct IOpcFactory_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcPackage(::windows::runtime::IUnknown);
 impl IOpcPackage {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -507,26 +387,6 @@ unsafe impl ::windows::runtime::Interface for IOpcPackage {
     type Vtable = IOpcPackage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 112]);
 }
-impl ::std::convert::From<IOpcPackage> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcPackage) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcPackage> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcPackage) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcPackage {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPackage_abi(
@@ -538,7 +398,7 @@ pub struct IOpcPackage_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcPart(::windows::runtime::IUnknown);
 impl IOpcPart {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -573,26 +433,6 @@ unsafe impl ::windows::runtime::Interface for IOpcPart {
     type Vtable = IOpcPart_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 113]);
 }
-impl ::std::convert::From<IOpcPart> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcPart) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcPart> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcPart) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcPart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcPart {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPart_abi(
@@ -609,7 +449,7 @@ pub struct IOpcPart_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcPartEnumerator(::windows::runtime::IUnknown);
 impl IOpcPartEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -639,26 +479,6 @@ unsafe impl ::windows::runtime::Interface for IOpcPartEnumerator {
     type Vtable = IOpcPartEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 117]);
 }
-impl ::std::convert::From<IOpcPartEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcPartEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcPartEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcPartEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcPartEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcPartEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPartEnumerator_abi(
@@ -674,7 +494,7 @@ pub struct IOpcPartEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcPartSet(::windows::runtime::IUnknown);
 impl IOpcPartSet {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -708,26 +528,6 @@ unsafe impl ::windows::runtime::Interface for IOpcPartSet {
     type Vtable = IOpcPartSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 115]);
 }
-impl ::std::convert::From<IOpcPartSet> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcPartSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcPartSet> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcPartSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcPartSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcPartSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcPartSet_abi(
@@ -744,7 +544,7 @@ pub struct IOpcPartSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcPartUri(::windows::runtime::IUnknown);
 impl IOpcPartUri {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -927,26 +727,6 @@ unsafe impl ::windows::runtime::Interface for IOpcPartUri {
     type Vtable = IOpcPartUri_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2101062631, 34994, 18106, [133, 203, 66, 3, 203, 1, 108, 135]);
 }
-impl ::std::convert::From<IOpcPartUri> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcPartUri) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcPartUri> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcPartUri) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcPartUri {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcPartUri {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<IOpcPartUri> for IOpcUri {
     fn from(value: IOpcPartUri) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1054,7 +834,7 @@ pub struct IOpcPartUri_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcRelationship(::windows::runtime::IUnknown);
 impl IOpcRelationship {
     #[cfg(feature = "Win32_Foundation")]
@@ -1090,26 +870,6 @@ unsafe impl ::windows::runtime::Interface for IOpcRelationship {
     type Vtable = IOpcRelationship_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 114]);
 }
-impl ::std::convert::From<IOpcRelationship> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcRelationship) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcRelationship> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcRelationship) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcRelationship {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcRelationship {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationship_abi(
@@ -1127,7 +887,7 @@ pub struct IOpcRelationship_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcRelationshipEnumerator(::windows::runtime::IUnknown);
 impl IOpcRelationshipEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -1157,26 +917,6 @@ unsafe impl ::windows::runtime::Interface for IOpcRelationshipEnumerator {
     type Vtable = IOpcRelationshipEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 118]);
 }
-impl ::std::convert::From<IOpcRelationshipEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcRelationshipEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcRelationshipEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcRelationshipEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcRelationshipEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcRelationshipEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipEnumerator_abi(
@@ -1192,7 +932,7 @@ pub struct IOpcRelationshipEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcRelationshipSelector(::windows::runtime::IUnknown);
 impl IOpcRelationshipSelector {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -1211,26 +951,6 @@ unsafe impl ::windows::runtime::Interface for IOpcRelationshipSelector {
     type Vtable = IOpcRelationshipSelector_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4176637055, 45711, 18585, [132, 200, 93, 86, 57, 237, 231, 95]);
 }
-impl ::std::convert::From<IOpcRelationshipSelector> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcRelationshipSelector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcRelationshipSelector> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcRelationshipSelector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcRelationshipSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcRelationshipSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipSelector_abi(
@@ -1243,7 +963,7 @@ pub struct IOpcRelationshipSelector_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcRelationshipSelectorEnumerator(::windows::runtime::IUnknown);
 impl IOpcRelationshipSelectorEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -1273,26 +993,6 @@ unsafe impl ::windows::runtime::Interface for IOpcRelationshipSelectorEnumerator
     type Vtable = IOpcRelationshipSelectorEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1582342529, 43291, 18604, [136, 210, 188, 163, 216, 248, 192, 177]);
 }
-impl ::std::convert::From<IOpcRelationshipSelectorEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcRelationshipSelectorEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcRelationshipSelectorEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcRelationshipSelectorEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcRelationshipSelectorEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcRelationshipSelectorEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipSelectorEnumerator_abi(
@@ -1308,7 +1008,7 @@ pub struct IOpcRelationshipSelectorEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcRelationshipSelectorSet(::windows::runtime::IUnknown);
 impl IOpcRelationshipSelectorSet {
     #[cfg(feature = "Win32_Foundation")]
@@ -1331,26 +1031,6 @@ unsafe impl ::windows::runtime::Interface for IOpcRelationshipSelectorSet {
     type Vtable = IOpcRelationshipSelectorSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848951401, 42195, 18368, [181, 196, 135, 255, 43, 59, 97, 54]);
 }
-impl ::std::convert::From<IOpcRelationshipSelectorSet> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcRelationshipSelectorSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcRelationshipSelectorSet> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcRelationshipSelectorSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcRelationshipSelectorSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcRelationshipSelectorSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipSelectorSet_abi(
@@ -1364,7 +1044,7 @@ pub struct IOpcRelationshipSelectorSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcRelationshipSet(::windows::runtime::IUnknown);
 impl IOpcRelationshipSet {
     #[cfg(feature = "Win32_Foundation")]
@@ -1412,26 +1092,6 @@ unsafe impl ::windows::runtime::Interface for IOpcRelationshipSet {
     type Vtable = IOpcRelationshipSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108957513, 15225, 20424, [137, 198, 252, 127, 185, 121, 238, 116]);
 }
-impl ::std::convert::From<IOpcRelationshipSet> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcRelationshipSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcRelationshipSet> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcRelationshipSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcRelationshipSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcRelationshipSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcRelationshipSet_abi(
@@ -1454,7 +1114,7 @@ pub struct IOpcRelationshipSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureCustomObject(::windows::runtime::IUnknown);
 impl IOpcSignatureCustomObject {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -1466,26 +1126,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureCustomObject {
     type Vtable = IOpcSignatureCustomObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1568121246, 25281, 17639, [190, 205, 69, 218, 90, 229, 26, 86]);
 }
-impl ::std::convert::From<IOpcSignatureCustomObject> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureCustomObject) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureCustomObject> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureCustomObject) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureCustomObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureCustomObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureCustomObject_abi(
@@ -1496,7 +1136,7 @@ pub struct IOpcSignatureCustomObject_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureCustomObjectEnumerator(::windows::runtime::IUnknown);
 impl IOpcSignatureCustomObjectEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -1526,26 +1166,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureCustomObjectEnumerato
     type Vtable = IOpcSignatureCustomObjectEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1592065565, 57776, 18051, [128, 121, 126, 160, 252, 248, 11, 76]);
 }
-impl ::std::convert::From<IOpcSignatureCustomObjectEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureCustomObjectEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureCustomObjectEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureCustomObjectEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureCustomObjectEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureCustomObjectEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureCustomObjectEnumerator_abi(
@@ -1561,7 +1181,7 @@ pub struct IOpcSignatureCustomObjectEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureCustomObjectSet(::windows::runtime::IUnknown);
 impl IOpcSignatureCustomObjectSet {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -1583,26 +1203,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureCustomObjectSet {
     type Vtable = IOpcSignatureCustomObjectSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2407082693, 31047, 19985, [188, 61, 38, 89, 255, 4, 106, 225]);
 }
-impl ::std::convert::From<IOpcSignatureCustomObjectSet> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureCustomObjectSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureCustomObjectSet> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureCustomObjectSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureCustomObjectSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureCustomObjectSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureCustomObjectSet_abi(
@@ -1615,7 +1215,7 @@ pub struct IOpcSignatureCustomObjectSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignaturePartReference(::windows::runtime::IUnknown);
 impl IOpcSignaturePartReference {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -1649,26 +1249,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignaturePartReference {
     type Vtable = IOpcSignaturePartReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3795988938, 23028, 18510, [182, 75, 54, 238, 218, 54, 7, 44]);
 }
-impl ::std::convert::From<IOpcSignaturePartReference> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignaturePartReference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignaturePartReference> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignaturePartReference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignaturePartReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignaturePartReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignaturePartReference_abi(
@@ -1685,7 +1265,7 @@ pub struct IOpcSignaturePartReference_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignaturePartReferenceEnumerator(::windows::runtime::IUnknown);
 impl IOpcSignaturePartReferenceEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -1715,26 +1295,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignaturePartReferenceEnumerat
     type Vtable = IOpcSignaturePartReferenceEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162890081, 35959, 18895, [130, 102, 69, 155, 53, 110, 233, 154]);
 }
-impl ::std::convert::From<IOpcSignaturePartReferenceEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignaturePartReferenceEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignaturePartReferenceEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignaturePartReferenceEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignaturePartReferenceEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignaturePartReferenceEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignaturePartReferenceEnumerator_abi(
@@ -1750,7 +1310,7 @@ pub struct IOpcSignaturePartReferenceEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignaturePartReferenceSet(::windows::runtime::IUnknown);
 impl IOpcSignaturePartReferenceSet {
     #[cfg(feature = "Win32_Foundation")]
@@ -1773,26 +1333,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignaturePartReferenceSet {
     type Vtable = IOpcSignaturePartReferenceSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1822417548, 60633, 19234, [157, 54, 127, 221, 230, 112, 254, 192]);
 }
-impl ::std::convert::From<IOpcSignaturePartReferenceSet> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignaturePartReferenceSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignaturePartReferenceSet> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignaturePartReferenceSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignaturePartReferenceSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignaturePartReferenceSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignaturePartReferenceSet_abi(
@@ -1806,7 +1346,7 @@ pub struct IOpcSignaturePartReferenceSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureReference(::windows::runtime::IUnknown);
 impl IOpcSignatureReference {
     #[cfg(feature = "Win32_Foundation")]
@@ -1847,26 +1387,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureReference {
     type Vtable = IOpcSignatureReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(457637982, 12305, 20188, [190, 111, 15, 101, 229, 171, 3, 66]);
 }
-impl ::std::convert::From<IOpcSignatureReference> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureReference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureReference> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureReference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureReference_abi(
@@ -1886,7 +1406,7 @@ pub struct IOpcSignatureReference_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureReferenceEnumerator(::windows::runtime::IUnknown);
 impl IOpcSignatureReferenceEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -1916,26 +1436,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureReferenceEnumerator {
     type Vtable = IOpcSignatureReferenceEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483736645, 10417, 18536, [150, 158, 250, 128, 151, 253, 193, 42]);
 }
-impl ::std::convert::From<IOpcSignatureReferenceEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureReferenceEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureReferenceEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureReferenceEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureReferenceEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureReferenceEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureReferenceEnumerator_abi(
@@ -1951,7 +1451,7 @@ pub struct IOpcSignatureReferenceEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureReferenceSet(::windows::runtime::IUnknown);
 impl IOpcSignatureReferenceSet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1981,26 +1481,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureReferenceSet {
     type Vtable = IOpcSignatureReferenceSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4088409393, 43794, 17117, [158, 47, 43, 22, 118, 28, 60, 30]);
 }
-impl ::std::convert::From<IOpcSignatureReferenceSet> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureReferenceSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureReferenceSet> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureReferenceSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureReferenceSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureReferenceSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureReferenceSet_abi(
@@ -2014,7 +1494,7 @@ pub struct IOpcSignatureReferenceSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureRelationshipReference(::windows::runtime::IUnknown);
 impl IOpcSignatureRelationshipReference {
     #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
@@ -2052,26 +1532,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureRelationshipReference
     type Vtable = IOpcSignatureRelationshipReference_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1471855302, 40266, 20048, [139, 134, 229, 212, 5, 30, 174, 124]);
 }
-impl ::std::convert::From<IOpcSignatureRelationshipReference> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureRelationshipReference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureRelationshipReference> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureRelationshipReference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureRelationshipReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureRelationshipReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureRelationshipReference_abi(
@@ -2088,7 +1548,7 @@ pub struct IOpcSignatureRelationshipReference_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator(::windows::runtime::IUnknown);
 impl IOpcSignatureRelationshipReferenceEnumerator {
     #[cfg(feature = "Win32_Foundation")]
@@ -2118,26 +1578,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureRelationshipReference
     type Vtable = IOpcSignatureRelationshipReferenceEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2000397284, 61473, 18660, [170, 4, 152, 22, 219, 93, 52, 149]);
 }
-impl ::std::convert::From<IOpcSignatureRelationshipReferenceEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureRelationshipReferenceEnumerator) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureRelationshipReferenceEnumerator> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureRelationshipReferenceEnumerator) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureRelationshipReferenceEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureRelationshipReferenceEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator_abi(
@@ -2153,7 +1593,7 @@ pub struct IOpcSignatureRelationshipReferenceEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSignatureRelationshipReferenceSet(::windows::runtime::IUnknown);
 impl IOpcSignatureRelationshipReferenceSet {
     #[cfg(feature = "Win32_Foundation")]
@@ -2181,26 +1621,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSignatureRelationshipReference
     type Vtable = IOpcSignatureRelationshipReferenceSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2676374693, 13873, 16460, [130, 141, 128, 126, 7, 21, 6, 155]);
 }
-impl ::std::convert::From<IOpcSignatureRelationshipReferenceSet> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSignatureRelationshipReferenceSet) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSignatureRelationshipReferenceSet> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSignatureRelationshipReferenceSet) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSignatureRelationshipReferenceSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSignatureRelationshipReferenceSet {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureRelationshipReferenceSet_abi(
@@ -2215,7 +1635,7 @@ pub struct IOpcSignatureRelationshipReferenceSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcSigningOptions(::windows::runtime::IUnknown);
 impl IOpcSigningOptions {
     #[cfg(feature = "Win32_Foundation")]
@@ -2308,26 +1728,6 @@ unsafe impl ::windows::runtime::Interface for IOpcSigningOptions {
     type Vtable = IOpcSigningOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1355994789, 31467, 18112, [178, 65, 67, 171, 14, 155, 64, 126]);
 }
-impl ::std::convert::From<IOpcSigningOptions> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcSigningOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcSigningOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcSigningOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcSigningOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcSigningOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSigningOptions_abi(
@@ -2360,7 +1760,7 @@ pub struct IOpcSigningOptions_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IOpcUri(::windows::runtime::IUnknown);
 impl IOpcUri {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2526,26 +1926,6 @@ impl IOpcUri {
 unsafe impl ::windows::runtime::Interface for IOpcUri {
     type Vtable = IOpcUri_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3164347291, 54828, 18923, [174, 240, 59, 78, 11, 40, 235, 237]);
-}
-impl ::std::convert::From<IOpcUri> for ::windows::runtime::IUnknown {
-    fn from(value: IOpcUri) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IOpcUri> for ::windows::runtime::IUnknown {
-    fn from(value: &IOpcUri) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOpcUri {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IOpcUri {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IOpcUri> for super::super::super::System::Com::IUri {

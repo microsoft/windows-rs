@@ -39,7 +39,7 @@ unsafe impl ::windows::runtime::RuntimeType for DomainNameType {
 }
 #[doc = "*Required features: `Networking`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct EndpointPair(::windows::runtime::IInspectable);
 impl EndpointPair {
     #[doc = "*Required features: `Networking`*"]
@@ -116,51 +116,11 @@ unsafe impl ::windows::runtime::Interface for EndpointPair {
 impl ::windows::runtime::RuntimeName for EndpointPair {
     const NAME: &'static str = "Windows.Networking.EndpointPair";
 }
-impl ::std::convert::From<EndpointPair> for ::windows::runtime::IUnknown {
-    fn from(value: EndpointPair) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&EndpointPair> for ::windows::runtime::IUnknown {
-    fn from(value: &EndpointPair) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EndpointPair {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EndpointPair {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<EndpointPair> for ::windows::runtime::IInspectable {
-    fn from(value: EndpointPair) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&EndpointPair> for ::windows::runtime::IInspectable {
-    fn from(value: &EndpointPair) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EndpointPair {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EndpointPair {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for EndpointPair {}
 unsafe impl ::std::marker::Sync for EndpointPair {}
 #[doc = "*Required features: `Networking`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HostName(::windows::runtime::IInspectable);
 impl HostName {
     #[cfg(feature = "Networking_Connectivity")]
@@ -253,46 +213,6 @@ unsafe impl ::windows::runtime::Interface for HostName {
 }
 impl ::windows::runtime::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";
-}
-impl ::std::convert::From<HostName> for ::windows::runtime::IUnknown {
-    fn from(value: HostName) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HostName> for ::windows::runtime::IUnknown {
-    fn from(value: &HostName) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HostName {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HostName {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HostName> for ::windows::runtime::IInspectable {
-    fn from(value: HostName) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HostName> for ::windows::runtime::IInspectable {
-    fn from(value: &HostName) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HostName {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HostName {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HostName> for super::Foundation::IStringable {

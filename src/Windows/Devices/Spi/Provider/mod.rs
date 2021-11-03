@@ -47,7 +47,7 @@ pub struct IProviderSpiConnectionSettingsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, chipselectline: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Spi_Provider`*"]
 pub struct ISpiControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiControllerProvider {
@@ -67,46 +67,6 @@ impl ISpiControllerProvider {
 unsafe impl ::windows::runtime::RuntimeType for ISpiControllerProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c1686504-02ce-4226-a385-4f11fb04b41b}");
 }
-impl ::std::convert::From<ISpiControllerProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ISpiControllerProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpiControllerProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpiControllerProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpiControllerProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpiControllerProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISpiControllerProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ISpiControllerProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISpiControllerProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ISpiControllerProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISpiControllerProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISpiControllerProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiControllerProvider_abi(
@@ -119,7 +79,7 @@ pub struct ISpiControllerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, settings: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Spi_Provider`*"]
 pub struct ISpiDeviceProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiDeviceProvider {
@@ -173,46 +133,6 @@ impl ISpiDeviceProvider {
 unsafe impl ::windows::runtime::RuntimeType for ISpiDeviceProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0d1c3443-304b-405c-b4f7-f5ab1074461e}");
 }
-impl ::std::convert::From<ISpiDeviceProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ISpiDeviceProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpiDeviceProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpiDeviceProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpiDeviceProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpiDeviceProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISpiDeviceProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ISpiDeviceProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISpiDeviceProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ISpiDeviceProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISpiDeviceProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISpiDeviceProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<ISpiDeviceProvider> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -256,7 +176,7 @@ pub struct ISpiDeviceProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Devices_Spi_Provider`*"]
 pub struct ISpiProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiProvider {
@@ -277,46 +197,6 @@ impl ISpiProvider {
 unsafe impl ::windows::runtime::RuntimeType for ISpiProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{96b461e2-77d4-48ce-aaa0-75715a8362cf}");
 }
-impl ::std::convert::From<ISpiProvider> for ::windows::runtime::IUnknown {
-    fn from(value: ISpiProvider) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ISpiProvider> for ::windows::runtime::IUnknown {
-    fn from(value: &ISpiProvider) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpiProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISpiProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ISpiProvider> for ::windows::runtime::IInspectable {
-    fn from(value: ISpiProvider) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ISpiProvider> for ::windows::runtime::IInspectable {
-    fn from(value: &ISpiProvider) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISpiProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISpiProvider {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiProvider_abi(
@@ -331,7 +211,7 @@ pub struct ISpiProvider_abi(
 );
 #[doc = "*Required features: `Devices_Spi_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ProviderSpiConnectionSettings(::windows::runtime::IInspectable);
 impl ProviderSpiConnectionSettings {
     #[doc = "*Required features: `Devices_Spi_Provider`*"]
@@ -420,46 +300,6 @@ unsafe impl ::windows::runtime::Interface for ProviderSpiConnectionSettings {
 }
 impl ::windows::runtime::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
-}
-impl ::std::convert::From<ProviderSpiConnectionSettings> for ::windows::runtime::IUnknown {
-    fn from(value: ProviderSpiConnectionSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ProviderSpiConnectionSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &ProviderSpiConnectionSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProviderSpiConnectionSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ProviderSpiConnectionSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ProviderSpiConnectionSettings> for ::windows::runtime::IInspectable {
-    fn from(value: ProviderSpiConnectionSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ProviderSpiConnectionSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &ProviderSpiConnectionSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProviderSpiConnectionSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProviderSpiConnectionSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::std::marker::Sync for ProviderSpiConnectionSettings {}

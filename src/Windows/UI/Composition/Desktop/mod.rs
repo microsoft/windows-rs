@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Composition_Desktop`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DesktopWindowTarget(::windows::runtime::IInspectable);
 impl DesktopWindowTarget {
     #[doc = "*Required features: `UI_Composition_Desktop`*"]
@@ -134,46 +134,6 @@ unsafe impl ::windows::runtime::Interface for DesktopWindowTarget {
 }
 impl ::windows::runtime::RuntimeName for DesktopWindowTarget {
     const NAME: &'static str = "Windows.UI.Composition.Desktop.DesktopWindowTarget";
-}
-impl ::std::convert::From<DesktopWindowTarget> for ::windows::runtime::IUnknown {
-    fn from(value: DesktopWindowTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DesktopWindowTarget> for ::windows::runtime::IUnknown {
-    fn from(value: &DesktopWindowTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DesktopWindowTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DesktopWindowTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DesktopWindowTarget> for ::windows::runtime::IInspectable {
-    fn from(value: DesktopWindowTarget) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DesktopWindowTarget> for ::windows::runtime::IInspectable {
-    fn from(value: &DesktopWindowTarget) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DesktopWindowTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DesktopWindowTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DesktopWindowTarget> for super::super::super::Foundation::IClosable {

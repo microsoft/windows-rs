@@ -488,7 +488,7 @@ unsafe impl ::windows::runtime::Abi for IFILTER_INIT {
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IFilter(::windows::runtime::IUnknown);
 impl IFilter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -520,26 +520,6 @@ unsafe impl ::windows::runtime::Interface for IFilter {
     type Vtable = IFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2310846272, 24857, 4122, [188, 183, 0, 221, 1, 6, 85, 175]);
 }
-impl ::std::convert::From<IFilter> for ::windows::runtime::IUnknown {
-    fn from(value: IFilter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IFilter> for ::windows::runtime::IUnknown {
-    fn from(value: &IFilter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFilter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFilter_abi(
@@ -558,7 +538,7 @@ pub struct IFilter_abi(
 );
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPhraseSink(::windows::runtime::IUnknown);
 impl IPhraseSink {
     #[cfg(feature = "Win32_Foundation")]
@@ -575,26 +555,6 @@ impl IPhraseSink {
 unsafe impl ::windows::runtime::Interface for IPhraseSink {
     type Vtable = IPhraseSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3432017904, 49240, 4122, [181, 84, 8, 0, 43, 51, 176, 230]);
-}
-impl ::std::convert::From<IPhraseSink> for ::windows::runtime::IUnknown {
-    fn from(value: IPhraseSink) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPhraseSink> for ::windows::runtime::IUnknown {
-    fn from(value: &IPhraseSink) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhraseSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhraseSink {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

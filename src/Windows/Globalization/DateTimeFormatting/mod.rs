@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DateTimeFormatter(::windows::runtime::IInspectable);
 impl DateTimeFormatter {
     #[cfg(feature = "Foundation_Collections")]
@@ -274,46 +274,6 @@ unsafe impl ::windows::runtime::Interface for DateTimeFormatter {
 }
 impl ::windows::runtime::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
-}
-impl ::std::convert::From<DateTimeFormatter> for ::windows::runtime::IUnknown {
-    fn from(value: DateTimeFormatter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DateTimeFormatter> for ::windows::runtime::IUnknown {
-    fn from(value: &DateTimeFormatter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DateTimeFormatter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DateTimeFormatter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DateTimeFormatter> for ::windows::runtime::IInspectable {
-    fn from(value: DateTimeFormatter) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DateTimeFormatter> for ::windows::runtime::IInspectable {
-    fn from(value: &DateTimeFormatter) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DateTimeFormatter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DateTimeFormatter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for DateTimeFormatter {}
 unsafe impl ::std::marker::Sync for DateTimeFormatter {}

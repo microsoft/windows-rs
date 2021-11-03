@@ -51,7 +51,6 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             let interfaces = interfaces(def);
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
             let (async_get, future) = gen_async(def, &interfaces, gen);
-            let object = gen_object(&name, &constraints, &TokenStream::new());
             let iterator = gen_iterator(def, &interfaces, gen);
 
             let send_sync = if async_kind(def) == AsyncKind::None {
@@ -74,16 +73,22 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
                     const SIGNATURE: ::windows::runtime::ConstBuffer = #type_signature;
                 }
                 #future
-                #object
                 #(#conversions)*
                 #send_sync
                 #iterator
             }
         };
 
+        let derive = if is_exclusive {
+            // TODO: exclusive interfaces shouldn't need any of these
+            quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)] }
+        } else {
+            quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug, ::windows::runtime::DeriveInterface)] }
+        };
+
         quote! {
             #[repr(transparent)]
-            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+            #derive
             #doc
             pub struct #name(::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
             unsafe impl<#constraints> ::windows::runtime::Interface for #name {

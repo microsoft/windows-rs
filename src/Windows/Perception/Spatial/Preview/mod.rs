@@ -70,7 +70,7 @@ pub struct ISpatialGraphInteropPreviewStatics2_abi(
 );
 #[doc = "*Required features: `Perception_Spatial_Preview`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(::windows::runtime::IInspectable);
 impl SpatialGraphInteropFrameOfReferencePreview {
     #[doc = "*Required features: `Perception_Spatial_Preview`*"]
@@ -108,46 +108,6 @@ unsafe impl ::windows::runtime::Interface for SpatialGraphInteropFrameOfReferenc
 }
 impl ::windows::runtime::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview";
-}
-impl ::std::convert::From<SpatialGraphInteropFrameOfReferencePreview> for ::windows::runtime::IUnknown {
-    fn from(value: SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&SpatialGraphInteropFrameOfReferencePreview> for ::windows::runtime::IUnknown {
-    fn from(value: &SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SpatialGraphInteropFrameOfReferencePreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &SpatialGraphInteropFrameOfReferencePreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<SpatialGraphInteropFrameOfReferencePreview> for ::windows::runtime::IInspectable {
-    fn from(value: SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&SpatialGraphInteropFrameOfReferencePreview> for ::windows::runtime::IInspectable {
-    fn from(value: &SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SpatialGraphInteropFrameOfReferencePreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SpatialGraphInteropFrameOfReferencePreview {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for SpatialGraphInteropFrameOfReferencePreview {}
 unsafe impl ::std::marker::Sync for SpatialGraphInteropFrameOfReferencePreview {}

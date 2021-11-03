@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AddAppointmentOperation(::windows::runtime::IInspectable);
 impl AddAppointmentOperation {
     #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
@@ -50,46 +50,6 @@ unsafe impl ::windows::runtime::Interface for AddAppointmentOperation {
 }
 impl ::windows::runtime::RuntimeName for AddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation";
-}
-impl ::std::convert::From<AddAppointmentOperation> for ::windows::runtime::IUnknown {
-    fn from(value: AddAppointmentOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AddAppointmentOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &AddAppointmentOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AddAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AddAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AddAppointmentOperation> for ::windows::runtime::IInspectable {
-    fn from(value: AddAppointmentOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AddAppointmentOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &AddAppointmentOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AddAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AddAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for AddAppointmentOperation {}
 unsafe impl ::std::marker::Sync for AddAppointmentOperation {}
@@ -263,7 +223,7 @@ pub struct IReplaceAppointmentOperation_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct RemoveAppointmentOperation(::windows::runtime::IInspectable);
 impl RemoveAppointmentOperation {
     #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
@@ -322,51 +282,11 @@ unsafe impl ::windows::runtime::Interface for RemoveAppointmentOperation {
 impl ::windows::runtime::RuntimeName for RemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation";
 }
-impl ::std::convert::From<RemoveAppointmentOperation> for ::windows::runtime::IUnknown {
-    fn from(value: RemoveAppointmentOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&RemoveAppointmentOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &RemoveAppointmentOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RemoveAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &RemoveAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<RemoveAppointmentOperation> for ::windows::runtime::IInspectable {
-    fn from(value: RemoveAppointmentOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&RemoveAppointmentOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &RemoveAppointmentOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RemoveAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RemoveAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for RemoveAppointmentOperation {}
 unsafe impl ::std::marker::Sync for RemoveAppointmentOperation {}
 #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ReplaceAppointmentOperation(::windows::runtime::IInspectable);
 impl ReplaceAppointmentOperation {
     #[doc = "*Required features: `ApplicationModel_Appointments_AppointmentsProvider`*"]
@@ -432,46 +352,6 @@ unsafe impl ::windows::runtime::Interface for ReplaceAppointmentOperation {
 }
 impl ::windows::runtime::RuntimeName for ReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation";
-}
-impl ::std::convert::From<ReplaceAppointmentOperation> for ::windows::runtime::IUnknown {
-    fn from(value: ReplaceAppointmentOperation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ReplaceAppointmentOperation> for ::windows::runtime::IUnknown {
-    fn from(value: &ReplaceAppointmentOperation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ReplaceAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ReplaceAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ReplaceAppointmentOperation> for ::windows::runtime::IInspectable {
-    fn from(value: ReplaceAppointmentOperation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ReplaceAppointmentOperation> for ::windows::runtime::IInspectable {
-    fn from(value: &ReplaceAppointmentOperation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ReplaceAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ReplaceAppointmentOperation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for ReplaceAppointmentOperation {}
 unsafe impl ::std::marker::Sync for ReplaceAppointmentOperation {}

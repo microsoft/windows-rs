@@ -5615,7 +5615,7 @@ pub const DXGI_DEBUG_D3D10: ::windows::runtime::GUID = ::windows::runtime::GUID:
 pub const GUID_DeviceType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609393997, 31336, 17274, [178, 12, 88, 4, 238, 36, 148, 166]);
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Asynchronous(::windows::runtime::IUnknown);
 impl ID3D10Asynchronous {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -5655,26 +5655,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10Asynchronous {
     type Vtable = ID3D10Asynchronous_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745485, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
 }
-impl ::std::convert::From<ID3D10Asynchronous> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Asynchronous) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Asynchronous> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Asynchronous) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Asynchronous {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Asynchronous {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10Asynchronous> for ID3D10DeviceChild {
     fn from(value: ID3D10Asynchronous) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5712,7 +5692,7 @@ pub struct ID3D10Asynchronous_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10BlendState(::windows::runtime::IUnknown);
 impl ID3D10BlendState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -5740,26 +5720,6 @@ impl ID3D10BlendState {
 unsafe impl ::windows::runtime::Interface for ID3D10BlendState {
     type Vtable = ID3D10BlendState_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3987574041, 35381, 19821, [133, 102, 46, 162, 118, 205, 225, 97]);
-}
-impl ::std::convert::From<ID3D10BlendState> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10BlendState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10BlendState> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10BlendState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10BlendState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10BlendState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10BlendState> for ID3D10DeviceChild {
     fn from(value: ID3D10BlendState) -> Self {
@@ -5796,7 +5756,7 @@ pub struct ID3D10BlendState_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10BlendState1(::windows::runtime::IUnknown);
 impl ID3D10BlendState1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -5829,26 +5789,6 @@ impl ID3D10BlendState1 {
 unsafe impl ::windows::runtime::Interface for ID3D10BlendState1 {
     type Vtable = ID3D10BlendState1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3987574169, 35381, 19821, [133, 102, 46, 162, 118, 205, 225, 97]);
-}
-impl ::std::convert::From<ID3D10BlendState1> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10BlendState1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10BlendState1> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10BlendState1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10BlendState1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10BlendState1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10BlendState1> for ID3D10BlendState {
     fn from(value: ID3D10BlendState1) -> Self {
@@ -5907,7 +5847,7 @@ pub struct ID3D10BlendState1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Buffer(::windows::runtime::IUnknown);
 impl ID3D10Buffer {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -5954,26 +5894,6 @@ impl ID3D10Buffer {
 unsafe impl ::windows::runtime::Interface for ID3D10Buffer {
     type Vtable = ID3D10Buffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745474, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10Buffer> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Buffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Buffer> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Buffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Buffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Buffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10Buffer> for ID3D10Resource {
     fn from(value: ID3D10Buffer) -> Self {
@@ -6034,7 +5954,7 @@ pub struct ID3D10Buffer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Counter(::windows::runtime::IUnknown);
 impl ID3D10Counter {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -6077,26 +5997,6 @@ impl ID3D10Counter {
 unsafe impl ::windows::runtime::Interface for ID3D10Counter {
     type Vtable = ID3D10Counter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745489, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10Counter> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Counter) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Counter> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Counter) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Counter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Counter {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10Counter> for ID3D10Asynchronous {
     fn from(value: ID3D10Counter) -> Self {
@@ -6156,7 +6056,7 @@ pub struct ID3D10Counter_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Debug(::windows::runtime::IUnknown);
 impl ID3D10Debug {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -6195,26 +6095,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10Debug {
     type Vtable = ID3D10Debug_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745985, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
 }
-impl ::std::convert::From<ID3D10Debug> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Debug) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Debug> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Debug) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Debug {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Debug {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Debug_abi(
@@ -6233,7 +6113,7 @@ pub struct ID3D10Debug_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10DepthStencilState(::windows::runtime::IUnknown);
 impl ID3D10DepthStencilState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -6261,26 +6141,6 @@ impl ID3D10DepthStencilState {
 unsafe impl ::windows::runtime::Interface for ID3D10DepthStencilState {
     type Vtable = ID3D10DepthStencilState_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(726342856, 42157, 16888, [131, 34, 202, 134, 252, 62, 198, 117]);
-}
-impl ::std::convert::From<ID3D10DepthStencilState> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10DepthStencilState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10DepthStencilState> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10DepthStencilState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10DepthStencilState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10DepthStencilState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10DepthStencilState> for ID3D10DeviceChild {
     fn from(value: ID3D10DepthStencilState) -> Self {
@@ -6317,7 +6177,7 @@ pub struct ID3D10DepthStencilState_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10DepthStencilView(::windows::runtime::IUnknown);
 impl ID3D10DepthStencilView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -6349,26 +6209,6 @@ impl ID3D10DepthStencilView {
 unsafe impl ::windows::runtime::Interface for ID3D10DepthStencilView {
     type Vtable = ID3D10DepthStencilView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745481, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10DepthStencilView> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10DepthStencilView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10DepthStencilView> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10DepthStencilView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10DepthStencilView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10DepthStencilView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10DepthStencilView> for ID3D10View {
     fn from(value: ID3D10DepthStencilView) -> Self {
@@ -6426,7 +6266,7 @@ pub struct ID3D10DepthStencilView_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Device(::windows::runtime::IUnknown);
 impl ID3D10Device {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -6881,26 +6721,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10Device {
     type Vtable = ID3D10Device_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745487, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
 }
-impl ::std::convert::From<ID3D10Device> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Device) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Device> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Device) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Device {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Device {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Device_abi(
@@ -7029,7 +6849,7 @@ pub struct ID3D10Device_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Device1(::windows::runtime::IUnknown);
 impl ID3D10Device1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -7500,26 +7320,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10Device1 {
     type Vtable = ID3D10Device1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745615, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
 }
-impl ::std::convert::From<ID3D10Device1> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Device1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Device1> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Device1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Device1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Device1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10Device1> for ID3D10Device {
     fn from(value: ID3D10Device1) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7673,7 +7473,7 @@ pub struct ID3D10Device1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10DeviceChild(::windows::runtime::IUnknown);
 impl ID3D10DeviceChild {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -7697,26 +7497,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10DeviceChild {
     type Vtable = ID3D10DeviceChild_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745472, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
 }
-impl ::std::convert::From<ID3D10DeviceChild> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10DeviceChild) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10DeviceChild> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10DeviceChild) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10DeviceChild {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10DeviceChild {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10DeviceChild_abi(
@@ -7730,7 +7510,7 @@ pub struct ID3D10DeviceChild_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Effect(::windows::runtime::IUnknown);
 impl ID3D10Effect {
     #[cfg(feature = "Win32_Foundation")]
@@ -7800,26 +7580,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10Effect {
     type Vtable = ID3D10Effect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1370540683, 60427, 17689, [135, 13, 142, 225, 203, 80, 23, 199]);
 }
-impl ::std::convert::From<ID3D10Effect> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Effect) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Effect> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Effect) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Effect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Effect {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Effect_abi(
@@ -7850,7 +7610,7 @@ pub struct ID3D10Effect_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectBlendVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectBlendVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -7974,26 +7734,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectBlendVariable {
     type Vtable = ID3D10EffectBlendVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(533537428, 57197, 20142, [134, 179, 14, 145, 96, 207, 176, 123]);
 }
-impl ::std::convert::From<ID3D10EffectBlendVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectBlendVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectBlendVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectBlendVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectBlendVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectBlendVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectBlendVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectBlendVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8056,7 +7796,7 @@ pub struct ID3D10EffectBlendVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectConstantBuffer(::windows::runtime::IUnknown);
 impl ID3D10EffectConstantBuffer {
     #[cfg(feature = "Win32_Foundation")]
@@ -8188,26 +7928,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectConstantBuffer {
     type Vtable = ID3D10EffectConstantBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1449430861, 52363, 17476, [165, 173, 181, 163, 215, 110, 145, 179]);
 }
-impl ::std::convert::From<ID3D10EffectConstantBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectConstantBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectConstantBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectConstantBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectConstantBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectConstantBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectConstantBuffer> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectConstantBuffer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8271,7 +7991,7 @@ pub struct ID3D10EffectConstantBuffer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectDepthStencilVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectDepthStencilVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -8396,26 +8116,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectDepthStencilVariable {
     type Vtable = ID3D10EffectDepthStencilVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2940740456, 13066, 18085, [154, 92, 1, 199, 26, 242, 76, 141]);
 }
-impl ::std::convert::From<ID3D10EffectDepthStencilVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectDepthStencilVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectDepthStencilVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectDepthStencilVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectDepthStencilVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectDepthStencilVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectDepthStencilVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectDepthStencilVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8478,7 +8178,7 @@ pub struct ID3D10EffectDepthStencilVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectDepthStencilViewVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectDepthStencilViewVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -8609,26 +8309,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectDepthStencilViewVariab
     type Vtable = ID3D10EffectDepthStencilViewVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1040369944, 52345, 18821, [182, 34, 45, 146, 173, 112, 22, 35]);
 }
-impl ::std::convert::From<ID3D10EffectDepthStencilViewVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectDepthStencilViewVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectDepthStencilViewVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectDepthStencilViewVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectDepthStencilViewVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectDepthStencilViewVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectDepthStencilViewVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectDepthStencilViewVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8692,7 +8372,7 @@ pub struct ID3D10EffectDepthStencilViewVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectMatrixVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectMatrixVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -8838,26 +8518,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectMatrixVariable {
     type Vtable = ID3D10EffectMatrixVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1348889636, 47151, 20205, [161, 114, 91, 110, 126, 133, 34, 224]);
 }
-impl ::std::convert::From<ID3D10EffectMatrixVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectMatrixVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectMatrixVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectMatrixVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectMatrixVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectMatrixVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectMatrixVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectMatrixVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8925,7 +8585,7 @@ pub struct ID3D10EffectMatrixVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectPass(::windows::runtime::IUnknown);
 impl ID3D10EffectPass {
     #[cfg(feature = "Win32_Foundation")]
@@ -8973,26 +8633,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectPass {
     type Vtable = ID3D10EffectPass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1560013705, 6662, 18144, [178, 130, 227, 249, 191, 163, 106, 84]);
 }
-impl ::std::convert::From<ID3D10EffectPass> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectPass) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectPass> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectPass) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectPass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectPass {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectPass_abi(
@@ -9014,7 +8654,7 @@ pub struct ID3D10EffectPass_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectPool(::windows::runtime::IUnknown);
 impl ID3D10EffectPool {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -9026,26 +8666,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectPool {
     type Vtable = ID3D10EffectPool_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2503453444, 12880, 16686, [130, 19, 252, 210, 248, 103, 121, 51]);
 }
-impl ::std::convert::From<ID3D10EffectPool> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectPool) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectPool> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectPool) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectPool {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectPool {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectPool_abi(
@@ -9056,7 +8676,7 @@ pub struct ID3D10EffectPool_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectRasterizerVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectRasterizerVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -9181,26 +8801,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectRasterizerVariable {
     type Vtable = ID3D10EffectRasterizerVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(565157646, 19860, 20137, [151, 133, 44, 183, 107, 140, 11, 52]);
 }
-impl ::std::convert::From<ID3D10EffectRasterizerVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectRasterizerVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectRasterizerVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectRasterizerVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectRasterizerVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectRasterizerVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectRasterizerVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectRasterizerVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9263,7 +8863,7 @@ pub struct ID3D10EffectRasterizerVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectRenderTargetViewVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectRenderTargetViewVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -9394,26 +8994,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectRenderTargetViewVariab
     type Vtable = ID3D10EffectRenderTargetViewVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(684330179, 49865, 16571, [181, 127, 103, 183, 55, 18, 43, 23]);
 }
-impl ::std::convert::From<ID3D10EffectRenderTargetViewVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectRenderTargetViewVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectRenderTargetViewVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectRenderTargetViewVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectRenderTargetViewVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectRenderTargetViewVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectRenderTargetViewVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectRenderTargetViewVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9477,7 +9057,7 @@ pub struct ID3D10EffectRenderTargetViewVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectSamplerVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectSamplerVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -9601,26 +9181,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectSamplerVariable {
     type Vtable = ID3D10EffectSamplerVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1697699271, 2025, 17009, [164, 24, 231, 206, 75, 209, 228, 128]);
 }
-impl ::std::convert::From<ID3D10EffectSamplerVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectSamplerVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectSamplerVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectSamplerVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectSamplerVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectSamplerVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectSamplerVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectSamplerVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9682,7 +9242,7 @@ pub struct ID3D10EffectSamplerVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectScalarVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectScalarVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -9851,26 +9411,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectScalarVariable {
     type Vtable = ID3D10EffectScalarVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(14978939, 53960, 18920, [168, 108, 2, 45, 238, 83, 67, 31]);
 }
-impl ::std::convert::From<ID3D10EffectScalarVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectScalarVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectScalarVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectScalarVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectScalarVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectScalarVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectScalarVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectScalarVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9946,7 +9486,7 @@ pub struct ID3D10EffectScalarVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectShaderResourceVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectShaderResourceVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -10077,26 +9617,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectShaderResourceVariable
     type Vtable = ID3D10EffectShaderResourceVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3232175483, 55410, 19229, [128, 115, 239, 194, 172, 212, 177, 252]);
 }
-impl ::std::convert::From<ID3D10EffectShaderResourceVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectShaderResourceVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectShaderResourceVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectShaderResourceVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectShaderResourceVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectShaderResourceVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectShaderResourceVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectShaderResourceVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10160,7 +9680,7 @@ pub struct ID3D10EffectShaderResourceVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectShaderVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectShaderVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -10307,26 +9827,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectShaderVariable {
     type Vtable = ID3D10EffectShaderVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2156171897, 51097, 18327, [140, 51, 4, 7, 160, 125, 158, 6]);
 }
-impl ::std::convert::From<ID3D10EffectShaderVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectShaderVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectShaderVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectShaderVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectShaderVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectShaderVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectShaderVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectShaderVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10395,7 +9895,7 @@ pub struct ID3D10EffectShaderVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectStringVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectStringVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -10520,26 +10020,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectStringVariable {
     type Vtable = ID3D10EffectStringVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1900115201, 36345, 19978, [167, 138, 37, 95, 151, 86, 186, 255]);
 }
-impl ::std::convert::From<ID3D10EffectStringVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectStringVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectStringVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectStringVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectStringVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectStringVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectStringVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectStringVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10603,7 +10083,7 @@ pub struct ID3D10EffectStringVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectTechnique(::windows::runtime::IUnknown);
 impl ID3D10EffectTechnique {
     #[cfg(feature = "Win32_Foundation")]
@@ -10644,26 +10124,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectTechnique {
     type Vtable = ID3D10EffectTechnique_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3675401448, 53705, 17042, [178, 55, 36, 237, 61, 232, 177, 117]);
 }
-impl ::std::convert::From<ID3D10EffectTechnique> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectTechnique) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectTechnique> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectTechnique) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectTechnique {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectTechnique {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectTechnique_abi(
@@ -10684,7 +10144,7 @@ pub struct ID3D10EffectTechnique_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectType(::windows::runtime::IUnknown);
 impl ID3D10EffectType {
     #[cfg(feature = "Win32_Foundation")]
@@ -10726,26 +10186,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectType {
     type Vtable = ID3D10EffectType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318985180, 52637, 18290, [168, 55, 0, 24, 11, 155, 136, 253]);
 }
-impl ::std::convert::From<ID3D10EffectType> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectType) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectType> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectType) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectType {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectType {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectType_abi(
@@ -10768,7 +10208,7 @@ pub struct ID3D10EffectType_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -10882,26 +10322,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectVariable {
     type Vtable = ID3D10EffectVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2928242949, 230, 17855, [187, 142, 40, 29, 214, 219, 142, 27]);
 }
-impl ::std::convert::From<ID3D10EffectVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectVariable_abi(
@@ -10941,7 +10361,7 @@ pub struct ID3D10EffectVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10EffectVectorVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectVectorVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -11107,26 +10527,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10EffectVectorVariable {
     type Vtable = ID3D10EffectVectorVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1656327236, 8066, 19559, [188, 208, 114, 207, 143, 33, 126, 129]);
 }
-impl ::std::convert::From<ID3D10EffectVectorVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10EffectVectorVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10EffectVectorVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10EffectVectorVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10EffectVectorVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10EffectVectorVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 impl ::std::convert::From<ID3D10EffectVectorVariable> for ID3D10EffectVariable {
     fn from(value: ID3D10EffectVectorVariable) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11202,7 +10602,7 @@ pub struct ID3D10EffectVectorVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10GeometryShader(::windows::runtime::IUnknown);
 impl ID3D10GeometryShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -11225,26 +10625,6 @@ impl ID3D10GeometryShader {
 unsafe impl ::windows::runtime::Interface for ID3D10GeometryShader {
     type Vtable = ID3D10GeometryShader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1662434952, 21709, 16448, [171, 68, 32, 70, 27, 200, 31, 104]);
-}
-impl ::std::convert::From<ID3D10GeometryShader> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10GeometryShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10GeometryShader> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10GeometryShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10GeometryShader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10GeometryShader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10GeometryShader> for ID3D10DeviceChild {
     fn from(value: ID3D10GeometryShader) -> Self {
@@ -11279,7 +10659,7 @@ pub struct ID3D10GeometryShader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10InfoQueue(::windows::runtime::IUnknown);
 impl ID3D10InfoQueue {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -11437,26 +10817,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10InfoQueue {
     type Vtable = ID3D10InfoQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(462686999, 9794, 19743, [171, 31, 185, 155, 173, 12, 57, 95]);
 }
-impl ::std::convert::From<ID3D10InfoQueue> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10InfoQueue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10InfoQueue> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10InfoQueue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10InfoQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10InfoQueue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10InfoQueue_abi(
@@ -11511,7 +10871,7 @@ pub struct ID3D10InfoQueue_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10InputLayout(::windows::runtime::IUnknown);
 impl ID3D10InputLayout {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -11534,26 +10894,6 @@ impl ID3D10InputLayout {
 unsafe impl ::windows::runtime::Interface for ID3D10InputLayout {
     type Vtable = ID3D10InputLayout_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745483, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10InputLayout> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10InputLayout) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10InputLayout> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10InputLayout) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10InputLayout {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10InputLayout {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10InputLayout> for ID3D10DeviceChild {
     fn from(value: ID3D10InputLayout) -> Self {
@@ -11588,7 +10928,7 @@ pub struct ID3D10InputLayout_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Multithread(::windows::runtime::IUnknown);
 impl ID3D10Multithread {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -11614,26 +10954,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10Multithread {
     type Vtable = ID3D10Multithread_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745984, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
 }
-impl ::std::convert::From<ID3D10Multithread> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Multithread) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Multithread> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Multithread) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Multithread {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Multithread {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Multithread_abi(
@@ -11649,7 +10969,7 @@ pub struct ID3D10Multithread_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10PixelShader(::windows::runtime::IUnknown);
 impl ID3D10PixelShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -11672,26 +10992,6 @@ impl ID3D10PixelShader {
 unsafe impl ::windows::runtime::Interface for ID3D10PixelShader {
     type Vtable = ID3D10PixelShader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1231599105, 40192, 19678, [131, 70, 142, 127, 103, 88, 25, 182]);
-}
-impl ::std::convert::From<ID3D10PixelShader> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10PixelShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10PixelShader> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10PixelShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10PixelShader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10PixelShader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10PixelShader> for ID3D10DeviceChild {
     fn from(value: ID3D10PixelShader) -> Self {
@@ -11726,7 +11026,7 @@ pub struct ID3D10PixelShader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Predicate(::windows::runtime::IUnknown);
 impl ID3D10Predicate {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -11769,26 +11069,6 @@ impl ID3D10Predicate {
 unsafe impl ::windows::runtime::Interface for ID3D10Predicate {
     type Vtable = ID3D10Predicate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745488, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10Predicate> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Predicate) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Predicate> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Predicate) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Predicate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Predicate {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10Predicate> for ID3D10Query {
     fn from(value: ID3D10Predicate) -> Self {
@@ -11868,7 +11148,7 @@ pub struct ID3D10Predicate_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Query(::windows::runtime::IUnknown);
 impl ID3D10Query {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -11911,26 +11191,6 @@ impl ID3D10Query {
 unsafe impl ::windows::runtime::Interface for ID3D10Query {
     type Vtable = ID3D10Query_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745486, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10Query> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Query) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Query> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Query) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Query {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Query {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10Query> for ID3D10Asynchronous {
     fn from(value: ID3D10Query) -> Self {
@@ -11990,7 +11250,7 @@ pub struct ID3D10Query_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10RasterizerState(::windows::runtime::IUnknown);
 impl ID3D10RasterizerState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -12018,26 +11278,6 @@ impl ID3D10RasterizerState {
 unsafe impl ::windows::runtime::Interface for ID3D10RasterizerState {
     type Vtable = ID3D10RasterizerState_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2728424082, 35247, 17221, [190, 46, 197, 61, 159, 187, 110, 159]);
-}
-impl ::std::convert::From<ID3D10RasterizerState> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10RasterizerState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10RasterizerState> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10RasterizerState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10RasterizerState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10RasterizerState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10RasterizerState> for ID3D10DeviceChild {
     fn from(value: ID3D10RasterizerState) -> Self {
@@ -12074,7 +11314,7 @@ pub struct ID3D10RasterizerState_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10RenderTargetView(::windows::runtime::IUnknown);
 impl ID3D10RenderTargetView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -12106,26 +11346,6 @@ impl ID3D10RenderTargetView {
 unsafe impl ::windows::runtime::Interface for ID3D10RenderTargetView {
     type Vtable = ID3D10RenderTargetView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745480, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10RenderTargetView> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10RenderTargetView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10RenderTargetView> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10RenderTargetView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10RenderTargetView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10RenderTargetView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10RenderTargetView> for ID3D10View {
     fn from(value: ID3D10RenderTargetView) -> Self {
@@ -12183,7 +11403,7 @@ pub struct ID3D10RenderTargetView_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Resource(::windows::runtime::IUnknown);
 impl ID3D10Resource {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -12218,26 +11438,6 @@ impl ID3D10Resource {
 unsafe impl ::windows::runtime::Interface for ID3D10Resource {
     type Vtable = ID3D10Resource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745473, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10Resource> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Resource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Resource> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Resource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Resource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Resource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10Resource> for ID3D10DeviceChild {
     fn from(value: ID3D10Resource) -> Self {
@@ -12275,7 +11475,7 @@ pub struct ID3D10Resource_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10SamplerState(::windows::runtime::IUnknown);
 impl ID3D10SamplerState {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -12302,26 +11502,6 @@ impl ID3D10SamplerState {
 unsafe impl ::windows::runtime::Interface for ID3D10SamplerState {
     type Vtable = ID3D10SamplerState_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745484, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10SamplerState> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10SamplerState) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10SamplerState> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10SamplerState) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10SamplerState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10SamplerState {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10SamplerState> for ID3D10DeviceChild {
     fn from(value: ID3D10SamplerState) -> Self {
@@ -12357,7 +11537,7 @@ pub struct ID3D10SamplerState_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10ShaderReflection(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
@@ -12398,26 +11578,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflection {
     type Vtable = ID3D10ShaderReflection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3557695670, 63735, 17069, [171, 32, 75, 175, 143, 21, 223, 170]);
 }
-impl ::std::convert::From<ID3D10ShaderReflection> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10ShaderReflection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10ShaderReflection> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10ShaderReflection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10ShaderReflection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10ShaderReflection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflection_abi(
@@ -12438,7 +11598,7 @@ pub struct ID3D10ShaderReflection_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10ShaderReflection1(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflection1 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
@@ -12528,26 +11688,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflection1 {
     type Vtable = ID3D10ShaderReflection1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3276109699, 43078, 18382, [149, 32, 206, 166, 246, 110, 116, 71]);
 }
-impl ::std::convert::From<ID3D10ShaderReflection1> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10ShaderReflection1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10ShaderReflection1> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10ShaderReflection1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10ShaderReflection1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10ShaderReflection1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflection1_abi(
@@ -12582,7 +11722,7 @@ pub struct ID3D10ShaderReflection1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10ShaderReflectionConstantBuffer(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflectionConstantBuffer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
@@ -12605,26 +11745,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflectionConstantBuff
     type Vtable = ID3D10ShaderReflectionConstantBuffer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1724279444, 56797, 19298, [166, 106, 240, 218, 51, 194, 180, 208]);
 }
-impl ::std::convert::From<ID3D10ShaderReflectionConstantBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10ShaderReflectionConstantBuffer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10ShaderReflectionConstantBuffer> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10ShaderReflectionConstantBuffer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10ShaderReflectionConstantBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10ShaderReflectionConstantBuffer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflectionConstantBuffer_abi(
@@ -12639,7 +11759,7 @@ pub struct ID3D10ShaderReflectionConstantBuffer_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10ShaderReflectionType(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflectionType {
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
@@ -12666,26 +11786,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflectionType {
     type Vtable = ID3D10ShaderReflectionType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3308301693, 39702, 17301, [169, 121, 186, 46, 207, 248, 58, 221]);
 }
-impl ::std::convert::From<ID3D10ShaderReflectionType> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10ShaderReflectionType) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10ShaderReflectionType> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10ShaderReflectionType) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10ShaderReflectionType {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10ShaderReflectionType {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflectionType_abi(
@@ -12702,7 +11802,7 @@ pub struct ID3D10ShaderReflectionType_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10ShaderReflectionVariable(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflectionVariable {
     #[cfg(feature = "Win32_Foundation")]
@@ -12720,26 +11820,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10ShaderReflectionVariable {
     type Vtable = ID3D10ShaderReflectionVariable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(469122197, 9808, 16477, [153, 193, 54, 54, 189, 29, 160, 161]);
 }
-impl ::std::convert::From<ID3D10ShaderReflectionVariable> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10ShaderReflectionVariable) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10ShaderReflectionVariable> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10ShaderReflectionVariable) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10ShaderReflectionVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10ShaderReflectionVariable {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflectionVariable_abi(
@@ -12752,7 +11832,7 @@ pub struct ID3D10ShaderReflectionVariable_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10ShaderResourceView(::windows::runtime::IUnknown);
 impl ID3D10ShaderResourceView {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -12784,26 +11864,6 @@ impl ID3D10ShaderResourceView {
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderResourceView {
     type Vtable = ID3D10ShaderResourceView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745479, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10ShaderResourceView> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10ShaderResourceView) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10ShaderResourceView> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10ShaderResourceView) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10ShaderResourceView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10ShaderResourceView {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10ShaderResourceView> for ID3D10View {
     fn from(value: ID3D10ShaderResourceView) -> Self {
@@ -12861,7 +11921,7 @@ pub struct ID3D10ShaderResourceView_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10ShaderResourceView1(::windows::runtime::IUnknown);
 impl ID3D10ShaderResourceView1 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -12898,26 +11958,6 @@ impl ID3D10ShaderResourceView1 {
 unsafe impl ::windows::runtime::Interface for ID3D10ShaderResourceView1 {
     type Vtable = ID3D10ShaderResourceView1_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745607, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10ShaderResourceView1> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10ShaderResourceView1> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10ShaderResourceView1) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10ShaderResourceView1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10ShaderResourceView1 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10ShaderResourceView1> for ID3D10ShaderResourceView {
     fn from(value: ID3D10ShaderResourceView1) -> Self {
@@ -12997,7 +12037,7 @@ pub struct ID3D10ShaderResourceView1_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10StateBlock(::windows::runtime::IUnknown);
 impl ID3D10StateBlock {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -13022,26 +12062,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10StateBlock {
     type Vtable = ID3D10StateBlock_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(134431322, 22517, 19926, [148, 101, 168, 117, 112, 131, 74, 8]);
 }
-impl ::std::convert::From<ID3D10StateBlock> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10StateBlock) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10StateBlock> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10StateBlock) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10StateBlock {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10StateBlock {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10StateBlock_abi(
@@ -13055,7 +12075,7 @@ pub struct ID3D10StateBlock_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10SwitchToRef(::windows::runtime::IUnknown);
 impl ID3D10SwitchToRef {
     #[cfg(feature = "Win32_Foundation")]
@@ -13073,26 +12093,6 @@ unsafe impl ::windows::runtime::Interface for ID3D10SwitchToRef {
     type Vtable = ID3D10SwitchToRef_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745986, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
 }
-impl ::std::convert::From<ID3D10SwitchToRef> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10SwitchToRef) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10SwitchToRef> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10SwitchToRef) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10SwitchToRef {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10SwitchToRef {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10SwitchToRef_abi(
@@ -13106,7 +12106,7 @@ pub struct ID3D10SwitchToRef_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Texture1D(::windows::runtime::IUnknown);
 impl ID3D10Texture1D {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -13154,26 +12154,6 @@ impl ID3D10Texture1D {
 unsafe impl ::windows::runtime::Interface for ID3D10Texture1D {
     type Vtable = ID3D10Texture1D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745475, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10Texture1D> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Texture1D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Texture1D> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Texture1D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Texture1D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Texture1D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10Texture1D> for ID3D10Resource {
     fn from(value: ID3D10Texture1D) -> Self {
@@ -13235,7 +12215,7 @@ pub struct ID3D10Texture1D_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Texture2D(::windows::runtime::IUnknown);
 impl ID3D10Texture2D {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -13284,26 +12264,6 @@ impl ID3D10Texture2D {
 unsafe impl ::windows::runtime::Interface for ID3D10Texture2D {
     type Vtable = ID3D10Texture2D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745476, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10Texture2D> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Texture2D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Texture2D> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Texture2D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Texture2D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Texture2D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10Texture2D> for ID3D10Resource {
     fn from(value: ID3D10Texture2D) -> Self {
@@ -13365,7 +12325,7 @@ pub struct ID3D10Texture2D_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10Texture3D(::windows::runtime::IUnknown);
 impl ID3D10Texture3D {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -13414,26 +12374,6 @@ impl ID3D10Texture3D {
 unsafe impl ::windows::runtime::Interface for ID3D10Texture3D {
     type Vtable = ID3D10Texture3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745477, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10Texture3D> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10Texture3D) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10Texture3D> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10Texture3D) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10Texture3D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10Texture3D {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10Texture3D> for ID3D10Resource {
     fn from(value: ID3D10Texture3D) -> Self {
@@ -13495,7 +12435,7 @@ pub struct ID3D10Texture3D_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10VertexShader(::windows::runtime::IUnknown);
 impl ID3D10VertexShader {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -13518,26 +12458,6 @@ impl ID3D10VertexShader {
 unsafe impl ::windows::runtime::Interface for ID3D10VertexShader {
     type Vtable = ID3D10VertexShader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608745482, 13356, 16646, [161, 159, 79, 39, 4, 246, 137, 240]);
-}
-impl ::std::convert::From<ID3D10VertexShader> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10VertexShader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10VertexShader> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10VertexShader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10VertexShader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10VertexShader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10VertexShader> for ID3D10DeviceChild {
     fn from(value: ID3D10VertexShader) -> Self {
@@ -13572,7 +12492,7 @@ pub struct ID3D10VertexShader_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct ID3D10View(::windows::runtime::IUnknown);
 impl ID3D10View {
     #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
@@ -13599,26 +12519,6 @@ impl ID3D10View {
 unsafe impl ::windows::runtime::Interface for ID3D10View {
     type Vtable = ID3D10View_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3372396607, 24743, 18874, [153, 54, 42, 58, 179, 122, 126, 51]);
-}
-impl ::std::convert::From<ID3D10View> for ::windows::runtime::IUnknown {
-    fn from(value: ID3D10View) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ID3D10View> for ::windows::runtime::IUnknown {
-    fn from(value: &ID3D10View) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ID3D10View {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID3D10View {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 impl ::std::convert::From<ID3D10View> for ID3D10DeviceChild {
     fn from(value: ID3D10View) -> Self {

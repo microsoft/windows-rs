@@ -1416,7 +1416,7 @@ impl ::windows::runtime::RuntimeName for KnownPerceptionVideoProfileProperties {
 }
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionColorFrame(::windows::runtime::IInspectable);
 impl PerceptionColorFrame {
     #[cfg(feature = "deprecated")]
@@ -1445,46 +1445,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionColorFrame {
 }
 impl ::windows::runtime::RuntimeName for PerceptionColorFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrame";
-}
-impl ::std::convert::From<PerceptionColorFrame> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionColorFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionColorFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionColorFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionColorFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionColorFrame> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionColorFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionColorFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionColorFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionColorFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PerceptionColorFrame> for super::super::Foundation::IClosable {
@@ -1516,7 +1476,7 @@ unsafe impl ::std::marker::Send for PerceptionColorFrame {}
 unsafe impl ::std::marker::Sync for PerceptionColorFrame {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionColorFrameArrivedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionColorFrameArrivedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -1549,51 +1509,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionColorFrameArrivedEventAr
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameArrivedEventArgs";
 }
-impl ::std::convert::From<PerceptionColorFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionColorFrameArrivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionColorFrameArrivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionColorFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionColorFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionColorFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionColorFrameArrivedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionColorFrameArrivedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionColorFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionColorFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionColorFrameArrivedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionColorFrameArrivedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionColorFrameReader(::windows::runtime::IInspectable);
 impl PerceptionColorFrameReader {
     #[cfg(feature = "deprecated")]
@@ -1663,46 +1583,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionColorFrameReader {
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameReader";
 }
-impl ::std::convert::From<PerceptionColorFrameReader> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionColorFrameReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameReader> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionColorFrameReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionColorFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionColorFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionColorFrameReader> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionColorFrameReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameReader> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionColorFrameReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionColorFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionColorFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PerceptionColorFrameReader> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1733,7 +1613,7 @@ unsafe impl ::std::marker::Send for PerceptionColorFrameReader {}
 unsafe impl ::std::marker::Sync for PerceptionColorFrameReader {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionColorFrameSource(::windows::runtime::IInspectable);
 impl PerceptionColorFrameSource {
     #[cfg(feature = "deprecated")]
@@ -2059,51 +1939,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionColorFrameSource {
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSource";
 }
-impl ::std::convert::From<PerceptionColorFrameSource> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionColorFrameSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameSource> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionColorFrameSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionColorFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionColorFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionColorFrameSource> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionColorFrameSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameSource> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionColorFrameSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionColorFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionColorFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionColorFrameSource {}
 unsafe impl ::std::marker::Sync for PerceptionColorFrameSource {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionColorFrameSourceAddedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionColorFrameSourceAddedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -2126,51 +1966,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionColorFrameSourceAddedEve
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameSourceAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceAddedEventArgs";
 }
-impl ::std::convert::From<PerceptionColorFrameSourceAddedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameSourceAddedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionColorFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionColorFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionColorFrameSourceAddedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameSourceAddedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceAddedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionColorFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionColorFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionColorFrameSourceAddedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionColorFrameSourceAddedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionColorFrameSourceRemovedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionColorFrameSourceRemovedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -2193,51 +1993,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionColorFrameSourceRemovedE
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameSourceRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceRemovedEventArgs";
 }
-impl ::std::convert::From<PerceptionColorFrameSourceRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameSourceRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionColorFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionColorFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionColorFrameSourceRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameSourceRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceRemovedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionColorFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionColorFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionColorFrameSourceRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionColorFrameSourceRemovedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionColorFrameSourceWatcher(::windows::runtime::IInspectable);
 impl PerceptionColorFrameSourceWatcher {
     #[cfg(feature = "deprecated")]
@@ -2341,51 +2101,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionColorFrameSourceWatcher 
 impl ::windows::runtime::RuntimeName for PerceptionColorFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionColorFrameSourceWatcher";
 }
-impl ::std::convert::From<PerceptionColorFrameSourceWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionColorFrameSourceWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameSourceWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionColorFrameSourceWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionColorFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionColorFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionColorFrameSourceWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionColorFrameSourceWatcher) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionColorFrameSourceWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionColorFrameSourceWatcher) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionColorFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionColorFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionColorFrameSourceWatcher {}
 unsafe impl ::std::marker::Sync for PerceptionColorFrameSourceWatcher {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionControlSession(::windows::runtime::IInspectable);
 impl PerceptionControlSession {
     #[cfg(feature = "deprecated")]
@@ -2432,46 +2152,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionControlSession {
 impl ::windows::runtime::RuntimeName for PerceptionControlSession {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionControlSession";
 }
-impl ::std::convert::From<PerceptionControlSession> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionControlSession) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionControlSession> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionControlSession) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionControlSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionControlSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionControlSession> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionControlSession) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionControlSession> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionControlSession) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionControlSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionControlSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PerceptionControlSession> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2502,7 +2182,7 @@ unsafe impl ::std::marker::Send for PerceptionControlSession {}
 unsafe impl ::std::marker::Sync for PerceptionControlSession {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthCorrelatedCameraIntrinsics(::windows::runtime::IInspectable);
 impl PerceptionDepthCorrelatedCameraIntrinsics {
     #[cfg(feature = "deprecated")]
@@ -2553,51 +2233,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthCorrelatedCameraInt
 impl ::windows::runtime::RuntimeName for PerceptionDepthCorrelatedCameraIntrinsics {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthCorrelatedCameraIntrinsics";
 }
-impl ::std::convert::From<PerceptionDepthCorrelatedCameraIntrinsics> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthCorrelatedCameraIntrinsics> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthCorrelatedCameraIntrinsics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthCorrelatedCameraIntrinsics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthCorrelatedCameraIntrinsics> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthCorrelatedCameraIntrinsics> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthCorrelatedCameraIntrinsics) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthCorrelatedCameraIntrinsics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthCorrelatedCameraIntrinsics {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionDepthCorrelatedCameraIntrinsics {}
 unsafe impl ::std::marker::Sync for PerceptionDepthCorrelatedCameraIntrinsics {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthCorrelatedCoordinateMapper(::windows::runtime::IInspectable);
 impl PerceptionDepthCorrelatedCoordinateMapper {
     #[cfg(feature = "deprecated")]
@@ -2648,51 +2288,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthCorrelatedCoordinat
 impl ::windows::runtime::RuntimeName for PerceptionDepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthCorrelatedCoordinateMapper";
 }
-impl ::std::convert::From<PerceptionDepthCorrelatedCoordinateMapper> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthCorrelatedCoordinateMapper> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthCorrelatedCoordinateMapper> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthCorrelatedCoordinateMapper> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthCorrelatedCoordinateMapper) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthCorrelatedCoordinateMapper {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionDepthCorrelatedCoordinateMapper {}
 unsafe impl ::std::marker::Sync for PerceptionDepthCorrelatedCoordinateMapper {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthFrame(::windows::runtime::IInspectable);
 impl PerceptionDepthFrame {
     #[cfg(feature = "deprecated")]
@@ -2721,46 +2321,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthFrame {
 }
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrame";
-}
-impl ::std::convert::From<PerceptionDepthFrame> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthFrame> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PerceptionDepthFrame> for super::super::Foundation::IClosable {
@@ -2792,7 +2352,7 @@ unsafe impl ::std::marker::Send for PerceptionDepthFrame {}
 unsafe impl ::std::marker::Sync for PerceptionDepthFrame {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthFrameArrivedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionDepthFrameArrivedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -2825,51 +2385,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameArrivedEventAr
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameArrivedEventArgs";
 }
-impl ::std::convert::From<PerceptionDepthFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthFrameArrivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthFrameArrivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthFrameArrivedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthFrameArrivedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionDepthFrameArrivedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionDepthFrameArrivedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthFrameReader(::windows::runtime::IInspectable);
 impl PerceptionDepthFrameReader {
     #[cfg(feature = "deprecated")]
@@ -2939,46 +2459,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameReader {
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameReader";
 }
-impl ::std::convert::From<PerceptionDepthFrameReader> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthFrameReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameReader> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthFrameReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthFrameReader> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthFrameReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameReader> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthFrameReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PerceptionDepthFrameReader> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3009,7 +2489,7 @@ unsafe impl ::std::marker::Send for PerceptionDepthFrameReader {}
 unsafe impl ::std::marker::Sync for PerceptionDepthFrameReader {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthFrameSource(::windows::runtime::IInspectable);
 impl PerceptionDepthFrameSource {
     #[cfg(feature = "deprecated")]
@@ -3335,51 +2815,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameSource {
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSource";
 }
-impl ::std::convert::From<PerceptionDepthFrameSource> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthFrameSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameSource> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthFrameSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthFrameSource> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthFrameSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameSource> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthFrameSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionDepthFrameSource {}
 unsafe impl ::std::marker::Sync for PerceptionDepthFrameSource {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthFrameSourceAddedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionDepthFrameSourceAddedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -3402,51 +2842,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameSourceAddedEve
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameSourceAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceAddedEventArgs";
 }
-impl ::std::convert::From<PerceptionDepthFrameSourceAddedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameSourceAddedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthFrameSourceAddedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameSourceAddedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceAddedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionDepthFrameSourceAddedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionDepthFrameSourceAddedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthFrameSourceRemovedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionDepthFrameSourceRemovedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -3469,51 +2869,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameSourceRemovedE
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameSourceRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceRemovedEventArgs";
 }
-impl ::std::convert::From<PerceptionDepthFrameSourceRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameSourceRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthFrameSourceRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameSourceRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceRemovedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionDepthFrameSourceRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionDepthFrameSourceRemovedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionDepthFrameSourceWatcher(::windows::runtime::IInspectable);
 impl PerceptionDepthFrameSourceWatcher {
     #[cfg(feature = "deprecated")]
@@ -3617,46 +2977,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionDepthFrameSourceWatcher 
 impl ::windows::runtime::RuntimeName for PerceptionDepthFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionDepthFrameSourceWatcher";
 }
-impl ::std::convert::From<PerceptionDepthFrameSourceWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionDepthFrameSourceWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameSourceWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionDepthFrameSourceWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionDepthFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionDepthFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionDepthFrameSourceWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionDepthFrameSourceWatcher) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionDepthFrameSourceWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionDepthFrameSourceWatcher) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionDepthFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionDepthFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionDepthFrameSourceWatcher {}
 unsafe impl ::std::marker::Sync for PerceptionDepthFrameSourceWatcher {}
 #[doc = "*Required features: `Devices_Perception`*"]
@@ -3683,7 +3003,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionFrameSourceAccessStatu
 }
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionFrameSourcePropertiesChangedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionFrameSourcePropertiesChangedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -3716,51 +3036,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionFrameSourcePropertiesCha
 impl ::windows::runtime::RuntimeName for PerceptionFrameSourcePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionFrameSourcePropertiesChangedEventArgs";
 }
-impl ::std::convert::From<PerceptionFrameSourcePropertiesChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionFrameSourcePropertiesChangedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionFrameSourcePropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionFrameSourcePropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionFrameSourcePropertiesChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionFrameSourcePropertiesChangedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionFrameSourcePropertiesChangedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionFrameSourcePropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionFrameSourcePropertiesChangedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionFrameSourcePropertiesChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionFrameSourcePropertiesChangedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionFrameSourcePropertyChangeResult(::windows::runtime::IInspectable);
 impl PerceptionFrameSourcePropertyChangeResult {
     #[cfg(feature = "deprecated")]
@@ -3792,46 +3072,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionFrameSourcePropertyChang
 impl ::windows::runtime::RuntimeName for PerceptionFrameSourcePropertyChangeResult {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeResult";
 }
-impl ::std::convert::From<PerceptionFrameSourcePropertyChangeResult> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionFrameSourcePropertyChangeResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionFrameSourcePropertyChangeResult> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionFrameSourcePropertyChangeResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionFrameSourcePropertyChangeResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionFrameSourcePropertyChangeResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionFrameSourcePropertyChangeResult> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionFrameSourcePropertyChangeResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionFrameSourcePropertyChangeResult> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionFrameSourcePropertyChangeResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionFrameSourcePropertyChangeResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionFrameSourcePropertyChangeResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionFrameSourcePropertyChangeResult {}
 unsafe impl ::std::marker::Sync for PerceptionFrameSourcePropertyChangeResult {}
 #[doc = "*Required features: `Devices_Perception`*"]
@@ -3860,7 +3100,7 @@ unsafe impl ::windows::runtime::RuntimeType for PerceptionFrameSourcePropertyCha
 }
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionInfraredFrame(::windows::runtime::IInspectable);
 impl PerceptionInfraredFrame {
     #[cfg(feature = "deprecated")]
@@ -3889,46 +3129,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrame {
 }
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrame {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrame";
-}
-impl ::std::convert::From<PerceptionInfraredFrame> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionInfraredFrame) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrame> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionInfraredFrame) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionInfraredFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionInfraredFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionInfraredFrame> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionInfraredFrame) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrame> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionInfraredFrame) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionInfraredFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionInfraredFrame {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PerceptionInfraredFrame> for super::super::Foundation::IClosable {
@@ -3960,7 +3160,7 @@ unsafe impl ::std::marker::Send for PerceptionInfraredFrame {}
 unsafe impl ::std::marker::Sync for PerceptionInfraredFrame {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionInfraredFrameArrivedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionInfraredFrameArrivedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -3993,51 +3193,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameArrivedEven
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameArrivedEventArgs";
 }
-impl ::std::convert::From<PerceptionInfraredFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionInfraredFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionInfraredFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionInfraredFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionInfraredFrameArrivedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionInfraredFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionInfraredFrameArrivedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionInfraredFrameArrivedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionInfraredFrameArrivedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionInfraredFrameReader(::windows::runtime::IInspectable);
 impl PerceptionInfraredFrameReader {
     #[cfg(feature = "deprecated")]
@@ -4107,46 +3267,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameReader {
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameReader {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameReader";
 }
-impl ::std::convert::From<PerceptionInfraredFrameReader> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionInfraredFrameReader) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameReader> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionInfraredFrameReader) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionInfraredFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionInfraredFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionInfraredFrameReader> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionInfraredFrameReader) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameReader> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionInfraredFrameReader) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionInfraredFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionInfraredFrameReader {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<PerceptionInfraredFrameReader> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4177,7 +3297,7 @@ unsafe impl ::std::marker::Send for PerceptionInfraredFrameReader {}
 unsafe impl ::std::marker::Sync for PerceptionInfraredFrameReader {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionInfraredFrameSource(::windows::runtime::IInspectable);
 impl PerceptionInfraredFrameSource {
     #[cfg(feature = "deprecated")]
@@ -4503,51 +3623,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameSource {
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameSource {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSource";
 }
-impl ::std::convert::From<PerceptionInfraredFrameSource> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionInfraredFrameSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameSource> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionInfraredFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionInfraredFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionInfraredFrameSource> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionInfraredFrameSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameSource> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionInfraredFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionInfraredFrameSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionInfraredFrameSource {}
 unsafe impl ::std::marker::Sync for PerceptionInfraredFrameSource {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionInfraredFrameSourceAddedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionInfraredFrameSourceAddedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -4570,51 +3650,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameSourceAdded
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameSourceAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceAddedEventArgs";
 }
-impl ::std::convert::From<PerceptionInfraredFrameSourceAddedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameSourceAddedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionInfraredFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionInfraredFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionInfraredFrameSourceAddedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameSourceAddedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceAddedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionInfraredFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionInfraredFrameSourceAddedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionInfraredFrameSourceAddedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionInfraredFrameSourceAddedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionInfraredFrameSourceRemovedEventArgs(::windows::runtime::IInspectable);
 impl PerceptionInfraredFrameSourceRemovedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -4637,51 +3677,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameSourceRemov
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameSourceRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceRemovedEventArgs";
 }
-impl ::std::convert::From<PerceptionInfraredFrameSourceRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameSourceRemovedEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionInfraredFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionInfraredFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionInfraredFrameSourceRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameSourceRemovedEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceRemovedEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionInfraredFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionInfraredFrameSourceRemovedEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionInfraredFrameSourceRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for PerceptionInfraredFrameSourceRemovedEventArgs {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionInfraredFrameSourceWatcher(::windows::runtime::IInspectable);
 impl PerceptionInfraredFrameSourceWatcher {
     #[cfg(feature = "deprecated")]
@@ -4785,51 +3785,11 @@ unsafe impl ::windows::runtime::Interface for PerceptionInfraredFrameSourceWatch
 impl ::windows::runtime::RuntimeName for PerceptionInfraredFrameSourceWatcher {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionInfraredFrameSourceWatcher";
 }
-impl ::std::convert::From<PerceptionInfraredFrameSourceWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionInfraredFrameSourceWatcher) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameSourceWatcher> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionInfraredFrameSourceWatcher) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionInfraredFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionInfraredFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionInfraredFrameSourceWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionInfraredFrameSourceWatcher) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionInfraredFrameSourceWatcher> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionInfraredFrameSourceWatcher) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionInfraredFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionInfraredFrameSourceWatcher {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for PerceptionInfraredFrameSourceWatcher {}
 unsafe impl ::std::marker::Sync for PerceptionInfraredFrameSourceWatcher {}
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct PerceptionVideoProfile(::windows::runtime::IInspectable);
 impl PerceptionVideoProfile {
     #[cfg(feature = "deprecated")]
@@ -4899,46 +3859,6 @@ unsafe impl ::windows::runtime::Interface for PerceptionVideoProfile {
 }
 impl ::windows::runtime::RuntimeName for PerceptionVideoProfile {
     const NAME: &'static str = "Windows.Devices.Perception.PerceptionVideoProfile";
-}
-impl ::std::convert::From<PerceptionVideoProfile> for ::windows::runtime::IUnknown {
-    fn from(value: PerceptionVideoProfile) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&PerceptionVideoProfile> for ::windows::runtime::IUnknown {
-    fn from(value: &PerceptionVideoProfile) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerceptionVideoProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PerceptionVideoProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<PerceptionVideoProfile> for ::windows::runtime::IInspectable {
-    fn from(value: PerceptionVideoProfile) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&PerceptionVideoProfile> for ::windows::runtime::IInspectable {
-    fn from(value: &PerceptionVideoProfile) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerceptionVideoProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerceptionVideoProfile {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for PerceptionVideoProfile {}
 unsafe impl ::std::marker::Sync for PerceptionVideoProfile {}

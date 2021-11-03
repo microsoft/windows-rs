@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpCacheDirectiveHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpCacheDirectiveHeaderValueCollection {
     #[cfg(feature = "Foundation")]
@@ -193,46 +193,6 @@ unsafe impl ::windows::runtime::Interface for HttpCacheDirectiveHeaderValueColle
 impl ::windows::runtime::RuntimeName for HttpCacheDirectiveHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection";
 }
-impl ::std::convert::From<HttpCacheDirectiveHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpCacheDirectiveHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpCacheDirectiveHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpCacheDirectiveHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpCacheDirectiveHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpCacheDirectiveHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpCacheDirectiveHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpCacheDirectiveHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpCacheDirectiveHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpCacheDirectiveHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpCacheDirectiveHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpCacheDirectiveHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpCacheDirectiveHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -331,7 +291,7 @@ impl ::std::iter::IntoIterator for &HttpCacheDirectiveHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpChallengeHeaderValue(::windows::runtime::IInspectable);
 impl HttpChallengeHeaderValue {
     #[cfg(feature = "Foundation_Collections")]
@@ -415,46 +375,6 @@ unsafe impl ::windows::runtime::Interface for HttpChallengeHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpChallengeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValue";
 }
-impl ::std::convert::From<HttpChallengeHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpChallengeHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpChallengeHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpChallengeHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpChallengeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpChallengeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpChallengeHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpChallengeHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpChallengeHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpChallengeHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpChallengeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpChallengeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpChallengeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -485,7 +405,7 @@ unsafe impl ::std::marker::Send for HttpChallengeHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpChallengeHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpChallengeHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpChallengeHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -617,46 +537,6 @@ unsafe impl ::windows::runtime::Interface for HttpChallengeHeaderValueCollection
 impl ::windows::runtime::RuntimeName for HttpChallengeHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection";
 }
-impl ::std::convert::From<HttpChallengeHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpChallengeHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpChallengeHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpChallengeHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpChallengeHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpChallengeHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpChallengeHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpChallengeHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpChallengeHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpChallengeHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpChallengeHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpChallengeHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpChallengeHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -755,7 +635,7 @@ impl ::std::iter::IntoIterator for &HttpChallengeHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpConnectionOptionHeaderValue(::windows::runtime::IInspectable);
 impl HttpConnectionOptionHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -815,46 +695,6 @@ unsafe impl ::windows::runtime::Interface for HttpConnectionOptionHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpConnectionOptionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue";
 }
-impl ::std::convert::From<HttpConnectionOptionHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpConnectionOptionHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpConnectionOptionHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpConnectionOptionHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpConnectionOptionHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpConnectionOptionHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpConnectionOptionHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpConnectionOptionHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpConnectionOptionHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpConnectionOptionHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpConnectionOptionHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpConnectionOptionHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpConnectionOptionHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -885,7 +725,7 @@ unsafe impl ::std::marker::Send for HttpConnectionOptionHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpConnectionOptionHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpConnectionOptionHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpConnectionOptionHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -1017,46 +857,6 @@ unsafe impl ::windows::runtime::Interface for HttpConnectionOptionHeaderValueCol
 impl ::windows::runtime::RuntimeName for HttpConnectionOptionHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection";
 }
-impl ::std::convert::From<HttpConnectionOptionHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpConnectionOptionHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpConnectionOptionHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpConnectionOptionHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpConnectionOptionHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpConnectionOptionHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpConnectionOptionHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpConnectionOptionHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpConnectionOptionHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpConnectionOptionHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpConnectionOptionHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpConnectionOptionHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpConnectionOptionHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -1155,7 +955,7 @@ impl ::std::iter::IntoIterator for &HttpConnectionOptionHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpContentCodingHeaderValue(::windows::runtime::IInspectable);
 impl HttpContentCodingHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -1215,46 +1015,6 @@ unsafe impl ::windows::runtime::Interface for HttpContentCodingHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpContentCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValue";
 }
-impl ::std::convert::From<HttpContentCodingHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpContentCodingHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpContentCodingHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpContentCodingHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpContentCodingHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpContentCodingHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpContentCodingHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpContentCodingHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpContentCodingHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpContentCodingHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpContentCodingHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpContentCodingHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpContentCodingHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -1285,7 +1045,7 @@ unsafe impl ::std::marker::Send for HttpContentCodingHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpContentCodingHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpContentCodingHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpContentCodingHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -1417,46 +1177,6 @@ unsafe impl ::windows::runtime::Interface for HttpContentCodingHeaderValueCollec
 impl ::windows::runtime::RuntimeName for HttpContentCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValueCollection";
 }
-impl ::std::convert::From<HttpContentCodingHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpContentCodingHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpContentCodingHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpContentCodingHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpContentCodingHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpContentCodingHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpContentCodingHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpContentCodingHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpContentCodingHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpContentCodingHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpContentCodingHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpContentCodingHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpContentCodingHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -1555,7 +1275,7 @@ impl ::std::iter::IntoIterator for &HttpContentCodingHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpContentCodingWithQualityHeaderValue(::windows::runtime::IInspectable);
 impl HttpContentCodingWithQualityHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -1631,46 +1351,6 @@ unsafe impl ::windows::runtime::Interface for HttpContentCodingWithQualityHeader
 impl ::windows::runtime::RuntimeName for HttpContentCodingWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue";
 }
-impl ::std::convert::From<HttpContentCodingWithQualityHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpContentCodingWithQualityHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpContentCodingWithQualityHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpContentCodingWithQualityHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpContentCodingWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpContentCodingWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpContentCodingWithQualityHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpContentCodingWithQualityHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpContentCodingWithQualityHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpContentCodingWithQualityHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpContentCodingWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpContentCodingWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpContentCodingWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -1701,7 +1381,7 @@ unsafe impl ::std::marker::Send for HttpContentCodingWithQualityHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpContentCodingWithQualityHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpContentCodingWithQualityHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpContentCodingWithQualityHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -1833,46 +1513,6 @@ unsafe impl ::windows::runtime::Interface for HttpContentCodingWithQualityHeader
 impl ::windows::runtime::RuntimeName for HttpContentCodingWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValueCollection";
 }
-impl ::std::convert::From<HttpContentCodingWithQualityHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpContentCodingWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpContentCodingWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpContentCodingWithQualityHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpContentCodingWithQualityHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpContentCodingWithQualityHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpContentCodingWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpContentCodingWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpContentCodingWithQualityHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -1971,7 +1611,7 @@ impl ::std::iter::IntoIterator for &HttpContentCodingWithQualityHeaderValueColle
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpContentDispositionHeaderValue(::windows::runtime::IInspectable);
 impl HttpContentDispositionHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -2099,46 +1739,6 @@ unsafe impl ::windows::runtime::Interface for HttpContentDispositionHeaderValue 
 impl ::windows::runtime::RuntimeName for HttpContentDispositionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentDispositionHeaderValue";
 }
-impl ::std::convert::From<HttpContentDispositionHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpContentDispositionHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpContentDispositionHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpContentDispositionHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpContentDispositionHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpContentDispositionHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpContentDispositionHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpContentDispositionHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpContentDispositionHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpContentDispositionHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpContentDispositionHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpContentDispositionHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpContentDispositionHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -2169,7 +1769,7 @@ unsafe impl ::std::marker::Send for HttpContentDispositionHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpContentDispositionHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpContentHeaderCollection(::windows::runtime::IInspectable);
 impl HttpContentHeaderCollection {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -2408,46 +2008,6 @@ unsafe impl ::windows::runtime::Interface for HttpContentHeaderCollection {
 impl ::windows::runtime::RuntimeName for HttpContentHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentHeaderCollection";
 }
-impl ::std::convert::From<HttpContentHeaderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpContentHeaderCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpContentHeaderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpContentHeaderCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpContentHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpContentHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpContentHeaderCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpContentHeaderCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpContentHeaderCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpContentHeaderCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpContentHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpContentHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpContentHeaderCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -2546,7 +2106,7 @@ impl ::std::iter::IntoIterator for &HttpContentHeaderCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpContentRangeHeaderValue(::windows::runtime::IInspectable);
 impl HttpContentRangeHeaderValue {
     #[cfg(feature = "Foundation")]
@@ -2652,46 +2212,6 @@ unsafe impl ::windows::runtime::Interface for HttpContentRangeHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpContentRangeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentRangeHeaderValue";
 }
-impl ::std::convert::From<HttpContentRangeHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpContentRangeHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpContentRangeHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpContentRangeHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpContentRangeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpContentRangeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpContentRangeHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpContentRangeHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpContentRangeHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpContentRangeHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpContentRangeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpContentRangeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpContentRangeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -2722,7 +2242,7 @@ unsafe impl ::std::marker::Send for HttpContentRangeHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpContentRangeHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpCookiePairHeaderValue(::windows::runtime::IInspectable);
 impl HttpCookiePairHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -2802,46 +2322,6 @@ unsafe impl ::windows::runtime::Interface for HttpCookiePairHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpCookiePairHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValue";
 }
-impl ::std::convert::From<HttpCookiePairHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpCookiePairHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpCookiePairHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpCookiePairHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpCookiePairHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpCookiePairHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpCookiePairHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpCookiePairHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpCookiePairHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpCookiePairHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpCookiePairHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpCookiePairHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpCookiePairHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -2872,7 +2352,7 @@ unsafe impl ::std::marker::Send for HttpCookiePairHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpCookiePairHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpCookiePairHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpCookiePairHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -3004,46 +2484,6 @@ unsafe impl ::windows::runtime::Interface for HttpCookiePairHeaderValueCollectio
 impl ::windows::runtime::RuntimeName for HttpCookiePairHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValueCollection";
 }
-impl ::std::convert::From<HttpCookiePairHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpCookiePairHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpCookiePairHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpCookiePairHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpCookiePairHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpCookiePairHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpCookiePairHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpCookiePairHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpCookiePairHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpCookiePairHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpCookiePairHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpCookiePairHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpCookiePairHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -3142,7 +2582,7 @@ impl ::std::iter::IntoIterator for &HttpCookiePairHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpCredentialsHeaderValue(::windows::runtime::IInspectable);
 impl HttpCredentialsHeaderValue {
     #[cfg(feature = "Foundation_Collections")]
@@ -3226,46 +2666,6 @@ unsafe impl ::windows::runtime::Interface for HttpCredentialsHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpCredentialsHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCredentialsHeaderValue";
 }
-impl ::std::convert::From<HttpCredentialsHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpCredentialsHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpCredentialsHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpCredentialsHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpCredentialsHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpCredentialsHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpCredentialsHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpCredentialsHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpCredentialsHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpCredentialsHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpCredentialsHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpCredentialsHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpCredentialsHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -3296,7 +2696,7 @@ unsafe impl ::std::marker::Send for HttpCredentialsHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpCredentialsHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpDateOrDeltaHeaderValue(::windows::runtime::IInspectable);
 impl HttpDateOrDeltaHeaderValue {
     #[cfg(feature = "Foundation")]
@@ -3355,46 +2755,6 @@ unsafe impl ::windows::runtime::Interface for HttpDateOrDeltaHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpDateOrDeltaHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue";
 }
-impl ::std::convert::From<HttpDateOrDeltaHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpDateOrDeltaHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpDateOrDeltaHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpDateOrDeltaHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpDateOrDeltaHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpDateOrDeltaHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpDateOrDeltaHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpDateOrDeltaHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpDateOrDeltaHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpDateOrDeltaHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpDateOrDeltaHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpDateOrDeltaHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpDateOrDeltaHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -3425,7 +2785,7 @@ unsafe impl ::std::marker::Send for HttpDateOrDeltaHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpDateOrDeltaHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpExpectationHeaderValue(::windows::runtime::IInspectable);
 impl HttpExpectationHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -3514,46 +2874,6 @@ unsafe impl ::windows::runtime::Interface for HttpExpectationHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpExpectationHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValue";
 }
-impl ::std::convert::From<HttpExpectationHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpExpectationHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpExpectationHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpExpectationHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpExpectationHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpExpectationHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpExpectationHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpExpectationHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpExpectationHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpExpectationHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpExpectationHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpExpectationHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpExpectationHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -3584,7 +2904,7 @@ unsafe impl ::std::marker::Send for HttpExpectationHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpExpectationHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpExpectationHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpExpectationHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -3716,46 +3036,6 @@ unsafe impl ::windows::runtime::Interface for HttpExpectationHeaderValueCollecti
 impl ::windows::runtime::RuntimeName for HttpExpectationHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValueCollection";
 }
-impl ::std::convert::From<HttpExpectationHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpExpectationHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpExpectationHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpExpectationHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpExpectationHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpExpectationHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpExpectationHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpExpectationHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpExpectationHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpExpectationHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpExpectationHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpExpectationHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpExpectationHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -3854,7 +3134,7 @@ impl ::std::iter::IntoIterator for &HttpExpectationHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpLanguageHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpLanguageHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -3986,46 +3266,6 @@ unsafe impl ::windows::runtime::Interface for HttpLanguageHeaderValueCollection 
 impl ::windows::runtime::RuntimeName for HttpLanguageHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection";
 }
-impl ::std::convert::From<HttpLanguageHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpLanguageHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpLanguageHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpLanguageHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpLanguageHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpLanguageHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpLanguageHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpLanguageHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpLanguageHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpLanguageHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpLanguageHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpLanguageHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpLanguageHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -4124,7 +3364,7 @@ impl ::std::iter::IntoIterator for &HttpLanguageHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpLanguageRangeWithQualityHeaderValue(::windows::runtime::IInspectable);
 impl HttpLanguageRangeWithQualityHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -4200,46 +3440,6 @@ unsafe impl ::windows::runtime::Interface for HttpLanguageRangeWithQualityHeader
 impl ::windows::runtime::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue";
 }
-impl ::std::convert::From<HttpLanguageRangeWithQualityHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpLanguageRangeWithQualityHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpLanguageRangeWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpLanguageRangeWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpLanguageRangeWithQualityHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpLanguageRangeWithQualityHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpLanguageRangeWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpLanguageRangeWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpLanguageRangeWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -4270,7 +3470,7 @@ unsafe impl ::std::marker::Send for HttpLanguageRangeWithQualityHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpLanguageRangeWithQualityHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpLanguageRangeWithQualityHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpLanguageRangeWithQualityHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -4402,46 +3602,6 @@ unsafe impl ::windows::runtime::Interface for HttpLanguageRangeWithQualityHeader
 impl ::windows::runtime::RuntimeName for HttpLanguageRangeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValueCollection";
 }
-impl ::std::convert::From<HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpLanguageRangeWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpLanguageRangeWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpLanguageRangeWithQualityHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpLanguageRangeWithQualityHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpLanguageRangeWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpLanguageRangeWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpLanguageRangeWithQualityHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -4540,7 +3700,7 @@ impl ::std::iter::IntoIterator for &HttpLanguageRangeWithQualityHeaderValueColle
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpMediaTypeHeaderValue(::windows::runtime::IInspectable);
 impl HttpMediaTypeHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -4627,46 +3787,6 @@ unsafe impl ::windows::runtime::Interface for HttpMediaTypeHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpMediaTypeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeHeaderValue";
 }
-impl ::std::convert::From<HttpMediaTypeHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpMediaTypeHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpMediaTypeHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpMediaTypeHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpMediaTypeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpMediaTypeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpMediaTypeHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpMediaTypeHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpMediaTypeHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpMediaTypeHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpMediaTypeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpMediaTypeHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpMediaTypeHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -4697,7 +3817,7 @@ unsafe impl ::std::marker::Send for HttpMediaTypeHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpMediaTypeHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpMediaTypeWithQualityHeaderValue(::windows::runtime::IInspectable);
 impl HttpMediaTypeWithQualityHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -4806,46 +3926,6 @@ unsafe impl ::windows::runtime::Interface for HttpMediaTypeWithQualityHeaderValu
 impl ::windows::runtime::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue";
 }
-impl ::std::convert::From<HttpMediaTypeWithQualityHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpMediaTypeWithQualityHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpMediaTypeWithQualityHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpMediaTypeWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpMediaTypeWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpMediaTypeWithQualityHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpMediaTypeWithQualityHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpMediaTypeWithQualityHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpMediaTypeWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpMediaTypeWithQualityHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpMediaTypeWithQualityHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -4876,7 +3956,7 @@ unsafe impl ::std::marker::Send for HttpMediaTypeWithQualityHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpMediaTypeWithQualityHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpMediaTypeWithQualityHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpMediaTypeWithQualityHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -5008,46 +4088,6 @@ unsafe impl ::windows::runtime::Interface for HttpMediaTypeWithQualityHeaderValu
 impl ::windows::runtime::RuntimeName for HttpMediaTypeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValueCollection";
 }
-impl ::std::convert::From<HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpMediaTypeWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpMediaTypeWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpMediaTypeWithQualityHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpMediaTypeWithQualityHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpMediaTypeWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpMediaTypeWithQualityHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpMediaTypeWithQualityHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -5146,7 +4186,7 @@ impl ::std::iter::IntoIterator for &HttpMediaTypeWithQualityHeaderValueCollectio
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpMethodHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpMethodHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -5278,46 +4318,6 @@ unsafe impl ::windows::runtime::Interface for HttpMethodHeaderValueCollection {
 impl ::windows::runtime::RuntimeName for HttpMethodHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMethodHeaderValueCollection";
 }
-impl ::std::convert::From<HttpMethodHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpMethodHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpMethodHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpMethodHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpMethodHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpMethodHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpMethodHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpMethodHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpMethodHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpMethodHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpMethodHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpMethodHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpMethodHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -5416,7 +4416,7 @@ impl ::std::iter::IntoIterator for &HttpMethodHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpNameValueHeaderValue(::windows::runtime::IInspectable);
 impl HttpNameValueHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -5496,46 +4496,6 @@ unsafe impl ::windows::runtime::Interface for HttpNameValueHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpNameValueHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpNameValueHeaderValue";
 }
-impl ::std::convert::From<HttpNameValueHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpNameValueHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpNameValueHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpNameValueHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpNameValueHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpNameValueHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpNameValueHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpNameValueHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpNameValueHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpNameValueHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpNameValueHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpNameValueHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpNameValueHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -5566,7 +4526,7 @@ unsafe impl ::std::marker::Send for HttpNameValueHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpNameValueHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpProductHeaderValue(::windows::runtime::IInspectable);
 impl HttpProductHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -5641,46 +4601,6 @@ unsafe impl ::windows::runtime::Interface for HttpProductHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpProductHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductHeaderValue";
 }
-impl ::std::convert::From<HttpProductHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpProductHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpProductHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpProductHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpProductHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpProductHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpProductHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpProductHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpProductHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpProductHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpProductHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpProductHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpProductHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -5711,7 +4631,7 @@ unsafe impl ::std::marker::Send for HttpProductHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpProductHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpProductInfoHeaderValue(::windows::runtime::IInspectable);
 impl HttpProductInfoHeaderValue {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -5786,46 +4706,6 @@ unsafe impl ::windows::runtime::Interface for HttpProductInfoHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpProductInfoHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValue";
 }
-impl ::std::convert::From<HttpProductInfoHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpProductInfoHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpProductInfoHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpProductInfoHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpProductInfoHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpProductInfoHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpProductInfoHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpProductInfoHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpProductInfoHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpProductInfoHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpProductInfoHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpProductInfoHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpProductInfoHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -5856,7 +4736,7 @@ unsafe impl ::std::marker::Send for HttpProductInfoHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpProductInfoHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpProductInfoHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpProductInfoHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -5988,46 +4868,6 @@ unsafe impl ::windows::runtime::Interface for HttpProductInfoHeaderValueCollecti
 impl ::windows::runtime::RuntimeName for HttpProductInfoHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValueCollection";
 }
-impl ::std::convert::From<HttpProductInfoHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpProductInfoHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpProductInfoHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpProductInfoHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpProductInfoHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpProductInfoHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpProductInfoHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpProductInfoHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpProductInfoHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpProductInfoHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpProductInfoHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpProductInfoHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpProductInfoHeaderValueCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -6126,7 +4966,7 @@ impl ::std::iter::IntoIterator for &HttpProductInfoHeaderValueCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpRequestHeaderCollection(::windows::runtime::IInspectable);
 impl HttpRequestHeaderCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -6429,46 +5269,6 @@ unsafe impl ::windows::runtime::Interface for HttpRequestHeaderCollection {
 impl ::windows::runtime::RuntimeName for HttpRequestHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpRequestHeaderCollection";
 }
-impl ::std::convert::From<HttpRequestHeaderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpRequestHeaderCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpRequestHeaderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpRequestHeaderCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpRequestHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpRequestHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpRequestHeaderCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpRequestHeaderCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpRequestHeaderCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpRequestHeaderCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpRequestHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpRequestHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpRequestHeaderCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -6567,7 +5367,7 @@ impl ::std::iter::IntoIterator for &HttpRequestHeaderCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpResponseHeaderCollection(::windows::runtime::IInspectable);
 impl HttpResponseHeaderCollection {
     #[cfg(feature = "Foundation")]
@@ -6775,46 +5575,6 @@ unsafe impl ::windows::runtime::Interface for HttpResponseHeaderCollection {
 impl ::windows::runtime::RuntimeName for HttpResponseHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpResponseHeaderCollection";
 }
-impl ::std::convert::From<HttpResponseHeaderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpResponseHeaderCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpResponseHeaderCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpResponseHeaderCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpResponseHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpResponseHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpResponseHeaderCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpResponseHeaderCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpResponseHeaderCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpResponseHeaderCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpResponseHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpResponseHeaderCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpResponseHeaderCollection> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -6913,7 +5673,7 @@ impl ::std::iter::IntoIterator for &HttpResponseHeaderCollection {
 }
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpTransferCodingHeaderValue(::windows::runtime::IInspectable);
 impl HttpTransferCodingHeaderValue {
     #[cfg(feature = "Foundation_Collections")]
@@ -6982,46 +5742,6 @@ unsafe impl ::windows::runtime::Interface for HttpTransferCodingHeaderValue {
 impl ::windows::runtime::RuntimeName for HttpTransferCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValue";
 }
-impl ::std::convert::From<HttpTransferCodingHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: HttpTransferCodingHeaderValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpTransferCodingHeaderValue> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpTransferCodingHeaderValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpTransferCodingHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpTransferCodingHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpTransferCodingHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: HttpTransferCodingHeaderValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpTransferCodingHeaderValue> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpTransferCodingHeaderValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpTransferCodingHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpTransferCodingHeaderValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpTransferCodingHeaderValue> for super::super::super::Foundation::IStringable {
     type Error = ::windows::runtime::Error;
@@ -7052,7 +5772,7 @@ unsafe impl ::std::marker::Send for HttpTransferCodingHeaderValue {}
 unsafe impl ::std::marker::Sync for HttpTransferCodingHeaderValue {}
 #[doc = "*Required features: `Web_Http_Headers`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct HttpTransferCodingHeaderValueCollection(::windows::runtime::IInspectable);
 impl HttpTransferCodingHeaderValueCollection {
     #[doc = "*Required features: `Web_Http_Headers`*"]
@@ -7183,46 +5903,6 @@ unsafe impl ::windows::runtime::Interface for HttpTransferCodingHeaderValueColle
 }
 impl ::windows::runtime::RuntimeName for HttpTransferCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection";
-}
-impl ::std::convert::From<HttpTransferCodingHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: HttpTransferCodingHeaderValueCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&HttpTransferCodingHeaderValueCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &HttpTransferCodingHeaderValueCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HttpTransferCodingHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HttpTransferCodingHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<HttpTransferCodingHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: HttpTransferCodingHeaderValueCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&HttpTransferCodingHeaderValueCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &HttpTransferCodingHeaderValueCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HttpTransferCodingHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HttpTransferCodingHeaderValueCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HttpTransferCodingHeaderValueCollection> for super::super::super::Foundation::IStringable {

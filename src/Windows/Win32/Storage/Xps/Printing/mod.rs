@@ -4,7 +4,7 @@ pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows::runtime::GUID = ::windows
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675351840, 35604, 17783, [176, 116, 123, 177, 27, 89, 109, 40]);
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPrintDocumentPackageStatusEvent(::windows::runtime::IUnknown);
 impl IPrintDocumentPackageStatusEvent {
     #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
@@ -15,26 +15,6 @@ impl IPrintDocumentPackageStatusEvent {
 unsafe impl ::windows::runtime::Interface for IPrintDocumentPackageStatusEvent {
     type Vtable = IPrintDocumentPackageStatusEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985688749, 23604, 19717, [161, 236, 14, 138, 155, 58, 215, 175]);
-}
-impl ::std::convert::From<IPrintDocumentPackageStatusEvent> for ::windows::runtime::IUnknown {
-    fn from(value: IPrintDocumentPackageStatusEvent) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPrintDocumentPackageStatusEvent> for ::windows::runtime::IUnknown {
-    fn from(value: &IPrintDocumentPackageStatusEvent) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDocumentPackageStatusEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintDocumentPackageStatusEvent {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintDocumentPackageStatusEvent> for super::super::super::System::Ole::Automation::IDispatch {
@@ -78,7 +58,7 @@ pub struct IPrintDocumentPackageStatusEvent_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPrintDocumentPackageTarget(::windows::runtime::IUnknown);
 impl IPrintDocumentPackageTarget {
     #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
@@ -99,26 +79,6 @@ unsafe impl ::windows::runtime::Interface for IPrintDocumentPackageTarget {
     type Vtable = IPrintDocumentPackageTarget_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(462356164, 12313, 19495, [150, 78, 54, 114, 2, 21, 105, 6]);
 }
-impl ::std::convert::From<IPrintDocumentPackageTarget> for ::windows::runtime::IUnknown {
-    fn from(value: IPrintDocumentPackageTarget) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPrintDocumentPackageTarget> for ::windows::runtime::IUnknown {
-    fn from(value: &IPrintDocumentPackageTarget) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDocumentPackageTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintDocumentPackageTarget {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentPackageTarget_abi(
@@ -131,7 +91,7 @@ pub struct IPrintDocumentPackageTarget_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IPrintDocumentPackageTargetFactory(::windows::runtime::IUnknown);
 impl IPrintDocumentPackageTargetFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -151,26 +111,6 @@ unsafe impl ::windows::runtime::Interface for IPrintDocumentPackageTargetFactory
     type Vtable = IPrintDocumentPackageTargetFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3533020151, 45851, 19005, [150, 0, 113, 46, 177, 51, 91, 164]);
 }
-impl ::std::convert::From<IPrintDocumentPackageTargetFactory> for ::windows::runtime::IUnknown {
-    fn from(value: IPrintDocumentPackageTargetFactory) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IPrintDocumentPackageTargetFactory> for ::windows::runtime::IUnknown {
-    fn from(value: &IPrintDocumentPackageTargetFactory) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDocumentPackageTargetFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintDocumentPackageTargetFactory {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDocumentPackageTargetFactory_abi(
@@ -182,7 +122,7 @@ pub struct IPrintDocumentPackageTargetFactory_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IXpsPrintJob(::windows::runtime::IUnknown);
 impl IXpsPrintJob {
     #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
@@ -199,26 +139,6 @@ unsafe impl ::windows::runtime::Interface for IXpsPrintJob {
     type Vtable = IXpsPrintJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1522047750, 33172, 16991, [171, 59, 215, 169, 110, 53, 1, 97]);
 }
-impl ::std::convert::From<IXpsPrintJob> for ::windows::runtime::IUnknown {
-    fn from(value: IXpsPrintJob) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXpsPrintJob> for ::windows::runtime::IUnknown {
-    fn from(value: &IXpsPrintJob) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsPrintJob {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsPrintJob {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsPrintJob_abi(
@@ -230,7 +150,7 @@ pub struct IXpsPrintJob_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IXpsPrintJobStream(::windows::runtime::IUnknown);
 impl IXpsPrintJobStream {
     #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
@@ -250,26 +170,6 @@ impl IXpsPrintJobStream {
 unsafe impl ::windows::runtime::Interface for IXpsPrintJobStream {
     type Vtable = IXpsPrintJobStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2054675551, 17878, 19967, [147, 7, 216, 203, 132, 99, 71, 202]);
-}
-impl ::std::convert::From<IXpsPrintJobStream> for ::windows::runtime::IUnknown {
-    fn from(value: IXpsPrintJobStream) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXpsPrintJobStream> for ::windows::runtime::IUnknown {
-    fn from(value: &IXpsPrintJobStream) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXpsPrintJobStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXpsPrintJobStream {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IXpsPrintJobStream> for super::super::super::System::Com::ISequentialStream {

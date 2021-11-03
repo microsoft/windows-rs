@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct IContentPrefetcherTaskTrigger(::windows::runtime::IUnknown);
 impl IContentPrefetcherTaskTrigger {
     #[cfg(feature = "Win32_Foundation")]
@@ -19,26 +19,6 @@ impl IContentPrefetcherTaskTrigger {
 unsafe impl ::windows::runtime::Interface for IContentPrefetcherTaskTrigger {
     type Vtable = IContentPrefetcherTaskTrigger_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(456499530, 24724, 18329, [166, 14, 228, 116, 225, 93, 77, 201]);
-}
-impl ::std::convert::From<IContentPrefetcherTaskTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: IContentPrefetcherTaskTrigger) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IContentPrefetcherTaskTrigger> for ::windows::runtime::IUnknown {
-    fn from(value: &IContentPrefetcherTaskTrigger) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IContentPrefetcherTaskTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IContentPrefetcherTaskTrigger {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

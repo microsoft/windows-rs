@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppInstallItem(::windows::runtime::IInspectable);
 impl AppInstallItem {
     #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
@@ -210,51 +210,11 @@ unsafe impl ::windows::runtime::Interface for AppInstallItem {
 impl ::windows::runtime::RuntimeName for AppInstallItem {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem";
 }
-impl ::std::convert::From<AppInstallItem> for ::windows::runtime::IUnknown {
-    fn from(value: AppInstallItem) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppInstallItem> for ::windows::runtime::IUnknown {
-    fn from(value: &AppInstallItem) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInstallItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInstallItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppInstallItem> for ::windows::runtime::IInspectable {
-    fn from(value: AppInstallItem) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppInstallItem> for ::windows::runtime::IInspectable {
-    fn from(value: &AppInstallItem) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppInstallItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppInstallItem {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppInstallItem {}
 unsafe impl ::std::marker::Sync for AppInstallItem {}
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppInstallManager(::windows::runtime::IInspectable);
 impl AppInstallManager {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -789,51 +749,11 @@ unsafe impl ::windows::runtime::Interface for AppInstallManager {
 impl ::windows::runtime::RuntimeName for AppInstallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager";
 }
-impl ::std::convert::From<AppInstallManager> for ::windows::runtime::IUnknown {
-    fn from(value: AppInstallManager) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppInstallManager> for ::windows::runtime::IUnknown {
-    fn from(value: &AppInstallManager) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInstallManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInstallManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppInstallManager> for ::windows::runtime::IInspectable {
-    fn from(value: AppInstallManager) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppInstallManager> for ::windows::runtime::IInspectable {
-    fn from(value: &AppInstallManager) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppInstallManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppInstallManager {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppInstallManager {}
 unsafe impl ::std::marker::Sync for AppInstallManager {}
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppInstallManagerItemEventArgs(::windows::runtime::IInspectable);
 impl AppInstallManagerItemEventArgs {
     #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
@@ -855,51 +775,11 @@ unsafe impl ::windows::runtime::Interface for AppInstallManagerItemEventArgs {
 impl ::windows::runtime::RuntimeName for AppInstallManagerItemEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs";
 }
-impl ::std::convert::From<AppInstallManagerItemEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: AppInstallManagerItemEventArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppInstallManagerItemEventArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &AppInstallManagerItemEventArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInstallManagerItemEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInstallManagerItemEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppInstallManagerItemEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: AppInstallManagerItemEventArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppInstallManagerItemEventArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &AppInstallManagerItemEventArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppInstallManagerItemEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppInstallManagerItemEventArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppInstallManagerItemEventArgs {}
 unsafe impl ::std::marker::Sync for AppInstallManagerItemEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppInstallOptions(::windows::runtime::IInspectable);
 impl AppInstallOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1117,46 +997,6 @@ unsafe impl ::windows::runtime::Interface for AppInstallOptions {
 impl ::windows::runtime::RuntimeName for AppInstallOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions";
 }
-impl ::std::convert::From<AppInstallOptions> for ::windows::runtime::IUnknown {
-    fn from(value: AppInstallOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppInstallOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &AppInstallOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInstallOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInstallOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppInstallOptions> for ::windows::runtime::IInspectable {
-    fn from(value: AppInstallOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppInstallOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &AppInstallOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppInstallOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppInstallOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppInstallOptions {}
 unsafe impl ::std::marker::Sync for AppInstallOptions {}
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
@@ -1193,7 +1033,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppInstallState {
 }
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppInstallStatus(::windows::runtime::IInspectable);
 impl AppInstallStatus {
     #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
@@ -1272,46 +1112,6 @@ unsafe impl ::windows::runtime::Interface for AppInstallStatus {
 impl ::windows::runtime::RuntimeName for AppInstallStatus {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus";
 }
-impl ::std::convert::From<AppInstallStatus> for ::windows::runtime::IUnknown {
-    fn from(value: AppInstallStatus) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppInstallStatus> for ::windows::runtime::IUnknown {
-    fn from(value: &AppInstallStatus) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppInstallStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppInstallStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppInstallStatus> for ::windows::runtime::IInspectable {
-    fn from(value: AppInstallStatus) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppInstallStatus> for ::windows::runtime::IInspectable {
-    fn from(value: &AppInstallStatus) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppInstallStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppInstallStatus {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppInstallStatus {}
 unsafe impl ::std::marker::Sync for AppInstallStatus {}
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
@@ -1359,7 +1159,7 @@ unsafe impl ::windows::runtime::RuntimeType for AppInstallationToastNotification
 }
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct AppUpdateOptions(::windows::runtime::IInspectable);
 impl AppUpdateOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -1419,46 +1219,6 @@ unsafe impl ::windows::runtime::Interface for AppUpdateOptions {
 impl ::windows::runtime::RuntimeName for AppUpdateOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions";
 }
-impl ::std::convert::From<AppUpdateOptions> for ::windows::runtime::IUnknown {
-    fn from(value: AppUpdateOptions) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&AppUpdateOptions> for ::windows::runtime::IUnknown {
-    fn from(value: &AppUpdateOptions) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppUpdateOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AppUpdateOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<AppUpdateOptions> for ::windows::runtime::IInspectable {
-    fn from(value: AppUpdateOptions) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&AppUpdateOptions> for ::windows::runtime::IInspectable {
-    fn from(value: &AppUpdateOptions) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppUpdateOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppUpdateOptions {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for AppUpdateOptions {}
 unsafe impl ::std::marker::Sync for AppUpdateOptions {}
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
@@ -1485,7 +1245,7 @@ unsafe impl ::windows::runtime::RuntimeType for AutoUpdateSetting {
 }
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct GetEntitlementResult(::windows::runtime::IInspectable);
 impl GetEntitlementResult {
     #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
@@ -1506,46 +1266,6 @@ unsafe impl ::windows::runtime::Interface for GetEntitlementResult {
 }
 impl ::windows::runtime::RuntimeName for GetEntitlementResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult";
-}
-impl ::std::convert::From<GetEntitlementResult> for ::windows::runtime::IUnknown {
-    fn from(value: GetEntitlementResult) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&GetEntitlementResult> for ::windows::runtime::IUnknown {
-    fn from(value: &GetEntitlementResult) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for GetEntitlementResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &GetEntitlementResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<GetEntitlementResult> for ::windows::runtime::IInspectable {
-    fn from(value: GetEntitlementResult) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&GetEntitlementResult> for ::windows::runtime::IInspectable {
-    fn from(value: &GetEntitlementResult) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for GetEntitlementResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a GetEntitlementResult {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 unsafe impl ::std::marker::Send for GetEntitlementResult {}
 unsafe impl ::std::marker::Sync for GetEntitlementResult {}

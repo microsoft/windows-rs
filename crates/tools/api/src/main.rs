@@ -61,6 +61,7 @@ targets = []
 windows_macros = { path = "crates/deps/macros",  version = "0.24.0", optional = true }
 windows_reader = { path = "crates/deps/reader", version = "0.24.0", optional = true }
 windows_gen = { path = "crates/deps/gen",  version = "0.24.0", optional = true }
+windows_derive = { path = "crates/deps/derive",  version = "0.24.0" }
 
 [target.i686-pc-windows-msvc.dependencies]
 windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.24.0" }

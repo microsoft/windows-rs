@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DtdEntity(::windows::runtime::IInspectable);
 impl DtdEntity {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -267,46 +267,6 @@ unsafe impl ::windows::runtime::Interface for DtdEntity {
 impl ::windows::runtime::RuntimeName for DtdEntity {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdEntity";
 }
-impl ::std::convert::From<DtdEntity> for ::windows::runtime::IUnknown {
-    fn from(value: DtdEntity) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DtdEntity> for ::windows::runtime::IUnknown {
-    fn from(value: &DtdEntity) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DtdEntity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DtdEntity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DtdEntity> for ::windows::runtime::IInspectable {
-    fn from(value: DtdEntity) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DtdEntity> for ::windows::runtime::IInspectable {
-    fn from(value: &DtdEntity) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DtdEntity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DtdEntity {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<DtdEntity> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DtdEntity) -> ::windows::runtime::Result<Self> {
@@ -377,7 +337,7 @@ unsafe impl ::std::marker::Send for DtdEntity {}
 unsafe impl ::std::marker::Sync for DtdEntity {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct DtdNotation(::windows::runtime::IInspectable);
 impl DtdNotation {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -635,46 +595,6 @@ unsafe impl ::windows::runtime::Interface for DtdNotation {
 impl ::windows::runtime::RuntimeName for DtdNotation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdNotation";
 }
-impl ::std::convert::From<DtdNotation> for ::windows::runtime::IUnknown {
-    fn from(value: DtdNotation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&DtdNotation> for ::windows::runtime::IUnknown {
-    fn from(value: &DtdNotation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DtdNotation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DtdNotation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<DtdNotation> for ::windows::runtime::IInspectable {
-    fn from(value: DtdNotation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&DtdNotation> for ::windows::runtime::IInspectable {
-    fn from(value: &DtdNotation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DtdNotation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DtdNotation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<DtdNotation> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DtdNotation) -> ::windows::runtime::Result<Self> {
@@ -825,7 +745,7 @@ pub struct IXmlCDataSection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlCharacterData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlCharacterData {
@@ -1113,46 +1033,6 @@ impl IXmlCharacterData {
 }
 unsafe impl ::windows::runtime::RuntimeType for IXmlCharacterData {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{132e42ab-4e36-4df6-b1c8-0ce62fd88b26}");
-}
-impl ::std::convert::From<IXmlCharacterData> for ::windows::runtime::IUnknown {
-    fn from(value: IXmlCharacterData) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXmlCharacterData> for ::windows::runtime::IUnknown {
-    fn from(value: &IXmlCharacterData) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlCharacterData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlCharacterData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXmlCharacterData> for ::windows::runtime::IInspectable {
-    fn from(value: IXmlCharacterData) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXmlCharacterData> for ::windows::runtime::IInspectable {
-    fn from(value: &IXmlCharacterData) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXmlCharacterData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXmlCharacterData {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<IXmlCharacterData> for IXmlNode {
     type Error = ::windows::runtime::Error;
@@ -1523,7 +1403,7 @@ pub struct IXmlNamedNodeMap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, node: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNode {
@@ -1763,46 +1643,6 @@ impl IXmlNode {
 unsafe impl ::windows::runtime::RuntimeType for IXmlNode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1c741d59-2122-47d5-a856-83f3d4214875}");
 }
-impl ::std::convert::From<IXmlNode> for ::windows::runtime::IUnknown {
-    fn from(value: IXmlNode) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXmlNode> for ::windows::runtime::IUnknown {
-    fn from(value: &IXmlNode) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXmlNode> for ::windows::runtime::IInspectable {
-    fn from(value: IXmlNode) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXmlNode> for ::windows::runtime::IInspectable {
-    fn from(value: &IXmlNode) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXmlNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXmlNode {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<IXmlNode> for IXmlNodeSelector {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IXmlNode) -> ::windows::runtime::Result<Self> {
@@ -1901,7 +1741,7 @@ pub struct IXmlNodeList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNodeSelector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNodeSelector {
@@ -1945,46 +1785,6 @@ impl IXmlNodeSelector {
 unsafe impl ::windows::runtime::RuntimeType for IXmlNodeSelector {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{63dbba8b-d0db-4fe1-b745-f9433afdc25b}");
 }
-impl ::std::convert::From<IXmlNodeSelector> for ::windows::runtime::IUnknown {
-    fn from(value: IXmlNodeSelector) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXmlNodeSelector> for ::windows::runtime::IUnknown {
-    fn from(value: &IXmlNodeSelector) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlNodeSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlNodeSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXmlNodeSelector> for ::windows::runtime::IInspectable {
-    fn from(value: IXmlNodeSelector) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXmlNodeSelector> for ::windows::runtime::IInspectable {
-    fn from(value: &IXmlNodeSelector) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXmlNodeSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXmlNodeSelector {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXmlNodeSelector_abi(
@@ -2000,7 +1800,7 @@ pub struct IXmlNodeSelector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xpath: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, namespaces: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlNodeSerializer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNodeSerializer {
@@ -2032,46 +1832,6 @@ impl IXmlNodeSerializer {
 }
 unsafe impl ::windows::runtime::RuntimeType for IXmlNodeSerializer {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5cc5b382-e6dd-4991-abef-06d8d2e7bd0c}");
-}
-impl ::std::convert::From<IXmlNodeSerializer> for ::windows::runtime::IUnknown {
-    fn from(value: IXmlNodeSerializer) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXmlNodeSerializer> for ::windows::runtime::IUnknown {
-    fn from(value: &IXmlNodeSerializer) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlNodeSerializer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlNodeSerializer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXmlNodeSerializer> for ::windows::runtime::IInspectable {
-    fn from(value: IXmlNodeSerializer) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXmlNodeSerializer> for ::windows::runtime::IInspectable {
-    fn from(value: &IXmlNodeSerializer) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXmlNodeSerializer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXmlNodeSerializer {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2108,7 +1868,7 @@ pub struct IXmlProcessingInstruction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 pub struct IXmlText(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlText {
@@ -2405,46 +2165,6 @@ impl IXmlText {
 unsafe impl ::windows::runtime::RuntimeType for IXmlText {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{f931a4cb-308d-4760-a1d5-43b67450ac7e}");
 }
-impl ::std::convert::From<IXmlText> for ::windows::runtime::IUnknown {
-    fn from(value: IXmlText) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IXmlText> for ::windows::runtime::IUnknown {
-    fn from(value: &IXmlText) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXmlText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXmlText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IXmlText> for ::windows::runtime::IInspectable {
-    fn from(value: IXmlText) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IXmlText> for ::windows::runtime::IInspectable {
-    fn from(value: &IXmlText) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXmlText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXmlText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<IXmlText> for IXmlCharacterData {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IXmlText) -> ::windows::runtime::Result<Self> {
@@ -2577,7 +2297,7 @@ unsafe impl ::windows::runtime::RuntimeType for NodeType {
 }
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlAttribute(::windows::runtime::IInspectable);
 impl XmlAttribute {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -2848,46 +2568,6 @@ unsafe impl ::windows::runtime::Interface for XmlAttribute {
 impl ::windows::runtime::RuntimeName for XmlAttribute {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlAttribute";
 }
-impl ::std::convert::From<XmlAttribute> for ::windows::runtime::IUnknown {
-    fn from(value: XmlAttribute) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlAttribute> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlAttribute) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlAttribute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlAttribute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlAttribute> for ::windows::runtime::IInspectable {
-    fn from(value: XmlAttribute) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlAttribute> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlAttribute) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlAttribute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlAttribute {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlAttribute> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlAttribute) -> ::windows::runtime::Result<Self> {
@@ -2958,7 +2638,7 @@ unsafe impl ::std::marker::Send for XmlAttribute {}
 unsafe impl ::std::marker::Sync for XmlAttribute {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlCDataSection(::windows::runtime::IInspectable);
 impl XmlCDataSection {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -3257,46 +2937,6 @@ unsafe impl ::windows::runtime::Interface for XmlCDataSection {
 impl ::windows::runtime::RuntimeName for XmlCDataSection {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlCDataSection";
 }
-impl ::std::convert::From<XmlCDataSection> for ::windows::runtime::IUnknown {
-    fn from(value: XmlCDataSection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlCDataSection> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlCDataSection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlCDataSection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlCDataSection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlCDataSection> for ::windows::runtime::IInspectable {
-    fn from(value: XmlCDataSection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlCDataSection> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlCDataSection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlCDataSection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlCDataSection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlCDataSection> for IXmlCharacterData {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlCDataSection) -> ::windows::runtime::Result<Self> {
@@ -3411,7 +3051,7 @@ unsafe impl ::std::marker::Send for XmlCDataSection {}
 unsafe impl ::std::marker::Sync for XmlCDataSection {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlComment(::windows::runtime::IInspectable);
 impl XmlComment {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -3702,46 +3342,6 @@ unsafe impl ::windows::runtime::Interface for XmlComment {
 impl ::windows::runtime::RuntimeName for XmlComment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlComment";
 }
-impl ::std::convert::From<XmlComment> for ::windows::runtime::IUnknown {
-    fn from(value: XmlComment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlComment> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlComment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlComment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlComment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlComment> for ::windows::runtime::IInspectable {
-    fn from(value: XmlComment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlComment> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlComment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlComment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlComment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlComment> for IXmlCharacterData {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlComment) -> ::windows::runtime::Result<Self> {
@@ -3834,7 +3434,7 @@ unsafe impl ::std::marker::Send for XmlComment {}
 unsafe impl ::std::marker::Sync for XmlComment {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlDocument(::windows::runtime::IInspectable);
 impl XmlDocument {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -4286,46 +3886,6 @@ unsafe impl ::windows::runtime::Interface for XmlDocument {
 impl ::windows::runtime::RuntimeName for XmlDocument {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocument";
 }
-impl ::std::convert::From<XmlDocument> for ::windows::runtime::IUnknown {
-    fn from(value: XmlDocument) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlDocument> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlDocument) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlDocument {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlDocument {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlDocument> for ::windows::runtime::IInspectable {
-    fn from(value: XmlDocument) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlDocument> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlDocument) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlDocument {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlDocument {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlDocument> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlDocument) -> ::windows::runtime::Result<Self> {
@@ -4396,7 +3956,7 @@ unsafe impl ::std::marker::Send for XmlDocument {}
 unsafe impl ::std::marker::Sync for XmlDocument {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlDocumentFragment(::windows::runtime::IInspectable);
 impl XmlDocumentFragment {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -4638,46 +4198,6 @@ unsafe impl ::windows::runtime::Interface for XmlDocumentFragment {
 impl ::windows::runtime::RuntimeName for XmlDocumentFragment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentFragment";
 }
-impl ::std::convert::From<XmlDocumentFragment> for ::windows::runtime::IUnknown {
-    fn from(value: XmlDocumentFragment) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlDocumentFragment> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlDocumentFragment) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlDocumentFragment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlDocumentFragment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlDocumentFragment> for ::windows::runtime::IInspectable {
-    fn from(value: XmlDocumentFragment) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlDocumentFragment> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlDocumentFragment) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlDocumentFragment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlDocumentFragment {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlDocumentFragment> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlDocumentFragment) -> ::windows::runtime::Result<Self> {
@@ -4748,7 +4268,7 @@ unsafe impl ::std::marker::Send for XmlDocumentFragment {}
 unsafe impl ::std::marker::Sync for XmlDocumentFragment {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlDocumentType(::windows::runtime::IInspectable);
 impl XmlDocumentType {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -5014,46 +4534,6 @@ unsafe impl ::windows::runtime::Interface for XmlDocumentType {
 impl ::windows::runtime::RuntimeName for XmlDocumentType {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentType";
 }
-impl ::std::convert::From<XmlDocumentType> for ::windows::runtime::IUnknown {
-    fn from(value: XmlDocumentType) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlDocumentType> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlDocumentType) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlDocumentType {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlDocumentType {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlDocumentType> for ::windows::runtime::IInspectable {
-    fn from(value: XmlDocumentType) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlDocumentType> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlDocumentType) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlDocumentType {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlDocumentType {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlDocumentType> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlDocumentType) -> ::windows::runtime::Result<Self> {
@@ -5124,7 +4604,7 @@ unsafe impl ::std::marker::Send for XmlDocumentType {}
 unsafe impl ::std::marker::Sync for XmlDocumentType {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlDomImplementation(::windows::runtime::IInspectable);
 impl XmlDomImplementation {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -5146,51 +4626,11 @@ unsafe impl ::windows::runtime::Interface for XmlDomImplementation {
 impl ::windows::runtime::RuntimeName for XmlDomImplementation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDomImplementation";
 }
-impl ::std::convert::From<XmlDomImplementation> for ::windows::runtime::IUnknown {
-    fn from(value: XmlDomImplementation) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlDomImplementation> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlDomImplementation) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlDomImplementation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlDomImplementation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlDomImplementation> for ::windows::runtime::IInspectable {
-    fn from(value: XmlDomImplementation) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlDomImplementation> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlDomImplementation) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlDomImplementation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlDomImplementation {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for XmlDomImplementation {}
 unsafe impl ::std::marker::Sync for XmlDomImplementation {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlElement(::windows::runtime::IInspectable);
 impl XmlElement {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -5524,46 +4964,6 @@ unsafe impl ::windows::runtime::Interface for XmlElement {
 impl ::windows::runtime::RuntimeName for XmlElement {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlElement";
 }
-impl ::std::convert::From<XmlElement> for ::windows::runtime::IUnknown {
-    fn from(value: XmlElement) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlElement> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlElement) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlElement> for ::windows::runtime::IInspectable {
-    fn from(value: XmlElement) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlElement> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlElement) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlElement {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlElement> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlElement) -> ::windows::runtime::Result<Self> {
@@ -5634,7 +5034,7 @@ unsafe impl ::std::marker::Send for XmlElement {}
 unsafe impl ::std::marker::Sync for XmlElement {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlEntityReference(::windows::runtime::IInspectable);
 impl XmlEntityReference {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -5876,46 +5276,6 @@ unsafe impl ::windows::runtime::Interface for XmlEntityReference {
 impl ::windows::runtime::RuntimeName for XmlEntityReference {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlEntityReference";
 }
-impl ::std::convert::From<XmlEntityReference> for ::windows::runtime::IUnknown {
-    fn from(value: XmlEntityReference) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlEntityReference> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlEntityReference) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlEntityReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlEntityReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlEntityReference> for ::windows::runtime::IInspectable {
-    fn from(value: XmlEntityReference) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlEntityReference> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlEntityReference) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlEntityReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlEntityReference {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlEntityReference> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlEntityReference) -> ::windows::runtime::Result<Self> {
@@ -5986,7 +5346,7 @@ unsafe impl ::std::marker::Send for XmlEntityReference {}
 unsafe impl ::std::marker::Sync for XmlEntityReference {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlLoadSettings(::windows::runtime::IInspectable);
 impl XmlLoadSettings {
     pub fn new() -> ::windows::runtime::Result<Self> {
@@ -6072,51 +5432,11 @@ unsafe impl ::windows::runtime::Interface for XmlLoadSettings {
 impl ::windows::runtime::RuntimeName for XmlLoadSettings {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlLoadSettings";
 }
-impl ::std::convert::From<XmlLoadSettings> for ::windows::runtime::IUnknown {
-    fn from(value: XmlLoadSettings) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlLoadSettings> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlLoadSettings) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlLoadSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlLoadSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlLoadSettings> for ::windows::runtime::IInspectable {
-    fn from(value: XmlLoadSettings) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlLoadSettings> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlLoadSettings) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlLoadSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlLoadSettings {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for XmlLoadSettings {}
 unsafe impl ::std::marker::Sync for XmlLoadSettings {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlNamedNodeMap(::windows::runtime::IInspectable);
 impl XmlNamedNodeMap {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -6239,46 +5559,6 @@ unsafe impl ::windows::runtime::Interface for XmlNamedNodeMap {
 impl ::windows::runtime::RuntimeName for XmlNamedNodeMap {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlNamedNodeMap";
 }
-impl ::std::convert::From<XmlNamedNodeMap> for ::windows::runtime::IUnknown {
-    fn from(value: XmlNamedNodeMap) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlNamedNodeMap> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlNamedNodeMap) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlNamedNodeMap> for ::windows::runtime::IInspectable {
-    fn from(value: XmlNamedNodeMap) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlNamedNodeMap> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlNamedNodeMap) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlNamedNodeMap {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<XmlNamedNodeMap> for super::super::super::Foundation::Collections::IIterable<IXmlNode> {
     type Error = ::windows::runtime::Error;
@@ -6351,7 +5631,7 @@ impl ::std::iter::IntoIterator for &XmlNamedNodeMap {
 }
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlNodeList(::windows::runtime::IInspectable);
 impl XmlNodeList {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -6426,46 +5706,6 @@ unsafe impl ::windows::runtime::Interface for XmlNodeList {
 impl ::windows::runtime::RuntimeName for XmlNodeList {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlNodeList";
 }
-impl ::std::convert::From<XmlNodeList> for ::windows::runtime::IUnknown {
-    fn from(value: XmlNodeList) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlNodeList> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlNodeList) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlNodeList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlNodeList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlNodeList> for ::windows::runtime::IInspectable {
-    fn from(value: XmlNodeList) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlNodeList> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlNodeList) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlNodeList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlNodeList {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<XmlNodeList> for super::super::super::Foundation::Collections::IIterable<IXmlNode> {
     type Error = ::windows::runtime::Error;
@@ -6538,7 +5778,7 @@ impl ::std::iter::IntoIterator for &XmlNodeList {
 }
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlProcessingInstruction(::windows::runtime::IInspectable);
 impl XmlProcessingInstruction {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -6801,46 +6041,6 @@ unsafe impl ::windows::runtime::Interface for XmlProcessingInstruction {
 impl ::windows::runtime::RuntimeName for XmlProcessingInstruction {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlProcessingInstruction";
 }
-impl ::std::convert::From<XmlProcessingInstruction> for ::windows::runtime::IUnknown {
-    fn from(value: XmlProcessingInstruction) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlProcessingInstruction> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlProcessingInstruction) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlProcessingInstruction> for ::windows::runtime::IInspectable {
-    fn from(value: XmlProcessingInstruction) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlProcessingInstruction> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlProcessingInstruction) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlProcessingInstruction {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 impl ::std::convert::TryFrom<XmlProcessingInstruction> for IXmlNode {
     type Error = ::windows::runtime::Error;
     fn try_from(value: XmlProcessingInstruction) -> ::windows::runtime::Result<Self> {
@@ -6911,7 +6111,7 @@ unsafe impl ::std::marker::Send for XmlProcessingInstruction {}
 unsafe impl ::std::marker::Sync for XmlProcessingInstruction {}
 #[doc = "*Required features: `Data_Xml_Dom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct XmlText(::windows::runtime::IInspectable);
 impl XmlText {
     #[doc = "*Required features: `Data_Xml_Dom`*"]
@@ -7209,46 +6409,6 @@ unsafe impl ::windows::runtime::Interface for XmlText {
 }
 impl ::windows::runtime::RuntimeName for XmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlText";
-}
-impl ::std::convert::From<XmlText> for ::windows::runtime::IUnknown {
-    fn from(value: XmlText) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&XmlText> for ::windows::runtime::IUnknown {
-    fn from(value: &XmlText) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XmlText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XmlText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<XmlText> for ::windows::runtime::IInspectable {
-    fn from(value: XmlText) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&XmlText> for ::windows::runtime::IInspectable {
-    fn from(value: &XmlText) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XmlText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XmlText {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::From<XmlText> for IXmlText {
     fn from(value: XmlText) -> Self {

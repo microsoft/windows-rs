@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionConditionalValue(::windows::runtime::IInspectable);
 impl CompositionConditionalValue {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -151,46 +151,6 @@ unsafe impl ::windows::runtime::Interface for CompositionConditionalValue {
 impl ::windows::runtime::RuntimeName for CompositionConditionalValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionConditionalValue";
 }
-impl ::std::convert::From<CompositionConditionalValue> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionConditionalValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionConditionalValue> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionConditionalValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionConditionalValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionConditionalValue> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionConditionalValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionConditionalValue> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionConditionalValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionConditionalValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<CompositionConditionalValue> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -263,7 +223,7 @@ unsafe impl ::std::marker::Send for CompositionConditionalValue {}
 unsafe impl ::std::marker::Sync for CompositionConditionalValue {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct CompositionInteractionSourceCollection(::windows::runtime::IInspectable);
 impl CompositionInteractionSourceCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -407,46 +367,6 @@ unsafe impl ::windows::runtime::Interface for CompositionInteractionSourceCollec
 }
 impl ::windows::runtime::RuntimeName for CompositionInteractionSourceCollection {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection";
-}
-impl ::std::convert::From<CompositionInteractionSourceCollection> for ::windows::runtime::IUnknown {
-    fn from(value: CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&CompositionInteractionSourceCollection> for ::windows::runtime::IUnknown {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<CompositionInteractionSourceCollection> for ::windows::runtime::IInspectable {
-    fn from(value: CompositionInteractionSourceCollection) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&CompositionInteractionSourceCollection> for ::windows::runtime::IInspectable {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::TryFrom<CompositionInteractionSourceCollection> for super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource> {
@@ -602,7 +522,7 @@ pub struct ICompositionConditionalValueStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 pub struct ICompositionInteractionSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionInteractionSource {
@@ -612,46 +532,6 @@ unsafe impl ::windows::runtime::Interface for ICompositionInteractionSource {
 impl ICompositionInteractionSource {}
 unsafe impl ::windows::runtime::RuntimeType for ICompositionInteractionSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{043b2431-06e3-495a-ba54-409f0017fac0}");
-}
-impl ::std::convert::From<ICompositionInteractionSource> for ::windows::runtime::IUnknown {
-    fn from(value: ICompositionInteractionSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&ICompositionInteractionSource> for ::windows::runtime::IUnknown {
-    fn from(value: &ICompositionInteractionSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<ICompositionInteractionSource> for ::windows::runtime::IInspectable {
-    fn from(value: ICompositionInteractionSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&ICompositionInteractionSource> for ::windows::runtime::IInspectable {
-    fn from(value: &ICompositionInteractionSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1206,7 +1086,7 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 pub struct IInteractionTrackerOwner(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerOwner {
@@ -1247,46 +1127,6 @@ impl IInteractionTrackerOwner {
 }
 unsafe impl ::windows::runtime::RuntimeType for IInteractionTrackerOwner {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{db2e8af3-4deb-4e53-b29c-b06c9f96d651}");
-}
-impl ::std::convert::From<IInteractionTrackerOwner> for ::windows::runtime::IUnknown {
-    fn from(value: IInteractionTrackerOwner) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&IInteractionTrackerOwner> for ::windows::runtime::IUnknown {
-    fn from(value: &IInteractionTrackerOwner) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<IInteractionTrackerOwner> for ::windows::runtime::IInspectable {
-    fn from(value: IInteractionTrackerOwner) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&IInteractionTrackerOwner> for ::windows::runtime::IInspectable {
-    fn from(value: &IInteractionTrackerOwner) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1686,7 +1526,7 @@ unsafe impl ::windows::runtime::RuntimeType for InteractionChainingMode {
 }
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionSourceConfiguration(::windows::runtime::IInspectable);
 impl InteractionSourceConfiguration {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -1838,46 +1678,6 @@ unsafe impl ::windows::runtime::Interface for InteractionSourceConfiguration {
 impl ::windows::runtime::RuntimeName for InteractionSourceConfiguration {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionSourceConfiguration";
 }
-impl ::std::convert::From<InteractionSourceConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionSourceConfiguration) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionSourceConfiguration> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionSourceConfiguration) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionSourceConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionSourceConfiguration) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionSourceConfiguration> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionSourceConfiguration) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InteractionSourceConfiguration> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1991,7 +1791,7 @@ unsafe impl ::windows::runtime::RuntimeType for InteractionSourceRedirectionMode
 }
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTracker(::windows::runtime::IInspectable);
 impl InteractionTracker {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -2441,46 +2241,6 @@ unsafe impl ::windows::runtime::Interface for InteractionTracker {
 impl ::windows::runtime::RuntimeName for InteractionTracker {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTracker";
 }
-impl ::std::convert::From<InteractionTracker> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTracker) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTracker> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTracker) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTracker> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTracker) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTracker> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTracker) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTracker {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InteractionTracker> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2573,7 +2333,7 @@ unsafe impl ::windows::runtime::RuntimeType for InteractionTrackerClampingOption
 }
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(::windows::runtime::IInspectable);
 impl InteractionTrackerCustomAnimationStateEnteredArgs {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -2603,51 +2363,11 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerCustomAnimationS
 impl ::windows::runtime::RuntimeName for InteractionTrackerCustomAnimationStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs";
 }
-impl ::std::convert::From<InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
 unsafe impl ::std::marker::Sync for InteractionTrackerCustomAnimationStateEnteredArgs {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerIdleStateEnteredArgs(::windows::runtime::IInspectable);
 impl InteractionTrackerIdleStateEnteredArgs {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -2677,51 +2397,11 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerIdleStateEntered
 impl ::windows::runtime::RuntimeName for InteractionTrackerIdleStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs";
 }
-impl ::std::convert::From<InteractionTrackerIdleStateEnteredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerIdleStateEnteredArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerIdleStateEnteredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerIdleStateEnteredArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerIdleStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerIdleStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerIdleStateEnteredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerIdleStateEnteredArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerIdleStateEnteredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerIdleStateEnteredArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerIdleStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerIdleStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InteractionTrackerIdleStateEnteredArgs {}
 unsafe impl ::std::marker::Sync for InteractionTrackerIdleStateEnteredArgs {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerInertiaModifier(::windows::runtime::IInspectable);
 impl InteractionTrackerInertiaModifier {
     #[cfg(feature = "Foundation")]
@@ -2834,46 +2514,6 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerInertiaModifier 
 impl ::windows::runtime::RuntimeName for InteractionTrackerInertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier";
 }
-impl ::std::convert::From<InteractionTrackerInertiaModifier> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerInertiaModifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaModifier> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerInertiaModifier> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerInertiaModifier) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaModifier> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InteractionTrackerInertiaModifier> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -2946,7 +2586,7 @@ unsafe impl ::std::marker::Send for InteractionTrackerInertiaModifier {}
 unsafe impl ::std::marker::Sync for InteractionTrackerInertiaModifier {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerInertiaMotion(::windows::runtime::IInspectable);
 impl InteractionTrackerInertiaMotion {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -3096,46 +2736,6 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerInertiaMotion {
 impl ::windows::runtime::RuntimeName for InteractionTrackerInertiaMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion";
 }
-impl ::std::convert::From<InteractionTrackerInertiaMotion> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerInertiaMotion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaMotion> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerInertiaMotion> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerInertiaMotion) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaMotion> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InteractionTrackerInertiaMotion> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3228,7 +2828,7 @@ unsafe impl ::std::marker::Send for InteractionTrackerInertiaMotion {}
 unsafe impl ::std::marker::Sync for InteractionTrackerInertiaMotion {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerInertiaNaturalMotion(::windows::runtime::IInspectable);
 impl InteractionTrackerInertiaNaturalMotion {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -3378,46 +2978,6 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerInertiaNaturalMo
 impl ::windows::runtime::RuntimeName for InteractionTrackerInertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion";
 }
-impl ::std::convert::From<InteractionTrackerInertiaNaturalMotion> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerInertiaNaturalMotion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerInertiaNaturalMotion> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerInertiaNaturalMotion) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InteractionTrackerInertiaNaturalMotion> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3510,7 +3070,7 @@ unsafe impl ::std::marker::Send for InteractionTrackerInertiaNaturalMotion {}
 unsafe impl ::std::marker::Sync for InteractionTrackerInertiaNaturalMotion {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerInertiaRestingValue(::windows::runtime::IInspectable);
 impl InteractionTrackerInertiaRestingValue {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -3660,46 +3220,6 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerInertiaRestingVa
 impl ::windows::runtime::RuntimeName for InteractionTrackerInertiaRestingValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue";
 }
-impl ::std::convert::From<InteractionTrackerInertiaRestingValue> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerInertiaRestingValue) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerInertiaRestingValue> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerInertiaRestingValue) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InteractionTrackerInertiaRestingValue> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -3792,7 +3312,7 @@ unsafe impl ::std::marker::Send for InteractionTrackerInertiaRestingValue {}
 unsafe impl ::std::marker::Sync for InteractionTrackerInertiaRestingValue {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerInertiaStateEnteredArgs(::windows::runtime::IInspectable);
 impl InteractionTrackerInertiaStateEnteredArgs {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
@@ -3882,51 +3402,11 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerInertiaStateEnte
 impl ::windows::runtime::RuntimeName for InteractionTrackerInertiaStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs";
 }
-impl ::std::convert::From<InteractionTrackerInertiaStateEnteredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerInertiaStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerInertiaStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerInertiaStateEnteredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerInertiaStateEnteredArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerInertiaStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerInertiaStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InteractionTrackerInertiaStateEnteredArgs {}
 unsafe impl ::std::marker::Sync for InteractionTrackerInertiaStateEnteredArgs {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(::windows::runtime::IInspectable);
 impl InteractionTrackerInteractingStateEnteredArgs {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -3956,46 +3436,6 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerInteractingState
 impl ::windows::runtime::RuntimeName for InteractionTrackerInteractingStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs";
 }
-impl ::std::convert::From<InteractionTrackerInteractingStateEnteredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerInteractingStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerInteractingStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerInteractingStateEnteredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerInteractingStateEnteredArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerInteractingStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerInteractingStateEnteredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InteractionTrackerInteractingStateEnteredArgs {}
 unsafe impl ::std::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -4020,7 +3460,7 @@ unsafe impl ::windows::runtime::RuntimeType for InteractionTrackerPositionUpdate
 }
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerRequestIgnoredArgs(::windows::runtime::IInspectable);
 impl InteractionTrackerRequestIgnoredArgs {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -4042,51 +3482,11 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerRequestIgnoredAr
 impl ::windows::runtime::RuntimeName for InteractionTrackerRequestIgnoredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs";
 }
-impl ::std::convert::From<InteractionTrackerRequestIgnoredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerRequestIgnoredArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerRequestIgnoredArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerRequestIgnoredArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerRequestIgnoredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerRequestIgnoredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerRequestIgnoredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerRequestIgnoredArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerRequestIgnoredArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerRequestIgnoredArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerRequestIgnoredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerRequestIgnoredArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InteractionTrackerRequestIgnoredArgs {}
 unsafe impl ::std::marker::Sync for InteractionTrackerRequestIgnoredArgs {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerValuesChangedArgs(::windows::runtime::IInspectable);
 impl InteractionTrackerValuesChangedArgs {
     #[cfg(feature = "Foundation_Numerics")]
@@ -4125,51 +3525,11 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerValuesChangedArg
 impl ::windows::runtime::RuntimeName for InteractionTrackerValuesChangedArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs";
 }
-impl ::std::convert::From<InteractionTrackerValuesChangedArgs> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerValuesChangedArgs) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerValuesChangedArgs> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerValuesChangedArgs) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerValuesChangedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerValuesChangedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerValuesChangedArgs> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerValuesChangedArgs) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerValuesChangedArgs> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerValuesChangedArgs) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerValuesChangedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerValuesChangedArgs {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 unsafe impl ::std::marker::Send for InteractionTrackerValuesChangedArgs {}
 unsafe impl ::std::marker::Sync for InteractionTrackerValuesChangedArgs {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerVector2InertiaModifier(::windows::runtime::IInspectable);
 impl InteractionTrackerVector2InertiaModifier {
     #[cfg(feature = "Foundation")]
@@ -4282,46 +3642,6 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerVector2InertiaMo
 impl ::windows::runtime::RuntimeName for InteractionTrackerVector2InertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier";
 }
-impl ::std::convert::From<InteractionTrackerVector2InertiaModifier> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerVector2InertiaModifier) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerVector2InertiaModifier> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerVector2InertiaModifier> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerVector2InertiaModifier) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerVector2InertiaModifier> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InteractionTrackerVector2InertiaModifier> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4394,7 +3714,7 @@ unsafe impl ::std::marker::Send for InteractionTrackerVector2InertiaModifier {}
 unsafe impl ::std::marker::Sync for InteractionTrackerVector2InertiaModifier {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct InteractionTrackerVector2InertiaNaturalMotion(::windows::runtime::IInspectable);
 impl InteractionTrackerVector2InertiaNaturalMotion {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -4544,46 +3864,6 @@ unsafe impl ::windows::runtime::Interface for InteractionTrackerVector2InertiaNa
 impl ::windows::runtime::RuntimeName for InteractionTrackerVector2InertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion";
 }
-impl ::std::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for ::windows::runtime::IUnknown {
-    fn from(value: InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::runtime::IUnknown {
-    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for ::windows::runtime::IInspectable {
-    fn from(value: InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::runtime::IInspectable {
-    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
-}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<InteractionTrackerVector2InertiaNaturalMotion> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -4676,7 +3956,7 @@ unsafe impl ::std::marker::Send for InteractionTrackerVector2InertiaNaturalMotio
 unsafe impl ::std::marker::Sync for InteractionTrackerVector2InertiaNaturalMotion {}
 #[doc = "*Required features: `UI_Composition_Interactions`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 pub struct VisualInteractionSource(::windows::runtime::IInspectable);
 impl VisualInteractionSource {
     #[doc = "*Required features: `UI_Composition_Interactions`*"]
@@ -5030,46 +4310,6 @@ unsafe impl ::windows::runtime::Interface for VisualInteractionSource {
 }
 impl ::windows::runtime::RuntimeName for VisualInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.VisualInteractionSource";
-}
-impl ::std::convert::From<VisualInteractionSource> for ::windows::runtime::IUnknown {
-    fn from(value: VisualInteractionSource) -> Self {
-        unsafe { ::std::mem::transmute(value) }
-    }
-}
-impl ::std::convert::From<&VisualInteractionSource> for ::windows::runtime::IUnknown {
-    fn from(value: &VisualInteractionSource) -> Self {
-        ::std::convert::From::from(::std::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VisualInteractionSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &VisualInteractionSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-    }
-}
-impl ::std::convert::From<VisualInteractionSource> for ::windows::runtime::IInspectable {
-    fn from(value: VisualInteractionSource) -> Self {
-        value.0
-    }
-}
-impl ::std::convert::From<&VisualInteractionSource> for ::windows::runtime::IInspectable {
-    fn from(value: &VisualInteractionSource) -> Self {
-        value.0.clone()
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VisualInteractionSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Owned(self.0)
-    }
-}
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VisualInteractionSource {
-    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
-        ::windows::runtime::Param::Borrowed(&self.0)
-    }
 }
 impl ::std::convert::TryFrom<VisualInteractionSource> for ICompositionInteractionSource {
     type Error = ::windows::runtime::Error;
